@@ -1,0 +1,36 @@
+{
+	"name":"GM panel",
+	"description":"Provides web tools for game masters",
+	"author":
+	{
+		"name":"FusionCMS",
+		"website":"http:\/\/fusion-hub.com"
+	},
+
+	"permissions": {
+		"view": { "default": false, "description": "View the GM panel. Required for all GM-tools." },
+		"sendItem": { "default": false, "description": "Send items to players" },
+		"unstuck": { "default": false, "description": "Use the unstuck tool on players" },
+		"answer": { "default": false, "description": "Answer tickets" },
+		"kick": { "default": false, "description": "Kick players" },
+		"ban": { "default": false, "description": "Ban players" }
+	},
+
+	"roles": {
+		"manageTickets": {
+			"description": "View the GM panel. Required for all GM-tools.",
+			"dangerLevel": 1,
+
+			"permissions": {
+				"view": true,
+				"sendItem": true,
+				"unstuck": true,
+				"answer": true,
+				"kick": true,
+				"ban": true
+			}
+		}
+	},
+
+	"enabled":true
+}

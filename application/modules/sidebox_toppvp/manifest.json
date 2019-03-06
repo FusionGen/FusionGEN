@@ -1,0 +1,11 @@
+{
+	"name": "Sidebox: PvP ladder",
+	"description": "Shows top X PvP players",
+
+	"author": {
+		"name": "FusionCMS",
+		"website": "http://fusion-hub.com"
+	},
+	
+	"enabled": true
+}

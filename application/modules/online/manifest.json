@@ -1,0 +1,25 @@
+{
+	"name": "Online players",
+	"description": "Displays all online characters",
+
+	"author": {
+		"name": "FusionCMS",
+		"website": "http://fusion-hub.com"
+	},
+
+	"permissions": {
+		"view": { "default": true, "description": "View the online players page" }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the online players page",
+
+			"permissions": {
+				"view": true
+			}
+		}
+	},
+	
+	"enabled": true
+}

@@ -1,0 +1,50 @@
+{
+	"name": "Donate panel",
+	"description": "PayPal and PayGol donation system",
+	"author": {
+		"name": "FusionCMS",
+		"website": "http:\/\/fusion-hub.com"
+	},
+
+	"admin": [
+		{
+			"text": "Store",
+			"icon": "share",
+			"links": [
+				{
+					"text": "Donation log",
+					"icon": "list",
+					"controller": "admin",
+					"requirePermission": "viewAdmin"
+				}
+			]
+		}
+	],
+
+	"permissions": {
+		"view": {"default" : true, "description": "View the donation page." },
+		"viewAdmin": {"default" : false, "description": "View the donation log." }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the donate module.",
+
+			"permissions": {
+				"view": true
+			}
+		},
+
+		"administrate": {
+			"description": "View the donation log.",
+			"dangerLevel": 2,
+
+			"permissions": {
+				"viewAdmin": true
+			}
+		}
+	},
+
+
+	"enabled": true
+}

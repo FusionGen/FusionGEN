@@ -1,0 +1,25 @@
+{
+	"name":"User profiles",
+	"description":"Displays user info and their characters",
+	"author":
+	{
+		"name":"FusionCMS",
+		"website":"http:\/\/fusion-hub.com"
+	},
+	
+	"permissions": {
+		"view": { "default": true, "description": "View the user profiles" }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the user profiles",
+
+			"permissions": {
+				"view": true
+			}
+		}
+	},
+
+	"enabled":true
+}

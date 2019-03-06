@@ -1,0 +1,187 @@
+.big_icon_button {
+	display:block;
+	float:left;
+	padding:28px;
+	margin:0px 15px;
+	color:#000 !important;
+	font-size:16px;
+	border:1px solid rgba(0,0,0,0);
+}
+
+.big_icon_button:hover {
+	color:#262626 !important;
+	border-radius:3px;
+	background-color:#cdcdcd;
+	border:1px solid #8e8e8e;
+	box-shadow:0px 1px 0px #fff inset, 0px 1px 0px #fff;
+	background-image:linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
+	background-image:-o-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
+	background-image:-moz-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
+	background-image:-webkit-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
+	background-image:-ms-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
+	background-image:-webkit-gradient( linear, left bottom, left top, color-stop(0, #CDCDCD), color-stop(1, #DCDCDC) );
+}
+
+.big_icon_button img {
+	float:left;
+	margin-right:10px;
+}
+
+.role_module {
+	margin-bottom:10px;
+}
+
+.role_module h3 {
+	margin:0px;
+	padding:0px;
+}
+
+.memberList {
+	background-color:#fff;
+	border-radius:5px;
+	padding:5px 10px;
+	border:1px solid #ccc;
+}
+
+.memberList a img, .memberList a {
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
+	o-transition:0.5s all;
+}
+
+.memberList a {
+	padding:5px 10px;
+	display:inline-block;
+	margin:3px 2px;
+	border-radius:2px;
+	overflow:hidden;
+	border:1px solid #1b325b;
+	background-color:#23578c;
+	box-shadow:0px 1px 0px #4691de inset;
+	-webkit-box-shadow:0px 1px 0px #4691de inset;
+	-ms-box-shadow:0px 1px 0px #4691de inset;
+	-moz-box-shadow:0px 1px 0px #4691de inset;
+	-o-box-shadow:0px 1px 0px #4691de inset;
+	color:#fff !important;
+	text-shadow:none;
+}
+
+.memberList a:hover {
+	padding-left:25px;
+	background-color:#571818;
+	border:1px solid #440f0f;
+	box-shadow:0px 1px 0px #9f4444 inset;
+	-webkit-box-shadow:0px 1px 0px #9f4444 inset;
+	-ms-box-shadow:0px 1px 0px #9f4444 inset;
+	-moz-box-shadow:0px 1px 0px #9f4444 inset;
+	-o-box-shadow:0px 1px 0px #9f4444 inset;
+}
+
+.memberList a img {
+	position:absolute;
+	opacity:0;
+	margin-left:-19px;
+	margin-top:3px;
+}
+
+.memberList a:hover img {
+	opacity:1;
+}
+
+.memberList .add, .memberList .add:hover {
+	padding-left:25px;
+	background-color:#328c23;
+	border:1px solid #1b5b1d;
+	box-shadow:0px 1px 0px #32962d inset;
+	-webkit-box-shadow:0px 1px 0px #44be3e inset;
+	-ms-box-shadow:0px 1px 0px #44be3e inset;
+	-moz-box-shadow:0px 1px 0px #44be3e inset;
+	-o-box-shadow:0px 1px 0px #44be3e inset;
+}
+
+.memberList .add img {
+	opacity:1;
+}
+
+.memberList .add:hover {
+	background-color:#205b16;
+	border:1px solid #0f3810;
+	box-shadow:0px 1px 0px #32962d inset;
+	-webkit-box-shadow:0px 1px 0px #32962d inset;
+	-ms-box-shadow:0px 1px 0px #32962d inset;
+	-moz-box-shadow:0px 1px 0px #32962d inset;
+	-o-box-shadow:0px 1px 0px #32962d inset;
+}
+
+.expanded {
+	background-color:#333;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #fff;
+	height:0px;
+	overflow:hidden;
+	padding:0px !important;
+	color:#999;
+	text-shadow:none;
+	opacity:0;
+	padding-left:15px !important;
+	padding-right:10px !important;
+	transition:1s all;
+	-webkit-transition:1s all;
+	-ms-transition:1s all;
+	-moz-transition:1s all;
+	-o-transition:1s all;
+}
+
+#main .right .box #roles_list li:nth-child(odd) {
+	background-color:transparent;
+}
+
+#main .right .box #roles_list li:nth-child(4n+1) {
+	background-color:#dfdfdf;
+}
+
+#roles_list li:hover {
+	cursor:pointer;
+}
+
+#roles_list li .arrow {
+	float:right;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-ms-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+}
+
+#roles_list li:hover .arrow {
+	transform:rotate(90deg);
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+}
+
+#roles_list li:hover + .expanded {
+	height:auto;
+	opacity:1;
+	padding:10px !important;
+	padding-left:15px !important;
+}
+
+.expanded .permission {
+	padding:5px;
+}
+
+.expanded .permission .value {
+	float:right;
+}
+
+.expanded .description {
+	font-size:14px;
+	border-bottom:1px solid #444;
+	color:#fff;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}

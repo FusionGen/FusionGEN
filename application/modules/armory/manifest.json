@@ -1,0 +1,25 @@
+{
+	"description":"Armory search page",
+	
+	"author":
+	{
+		"name":"FusionCMS",
+		"website":"http:\/\/fusion-hub.com"
+	},
+
+	"permissions": {
+		"view": { "default": true, "description": "View the armory search" }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the armory search",
+
+			"permissions": {
+				"view": true
+			}
+		}
+	},
+
+	"enabled":true
+}

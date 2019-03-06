@@ -1,0 +1,24 @@
+{
+	"name": "Log in",
+	"description": "Authenication system",
+	"author": {
+		"name": "FusionCMS",
+		"website": "http:\/\/fusion-hub.com"
+	},
+
+	"enabled": true,
+
+	"permissions": {
+		"view": {"default" : true, "description": "View the log in page" }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the log in page",
+
+			"permissions": {
+				"view": true
+			}
+		}
+	}
+}

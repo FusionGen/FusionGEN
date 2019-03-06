@@ -1,0 +1,9 @@
+.online_realm {
+	display:none;
+}
+
+.online input[type="submit"]
+{
+	margin-top:0px;
+	cursor:pointer;
+}

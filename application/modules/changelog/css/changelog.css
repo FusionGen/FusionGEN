@@ -1,0 +1,46 @@
+#changelog .changelog_info {
+	font-size:12px;
+	font-weight:bold;
+	margin-left:5px;
+}
+
+#changelog {
+	margin-bottom:20px;
+}
+
+#changelog table {
+	margin-bottom:20px;
+}
+
+#changelog td a {
+	font-weight:bold;
+	margin-top:10px;
+	display:block;
+}
+
+#changelog .nice_table tr:not(:first-child) td {
+	font-weight:normal;
+	padding:4px;
+	padding-left:20px;
+	height:auto;
+}
+
+#changelog .changelog_text {
+	font-weight:normal;
+	font-size:12px;
+	height:10px;
+}
+
+#changelog_add {
+	margin:20px;
+}
+
+#changelog_add a {
+	margin-right:5px;
+}
+
+#changelog_add form {
+	float:right;
+	margin-top:-19px;
+	width:460px;
+}

@@ -1,0 +1,11 @@
+{
+	"name": "Sidebox: user info",
+	"description": "Displays some user information",
+	
+	"author": {
+		"name": "FusionCMS",
+		"website": "http:\/\/fusion-hub.com"
+	},
+
+	"enabled": true
+}

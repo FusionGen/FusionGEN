@@ -1,0 +1,36 @@
+{
+	"name": "User panel",
+	"description": "Displays user info and provides them with a set of links",
+	"author": {
+		"name": "FusionCMS",
+		"website": "http:\/\/fusion-hub.com"
+	},
+
+
+    "permissions": {
+        "view": {"default" : true, "description": "View the ucp screen." },
+        "canUpdateAccountSettings": {"default": true, "description": "Can update the account settings as password, location."},
+        "canChangeExpansion": {"default" : true, "description": "Can update the expansion." }
+    },
+
+    "roles": {
+        "view": {
+            "description": "View the ucp module.",
+
+            "permissions": {
+                "view": true
+            }
+        },
+
+        "updateAccount": {
+            "description": "Can update the account info",
+
+            "permissions": {
+                "canUpdateAccountSettings": true,
+                "canChangeExpansion": true
+            }
+        }
+    },
+
+	"enabled": true
+}

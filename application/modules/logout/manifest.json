@@ -1,0 +1,10 @@
+{
+	"name": "Log out",
+	"description": "Clears users sessions and cookies to make them log out",
+	"author": {
+		"name": "FusionCMS",
+		"website": "http:\/\/fusion-hub.com"
+	},
+	
+	"enabled": true
+}

@@ -1,0 +1,64 @@
+#theme_list {
+	overflow:hidden;
+}
+
+#theme_list img {
+	float:left;
+	display:block;
+	cursor:pointer;
+	margin:5px;
+	box-shadow:0px 10px 15px #1e1e1e;
+	height:233px;
+	width:233px;
+}
+
+#theme_overflow {
+	width:10000px;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+
+#theme_list_text li {
+	opacity:0.7;
+}
+
+#theme_list_text li:hover {
+	opacity:1;
+}
+
+.active_theme {
+	opacity:1 !important;
+}
+
+.active_theme b {
+	color:#1D6D9C;
+}
+
+#theme_list_text li img {
+	float:left;
+	margin-top:3px;
+	margin-right:10px;
+}
+
+#theme_list_text li {
+	overflow:hidden;
+}
+
+#theme_list_text .activate_button {
+	float:right;
+	margin-right:-150px;
+	opacity:0;
+	transition:0.3s all;
+	-webkit-transition:0.3s all;
+	-moz-transition:0.3s all;
+	-o-transition:0.3s all;
+	-ms-transition:0.3s all;
+}
+
+.active_theme .activate_button {
+	margin-right:0px !important;
+	opacity:1 !important;
+}

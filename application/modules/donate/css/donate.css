@@ -1,0 +1,42 @@
+#donate {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+#donate form {
+	display:inline;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+#donate_select {
+	text-align:left;
+	padding:10px;
+	margin-bottom:10px;
+	padding-top:0px;
+}
+
+#donate_select .nice_button {
+	margin-right:5px;
+}
+
+#donate form input[type="submit"] {
+	margin-top:15px;
+	margin-left:25px;
+}
+
+#donate form label {
+	display:block;
+	padding:8px;
+	font-size:14px;
+	margin-left:20px;
+}
+
+#donate form label input[type="radio"] {
+	margin-right:20px;
+}
+
+#donate .right_image {
+	float:right;
+	margin-right:40px;
+}

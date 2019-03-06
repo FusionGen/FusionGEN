@@ -1,0 +1,70 @@
+#news_pagination {
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+#news_pagination a {
+	color:#666;
+	margin:5px;
+}
+
+#news_pagination a:hover {
+	text-decoration:none;
+}
+
+.comments {
+	display:none;
+}
+
+/* Comment field */
+.comments form {
+	margin:15px;
+	width:288px;
+	text-align:right;
+}
+
+.comments textarea {
+	width:270px;
+	height:50px;
+}
+
+.comments_area {
+	float:right;
+	margin-top:15px;
+	margin-right:15px;
+}
+
+.comment {
+	width:354px;
+	padding:8px;
+	line-height:1.5;
+	margin-bottom:15px;
+	overflow:hidden;
+}
+
+.comment a img {
+	float:left;
+	margin-right:10px;
+}
+
+.staff-comment a img {
+	float:left;
+	margin-right:10px;
+}
+
+.comment_author {
+	font-weight:bold;
+	display:block;
+	width:85%; /* necessary to make the "right aligned" version look good on PM conversations */
+}
+
+.comment_author:hover {
+	text-decoration:none;
+}
+
+.comment_date {
+	float:right;
+	font-size:10px;
+}

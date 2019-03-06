@@ -1,0 +1,24 @@
+{
+	"name":"Guild viewer",
+	"description":"Displays guild members",
+	"author":
+	{
+		"name":"FusionCMS",
+		"website":"http:\/\/fusion-hub.com"
+	},
+	"enabled":true,
+
+	"permissions": {
+		"view": {"default" : true, "description": "View the guild pages" }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the guild pages.",
+
+			"permissions": {
+				"view": true
+			}
+		}
+	}
+}

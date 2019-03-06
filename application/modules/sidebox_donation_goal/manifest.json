@@ -1,0 +1,11 @@
+{
+	"name": "Sidebox: donation goal",
+	"description": "Displays a progress bar based on monthly donations and the goal",
+
+	"author": {
+		"name": "FusionCMS",
+		"website": "http://fusion-hub.com"
+	},
+
+	"enabled": true
+}

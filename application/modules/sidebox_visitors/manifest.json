@@ -1,0 +1,11 @@
+{
+	"name": "Sidebox: online visitors",
+	"description": "Shows the amount of visitors in the past 5 minutes",
+
+	"author": {
+		"name": "FusionCMS",
+		"website": "http://fusion-hub.com"
+	},
+
+	"enabled": true
+}
