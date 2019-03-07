@@ -82,6 +82,7 @@
 			<div class="footer">
 				<center><a href="{$url}page/tos"> Terms of Service </a> - <a href="{$url}contact-us"> Contact Us</a>
 				</br>Copyright © {$serverName}™ 2018 - 2019. All Rights Reserved.<br /></center>
+				</br> Initial Code by E.Darksider - Reworked and Designed by OMGhixD
 				<span></span>
 			</div>
 		</footer>
