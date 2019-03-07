@@ -1,4 +1,7 @@
-FusionGEN 6.2.2 latest retail version.
+Latest FusionGEN Version: 1.0.1
+Based on FusionCMS Version: 6.2.1
+
+
 It doesn't need serial to install and use.
 
 It is a Open-Source Project and anyone may use it.
