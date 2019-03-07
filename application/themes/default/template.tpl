@@ -1,60 +1,89 @@
 {$head}
+
 	<body>
-		<!--[if lte IE 8]>
-			<style type="text/css">
-				body {
-					background-image:url(images/bg.jpg);
-					background-position:top center;
-				}
-			</style>
-		<![endif]-->
-		<section id="wrapper">
+		<div id="container">
 			{$modals}
-			<header id="hand"></header>
-			<ul id="top_menu">
-				{foreach from=$menu_top item=menu_1}
-					<li><a {$menu_1.link}>{$menu_1.name}</a></li>
-				{/foreach}
-			</ul>
+			
+			<header>
+				<h1><a class="logo-head" href="{$url}" title="welcome to {$serverName}"><img class="logo" src="{$CI->template->image_path}logo.png" width="212" height="262" alt="{$serverName}" title="{$serverName}" /></a></h1>
+				
+				<div id="top-menu" class="menu">
+					<ul>
+						{foreach from=$menu_top item=menu_1}
+							<li><a {$menu_1.link}>{$menu_1.name}</a></li>
+						{/foreach}
+					</ul>
+				</div>
+			</header>
+			
+			<div class="search_bar">
+				
+			</div>
+			
+			
+			
 			<div id="main">
-				<aside id="left">
-					<article>
-						<h1 class="top">Main menu</h1>
-						<ul id="left_menu">
-							{foreach from=$menu_side item=menu_2}
-								<li><a {$menu_2.link}><img src="{$image_path}bullet.png">{$menu_2.name}</a></li>
-							{/foreach}
-						</ul>
-					</article>
-
-					{foreach from=$sideboxes item=sidebox}
-						<article>
-							<h1 class="top">{$sidebox.name}</h1>
-							<section class="body">
-								{$sidebox.data}
-							</section>
-						</article>
-					{/foreach}
-				</aside>
-
+				<div class="middle_background"></div>
+				
 				<aside id="right">
-					<section id="slider_bg" {if !$show_slider}style="display:none;"{/if}>
-						<div id="slider">
-							{foreach from=$slider item=image}
-								<a href="{$image.link}"><img src="{$image.image}" title="{$image.text}"/></a>
-							{/foreach}
+					<div id="wlc_msg" class="welcome_to closeable closed" style="display:none">
+						<a href="javascript:void(0)" class="close-btn"></a>
+						<div class="body">
+							<span>Welcome to {$serverName} </span>
+							<p>
+ <div class="description">World of Warcraft Burning Crusade Private Server
+ </br>With a Blizzlike playstyle consisting of 5x faster than the original speed.
+ </br>Experience a true Burning Crusade feeling today!
+ </br></br><a href="https://www.stormrage.org/register">Register Here</a></div>
+                        <b><br />
+								{if $isOnline}
+<p>
+									
+								{else}
+									
+								{/if}
+							</p>
 						</div>
-					</section>
-
+					</div>
+					
 					{$page}
 				</aside>
-
+				
+				<aside id="left">		
+					<section class="box">
+						<h3 class="head">Main menu</h3>
+						<ul id="left-menu">
+							{foreach from=$menu_side item=menu_2}
+								<li>
+									<span></span><a {$menu_2.link}>{$menu_2.name}</a>
+									<p><span></span><a {$menu_2.link}>{$menu_2.name}</a></p>
+								</li>
+							{/foreach}
+						</ul>
+					</section>
+					
+					{foreach from=$sideboxes item=sidebox}
+						<section class="sidebox box">
+							{if !empty($sidebox.name)}
+								<h4 class="head">{$sidebox.name}</h4>
+							{/if}
+							<div class="body">
+								{$sidebox.data}
+							</div>
+						</section>
+					{/foreach}
+				</aside>
+				
 				<div class="clear"></div>
 			</div>
-			<footer>
-				<a href="http://www.fusion-hub.com" id="logo" target="_blank"></a>
-				<p>&copy; Copyright {date("Y")} {$serverName}</p>
-			</footer>
-		</section>
+		</div>
+		
+		<footer>
+			<div class="footer">
+				<center><a href="{$url}page/tos"> Terms of Service </a> - <a href="{$url}contact-us"> Contact Us</a>
+				</br>Copyright © {$serverName}™ 2018 - 2019. All Rights Reserved.<br /></center>
+				<span></span>
+			</div>
+		</footer>
 	</body>
 </html>

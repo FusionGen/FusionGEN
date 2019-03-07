@@ -30,13 +30,13 @@
 /* General */
 body {
 	font-family:'MuseoSans', Arial, Helvetica, Sans-serif;
-	color:#393939;
+	color:#fff;
 	background-color:#3b3b3b;
 	line-height:1.5;
 	font-size:14px;
 	margin:0px;
 	padding:0px;
-	background-image:url(../images/bg_tile.gif);
+	background-color: #3d3d3d;
 }
 
 a img {
@@ -102,27 +102,10 @@ h4 {
 	z-index: 99999;
 }
 
-/* Icon positions */
-.dashboard { background-position:0px 0px; }
-.users { background-position:16px 0px; }
-.hashtag { background-position:32px 0px; }
-.heart { background-position:48px 0px; }
-.share { background-position:64px 0px; }
-.pointer { background-position:80px 0px; }
-.list { background-position:96px 0px; }
-.tag { background-position:112px 0px; }
-.cursor { background-position:128px 0px; }
-.file { background-position:144px 0px; }
-.database { background-position:160px 0px; }
-.link { background-position:176px 0px; }
-.windows { background-position:192px 0px; }
-.logout { background-position:208px 0px; }
-.settings { background-position:224px 0px; }
-
 /* Top bar */
 header {
 	height:58px;
-	background-image:url(../images/top_tile.jpg);
+	background-color: #1e1e1e;
 	padding-top:10px;
 }
 
@@ -131,7 +114,7 @@ header .logo, footer #logo .logo {
 	width:197px;
 	height:28px;
 	float:left;
-	background-image:url(../images/fusioncms.png);
+	background-image:url(../images/fusiongen.png);
 	margin-top:13px;
 }
 
@@ -176,24 +159,24 @@ header nav a {
 	box-shadow:0px 1px 0px #000;
 	margin-left:10px;
 	text-decoration:none;
-	background-image: linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -o-linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -moz-linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -webkit-linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -ms-linear-gradient(bottom, #414141 0%, #525252 100%);
+	background-image: linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -o-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -moz-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -webkit-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -ms-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
-		color-stop(0, #414141),
-		color-stop(1, #525252)
+		color-stop(0, #9c5f1d),
+		color-stop(1, #c4833d)
 	);
 	transition:0.3s all;
 	-webkit-transition:0.3s all;
 }
 
 header nav a:hover {
-	border:1px solid #7b7b7b;
+	border:1px solid #ff8400;
 }
 
 header nav a:active {
@@ -201,25 +184,25 @@ header nav a:active {
 }
 
 header nav .active, #main .right .side_left .box li .button:hover, #main .right .side_right .box .button:hover, input[type="submit"]:hover, .nice_button:hover {
-	border:1px solid #3a8fc0;
-	background-color:#1d6d9c;
-	background-image: linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -o-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -moz-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -webkit-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -ms-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
+	border:1px solid #c4833d;
+	background-color:#9c5f1d;
+	background-image: linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -o-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -moz-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -webkit-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
+	background-image: -ms-linear-gradient(bottom, #9c5f1d 0%, #c4833d 100%);
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
-		color-stop(0, #1D6D9C),
-		color-stop(1, #3D92C4)
+		color-stop(0, #9c5f1d),
+		color-stop(1, #c4833d)
 	);
 	cursor: pointer;
 }
 
 header nav .active:hover {
-	border:1px solid #48a4d9;
+	border:1px solid #ff8400;
 }
 
 #top_spacer {
@@ -228,7 +211,6 @@ header nav .active:hover {
 
 /* Main layout body */
 #wrapper {
-	background-image:url(../images/upper_bg.png);
 	background-repeat:no-repeat;
 	background-position:top center;
 	margin-left:auto;
@@ -237,7 +219,7 @@ header nav .active:hover {
 }
 
 #main {
-	background-image:url(../images/main_body.jpg);
+	background-color: #1e1e1e;
 	border-radius:3px;
 	min-height:200px;
 }
@@ -305,9 +287,8 @@ header nav .active:hover {
 }
 
 #main .left nav .sub a {
-	background-image:url(../images/left_menu.jpg);
-	border-bottom:1px solid #1d1d1d;
-	border-top:1px solid #121212;
+	background-color: #171717;
+	border-bottom: 1px solid #1e1e1e;
 	color:#747474;
 	padding-left:40px;
 }
@@ -451,38 +432,25 @@ header nav .active:hover {
 /* Right column */
 #main .right {
 	float:left;
-	width:720px;
+	width:715px;
 	margin-left:1px;
 }
 
 #main .right h1 {
 	height:35px;
-	border-top:2px solid #fff;
-	border-bottom:1px solid #999999;
+	border-top:1px solid #3d3d3d;
+	border-bottom:1px solid #3d3d3d;
 	display:block;
 	margin:0px;
-	padding:0px;
+	padding:2px;
 	padding-top:6px;
 	text-align:center;
 	width:100%;
 	font-weight:normal;
 	font-family:MuseoSlab, Arial, Helvetica, Sans-serif;
 	font-size:20px;
-	color:#000;
-	text-shadow:1px 1px 0px #fff;
-	background-color:#bebebe;
-	background-image: linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -o-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -moz-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -webkit-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -ms-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #BEBEBE),
-		color-stop(1, #DDDDDD)
-	);
+	color:#fff;
+	background-color:#1e1e1e;
 	border-top-right-radius:3px;
 }
 
@@ -542,7 +510,6 @@ header nav .active:hover {
 	min-height:150px;
 	color:#393939;
 	padding-top:5px;
-	text-shadow:1px 1px 0px #fff;
 }
 
 #main .right .info_box aside:first-child {
@@ -591,27 +558,14 @@ header nav .active:hover {
 	text-align:center;
 	font-family:MuseoSlab;
 	font-weight:normal;
-	color:#171717;
+	color:#fff;
 	font-size:16px;
 	padding-top:10px;
 	padding-bottom:10px;
 	background-color:#bebebe;
 	border-top-left-radius:3px;
 	border-top-right-radius:3px;
-	box-shadow:0px 1px 0px #fff inset;
-	background-image: linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -o-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -moz-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -webkit-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -ms-linear-gradient(bottom, #BEBEBE 0%, #DDDDDD 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #BEBEBE),
-		color-stop(1, #DDDDDD)
-	);
-	border-bottom:1px solid #a5a5a5;
+	background-color: #1e1e1e;
 }
 
 #main .right .big {
@@ -704,11 +658,9 @@ header nav .active:hover {
 
 #main .right .box {
 	border-radius:3px;
-	border:1px solid #a4a4a4;
-	background-color:#ebebeb;
-	box-shadow:0px 1px 0px #fff inset, 0px 1px 1px #999;
-	text-shadow:1px 1px 0px #fff;
-	margin-bottom:15px;
+	background-color:#3d3d3d;
+	margin-bottom:40px;
+	padding: 2px;
 }
 
 #main .right .side_right .box .button, input[type="submit"] {
@@ -812,15 +764,14 @@ select {
 /* Footer */
 footer {
 	font-family:'MuseoSlab', Arial, Helvetica, Sans-serif;
-	background-color:#2d2d2d;
+	background-color: #1e1e1e;
 	margin-top:50px;
 	border-top:1px solid #494949;
-	box-shadow:0px 1px 0px #000 inset, 0px 15px 20px #171717 inset;
 	height:100px;
 }
 
 footer .center_1020 {
-	background-color:rgba(0,0,0,0.1);
+	background-color: #1e1e1e;
 	border-left:;
 	height:100px;
 }
@@ -894,6 +845,43 @@ footer #facebook a {
 }
 
 footer #facebook a:hover {
+	color:#fff;
+}
+
+footer #discord 
+{
+	width:255px;
+	text-shadow:1px 1px 0px #000;
+}
+
+footer #discord h1 {
+	color:#cccccc;
+	font-size:18px;
+	font-weight:normal;
+	margin:0px;
+	padding:0px;
+	margin-top:20px;
+	text-align:center;
+}
+
+footer #discord #fb_icon {
+	float:left;
+	background-image:url(../images/discord.png);
+	width:25px;
+	height:21px;
+	margin-left:47px;
+	margin-top:2px;
+	margin-right:8px;
+}
+
+footer #discord a {
+	color:#499fd1;
+	font-size:20px;
+	text-decoration:none;
+	float:left;
+}
+
+footer #discord a:hover {
 	color:#fff;
 }
 

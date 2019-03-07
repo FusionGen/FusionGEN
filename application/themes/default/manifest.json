@@ -1,16 +1,16 @@
 {
-	"name": "Default",
-	"author": "Jesper Lindström",
-	"website": "http://raxezdev.com",
+	"name": "Darkmoon Theme",
+	"author": "CUSSED / E.Darksider",
+	"website": "http://dark-wow.net",
 	
-	"favicon": "favicon.gif",
+	"favicon": "favicon.ico",
 
 	"normal_avatar": "avatars/0_normal.jpg",
 	"small_avatar": "avatars/0_small.jpg",
 
 	"slider_text": {
-		"next": "Next",
-		"previous": "Prev"
+		"next": "&#155;",
+		"previous": ""
 	},
 
 	"slider_id": "slider_bg",
