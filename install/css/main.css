@@ -638,15 +638,15 @@ header nav .active:hover {
 }
 
 #main .right .side_left .box li .button:hover, #main .right .side_right .box .button:hover, input[type="submit"]:hover, .nice_button:hover {
-	box-shadow:0px 1px 0px #7dc2ea inset, 0px 1px 0px #fff;
-	border:1px solid #305e79;
+	box-shadow:0px 1px 0px #eac27d inset, 0px 1px 0px #eac27d;
+	border:1px solid #795e30;
 	color:white;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.4);
 }
 
 #main .right .side_left .box li .button:active, #main .right .side_right .box .button:active, input[type="submit"]:active, .nice_button:active {
 	background-image:none;
-	box-shadow:0px 1px 0px #fff;
+	box-shadow:0px 1px 0px #eac27d;
 }
 
 #main .right .side_right {
@@ -720,8 +720,8 @@ input[type="email"]
 	display:block;
 	width:99%;
 	padding:8px;
-	color:#666;
-	background-color:#fff;
+	color: #fff;
+	background-color: #1e1e1e;
 	border:1px solid #999;
 	border-radius:2px;
 	margin:5px;
@@ -737,11 +737,9 @@ input[type="email"]
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
-	color:#333;
-	border:1px solid #1f9ebc;
-	box-shadow:0px 0px 10px #3acbed;
-	-moz-box-shadow:0px 0px 10px #3acbed;
-	-webkit-box-shadow:0px 0px 10px #3acbed;
+	color: #fff;
+	border: 1px solid #bc6c1f;
+	-webkit-box-shadow: 0px 0px 10px #bc6c1f;
 }
 
 select {
@@ -749,13 +747,10 @@ select {
 	font-size:12px;
 	width:99%;
 	padding:8px;
-	color:#666;
-	background-color:#fff;
+	color:#fff;
+	background-color:#1e1e1e;
 	border:1px solid #999;
-	border-radius:2px;
-	-moz-border-radius:2px;
 	-webkit-border-radius:2px;
-	margin:5px;
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
@@ -936,19 +931,19 @@ footer .divider2 {
 .how_to_box .title {
     cursor: pointer;
     font-size: 16px;
-    background: #4489b2;
+    background: #dc8044;
     padding: 5px 7px;
     color: white;
     text-shadow: 2px 1px 0px rgba(0,0,0,0.4);
 }
 
 .how_to_box .title:hover {
-    background: #599ec5;
+    background: #9b5629;
 }
 
 .how_to_box .content {
     padding: 12px;
-    background-color: #f8f8f8;
+    background-color: #1e1e1e;
 	overflow: hidden;
     display: none;
     line-height: 30px;
