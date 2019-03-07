@@ -9,4 +9,4 @@ FusionGEN
 
 - OMGhixD
 
-- https://discord.gg/Dt5sg6A
+- https://discord.gg/vRnr6WJ

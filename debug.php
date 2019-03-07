@@ -28,7 +28,7 @@
 	}
 </style>
 
-<h1>Testing your server connections...</h1>
+<h1>Asking if connections are Online or Offline.</h1>
 
 <?php
 
