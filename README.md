@@ -10,3 +10,7 @@ FusionGEN
 - OMGhixD
 
 - https://discord.gg/vRnr6WJ
+
+
+Preview Installation Page:
+![alt text](https://cdn.discordapp.com/attachments/460328007236714506/553337868068847669/qi-0EN5FSJCXbKswWv8rAw.png)
