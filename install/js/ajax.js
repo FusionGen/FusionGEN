@@ -42,7 +42,7 @@ var Ajax = {
 				if ( ! name)
 					return;
 				
-				$("#realm_field").append("<div class=\"realmHeader\"><a onclick='Ajax.Realms.show(this);'><img class='realmExtend' src='images/icons/black16x16/ic_plus.png' /> " + name + "</a> <img class='realmDelete' src='images/icons/black16x16/ic_delete.png' onclick='Ajax.Realms.deleteRealm(this);' /></div><div class='realmForm' style='display: none;'></div>");
+				$("#realm_field").append("<div class=\"realmHeader\"><a onclick='Ajax.Realms.show(this);'><img class='realmExtend' /> " + name + "</a> <img class='realmDelete' onclick='Ajax.Realms.deleteRealm(this);' /></div><div class='realmForm' style='display: none;'></div>");
 				$("#realm_field .realmForm").html($("#loader").html()).find('#realmName').val(name);
 				UI.Tooltip.refresh();
 			});
@@ -64,7 +64,7 @@ var Ajax = {
 			if (div.attr("data-active") == "true")
 			{
 				div.next('.realmForm').slideUp(200, function() {
-					div.find('img.realmExtend').attr('src', "images/icons/black16x16/ic_plus.png");
+					div.find('img.realmExtend').attr('src', "");
 					div.removeAttr("data-active");
 				});
 				
@@ -73,7 +73,7 @@ var Ajax = {
 			else
 			{
 				div.next('.realmForm').slideDown(200, function() {
-					div.find('img.realmExtend').attr('src', "images/icons/black16x16/ic_minus.png");
+					div.find('img.realmExtend').attr('src', "");
 					div.attr("data-active", "true");
 				});
 			}
