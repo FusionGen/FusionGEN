@@ -199,6 +199,7 @@ header nav .active, #main .right .side_left .box li .button:hover, #main .right 
 		color-stop(1, #c4833d)
 	);
 	cursor: pointer;
+	transition:all 0.3s ease;
 }
 
 header nav .active:hover {
@@ -603,7 +604,6 @@ header nav .active:hover {
 }
 
 #main .right .side_left .box li .button, #main .right .side_right .box .button, input[type="submit"], .nice_button {
-	float:right;
 	font-size:12px;
 	text-decoration:none;
 	color:#262626;
@@ -611,23 +611,9 @@ header nav .active:hover {
 	background-color:#cdcdcd;
 	border:1px solid #8e8e8e;
 	box-shadow:0px 1px 0px #fff inset, 0px 1px 0px #fff;
-	padding:3px 5px;
-	margin-top:-3px;
-	background-image: linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image: -o-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image: -moz-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image: -webkit-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image: -ms-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #CDCDCD),
-		color-stop(1, #DCDCDC)
-	);
-	margin-left:10px;
 	width:60px;
 	text-align:center;
+	transition:all 0.3s ease;
 }
 
 .nice_button {
@@ -635,6 +621,9 @@ header nav .active:hover {
 	margin:0px;
 	padding:6px 10px;
     cursor: pointer;
+	background-color: #1e1e1e;
+	color: #fff;
+	transition:all 0.3s ease;
 }
 
 #main .right .side_left .box li .button:hover, #main .right .side_right .box .button:hover, input[type="submit"]:hover, .nice_button:hover {
@@ -642,11 +631,13 @@ header nav .active:hover {
 	border:1px solid #795e30;
 	color:white;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.4);
+	transition:all 0.3s ease;
 }
 
 #main .right .side_left .box li .button:active, #main .right .side_right .box .button:active, input[type="submit"]:active, .nice_button:active {
 	background-image:none;
 	box-shadow:0px 1px 0px #eac27d;
+	transition:all 0.3s ease;
 }
 
 #main .right .side_right {
@@ -661,6 +652,7 @@ header nav .active:hover {
 	background-color:#3d3d3d;
 	margin-bottom:40px;
 	padding: 2px;
+	transition:all 0.3s ease;
 }
 
 #main .right .side_right .box .button, input[type="submit"] {
@@ -800,10 +792,12 @@ footer #links a {
 	color:#8a8a8a;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #000;
+	transition:all 0.3s ease;
 }
 
 footer #links a:hover {
-	color:#499fd1;
+	color:#dc8044;
+	transition:all 0.3s ease;
 }
 
 
@@ -874,10 +868,12 @@ footer #discord a {
 	font-size:20px;
 	text-decoration:none;
 	float:left;
+	transition:all 0.3s ease;
 }
 
 footer #discord a:hover {
-	color:#fff;
+	color:#dc8044;
+	transition:all 0.3s ease;
 }
 
 footer #html5 {
@@ -902,11 +898,19 @@ footer .divider2 {
 	text-align:center;
 	padding:10px;
 	margin-bottom:10px;
+	-webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .installer_navigation a {
 	margin-left:5px;
 	margin-right:5px;
+	-webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .introduction h3 {
@@ -935,6 +939,7 @@ footer .divider2 {
     padding: 5px 7px;
     color: white;
     text-shadow: 2px 1px 0px rgba(0,0,0,0.4);
+	transition:all 0.3s ease;
 }
 
 .how_to_box .title:hover {
