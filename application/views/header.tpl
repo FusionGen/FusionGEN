@@ -2,12 +2,12 @@
 
 <!--
 
- This website is powered by
-  ______         _              _____ __  __  _____ 
-FusionGEN
+This website is powered by FusionGEN
 
 https://gitlab.com/omghixd/fusiongen
 
+
+Current FusionGEN Version: 1.0.1
 -->
 
 <html>
