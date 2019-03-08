@@ -248,6 +248,7 @@ header nav .active:hover {
 	text-decoration:none;
 	background-image:url(../images/menu_section.png);
 	border-bottom:1px solid #101010;
+	border-top-left-radius: 3px;
 }
 
 #main .left nav a.unlocked:after {
