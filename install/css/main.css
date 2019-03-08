@@ -961,7 +961,7 @@ footer .divider2 {
 
 #realm_field .realmHeader {
 	font-size: 14px;
-	background: #4489b2;
+	background: #dc8044;
 	color: white;
 	text-shadow: 1px 1px 0px rgba(0,0,0,0.4);
 	margin-left: 10px !important;
@@ -976,7 +976,7 @@ footer .divider2 {
 }
 
 #realm_field .realmHeader:hover {
-    background: #599ec5 !important;
+    background: #ff9550 !important;
 }
 
 #realm_field .realmHeader .realmExtend,
