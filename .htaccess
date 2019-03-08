@@ -1,9 +1,84 @@
+# Certain Rewrite Rules we need
+<Files ~ "\.tpl$">
+  Order allow,deny
+  Deny from all
+</Files>
+
+# Always ask for Index.php first
+<ifModule mod_rewrite.c>
+	RewriteEngine On
+        
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ ./index.php?/$1 [L]
+</ifModule>
+# Always ask for Index.php first
+# Certain Rewrite Rules we need
+
 # HTTPS + WWW Force. TO ENABLE remove "#" at line 2 to 6
 #RewriteEngine On
 #RewriteCond !{HTTPS} off
 #RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #RewriteCond %{HTTP_HOST} !^www\.
 #RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Request Recommended by Mozilla
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+    # mod_headers, y u no match by Content-Type?!
+    <FilesMatch "\.(gif|ico|jpe?g|png|svg|svgz|webp)$">
+      SetEnvIf Origin ":" IS_CORS
+      Header set Access-Control-Allow-Origin "*" env=IS_CORS
+    </FilesMatch>
+  </IfModule>
+</IfModule>
+# Request Recommended by Mozilla
+
+# Allow Webfont access from other locations. (handy)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+# Allow Webfont access from other locations. (handy)
+
+# More Rewrite Engine
+<IfModule mod_rewrite.c>
+  Options +FollowSymlinks
+  RewriteEngine On
+</IfModule>
+# More Rewrite Engine
+
+# Prevent 404 Errors for Non-Existing Redirected Folders
+Options -MultiViews
+ErrorDocument 404 /error
+# we also want UTF-8 Encoding
+AddDefaultCharset utf-8
+# Disallow users to view folders with no content
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteCond %{SCRIPT_FILENAME} -d [OR]
+  RewriteCond %{SCRIPT_FILENAME} -f
+  RewriteRule "(^|/)\." - [F]
+</IfModule>
+<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+  Order allow,deny
+  Deny from all
+  Satisfy All
+</FilesMatch>
+# Prevent 404 Errors for Non-Existing Redirected Folders
+
+# We also want to compress / minify CSS, Images, Remove HTML Whitespace and Comments
+<IfModule pagespeed_module>
+ModPagespeed on
+ModPagespeedEnableFilters rewrite_css,combine_css
+ModPagespeedEnableFilters recompress_images
+ModPagespeedEnableFilters convert_png_to_jpeg,convert_jpeg_to_webp
+ModPagespeedEnableFilters collapse_whitespace,remove_comments
+</IfModule>
+# We also want to compress / minify CSS, Images, Remove HTML Whitespace and Comments
 
 # Rewrite Module Start
 <IfModule mod_rewrite.c>
@@ -22,120 +97,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
 </IfModule>
 # Rewrite Module End
-
-# Cache Module Start
-<IfModule mod_deflate.c>
-# Insert filters / compress text, html, javascript, css, xml:
-AddOutputFilterByType DEFLATE text/plain
-AddOutputFilterByType DEFLATE text/javascript
-AddOutputFilterByType DEFLATE text/html
-AddOutputFilterByType DEFLATE text/xml
-AddOutputFilterByType DEFLATE text/css
-AddOutputFilterByType DEFLATE text/vtt 
-AddOutputFilterByType DEFLATE text/x-component
-AddOutputFilterByType DEFLATE application/xml
-AddOutputFilterByType DEFLATE application/xhtml+xml
-AddOutputFilterByType DEFLATE application/rss+xml
-AddOutputFilterByType DEFLATE application/js
-AddOutputFilterByType DEFLATE application/javascript
-AddOutputFilterByType DEFLATE application/x-javascript
-AddOutputFilterByType DEFLATE application/x-httpd-php
-AddOutputFilterByType DEFLATE application/x-httpd-fastphp
-AddOutputFilterByType DEFLATE application/atom+xml 
-AddOutputFilterByType DEFLATE application/json
-AddOutputFilterByType DEFLATE application/ld+json 
-AddOutputFilterByType DEFLATE application/vnd.ms-fontobject 
-AddOutputFilterByType DEFLATE application/x-font-ttf 
-AddOutputFilterByType DEFLATE application/x-web-app-manifest+json 
-AddOutputFilterByType DEFLATE font/opentype 
-AddOutputFilterByType DEFLATE image/svg+xml
-AddOutputFilterByType DEFLATE image/x-icon
-
-# Exception: Images
-SetEnvIfNoCase REQUEST_URI \.(?:gif|jpg|jpeg|png)$ no-gzip dont-vary
-
-# Drop problematic browsers
-BrowserMatch ^Mozilla/4 gzip-only-text/html
-BrowserMatch ^Mozilla/4\.0[678] no-gzip
-BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
-
-
-# Assurance Part start?
-# Make sure proxies don't deliver the wrong content
-<IfModule mod_headers.c>
-Header append Vary User-Agent env=!dont-vary
-</IfModule>
-# Assurance Part end
-
-</IfModule>
-# Cache Module end
-
-# Cache Expire Settings start
-<IfModule mod_expires.c>
-ExpiresActive On
-ExpiresDefault "access plus 1 week"
-
-ExpiresByType text/css "access plus 1 month"
-
-ExpiresByType application/atom+xml "access plus 1 hour" 
-ExpiresByType application/rdf+xml "access plus 1 hour"
-ExpiresByType application/rss+xml "access plus 1 hour" 
-
-ExpiresByType application/json "access plus 0 seconds"
-ExpiresByType application/ld+json "access plus 0 seconds"
-ExpiresByType application/schema+json "access plus 0 seconds"
-ExpiresByType application/vnd.geo+json "access plus 0 seconds"
-ExpiresByType application/xml "access plus 0 seconds"
-ExpiresByType text/xml "access plus 0 seconds" 
-
-ExpiresByType image/x-icon "access plus 1 month"
-ExpiresByType image/vnd.microsoft.icon "access plus 1 month"
-
-ExpiresByType text/html "access plus 1 minute"
-
-ExpiresByType text/javascript "access plus 1 month"
-ExpiresByType text/x-javascript "access plus 1 month"
-ExpiresByType application/javascript "access plus 1 months"
-ExpiresByType application/x-javascript "access plus 1 months"
-
-ExpiresByType image/jpg "access plus 1 month"
-ExpiresByType image/jpeg "access plus 1 month"
-ExpiresByType image/gif "access plus 1 month"
-ExpiresByType image/png "access plus 1 month"
-
-ExpiresByType image/svg+xml "access plus 1 month" 
-ExpiresByType image/bmp "access plus 1 month"
-ExpiresByType image/webp "access plus 1 month"
-
-ExpiresByType audio/ogg "access plus 1 month" 
-
-ExpiresByType video/mp4 "access plus 1 month" 
-ExpiresByType video/ogg "access plus 1 month" 
-ExpiresByType video/webm "access plus 1 month" 
-
-ExpiresByType text/plain "access plus 1 month"
-ExpiresByType text/x-component "access plus 1 month" 
-
-ExpiresByType application/manifest+json "access plus 1 week"
-ExpiresByType application/x-web-app-manifest+json "access plus 0 seconds"
-ExpiresByType text/cache-manifest "access plus 0 seconds"
-
-ExpiresByType application/pdf "access plus 1 month"
-
-ExpiresByType application/x-shockwave-flash "access plus 1 month"
-
-ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
-ExpiresByType font/eot "access plus 1 month"
-ExpiresByType font/opentype "access plus 1 month" 
-ExpiresByType application/x-font-ttf "access plus 1 month" 
-ExpiresByType application/font-woff "access plus 1 month" 
-ExpiresByType application/font-woff2 "access plus 1 month"
-ExpiresByType application/x-font-woff "access plus 1 month"
-ExpiresByType font/woff "access plus 1 month"
-
-</IfModule>
-# Cache Expire Settings end
-
 
 #Alternative caching using Apache's "mod_headers", if it's installed.
 #Caching of common files - ENABLED

@@ -998,7 +998,7 @@ footer .divider2 {
 }
 
 .realmForm {
-	color: #393939 !important;
+	color: #fff !important;
 }
 
 /*  
@@ -1040,8 +1040,8 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	display:none;
 	z-index:999999;
 	padding:20px;
-	background-color:#eee;
-	border:1px solid #fff;
+	background-color:#1e1e1e;
+	border:1px solid #dc8044;
 	position:fixed;
 	left:50%;
 	margin-left:-120px;
@@ -1061,7 +1061,7 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	font-weight:normal;
 	font-size:18px;
 	margin-bottom:10px;
-	color:#000;
+	color:#fff;
 }
 
 .popup a {
