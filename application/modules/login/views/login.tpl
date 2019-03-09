@@ -14,6 +14,15 @@
 				<span id="password_error">{$password_error}</span>
 			</td>
 		</tr>
+		{if $use_captcha}
+			<tr>
+				<td><label for="login_captcha"><img src="{$url}login/getCaptcha?{time()}" alt="captcha" width="70" height="25" /></label></td>
+				<td>
+					<input type="text" name="login_captcha" id="login_captcha" value="" />
+					<span id="captcha_error">{$captcha_error}</span>
+				</td>
+			</tr>
+		{/if}
 	</table>
 
 	<center>

@@ -8,6 +8,7 @@ class Login extends MX_Controller
 		parent::__construct();
 
 		//Load url and form library
+		$this->load->config('login');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 	}
@@ -26,6 +27,8 @@ class Login extends MX_Controller
 					"username" => "",
 					"username_error" => "",
 					"password_error" => "",
+					"captcha_error" => "",
+					"use_captcha" => (int)$this->session->userdata('attempts') >= $this->config->item('captcha'),
 					"class" => array("class" => "page_form"),
 					"has_smtp" => $this->config->item('has_smtp')
 				);
@@ -42,13 +45,30 @@ class Login extends MX_Controller
 		}
 		else
 		{
-			$sha_pass_hash = $this->user->createHash($this->input->post('login_username'), $this->input->post('login_password'));
+			if((int)$this->session->userdata('attempts') >= $this->config->item('captcha'))
+			{
+				$data['use_captcha'] = true;
+				$this->load->library('captcha');
 
-			$check = $this->user->setUserDetails($this->input->post('login_username'), $sha_pass_hash);
+				if(!$this->captcha->getValue() || strcasecmp($this->input->post('login_captcha', true), $this->captcha->getValue()))
+				{
+					$check = 3; // custom error, captcha isn't valid
+					$data['captcha_error'] = '<img src="'.$this->template->page_url.'application/images/icons/exclamation.png" />';
+				}
+			}
+
+			if(!isset($check)) // only if captcha is valid
+			{
+				$sha_pass_hash = $this->user->createHash($this->input->post('login_username'), $this->input->post('login_password'));
+				$check = $this->user->setUserDetails($this->input->post('login_username'), $sha_pass_hash);
+			}
 
 			// No errors
 			if($check == 0)
 			{
+				unset($_SESSION['captcha']); // @ignore
+				$this->session->unset_userdata('attempts');
+
 				if($this->input->post('login_remember'))
 				{
 					// Remember me
@@ -64,6 +84,7 @@ class Login extends MX_Controller
 			else
 			{
 				$data['username'] = $this->input->post('login_username');
+				$this->session->set_userdata('attempts', $this->session->userdata('attempts') + 1);
 
 				// Wrong username
 				if($check == 1)
