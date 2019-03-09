@@ -829,7 +829,7 @@ footer .footer span {
 		.realm-trinity_tbc_ra,
 		.realm-triniy_tbc_soap,
 		.realm-oregoncore_ra,
-		.realm-oregoncore_soap
+		.realm-oregoncore_soap,
 		.realm-summitemu,
 		.realm-blizzlikecore_soap, 
 		.realm-blizzlikecore_ra {
@@ -846,7 +846,7 @@ footer .footer span {
 		.realm-trinity_tbc_ra:before,
 		.realm-triniy_tbc_soap:before,
 		.realm-oregoncore_ra:before,
-		.realm-oregoncore_soap:before
+		.realm-oregoncore_soap:before,
 		.realm-summitemu:before,
 		.realm-blizzlikecore_soap:before, 
 		.realm-blizzlikecore_ra:before {
