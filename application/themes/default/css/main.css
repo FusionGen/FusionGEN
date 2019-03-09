@@ -798,11 +798,41 @@ footer .footer span {
 		text-shadow: 0 1px 0 #000, 0 0 4px #000, 0 0 4px #000;
 		text-transform: uppercase;
 	}
+
+	/* 1.12.1 */
 	
+		.realm-mangoszero_ra,
+		.realm-mangoszero_soap {
+		height: 64px;
+		display: block;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		background: url(../images/realm_bg_classic.png) no-repeat top right;
+	}
+	
+	
+		.realm-mangoszero_ra:before,
+		.realm-mangoszero_soap:before {
+		width: 32px;
+		height: 11px;
+		top: 26px;
+		left: 20px;
+		content: "";
+		position: absolute;
+		background: url(../images/realm_icon_classic.png) no-repeat top right;
+	}
+
 	/* 2.4.3 */
 	
+		.realm-trinity_tbc_external,
+		.realm-trinity_tbc_ra,
+		.realm-triniy_tbc_soap,
 		.realm-oregoncore_ra,
-		.realm-oregoncore_soap {
+		.realm-oregoncore_soap
+		.realm-summitemu,
+		.realm-blizzlikecore_soap, 
+		.realm-blizzlikecore_ra {
 		height: 64px;
 		display: block;
 		border-radius: 5px;
@@ -812,8 +842,14 @@ footer .footer span {
 	}
 	
 	
+		.realm-trinity_tbc_external:before,
+		.realm-trinity_tbc_ra:before,
+		.realm-triniy_tbc_soap:before,
 		.realm-oregoncore_ra:before,
-		.realm-oregoncore_soap:before {
+		.realm-oregoncore_soap:before
+		.realm-summitemu:before,
+		.realm-blizzlikecore_soap:before, 
+		.realm-blizzlikecore_ra:before {
 		width: 32px;
 		height: 11px;
 		top: 26px;
@@ -825,6 +861,7 @@ footer .footer span {
 	
 	/* 3.3.5 */
 
+	.realm arcemu,
 	.realm-trinity_ra, 
 	.realm-trinity_soap, 
 	.realm-trinity_rbac_ra, 
@@ -843,6 +880,7 @@ footer .footer span {
 	}
 	
 	
+	.realm arcemu:before,
 	.realm-trinity_ra:before, 
 	.realm-trinity_soap:before, 
 	.realm-trinity_rbac_ra:before, 
