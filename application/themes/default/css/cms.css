@@ -300,11 +300,7 @@ textarea {
 	padding: 8px;
 	font-size: 12px;
 	font-family: Arial,Helvetica,sans-serif;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
-	-moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	background: #0b0b0b;
 	transition: all 300ms;
@@ -330,35 +326,17 @@ select {
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
-	-moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	
-	user-select: none;
-	-o-user-select: none;
-	-moz-user-select: none;
-	-khtml-user-select: none;
 	-webkit-user-select: none;
-	
-	-webkit-appearance: none;
-	/*Removes default chrome and safari style */
 	-moz-appearance: none;
-	/* Removes Default Firefox style */
-	-khtml-appearance: none;
-	/* Removes Default style */
-	-o-appearance: none;
-	/* Removes Default style */
-	background: rgba(0,0,0,.7);
-    background: rgb(8, 8, 8) url(../images/select-arrow-norm.png) no-repeat 98.7% center !important;
+    background: #171717 url(../images/select-arrow-hover.png) no-repeat 98.7% center !important;
 	/* Removes default arrow from firefox */
 	text-overflow: "";
 }
 
 select:focus {
-	background: rgba(0,0,0,.7);
-	background: rgba(0,0,0,.7) url(../images/select-arrow-hover.png) no-repeat 98.7% center !important;
-	box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
-	-moz-box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
+	background: #171717 url(../images/select-arrow-hover.png) no-repeat 98.7% center !important;
 	-webkit-box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
 }
 
@@ -387,20 +365,15 @@ input[type="email"] {
 	font-family: Arial,Helvetica,sans-serif;
 	border-radius: 3px;
 	transition: 0.8s;
-	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
-	-moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
-	background: rgb(8, 8, 8);
+	background: #171717;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
-	box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
-	-moz-box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
-	-webkit-box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
+	-webkit-box-shadow: inset 0 -1px 0 #dc804466, 0 0 5px #dc804466, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
 		transition: 0.8s;
 	
 }
