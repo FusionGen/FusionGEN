@@ -29,19 +29,17 @@
 					<div id="wlc_msg" class="welcome_to closeable closed" style="display:none">
 						<a href="javascript:void(0)" class="close-btn"></a>
 						<div class="body">
-							<span>Welcome to {$serverName} </span>
+						<span>Welcome to {$serverName}</span>
 							<p>
- <div class="description">World of Warcraft Burning Crusade Private Server
- </br>With a Blizzlike playstyle consisting of 5x faster than the original speed.
- </br>Experience a true Burning Crusade feeling today!
- </br></br><a href="https://www.stormrage.org/register">Register Here</a></div>
-                        <b><br />
+						<div class="description">World of Warcraft Burning Crusade Private Server
+								</br>With a Blizzlike playstyle consisting of 5x faster than the original speed.
+									</br>Experience a true Burning Crusade feeling today!
+									</br></br><a href="https://www.stormrage.org/register">Register Here</a></div>
+									<b><br/>
 								{if $isOnline}
-<p>
-									
+							<p>
 								{else}
-									
-								{/if}
+							{/if}
 							</p>
 						</div>
 					</div>

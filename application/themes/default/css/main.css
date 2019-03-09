@@ -842,7 +842,8 @@ footer .footer span {
 	}
 	
 	.realm-info {
-        padding: 10px 0 0 40px;
+        padding: 22px 0 0 40px;
+		left: 15px;
 		font-family: calibrib;
 		color: #4caf22;
 	}
