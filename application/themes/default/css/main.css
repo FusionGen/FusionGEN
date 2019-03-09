@@ -25,13 +25,13 @@
 
 /* =========== General =========== */
 body {
-	color: #3d4346;
+	color: #3d3d3d;
 	margin: 0;
 	padding: 0;
 	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;
 	text-shadow: 0 1px 1px #000;
-	background:	#0f0f0f;	
+	background:	#1e1e1e;	
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -75,7 +75,7 @@ input, select, textarea {
 }
 
 a {
-	color: #4caf50;
+	color: #dc8044;
 	text-decoration: none;
 	-webkit-transition: all 0.8s;
     -moz-transition: all 0.8s;
@@ -136,11 +136,10 @@ a img {
 
 /* =========== Top menu =========== */
 .menu {
-	width: 1161px;
-	height: 98px;
-	left: -66px;
+	width: 1029px;
+	height: 97px;
 	margin-top: -60px;
-	background: url(../images/menu.png) no-repeat;
+	background: url(../images/menu.jpg) no-repeat;
 }
 
 .menu ul {
@@ -156,6 +155,7 @@ a img {
 	display: inline-block;
 	max-width: 170px;
 	vertical-align: middle;
+	transition:all 0.3s ease;
 }
 
 .menu li:nth-child(4) {
@@ -163,25 +163,28 @@ a img {
 }
 
 .menu li a {
-	color: #006e2e;
+	color: #3d3d3d;
 	display: block;
 	padding: 29.5px 10px;
 	margin-left: -5px;
 	font-size: 13px;
+	font-weight: bold;	
 	text-align: center;
 	white-space: nowrap;
 	font-family: Tahoma, Geneva, sans-serif;
-	text-shadow: 0 0 4px rgba(0,0,0,.6),0 1px 1px #006e2e;
 	text-transform: uppercase;
+	transition:all 0.3s ease;
 }
 
 .menu li:hover {
 	box-shadow: inset 0 0 0 1px rgba(255,255,255,.03), inset 0 -40px 0 rgba(0,0,0,.1);
+	transition:all 0.3s ease;
 }
 
 .menu li:hover a {
-	color: #02923e;
+	color: #fff;
 	text-shadow: 0 0 1px rgba(0,38,67,.5), 0 0 0 rgba(0,38,67,.7), 0 0 12px rgba(102,204,255,.4);
+	transition:all 0.3s ease;
 }
 
 .menu li:after {
@@ -195,11 +198,13 @@ a img {
 	position: absolute;
 	vertical-align: top;
 	background: url(../images/menu_separators.png) no-repeat;
+	transition:all 0.3s ease;
 }
 
 .menu li:nth-child(3):after, 
 .menu li:last-child:after {
 	display: none;
+	transition:all 0.3s ease;
 }
 
 /* =========== Search bar =========== */
@@ -300,16 +305,18 @@ a img {
 	width: 734px;
 	height: 177px;
 	margin: 0 0 11px 0;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	background: url(../images/welcome_msg_bg.jpg) no-repeat;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: 1px #3d3d3d solid;
+	background: url(../images/welcome_msg_bg.png) no-repeat;
+	-webkit-box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
 }
 
 .welcome_to .body {}
 
 .welcome_to .body span {
-	color: #006e2e;
+	color: #dc8044;
 	margin: 0 0 10px 25px;
 	display: block;
 	padding: 25px 0 0 0;
@@ -330,21 +337,21 @@ a img {
 /* =========== Boxes =========== */
 /*- Global -*/
 .box {
-	-webkit-box-shadow: 0 2px 15px 0 rgba(0, 0, 0, .75), inset 0 0 8px 5px rgba(19, 24, 20);
+	-webkit-box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
 	-webkit-border-radius: 5px;
 }
 
 .box .head {
-	color: #006e2e;
+	color: #333d3d;
 	display: block;
 	font-family: calibrib;
 	text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
-	border-bottom: 1px #010101 solid;
+	border-bottom: 1px #010101;
 }
 
 .box .body {
 	padding: 10px 15px;
-	border-top: 1px #3c5024 solid;
+	border-top: 1px #3d3d3d solid;
 }
 
 /* =========== Left =========== */
@@ -355,17 +362,21 @@ a img {
 
 #left section {
 	margin: 0 0 5px 0;
-	border: 1px #0f0f0f solid;
-	background: #0f0f0f;
+	border: 1px #3d3d3d solid;
+	background: #1e1e1e;
 }
 
 #left section .head {
-	width: 258px;
-	height: 33px;
+	width: 100%;
+	height: 27px;
 	font-size: 16px;
 	text-transform: uppercase;
 	padding-top: 10px;
-    text-align: center;
+	padding-bottom: 10px;
+	text-align: center;
+	background-color: #dc8044;
+	color: #fff;
+	border-radius: 3px;
 }
 
 #left section .body {}
@@ -373,17 +384,17 @@ a img {
 /*-= Left menu =-*/
 #left #left-menu li, 
 #left #left-menu li span, 
-#left #left-menu li p{
-	background-image: url(../images/side_menu.png);
+#left #left-menu li p {
 	background-repeat: no-repeat;
 	background-color: transparent;
 	
 	-webkit-font-smoothing: antialiased;
 	-webkit-transform: translate3d( 0, 0, 0);
+	border-bottom: 1px #191919 solid;
 }
 
 #left #left-menu {
-	border-top: 1px #273d0f solid;
+	border-top: 1px #3d3d3d solid;
 }
 
 #left #left-menu li {
@@ -423,21 +434,18 @@ a img {
 }
 
 #left #left-menu li a {
-	color: #006e2e;
+	color: #3d3d33;
 	display: block;
 	padding: 12px 0 15px 45px;
 	font-size: 15px;
 	font-family: calibrib;
 	text-shadow: 0 1px 1px rgba(0,0,0,.4), 0 0 4px rgba(0,0,0,.6);
 	transition: all 0.8s;
-	-webkit-transition: all 0.8s;
 	-moz-transition: all 0.8s;
-	-ms-transition: all 0.8s;
-	-o-transition: all 0.8s;
 }
 
 #left #left-menu li p a {
-	color: #02923e;
+	color: #fff;
 	display: block;
 	padding: 11px 0 16px 45px;
 	font-size: 15px;
@@ -451,8 +459,6 @@ a img {
 	visibility: hidden;
 	transition: visibility 0s linear 0.8s,opacity 0.8s linear;
 	-moz-transition: visibility 0s linear 0.8s,opacity 0.8s linear;
-	-webkit-transition: visibility 0s linear 0.8s,opacity 0.8s linear;
-	-o-transition: visibility 0s linear 0.8s,opacity 0.8s linear;
 }
 
 #left #left-menu li:hover p {
@@ -488,8 +494,8 @@ a img {
 
 #right article {
 	margin: 0 0 3px 0;
-	border: 2px #0f0f0f solid;
-	background: #0f0f0f;
+	border: 1px #3d3d3d solid;
+	background: #1e1e1e;
 }
 
 #right article .head {
@@ -507,12 +513,12 @@ a img {
 	left: 22px;
 	content: "";
 	position: absolute;
-	background: url(../images/tbc.png) no-repeat center center;
+	background: url(../images/article-arrow.png) no-repeat center center;
 }
 
 #right article  .head a,
 #right article  .head a:hover {
-	color: #006e2e;
+	color: #dc8044;
 	text-shadow: 0px 1px 3px #000000ba;
 	text-transform: capitalize;
 }
@@ -534,14 +540,6 @@ a img {
 
 #right article.expandable .head:hover {
 	cursor: pointer;
-}
-
-#right article.expandable .head:after {
-	top: 30px;
-	right: 25px;
-	content: "";
-	position: absolute;
-	background-image: url(../images/select-arrow-norm.png);
 }
 
 #right article.expandable .head:after {
@@ -568,11 +566,11 @@ a img {
 }
 
 #right article .foot a {
-	color: #a07332;
+	color: #dc8044;
 }
 
 #right article .foot a:hover {
-	color: #ebeef5;
+	color: #fff;
 }
 
 #right article .foot .comments_button {
@@ -1291,7 +1289,7 @@ footer .footer span {
 .description
 {
     font-weight: normal;
-    color: #3d4346;   
+    color: #3d3d3d;   
     margin-top: -15px;
     padding: 0;
     margin-left: 30px;

@@ -55,8 +55,8 @@
 						<ul id="left-menu">
 							{foreach from=$menu_side item=menu_2}
 								<li>
-									<span></span><a {$menu_2.link}>{$menu_2.name}</a>
-									<p><span></span><a {$menu_2.link}>{$menu_2.name}</a></p>
+									<a {$menu_2.link}>{$menu_2.name}</a>
+									<p><a {$menu_2.link}>{$menu_2.name}</a></p>
 								</li>
 							{/foreach}
 						</ul>
