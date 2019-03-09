@@ -105,7 +105,7 @@ a img {
 #main .middle_background {
     width: 1200px;
     height: 580px;
-    margin: -148px 0 0 -85px;
+    margin: -388px 0 0 -85px;
 	position: absolute;
 	background: url(../images/background.jpg) no-repeat top left;
 }
@@ -211,7 +211,7 @@ a img {
 .search_bar {
 	width: 1010px;
 	height: 130px;
-	margin: 0 auto;
+	margin: 120px auto;
 	z-index: 10;
 }
 
@@ -304,12 +304,10 @@ a img {
 .welcome_to {
 	width: 734px;
 	height: 177px;
-	margin: 0 0 11px 0;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
+	margin: 1px 0 11px 0;
 	-webkit-border-radius: 3px;
-	border: 1px #3d3d3d solid;
-	background: url(../images/welcome_msg_bg.png) no-repeat;
+	border: 1px #dc8044 solid;
+	background: url(../images/welcome_msg_bg.jpg) no-repeat;
 	-webkit-box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
 }
 
@@ -339,6 +337,7 @@ a img {
 .box {
 	-webkit-box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
 	-webkit-border-radius: 5px;
+
 }
 
 .box .head {
@@ -562,7 +561,7 @@ a img {
 	clear: both;
 	margin: 15px 0 0 0;
 	padding: 6px 5px 0 5px;
-	border-top: 1px #3c5024 solid;
+	border-top: 1px #3d3d3d solid;
 }
 
 #right article .foot a {
