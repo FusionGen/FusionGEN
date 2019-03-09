@@ -1,19 +1,9 @@
-# Certain Rewrite Rules we need
+# Don't want people snoopin in folders
 <Files ~ "\.tpl$">
   Order allow,deny
   Deny from all
 </Files>
-
-# Always ask for Index.php first
-<ifModule mod_rewrite.c>
-	RewriteEngine On
-        
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.*)$ ./index.php?/$1 [L]
-</ifModule>
-# Always ask for Index.php first
-# Certain Rewrite Rules we need
+# Don't want people snoopin in folders
 
 # HTTPS + WWW Force. TO ENABLE remove "#" at line 2 to 6
 #RewriteEngine On
