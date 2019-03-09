@@ -822,7 +822,7 @@ footer .footer span {
 		border-radius: 5px;
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
-		background: rgba(10,10,10,.3) url(../images/realm_border.png) no-repeat top right;
+		background: rgba(10,10,10,.3);
 		transition: all 600ms;
 		-moz-transition: all 600ms;
 		-webkit-transition: all 600ms;
@@ -830,7 +830,7 @@ footer .footer span {
 	}
 	
 	.realm-st:hover {
-		background: rgba(0,0,0,.1) url(../images/realm_border.png) no-repeat top right;
+		
 	}
 	
 	.realm-st:first-child {
