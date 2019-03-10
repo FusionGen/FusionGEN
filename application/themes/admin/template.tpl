@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{if $title}{$title}{/if}FusionCMS</title>
+		<title>{if $title}{$title}{/if}FusionGEN</title>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 
@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="{$url}application/themes/admin/css/main.css" type="text/css" />
 		{if $extra_css}<link rel="stylesheet" href="{$url}application/{$extra_css}" type="text/css" />{/if}
 
-		<script src="{if $cdn}//html5shiv.googlecode.com/svn/trunk/html5.js{else}{$url}application/js/html5shiv.js{/if}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
 		<script type="text/javascript" src="{if $cdn}https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js{else}{$url}application/js/jquery.min.js{/if}"></script>
 
 		<script type="text/javascript">
@@ -134,19 +134,16 @@
 				<aside class="right">
 					<nav>
 						<a target="_blank" href="{$url}ucp" data-hasevent="1">
-							<div class="icon logout"></div>
 							Go back
 						</a>
 
 						{if hasPermission("editSystemSettings", "admin")}
 							<a href="{$url}admin/settings" {if $current_page == "admin/settings"}class="active"{/if}>
-								<div class="icon settings"></div>
 								Settings
 							</a>
 						{/if}
 
 						<a href="{$url}admin/" {if $current_page == "admin/"}class="active"{/if}>
-							<div class="icon dashboard"></div>
 							Dashboard
 						</a>
 					</nav>
@@ -168,11 +165,11 @@
 					<nav>
 						{foreach from=$menu item=group key=text}
 							{if count($group.links)}
-								<a><div class="icon {$group.icon}"></div> {$text}</a>
+								<a>{$text}</a>
 
 								<section class="sub">
 									{foreach from=$group.links item=link}
-										<a href="{$url}{$link.module}/{$link.controller}" {if isset($link.active)}class="active"{/if}><div class="icon {$link.icon}"></div> {$link.text}</a>
+										<a href="{$url}{$link.module}/{$link.controller}" {if isset($link.active)}class="active"{/if}>{$link.text}</a>
 									{/foreach}
 								</section>
 							{/if}
@@ -180,8 +177,8 @@
 					</nav>
 
 					<article>
-						<h1>Welcome to FusionCMS</h1>
-						<b>Dear customer</b>, We are happy to introduce you to the next major version of our very own FusionCMS. Years have passed since the initial release and the system has grown better and stronger for every version. The core of this beast is powered by clean, object oriented PHP code, kept in shape by the incredibly powerful CodeIgniter framework. On the front we also make sure to amaze your visitors with more Javascript-powered live interactions than ever before.
+						<h1>Welcome to FusionGEN</h1>
+						<b>Dear User</b>, This is <b>FusionGEN</b>. </br>A continuation project continued by fellow web-developers under the conditions of Open-Source. Many people loved FusionCMS, But time is evolving and FusionCMS has been idle for quite some time. We are here to bring up a new Open-Source Project to bring <b>you</b> an optimized and cared for CMS that will evolve over time with love and passion from its contributors. FusionGEN is still powered by the Codeigniter Framework, it's Original PHP Code, It's Original HTML Code and It's Original Javascript Code. What we are focusing on is improving it all. Making it stronger, faster and more Modern. </br></br>Thank you for Downloading FusionGEN</br>Enjoy!
 						<div class="clear"></div>
 					</article>
 					<div class="spacer"></div>
@@ -200,19 +197,19 @@
 		<footer>
 			<div class="center_1020">
 				<div class="divider2"></div>
-				<aside id="logo"><a href="#" class="logo"></a></aside>
+				<aside id="logo"><a href="https://www.fusiongen.org" class="logo"></a></aside>
 				<div class="divider"></div>
 				<aside id="links">
-					<a href="http://www.fusion-hub.com" target="_blank">FusionHub</a>
-					<a href="http://www.fusion-hub.com/modules" target="_blank">Modules</a>
-					<a href="http://www.fusion-hub.com/themes" target="_blank">Themes</a>
-					<a href="http://www.fusion-hub.com/support" target="_blank">Support</a>
+					<a href="https://www.fusiongen.org" target="_blank">FusionHub</a>
+					<a href="#" target="_blank">Modules</a>
+					<a href="#" target="_blank">Themes</a>
+					<a href="https://discord.gg/vRnr6WJ" target="_blank">Support</a>
 				</aside>
 				<div class="divider"></div>
-				<aside id="facebook">
-					<h1>Like us on Facebook!</h1>
-					<div id="fb_icon"></div>
-					<a href="http://facebook.com/HeroicForge" target="_blank">HeroicForge</a>
+				<aside id="discord">
+					<h1>Join our Discord Server</h1>
+					<div id="discord_icon"></div>
+					<a href="https://discord.gg/vRnr6WJ" target="_blank">FusionGEN</a>
 				</aside>
 				<div class="divider"></div>
 				<aside id="html5">

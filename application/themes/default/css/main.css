@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+/* =========== Main.CSS Default Theme FusionGEN =========== */
+
 /* =========== Fonts =========== */
 @font-face {
 	font-family: 'calibri';
@@ -350,7 +352,6 @@ a img {
 
 .box .body {
 	padding: 10px 15px;
-	border-top: 1px #3d3d3d solid;
 }
 
 /* =========== Left =========== */
@@ -361,7 +362,6 @@ a img {
 
 #left section {
 	margin: 0 0 5px 0;
-	border: 1px #3d3d3d solid;
 	background: #1e1e1e;
 }
 
@@ -493,7 +493,6 @@ a img {
 
 #right article {
 	margin: 0 0 3px 0;
-	border: 1px #3d3d3d solid;
 	background: #1e1e1e;
 }
 

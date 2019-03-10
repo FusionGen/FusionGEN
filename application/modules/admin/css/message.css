@@ -1,5 +1,5 @@
 .announcement {
-	background-color:#141414;
+	background-color:#1e1e1e;
 	padding:0px;
 	margin:0px;
 	text-align:center;
@@ -15,7 +15,6 @@
 	font-size:56px;
 	font-weight:normal;
 	margin-top:50px;
-	text-shadow:1px 0px 0px #666, 2px 1px 0px #666, 3px 2px 0px #666, 4px 3px 0px #000;
 }
 
 .announcement p {

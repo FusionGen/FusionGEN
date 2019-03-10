@@ -1,6 +1,6 @@
 {
-	"name": "Stormrage",
-	"author": "CUSSED / E.Darksider",
+	"name": "FusionGEN Default Theme",
+	"author": "CUSSED / E.Darksider / OMGhixD",
 	"website": "https://gitlab.com/omghixd/fusiongen",
 	
 	"favicon": "favicon.ico",
@@ -13,7 +13,7 @@
 		"previous": ""
 	},
 
-	"slider_id": "slider_bg",
-	"screenshot": "images/screenshot.jpg",
+	"slider_id": "",
+	"screenshot": "images/screenshot.jpeg",
 	"blank_header": ""
 }

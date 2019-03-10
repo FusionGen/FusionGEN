@@ -2,8 +2,8 @@
 	"name": "Admin panel",
 	"description": "Default set of tools and pages for the admin panel",
 	"author": {
-		"name": "FusionCMS",
-		"website": "http:\/\/fusion-hub.com"
+		"name": "FusionGEN",
+		"website": "https:\/\/fusiongen.org"
 	},
 
 	"permissions": {

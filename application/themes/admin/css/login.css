@@ -1,5 +1,7 @@
 @charset "utf-8";
  
+/* =========== Login.CSS Admin Theme FusionGEN =========== */
+ 
 /* Fonts */
 @font-face {
 	font-family: 'MuseoSans';
@@ -26,13 +28,12 @@
 /* General */
 body {
 	font-family:'MuseoSans', Arial, Helvetica, Sans-serif;
-	color:#393939;
+	color:#3d3d3d;
 	background-color:#3b3b3b;
 	line-height:1.5;
 	font-size:14px;
 	margin:0px;
 	padding:0px;
-	background-image:url(../images/bg_tile.gif);
 }
 
 a {
@@ -57,7 +58,7 @@ a img {
 /* Top bar */
 header {
 	height:58px;
-	background-image:url(../images/top_tile.jpg);
+	background-color: #1e1e1e;
 	padding-top:10px;
 }
 
@@ -66,7 +67,7 @@ header .logo, footer #logo .logo {
 	width:197px;
 	height:28px;
 	float:left;
-	background-image:url(../images/fusioncms.png);
+	background-image:url(../images/fusiongen.png);
 	margin-top:13px;
 }
 
@@ -98,7 +99,7 @@ header nav {
 	max-width:370px;
 }
 
-header nav a, input[type="submit"] {
+header nav a, input[type="submit"], input[type="submit-top"] {
 	display:block;
 	float:right;
 	padding:5px 10px;
@@ -111,23 +112,8 @@ header nav a, input[type="submit"] {
 	box-shadow:0px 1px 0px #000;
 	margin-left:10px;
 	text-decoration:none;
-	background-image: linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -o-linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -moz-linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -webkit-linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -ms-linear-gradient(bottom, #414141 0%, #525252 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #414141),
-		color-stop(1, #525252)
-	);
-	transition:0.3s all;
-	-webkit-transition:0.3s all;
-	-moz-transition:0.3s all;
-	-ms-transition:0.3s all;
-	-o-transition:0.3s all;
+	background-color: #3e3e3e;
+	transition:all 0.3s ease;
 }
 
 header nav a:hover {
@@ -138,25 +124,14 @@ header nav a:active {
 	background-image:none;
 }
 
-header nav .active, input[type="submit"]:hover {
-	border:1px solid #3a8fc0;
-	background-color:#1d6d9c;
-	background-image: linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -o-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -moz-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -webkit-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -ms-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #1D6D9C),
-		color-stop(1, #3D92C4)
-	);
+header nav .active, input[type="submit"]:hover, input[type="submit-top"]:hover {
+	border:1px solid 	#dc8044;
+	background-color:	#1e1e1e;
+	transition:all 0.3s ease;
 }
 
 header nav .active:hover {
-	border:1px solid #48a4d9;
+	border:1px solid #9b3d00;
 }
 
 #top_spacer {
@@ -166,10 +141,8 @@ header nav .active:hover {
 /* Footer */
 footer {
 	font-family:'MuseoSlab', Arial, Helvetica, Sans-serif;
-	background-color:#2d2d2d;
+	background-color:#1e1e1e;
 	margin-top:50px;
-	border-top:1px solid #494949;
-	box-shadow:0px 1px 0px #000 inset, 0px 15px 20px #171717 inset;
 	height:100px;
 }
 
@@ -214,12 +187,12 @@ footer #links a:hover {
 	color:#499fd1;
 }
 
-footer #twitter {
+footer #discord {
 	width:255px;
 	text-shadow:1px 1px 0px #000;
 }
 
-footer #twitter h1 {
+footer #discord h1 {
 	color:#cccccc;
 	font-size:18px;
 	font-weight:normal;
@@ -229,24 +202,24 @@ footer #twitter h1 {
 	text-align:center;
 }
 
-footer #twitter #twitter_icon {
+footer #discord #discord_icon {
 	float:left;
-	background-image:url(../images/twitter.png);
-	width:31px;
+	background-image:url(../images/discord.png);
+	width:25px;
 	height:21px;
 	margin-left:60px;
 	margin-top:5px;
 	margin-right:10px;
 }
 
-footer #twitter a {
+footer #discord a {
 	color:#499fd1;
 	font-size:20px;
 	text-decoration:none;
 	float:left;
 }
 
-footer #twitter a:hover {
+footer #discord a:hover {
 	color:#fff;
 }
 
@@ -269,23 +242,13 @@ footer .divider2 {
 }
 
 #content {
-	background-color:#252525;
+	background-color:#1e1e1e;
 	padding:30px;
 	width:515px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:150px;
-	border:1px solid #494949;
-	border-radius:10px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	-ms-border-radius:10px;
-	-o-border-radius:10px;
-	box-shadow:1px 1px 2px rgba(0,0,0,0.5) inset;
-	-webkit-box-shadow:1px 1px 2px rgba(0,0,0,0.5) inset;
-	-moz-box-shadow:1px 1px 2px rgba(0,0,0,0.5) inset;
-	-o-box-shadow:1px 1px 2px rgba(0,0,0,0.5) inset;
-	-ms-box-shadow:1px 1px 2px rgba(0,0,0,0.5) inset;
+	border-radius: 3px;
 }
 
 h1 {
@@ -305,27 +268,14 @@ input[type="text"], input[type="password"] {
 	color:#828181;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.5);
 	background-color:#121212;
-	border-radius:5px;
-	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
-	-ms-border-radius:5px;
-	-o-border-radius:5px;
-	border:1px solid #333333;
+	border:1px solid #dc8044;
 	padding:10px;
 	padding-left:40px;
 	width:192px;
 	height:30px;
 	margin:5px;
-	box-shadow:1px 1px 0px #000 inset;
-	-webkit-box-shadow:1px 1px 0px #000 inset;
-	-moz-box-shadow:1px 1px 0px #000 inset;
-	-o-box-shadow:1px 1px 0px #000 inset;
-	-ms-box-shadow:1px 1px 0px #000 inset;
-	transition:0.5s all;
-	-webkit-transition:0.5s all;
-	-moz-transition:0.5s all;
-	-ms-transition:0.5s all;
-	-o-transition:0.5s all;
+	transition:all 0.3s ease;
 }
 
 input[type="password"]:nth-child(3) {
@@ -339,6 +289,19 @@ input[type="submit"] {
 	height:50px;
 	margin-left:7px;
 	font-size:20px;
+	transition:all 0.3s ease;
+	border: 1px #dc8044 solid;
+}
+
+input[type="submit-top"] {
+	float:none;
+	display:inline;
+	width:242px;
+	height:50px;
+	margin-left:7px;
+	font-size:20px;
+	transition:all 0.3s ease;
+	border: 1px #dc8044 solid;
 }
 
 input[disabled], input[disabled] + img {
@@ -346,21 +309,21 @@ input[disabled], input[disabled] + img {
 }
 
 .error {
-	box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c1d1d !important;
-	-webkit-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c1d1d !important;
-	-moz-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c1d1d !important;
-	-o-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c1d1d !important;
-	-ms-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c1d1d !important;
-	border:1px solid #c03a3a !important;
+	box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #bd3737 !important;
+	-webkit-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #bd3737 !important;
+	-moz-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #bd3737 !important;
+	-o-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #bd3737 !important;
+	-ms-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #bd3737 !important;
+	border:1px solid #bd3737 !important;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-	box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #1D6D9C;
-	-webkit-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #1D6D9C;
-	-moz-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #1D6D9C;
-	-o-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #1D6D9C;
-	-ms-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #1D6D9C;
-	border:1px solid #3A8FC0;
+	box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c681d;
+	-webkit-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c681d;
+	-moz-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c681d;
+	-o-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c681d;
+	-ms-box-shadow:1px 1px 0px #000 inset, 0px 0px 10px #9c681d;
+	border:1px solid #dc8044;
 }
 
 form {

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Log in - FusionCMS</title>
+		<title>ACP Login - FusionGEN</title>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 
 		<link rel="shortcut icon" href="{$url}application/themes/admin/images/favicon.png" />
 		<link rel="stylesheet" href="{$url}application/themes/admin/css/login.css" type="text/css" />
 
-		<script src="{if $cdn}//html5shiv.googlecode.com/svn/trunk/html5.js{else}{$url}application/js/html5shiv.js{/if}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
 		<script type="text/javascript" src="{if $cdn}https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js{else}{$url}application/js/jquery.min.js{/if}"></script>
 
 		<script type="text/javascript">
@@ -62,14 +62,10 @@
 						<!-- Top menu -->
 						<aside class="right">
 							<nav>
-								<a href="#" class="active">
-									<div class="icon logout"></div>
-									Log in
-								</a>
 							</nav>
 
 							<div class="welcome">
-								Welcome, <b>{if $isOnline}{ucfirst($username)}{else}stranger{/if}</b>
+								Welcome, <b>{if $isOnline}{ucfirst($username)}{else} Unknown{/if}</b>
 							</div>
 						</aside>
 					</div>
@@ -80,8 +76,7 @@
 
 					<form onSubmit="Login.send(this); return false">
 						<input type="text" placeholder="Username" {if $isOnline}disabled value="{$username}"{/if} id="username"/>
-						<img src="{$url}application/themes/admin/images/icons/user.png" /><input type="password" placeholder="Password" {if $isOnline}disabled value="Password"{/if} id="password"><img src="{$url}application/themes/admin/images/icons/lock.png" /><input type="password" placeholder="Security code" id="security_code" />
-						<img src="{$url}application/themes/admin/images/icons/star.png" />
+						<input type="password" placeholder="Password" {if $isOnline}disabled value="Password"{/if} id="password"><input type="password" placeholder="Security code" id="security_code" />
 						<input type="submit" value="Log in" />
 					</form>
 				</div>
@@ -95,16 +90,16 @@
 				<aside id="logo"><a href="#" class="logo"></a></aside>
 				<div class="divider"></div>
 				<aside id="links">
-					<a href="http://fusion-hub.com/" target="_blank">FusionHub</a>
-					<a href="http://fusion-hub.com/modules" target="_blank">Modules</a>
-					<a href="http://fusion-hub.com/themes" target="_blank">Themes</a>
-					<a href="http://fusion-hub.com/support" target="_blank">Support</a>
+					<a href="https://www.fusiongen.org" target="_blank">FusionGEN</a>
+					<a href="#" target="_blank">Modules</a>
+					<a href="#" target="_blank">Themes</a>
+					<a href="https://discord.gg/vRnr6WJ" target="_blank">Support</a>
 				</aside>
 				<div class="divider"></div>
-				<aside id="twitter">
-					<h1>Follow us on Twitter!</h1>
-					<div id="twitter_icon"></div>
-					<a href="http://twitter.com/FusionHub" target="_blank">@FusionHub</a>
+				<aside id="discord">
+					<h1>Join our Discord Server</h1>
+					<div id="discord_icon"></div>
+					<a href="https://discord.gg/vRnr6WJ" target="_blank">FusionGEN</a>
 				</aside>
 				<div class="divider"></div>
 				<aside id="html5">

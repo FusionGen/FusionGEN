@@ -21,7 +21,7 @@
 
 <div class="info_box">
 	<aside>
-		<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_pin.png"/> Website</h2>
+		<h2>Website</h2>
 		<table>
 			<tr
 >				<td>Unique visitors today</td>
@@ -42,7 +42,7 @@
 		</table>
 	</aside>
 	<aside>
-		<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_graph.png"/> Shop</h2>
+		<h2>Shop</h2>
 		<table>
 			<tr>
 				<td>Income this month</td>
@@ -63,7 +63,7 @@
 		</table>
 	</aside>
 	<aside>
-		<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_users.png"/> Users</h2>
+		<h2>Users</h2>
 		<table>
 			<tr>
 				<td>Registrations today</td>
@@ -88,7 +88,7 @@
 
 <aside class="side_left">
 	<section class="box">
-		<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_grid.png"/> Installed modules (<div style="display:inline;" id="enabled_count">{count($enabled_modules)}</div>)</h2>
+		<h2>Installed modules (<div style="display:inline;" id="enabled_count">{count($enabled_modules)}</div>)</h2>
 		<ul id="enabled_modules">
 			{foreach from=$enabled_modules item=module key=key}
 				<li>
@@ -103,7 +103,7 @@
 	</section>
 
 	<section class="box">
-		<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_grid.png"/> Disabled modules (<div style="display:inline;" id="disabled_count">{count($disabled_modules)}</div>)</h2>
+		<h2>Disabled modules (<div style="display:inline;" id="disabled_count">{count($disabled_modules)}</div>)</h2>
 		<ul id="disabled_modules">
 			{foreach from=$disabled_modules item=module key=key}
 				<li>
@@ -120,7 +120,7 @@
 
 <aside class="side_right">
 	<section class="box" id="system_box">
-		<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_settings.png"/> System information</h2>
+		<h2>System information</h2>
 		
 		<table width="90%" align="center" style="margin-top:5px;margin-bottom:5px;">
 			<tr>
@@ -139,7 +139,7 @@
 	</section>
 
 	<section class="box">
-		<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_picture.png"/> Theme information</h2>
+		<h2>Theme information</h2>
 		
 		<table width="90%" align="center" style="margin-top:5px;margin-bottom:5px;">
 			<tr>
