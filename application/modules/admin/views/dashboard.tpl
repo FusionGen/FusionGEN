@@ -2,7 +2,7 @@
 <div class="statistics">
 	<span>Unique views</span>
 	<div class="image">
-		<img src="https://chart.googleapis.com/chart?chf=bg,s,FFFFFF&chxl=0:|{$graph.first_date}|{$graph.last_date}&chxp=0,12,87&chxr=1,0,{$graph.top+20}&chxs=1,676767,11.5,0,lt,676767&chxt=x,y&chs=667x190&cht=lc&chco=095a9d&chds=0,{$graph.top+20}&chd=t:{$graph.stack}&chdlp=l&chls=2&chma=5,5,5,5" />
+		<img src="https://chart.googleapis.com/chart?chf=bg,s,1e1e1e&chxl=0:|{$graph.first_date}|{$graph.last_date}&chxp=0,12,87&chxr=1,0,{$graph.top+20}&chxs=1,fff,11.5,0,lt,fff&chxt=x,y&chs=667x190&cht=lc&chco=095a9d&chds=0,{$graph.top+20}&chd=t:{$graph.stack}&chdlp=l&chls=2&chma=5,5,5,5" />
 	</div>
 </div>
 {/if}
@@ -129,12 +129,12 @@
 			</tr>
 			<tr>
 				<td>CMS version</td>
-				<td style="text-align:right;">{$version}</td>
+				<td style="text-align:right;">1.0.1</td>
 			</tr>
 		</table>
 		<div id="update" style="display:none;">
 			<div class="divider"></div>
-			<a href="http://www.fusion-hub.com/account/updates" class="button">An update is available</a>
+			<a href="#" class="button">An update is available</a>
 		</div>
 	</section>
 
