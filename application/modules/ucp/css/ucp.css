@@ -65,7 +65,7 @@
 #ucp_buttons a {
 	display:block;
 	width:330px;
-	height:93px;
+	height:75px;
 	background-position:0px 0px;
 	float:left;
 	margin-bottom:15px;
@@ -73,7 +73,7 @@
 }
 
 #ucp_buttons a:hover {
-	background-position:0px 93px;
+	background-position:0px 75px;
 }
 
 #ucp_characters {
