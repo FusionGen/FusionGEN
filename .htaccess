@@ -1,16 +1,28 @@
+# Required Rewrite Rule
+
+# remove "#" to enable the https requirement
+	#RewriteEngine On
+	#RewriteCond !{HTTPS} off
+	#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	#RewriteCond %{HTTP_HOST} !^www\.
+	#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# remove "#" to enable the https requirement
+
+<ifModule mod_rewrite.c>
+	RewriteEngine On
+        
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ ./index.php?/$1 [L]
+</ifModule>
+# Required Rewrite Rule 
+
 # Don't want people snoopin in folders
 <Files ~ "\.tpl$">
   Order allow,deny
   Deny from all
 </Files>
 # Don't want people snoopin in folders
-
-# HTTPS + WWW Force. TO ENABLE remove "#" at line 2 to 6
-#RewriteEngine On
-#RewriteCond !{HTTPS} off
-#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-#RewriteCond %{HTTP_HOST} !^www\.
-#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Request Recommended by Mozilla
 <IfModule mod_setenvif.c>
@@ -32,13 +44,6 @@
 </IfModule>
 # Allow Webfont access from other locations. (handy)
 
-# More Rewrite Engine
-<IfModule mod_rewrite.c>
-  Options +FollowSymlinks
-  RewriteEngine On
-</IfModule>
-# More Rewrite Engine
-
 # Prevent 404 Errors for Non-Existing Redirected Folders
 Options -MultiViews
 ErrorDocument 404 /error
@@ -47,11 +52,6 @@ AddDefaultCharset utf-8
 # Disallow users to view folders with no content
 <IfModule mod_autoindex.c>
   Options -Indexes
-</IfModule>
-<IfModule mod_rewrite.c>
-  RewriteCond %{SCRIPT_FILENAME} -d [OR]
-  RewriteCond %{SCRIPT_FILENAME} -f
-  RewriteRule "(^|/)\." - [F]
 </IfModule>
 <FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
   Order allow,deny
@@ -69,24 +69,6 @@ ModPagespeedEnableFilters convert_png_to_jpeg,convert_jpeg_to_webp
 ModPagespeedEnableFilters collapse_whitespace,remove_comments
 </IfModule>
 # We also want to compress / minify CSS, Images, Remove HTML Whitespace and Comments
-
-# Rewrite Module Start
-<IfModule mod_rewrite.c>
-Options -MultiViews
-RewriteEngine On
-RewriteBase /forums/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule \.(js|css|jpeg|jpg|gif|png|ico|map)(\?|$) /404error.html [L,NC]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
-</IfModule>
-# Rewrite Module End
 
 #Alternative caching using Apache's "mod_headers", if it's installed.
 #Caching of common files - ENABLED

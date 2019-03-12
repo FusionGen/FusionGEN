@@ -34,7 +34,7 @@
 						<div class="description">World of Warcraft Burning Crusade Private Server
 								</br>With a Blizzlike playstyle consisting of 5x faster than the original speed.
 									</br>Experience a true Burning Crusade feeling today!
-									</br></br><a href="https://www.stormrage.org/register">Register Here</a></div>
+									</br></br><a href="https://www.yourdomain.com/register">Register Here</a></div>
 									<b><br/>
 								{if $isOnline}
 							<p>
