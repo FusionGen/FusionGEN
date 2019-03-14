@@ -85,14 +85,5 @@
 				<span></span>
 			</div>
 		</footer>
-		        <script type="text/javascript" id="cookieinfo"
-	                src="//cookieinfoscript.com/js/cookieinfo.min.js"
-	                data-bg="#1e1e1e"
-	                data-fg="#3d3d3d"
-	                data-link="#dc8044"
-	                data-cookie="CookieInfoScript"
-	                data-text-align="left"
-                    data-close-text="Got it!">
-                </script>
 	</body>
 </html>
