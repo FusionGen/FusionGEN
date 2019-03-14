@@ -32,10 +32,11 @@
 						<span>Welcome to {$serverName}</span>
 							<p>
 						<div class="description">World of Warcraft Burning Crusade Private Server
-								</br>With a Blizzlike playstyle consisting of 5x faster than the original speed.
-									</br>Experience a true Burning Crusade feeling today!
-									</br></br><a href="https://www.yourdomain.com/register">Register Here</a></div>
-									<b><br/>
+									This is description for my amazing project!
+							</br>	Within this box i can write a lot of nice things!
+							</br>	Hope you are having an amazing day and that this gave you a little laugh.
+							</br></br><a href="{$url}register">Sign up here</a> | <b><a href="{$url}page/connect">How to Connect</a></b> | <b><a href="{$url}armory">Armory</a></b></div>
+							<b><br/>
 								{if $isOnline}
 							<p>
 								{else}
