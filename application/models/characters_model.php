@@ -32,7 +32,7 @@ class Characters_model
 	{
 		if(empty($this->db))
 		{
-			$this->db = &get_instance()->load->database($this->config['characters'], true);
+			$this->db = get_instance()->load->database($this->config['characters'], true);
 		}
 	}
 	
