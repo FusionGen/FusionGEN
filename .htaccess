@@ -46,7 +46,7 @@
 
 # Prevent 404 Errors for Non-Existing Redirected Folders
 Options -MultiViews
-ErrorDocument 404 /error
+ErrorDocument 404 error/index.html
 # we also want UTF-8 Encoding
 AddDefaultCharset utf-8
 # Disallow users to view folders with no content
