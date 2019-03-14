@@ -31,7 +31,7 @@
 						<div class="body">
 						<span>Welcome to {$serverName}</span>
 							<p>
-						<div class="description">World of Warcraft Burning Crusade Private Server
+						<div class="description">
 									This is description for my amazing project!
 							</br>	Within this box i can write a lot of nice things!
 							</br>	Hope you are having an amazing day and that this gave you a little laugh.
