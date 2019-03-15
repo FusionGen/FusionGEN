@@ -34,23 +34,23 @@
 
 require('application/config/database.php');
 
-$c1 = mysql_connect($db['cms']['hostname'].((array_key_exists("port", $db['cms'])) ? ":".$db['cms']['port'] : ""), $db['cms']['username'], $db['cms']['password']) or die("<div class='error'>MySQL connection to CMS database  could not be established: ".mysql_error()."</div>");
-mysql_select_db($db['cms']['database'], $c1) or die("<div class='error'>MySQL connection to CMS database could not be established: ".mysql_error()."</div>");
+$c1 = mysqli_connect($db['cms']['hostname'].((array_key_exists("port", $db['cms'])) ? ":".$db['cms']['port'] : ""), $db['cms']['username'], $db['cms']['password']) or die("<div class='error'>mysql connection to CMS database  could not be established: ".mysqli_error()."</div>");
+mysqli_select_db($db['cms']['database'], $c1) or die("<div class='error'>mysql connection to CMS database could not be established: ".mysqli_error()."</div>");
 
 echo "<div>CMS connection successful</div>";
 
-$c2 = mysql_connect($db['account']['hostname'].((array_key_exists("port", $db['account'])) ? ":".$db['account']['port'] : ""), $db['account']['username'], $db['account']['password']) or die("<div class='error'>MySQL connection to Realmd/logon/auth database could not be established: ".mysql_error()."</div>");
-mysql_select_db($db['account']['database'], $c2) or die("<div class='error'>MySQL connection to Realmd/logon/auth database could not be established: ".mysql_error()."</div>");
+$c2 = mysqli_connect($db['account']['hostname'].((array_key_exists("port", $db['account'])) ? ":".$db['account']['port'] : ""), $db['account']['username'], $db['account']['password']) or die("<div class='error'>mysqli connection to Realmd/logon/auth database could not be established: ".mysqli_error()."</div>");
+mysqli_select_db($db['account']['database'], $c2) or die("<div class='error'>mysqli connection to Realmd/logon/auth database could not be established: ".mysqli_error()."</div>");
 
 echo "<div>Realmd/logon/auth connection successful</div>";
 
 if($c1)
 {
-	mysql_select_db($db['cms']['database'], $c1) or die("<div class='error'>MySQL connection could not be established: ".mysql_error()."</div>");
-	$realms = mysql_query("SELECT * FROM realms", $c1) or die("<div class='error'>Realms table: ".mysql_error()."</div>");
-	$row = mysql_fetch_assoc($realms);
+	mysqli_select_db($db['cms']['database'], $c1) or die("<div class='error'>mysqli connection could not be established: ".mysqli_error()."</div>");
+	$realms = mysqli_query("SELECT * FROM realms", $c1) or die("<div class='error'>Realms table: ".mysqli_error()."</div>");
+	$row = mysqli_fetch_assoc($realms);
 
-	if(mysql_num_rows($realms))
+	if(mysqli_num_rows($realms))
 	{
 		do
 		{
@@ -64,13 +64,13 @@ if($c1)
 			$world['password'] = (array_key_exists("override_password_world", $row) && !empty($row['override_password_world'])) ? $row['override_password_world'] : $row['password'];
 			$world['port'] = (array_key_exists("override_port_world", $row) && !empty($row['override_port_world'])) ? ":".$row['override_port_world'] : "" ;
 
-			$r_char[$row['id']] = mysql_connect($char['hostname'].$char['port'], $char['username'], $char['password']) or die("<div class='error'>".$row['realmName']." error:".mysql_error()."</div>");
-			$r_world[$row['id']] = mysql_connect($world['hostname'].$world['port'], $world['username'], $world['password']) or die("<div class='error'>".$row['realmName']." error:".mysql_error()."</div>");
+			$r_char[$row['id']] = mysqli_connect($char['hostname'].$char['port'], $char['username'], $char['password']) or die("<div class='error'>".$row['realmName']." error:".mysqli_error()."</div>");
+			$r_world[$row['id']] = mysqli_connect($world['hostname'].$world['port'], $world['username'], $world['password']) or die("<div class='error'>".$row['realmName']." error:".mysqli_error()."</div>");
 
 			echo "<div class='realm'>Realm #".$row['id']." (".$row['realmName'].") connections (world & characters) successful</div>";
 
-			mysql_select_db($row['char_database'], $r_char[$row['id']]) or die("<div class='error'>".$row['realmName']." database error: ".mysql_error()."</div>");
-			mysql_select_db($row['world_database'], $r_char[$row['id']]) or die("<div class='error'>".$row['realmName']." database error: ".mysql_error()."</div>");
+			mysqli_select_db($row['char_database'], $r_char[$row['id']]) or die("<div class='error'>".$row['realmName']." database error: ".mysqli_error()."</div>");
+			mysqli_select_db($row['world_database'], $r_char[$row['id']]) or die("<div class='error'>".$row['realmName']." database error: ".mysqli_error()."</div>");
 
 			try {
 				$connect = fsockopen($row['hostname'], $row['realm_port'], $errno, $errstr, 1.5);
@@ -89,7 +89,7 @@ if($c1)
 				echo "<div class='error'>".$error->getMessage()."</div>";
 			}
 		}
-		while($row = mysql_fetch_assoc($realms));
+		while($row = mysqli_fetch_assoc($realms));
 	}
 	else
 	{
