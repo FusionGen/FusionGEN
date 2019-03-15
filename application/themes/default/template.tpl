@@ -80,7 +80,9 @@
 		<footer>
 			<div class="footer">
 				<center><a href="{$url}page/tos"> Terms of Service </a> - <a href="{$url}contact-us"> Contact Us</a>
-				</br>Copyright © {$serverName}™ 2019. All Rights Reserved.
+				- <a href="{$url}#"> Frequently Asked Questions </a>
+				</br><a href="#"> Facebook </a> - <a href="#"> Twitter</a>
+				</br></br>Copyright © {$serverName}™ 2019. All Rights Reserved.
 				</br>Initial Code by E.Darksider - Reworked and Designed by OMGhixD
 				</br></br> Powered by <a href="https://gitlab.com/omghixd/fusiongen">FusionGEN</center>
 				<span></span>
