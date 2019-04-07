@@ -89,18 +89,24 @@ class Settings extends MX_Controller
 
 		switch($this->input->post('disabled_expansions'))
 		{
+			case "wod":
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Legion"));
+			break;
+			case "mop":
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"));
+			break;
+			case "cata":
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"));
+			break;
 			case "wotlk":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Cataclysm"));
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"));
 			break;
-
 			case "tbc":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"));
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"));
 			break;
-
 			case "none":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("TBC"), $this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"));
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("TBC"), $this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"));
 			break;
-
 			default:
 				$disabled_expansions = array();
 			break;
