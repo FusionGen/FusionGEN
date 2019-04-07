@@ -27,7 +27,7 @@ class Trinity_rbac_wod_soap implements Emulator
 	 * Array of expansion ids and their corresponding names
 	 */
 	protected $expansions = array(
-		7 => "Battle for Azeroth",
+		8 => "Battle for Azeroth",
 		7 => "Legion Allied Races",
 		6 => "Legion",
 		5 => "Warlords of Draenor",
