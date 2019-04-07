@@ -16,13 +16,17 @@
 $lang['user_panel'] = "User panel";
 $lang['change_avatar'] = "Change avatar";
 $lang['nickname'] = "Nickname";
+$lang['change_nickname'] = "Change Name";
 $lang['location'] = "Location";
+$lang['change_location'] = "Change Location";
 $lang['expansion'] = "Expansion";
 $lang['account_rank'] = "Account rank";
 $lang['voting_points'] = "Voting points";
 $lang['donation_points'] = "Donation points";
 $lang['account_status'] = "Account status";
 $lang['member_since'] = "Member since";
+$lang['data_tip_vote'] = "Earn Vote Points by Voting for the Server";
+$lang['data_tip_donate'] = "Earn Donation Points by Donating to the Server";
 
 // Avatar
 $lang['change_avatar'] = "Change avatar";
@@ -36,6 +40,11 @@ $lang['using_email'] = "using the following email:";
 
 // Settings
 $lang['settings'] = "Account settings";
+
+$lang['old_password'] = "Old password";
+$lang['new_password'] = "New password";
+$lang['new_password_confirm'] = "Confirm password";
+$lang['new_password_submit'] = "Change password";
 
 $lang['nickname_error'] = "Nickname must be between 4 and 14 characters long and may only contain letters and numbers";
 $lang['location_error'] = "Location may only be up to 32 characters long and may only contain letters";
@@ -53,6 +62,8 @@ $lang['invalid_expansion'] = "The expansion you selected does not exists!";
 $lang['expansion'] = "Expansion";
 $lang['none'] = "None";
 
+$lang['change_information'] = "Change information";
+
 /**
  * Only translate these if World of Warcraft does it themselves,
  * otherwise you'll confuse people who expect to see them in English
@@ -61,3 +72,7 @@ $lang['tbc'] = "The Burning Crusade";
 $lang['wotlk'] = "Wrath of The Lich King";
 $lang['cataclysm'] = "Cataclysm";
 $lang['mop'] = "Mists of Pandaria";
+$lang['wod'] = "Warlods of Draenor";
+$lang['leg'] = "Legion";
+$lang['legr'] = "Legion Allied Races";
+$lang['bfa'] = "Battle for Azeroth";
