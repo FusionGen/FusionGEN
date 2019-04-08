@@ -21,7 +21,7 @@ $lang['races'] = array(
 	27 => "Nightborne",
 	28 => "Highmountain Tauren",
 	29 => "Void Elf",
-	30 => "Lightforged Draenei",
+	30 => "Lightforged Draenei"
 );
 
 $lang['classes'] = array(
@@ -35,6 +35,6 @@ $lang['classes'] = array(
 	8 => "Mage",
 	9 => "Warlock",
 	10 => "Monk",
-	11 => "Druid"
+	11 => "Druid",
 	12 => "Demon Hunter"
 );
