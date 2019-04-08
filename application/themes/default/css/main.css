@@ -27,7 +27,7 @@
 
 /* =========== General =========== */
 body {
-	color: #3d3d3d;
+	color: #5c5c5c;
 	margin: 0;
 	padding: 0;
 	font-size: 12px;
@@ -1259,8 +1259,8 @@ footer .footer span {
 .description
 {
     font-weight: normal;
-    color: #3d3d3d;   
-    margin-top: -15px;
+    color: #5c5c5c;
     padding: 0;
+	margin-top: -15px;
     margin-left: 30px;
 }
