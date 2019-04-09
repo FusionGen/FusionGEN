@@ -4690,4 +4690,3 @@ $lang['zones'] = array(
     7856 => 'Tanaan Jungle Flight Bounds',
     7941 => 'Ashran Surrounding Water'
 );
-);
