@@ -27,7 +27,7 @@
 
 /* =========== General =========== */
 body {
-	color: #5c5c5c;
+	color: #f6f6f6;
 	margin: 0;
 	padding: 0;
 	font-size: 12px;
@@ -77,7 +77,7 @@ input, select, textarea {
 }
 
 a {
-	color: #dc8044;
+	color: #ffa800;
 	text-decoration: none;
 	-webkit-transition: all 0.8s;
     -moz-transition: all 0.8s;
@@ -313,10 +313,14 @@ a img {
 	-webkit-box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
 }
 
-.welcome_to .body {}
+.welcome_to .body 
+{
+	
+	
+}
 
 .welcome_to .body span {
-	color: #dc8044;
+	color: #ffa800;
 	margin: 0 0 10px 25px;
 	display: block;
 	padding: 25px 0 0 0;
@@ -326,7 +330,7 @@ a img {
 
 .welcome_to .body p {
 	width: 540px;
-	color: #525252;
+	color: #f6f6f6;
 	margin: 0 0 0 25px;
 	display: inline-block;
 	font-size: 15px;
@@ -343,7 +347,7 @@ a img {
 }
 
 .box .head {
-	color: #333d3d;
+	color: #ffa800;
 	display: block;
 	font-family: calibrib;
 	text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.75);
@@ -433,7 +437,7 @@ a img {
 }
 
 #left #left-menu li a {
-	color: #3d3d33;
+	color: #b7b7b7;
 	display: block;
 	padding: 12px 0 15px 45px;
 	font-size: 15px;
@@ -516,7 +520,7 @@ a img {
 
 #right article  .head a,
 #right article  .head a:hover {
-	color: #dc8044;
+	color: #ffa800;
 	text-shadow: 0px 1px 3px #000000ba;
 	text-transform: capitalize;
 }
@@ -564,7 +568,7 @@ a img {
 }
 
 #right article .foot a {
-	color: #dc8044;
+	color: #ffa800;
 }
 
 #right article .foot a:hover {
@@ -694,11 +698,11 @@ footer .footer span {
 .nice_button, input[type="submit"] {
 	width: auto;
 	height: 18px;
-	color: #2f3d33;
+	color: #b7b7b7;
 	cursor: pointer;
-	border: 1px #dc8044 solid;
+	border: 1px #ffa800 solid;
 	padding: 8px 21px;
-	-moz-transition: all 0.8s;
+    transition:all 0.3s ease;
 	background: linear-gradient(to bottom, #1e1e1e 0%,#1e1e1e 100%);
 	font-size: 12px;
 	font-weight: bold;
@@ -712,8 +716,8 @@ footer .footer span {
 .nice_button:hover, input[type="submit"]:hover {
 	color: #fff;
 	border: 1px #3d3d3d solid;
-	-moz-transition: all 0.8s;
-	background: linear-gradient(to bottom, #dc8044 0%,#dc8044 100%);
+    transition:all 0.3s ease;
+	background: linear-gradient(to bottom, #232323 0%,#232323 100%);
 	box-shadow: inset 0 0 10px rgba(255,204,0,.02),inset 0 0 10px rgba(0,0,0,.15), inset 0 0 0 1px rgba(255,255,255,.02), 
 				inset 0 2px 0 rgba(255,255,255,.05), 0 0 6px rgba(0,0,0,.4);
 }
@@ -721,9 +725,9 @@ footer .footer span {
 .nice_active {
 	color: #2f3d33;
 	border: 1px #3d3d3d solid;
-	-moz-transition: all 0.8s;
+    transition:all 0.3s ease;
 	font-weight: bold;
-	background: linear-gradient(to bottom, #dc8044 0%,#dc8044 100%);
+	background: linear-gradient(to bottom, #ffa800 0%,#ffa800 100%);
 	box-shadow: inset 0 0 10px rgba(255,204,0,.02),inset 0 0 10px rgba(0,0,0,.15), inset 0 0 0 1px rgba(255,255,255,.02), 
 				inset 0 2px 0 rgba(255,255,255,.05), 0 0 6px rgba(0,0,0,.4);
 }
@@ -731,8 +735,8 @@ footer .footer span {
 .nice_active:hover {
 	color: #fff;
 	border: 1px #3d3d3d solid;
-	-moz-transition: all 0.8s;
-	background: linear-gradient(to bottom, #dc8044 0%,#dc8044 100%);
+    transition:all 0.3s ease;
+	background: linear-gradient(to bottom, #ffa800 0%,#ffa800 100%);
 	box-shadow: inset 0 0 10px rgba(255,204,0,.02),inset 0 0 10px rgba(0,0,0,.15), inset 0 0 0 1px rgba(255,255,255,.02), 
 				inset 0 2px 0 rgba(255,255,255,.05), 0 0 6px rgba(0,0,0,.4);
 }
@@ -1259,8 +1263,14 @@ footer .footer span {
 .description
 {
     font-weight: normal;
-    color: #5c5c5c;
+    color: #f6f6f6;
     padding: 0;
 	margin-top: -15px;
     margin-left: 30px;
+}
+
+.realmlist
+{
+	color: #ffa800;
+	
 }

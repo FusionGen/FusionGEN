@@ -35,7 +35,7 @@
 									This is description for my amazing project!
 							</br>	Within this box i can write a lot of nice things!
 							</br>	Hope you are having an amazing day and that this gave you a little laugh.
-							</br></br><a href="{$url}register">Sign up here</a> | <b><a href="{$url}page/connect">How to Connect</a></b> | <b><a href="{$url}armory">Armory</a></b></div>
+							</br></br><a href="{$url}register">Register an Account</a> | <b><a href="{$url}page/connect">How to Connect</a></b> | <b><a href="{$url}armory">Armory</a></b></div>
 							<b><br/>
 								{if $isOnline}
 							<p>

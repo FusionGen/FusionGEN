@@ -18,7 +18,7 @@
 <section class="realmlist-info box">
 	<div class="body">
 		<div class="realmlist">
-			<span style="color: #dc8044;">set realmlist {$realmlist} </span>
+			set realmlist {$realmlist}
 			</div>
 	</div>
 </section>
