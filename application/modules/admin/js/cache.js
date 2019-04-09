@@ -34,9 +34,9 @@ var Fusion_Cache = {
 			}
 		}, 150);
 
-		$.get(Config.URL + "admin/Cachemanager/get", function(data)
+		$.get(Config.URL + "admin/cachemanager/get", function(data)
 		{
-			$("#Cache_data").html(data);
+			$("#cache_data").html(data);
 		});
 	},
 
@@ -84,7 +84,7 @@ var Fusion_Cache = {
 		Fusion_Cache.calculateTotal();
 		Fusion_Cache.progressBars(type);
 
-		$.get(Config.URL + "admin/Cachemanager/delete/" + type, function(data)
+		$.get(Config.URL + "admin/cachemanager/delete/" + type, function(data)
 		{
 			switch(type)
 			{
