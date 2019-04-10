@@ -464,8 +464,8 @@ input[type="email"]:focus {
 
 #left .realm .realm_bar, .poll_bar {
 	height: 13px;
-	border: 1px solid #080e14;
-	background-color: #000000;
+	border: 1px solid #ffa800;
+	background-color: #1e1e1e;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;

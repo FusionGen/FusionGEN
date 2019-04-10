@@ -12,8 +12,8 @@
  *	will automatically look in that folder too.
  */
 
-$lang['show_results'] = "Show results";
+$lang['show_results'] = "Results";
 $lang['no_answers'] = "This question has no answers";
 $lang['no_poll'] = "There is currently no active poll";
-$lang['show_options'] = "Show options";
+$lang['show_options'] = "Options";
 $lang['log_in'] = "Please log in to vote!";

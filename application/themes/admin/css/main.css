@@ -28,13 +28,12 @@
 /* General */
 body {
 	font-family:'MuseoSans', Arial, Helvetica, Sans-serif;
-	color:#393939;
+	color:#ffa800;
 	background-color:#3b3b3b;
 	line-height:1.5;
 	font-size:14px;
 	margin:0px;
 	padding:0px;
-	background-image:url(../images/bg_tile.gif);
 }
 
 a {
@@ -244,7 +243,7 @@ header nav .active:hover {
 
 #main .left nav .sub a:hover {
 	padding-left:60px;
-	color:#999;
+	color:#fff;
 }
 
 #main .left nav .sub .active:hover {
@@ -322,7 +321,7 @@ header nav .active:hover {
 	text-shadow:1px 1px 1px #000;
 	text-align:center;
 	font-size:16px;
-	color:#eee;
+	color:#ffa800;
 	font-weight:normal;
 	font-family:'MuseoSlab', Arial, Helvetica, Sans-serif;
 }
@@ -433,11 +432,10 @@ header nav .active:hover {
 	position:absolute;
 	font-family:MuseoSlab;
 	font-size:16px;
-	color:#dc8044;
+	color:#ffa800;
 	width:660px;
 	padding:5px;
 	text-align:right;
-	opacity:0.6;
 }
 
 #main .right .statistics .image {
@@ -465,7 +463,7 @@ header nav .active:hover {
 	float:left;
 	width:231px;
 	min-height:150px;
-	color:#3d3d3d;
+	color:#cfcfcf;
 	padding-top:5px;
 }
 
@@ -548,6 +546,7 @@ header nav .active:hover {
 	margin:0px;
 	padding:10px;
 	padding-left:15px;
+	background-color: #414141;
 }
 
 #main .right .box li:hover td img {
@@ -574,7 +573,7 @@ header nav .active:hover {
 }
 
 #main .right .box li:nth-child(odd) {
-	background-color:#1e1e1e;
+	background-color:#414141;
 }
 
 #main .right .box li .button, #main .right .side_right .box .button, input[type="submit"], .nice_button {
