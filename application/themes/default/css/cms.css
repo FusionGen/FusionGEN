@@ -296,7 +296,7 @@
 textarea {
 	width: auto;
 	height: auto;
-	color: #4e4e4e;
+	color: #fff;
 	border: none;
 	resize: none !important;
 	padding: 8px;
@@ -304,7 +304,7 @@ textarea {
 	font-family: Arial,Helvetica,sans-serif;
 	-webkit-border-radius: 3px;
 	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
-	background: #0b0b0b;
+	background: #181818;
 	transition: all 300ms;
 	-moz-transition: all 300ms;
 	-webkit-transition: all 300ms;
@@ -359,7 +359,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"] {
 	width: 80%;
-	color: #4c4038;
+	color: #fff;
 	border: none;
 	margin: 5px;
 	padding: 8px;
@@ -571,7 +571,7 @@ input[type="email"]:focus {
 	border-bottom: 1px solid rgba(14,24,32,0.5);
 	border-top: 1px solid rgba(0,0,0,0.9);
 	padding: 10px;
-	color: #3d4346;
+	color: #8d8d8d;
 }
 
 #left #the_shouts .shout:first-child {
