@@ -1,0 +1,13 @@
+Options -Indexes
+# or #
+IndexIgnore *
+
+<Files ~ "\.tpl$">
+  Order allow,deny
+  Deny from all
+</Files>
+
+<Files ~ "\.json$">
+  Order allow,deny
+  Deny from all
+</Files>

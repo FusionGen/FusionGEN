@@ -1,0 +1,19 @@
+{
+	"name": "FusionGEN Default Theme",
+	"author": "CUSSED / E.Darksider / OMGhixD",
+	"website": "https://gitlab.com/omghixd/fusiongen",
+	
+	"favicon": "favicon.ico",
+
+	"normal_avatar": "avatars/0_normal.jpg",
+	"small_avatar": "avatars/0_small.jpg",
+
+	"slider_text": {
+		"next": "&#155;",
+		"previous": ""
+	},
+
+	"slider_id": "",
+	"screenshot": "images/screenshot.jpeg",
+	"blank_header": ""
+}
