@@ -385,7 +385,6 @@ class User
 		$default = $this->CI->template->image_path.$this->CI->template->theme_data[$size.'_avatar'];
 
 		$email = $this->CI->external_account_model->getEmail($id);
-
 		return "https://secure.gravatar.com/avatar/".md5(strtolower(trim($email)))."?d=".urlencode($default)."&s=".$px;
 	}
 	
