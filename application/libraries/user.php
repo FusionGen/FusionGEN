@@ -5,7 +5,7 @@
  * @author Jesper Lindström
  * @author Xavier Geerinck
  * @author Elliott Robbins
- * @link http://fusion-hub.com
+ * @link https://www.fusiongen.org
  */
 
 class User
@@ -212,7 +212,7 @@ class User
 	/**
 	 * Check if rank A is bigger than rank B
 	 * Necessary to compare number-based ranks
-	 * with "az" and "a" ranks in ArcEmu.
+	 * with "az" and "a" ranks in ArcEmu & AscEmu.
 	 * @param Mixed $a
 	 * @param Mixed $b
 	 * @return Boolean

@@ -124,8 +124,8 @@ class External_account_model extends CI_Model
 			column("account", "joindate") => date("Y-m-d")
 		);
 
-		// Fix for ArcEmu
-		if(get_class($this->realms->getEmulator()) == "Arcemu")
+		// Fix for ArcEmu & AscEmu
+		if((get_class($this->realms->getEmulator()) == "Arcemu") || (get_class($this->realms->getEmulator()) == "AscEmu"))
 		{
 			$data['banned'] = 0;
 		}

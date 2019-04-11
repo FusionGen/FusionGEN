@@ -134,7 +134,7 @@ class Install
 			$config->set($key, $value);
 		}
 
-		if(in_array($_POST['emulator'], array('arcemu', 'summitemu')))
+		if(in_array($_POST['emulator'], array('arcemu', 'summitemu', 'ascemu')))
 		{
 			switch($_POST['expansion'])
 			{
@@ -340,6 +340,10 @@ $db["account"]["stricton"] = FALSE;';
 			case "summitemu":
 				$this->SplitSQL("SQL/ranks_arcemu.sql");
 			break;
+			
+			case "ascemu":
+                $this->SplitSQL("SQL/ranks_ascemu.sql");
+            break;
 
 			case "mangos_ra":
 			case "mangos_soap":
