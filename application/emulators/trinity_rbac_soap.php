@@ -45,7 +45,7 @@ class Trinity_rbac_soap implements Emulator
 		"character_stats" => "character_stats",
 		"guild_member" => "guild_member",
 		"guild" => "guild",
-		"gm_tickets" => "gm_tickets"
+		"gm_tickets" => "gm_ticket"
 	);
 
 	/**
@@ -152,9 +152,9 @@ class Trinity_rbac_soap implements Emulator
 		),
 
 		"gm_tickets" => array(
-			"ticketId" => "ticketId",
-			"guid" => "guid",
-			"message" => "message",
+			"ticketId" => "Id",
+			"guid" => "playerGuid",
+			"message" => "description",
 			"createTime" => "createTime",
 			"completed" => "completed",
 			"closedBy" => "closedBy"
