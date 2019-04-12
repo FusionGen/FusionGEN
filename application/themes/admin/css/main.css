@@ -185,7 +185,6 @@ header nav .active:hover {
 
 /* Main layout body */
 #wrapper {
-	background-image:url(../images/upper_bg.png);
 	background-repeat:no-repeat;
 	background-position:top center;
 	margin-left:auto;
