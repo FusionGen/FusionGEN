@@ -332,13 +332,13 @@ select {
 	
 	-webkit-user-select: none;
 	-moz-appearance: none;
-    background: #171717 url(../images/select-arrow-hover.png) no-repeat 98.7% center !important;
+    background: #171717 !important;
 	/* Removes default arrow from firefox */
 	text-overflow: "";
 }
 
 select:focus {
-	background: #171717 url(../images/select-arrow-hover.png) no-repeat 98.7% center !important;
+	background: #171717 !important;
 	-webkit-box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
 }
 
