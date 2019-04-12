@@ -83,7 +83,7 @@ class Trinity_rbac_wod_soap implements Emulator
 			"last_login" => "last_login",
 			"online" => "online",
 			"locale" => "locale",
-			"LoginTicket" => "LoginTicket"
+			"LoginTicket" => "LoginTicket",
 			"LoginTicketExpiry" => "LoginTicketExpiry"
 		),
 
