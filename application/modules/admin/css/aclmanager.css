@@ -37,10 +37,10 @@
 }
 
 .memberList {
-	background-color:#fff;
-	border-radius:5px;
-	padding:5px 10px;
-	border:1px solid #ccc;
+	background-color: #1e1e1e;
+	border-radius: 5px;
+	padding: 5px 10px;
+	border: 1px solid #dc8044;
 }
 
 .memberList a img, .memberList a {
