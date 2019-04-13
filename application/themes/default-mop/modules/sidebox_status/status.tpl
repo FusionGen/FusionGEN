@@ -17,13 +17,23 @@
 
 <section class="realmlist-info box">
 	<div class="body">
-		<div class="realmlist">
-			set realmlist {$realmlist}
-			</div>
+		<div class="realmlist">set realmlist {$realmlist}&nbsp;&nbsp;<i data-tip="Copy to clipboard" style="color:white; cursor:pointer;" onclick="copyToClipboard()" class="far fa-copy"></i></div>
+
 	</div>
 </section>
 
 <script type="text/javascript">
 	// The cleanest way, but hacky :/
 	$('.realmlist-info.box').insertAfter($('.realmlist-info.box').parents('.box').addClass('type-status')).css('display', 'block');
+    Tooltip.refresh();
+
+    function copyToClipboard() {
+        var temp = $("<input>");
+        $("body").append(temp);
+        temp.val($('.realmlist').text()).select();
+        document.execCommand("copy");
+        temp.remove();
+        $('#tooltip').text('Copied!');
+    }
+
 </script>

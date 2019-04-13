@@ -18,7 +18,8 @@ Current FusionGEN Version: 1.0.1
 		<link rel="stylesheet" href="{$style_path}cms.css" type="text/css" />
 		<link rel="stylesheet" href="{$style_path}main.css" type="text/css" />
 		{if $extra_css}<link rel="stylesheet" href="{$path}{$extra_css}" type="text/css" />{/if}
-		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 		<link rel="shortcut icon" href="{$favicon}" />
 		
 		<!-- Search engine related -->
