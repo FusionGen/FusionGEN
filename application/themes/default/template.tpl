@@ -17,11 +17,7 @@
 			</header>
 			
 			<div class="search_bar">
-				
 			</div>
-			
-			
-			
 			<div id="main">
 				<div class="middle_background"></div>
 				

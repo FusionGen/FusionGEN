@@ -17,11 +17,7 @@
 			</header>
 			
 			<div class="search_bar">
-				
 			</div>
-			
-			
-			
 			<div id="main">
 				<div class="middle_background"></div>
 				
@@ -35,13 +31,8 @@
 									This is description for my amazing project!
 							</br>	Within this box i can write a lot of nice things!
 							</br>	Hope you are having an amazing day and that this gave you a little laugh.
-							</br></br><a href="{$url}register">Register an Account</a> | <b><a href="{$url}page/connect">How to Connect</a></b> | <b><a href="{$url}armory">Armory</a></b></div>
+							</br></br>{if !$isOnline}<a href="{$url}register">Register an Account</a> | {/if}<b><a href="{$url}page/connect">How to Connect</a></b> | <b><a href="{$url}armory">Armory</a></b></div>
 							<b><br/>
-								{if $isOnline}
-							<p>
-								{else}
-							{/if}
-							</p>
 						</div>
 					</div>
 					
