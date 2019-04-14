@@ -79,7 +79,7 @@ input, select, textarea {
 a {
 	color: #ffa800;
 	text-decoration: none;
-	-webkit-transition: all 0.8s;
+	transition: all 0.8s;
     -moz-transition: all 0.8s;
     -ms-transition: all 0.8s;
     -o-transition: all 0.8s;
@@ -307,10 +307,10 @@ a img {
 	width: 734px;
 	height: 177px;
 	margin: 1px 0 11px 0;
-	-webkit-border-radius: 3px;
+	border-radius: 3px;
 	border: 1px #dc8044 solid;
 	background: url(../images/welcome_msg_bg.jpg) no-repeat;
-	-webkit-box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
+	box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
 }
 
 .welcome_to .body 
@@ -341,8 +341,8 @@ a img {
 /* =========== Boxes =========== */
 /*- Global -*/
 .box {
-	-webkit-box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
-	-webkit-border-radius: 5px;
+	box-shadow: 0 2px 15px 0 rgba(12, 12, 12, 0.95);
+	border-radius: 5px;
 
 }
 
@@ -392,7 +392,7 @@ a img {
 	background-color: transparent;
 	
 	-webkit-font-smoothing: antialiased;
-	-webkit-transform: translate3d( 0, 0, 0);
+	transform: translate3d( 0, 0, 0);
 	border-bottom: 1px #191919 solid;
 }
 
@@ -709,7 +709,7 @@ footer .footer span {
 	box-shadow: inset 0 0 10px rgba(0,0,0,.15), inset 0 0 0 1px rgba(255,255,255,.02), inset 0 2px 0 rgba(255,255,255,.05), 0 0 6px rgba(0,0,0,.4);
 	font-family: Arial, Helvetica, sans-serif;
 	text-shadow: 1px 1px 0 rgba(0,0,0,.2), 0 0 5px rgba(0,0,0,.2);
-	-webkit-border-radius: 3px;
+	border-radius: 3px;
 	text-transform: uppercase;
 }
 
@@ -1000,7 +1000,7 @@ footer .footer span {
 	#sidebox_login input[type=password] {
 		width: 94%;
 		margin: 5px 0;
-        -moz-transition: all 0.8s;
+       	transition: all 0.8s;
 	}
 
 	#sidebox_login input[type="submit"] {

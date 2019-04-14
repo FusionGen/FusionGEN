@@ -184,7 +184,7 @@ class Realms
 	 */
 	public function getAllianceRaces()
 	{
-		if(!count($this->allianceRaces))
+		if(!isset($this->allianceRaces))
 		{
 			$this->loadConstants();
 		}
@@ -198,7 +198,7 @@ class Realms
 	 */
 	public function getHordeRaces()
 	{
-		if(!count($this->hordeRaces))
+		if(!isset($this->hordeRaces))
 		{
 			$this->loadConstants();
 		}
@@ -213,7 +213,7 @@ class Realms
 	 */
 	public function getRace($id)
 	{
-		if(!count($this->races))
+		if(!isset($this->races))
 		{
 			$this->loadConstants();
 		}
@@ -235,7 +235,7 @@ class Realms
 	 */
 	public function getClass($id)
 	{
-		if(!count($this->classes))
+		if(!isset($this->classes))
 		{
 			$this->loadConstants();
 		}
@@ -257,7 +257,7 @@ class Realms
 	 */
 	public function getZone($zoneId)
 	{
-		if(!count($this->zones))
+		if(!isset($this->zones))
 		{
 			$this->loadZones();
 		}
