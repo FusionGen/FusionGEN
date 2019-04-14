@@ -45,18 +45,9 @@ body {
 	font-weight: normal;
 }
 
-header .menu, 
-header .menu ul, 
-header .menu li, 
-header h1, 
-.welcome_to, 
-.closeable, 
-#slider_bg, 
-.search_form, 
-.realm-st div, 
-.middle_background, 
-#right, 
-#right article, 
+header .menu, header .menu ul, header .menu li, header h1,
+.welcome_to, .closeable, #slider_bg, .search_form,
+.realm-st div, .middle_background, #right, #right article,
 #left {
 	position: relative;
 }
