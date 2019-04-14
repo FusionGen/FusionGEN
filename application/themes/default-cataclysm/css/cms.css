@@ -302,8 +302,8 @@ textarea {
 	padding: 8px;
 	font-size: 12px;
 	font-family: Arial,Helvetica,sans-serif;
-	-webkit-border-radius: 3px;
-	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
+	border-radius: 3px;
+	box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	background: #181818;
 	transition: all 300ms;
 	-moz-transition: all 300ms;
@@ -328,7 +328,7 @@ select {
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
+	box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	
 	-webkit-user-select: none;
 	-moz-appearance: none;
@@ -339,7 +339,7 @@ select {
 
 select:focus {
 	background: #171717 url(../images/select-arrow-hover.png) no-repeat 98.7% center !important;
-	-webkit-box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
+	box-shadow: inset 0 -1px 0 #23201c, 0 0 5px #000, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
 }
 
 /* Removes default arrow from IE */
@@ -368,15 +368,15 @@ input[type="email"] {
 	border-radius: 3px;
 	transition: 0.8s;
 	-webkit-border-radius: 3px;
-	-webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
+	box-shadow: inset 0 -1px 0 rgba(255,255,255,.1), 0 0 3px rgba(0,0,0,.2), inset 0 0 4px rgba(0,0,0,.9);
 	background: #171717;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
-	-webkit-box-shadow: inset 0 -1px 0 #f00, 0 0 5px #f00, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
-		transition: 0.8s;
+	box-shadow: inset 0 -1px 0 #f00, 0 0 5px #f00, inset 0 0 1px rgba(255,255,255,.02),inset 0 0 6px rgba(255,255,255,.1);
+	transition: 0.8s;
 	
 }
 
