@@ -23,7 +23,7 @@
 
 	<div class="search_result_character">
 		<a href="{$url}character/{$realmId}/{$leader.name}"><img width="54" height="54" src="{$url}application/images/avatars/{$leader.avatar}.gif" class="avatar"/></a>
-		<a class="color-c{$leader.race} name" href="{$url}character/{$realmId}/{$leader.guid}">{$leader.name}</a>
+		<a class="color-c{$leader.class} name" href="{$url}character/{$realmId}/{$leader.guid}">{$leader.name}</a>
 		<span>
 			<b>{$leader.level}</b> {$leader.raceName} {$leader.className}<br />
 			{lang("leader", "guild")}
@@ -35,7 +35,7 @@
 			{if $character.guid != $guild.leaderguid}
 				<div class="search_result_character">
 					<a href="{$url}character/{$realmId}/{$character.name}"><img width="54" height="54" src="{$url}application/images/avatars/{$character.avatar}.gif" class="avatar"/></a>
-					<a class="color-c{$character.race} name" href="{$url}character/{$realmId}/{$character.guid}">{$character.name}</a>
+					<a class="color-c{$character.class} name" href="{$url}character/{$realmId}/{$character.guid}">{$character.name}</a>
 					<span>
 						<b>{$character.level}</b> {$character.raceName} {$character.className}<br />
 						{$character.rname}
