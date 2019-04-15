@@ -1,0 +1,9 @@
+{
+  "name": "Sidebox: discord",
+  "description": "Show your Discord channel in the sidebar",
+  "author": {
+    "name": "MDJong",
+    "website": "https:\/\/www.cruel-wow.net"
+  },
+  "enabled": true
+}
