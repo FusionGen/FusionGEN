@@ -52,7 +52,7 @@ class AscEmu implements Emulator
 			"username" => "login",
 			"password" => "encrypted_password",
 			"email" => "email",
-			"joindate" => "lastlogin",
+			"joindate" => "joindate",
 			"last_ip" => "lastip",
 			"last_login" => "lastlogin",
 			"expansion" => "flags"
