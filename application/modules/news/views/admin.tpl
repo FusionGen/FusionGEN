@@ -7,7 +7,7 @@
 
 	{if hasPermission("canAddArticle")}
 		<span>
-			<a class="nice_button" href="javascript:void(0)" onClick="News.show()">Create article</a>
+			<a class="nice_button" href="javascript:void(0)" onClick="News.show()" >Create article</a>
 		</span>
 	{/if}
 
@@ -23,7 +23,7 @@
 						<td width="15%"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_chats.png" align="absbottom"/> &nbsp;{if $article.comments != -1}{$article.comments}{else}Off{/if}</td>
 						<td style="text-align:right;">
 							{if hasPermission("canEditArticle")}
-							<a href="{$url}news/admin/edit/{$article.id}" data-tip="Edit"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_edit.png" /></a>&nbsp;
+							<a href="{$url}news/admin/edit/{$article.id}" data-tip="Edit" target="_blank"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_edit.png" /></a>&nbsp;
 							{/if}
 
 							{if hasPermission("canRemoveArticle")}
