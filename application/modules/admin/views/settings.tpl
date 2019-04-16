@@ -99,7 +99,7 @@
 			<label for="cap">Max allowed players online</label>
 			<input type="text" id="cap" />
 
-			<label for="port">Realm port (usually 8129)</label>
+			<label for="port">Realm port (usually 8085 for Trinity/MaNGoS based emulators and 8129 for ArcEmu)</label>
 			<input type="text" id="port" />
 
 
