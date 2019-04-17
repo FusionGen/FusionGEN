@@ -69,7 +69,7 @@ class Install
     
     private function checkApacheModules()
     {
-        $req = array('mod_rewrite', 'mod_headers', 'mod_expires', 'mod_deflate');
+        $req = array('mod_rewrite', 'mod_headers');
         $loaded = apache_get_modules();
         $errors = array();
         
@@ -82,7 +82,7 @@ class Install
     
     private function checkPhpVersion()
     {
-		die( version_compare(PHP_VERSION, '5.3', '>=') ? '1' : '0' );
+		die( version_compare(PHP_VERSION, '7.0', '>=') ? '1' : '0' );
     }
 	
 	private function checkDbConnection()
