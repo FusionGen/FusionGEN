@@ -19,7 +19,7 @@
 			Please manage the group visibility via <a href="{$url}admin/aclmanager/groups">the group manager</a>
 		</div>
 
-		<label for="Pages_content">
+		<label for="pages_content">
 			Content
 		</label>
 	</form>
