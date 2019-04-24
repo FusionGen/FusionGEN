@@ -19,7 +19,7 @@
 			Please manage the group visibility via <a href="{$url}admin/aclmanager/groups">the group manager</a>
 		</div>
 
-		<label for="Pages_content">
+		<label for="pages_content">
 			Content
 		</label>
 	</form>
@@ -30,6 +30,7 @@
 		<input type="submit" value="Save page" />
 	</form>
 </section>
+
 
 <script>
 	require([Config.URL + "application/themes/admin/js/mli.js"], function()

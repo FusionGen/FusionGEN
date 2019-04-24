@@ -102,16 +102,16 @@ class Settings extends MX_Controller
 				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"));
 			break;
 			case "cata":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"));
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Mists of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"));
 			break;
 			case "wotlk":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"), $this->realms->getEmulator()->getExpansionId("Legion Allied Races"), $this->realms->getEmulator()->getExpansionId("Battle for Azeroth"));
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"), $this->realms->getEmulator()->getExpansionId("Legion Allied Races"), $this->realms->getEmulator()->getExpansionId("Battle for Azeroth"));
 			break;
 			case "tbc":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"), $this->realms->getEmulator()->getExpansionId("Legion Allied Races"), $this->realms->getEmulator()->getExpansionId("Battle for Azeroth"));
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"), $this->realms->getEmulator()->getExpansionId("Legion Allied Races"), $this->realms->getEmulator()->getExpansionId("Battle for Azeroth"));
 			break;
 			case "none":
-				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("TBC"), $this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists Of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"), $this->realms->getEmulator()->getExpansionId("Legion Allied Races"), $this->realms->getEmulator()->getExpansionId("Battle for Azeroth"));
+				$disabled_expansions = array($this->realms->getEmulator()->getExpansionId("TBC"), $this->realms->getEmulator()->getExpansionId("WotLK"), $this->realms->getEmulator()->getExpansionId("Cataclysm"), $this->realms->getEmulator()->getExpansionId("Mists of Pandaria"), $this->realms->getEmulator()->getExpansionId("Warlords of Draenor"), $this->realms->getEmulator()->getExpansionId("Legion"), $this->realms->getEmulator()->getExpansionId("Legion Allied Races"), $this->realms->getEmulator()->getExpansionId("Battle for Azeroth"));
 			break;
 			default:
 				$disabled_expansions = array();

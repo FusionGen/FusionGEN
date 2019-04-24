@@ -36,7 +36,7 @@ var Fusion_Cache = {
 
 		$.get(Config.URL + "admin/cachemanager/get", function(data)
 		{
-			$("#cache_data").html(data);
+			$("#Cache_data").html(data);
 		});
 	},
 
