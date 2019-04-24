@@ -1,5 +1,8 @@
 <script type="text/javascript">
     require(["{$url}application/js/tiny_mce/jquery.tinymce.min.js"], function () {
+        if($('textarea.tinymce').tinymce() != null) {
+            $('textarea.tinymce').tinymce().remove();
+        }
         $('textarea.tinymce').tinymce({
             // Location of TinyMCE script
             script_url: '{$url}application/js/tiny_mce/tinymce.min.js',
