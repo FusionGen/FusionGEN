@@ -161,7 +161,7 @@ var Router = {
 				{
 					$("body").css("cursor", "default");
 					$("title").html("FusionCMS");
-					UI.alert("Something went wrong! Attempting to load the page directly... <center style='margin-top:20px;'><img src='" + Config.URL + "application/images/modal-ajax.gif' /></center>", 3000);
+					UI.alert('Something went wrong! Attempting to load the page directly... <div class="lds-ring"><div></div><div></div><div></div><div></div></div>', 3000);
 
 					setTimeout(function()
 					{
