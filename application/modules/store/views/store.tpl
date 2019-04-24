@@ -93,7 +93,7 @@
 				</a>
 
 				<section class="realm_items" id="realm_items_{$realmId}">
-					{if count($realm.items.groups)}
+					{if isset($realm.items.groups)}
 						<div style="padding:0px 12px;padding-top:12px;"><a href="javascript:void(0)" onClick="Store.toggleAllGroups(this)">{if $minimize}[+] {lang("max", "store")}{else}[-] {lang("min", "store")}{/if}</a></div>
 					{/if}
 
