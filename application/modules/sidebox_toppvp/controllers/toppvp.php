@@ -30,7 +30,7 @@ class Toppvp extends MX_Controller
 			$realms = array($realms);
 		}
 
-		if(count($realms > 0)
+		if(isset($realms)
 		&& is_array($realms))
 		{
 			$this->realm = array();
