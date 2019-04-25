@@ -43,7 +43,7 @@ var Validate = {
 	{
 		var field = $(field.replace("register_", "") + "_error");
 		
-		field.html('<img src="' + Config.image_path + 'ajax_small.gif" />');
+		field.html('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>');
 		
 	},
 

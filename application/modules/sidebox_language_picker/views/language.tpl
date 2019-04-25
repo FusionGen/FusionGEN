@@ -36,7 +36,7 @@
 	{
 		$("#language_picker").fadeOut(250, function()
 		{
-			$(this).html('<center><img src="{$image_path}ajax.gif" /></center>').fadeIn(250, function()
+			$(this).html('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>').fadeIn(250, function()
 			{
 				$.get(Config.URL + "sidebox_language_picker/language_picker/set/" + language, function()
 				{

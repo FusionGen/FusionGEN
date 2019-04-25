@@ -1,6 +1,6 @@
 <section id="update_online_module">
 	<div style="text-align:center;margin-top:10px;margin-bottom:10px;">
-		<img src="{$image_path}ajax.gif" />
+		<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 	</div>
 </section>
 
