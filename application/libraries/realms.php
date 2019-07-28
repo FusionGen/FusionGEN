@@ -257,7 +257,7 @@ class Realms
 	 */
 	public function getZone($zoneId)
 	{
-		if(!isset($this->zones))
+		if(!count($this->zones))
 		{
 			$this->loadZones();
 		}
