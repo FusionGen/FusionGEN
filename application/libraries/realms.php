@@ -213,7 +213,7 @@ class Realms
 	 */
 	public function getRace($id)
 	{
-		if(!isset($this->races))
+		if(!empty($this->races))
 		{
 			$this->loadConstants();
 		}
@@ -235,7 +235,7 @@ class Realms
 	 */
 	public function getClass($id)
 	{
-		if(!isset($this->classes))
+		if(!empty($this->classes))
 		{
 			$this->loadConstants();
 		}
@@ -326,7 +326,7 @@ class Realms
 	*/
 	public function formatAvatarPath($character)
 	{
-		if(!isset($this->races_en))
+		if(!count($this->races_en))
 		{
 			$this->loadConstants();
 		}
