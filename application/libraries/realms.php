@@ -213,7 +213,7 @@ class Realms
 	 */
 	public function getRace($id)
 	{
-		if(!empty($this->races))
+		if(empty($this->races))
 		{
 			$this->loadConstants();
 		}
@@ -235,7 +235,7 @@ class Realms
 	 */
 	public function getClass($id)
 	{
-		if(!empty($this->classes))
+		if(empty($this->classes))
 		{
 			$this->loadConstants();
 		}
