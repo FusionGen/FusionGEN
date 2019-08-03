@@ -140,8 +140,8 @@
 
 			<label for="disabled_expansions">Max expansion</label>
 			<select id="disabled_expansions">
-				<option value="Battle for Azeroth" 	{if count($config.disabled_expansions) == 0}selected{/if}>Battle for Azeroth</option>
-				<option value="Legion Allied Races" {if count($config.disabled_expansions) == 1}selected{/if}>Legion Allied Races</option>
+				<option value="bfa" 	{if count($config.disabled_expansions) == 0}selected{/if}>Battle for Azeroth</option>
+				<option value="legion-ar" {if count($config.disabled_expansions) == 1}selected{/if}>Legion Allied Races</option>
 				<option value="legion" 				{if count($config.disabled_expansions) == 2}selected{/if}>Legion</option>
 				<option value="wod" 				{if count($config.disabled_expansions) == 3}selected{/if}>Warlords of Draenor</option>
 				<option value="mop" 				{if count($config.disabled_expansions) == 4}selected{/if}>Mists Of Pandaria</option>
