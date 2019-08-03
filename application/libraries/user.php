@@ -89,7 +89,7 @@ class User
 	 */
 	public function createHash($username = "", $password = "")
 	{
-		return $this->CI->realms->getEmulator()->encrypt2($email, $password);
+		return $this->CI->realms->getEmulator()->encrypt($email, $password);
 	}
 
 	/**
