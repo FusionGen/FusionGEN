@@ -156,7 +156,7 @@ class External_account_model extends CI_Model
 		if(preg_match("/rbac/i", get_class($this->realms->getEmulator())))
 		{
 			$userId = $this->user->getId($username);
-			$this->connection->query("INSERT INTO rbac_account_groups(`accountId`, `groupId`, `realmId`) values (?, 1, -1)", array($userId));
+			$this->connection->query("INSERT INTO rbac_account_permissions(`accountId`, `permissionId`, `granted`, `realmId`) values (?, 195, 1, -1)", array($userId));
 		}
 
 		$this->updateDailySignUps();
