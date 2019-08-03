@@ -68,11 +68,12 @@ $lang['change_information'] = "Change information";
  * Only translate these if World of Warcraft does it themselves,
  * otherwise you'll confuse people who expect to see them in English
  */
+$lang['vanilla'] = "Vanilla/Classic";
 $lang['tbc'] = "The Burning Crusade";
 $lang['wotlk'] = "Wrath of The Lich King";
-$lang['cataclysm'] = "Cataclysm";
-$lang['mists of pandaria'] = "Mists of Pandaria";
-$lang['warlords of draenor'] = "Warlods of Draenor";
+$lang['cata'] = "Cataclysm";
+$lang['mop'] = "Mists of Pandaria";
+$lang['wod'] = "Warlods of Draenor";
 $lang['legion'] = "Legion";
-$lang['legion allied races'] = "Legion Allied Races";
-$lang['battle for azeroth'] = "Battle for Azeroth";
+$lang['legion-ar'] = "Legion Allied Races";
+$lang['bfa'] = "Battle for Azeroth";
