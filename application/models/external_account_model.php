@@ -117,7 +117,7 @@ class External_account_model extends CI_Model
 
 		$data = array(
 			column("account", "username") => $username,
-			column("account", "password") => ($isHashed) ? $password : $this->user->createHash($username, $password),
+			column("account", "password") => ($isHashed) ? $password : $sha_pass_hash,
 			column("account", "email") => $email,
 			column("account", "expansion") => $expansion,
 			column("account", "last_ip") => $this->input->ip_address(),
@@ -131,6 +131,26 @@ class External_account_model extends CI_Model
 		}
 
 		$this->connection->insert(table("account"), $data);
+
+		// Fix for TrinityCore Battlenet accounts
+		if($expansion > 4)
+		{
+			$userId = $this->user->getId($username);
+		    $sha_pass_hash = $this->user->createHash2($email, $password);
+
+		    $battleData = array(
+		    	column("battlenet_accounts", "id") => $userId,
+		    	column("battlenet_accounts", "email") => $email,
+		    	column("battlenet_accounts", "sha_pass_hash") => $sha_pass_hash,
+		    	column("battlenet_accounts", "last_ip") => $this->input->ip_address(),
+		    	column("battlenet_accounts", "joindate") => date("Y-m-d")
+		    );
+
+		    $this->connection->insert(table("battlenet_accounts"), $battleData);
+
+            //$this->connection->update(table("account"), array(column("account", "battlenet_account") => $userId, column("account", "battlenet_index") => 1));
+			$this->connection->query("UPDATE account SET battlenet_account = $userId, battlenet_index = 1 WHERE id = $userId", array($userId));
+		}
 
 		// Fix for TrinityCore RBAC (or any emulator with 'rbac' in it's emulator filename)
 		if(preg_match("/rbac/i", get_class($this->realms->getEmulator())))
