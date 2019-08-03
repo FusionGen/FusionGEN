@@ -89,7 +89,7 @@ class User
 	 */
 	public function createHash($username = "", $password = "")
 	{
-		return $this->CI->realms->getEmulator()->encrypt($email, $password);
+		return $this->CI->realms->getEmulator()->encrypt($username, $password);
 	}
 
 	/**
@@ -98,6 +98,10 @@ class User
 	 * @param String $password in plain text
 	 * @return String hashed password
 	 */
+	public function createHash2($email = "", $password = "")
+	{
+		return $this->CI->realms->getEmulator()->encrypt2($email, $password);
+	}
 
 	/**
 	 * Check if the user rank has any staff permissions
