@@ -8,7 +8,7 @@
 
 function Ajax()
 {
-	this.loaderHTML = '<div style="padding:10px;text-align:center;"><img src="' + Config.image_path + 'ajax.gif" /></div>';
+	this.loaderHTML = '<div style="padding:10px;text-align:center;"><div class="lds-ring"><div></div></div>';
 	this.commentCount = 0;
 
 	/**
@@ -24,11 +24,11 @@ function Ajax()
 		{
 			if(element.is(":visible"))
 			{
-				element.slideUp(300);
+				element.slideUp(500);
 			}
 			else
 			{
-				element.fadeIn(300);
+				element.slideDown(500);
 			}
 		}
 		else
