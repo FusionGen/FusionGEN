@@ -89,32 +89,40 @@ class Settings extends MX_Controller
 
 		switch($this->input->post('disabled_expansions'))
 		{
+			case"bfa":
+				$disabled_expansions = array();
+			break;
+			
+			case"legion-ar":
+				$disabled_expansions = array(8);
+			break;
+
 			case "legion":
-				$disabled_expansions = array(7);
+				$disabled_expansions = array(7,8);
 			break;
 
 			case "wod":
-				$disabled_expansions = array(6,7);
+				$disabled_expansions = array(6,7,8);
 			break;
 
 			case "mop":
-				$disabled_expansions = array(5,6,7);
+				$disabled_expansions = array(5,6,7,8);
 			break;
 
 			case "cata":
-				$disabled_expansions = array(4,5,6,7);
+				$disabled_expansions = array(4,5,6,7,8);
 			break;
 
 			case "wotlk":
-				$disabled_expansions = array(3,4,5,6,7);
+				$disabled_expansions = array(3,4,5,6,7,8);
 			break;
 
 			case "tbc":
-				$disabled_expansions = array(2,3,4,5,6,7);
+				$disabled_expansions = array(2,3,4,5,6,7,8);
 			break;
 
 			case "none":
-				$disabled_expansions = array(1,2,3,4,5,6,7);
+				$disabled_expansions = array(1,2,3,4,5,6,7,8);
 			break;
 			
 			default:
