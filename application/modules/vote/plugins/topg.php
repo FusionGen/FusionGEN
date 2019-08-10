@@ -18,7 +18,7 @@ class Topg extends VoteCallbackPlugin
 	
 	protected function checkAccess()
 	{
-		return $this->CI->input->ip_address() == '174.36.33.242';
+		return $this->CI->input->ip_address() == gethostbyname('monitor.topg.org');
 	}
 	
 	protected function readUserId()
