@@ -18,7 +18,7 @@ class Top100arena extends VoteCallbackPlugin
 	
 	protected function checkAccess()
 	{
-		return $this->CI->input->ip_address() == '209.59.143.11';
+		return $this->CI->input->ip_address() == gethostbyname('api.top100arena.com');
 	}
 	
 	protected function readUserId()
