@@ -1,0 +1,20 @@
+#wrapper
+header
+nav
+	ul
+		li
+			a
+#main
+	#right
+		article
+			h1
+			.content
+			#menu
+				ul
+					li
+						a
+	#left
+		article
+			h1
+			.content
+footer
