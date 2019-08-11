@@ -11,7 +11,7 @@
 
 require_once(APPPATH.'modules/vote/plugins/classes/VoteCallbackPlugin.php');
 
-class Topg extends VoteCallbackPlugin
+class Topstatus extends VoteCallbackPlugin
 {
 	public $url = "topstatus.net";
 	public $voteLinkFormat = "{vote_link}-{user_id}";
