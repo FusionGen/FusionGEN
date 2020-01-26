@@ -1,1 +1,0 @@
-Please visit our localization repository at https://github.com/raxezdev/FusionCMS-Localization
