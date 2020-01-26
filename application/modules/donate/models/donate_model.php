@@ -7,7 +7,7 @@ class Donate_model extends CI_Model
 		switch($type)
 		{
 			case 'paypal':
-				$query = $this->db->query("SELECT * FROM `paypal_logs` GROUP BY `txn_id` ORDER BY `validated` DESC, `id` DESC LIMIT 10");
+				$query = $this->db->query("SELECT * FROM `paypal_logs` ORDER BY `id` DESC LIMIT 20");
 				break;
 			case 'paygol':
 				$query = $this->db->query("SELECT * FROM paygol_logs ORDER BY `timestamp` DESC LIMIT 10");
