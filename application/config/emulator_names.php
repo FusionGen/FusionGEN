@@ -15,6 +15,7 @@ $emulators = array(
 	"trinity_rbac_legion_soap" => "TrinityCore (7.x.x) with RBAC - connected through SOAP",
 	"trinity_rbac_bfa_ra" => "TrinityCore (BfA) with RBAC - connected through RA",
 	"trinity_rbac_bfa_soap" => "TrinityCore (BfA) with RBAC - connected through SOAP",
+	"azerothcore_soap" => "AzerothCore (3.3.5) - connected through SOAP",
 	"oregoncore_ra" => "OregonCore (2.4.3) - connected through RA",
 	"oregoncore_soap" => "OregonCore (2.4.3) - connected through SOAP",
 	"trinity_tbc_ra" => "TrinityCore (2.4.3) - connected through RA",
