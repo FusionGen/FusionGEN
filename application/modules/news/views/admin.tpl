@@ -1,7 +1,6 @@
 {TinyMCE()}
 <section class="box big" id="news_articles">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_text_document.png"/>
 		Articles (<div style="display:inline;" id="article_count">{if !$news}0{else}{count($news)}{/if}</div>)
 	</h2>
 

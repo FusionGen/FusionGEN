@@ -1,6 +1,5 @@
 <section class="box big" id="main_polls">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_graph.png"/>
 		Polls (<div style="display:inline;" id="polls_count">{if !$polls}0{else}{count($polls)}{/if}</div>)
 	</h2>
 

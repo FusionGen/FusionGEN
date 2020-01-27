@@ -3,23 +3,12 @@
 	float:left;
 	padding:28px;
 	margin:0px 15px;
-	color:#000 !important;
 	font-size:16px;
 	border:1px solid rgba(0,0,0,0);
 }
 
-.big_icon_button:hover {
-	color:#262626 !important;
-	border-radius:3px;
-	background-color:#cdcdcd;
-	border:1px solid #8e8e8e;
-	box-shadow:0px 1px 0px #fff inset, 0px 1px 0px #fff;
-	background-image:linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image:-o-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image:-moz-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image:-webkit-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image:-ms-linear-gradient(bottom, #CDCDCD 0%, #DCDCDC 100%);
-	background-image:-webkit-gradient( linear, left bottom, left top, color-stop(0, #CDCDCD), color-stop(1, #DCDCDC) );
+.content {
+	margin-left: 15%;
 }
 
 .big_icon_button img {

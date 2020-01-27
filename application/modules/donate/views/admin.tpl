@@ -1,14 +1,6 @@
-<div class="statistics">
-	<span>Monthly income ({$currency})</span>
-	<div class="image">
-		<img src="https://chart.googleapis.com/chart?chf=bg,s,FFFFFF&chxl=0:|{$first_date}|{$last_date}&chxp=0,12,87&chxr=1,0,{$top+20}&chxs=1,676767,11.5,0,lt,676767&chxt=x,y&chs=667x190&cht=lc&chco=095a9d&chds=0,{$top+20}&chd=t:{$monthly_income_stack}&chdlp=l&chls=2&chma=5,5,5,5" />
-	</div>
-</div>
-
 {if $paypal_enabled}
 	<section class="box big" id="donate_articles">
 		<h2>
-			<img src="{$url}application/themes/admin/images/icons/black16x16/ic_text_document.png"/>
 			Last 10 PayPal donations
 		</h2>
 
@@ -61,7 +53,6 @@
 {if $paygol_enabled}
 	<section class="box big" id="donate_articles">
 		<h2>
-			<img src="{$url}application/themes/admin/images/icons/black16x16/ic_text_document.png"/>
 			Last 10 PayGol donations
 		</h2>
 

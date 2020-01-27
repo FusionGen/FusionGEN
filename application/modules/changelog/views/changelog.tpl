@@ -7,7 +7,7 @@
 			{if !count($categories)}
 				Please add a category first
 			{else}
-			<input type="text" placeholder="{lang("change_info", "changelog")}" id="change_text" name="change" style="width:62%" />
+			</br><input type="text" placeholder="{lang("change_info", "changelog")}" id="change_text" name="change" style="width:62%" />
 			<select style="width:20%" name="category" id="changelog_types">
 				{foreach from=$categories item=category}
 					<option value="{$category.id}">{$category.typeName}</option>
@@ -19,22 +19,23 @@
 		{/if}
 
 		{if hasPermission("canAddCategory")}
-
+<div class="button_align">
 		
 			{form_open('changelog/addCategory', $attributes)}
-				<input type="text" placeholder="{lang("category_name", "changelog")}" name="category" style="width:83%" />
+				<input type="text" placeholder="{lang("category_name", "changelog")}" name="category" style="width:63%" />
 				<input type="submit" value="{lang("add", "changelog")}"/>
 			</form>
 		{/if}
-
 		{if hasPermission("canAddChange")}
 			<a href="javascript:void(0)" onClick="$('#category_form').hide();$('#change_form').fadeToggle(150)" class="nice_button">{lang("new_change", "changelog")}</a>
 		{/if}
 		
 		{if hasPermission("canAddCategory")}
-			<a href="javascript:void(0)" onClick="$('#change_form').hide();$('#category_form').fadeToggle(150)" class="nice_button">{lang("new_category", "changelog")}</a>
+			</br></br></br><a href="javascript:void(0)" onClick="$('#change_form').hide();$('#category_form').fadeToggle(150)" class="nice_button">{lang("new_category", "changelog")}</a>
 		{/if}
+
 	</div>
+</div>
 {/if}
 
 {if $changes}

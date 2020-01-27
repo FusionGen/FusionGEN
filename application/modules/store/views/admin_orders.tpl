@@ -1,6 +1,5 @@
 <section class="box big">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_list.png"/>
 		Failed orders in the past week
 	</h2>
 
@@ -45,7 +44,6 @@
 
 <section class="box big">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_list.png"/>
 		Last 10 successful orders
 	</h2>
 

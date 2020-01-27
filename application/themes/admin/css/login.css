@@ -28,8 +28,8 @@
 /* General */
 body {
 	font-family:'MuseoSans', Arial, Helvetica, Sans-serif;
-	color:#3d3d3d;
-	background-color:#3b3b3b;
+	background-color:#19191b;
+	color: #fff;
 	line-height:1.5;
 	font-size:14px;
 	margin:0px;
@@ -37,7 +37,19 @@ body {
 }
 
 a {
+	transition: ease-in-out 0.3s all;
 	text-decoration:none;
+	font-weight: bold;
+	font-style: italic;
+	color: #f1703e;
+}
+
+a:hover {
+	transition: ease-in-out 0.3s all;
+	text-decoration:none;
+	font-weight: bold;
+	font-style: italic;
+	color: #c95628;
 }
 
 a img {
@@ -48,7 +60,7 @@ a img {
 }
 
 .center_1020 {
-	width:1020px;
+	width:770px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -58,7 +70,7 @@ a img {
 /* Top bar */
 header {
 	height:58px;
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	padding-top:10px;
 }
 
@@ -66,7 +78,6 @@ header .logo, footer #logo .logo {
 	display:block;
 	width:197px;
 	height:28px;
-	float:left;
 	background-image:url(../images/fusiongen.png);
 	margin-top:13px;
 }
@@ -75,7 +86,6 @@ header .right .welcome {
 	color:#909090;
 	font-size:16px;
 	text-shadow:1px 1px 0px #000;
-	float:right;
 	margin-top:17px;
 	margin-right:5px;
 }
@@ -104,7 +114,7 @@ header nav a, input[type="submit"], input[type="submit-top"] {
 	float:right;
 	padding:5px 10px;
 	margin-top:11px;
-	background-color:#414141;
+	background-color:#19191b;
 	border-radius:2px;
 	border:1px solid #555555;
 	color:#fff;
@@ -141,13 +151,13 @@ header nav .active:hover {
 /* Footer */
 footer {
 	font-family:'MuseoSlab', Arial, Helvetica, Sans-serif;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	margin-top:50px;
 	height:100px;
 }
 
 footer .center_1020 {
-	background-color:rgba(0,0,0,0.1);
+	background-color:#19191b;
 	border-left:;
 	height:100px;
 }
@@ -214,6 +224,7 @@ footer #discord #discord_icon {
 
 footer #discord a {
 	color:#499fd1;
+	transition: ease-in-out 0.3s all;
 	font-size:20px;
 	text-decoration:none;
 	float:left;
@@ -229,22 +240,10 @@ footer #html5 {
 	padding-top:18px;
 }
 
-footer .divider, footer .divider2 {
-	background-image:url(../images/footer_divider.png);
-	height:99px;
-	width:2px;
-	float:left;
-	opacity:0.4;
-}
-
-footer .divider2 {
-	background-image:url(../images/footer_divider2.png);
-}
-
 #content {
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	padding:30px;
-	width:515px;
+	width: 701px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:150px;
@@ -267,11 +266,11 @@ input[type="text"], input[type="password"] {
 	font-size:20px;
 	color:#828181;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.5);
-	background-color:#121212;
-	-webkit-border-radius:5px;
-	border:1px solid #dc8044;
+	background-color:#262629;
+	border:1px solid #3c3c40;
 	padding:10px;
-	padding-left:40px;
+	padding-left: 36px;
+	border-radius: 3px;
 	width:192px;
 	height:30px;
 	margin:5px;
@@ -283,21 +282,24 @@ input[type="password"]:nth-child(3) {
 }
 
 input[type="submit"] {
-	float:none;
-	display:inline;
-	width:242px;
-	height:50px;
-	margin-left:7px;
-	font-size:20px;
-	transition:all 0.3s ease;
-	border: 1px #dc8044 solid;
+	float: none;
+	display: inline;
+	width: auto;
+	height: auto;
+	margin-left: 6px;
+	font-size: 20px;
+	transition: all 0.3s ease;
+	border: 1px #3c3c40 solid;
+	margin-top: 0px;
+	background-color: #262629;
+	border-radius: 5px;
 }
 
 input[type="submit-top"] {
 	float:none;
 	display:inline;
-	width:242px;
-	height:50px;
+	width:24px;
+	height:52px;
 	margin-left:7px;
 	font-size:20px;
 	transition:all 0.3s ease;
@@ -327,7 +329,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 form {
-	margin-bottom:20px;
+	margin-bottom: 50px;
 }
 
 *:focus {
@@ -375,4 +377,8 @@ height:100%;
 float:left;
 width:0;
 margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
+.Footer_Content {
+	margin-left: -29px;
 }

@@ -1,6 +1,6 @@
 {if hasPermission("editSlider")}
 <section class="box big">
-	<h2><img src="{$url}application/themes/admin/images/icons/black16x16/ic_settings.png"/> Slider settings</h2>
+	<h2>Slider settings</h2>
 
 	<form onSubmit="Slider.saveSettings(this); return false">
 		<label for="show_slider">Visibility</label>

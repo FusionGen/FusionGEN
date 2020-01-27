@@ -1,6 +1,5 @@
 <section class="box big" id="main_item">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_tag.png"/>
 		Items (<div style="display:inline;" id="item_count">{if !$items}0{else}{count($items)}{/if}</div>)
 	</h2>
 

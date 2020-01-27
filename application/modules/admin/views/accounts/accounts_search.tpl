@@ -1,6 +1,5 @@
 <section class="box big" id="account_articles">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_users.png"/>
 		Search
 	</h2>
 

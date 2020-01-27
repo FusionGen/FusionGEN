@@ -127,6 +127,7 @@
 
 		<!-- Top bar -->
 		<header>
+		<center>
 			<div class="center_1020">
 				<a href="{$url}admin/" class="logo"></a>
 
@@ -147,12 +148,9 @@
 							Dashboard
 						</a>
 					</nav>
-
-					<div class="welcome">
-						Welcome, <b>{$nickname}</b>
-					</div>
 				</aside>
 			</div>
+		</center>
 		</header>
 
 		<!-- Main content -->
@@ -175,12 +173,6 @@
 							{/if}
 						{/foreach}
 					</nav>
-
-					<article>
-						<h1>Welcome to FusionGEN</h1>
-						<b>Dear User</b>, This is <b>FusionGEN</b>. </br>A continuation project continued by fellow web-developers under the conditions of Open-Source. Many people loved FusionCMS, But time is evolving and FusionCMS has been idle for quite some time. We are here to bring up a new Open-Source Project to bring <b>you</b> an optimized and cared for CMS that will evolve over time with love and passion from its contributors. FusionGEN is still powered by the Codeigniter Framework, it's Original PHP Code, It's Original HTML Code and It's Original Javascript Code. What we are focusing on is improving it all. Making it stronger, faster and more Modern. </br></br>Thank you for Downloading FusionGEN</br>Enjoy!
-						<div class="clear"></div>
-					</article>
 					<div class="spacer"></div>
 				</aside>
 
@@ -196,28 +188,19 @@
 		<!-- Footer -->
 		<footer>
 			<div class="center_1020">
-				<div class="divider2"></div>
-				<aside id="logo"><a href="https://www.fusiongen.org" class="logo"></a></aside>
-				<div class="divider"></div>
-				<aside id="links">
-					<a href="https://www.fusiongen.org" target="_blank">FusionHub</a>
-					<a href="#" target="_blank">Modules</a>
-					<a href="#" target="_blank">Themes</a>
-					<a href="https://discord.gg/vRnr6WJ" target="_blank">Support</a>
-				</aside>
-				<div class="divider"></div>
+				<div class="Footer_Content">
+				<aside id="logo"><a href="#" class="logo"></a></aside>
 				<aside id="discord">
 					<h1>Join our Discord Server</h1>
 					<div id="discord_icon"></div>
 					<a href="https://discord.gg/vRnr6WJ" target="_blank">FusionGEN</a>
 				</aside>
-				<div class="divider"></div>
 				<aside id="html5">
 					<a href="http://www.w3.org/html/logo/" data-tip="This website makes use of the next generation of web technologies">
 						<img src="{$url}application/themes/admin/images/html5.png">
 					</a>
 				</aside>
-				<div class="divider"></div>
+				</div>
 				<div class="clear"></div>
 			</div>
 		</footer>

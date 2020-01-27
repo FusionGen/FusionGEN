@@ -1,6 +1,5 @@
 <section class="box big" id="donate_articles">
 	<h2>
-		<img src="{$smarty.const.pageURL}application/themes/admin/images/icons/black16x16/ic_users.png"/>
 		Visitors in the past 5 minutes ({count($sessions)})
 	</h2>
 

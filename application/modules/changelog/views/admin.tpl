@@ -1,6 +1,5 @@
 <section class="box big" id="main_changelog">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_grid.png"/>
 		Changes (<div style="display:inline;" id="changelog_count">{if !$changes}0{else}{count($changes)}{/if}</div>)
 	</h2>
 	

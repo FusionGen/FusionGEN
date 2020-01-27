@@ -25,11 +25,18 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'font-awesome';
+	src: url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* General */
 body {
 	font-family:'MuseoSans', Arial, Helvetica, Sans-serif;
-	color:#ffa800;
-	background-color:#3b3b3b;
+	color:#fff;
+	background-color:#19191b;
 	line-height:1.5;
 	font-size:14px;
 	margin:0px;
@@ -104,7 +111,7 @@ table {
 /* Top bar */
 header {
 	height:58px;
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	padding-top:10px;
 }
 
@@ -112,16 +119,15 @@ header .logo, footer #logo .logo {
 	display:block;
 	width:197px;
 	height:28px;
-	float:left;
 	background-image:url(../images/fusiongen.png);
 	margin-top:13px;
+	margin-left: 35px;
 }
 
 header .right .welcome {
 	color:#909090;
 	font-size:16px;
 	text-shadow:1px 1px 0px #000;
-	float:right;
 	margin-top:17px;
 	margin-right:5px;
 }
@@ -129,6 +135,11 @@ header .right .welcome {
 header .right .welcome b {
 	color:#ffffff;
 	font-weight:normal;
+}
+
+.welcome {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 header nav .icon, #main .left .icon {
@@ -141,8 +152,7 @@ header nav .icon, #main .left .icon {
 }
 
 header nav {
-	float:right;
-	max-width:370px;
+	max-width: 300px;
 }
 
 header nav a {
@@ -151,13 +161,13 @@ header nav a {
 	padding:5px 10px;
 	margin-top:11px;
 	border-radius:2px;
-	border:1px solid #dc8044;
+	border:1px solid #212123;
 	color:#fff;
 	text-shadow:1px 1px 0px #000;
 	box-shadow:0px 1px 0px #000;
 	margin-left:10px;
 	text-decoration:none;
-	background-color: #3d3d3d;
+	background-color: #19191b;
 	transition:0.3s all;
 	-webkit-transition:0.3s all;
 }
@@ -171,12 +181,12 @@ header nav a:active {
 }
 
 header nav .active, #main .right .side_left .box li .button:hover, #main .right .side_right .box .button:hover, input[type="submit"]:hover, .nice_button:hover {
-	border:1px solid #3d3d3d;
-	background-color:#1e1e1e;
+
+	background-color:#19191b;
 }
 
 header nav .active:hover {
-	border:1px solid #3d3d3d;
+
 }
 
 #top_spacer {
@@ -193,7 +203,7 @@ header nav .active:hover {
 }
 
 #main {
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	border-radius:3px;
 	min-height:200px;
 }
@@ -219,7 +229,7 @@ header nav .active:hover {
 	color:#fff;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.6);
 	text-decoration:none;
-	background-color: #dc8044;
+	background-color: #272729;
 	border-bottom:1px solid #101010;
 	-webkit-transition:0.3s all;
 	transition:0.3s all;
@@ -234,8 +244,8 @@ header nav .active:hover {
 }
 
 #main .left nav .sub a {
-	background-color: #1e1e1e;
-	border-bottom:1px solid #1e1e1e;
+	background-color: #19191b;
+	border-bottom:1px solid #19191b;
 	color:#747474;
 	padding-left:40px;
 }
@@ -335,7 +345,7 @@ header nav .active:hover {
 }
 
 #main .right section span a:hover, #main .right section form label a:hover {
-	color:#dc8044;
+	color:#272729;
 }
 
 #main .left article .button {
@@ -409,18 +419,18 @@ header nav .active:hover {
 	font-family:MuseoSlab, Arial, Helvetica, Sans-serif;
 	font-size:20px;
 	color:#fff;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	border-top-right-radius:3px;
 }
 
 #main .right #content {
-	border-top:1px solid #3d3d3d;
+	border-top:1px solid #19191b;
 }
 
 #main .right .statistics {
-	background-color: #3d3d3d;
+	background-color: #19191b;
 	border-radius: 3px;
-	border: 1px solid #dc8044;
+	border: 1px solid #272729;
 	padding: 10px;
 	margin: 10px;
 	text-align: center;
@@ -431,7 +441,7 @@ header nav .active:hover {
 	position:absolute;
 	font-family:MuseoSlab;
 	font-size:16px;
-	color:#ffa800;
+	color:#fff;
 	width:660px;
 	padding:5px;
 	text-align:right;
@@ -441,7 +451,7 @@ header nav .active:hover {
 	width:667px;
 	height:190px;
 	padding:5px;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	box-shadow:0px 1px 3px #000;
 }
 
@@ -449,11 +459,11 @@ header nav .active:hover {
 	margin:10px;
 	margin-bottom:5px;
 	border-radius:3px;
-	border:1px solid #3d3d3d;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 }
 
 #main .right h2 img {
+	background-color: #fff !important;
 	vertical-align: -2px;
 	margin-right: 4px;
 }
@@ -480,7 +490,7 @@ header nav .active:hover {
 	font-size:16px;
 	margin-top:5px;
 	font-weight:normal;
-	border-bottom: 1px #dc8044 solid;
+	border-bottom: 1px #272729 solid;
 }
 
 #main .right .info_box table {
@@ -517,10 +527,10 @@ header nav .active:hover {
 	font-size:16px;
 	padding-top:10px;
 	padding-bottom:10px;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	border-top-left-radius:3px;
 	border-top-right-radius:3px;
-	border-bottom:1px solid #dc8044;
+	border-bottom:1px solid #272729;
 }
 
 #main .right .box h3 {
@@ -545,7 +555,7 @@ header nav .active:hover {
 	margin:0px;
 	padding:10px;
 	padding-left:15px;
-	background-color: #414141;
+	background-color: #19191b;
 }
 
 #main .right .box li:hover td img {
@@ -568,11 +578,11 @@ header nav .active:hover {
 }
 
 #main .right .box li:first-child {
-	border-top:1px solid #dc8044;
+	border-top:1px solid #272729;
 }
 
 #main .right .box li:nth-child(odd) {
-	background-color:#414141;
+	background-color:#19191b;
 }
 
 #main .right .box li .button, #main .right .side_right .box .button, input[type="submit"], .nice_button {
@@ -582,8 +592,8 @@ header nav .active:hover {
 	color:#fff !important;
 	border-radius:3px;
     cursor: pointer;
-	background-color:#3d3d3d;
-	border: 1px #dc8044 solid;
+	background-color:#262628;
+	border: 1px #212123 solid;
 	padding:3px 5px;
 	margin-top:-3px;
 	margin-left:10px;
@@ -598,7 +608,7 @@ header nav .active:hover {
 }
 
 #main .right .side_left .box li .button:hover, #main .right .side_right .box .button:hover, input[type="submit"]:hover, .nice_button:hover {
-	border:1px solid #3d3d3d;
+
 	color:white !important;
 	border: 1px #9b3d00 solid;
 	transition:all 0.3s ease;
@@ -642,8 +652,7 @@ header nav .active:hover {
 
 #main .right .box {
 	border-radius:3px;
-	border:1px solid #3d3d3d;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	margin-bottom:15px;
 }
 
@@ -660,8 +669,8 @@ header nav .active:hover {
 #main .right .side_right .box .divider {
 	margin-top:10px;
 	height:1px;
-	background-color:#1e1e1e;
-	border-bottom:1px solid #dc8044;
+	background-color:#19191b;
+	border-bottom:1px solid #272729;
 }
 
 #main .right .alert {
@@ -784,8 +793,8 @@ textarea
 	width:99%;
 	padding:8px;
 	color:#fff;
-	background-color:#1e1e1e;
-	border:1px solid #dc8044;
+	background-color:#19191b;
+	border:1px solid #272729;
 	border-radius:2px;
 	margin:5px;
 	margin-left:auto;
@@ -802,10 +811,10 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 textarea:focus {
 	color:#333;
-	border:1px solid #dc8044;
-	box-shadow:0px 0px 10px #dc8044;
-	-moz-box-shadow:0px 0px 10px #dc8044;
-	-webkit-box-shadow:0px 0px 10px #dc8044;
+	border:1px solid #272729;
+	box-shadow:0px 0px 10px #272729;
+	-moz-box-shadow:0px 0px 10px #272729;
+	-webkit-box-shadow:0px 0px 10px #272729;
 }
 
 select {
@@ -814,8 +823,8 @@ select {
 	width:99%;
 	padding:8px;
 	color:#fff;
-	background-color:#1e1e1e;
-	border:1px solid #3d3d3d;
+	background-color:#19191b;
+
 	border-radius:2px;
 	-moz-border-radius:2px;
 	-webkit-border-radius:2px;
@@ -828,15 +837,15 @@ select {
 /* Footer */
 footer {
 	font-family:'MuseoSlab', Arial, Helvetica, Sans-serif;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	margin-top:50px;
 	height:100px;
 }
 
 footer .center_1020 {
-	background-color:rgba(0,0,0,0.1);
-	border-left:;
 	height:100px;
+	margin-right: auto;
+	padding-left: 340px;
 }
 
 footer aside {
@@ -872,7 +881,7 @@ footer #links a {
 }
 
 footer #links a:hover {
-	color:#dc8044;
+	color:#272729;
 	transition:all 0.3s ease;
 }
 
@@ -967,8 +976,8 @@ footer .divider2 {
 	display:none;
 	z-index:999999;
 	padding:20px;
-	background-color:#1e1e1e;
-	border:1px solid #dc8044;
+	background-color:#19191b;
+	border:1px solid #272729;
 	position:fixed;
 	left:50%;
 	margin-left:-120px;
@@ -1076,7 +1085,7 @@ footer .divider2 {
 	padding-top:5px;
 	padding-bottom:5px;
 	background-color:#3d3d3d;
-	border:1px solid #3d3d3d;
+
 	border-radius: 3px;
 	border-bottom:none;
 }
@@ -1125,9 +1134,9 @@ footer .divider2 {
 	font-family:Arial, Helvetica, Sans-serif;
 	font-size:12px;
 	padding:8px;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	color: #fff;
-	border:1px solid #dc8044;
+	border:1px solid #272729;
 	border-bottom-right-radius: 2px;
 	border-bottom-left-radius: 2px;
 	transition:all 0.3s ease;
@@ -1190,7 +1199,7 @@ footer .divider2 {
 }
 
 .fusioneditor .fusioneditor_color:hover {
-	border:1px solid #1e1e1e !important;
+	border:1px solid #19191b !important;
 	opacity:1;
 }
 

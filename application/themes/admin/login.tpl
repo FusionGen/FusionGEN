@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ACP Login - FusionGEN</title>
+		<title>Admin Control Panel | FusionGEN</title>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 
@@ -56,8 +56,9 @@
 			<div id="fixer">
 				<!-- Top bar -->
 				<header>
+				<center>
 					<div class="center_1020">
-						<a href="#" class="logo"></a>
+						<a href="{$url}admin" class="logo"></a>
 
 						<!-- Top menu -->
 						<aside class="right">
@@ -69,15 +70,19 @@
 							</div>
 						</aside>
 					</div>
+				</center>
 				</header>
 
 				<div id="content">
-					<h1>Administration</h1>
+					<h1>Welcome to the ACP</h1>
 
 					<form onSubmit="Login.send(this); return false">
+					<center>
 						<input type="text" placeholder="Username" {if $isOnline}disabled value="{$username}"{/if} id="username"/>
 						<input type="password" placeholder="Password" {if $isOnline}disabled value="Password"{/if} id="password"><input type="password" placeholder="Security code" id="security_code" />
-						<input type="submit" value="Log in" />
+						</br><input type="submit" value="Enter ACP" />
+							</br></br><a href="{$url}">Back to Site</a> | <a href="https://gitlab.com/omghixd/fusiongen">FusionGEN Gitlab</a> | <a href="https://gitlab.com/omghixd/fusiongen/issues?scope=all&utf8=%E2%9C%93&state=all&label_name[]=Solution">Solution Center</a>
+					</center>
 					</form>
 				</div>
 			</div>
@@ -85,29 +90,21 @@
 
 		<!-- Footer -->
 		<footer>
+
 			<div class="center_1020">
-				<div class="divider2"></div>
+				<div class="Footer_Content">
 				<aside id="logo"><a href="#" class="logo"></a></aside>
-				<div class="divider"></div>
-				<aside id="links">
-					<a href="https://www.fusiongen.org" target="_blank">FusionGEN</a>
-					<a href="#" target="_blank">Modules</a>
-					<a href="#" target="_blank">Themes</a>
-					<a href="https://discord.gg/vRnr6WJ" target="_blank">Support</a>
-				</aside>
-				<div class="divider"></div>
 				<aside id="discord">
 					<h1>Join our Discord Server</h1>
 					<div id="discord_icon"></div>
 					<a href="https://discord.gg/vRnr6WJ" target="_blank">FusionGEN</a>
 				</aside>
-				<div class="divider"></div>
 				<aside id="html5">
 					<a href="http://www.w3.org/html/logo/" data-tip="This website makes use of the next generation of web technologies">
 						<img src="{$url}application/themes/admin/images/html5.png">
 					</a>
 				</aside>
-				<div class="divider"></div>
+				</div>
 				<div class="clear"></div>
 			</div>
 		</footer>

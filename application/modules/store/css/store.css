@@ -21,6 +21,8 @@
 
 #store form .filter_field a {
 	margin-right:10px;
+	width: 40px;
+	height: 51px;
 	margin-top:0px;
 	display:block;
 	float:left;
@@ -29,6 +31,7 @@
 #store form .filter_field {
 	float:left;
 	padding:15px 15px;
+	margin-left: 60px;
 	padding-top:5px;
 	height:30px;
 }
@@ -41,6 +44,7 @@
 #store #cart {
 	float:right;
 	width:225px;
+	margin-right: 75px;
 }
 
 #store #store_content {

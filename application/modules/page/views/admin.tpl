@@ -1,7 +1,6 @@
 {TinyMCE()}
 <section class="box big" id="pages">
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_text_document.png"/>
 		Pages (<div style="display:inline;" id="page_count">{if !$pages}0{else}{count($pages)}{/if}</div>)
 	</h2>
 
