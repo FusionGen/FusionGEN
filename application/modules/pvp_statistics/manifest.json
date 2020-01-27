@@ -1,0 +1,10 @@
+{
+	"name":"PVP Statistics",
+	"description":"Statistics about the top players in your realms.",
+	"author":
+	{
+		"name":"ChoMPi",
+		"website":""
+	},
+	"enabled":true
+}

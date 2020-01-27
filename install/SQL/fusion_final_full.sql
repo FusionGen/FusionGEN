@@ -179,6 +179,7 @@ INSERT INTO `menu` VALUES ('18', 'Armory', 'armory', 'side', '1', '0', '19');
 INSERT INTO `menu` VALUES ('19', 'Private messages', 'messages', 'side', '2', '0', '20');
 INSERT INTO `menu` VALUES ('20', 'Changelog', 'changelog', 'side', '1', '0', '21');
 INSERT INTO `menu` VALUES ('21', 'Admin panel', 'admin', 'side', '5', '0', '18');
+INSERT INTO `menu` VALUES ('22', 'PvP Statistics', 'pvp_statistics', 'side', '1', '0', '22');
 INSERT INTO `menu` VALUES ('100', 'Log out', 'logout', 'side', '2', '0', '100');
 INSERT INTO `menu` VALUES ('101', 'Log out', 'logout', 'top', '2', '0', '101');
 
