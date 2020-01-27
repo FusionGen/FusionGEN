@@ -353,7 +353,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *  Call the requested method
  * ------------------------------------------------------
  */
-	call_user_func_array(array(&$CI, $method), $params);
+	call_user_func_array(array($CI, $method), $params);
 
 	// Mark a benchmark end point
 	$BM->mark('controller_execution_time_( '.$class.' / '.$method.' )_end');
