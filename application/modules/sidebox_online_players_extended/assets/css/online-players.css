@@ -1,0 +1,74 @@
+#left .realm .realm_bar  .realm_bar_fill {
+    float: left;
+    height: 1px !important;
+    position: absolute;
+    top: 1px;
+}
+#left .realm .realm_bar  .realm_bar_fill a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+#left .realm .realm_bar  .realm_bar_fill.alliance {
+    background:
+    url('../img/pull-fill-alliance.gif') repeat-x,
+    url(../img/bar_fill_repeat.png) repeat-x,
+    url(../img/bar_fill_left.png) no-repeat left,
+    url(../img/bar_fill_right.png) no-repeat right;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    -webkit-border-top-right-radius: 2px !important;
+    -webkit-border-bottom-right-radius: 2px !important;
+    -moz-border-radius-topright: 2px !important;
+    -moz-border-radius-bottomright: 2px !important;
+    border-top-right-radius: 2px !important;
+    border-bottom-right-radius: 2px !important;
+    right: 1px;
+}
+#left .realm .realm_bar  .realm_bar_fill.horde {
+    background: url('../img/pull-fill-horde.gif') repeat-x,
+    url(../img/bar_fill_repeat.png) repeat-x,
+    url(../img/bar_fill_left.png) no-repeat left,
+    url(../img/bar_fill_right.png) no-repeat right;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+    -webkit-border-top-left-radius: 2px !important;
+    -webkit-border-bottom-left-radius: 2px !important;
+    -moz-border-radius-topleft: 2px !important;
+    -moz-border-radius-bottomleft: 2px !important;
+    border-top-left-radius: 2px !important;
+    border-bottom-left-radius: 2px !important;
+    left: 1px;
+}
+#left .realm .realm-bar-wrapper {
+    padding: 5px 34px;
+    position: relative;
+    margin-left: -7px;
+}
+#left .realm .realm-bar-wrapper .horde-icon,
+#left .realm .realm-bar-wrapper .alliance-icon {
+    width: 32px;
+    height: 42px;
+    position: absolute;
+    top: -1px;
+}
+#left .realm .realm-bar-wrapper .horde-icon {
+    background: url('../img/horde-icon.png') no-repeat center;
+    left: 0;
+}
+#left .realm .realm-bar-wrapper .alliance-icon {
+    background: url('../img/alliance-icon.png') no-repeat center;
+    right: -5px;
+}
+#left .realm {
+    height: 60px;
+}
+#left .realm .realm_bar {
+    position: relative;
+}
+#left .realm .uptime-count span {
+    /*color: #999;*/
+    padding-left: 3px;
+}
