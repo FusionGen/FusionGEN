@@ -37,7 +37,7 @@ class Comments extends MX_Controller
 				foreach($comments as $key => $comment)
 				{				
 					$comments[$key]['profile'] = $this->template->page_url."profile/".$comment['author_id'];
-					$comments[$key]['avatar'] = $this->user->getAvatar($comment['author_id'], "small");
+					$comments[$key]['avatar'] = $this->user->getAvatar($comment['author_id']);
 					$comments[$key]['author'] = $this->user->getNickname($comment['author_id']);
 				}
 			}
@@ -107,7 +107,7 @@ class Comments extends MX_Controller
 
 				// Add values
 				$comment_arr['profile'] = $this->template->page_url."profile/".$comment_arr['author_id'];
-				$comment_arr['avatar'] = $this->user->getAvatar($comment_arr['author_id'], "small");
+				$comment_arr['avatar'] = $this->user->getAvatar($comment_arr['author_id']);
 				$comment_arr['author'] = $this->user->getNickname($comment_arr['author_id']);
 				$comment_arr['content'] = $this->template->format($message, true, true, true, 45);
 				$comment_arr['url'] = $this->template->page_url;

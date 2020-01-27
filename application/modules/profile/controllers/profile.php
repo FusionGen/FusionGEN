@@ -123,7 +123,7 @@ class Profile extends MX_Controller
 			"status" => $this->user->getAccountStatus($this->id),
 			"register_date" => $this->register_date,
 			"url" => $this->template->page_url,
-			"avatar" => $this->user->getAvatar($this->id, "small"),
+			"avatar" => $this->user->getAvatar($this->id),
 			"not_me" => ($this->id == $this->user->getId()) ? false : true,
 			"online" => $this->user->isOnline(),
 			"id" => $this->id,

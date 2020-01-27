@@ -14,7 +14,7 @@
 
 // UCP
 $lang['user_panel'] = "User panel";
-$lang['change_avatar'] = "Change avatar";
+$lang['change_avatar'] = "Upload avatar";
 $lang['nickname'] = "Nickname";
 $lang['change_nickname'] = "Change Name";
 $lang['location'] = "Location";

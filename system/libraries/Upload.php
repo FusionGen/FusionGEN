@@ -37,7 +37,7 @@ class CI_Upload {
 	public $file_type				= "";
 	public $file_size				= "";
 	public $file_ext				= "";
-	public $upload_path				= "";
+	public $upload_path 			= './uploads/';
 	public $overwrite				= FALSE;
 	public $encrypt_name			= FALSE;
 	public $is_image				= FALSE;
@@ -48,7 +48,7 @@ class CI_Upload {
 	public $error_msg				= array();
 	public $mimes					= array();
 	public $remove_spaces			= TRUE;
-	public $xss_clean				= FALSE;
+	public $xss_clean				= TRUE;
 	public $temp_prefix				= "temp_file_";
 	public $client_name				= '';
 

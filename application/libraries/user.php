@@ -377,26 +377,21 @@ class User
 	/**
 	 * Get the user's avatar
 	 * @param Int $id
-	 * @param String $size Small/normal
 	 * @return String
 	 */
-	public function getAvatar($id = false, $size = "normal")
+	public function getAvatar($id = false)
 	{
 		if(!$id)
 		{
 			$id = $this->id;
 		}
-		
-		switch($size)
-		{
-			case "normal": $px = 120; break;
-			case "small": $px = 44; break;
-		}
 
-		$default = $this->CI->template->image_path.$this->CI->template->theme_data[$size.'_avatar'];
-
-		$email = $this->CI->external_account_model->getEmail($id);
-		return "https://secure.gravatar.com/avatar/".md5(strtolower(trim($email)))."?d=".urlencode($default)."&s=".$px;
+		$avatar = $this->CI->internal_user_model->getAvatarById($id);
+		if($avatar)
+		    $avatar = base_url().'uploads/'.$avatar;
+		else
+		    $avatar = $this->CI->template->image_path.'avatars/avatar.jpg';
+		return $avatar;
 	}
 	
 	/**

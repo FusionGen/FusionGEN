@@ -1,7 +1,7 @@
 <section id="ucp_top">
 	<a href="{$url}ucp/avatar" id="ucp_avatar">
 		<div>{lang("change_avatar", "ucp")}</div>
-		<img src="{$avatar}"/>
+		<img src="{$avatar}" height="100" width="100"/>
 	</a>
 
 	<section id="ucp_info">

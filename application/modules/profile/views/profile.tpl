@@ -1,6 +1,6 @@
 <section id="ucp_top">
 	<a id="ucp_avatar" style="width:44px;height:44px;margin-top:7px;">
-		<img src="{$avatar}"/>
+		<img src="{$avatar}" height="44" width="44"/>
 	</a>
 
 	<section id="ucp_info" style="height:auto;">

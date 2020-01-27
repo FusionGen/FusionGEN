@@ -9,6 +9,7 @@ CREATE TABLE `account_data` (
   `dp` int(11) DEFAULT '0',
   `location` varchar(255) DEFAULT NULL,
   `nickname` varchar(32) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
