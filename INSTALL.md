@@ -27,7 +27,7 @@ sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 sudo apt-get install apache2 apache2-doc apache2-npm-prefork apache2-utils libexpat1 ssl-cert
 ```
 
-- Install PHP (php7.2 latest version of PHP)
+- Install PHP (php7.2 latest version of PHP) -- FusionGEN Maintainer Edit: We don't support 7.2, please install PHP Version 7.1
 
 ```
 sudo apt-get install libapache2-mod-php7.2 php7.2 php7.2-common php7.2-curl php7.2-dev php7.2-gd php-pear php-imagick php7.2-mcrypt php7.2-mysql php7.2-ps php7.2-xsl php7.2-json php7.2-soap php7.2-
