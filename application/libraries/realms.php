@@ -184,7 +184,7 @@ class Realms
 	 */
 	public function getAllianceRaces()
 	{
-		if(!isset($this->allianceRaces))
+		if(!count($this->allianceRaces))
 		{
 			$this->loadConstants();
 		}
@@ -198,7 +198,7 @@ class Realms
 	 */
 	public function getHordeRaces()
 	{
-		if(!isset($this->hordeRaces))
+		if(!count($this->hordeRaces))
 		{
 			$this->loadConstants();
 		}
@@ -213,7 +213,7 @@ class Realms
 	 */
 	public function getRace($id)
 	{
-		if(empty($this->races))
+		if(!count($this->races))
 		{
 			$this->loadConstants();
 		}
@@ -235,7 +235,7 @@ class Realms
 	 */
 	public function getClass($id)
 	{
-		if(empty($this->classes))
+		if(!count($this->classes))
 		{
 			$this->loadConstants();
 		}
@@ -326,7 +326,7 @@ class Realms
 	*/
 	public function formatAvatarPath($character)
 	{
-		if(!isset($this->races_en))
+		if(!count($this->races_en))
 		{
 			$this->loadConstants();
 		}
@@ -342,7 +342,7 @@ class Realms
 
 		if($class == "Death knight")
 		{
-			$level = 70;
+			$level = 1;
 			$class = "Deathknight";
 		}
 		else
@@ -356,22 +356,142 @@ class Realms
 			// If character is below 65, use lv 60 image
 			elseif($character['level'] < 65)
 			{
-				$level = 60;
+				$level = 1;
 			}
 
 			// 65+, use lvl70 image
 			else
 			{
-				$level = 70;
+				$level = 1;
 			}
 		}
+        if($class == "Demon Hunter")
+		{
+			$level = 1;
+			$class = "Demonhunter";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
 
-		if(in_array($race, array("Blood elf", "Night elf")))
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}
+		if($race == "Dark Iron Dwarf")
+		{
+			$race = "darkirondwarf";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}	
+		if($race == "Highmountain Tauren")
+		{
+			$race = "highmountain";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}	
+		if($race == "Lightforged Dranei")
+		{
+			$race = "lightforged";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}			
+		if($race == "Mag'har Orc")
+		{
+			$race = "maghar";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}		
+		if(in_array($race, array("Blood elf", "Night elf", "Void elf")))
 		{
 			$race = preg_replace("/ /", "", $race);
 		}
-
-		$file = $class."-".strtolower($race)."-".$gender."-".$level;
+		
+		$file = strtolower($race)."-".$gender."-".$level;
 
 		if(!file_exists("application/images/avatars/".$file.".gif"))
 		{
