@@ -19,13 +19,13 @@ class PVP_Statistics extends MX_Controller
 		
 		$data = array(
 			'user_id' 			=> $user_id,
-			'realms_count'		=> count($this->realms),
+			'realms_count'		=> !isset($this->realms),
 			'selected_realm'	=> $RealmId,
 			'url' 				=> $this->template->page_url,
 		);
 		
 		// Get the realms
-		if (count($this->realms) > 0)
+		if (!isset($this->realms) > 0)
 		{
 			foreach ($this->realms->getRealms() as $realm)
 			{

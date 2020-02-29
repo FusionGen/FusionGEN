@@ -326,7 +326,7 @@ class Realms
 	*/
 	public function formatAvatarPath($character)
 	{
-		if(!count($this->races_en))
+		if(!isset($this->races_en))
 		{
 			$this->loadConstants();
 		}
