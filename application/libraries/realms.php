@@ -485,7 +485,103 @@ class Realms
 			{
 				$level = 1;
 			}
-		}		
+		}	
+		if($race == "Mechagnome")
+		{
+			$race = "mechagnome";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}	
+		if($race == "Kul Tiran")
+		{
+			$race = "kultiran";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}	
+		if($race == "Zandalari Troll")
+		{
+			$race = "ZandalariTroll";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}			
+		if($race == "Vuplera")
+		{
+			$race = "vulpera";
+		}
+		else
+		{
+			// If character is below 30, use lv 1 image
+			if($character['level'] < 30)
+			{
+				$level = 1;
+			}
+
+			// If character is below 65, use lv 60 image
+			elseif($character['level'] < 65)
+			{
+				$level = 1;
+			}
+
+			// 65+, use lvl70 image
+			else
+			{
+				$level = 1;
+			}
+		}				
 		if(in_array($race, array("Blood elf", "Night elf", "Void elf")))
 		{
 			$race = preg_replace("/ /", "", $race);
