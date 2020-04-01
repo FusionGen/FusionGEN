@@ -1,19 +1,19 @@
 {
-	"name": "FusionGEN Default Theme",
-	"author": "CUSSED / E.Darksider / OMGhixD",
-	"website": "https://gitlab.com/omghixd/fusiongen",
+	"name": "Example theme",
+	"author": "Jesper Lindström",
+	"website": "http://raxezdev.com",
 	
-	"favicon": "favicon.ico",
-
+	"favicon": "favicon.gif",
+	
 	"normal_avatar": "avatars/0_normal.jpg",
 	"small_avatar": "avatars/0_small.jpg",
 
 	"slider_text": {
-		"next": "&#155;",
-		"previous": ""
+		"next": "Next",
+		"previous": "Prev"
 	},
-
-	"slider_id": "",
-	"screenshot": "images/screenshot.jpeg",
+	
+	"slider_id": "slider_wrapper",
+	"screenshot": "images/screenshot.jpg",
 	"blank_header": ""
 }
