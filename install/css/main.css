@@ -31,12 +31,11 @@
 body {
 	font-family:'MuseoSans', Arial, Helvetica, Sans-serif;
 	color:#fff;
-	background-color:#3b3b3b;
+	background-color:#19191b;
 	line-height:1.5;
 	font-size:14px;
 	margin:0px;
 	padding:0px;
-	background-color: #3d3d3d;
 }
 
 a img {
@@ -105,7 +104,7 @@ h4 {
 /* Top bar */
 header {
 	height:58px;
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	padding-top:10px;
 }
 
@@ -133,7 +132,6 @@ header .right .welcome b {
 }
 
 header nav .icon, #main .left .icon {
-	background-image:url(../images/icons/icons.png);
 	height:17px;
 	width:16px;
 	float:left;
@@ -199,7 +197,8 @@ header nav .active, #main .right .side_left .box li .button:hover, #main .right 
 		color-stop(1, #c4833d)
 	);
 	cursor: pointer;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 header nav .active:hover {
@@ -220,7 +219,7 @@ header nav .active:hover {
 }
 
 #main {
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	border-radius:3px;
 	min-height:200px;
 }
@@ -246,8 +245,7 @@ header nav .active:hover {
 	color:#fff;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.6);
 	text-decoration:none;
-	background-image:url(../images/menu_section.png);
-	border-bottom:1px solid #101010;
+    background-color: #272729;
 	border-top-left-radius: 3px;
 }
 
@@ -289,8 +287,7 @@ header nav .active:hover {
 }
 
 #main .left nav .sub a {
-	background-color: #171717;
-	border-bottom: 1px solid #1e1e1e;
+	background-color: #19191b;
 	color:#747474;
 	padding-left:40px;
 }
@@ -440,8 +437,6 @@ header nav .active:hover {
 
 #main .right h1 {
 	height:35px;
-	border-top:1px solid #3d3d3d;
-	border-bottom:1px solid #3d3d3d;
 	display:block;
 	margin:0px;
 	padding:2px;
@@ -452,7 +447,7 @@ header nav .active:hover {
 	font-family:MuseoSlab, Arial, Helvetica, Sans-serif;
 	font-size:20px;
 	color:#fff;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	border-top-right-radius:3px;
 }
 
@@ -567,7 +562,7 @@ header nav .active:hover {
 	background-color:#bebebe;
 	border-top-left-radius:3px;
 	border-top-right-radius:3px;
-	background-color: #1e1e1e;
+	background-color: #19191b;
 }
 
 #main .right .big {
@@ -614,7 +609,8 @@ header nav .active:hover {
 	box-shadow:0px 1px 0px #fff inset, 0px 1px 0px #fff;
 	width:60px;
 	text-align:center;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 .nice_button {
@@ -622,23 +618,29 @@ header nav .active:hover {
 	margin:0px;
 	padding:6px 10px;
     cursor: pointer;
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	color: #fff;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 #main .right .side_left .box li .button:hover, #main .right .side_right .box .button:hover, input[type="submit"]:hover, .nice_button:hover {
-	box-shadow:0px 1px 0px #eac27d inset, 0px 1px 0px #eac27d;
-	border:1px solid #795e30;
-	color:white;
-	text-shadow:1px 1px 0px rgba(0,0,0,0.4);
-	transition:all 0.3s ease;
+	color: #fff;
+	border-radius: 2px;
+    text-shadow: 1px 1px 0px #000;
+    box-shadow: 0px 1px 0px #000;
+    text-decoration: none;
+    background-color: #19191b;
+    transition: 0.3s all;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 #main .right .side_left .box li .button:active, #main .right .side_right .box .button:active, input[type="submit"]:active, .nice_button:active {
 	background-image:none;
 	box-shadow:0px 1px 0px #eac27d;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 #main .right .side_right {
@@ -650,10 +652,11 @@ header nav .active:hover {
 
 #main .right .box {
 	border-radius:3px;
-	background-color:#3d3d3d;
+	background-color:#19191b;
 	margin-bottom:40px;
 	padding: 2px;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 #main .right .side_right .box .button, input[type="submit"] {
@@ -714,7 +717,7 @@ input[type="email"]
 	width:99%;
 	padding:8px;
 	color: #fff;
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	border:1px solid #999;
 	border-radius:2px;
 	margin:5px;
@@ -732,7 +735,7 @@ input[type="password"]:focus,
 input[type="email"]:focus {
 	color: #fff;
 	border: 1px solid #bc6c1f;
-	-webkit-box-shadow: 0px 0px 10px #bc6c1f;
+	box-shadow: 0px 0px 10px #bc6c1f;
 }
 
 select {
@@ -741,9 +744,9 @@ select {
 	width:99%;
 	padding:8px;
 	color:#fff;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	border:1px solid #999;
-	-webkit-border-radius:2px;
+	border-radius:2px;
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
@@ -752,15 +755,14 @@ select {
 /* Footer */
 footer {
 	font-family:'MuseoSlab', Arial, Helvetica, Sans-serif;
-	background-color: #1e1e1e;
+	background-color: #19191b;
 	margin-top:50px;
-	border-top:1px solid #494949;
 	height:100px;
 }
 
 footer .center_1020 {
-	background-color: #1e1e1e;
-	border-left:;
+	background-color: #19191b;
+	border-left: none;
 	height:100px;
 }
 
@@ -793,12 +795,14 @@ footer #links a {
 	color:#8a8a8a;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #000;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 footer #links a:hover {
 	color:#dc8044;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 
@@ -869,12 +873,14 @@ footer #discord a {
 	font-size:20px;
 	text-decoration:none;
 	float:left;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 footer #discord a:hover {
 	color:#dc8044;
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 footer #html5 {
@@ -884,15 +890,9 @@ footer #html5 {
 }
 
 footer .divider, footer .divider2 {
-	background-image:url(../images/footer_divider.png);
-	height:99px;
 	width:2px;
 	float:left;
 	opacity:0.4;
-}
-
-footer .divider2 {
-	background-image:url(../images/footer_divider2.png);
 }
 
 .installer_navigation {
@@ -940,7 +940,8 @@ footer .divider2 {
     padding: 5px 7px;
     color: white;
     text-shadow: 2px 1px 0px rgba(0,0,0,0.4);
-	transition:all 0.3s ease;
+	-webkit-transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
+    transition: all .9s cubic-bezier(.23,1,.32,1) 0s;
 }
 
 .how_to_box .title:hover {
@@ -949,7 +950,7 @@ footer .divider2 {
 
 .how_to_box .content {
     padding: 12px;
-    background-color: #1e1e1e;
+    background-color: #19191b;
 	overflow: hidden;
     display: none;
     line-height: 30px;
@@ -987,11 +988,17 @@ footer .divider2 {
 
 #realm_field .realmHeader .realmExtend {
 	margin-right: 4px;
+	background-image: url(../images/button_drop.png);
+	height: 16px;
+	width: 16px;
 }
 
 #realm_field .realmHeader .realmDelete {
 	float: right;
 	margin-top: 2px;
+	background-image: url(../images/button_delete.png);
+	height: 16px;
+	width: 16px;
 }
 
 .realmAdd {
@@ -1046,7 +1053,7 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	display:none;
 	z-index:999999;
 	padding:20px;
-	background-color:#1e1e1e;
+	background-color:#19191b;
 	border:1px solid #dc8044;
 	position:fixed;
 	left:50%;

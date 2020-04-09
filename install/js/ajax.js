@@ -42,7 +42,7 @@ var Ajax = {
 				if ( ! name)
 					return;
 				
-				$("#realm_field").append("<div class=\"realmHeader\"><a onclick='Ajax.Realms.show(this);'><img class='realmExtend' /> " + name + "</a> <img class='realmDelete' onclick='Ajax.Realms.deleteRealm(this);' /></div><div class='realmForm' style='display: none;'></div>");
+					$("#realm_field").append("<div class=\"realmHeader\"><a onclick='Ajax.Realms.show(this);'><img class='realmExtend' src='images/icons/button_drop.png' /> " + name + "</a> <img class='realmDelete' src='images/icons/button_delete.png' onclick='Ajax.Realms.deleteRealm(this);' /></div><div class='realmForm' style='display: none;'></div>");
 				$("#realm_field .realmForm").html($("#loader").html()).find('#realmName').val(name);
 				UI.Tooltip.refresh();
 			});
