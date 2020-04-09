@@ -185,10 +185,6 @@ header nav .active, #main .right .side_left .box li .button:hover, #main .right 
 	background-color:#19191b;
 }
 
-header nav .active:hover {
-
-}
-
 #top_spacer {
 	height:50px;
 }
@@ -533,8 +529,6 @@ header nav .active:hover {
 	border-bottom:1px solid #272729;
 }
 
-#main .right .box h3 {
-}
 
 #main .right .big {
 	margin:10px;
@@ -620,9 +614,6 @@ header nav .active:hover {
 }
 
 /* regular lists */
-#main .right .box .list {
-}
-
 #main .right .box ol.list, #main .right .box ol.list li {
 	list-style: decimal;
 }
@@ -1252,9 +1243,6 @@ footer .divider2 {
 .mceLast > .mceLast span { display:inline !important; }
 
 /* ACP */
-.acl_group_item {
-
-}
 
 .acl_role_item {
     padding-left: 10% !important;
