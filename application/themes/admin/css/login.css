@@ -158,7 +158,6 @@ footer {
 
 footer .center_1020 {
 	background-color:#19191b;
-	border-left:;
 	height:100px;
 }
 
@@ -290,7 +289,6 @@ input[type="submit"] {
 	font-size: 20px;
 	transition: all 0.3s ease;
 	border: 1px #3c3c40 solid;
-	margin-top: 0px;
 	background-color: #262629;
 	border-radius: 5px;
 }
@@ -298,8 +296,8 @@ input[type="submit"] {
 input[type="submit-top"] {
 	float:none;
 	display:inline;
-	width:24px;
-	height:52px;
+	width: 24px;
+	height: 52px;
 	margin-left:7px;
 	font-size:20px;
 	transition:all 0.3s ease;
