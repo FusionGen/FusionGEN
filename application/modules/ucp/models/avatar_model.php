@@ -3,7 +3,9 @@
 class Avatar_model extends CI_Model
 {
 	public function setAvatar($avatar)
-	{
-		$this->db->update('account_data', $avatar, array('id' => $this->user->getId()));
+	{	
+		$avatar = array_shift($avatar);
+		$this->db->update('account_data',array('avatar' =>$avatar['file_name']), array('id' => $this->user->getId()));
 	}
 } 
+
