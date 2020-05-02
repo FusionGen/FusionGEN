@@ -2,86 +2,81 @@
 
 /**
  * Short-command to get the current language name
- * @return String
+ * @return string
  */
 function getLang()
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->getLanguage();
+    return $CI->language->getLanguage();
 }
 
 /**
  * Short-command to get a language string
- * @param String $id
- * @param String $file
- * @return String
+ * @param stringstring $id
+ * @param stringstring $file
+ * @return stringstring
  */
 function lang($id, $file = 'main')
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->get($id, $file);
+    return $CI->language->get($id, $file);
 }
 
 /**
  * Short-command to set a client language string
- * @param String $id
- * @param String $file
- * @return String
+ * @param string $id
+ * @param string $file
+ * @return string
  */
 function clientLang($id, $file = 'main')
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->setClientData($id, $file);
+    return $CI->language->setClientData($id, $file);
 }
 
 /**
  * Translate the JSON-stored language string to the desired language
- * @param String $json
- * @return String
+ * @param string $json
+ * @return string
  */
 function langColumn($json)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->translateLanguageColumn($json);
+    return $CI->language->translateLanguageColumn($json);
 }
 
 /**
  * Get the selected language
- * @param String $json
- * @return String
+ * @param string $json
+ * @return string
  */
 function getColumnLang($json)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->language->getColumnLanguage($json);
+    return $CI->language->getColumnLanguage($json);
 }

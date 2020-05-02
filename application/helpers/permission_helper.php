@@ -2,55 +2,52 @@
 
 /**
  * Check if a user has permission to do a certain task
- * @param String $permissionName
- * @param String $moduleName
- * @param Int $userId
- * @return Boolean
+ * @param string $permissionName
+ * @param string $moduleName
+ * @param int $userId
+ * @return bool
  */
 function hasPermission($permissionName, $moduleName = false, $userId = false)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->acl->hasPermission($permissionName, $moduleName, $userId);
+    return $CI->acl->hasPermission($permissionName, $moduleName, $userId);
 }
 
 /**
  * Check if a user has permission to see a menu link
- * @param String $permissionName
- * @param String $moduleName
- * @return Boolean
+ * @param string $permissionName
+ * @param string $moduleName
+ * @return bool
  */
 function hasViewPermission($permissionName, $moduleName)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->acl->hasViewPermission($permissionName, $moduleName);
+    return $CI->acl->hasViewPermission($permissionName, $moduleName);
 }
 
 /**
  * Check if a user has permission to do a certain task
- * @param String $permissionName
- * @param String $moduleName
- * @return Boolean
+ * @param string $permissionName
+ * @param string $moduleName
+ * @return bool
  */
 function requirePermission($permissionName, $moduleName = false)
 {
-	static $CI;
+    static $CI;
 
-	if(!$CI)
-	{
-		$CI = &get_instance();
-	}
+    if (!$CI) {
+        $CI = &get_instance();
+    }
 
-	return $CI->acl->requirePermission($permissionName, $moduleName);
+    return $CI->acl->requirePermission($permissionName, $moduleName);
 }
