@@ -10,81 +10,73 @@
 
 class World_model
 {
-	private $db;
-	private $config;
-	private $CI;
-	private $realmId;
+    private $db;
+    private $config;
+    private $CI;
+    private $realmId;
 
-	/**
-	 * Initialize the realm
-	 * @param Array $config Database config
-	 */
-	public function __construct($config)
-	{
-		$this->config = $config;
-		$this->CI = &get_instance();
-		$this->realmId = $this->config['id'];
-	}
+    /**
+     * Initialize the realm
+     * @param Array $config Database config
+     */
+    public function __construct($config)
+    {
+        $this->config  = $config;
+        $this->CI      = &get_instance();
+        $this->realmId = $this->config['id'];
+    }
 
-	/**
-	 * Connect to the database if not already connected
-	 */
-	public function connect()
-	{
-		if(empty($this->db))
-		{
-			$this->db = $this->CI->load->database($this->config['world'], true);
-		}
-	}
-	
-	public function getConnection()
-	{
-		$this->connect();
+    /**
+     * Connect to the database if not already connected
+     */
+    public function connect()
+    {
+        if (empty($this->db)) {
+            $this->db = $this->CI->load->database($this->config['world'], true);
+        }
+    }
 
-		return $this->db;
-	}
+    public function getConnection()
+    {
+        $this->connect();
 
-	/**
-	 * Get a specific item row
-	 * @param Int $realm
-	 * @param Int $id
-	 * @return Array
-	 */
-	public function getItem($id)
-	{
-		$cache = $this->CI->cache->get("items/item_".$this->realmId."_".$id);
+        return $this->db;
+    }
 
-		if($cache !== false)
-		{
-			return $cache;
-		}
-		else
-		{
-			$this->connect();
+    /**
+     * Get a specific item row
+     * @param Int $realm
+     * @param Int $id
+     * @return Array
+     */
+    public function getItem($id)
+    {
+        $cache = $this->CI->cache->get("items/item_" . $this->realmId . "_" . $id);
 
-			$query = $this->db->query(query('get_item', $this->realmId), array($id));
+        if ($cache !== false) {
+            return $cache;
+        } else {
+            $this->connect();
 
-			if($this->db->_error_message())
-			{
-				die($this->db->_error_message());
-			}
+            $query = $this->db->query(query('get_item', $this->realmId), [$id]);
 
-			if($query->num_rows() > 0)
-			{
-				$row = $query->result_array();
+            if ($this->db->_error_message()) {
+                die($this->db->_error_message());
+            }
 
-				// Cache it forever
-				$this->CI->cache->save("items/item_".$this->realmId."_".$id, $row[0]);
+            if ($query->num_rows() > 0) {
+                $row = $query->result_array();
 
-				return $row[0];
-			}
-			else 
-			{
-				// Cache it for 24 hours
-				$this->CI->cache->save("items/item_".$this->realmId."_".$id, 'empty', 60*60*24);
+                // Cache it forever
+                $this->CI->cache->save("items/item_" . $this->realmId . "_" . $id, $row[0]);
 
-				return false;	
-			}
-		}
-	}
+                return $row[0];
+            } else {
+                // Cache it for 24 hours
+                $this->CI->cache->save("items/item_" . $this->realmId . "_" . $id, 'empty', 60 * 60 * 24);
+
+                return false;
+            }
+        }
+    }
 }

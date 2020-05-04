@@ -10,272 +10,236 @@
 
 class Internal_user_model extends CI_Model
 {
-	private $connection;
-	private $vp;
-	private $dp;
-	private $nickname;
-	private $permissionCache;
-	private $language;
-	
-	public function __construct()
-	{
-		parent::__construct();
+    private $connection;
+    private $vp;
+    private $dp;
+    private $nickname;
+    private $permissionCache;
+    private $language;
 
-		$this->connection = $this->load->database("cms", true);
-		$this->permissionCache = array();
-		
-		if($this->user->getOnline())
-		{
-			$this->initialize();
-		}
-		else
-		{
-			$this->vp = 0;
-			$this->dp = 0;
-			$this->location = "";
-			$this->nickname = "";
-			$this->language = $this->config->item('language');
-		}
-	}
+    public function __construct()
+    {
+        parent::__construct();
 
-	public function initialize($id = false)
-	{
-		if(!$id)
-		{
-			$id = $this->session->userdata('id');
-		}
+        $this->connection      = $this->load->database("cms", true);
+        $this->permissionCache = [];
 
-		$this->connection->select('*')->from('account_data')->where(array('id' => $id));
-		$query = $this->connection->get();
+        if ($this->user->getOnline()) {
+            $this->initialize();
+        } else {
+            $this->vp       = 0;
+            $this->dp       = 0;
+            $this->location = "";
+            $this->nickname = "";
+            $this->language = $this->config->item('language');
+        }
+    }
 
-		if($this->connection->_error_message())
-		{
-			die($this->connection->_error_message());
-		}
+    public function initialize($id = false)
+    {
+        if (!$id) {
+            $id = $this->session->userdata('id');
+        }
 
-		if($query->num_rows() > 0)
-		{
-			$result = $query->result_array();
-			
-			$this->vp = $result[0]['vp'];
-			$this->dp = $result[0]['dp'];
-			$this->location = $result[0]['location'];
-			$this->nickname = $result[0]['nickname'];
-			$this->language = $result[0]['language'];
-		}
-		else 
-		{
-			$this->makeNew();
-		}
-	}
+        $this->connection->select('*')->from('account_data')->where(['id' => $id]);
+        $query = $this->connection->get();
 
-	/**
-	 * Creates the internal-stored user info
-	 */
-	public function makeNew()
-	{
-		$array = array(
-			'id' => $this->external_account_model->getId(),
-			'vp' => 0,
-			'dp' => 0,
-			'location' => "Unknown",
-			'nickname' => $this->external_account_model->getUsername(),
-			'language' => $this->config->item('language')
-		);
+        if ($this->connection->_error_message()) {
+            die($this->connection->_error_message());
+        }
 
-		$this->connection->insert("account_data", $array);
+        if ($query->num_rows() > 0) {
+            $result = $query->result_array();
 
-		$this->vp = 0;
-		$this->dp = 0;
-		$this->location = "Unknown";
-		$this->nickname = $this->external_account_model->getUsername();
-	}
-	
-	public function nicknameExists($nickname)
-	{
-		$count = $this->connection->from('account_data')->where(array('nickname' => $nickname))->count_all_results();
-		
-		if($count)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	/*
-	| -------------------------------------------------------------------
-	|  Getters
-	| -------------------------------------------------------------------
-	*/
-	
-	/**
-	 * Get the nickname
-	 * @param Int $id
-	 * @return String
-	 */
-	public function getNickname($id = false)
-	{
-		if(!$id)
-		{
-			return $this->nickname;
-		}
-		else
-		{
-			$this->connection->select('nickname')->from('account_data')->where(array('id' => $id));
-			$query = $this->connection->get();
-			
-			if($query->num_rows() > 0)
-			{
-				$result = $query->result_array();
-			}
-			else
-			{
-				$result[0]['nickname'] = "";
-			}
+            $this->vp       = $result[0]['vp'];
+            $this->dp       = $result[0]['dp'];
+            $this->location = $result[0]['location'];
+            $this->nickname = $result[0]['nickname'];
+            $this->language = $result[0]['language'];
+        } else {
+            $this->makeNew();
+        }
+    }
 
-			if(strlen($result[0]['nickname']) > 0)
-			{
-				return $result[0]['nickname'];
-			}
-			else 
-			{
-				return $this->external_account_model->getUsername($id);
-			}
-		}
-	}
+    /**
+     * Creates the internal-stored user info
+     */
+    public function makeNew()
+    {
+        $array = array(
+            'id'       => $this->external_account_model->getId(),
+            'vp'       => 0,
+            'dp'       => 0,
+            'location' => "Unknown",
+            'nickname' => $this->external_account_model->getUsername(),
+            'language' => $this->config->item('language'),
+        );
 
-	/**
-	 * Gets the value of the specified table, column where value = value
-	 * @param String $table
-	 * @param String $column
-	 * @param String $value
-	 * @return String, bool
-	 */
-	public function getValue($table, $column, $value, $columns = "*") 
-	{
-		//Continue with selecting data.
-		$this->connection->select($columns)->from($table)->where(array($column => $value));
-		$query = $this->connection->get();
-		$result = $query->result_array();
+        $this->connection->insert("account_data", $array);
 
-		if($query->num_rows() > 0)
-		{
-			return $result[0];
-		}
-		else
-		{
-			return "";
-		}
-	}
+        $this->vp       = 0;
+        $this->dp       = 0;
+        $this->location = "Unknown";
+        $this->nickname = $this->external_account_model->getUsername();
+    }
 
-	public function getAccessId($rankId)
-	{
-		$query = $this->connection->query("SELECT access_id FROM ranks WHERE id = ?", array($rankId));
-		if($query->num_rows() > 0)
-		{
-			$result = $query->result_array();
-			return $result[0]['access_id'];
-		}
-		else
-		{
-			return false;
-		}
-	}
+    public function nicknameExists($nickname)
+    {
+        $count = $this->connection->from('account_data')->where(['nickname' => $nickname])->count_all_results();
 
-	public function getIdByNickname($nickname)
-	{
-		$query = $this->connection->query("SELECT id FROM account_data WHERE nickname = ?", array($nickname));
+        if ($count) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		if($query->num_rows() > 0)
-		{
-			$result = $query->result_array();
-			
-			return $result[0]['id'];
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	public function getAvatarById($id)
-	{
-		$query = $this->connection->query("SELECT avatar FROM account_data WHERE id = ?", array($id));
+    /*
+    | -------------------------------------------------------------------
+    |  Getters
+    | -------------------------------------------------------------------
+     */
 
-		if($query->num_rows() > 0)
-		{
-			$result = $query->result_array();
+    /**
+     * Get the nickname
+     * @param Int $id
+     * @return String
+     */
+    public function getNickname($id = false)
+    {
+        if (!$id) {
+            return $this->nickname;
+        } else {
+            $this->connection->select('nickname')->from('account_data')->where(['id' => $id]);
+            $query = $this->connection->get();
 
-			return $result[0]['avatar'];
-		}
-		else
-		{
-			return false;
-		}
-	}
+            if ($query->num_rows() > 0) {
+                $result = $query->result_array();
+            } else {
+                $result[0]['nickname'] = "";
+            }
 
+            if (strlen($result[0]['nickname']) > 0) {
+                return $result[0]['nickname'];
+            } else {
+                return $this->external_account_model->getUsername($id);
+            }
+        }
+    }
 
-	public function getTotalVotes()
-	{
-		$query = $this->connection->query("SELECT total_votes FROM account_data WHERE nickname = ?", array($this->nickname));
+    /**
+     * Gets the value of the specified table, column where value = value
+     * @param String $table
+     * @param String $column
+     * @param String $value
+     * @return String, bool
+     */
+    public function getValue($table, $column, $value, $columns = "*")
+    {
+        //Continue with selecting data.
+        $this->connection->select($columns)->from($table)->where([$column => $value]);
+        $query  = $this->connection->get();
+        $result = $query->result_array();
 
-		if($query->num_rows() > 0)
-		{
-			$result = $query->result_array();
-			
-			return $result[0]['id'];
-		}
-		else
-		{
-			return false;
-		}
-	}
+        if ($query->num_rows() > 0) {
+            return $result[0];
+        } else {
+            return "";
+        }
+    }
 
-	public function getVp()
-	{
-		return $this->vp;
-	}
+    public function getAccessId($rankId)
+    {
+        $query = $this->connection->query("SELECT access_id FROM ranks WHERE id = ?", [$rankId]);
+        if ($query->num_rows() > 0) {
+            $result = $query->result_array();
+            return $result[0]['access_id'];
+        } else {
+            return false;
+        }
+    }
 
-	public function getDp()
-	{
-		return $this->dp;
-	}
+    public function getIdByNickname($nickname)
+    {
+        $query = $this->connection->query("SELECT id FROM account_data WHERE nickname = ?", [$nickname]);
 
-	public function getLocation()
-	{
-		return $this->location;
-	}
+        if ($query->num_rows() > 0) {
+            $result = $query->result_array();
 
-	public function getLanguage()
-	{
-		return $this->language;
-	}
-	
-	/*
-	| -------------------------------------------------------------------
-	|  Setters
-	| -------------------------------------------------------------------
-	*/
-	public function setVp($userId, $vp)
-	{
-		$this->connection->query("UPDATE account_data SET vp = ? WHERE id = ?", array($vp, $userId));
-	}
+            return $result[0]['id'];
+        } else {
+            return false;
+        }
+    }
 
-	public function setLanguage($userId, $language)
-	{
-		$this->connection->query("UPDATE account_data SET language = ? WHERE id = ?", array($language, $userId));
-	}
+    public function getAvatarById($id)
+    {
+        $query = $this->connection->query("SELECT avatar FROM account_data WHERE id = ?", [$id]);
 
-	public function setDp($userId, $dp)
-	{
-		$this->connection->query("UPDATE account_data SET dp = ? WHERE id = ?", array($dp, $userId));
-	}
+        if ($query->num_rows() > 0) {
+            $result = $query->result_array();
 
-	public function setLocation($userId, $location)
-	{
-		$this->connection->query("UPDATE account_data SET location = ? WHERE id = ?", array($location, $userId));
-	}
+            return $result[0]['avatar'];
+        } else {
+            return false;
+        }
+    }
+
+    public function getTotalVotes()
+    {
+        $query = $this->connection->query("SELECT total_votes FROM account_data WHERE nickname = ?", [$this->nickname]);
+
+        if ($query->num_rows() > 0) {
+            $result = $query->result_array();
+
+            return $result[0]['id'];
+        } else {
+            return false;
+        }
+    }
+
+    public function getVp()
+    {
+        return $this->vp;
+    }
+
+    public function getDp()
+    {
+        return $this->dp;
+    }
+
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /*
+    | -------------------------------------------------------------------
+    |  Setters
+    | -------------------------------------------------------------------
+     */
+    public function setVp($userId, $vp)
+    {
+        $this->connection->query("UPDATE account_data SET vp = ? WHERE id = ?", [$vp, $userId]);
+    }
+
+    public function setLanguage($userId, $language)
+    {
+        $this->connection->query("UPDATE account_data SET language = ? WHERE id = ?", [$language, $userId]);
+    }
+
+    public function setDp($userId, $dp)
+    {
+        $this->connection->query("UPDATE account_data SET dp = ? WHERE id = ?", [$dp, $userId]);
+    }
+
+    public function setLocation($userId, $location)
+    {
+        $this->connection->query("UPDATE account_data SET location = ? WHERE id = ?", [$location, $userId]);
+    }
 }
