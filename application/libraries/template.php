@@ -165,7 +165,7 @@ class Template
 		}
 
 		// Gather the theme data
-		$theme_data = array(
+		$theme_data = [
 			"currentPage" => $url,
 			"url" => $this->page_url,
 			"theme_path" => $this->theme_path,
@@ -181,7 +181,7 @@ class Template
 			"isOnline" => $this->CI->user->isOnline(),
 			"header_url" => ($this->CI->config->item('header_url')) ? "style='background-image:url(".$this->CI->config->item('header_url').")'" : "",
 			"sideboxes" => $sideboxes
-		);
+		];
 
 		// Load the main template
 		return $output = $this->CI->smarty->view($this->theme_path."template.tpl", $theme_data, true);
@@ -196,14 +196,14 @@ class Template
 	 */
 	private function handleAjaxRequest($content = "", $css = "", $js = "")
 	{
-		$array = array(
+		$array = [
 			"title" => $this->title.$this->CI->config->item('title'),
 			"content" => $content,
 			"js" => $js,
 			"css" => $css,
 			"slider" => $this->isSliderShown(),
 			"language" => $this->CI->language->getClientData()
-		);
+		];
 
 		return json_encode($array);
 	}
@@ -213,13 +213,13 @@ class Template
 	 */
 	private function handleAnnouncement()
 	{
-		$data = array(
+		$data = [
 			'module' => 'default',
 			'title' => $this->CI->config->item("title"),
 			'headline' => $this->CI->config->item("message_headline"),
 			'message' => $this->CI->config->item("message_text"),
 			'size' => $this->CI->config->item('message_headline_size')
-		);
+		];
 
 		$output = $this->loadPage("message.tpl", $data);
 
@@ -232,11 +232,11 @@ class Template
 	 */
 	private function getModals()
 	{
-		$modal_data = array(
+		$modal_data = [
 			'url' => $this->page_url,
 			'vote_reminder' => $this->CI->config->item('vote_reminder'),
 			'vote_reminder_image' => $this->CI->config->item('vote_reminder_image')
-		);
+		];
 
 		// Load the modals
 		$modals = $this->CI->smarty->view($this->theme_path."views/modals.tpl", $modal_data, true);
@@ -253,7 +253,7 @@ class Template
 	private function getHeader($css = "", $js = "")
 	{
 		// Gather the header data
-		$header_data = array(
+		$header_data = [
 			"style_path" => $this->style_path,
 			"theme_path" => $this->theme_path,
 			"image_path" => $this->image_path,
@@ -278,7 +278,7 @@ class Template
 			"csrf_cookie" => $this->CI->input->cookie('csrf_token_name'),
 			"client_language" => $this->CI->language->getClientData(),
 			"activeLanguage" => $this->CI->language->getLanguage()
-		);
+		];
 
 		// Load the theme
 		return $this->CI->smarty->view($this->view_path."header.tpl", $header_data, true);
@@ -308,7 +308,7 @@ class Template
 	{
 		require_once("application/interfaces/sidebox.php");
 		
-		$out = array();
+		$out = [];
 
 		$sideboxes_db = $this->CI->cms_model->getSideboxes();
 
@@ -339,11 +339,17 @@ class Template
 					}
 
 					// Add the sidebox to the output.
-					array_push($out, array('name' => langColumn($sidebox['displayName']), 'data' => $object->view()));
+					array_push($out, ['name' => langColumn($sidebox['displayName']), 'data' => $object->view()]);
 				}
 				else
 				{
-					array_push($out, array('name' => "Oops, something went wrong", 'data' => 'The following sidebox module is missing or contains an invalid module structure: <b>sidebox_'.$sidebox['type'].'</b>'));
+					array_push(
+						$out,
+						[
+							'name' => "Oops, something went wrong",
+							'data' => 'The following sidebox module is missing or contains an invalid module structure: <b>sidebox_'.$sidebox['type'].'</b>'
+						]
+					);
 				}
 			}
 		}
@@ -357,7 +363,7 @@ class Template
 	 * @param Array $data Array of additional template data
 	 * @return String
 	 */
-	public function loadPage($page, $data = array())
+	public function loadPage($page, $data = [])
 	{
 		// Get the module, we need to check if it's enabled first
 		$data['module'] = array_key_exists("module", $data) ? $data['module'] : $this->module_name;
@@ -398,11 +404,11 @@ class Template
 	 */
 	public function box($title, $body, $full = false, $css = false, $js = false)
 	{
-		$data = array(
+		$data = [
 			"module" => "default",
 			"headline" => $title,
 			"content" => $body
-		);
+		];
 
 		$page = $this->loadPage("page.tpl", $data);
 
@@ -420,7 +426,7 @@ class Template
 	 */
 	public function getMenu($side = "top") 
 	{
-		$result = array();
+		$result = [];
 
 		// Get the database values
 		$links = $this->CI->cms_model->getLinks($side);
@@ -496,7 +502,7 @@ class Template
 
 		$this->setTitle(lang("404_title", "error"));
 
-		$message = $this->loadPage("error.tpl", array('module' => 'error', 'is404' => true));
+		$message = $this->loadPage("error.tpl", ['module' => 'error', 'is404' => true]);
 		$output = $this->box(lang("404", "error"), $message);
 
 		$this->view($output);
@@ -508,7 +514,7 @@ class Template
 	 */
 	public function showError($error = false)
 	{
-		$message = $this->loadPage("error.tpl", array('module' => 'error', 'errorMessage' => $error));
+		$message = $this->loadPage("error.tpl", ['module' => 'error', 'errorMessage' => $error]);
 		$output = $this->box($error, $message);
 
 		$this->view($output);
@@ -607,13 +613,13 @@ class Template
 			return "Not a number";
 		}
 
-		$a = array(
+		$a = [
 			30 * 24 * 60 * 60       => 'month',
 			24 * 60 * 60            =>  'day',
 			60 * 60                 =>  'hour',
 			60                      =>  'minute',
 			1                       =>  'second'
-		);
+		];
 		
 		foreach($a as $secs => $str)
 		{

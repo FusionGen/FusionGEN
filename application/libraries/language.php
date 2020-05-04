@@ -10,322 +10,293 @@
 
 class Language
 {
-	private $CI;
-	private $language;
-	private $languageAbbreviation;
-	private $defaultLanguage;
-	private $requestedFiles;
-	private $data;
-	private $clientData;
+    private $CI;
+    private $language;
+    private $languageAbbreviation;
+    private $defaultLanguage;
+    private $requestedFiles;
+    private $data;
+    private $clientData;
 
-	/**
-	 * Get the CI instance and load the default language
-	 */
-	public function __construct()
-	{
-		$this->CI = &get_instance();
-		
-		$this->requestedFiles = $this->data = array();
+    /**
+     * Get the CI instance and load the default language
+     */
+    public function __construct()
+    {
+        $this->CI = &get_instance();
 
-		// Load default language
-		$this->defaultLanguage = $this->CI->config->item('language');
+        $this->requestedFiles = $this->data = [];
 
-		if(!is_dir("application/language/".$this->defaultLanguage))
-		{
-			$this->defaultLanguage = "english";
+        // Load default language
+        $this->defaultLanguage = $this->CI->config->item('language');
 
-			if(!is_dir("application/language/".$this->defaultLanguage))
-			{
-				show_error("The actual default language <b>".$this->CI->config->item('language')."</b> does not exist, and neither does English. Please install at least one language.");
-			}
-		}
+        if (!is_dir("application/language/" . $this->defaultLanguage)) {
+            $this->defaultLanguage = "english";
 
-		$this->language = $this->defaultLanguage;
-		$this->load("main");
-		$this->languagePrefix = $this->get("abbreviation");
-	}
+            if (!is_dir("application/language/" . $this->defaultLanguage)) {
+                show_error(
+                    "The actual default language <b>" .
+                    $this->CI->config->item('language') .
+                    "</b> does not exist, and neither does English. Please install at least one language."
+                );
+            }
+        }
 
-	/**
-	 * Change the language on the fly
-	 * @param String $language
-	 */
-	public function setLanguage($language)
-	{
-		$realLanguage = $language;
-		$this->language = $language;
+        $this->language = $this->defaultLanguage;
+        $this->load("main");
+        $this->languagePrefix = $this->get("abbreviation");
+    }
 
-		if(!is_dir("application/language/".$language))
-		{
-			$language = $this->defaultLanguage;
+    /**
+     * Change the language on the fly
+     * @param String $language
+     */
+    public function setLanguage($language)
+    {
+        $realLanguage   = $language;
+        $this->language = $language;
 
-			if(!is_dir("application/language/".$language))
-			{
-				$language = "english";
+        if (!is_dir("application/language/" . $language)) {
+            $language = $this->defaultLanguage;
 
-				if(!is_dir("application/language/".$language))
-				{
-					show_error("The requested language <b>".$realLanguage."</b> doesn't exist and the actual default language <b>".$this->CI->config->item('language')."</b> does not exist either, and nor does English. Please install at least one language.");
-				}
-			}
-		}
+            if (!is_dir("application/language/" . $language)) {
+                $language = "english";
 
-		$this->reloadLanguage();
-		$this->languagePrefix = $this->get("abbreviation");
-	}
+                if (!is_dir("application/language/" . $language)) {
+                    show_error(
+                        "The requested language <b>" . $realLanguage .
+                        "</b> doesn't exist and the actual default language <b>" .
+                        $this->CI->config->item('language') .
+                        "</b> does not exist either, and nor does English. Please install at least one language."
+                    );
+                }
+            }
+        }
 
-	/**
-	 * Reload all previously loaded language files,
-	 * meant to be used after "on the fly" change of language
-	 */
-	private function reloadLanguage()
-	{
-		if(count($this->requestedFiles))
-		{
-			foreach($this->requestedFiles as $file)
-			{
-				$this->load($file);
-			}
-		}
-	}
+        $this->reloadLanguage();
+        $this->languagePrefix = $this->get("abbreviation");
+    }
 
-	/**
-	 * Get the currently active language name
-	 * in lowercase, such as "english"
-	 * @return String
-	 */
-	public function getLanguage()
-	{
-		return $this->language;
-	}
+    /**
+     * Reload all previously loaded language files,
+     * meant to be used after "on the fly" change of language
+     */
+    private function reloadLanguage()
+    {
+        if (count($this->requestedFiles)) {
+            foreach ($this->requestedFiles as $file) {
+                $this->load($file);
+            }
+        }
+    }
 
-	/**
-	 * Get the default language name
-	 * in lowercase, such as "english"
-	 * @return String
-	 */
-	public function getDefaultLanguage()
-	{
-		return $this->defaultLanguage;
-	}
+    /**
+     * Get the currently active language name
+     * in lowercase, such as "english"
+     * @return String
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
 
-	/**
-	 * Translate the JSON-stored language string to the desired language
-	 * @param String $json
-	 * @return String
-	 */
-	public function translateLanguageColumn($json)
-	{
-		$data = json_decode($json, true);
+    /**
+     * Get the default language name
+     * in lowercase, such as "english"
+     * @return String
+     */
+    public function getDefaultLanguage()
+    {
+        return $this->defaultLanguage;
+    }
 
-		if(is_array($data))
-		{
-			if(array_key_exists($this->language, $data))
-			{
-				return $data[$this->language];
-			}
-			elseif(array_key_exists($this->defaultLanguage, $data))
-			{
-				return $data[$this->defaultLanguage];
-			}
-			else
-			{
-				return reset($data);
-			}
-		}
-		else
-		{
-			return $json;
-		}
-	}
+    /**
+     * Translate the JSON-stored language string to the desired language
+     * @param String $json
+     * @return String
+     */
+    public function translateLanguageColumn($json)
+    {
+        $data = json_decode($json, true);
 
-	/**
-	  * Get the selected language
-	 * @param String $json
-	 * @return String
-	 */
-	public function getColumnLanguage($json)
-	{
-		$data = json_decode($json, true);
+        if (is_array($data)) {
+            if (array_key_exists($this->language, $data)) {
+                return $data[$this->language];
+            } elseif (array_key_exists($this->defaultLanguage, $data)) {
+                return $data[$this->defaultLanguage];
+            } else {
+                return reset($data);
+            }
+        } else {
+            return $json;
+        }
+    }
 
-		if(is_array($data))
-		{
-			if(array_key_exists($this->language, $data))
-			{
-				return $this->language;
-			}
-			elseif(array_key_exists($this->defaultLanguage, $data))
-			{
-				return $this->defaultLanguage;
-			}
-			else
-			{
-				show_error($json." does not contain an entry for <b>".$this->defaultLanguage."</b> which is the default langauge");
-			}
-		}
-		else
-		{
-			return $this->defaultLanguage;
-		}
-	}
+    /**
+     * Get the selected language
+     * @param String $json
+     * @return String
+     */
+    public function getColumnLanguage($json)
+    {
+        $data = json_decode($json, true);
 
-	/**
-	 * Get the currently active language abbreviation
-	 * @return String
-	 */
-	public function getLanguageAbbreviation()
-	{
-		return $this->languageAbbreviation;
-	}
+        if (is_array($data)) {
+            if (array_key_exists($this->language, $data)) {
+                return $this->language;
+            } elseif (array_key_exists($this->defaultLanguage, $data)) {
+                return $this->defaultLanguage;
+            } else {
+                show_error($json . " does not contain an entry for <b>" . $this->defaultLanguage . "</b> which is the default langauge");
+            }
+        } else {
+            return $this->defaultLanguage;
+        }
+    }
 
-	/**
-	 * Get a language string
-	 * @param String $id
-	 * @param String $file defaults to 'main'
-	 */
-	public function get($id, $file = 'main')
-	{
-		if(!in_array($file, $this->requestedFiles))
-		{
-			$this->load($file);
-		}
+    /**
+     * Get the currently active language abbreviation
+     * @return String
+     */
+    public function getLanguageAbbreviation()
+    {
+        return $this->languageAbbreviation;
+    }
 
-		// Try to find the string in the current language
-		if(array_key_exists($id, $this->data[$this->language][$file]))
-		{
-			return $this->data[$this->language][$file][$id];
-		}
+    /**
+     * Get a language string
+     * @param String $id
+     * @param String $file defaults to 'main'
+     */
+    public function get($id, $file = 'main')
+    {
+        if (!in_array($file, $this->requestedFiles)) {
+            $this->load($file);
+        }
 
-		// If the current language isn't the default language
-		elseif($this->language != $this->defaultLanguage)
-		{
-			if(!array_key_exists($file, $this->data[$this->defaultLanguage]))
-			{
-				$this->load($file, $this->defaultLanguage);	
-			}
+        // Try to find the string in the current language
+        if (array_key_exists($id, $this->data[$this->language][$file])) {
+            return $this->data[$this->language][$file][$id];
+        }
 
-			if(array_key_exists($id, $this->data[$this->defaultLanguage][$file]))
-			{
-				return $this->data[$this->defaultLanguage][$file][$id];
-			}
-			else
-			{
-				show_error("Language string not found (".$id." in ".$file.")");
-			}
-		}
-		else
-		{
-			show_error("Language string not found (".$id." in ".$file.")");
-		}
-	}
+        // If the current language isn't the default language
+        elseif ($this->language != $this->defaultLanguage) {
+            if (!array_key_exists($file, $this->data[$this->defaultLanguage])) {
+                $this->load($file, $this->defaultLanguage);
+            }
 
-	/**
-	 * Load a language file
-	 * @param String $file
-	 * @param String $language defaults to the current language
-	 */
-	private function load($file, $language = false)
-	{
-		// Default to the current language
-		if(!$language)
-		{
-			$language = $this->language;
-		}
+            if (array_key_exists($id, $this->data[$this->defaultLanguage][$file])) {
+                return $this->data[$this->defaultLanguage][$file][$id];
+            } else {
+                show_error("Language string not found (" . $id . " in " . $file . ")");
+            }
+        } else {
+            show_error("Language string not found (" . $id . " in " . $file . ")");
+        }
+    }
 
-		// Prevent errors
-		if(!array_key_exists($language, $this->data))
-		{
-			$this->data[$language] = array();
-		}
+    /**
+     * Load a language file
+     * @param String $file
+     * @param String $language defaults to the current language
+     */
+    private function load($file, $language = false)
+    {
+        // Default to the current language
+        if (!$language) {
+            $language = $this->language;
+        }
 
-		// Add it to the list of requested files if it doesn't exist already
-		if(!in_array($file, $this->requestedFiles))
-		{
-			array_push($this->requestedFiles, $file);
-		}
+        // Prevent errors
+        if (!array_key_exists($language, $this->data)) {
+            $this->data[$language] = [];
+        }
 
-		// Look in the shared directory
-		if(file_exists("application/language/".$language."/".$file.".php"))
-		{
-			$path = "application/language/".$language."/".$file.".php";
-		}
+        // Add it to the list of requested files if it doesn't exist already
+        if (!in_array($file, $this->requestedFiles)) {
+            array_push($this->requestedFiles, $file);
+        }
 
-		// Look in the module directory
-		elseif(is_dir("application/modules/".$this->CI->template->module_name."/language/")
-		&& is_dir("application/modules/".$this->CI->template->module_name."/language/".$language)
-		&& file_exists(is_dir("application/modules/".$this->CI->template->module_name."/language/".$file.".php")))
-		{
-			$path = "application/modules/".$this->CI->template->module_name."/language/".$file.".php";
-		}
+        // Look in the shared directory
+        if (file_exists("application/language/" . $language . "/" . $file . ".php")) {
+            $path = "application/language/" . $language . "/" . $file . ".php";
+        }
 
-		// No language file was found, and this is the default language
-		elseif($language == $this->defaultLanguage)
-		{
-			$this->data[$language][$file] = array();
-			show_error("Language file <b>".$file.".php</b> does not exist in application/language/".$language."/ or in application/modules/".$this->CI->template->module_name."/language/".$language."/");
-		}
+        // Look in the module directory
+        elseif (
+            is_dir("application/modules/" . $this->CI->template->module_name . "/language/") &&
+            is_dir("application/modules/" . $this->CI->template->module_name . "/language/" . $language) &&
+            file_exists(is_dir("application/modules/" . $this->CI->template->module_name . "/language/" . $file . ".php"))
+        ) {
+            $path = "application/modules/" . $this->CI->template->module_name . "/language/" . $file . ".php";
+        }
 
-		// No language file was found, but it may exist for the default language
-		else
-		{
-			$this->data[$language][$file] = array();
-			return false;
-		}
+        // No language file was found, and this is the default language
+        elseif ($language == $this->defaultLanguage) {
+            $this->data[$language][$file] = [];
+            show_error(
+                "Language file <b>" . $file . ".php</b> does not exist in application/language/" .
+                $language . "/ or in application/modules/" . $this->CI->template->module_name .
+                "/language/" . $language . "/"
+            );
+        }
 
-		// Load the requested language file
-		require($path);
+        // No language file was found, but it may exist for the default language
+        else {
+            $this->data[$language][$file] = [];
+            return false;
+        }
 
-		// Save it to the data array
-		$this->data[$language][$file] = $lang;
-	}
+        // Load the requested language file
+        require $path;
 
-	/**
-	 * Get all languages as an array
-	 * @return Array
-	 */
-	public function getAllLanguages()
-	{
-		$languages = array();
+        // Save it to the data array
+        $this->data[$language][$file] = $lang;
+    }
 
-		$results = glob("application/language/*/");
+    /**
+     * Get all languages as an array
+     * @return Array
+     */
+    public function getAllLanguages()
+    {
+        $languages = [];
 
-		foreach($results as $file)
-		{
-			if(is_dir($file))
-			{
-				$language = preg_replace("/(application\/language\/)|\//", "", $file);
-				$abbreviation = $this->getAbbreviationByLanguage($language);
-				$languages[$abbreviation] = $language;
-			}
-		}
+        $results = glob("application/language/*/");
 
-		return $languages;
-	}
+        foreach ($results as $file) {
+            if (is_dir($file)) {
+                $language                 = preg_replace("/(application\/language\/)|\//", "", $file);
+                $abbreviation             = $this->getAbbreviationByLanguage($language);
+                $languages[$abbreviation] = $language;
+            }
+        }
 
-	private function getAbbreviationByLanguage($language)
-	{
-		if(is_dir("application/language/".$language))
-		{
-			require("application/language/".$language."/main.php");
+        return $languages;
+    }
 
-			return $lang['abbreviation'];
-		}
-		else
-		{
-			return false;
-		}
-	}
+    private function getAbbreviationByLanguage($language)
+    {
+        if (is_dir("application/language/" . $language)) {
+            require "application/language/" . $language . "/main.php";
 
-	public function setClientData($id, $file = 'main')
-	{
-		$this->clientData[$file][$id] = $this->get($id, $file);
-	}
+            return $lang['abbreviation'];
+        } else {
+            return false;
+        }
+    }
 
-	/**
-	 * Get the client side language strings as JSON
-	 * @return String
-	 */
-	public function getClientData()
-	{
-		return json_encode($this->clientData);
-	}
+    public function setClientData($id, $file = 'main')
+    {
+        $this->clientData[$file][$id] = $this->get($id, $file);
+    }
+
+    /**
+     * Get the client side language strings as JSON
+     * @return String
+     */
+    public function getClientData()
+    {
+        return json_encode($this->clientData);
+    }
 }
