@@ -1,46 +1,45 @@
 # Required Rewrite Rule
 
 # remove "#" to enable the https requirement
-	#RewriteEngine On
-	#RewriteCond !{HTTPS} off
-	#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-	#RewriteCond %{HTTP_HOST} !^www\.
-	#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteEngine On
+#RewriteCond !{HTTPS} off
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # remove "#" to enable the https requirement
 
 <ifModule mod_rewrite.c>
-	RewriteEngine On
-        
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.*)$ ./index.php?/$1 [L]
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ ./index.php?/$1 [L]
 </ifModule>
 # Required Rewrite Rule 
 
 # Don't want people snoopin in folders
 <Files ~ "\.tpl$">
-  Order allow,deny
-  Deny from all
+    Order allow,deny
+    Deny from all
 </Files>
 # Don't want people snoopin in folders
 
 # Request Recommended by Mozilla
 <IfModule mod_setenvif.c>
-  <IfModule mod_headers.c>
-    # mod_headers, y u no match by Content-Type?!
-    <FilesMatch "\.(gif|ico|jpe?g|png|svg|svgz|webp)$">
-      SetEnvIf Origin ":" IS_CORS
-      Header set Access-Control-Allow-Origin "*" env=IS_CORS
-    </FilesMatch>
-  </IfModule>
+    <IfModule mod_headers.c>
+        # mod_headers, y u no match by Content-Type?!
+        <FilesMatch "\.(gif|ico|jpe?g|png|svg|svgz|webp)$">
+            SetEnvIf Origin ":" IS_CORS
+            Header set Access-Control-Allow-Origin "*" env=IS_CORS
+        </FilesMatch>
+    </IfModule>
 </IfModule>
 # Request Recommended by Mozilla
 
 # Allow Webfont access from other locations. (handy)
 <IfModule mod_headers.c>
-  <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
-    Header set Access-Control-Allow-Origin "*"
-  </FilesMatch>
+    <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
 </IfModule>
 # Allow Webfont access from other locations. (handy)
 
@@ -49,24 +48,26 @@ Options -MultiViews
 ErrorDocument 404 error/index.html
 # we also want UTF-8 Encoding
 AddDefaultCharset utf-8
+
 # Disallow users to view folders with no content
 <IfModule mod_autoindex.c>
-  Options -Indexes
+    Options -Indexes
 </IfModule>
+
 <FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
-  Order allow,deny
-  Deny from all
-  Satisfy All
+    Order allow,deny
+    Deny from all
+    Satisfy All
 </FilesMatch>
 # Prevent 404 Errors for Non-Existing Redirected Folders
 
 # We also want to compress / minify CSS, Images, Remove HTML Whitespace and Comments
 <IfModule pagespeed_module>
-ModPagespeed on
-ModPagespeedEnableFilters rewrite_css,combine_css
-ModPagespeedEnableFilters recompress_images
-ModPagespeedEnableFilters convert_png_to_jpeg,convert_jpeg_to_webp
-ModPagespeedEnableFilters collapse_whitespace,remove_comments
+    ModPagespeed on
+    ModPagespeedEnableFilters rewrite_css,combine_css
+    ModPagespeedEnableFilters recompress_images
+    ModPagespeedEnableFilters convert_png_to_jpeg,convert_jpeg_to_webp
+    ModPagespeedEnableFilters collapse_whitespace,remove_comments
 </IfModule>
 # We also want to compress / minify CSS, Images, Remove HTML Whitespace and Comments
 
@@ -74,92 +75,91 @@ ModPagespeedEnableFilters collapse_whitespace,remove_comments
 #Caching of common files - ENABLED
 <IfModule mod_headers.c>
 
-# 1 Month
-<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
-Header set Cache-Control "max-age=2592000, public"
-</FilesMatch>
+    # 1 Month
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
 
-# 2 DAYS
-<FilesMatch "\.(xml|txt)$">
-Header set Cache-Control "max-age=172800, public, must-revalidate"
-</FilesMatch>
+    # 2 DAYS
+    <FilesMatch "\.(xml|txt)$">
+        Header set Cache-Control "max-age=172800, public, must-revalidate"
+    </FilesMatch>
 
-# 2 HOURS
-<FilesMatch "\.(html|htm)$">
-Header set Cache-Control "max-age=7200, must-revalidate"
-</FilesMatch>
+    # 2 HOURS
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=7200, must-revalidate"
+    </FilesMatch>
 
 </IfModule>
 
 # Headers Module start
 <IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|xml|gz|html|ttf)$">
-    Header append Vary: Accept-Encoding
-  </FilesMatch>
+    <FilesMatch "\.(js|css|xml|gz|html|ttf)$">
+        Header append Vary: Accept-Encoding
+    </FilesMatch>
 </IfModule>
 # Headers Module end
 
 # Gzip Compression start
 <IfModule mod_gzip.c>
-  mod_gzip_on Yes
-  mod_gzip_dechunk Yes
-  mod_gzip_item_include file \.(html?|txt|css|js|php|pl)$
-  mod_gzip_item_include handler ^cgi-script$
-  mod_gzip_item_include mime ^text/.*
-  mod_gzip_item_include mime ^application/x-javascript.*
-  mod_gzip_item_exclude mime ^image/.*
-  mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+    mod_gzip_on Yes
+    mod_gzip_dechunk Yes
+    mod_gzip_item_include file \.(html?|txt|css|js|php|pl)$
+    mod_gzip_item_include handler ^cgi-script$
+    mod_gzip_item_include mime ^text/.*
+    mod_gzip_item_include mime ^application/x-javascript.*
+    mod_gzip_item_exclude mime ^image/.*
+    mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 </IfModule>
 # Gzip Compression end
 
 # Cache Start
 <IfModule mod_expires.c>
-  ExpiresActive on
+    ExpiresActive on
 
-# Perhaps better to whitelist expires rules? Perhaps.
-  ExpiresDefault                          "access plus 1 month"
+    # Perhaps better to whitelist expires rules? Perhaps.
+    ExpiresDefault                          "access plus 1 month"
 
-# cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
-  ExpiresByType text/cache-manifest       "access plus 0 seconds"
+    # cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
+    ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
-# Your document html
-  ExpiresByType text/html                 "access plus 0 seconds"
+    # Your document html
+    ExpiresByType text/html                 "access plus 0 seconds"
 
-# Data
-  ExpiresByType application/json          "access plus 0 seconds"
-  ExpiresByType application/xml           "access plus 0 seconds"
-  ExpiresByType text/xml                  "access plus 0 seconds"
+    # Data
+    ExpiresByType application/json          "access plus 0 seconds"
+    ExpiresByType application/xml           "access plus 0 seconds"
+    ExpiresByType text/xml                  "access plus 0 seconds"
 
-# Feed
-  ExpiresByType application/atom+xml      "access plus 1 hour"
-  ExpiresByType application/rss+xml       "access plus 1 hour"
+    # Feed
+    ExpiresByType application/atom+xml      "access plus 1 hour"
+    ExpiresByType application/rss+xml       "access plus 1 hour"
 
-# Favicon (cannot be renamed)
-  ExpiresByType image/x-icon              "access plus 1 week"
+    # Favicon (cannot be renamed)
+    ExpiresByType image/x-icon              "access plus 1 week"
 
-# Media: images, video, audio
-  ExpiresByType audio/ogg                 "access plus 1 month"
-  ExpiresByType image/gif                 "access plus 1 month"
-  ExpiresByType image/jpeg                "access plus 1 month"
-  ExpiresByType image/png                 "access plus 1 month"
-  ExpiresByType video/mp4                 "access plus 1 month"
-  ExpiresByType video/ogg                 "access plus 1 month"
-  ExpiresByType video/webm                "access plus 1 month"
+    # Media: images, video, audio
+    ExpiresByType audio/ogg                 "access plus 1 month"
+    ExpiresByType image/gif                 "access plus 1 month"
+    ExpiresByType image/jpeg                "access plus 1 month"
+    ExpiresByType image/png                 "access plus 1 month"
+    ExpiresByType video/mp4                 "access plus 1 month"
+    ExpiresByType video/ogg                 "access plus 1 month"
+    ExpiresByType video/webm                "access plus 1 month"
 
-# HTC files  (css3pie)
-  ExpiresByType text/x-component          "access plus 1 month"
+    # HTC files  (css3pie)
+    ExpiresByType text/x-component          "access plus 1 month"
 
-# Webfonts
-  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
-  ExpiresByType application/x-font-ttf    "access plus 1 month"
-  ExpiresByType application/x-font-woff   "access plus 1 month"
-  ExpiresByType font/opentype             "access plus 1 month"
-  ExpiresByType image/svg+xml             "access plus 1 month"
+    # Webfonts
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+    ExpiresByType application/x-font-ttf    "access plus 1 month"
+    ExpiresByType application/x-font-woff   "access plus 1 month"
+    ExpiresByType font/opentype             "access plus 1 month"
+    ExpiresByType image/svg+xml             "access plus 1 month"
 
-# CSS and JavaScript
-  ExpiresByType application/javascript    "access plus 1 year"
-  ExpiresByType text/css                  "access plus 1 year"
-
+    # CSS and JavaScript
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType text/css                  "access plus 1 year"
 </IfModule>
 #Cache End
 
@@ -170,10 +170,10 @@ Header set Cache-Control "max-age=7200, must-revalidate"
 # Keep Alive end
 
 # ETag start
-<IfModule mod_expires.c> 
-  <IfModule mod_headers.c> 
-    Header unset ETag 
-  </IfModule> 
-  FileETag None 
+<IfModule mod_expires.c>
+    <IfModule mod_headers.c>
+        Header unset ETag
+    </IfModule>
+    FileETag None
 </IfModule>
 # ETag end
