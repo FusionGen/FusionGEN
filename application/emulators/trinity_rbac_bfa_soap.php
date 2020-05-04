@@ -50,7 +50,7 @@ class Trinity_rbac_bfa_soap implements Emulator
 		"character_stats" => "character_stats",
 		"guild_member" => "guild_member",
 		"guild" => "guild",
-		"gm_tickets" => "gm_ticket"
+		"gm_tickets" => "gm_bug"
 	);
 
 	/**
@@ -167,9 +167,9 @@ class Trinity_rbac_bfa_soap implements Emulator
 		"gm_tickets" => array(
 			"ticketId" => "id",
 			"guid" => "playerGuid",
-			"message" => "description",
+			"message" => "note",
 			"createTime" => "createTime",
-			"completed" => "completed",
+			"completed" => "comment", //temp fix
 			"closedBy" => "closedBy"
 		)
 	);
