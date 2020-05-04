@@ -22,8 +22,8 @@
 
 #donate form input[type="submit"] {
 	margin-top: 15px;
-	margin-left: -20px;
-	width: 93%;
+	margin-left: 15px;
+	width: 90%;
 }
 
 #donate form label {
