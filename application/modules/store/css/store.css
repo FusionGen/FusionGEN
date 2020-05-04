@@ -8,11 +8,11 @@
 
 #store form input[type="text"], #store form select {
 	margin:0px;
-	width:125px;
+	width:100px;
 }
 
 #store form input[type="text"] {
-	width:120px;
+	width:80px;
 }
 
 #store form .filter_field:first-child {
@@ -20,18 +20,18 @@
 }
 
 #store form .filter_field a {
-	margin-right:10px;
-	width: 40px;
-	height: 51px;
-	margin-top:0px;
+	margin-right: 20px;
+	width: 55px;
+	height: 25px;
+	margin-top:-5px;
 	display:block;
 	float:left;
 }
 
 #store form .filter_field {
 	float:left;
-	padding:15px 15px;
-	margin-left: 60px;
+	padding:10px 10px;
+	margin-left: 0px;
 	padding-top:5px;
 	height:30px;
 }
@@ -44,7 +44,7 @@
 #store #cart {
 	float:right;
 	width:225px;
-	margin-right: 75px;
+	margin-right: 15px;
 }
 
 #store #store_content {

@@ -20,8 +20,8 @@
 			<div class="gm_ticket_info">
 				<table class="nice_table" cellspacing="0" cellpadding="0">
 					<tr>
-						<td width="30%">{lang("ticket", "gm")}</td>
-						<td width="25%">{lang("time", "gm")}</td>
+						<td width="25%">{lang("ticket", "gm")}</td>
+						<td width="15%">{lang("time", "gm")}</td>
 						<td width="30%">{lang("message", "gm")}</td>
 						<td>&nbsp;</td>
 					</tr>
@@ -40,8 +40,8 @@
 			<div class="gm_ticket_info_full">
 				<table class="nice_table" cellspacing="0" cellpadding="0">
 					<tr>
-						<td width="30%">{lang("ticket", "gm")}</td>
-						<td width="25%">{lang("time", "gm")}</td>
+						<td width="25%">{lang("ticket", "gm")}</td>
+						<td width="15%">{lang("time", "gm")}</td>
 						<td>&nbsp;</td>
 					</tr>
 
