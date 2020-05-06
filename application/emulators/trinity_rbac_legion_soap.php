@@ -27,6 +27,7 @@ class Trinity_rbac_legion_soap implements Emulator
 	 * Array of expansion ids and their corresponding names
 	 */
 	protected $expansions = array(
+		7 => "Battle for Azeroth",
 		6 => "Legion",
 		5 => "Warlords of Draenor",
 		4 => "Mists of Pandaria",
@@ -49,7 +50,7 @@ class Trinity_rbac_legion_soap implements Emulator
 		"character_stats" => "character_stats",
 		"guild_member" => "guild_member",
 		"guild" => "guild",
-		"gm_tickets" => "gm_ticket"
+		"gm_tickets" => "gm_bug"
 	);
 
 	/**
@@ -167,9 +168,9 @@ class Trinity_rbac_legion_soap implements Emulator
 		"gm_tickets" => array(
 			"ticketId" => "id",
 			"guid" => "playerGuid",
-			"message" => "description",
+			"message" => "note",
 			"createTime" => "createTime",
-			"completed" => "completed",
+			"completed" => "comment", //temp fix
 			"closedBy" => "closedBy"
 		)
 	);
