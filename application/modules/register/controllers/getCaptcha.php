@@ -1,8 +1,15 @@
-<?php
+<?php defined('BASEPATH') || die('Silence is golden.');
 
-require('../../../libraries/captcha.php');
+class getCaptcha extends MX_Controller
+{
+    public function __construct() {}
 
-$captcha = new Captcha();
+    public function index()
+    {
+        $this->load->library('captcha');
 
-$captcha->generate();
-$captcha->output(70, 25);
+        $this->captcha->generate();
+        $this->captcha->output(70, 25);
+        exit; // and exit
+    }
+}
