@@ -30,7 +30,7 @@ Current FusionGEN Version: 1.0.1
                     crossorigin="anonymous"></script>
         {/if}
 
-		<link rel="stylesheet" href="{$path}css/default.css" type="text/css" />
+		<link rel="stylesheet" href="https://cdn.fusiongen.org/css/default.css" type="text/css" />
 		<link rel="stylesheet" href="{$style_path}cms.css" type="text/css" />
 		<link rel="stylesheet" href="{$style_path}main.css" type="text/css" />
 		{if $extra_css}<link rel="stylesheet" href="{$path}{$extra_css}" type="text/css" />{/if}
@@ -48,11 +48,11 @@ Current FusionGEN Version: 1.0.1
 		
 		<!-- Load scripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
-		<script type="text/javascript" src="{if $cdn}https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js{else}{$path}js/jquery.min.js{/if}"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js{else}{$path}js/jquery.min.js{/if}"></script>
 		<script type="text/javascript">var isIE = false;</script>
 		<!--[if IE]><script type="text/javascript">isIE = true;</script><![endif]-->
-		<script type="text/javascript" src="{$path}js/router.js"></script>
-		<script type="text/javascript" src="{$path}js/require.js"></script>
+		<script type="text/javascript" src="https://cdn.fusiongen.org/js/router.js"></script>
+		<script type="text/javascript" src="https://cdn.fusiongen.org/js/require.js"></script>
 		<script type="text/javascript">
 
 			if(!window.console)
