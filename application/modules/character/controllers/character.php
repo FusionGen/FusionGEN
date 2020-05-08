@@ -333,7 +333,7 @@ class Character extends MX_Controller
 
 				$data = array(
 					"module" => "default", 
-					"headline" => "<span style='cursor:pointer;' data-tip='".lang("view_profile", "character")."' onClick='window.location=\"".$this->template->page_url."profile/".$this->account."\"'>".$this->accountName."</span> &rarr; ".$this->name,
+					"headline" => "<span style='cursor:pointer;' data-tip='".lang("view_profile", "character")."' onClick='window.location=\"".$this->template->page_url."profile/".$this->account."\"'>".$this->name,
 					"content" => $character
 				);
 
