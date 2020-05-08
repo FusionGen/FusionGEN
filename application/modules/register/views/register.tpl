@@ -41,7 +41,7 @@
 
 		{if $use_captcha}
 			<tr>
-				<td><label for="captcha"><img src="{$url}application/modules/register/controllers/getCaptcha.php?{uniqid()}" /></label></td>
+				<td><label for="captcha"><img src="{$url}register/getCaptcha?{time()}" /></label></td>
 				<td>
 					<input type="text" name="register_captcha" id="register_captcha"/>
 					
