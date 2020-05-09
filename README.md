@@ -5,10 +5,12 @@ Latest FusionGEN Version: 1.0.1
 
 ### Requirements
 
-- PHP 7.1 (Recommended) (enable Extensions: php_mysqli, php_curl, php_openssl, php_soap, php_mbstring and php_json)
-- Apache / Nginx (enable modules: mod_rewrite and mod_headers)
-- Pre installed World of Warcraft Server (with the databases of: Auth, Characters and World)
-- MySQL Server
+| Requirements | Description |
+| --- | --- |
+| PHP 7.1 (Recommended) | (enable Extensions: php_mysqli, php_curl, php_openssl, php_soap, php_mbstring and php_json) |
+| Apache / Nginx | (enable modules: mod_rewrite and mod_headers) |
+| Pre installed World of Warcraft Server | (with the databases of: Auth, Characters and World) |
+| MySQL Server |  |
 
 ### Installation
 
