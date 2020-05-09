@@ -2,7 +2,7 @@
 	<div class="fusioneditor_tools">
 		<div style="float:right;display:none" id="fusioneditor_{$id}_close">
 			<a class="fusioneditor_close" href="javascript:void(0)" onClick="FusionEditor.close('{$id}')" data-tip="{lang("close_tool")}">
-				<img src="https://cdn.fusiongen.org/images/icons/bullet_arrow_up.png" />
+				<img src="{if $cdn_link != false}{$cdn_link}{else}{$path}{/if}/images/icons/bullet_arrow_up.png" />
 			</a>
 		</div>
 
