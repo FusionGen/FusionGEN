@@ -83,7 +83,7 @@ class Login extends MX_Controller
 			}
 			else
 			{
-				$data['username'] = $this->input->post('login_username');
+				$data['username'] = htmlspecialchars($this->input->post('login_username'), ENT_QUOTES, 'UTF-8');
 				$this->session->set_userdata('attempts', $this->session->userdata('attempts') + 1);
 
 				// Wrong username
