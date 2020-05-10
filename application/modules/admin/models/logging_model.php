@@ -34,7 +34,7 @@ class Logging_model extends CI_Model
 		}
 		
 		// prevent sql injection
-		$module = mysqli_real_escape_string($this->db->conn_id, $module);
+		$module = $this->db->escape_str($module);
 
 		if($search)
 		{
