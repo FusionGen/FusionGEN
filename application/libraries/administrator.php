@@ -26,6 +26,10 @@ class Administrator
 		$this->theme_path = "application/themes/admin/";
 		$this->menu = array();
 
+		if (!$this->CI->user->isStaff()){
+            show_404();
+		}
+		
 		$this->showLogIn();
 
 		if(!$this->CI->input->is_ajax_request() && !isset($_GET['is_json_ajax']))

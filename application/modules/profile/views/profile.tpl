@@ -1,6 +1,6 @@
 <section id="ucp_top">
 	<a id="ucp_avatar" style="width:44px;height:44px;margin-top:7px;">
-		<img src="{$avatar}" height="44" width="44"/>
+		<img src="{$avatar}"/>
 	</a>
 
 	<section id="ucp_info" style="height:auto;">
@@ -40,18 +40,6 @@
 					<td width="20%">{lang("rank", "profile")}</td>
 					<td width="70%">{foreach from=$groups item=group} <span {if $group.color}style="color:{$group.color}"{/if}>{$group.name}</span> {/foreach}</td>
 				</tr>
-				{if $online && $not_me}
-					<tr>
-						<td><img src="{$url}application/images/icons/email.png" /></td>
-						<td>{lang("contact", "profile")}</td>
-						<td><a href="{$url}messages/create/{$id}">{lang("pm", "profile")}</a></td>
-					</tr>
-				{else}
-					<tr>
-						<td>&nbsp;</td>
-						<td></td>
-					</tr>
-				{/if}
 			</table>
 		</aside>
 	</section>

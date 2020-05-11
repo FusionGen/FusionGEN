@@ -1,7 +1,7 @@
 <section id="ucp_top">
 	<a href="{$url}ucp/avatar" id="ucp_avatar">
 		<div>{lang("change_avatar", "ucp")}</div>
-		<img src="{$avatar}" height="120" width="120"/>
+		<img src="{$avatar}"/>
 	</a>
 
 	<section id="ucp_info">
@@ -72,35 +72,35 @@
 
 <section id="ucp_buttons">
 	{if hasPermission('view', "vote") && $config['vote']}
-		<a href="{$url}{$config.vote}" style="background-image:url({$url}application/modules/ucp/images/vote_panel.png)"></a>
+		<a href="{$url}{$config.vote}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Vote Panel</div></a>
 	{/if}
 
 	{if hasPermission('view', "donate") && $config['donate']}
-	<a href="{$url}{$config.donate}" style="background-image:url({$url}application/modules/ucp/images/donate_panel.png)"></a>
+	<a href="{$url}{$config.donate}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Donate Panel</div></a>
 	{/if}
 
 	{if hasPermission('view', "store") && $config['store']}
-		<a href="{$url}{$config.store}" style="background-image:url({$url}application/modules/ucp/images/item_store.png)"></a>
+		<a href="{$url}{$config.store}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Web-Store</div></a>
 	{/if}
 
 	{if hasPermission('canUpdateAccountSettings', 'ucp') && $config['settings']}
-		<a href="{$url}{$config.settings}" style="background-image:url({$url}application/modules/ucp/images/account_settings.png)"></a>
+		<a href="{$url}{$config.settings}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Account Settings</div></a>
 	{/if}
 
 	{if hasPermission('canChangeExpansion', "ucp") && $config['expansion']}
-        <a href="{$url}{$config.expansion}" style="background-image:url({$url}application/modules/ucp/images/change_expansion.png)"></a>
+        <a href="{$url}{$config.expansion}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Change Expansion</div></a>
 	{/if}
-
+	
 	{if hasPermission('view', "teleport") && $config['teleport']}
-		<a href="{$url}{$config.teleport}" style="background-image:url({$url}application/modules/ucp/images/teleport_hub.png)"></a>
+		<a href="{$url}{$config.teleport}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Teleport Hub</div></a>
 	{/if}
 
 	{if hasPermission('view', "gm") && $config['gm']}
-		<a href="{$url}{$config.gm}" style="background-image:url({$url}application/modules/ucp/images/gm_panel.png)"></a>
+		<a href="{$url}{$config.gm}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Gamemaster Panel</div></a>
 	{/if}
 
 	{if hasPermission('view', "admin") && $config['admin']}
-		<a href="{$url}{$config.admin}" style="background-image:url({$url}application/modules/ucp/images/admin_panel.png)"></a>
+		<a href="{$url}{$config.admin}" style="background: linear-gradient(0deg, #1b1b1b 0%, #1b1b1b 35%, #1b1b1b 100%);"><div class="btn_txt">Administration Panel</div></a>
 	{/if}
 	
 	<div class="clear"></div>

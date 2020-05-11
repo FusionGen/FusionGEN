@@ -32,6 +32,9 @@ class Logging_model extends CI_Model
 				$userId = $search;
 			}
 		}
+		
+		// prevent sql injection
+		$module = $this->db->escape_str($module);
 
 		if($search)
 		{

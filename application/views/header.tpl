@@ -4,10 +4,10 @@
 
 This website is powered by FusionGEN
 
-https://gitlab.com/omghixd/fusiongen
+https://github.com/FusionGen/FusionGen
 
 
-Current FusionGEN Version: 1.0.1
+Current FusionGEN Version: 1.0.2
 -->
 
 <html>
