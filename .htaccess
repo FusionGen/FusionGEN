@@ -24,6 +24,10 @@
 </Files>
 # Don't want people snoopin in folders
 
+# We should always hide Sensitive Information
+ServerSignature Off
+# We should always hide Sensitive Information
+
 # Request Recommended by Mozilla
 <IfModule mod_setenvif.c>
   <IfModule mod_headers.c>
