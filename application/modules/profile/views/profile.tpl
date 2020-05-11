@@ -40,18 +40,6 @@
 					<td width="20%">{lang("rank", "profile")}</td>
 					<td width="70%">{foreach from=$groups item=group} <span {if $group.color}style="color:{$group.color}"{/if}>{$group.name}</span> {/foreach}</td>
 				</tr>
-				{if $online && $not_me}
-					<tr>
-						<td><img src="{$url}application/images/icons/email.png" /></td>
-						<td>{lang("contact", "profile")}</td>
-						<td><a href="{$url}messages/create/{$id}">{lang("pm", "profile")}</a></td>
-					</tr>
-				{else}
-					<tr>
-						<td>&nbsp;</td>
-						<td></td>
-					</tr>
-				{/if}
 			</table>
 		</aside>
 	</section>
