@@ -21,4 +21,12 @@
 
 6b. For the gameserver mysql account, set the IP address of the webserver the connections originate from for the user account under "host"
 
-7. DO NOT USE PHPMYADMIN.
+7. For the newly created SQL accounts, set the mysql priveledges for only the permissions that are required. 
+- Remove the following permissions from ALL Accounts:
+ Drop, Grant
+- Remove the following from the account on the gameserver:
+Delete, Reload, Shutdown, Super
+
+
+8. DO NOT USE PHPMYADMIN.
+
