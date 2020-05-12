@@ -83,7 +83,8 @@ class Login extends MX_Controller
 			}
 			else
 			{
-				$data['username'] = htmlspecialchars($this->input->post('login_username'), ENT_QUOTES, 'UTF-8');
+				// Update sanitization according to CMS standards.
+				$data['username'] = $this->template->format($this->input->post('login_username'), false, false, true, false);
 				$this->session->set_userdata('attempts', $this->session->userdata('attempts') + 1);
 
 				// Wrong username
