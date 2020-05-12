@@ -94,12 +94,13 @@ class Settings extends MX_Controller
 		$nickname = $this->input->post("nickname");
 		$location = $this->input->post("location");
 
-		if(!(is_string($nickname)) || !(is_string($location)))
+		if(!is_string($nickname) || !is_string($location))
 		{
 			die("4");
 		}
 
 		$values = array(
+			// Sanitize both fields using the custom FusionCMS 'format' function.
 			'nickname' => $this->template->format($nickname, false, false, true, false),
 			'location' => $this->template->format($location, false, false, true, false),
 		);
