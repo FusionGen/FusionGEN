@@ -83,7 +83,7 @@ var Settings = {
 		{
 			UI.alert(lang("nickname_error"));
 		}
-		else if(loc.length > 14)
+		else if(loc.length > 32)
 		{
 			UI.alert(lang("location_error"));
 		}
