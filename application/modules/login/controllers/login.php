@@ -83,7 +83,7 @@ class Login extends MX_Controller
 			}
 			else
 			{
-				// Update sanitization to FusionCMS standards.
+				// Update sanitization according to CMS standards.
 				$data['username'] = $this->template->format($this->input->post('login_username'), false, false, true, false);
 				$this->session->set_userdata('attempts', $this->session->userdata('attempts') + 1);
 

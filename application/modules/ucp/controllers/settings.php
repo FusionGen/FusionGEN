@@ -100,7 +100,7 @@ class Settings extends MX_Controller
 		}
 
 		$values = array(
-			// Sanitize both fields using the custom FusionCMS 'format' function.
+			// Update sanitization according to CMS standards.
 			'nickname' => $this->template->format($nickname, false, false, true, false),
 			'location' => $this->template->format($location, false, false, true, false),
 		);
