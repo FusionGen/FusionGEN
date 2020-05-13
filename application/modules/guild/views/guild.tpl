@@ -5,7 +5,7 @@
 
 	<section id="guild_info">
 		{if $guild.motd}
-			"{nl2br($guild.motd)}"
+			"{nl2br(htmlspecialchars($guild.motd))}"
 		{else}
 			{lang("no_motd", "guild")}
 		{/if}
