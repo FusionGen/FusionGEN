@@ -1214,13 +1214,7 @@ footer .divider2 {
 	background-image: -moz-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
 	background-image: -webkit-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
 	background-image: -ms-linear-gradient(bottom, #1D6D9C 0%, #3D92C4 100%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, #1D6D9C),
-		color-stop(1, #3D92C4)
-	);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1D6D9C), color-stop(1, #3D92C4));
 	height:100%;
 	border-radius:2px;
 }
