@@ -90,9 +90,19 @@ class Settings extends MX_Controller
 		$this->load->model("settings_model");
 
 		// Gather the values
+
+		$nickname = $this->input->post("nickname");
+		$location = $this->input->post("location");
+
+		if(!is_string($nickname) || !is_string($location))
+		{
+			die("4");
+		}
+
 		$values = array(
-			'nickname' => htmlspecialchars($this->input->post("nickname")),
-			'location' => htmlspecialchars($this->input->post("location")),
+			// Update sanitization according to CMS standards.
+			'nickname' => $this->template->format($nickname, false, false, true, false),
+			'location' => $this->template->format($location, false, false, true, false),
 		);
 
 		// Change language
@@ -115,7 +125,7 @@ class Settings extends MX_Controller
 		// Remove the nickname field if it wasn't changed
 		if($values['nickname'] == $this->user->getNickname())
 		{
-			$values = array('location' => $this->input->post("location"));
+			$values = array('location' => $location);
 		}
 		elseif(strlen($values['nickname']) < 4
 		|| strlen($values['nickname']) > 14

@@ -10,8 +10,6 @@ Step by step:
 First of all you need to install a webserver in your machine like Apache Mysql PHP (AMP), there are several solutions for this like:
 
 - LAMP for Linux
-- MAMP for Mac
-- XAMPP/WAMP/EasyPHP and similar for Windows
 
 ### - Linux (Debian-based)
 
@@ -27,31 +25,17 @@ sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 sudo apt-get install apache2 apache2-doc apache2-npm-prefork apache2-utils libexpat1 ssl-cert
 ```
 
-- Install PHP (php7.1 latest version of PHP) -- **FusionGEN Maintainer Edit: We don't support 7.2 or above! , please install PHP Version 7.1**
+- Install PHP (php7.1.33 latest version of PHP) -- **FusionGEN Maintainer Edit: We don't support 7.2 or above! , please install PHP Version 7.1.33**
 
 ```
-sudo apt-get install libapache2-mod-php7.2 php7.2 php7.2-common php7.2-curl php7.2-dev php7.2-gd php-pear php-imagick php7.2-mcrypt php7.2-mysql php7.2-ps php7.2-xsl php7.2-json php7.2-soap php7.2-
+sudo apt-get install libapache2-mod-php7.1 php7.1 php7.1-common php7.1-curl php7.1-dev php7.1-gd php-pear php-imagick php7.1-mcrypt php7.1-mysql php7.1-ps php7.1-xsl php7.1-json php7.1-soap php7.1-
 ```
-
-### - Mac
-
-[Here](https://www.mamp.info/en/downloads/) the download link of MAMP.
-MAMP can be installed by [hombrew](https://gist.github.com/alanthing/4089298)
-
-### - Windows
-
-Download [EasyPHP](http://www.easyphp.org/download.php)
-
-### Alternative (cross-platform)
-- [XAMPP](https://www.apachefriends.org/download.html)
-- [WAMP](http://www.wampserver.com/en/)
-
 
 ## 2) Configure Apache2 & create an empty fusiongen database
 
-### Linux & Mac
+### Linux
 
-- On **Linux and Mac** you can use these commands to configure apache2
+- On **Linux** you can use these commands to configure apache2
 ```
 sudo a2enmod rewrite
 sudo a2enmod headers
@@ -85,48 +69,6 @@ CREATE DATABASE fusiongen;
 ```
 
 You will use this database during the FusionGEN setup.
-
-
-### Windows
-
-**Enable PHP extensions**  
-Go into your PHP directory and find the `php.ini` file. Mine was located in `C:\UwAmp\bin\php\php-7.2`. Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the `;` character in front of the line.
-Save the file and restart your webserver to apply the changes.
-
-![php extensions](/install/images/php.jpg)
-
-**Enable Apache Modules**  
-The Apache modules you'll need are:
-- mod_rewrite
-- mod_headers
-- mod_deflate
-
-Enable them!  
-Go into your Apache directory and find the `httpd.conf` file. It should be located in `C:\UwAmp\bin\apache\conf`. Open the file with a text editor and search `CTRL+F` for one of the modules you need to enable. To enable them, simply remove the `#` character in front of the line.
-Save the file and restart your webserver to apply the changes.
-
-![apache modules](/install/images/apache.jpg)
-
-**Create an empty fusiongen database**  
-Execute this query SQL using mysql:
-```
-CREATE DATABASE fusiongen;
-```
-
-You will use this database during the FusionGEN setup.
-
-
-## 3) Run the FusionGEN setup
-
-Your webserver and mysql database is ready!
-
-Put the source file of FusionGEN in your webserver directory 
-- for Linux/Mac the directory should be `/var/www/html/`
-- for Windows should be `htdocs`
-
-Visit http://localhost/ and go to FusionGEN and run the setup.
-
-Don't forget to rename or delete the `install` directory after you finished the installation.
 
 
 ## Troubleshooting

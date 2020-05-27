@@ -287,7 +287,7 @@ $config['cookie_secure']	= FALSE;
 | COOKIE data is encountered
 |
 */
-$config['global_xss_filtering'] = FALSE;
+$config['global_xss_filtering'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -367,5 +367,15 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-/* End of file config.php */
-/* Location: ./application/config/config.php */
+/*
+|--------------------------------------------------------------------------
+| CDN Configuration
+|--------------------------------------------------------------------------
+|
+| If you do not want your website to have the cdn enabled you can disabled it here
+| by default the website has it enabled
+| If you have another CDN that you'd wish to use, you can also set it there
+|
+*/
+$config['cdn_enabled']  = true;
+$config['cdn_link']     = 'https://cdn.fusiongen.org';

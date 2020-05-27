@@ -9,7 +9,6 @@ CREATE TABLE `account_data` (
   `dp` int(11) DEFAULT '0',
   `location` varchar(255) DEFAULT NULL,
   `nickname` varchar(32) DEFAULT NULL,
-  `avatar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -400,7 +399,6 @@ CREATE TABLE `sideboxes` (
 -- ----------------------------
 INSERT INTO `sideboxes` VALUES ('1', 'status', 'Server status', '1', '2');
 INSERT INTO `sideboxes` VALUES ('2', 'info_login', 'User area', '2', '1');
-INSERT INTO `sideboxes` VALUES ('3', 'shoutbox', 'Shout box', '1', '3');
 
 -- ----------------------------
 -- Table structure for `sideboxes_custom`

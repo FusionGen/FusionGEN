@@ -96,3 +96,9 @@
 #ucp_characters h1 {
 	clear:both;
 }
+
+.btn_txt {
+	text-align: center;
+    font-size: 20px;
+    margin-top: 27px;
+}
