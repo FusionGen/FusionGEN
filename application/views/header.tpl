@@ -2,12 +2,19 @@
 
 <!--
 
-This website is powered by FusionGEN
-
-https://github.com/FusionGen/FusionGen
+This website is powered by 
 
 
-Current FusionGEN Version: 1.0.2
+  ______            _                 _____              
+ |  ____|          (_)               / ____|             
+ | |__  _   _  ___  _   ___   _ __  | |  __   ___  _ __  
+ |  __|| | | |/ __|| | / _ \ | '_ \ | | |_ | / _ \| '_ \ 
+ | |   | |_| |\__ \| || (_) || | | || |__| ||  __/| | | |
+ |_|    \__,_||___/|_| \___/ |_| |_| \_____| \___||_| |_|
+                                                         
+                                                         
+Version 7.0
+
 -->
 
 <html>
