@@ -51,8 +51,6 @@ a img {
 	width:860px;
 	height:56px;
 	background-image:url(../images/menu.gif);
-	padding-left:50px;
-	padding-right:50px;
 }
 
 #menu li {
@@ -235,7 +233,6 @@ a img {
 
 .left_box li a:hover {
 	color:#fff;
-	padding-left:30px;
 }
 
 .realm {

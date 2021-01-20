@@ -20,7 +20,7 @@
 				</a>
 			{/if}
 
-			{lang("posted_by", "news")} <b><a href="{$url}profile/{$article.author_id}" data-tip="{lang("view_profile", "news")}">{$article.author}</a></b> {lang("on", "news")} <b>{$article.date}</b>
+			{lang("posted_by", "news")} <b>{$article.author}</b> {lang("on", "news")} <b>{$article.date}</b>
 
             {if $article.tags}
                 {foreach from=$article.tags item=tag}
