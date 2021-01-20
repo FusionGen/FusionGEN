@@ -2,96 +2,56 @@
 
 class Password_recovery_model extends CI_Model
 {
-	private $connection;
-	
-	public function __construct()
-	{
-		if(empty($this->connection))
-		{
-			$this->connection = $this->load->database("account", true);
-		}
-	}
-	
 	public function getEmail($username)
 	{
 		if(!$username)
-		{
 			return false;
-		}
-		else
-		{
-			$query = $this->connection->query("SELECT ".column("account", "email")." FROM ".table("account")." WHERE ".column("account", "username"). "= ?", array($username));
-	
-			if($query->num_rows() > 0)
-			{
-				$result = $query->result_array();
 
-				return $result[0]['email'];
-			}
-			else 
-			{
-				return false;	
-			}
-		}
+		$query = $this->external_account_model->getConnection()->query(sprintf('SELECT %s FROM %s WHERE %s = ?',
+			column('account', 'email'), table('account'), column('account', 'username')), [$username]);
+
+		if(!$query->num_rows())
+			return false;
+
+		return $query->row()->email;
 	}
-	
+
 	public function changePassword($username, $newPassword)
 	{
-		if($username && $newPassword)
-		{
-			$this->connection->query("UPDATE ".table("account")." SET ".column("account", "password")." = ?, ".column("account", "sessionkey")." = '', ".column("account", "v")." = '', ".column("account", "s")." = '' WHERE ".column("account", "username")." = ?", array($newPassword, $username));
-		}
-		else
-		{
+		if(!$username || !$newPassword)
 			return false;
-		}
+
+		if(column('account', 'v') && column('account', 's') && column('account', 'sessionkey')) // old emulators only
+			$this->external_account_model->getConnection()->set(column('account', 'sessionkey'), '')
+				->set(column('account', 's'), '')->set(column('account', 'v'), '');
+
+		$this->external_account_model->getConnection()->set(column('account', 'password'), $newPassword)
+			->where(column('account', 'username'), $username)->update(table('account'));
 	}
-	
+
 	public function getKey($key)
 	{
-		if($key)
-		{
-			$query = $this->db->query("SELECT recoverykey, username FROM password_recovery_key WHERE recoverykey = ?", array($key));
-			$result = $query->result_array();
-			if($result[0]['recoverykey'] == $key)
-			{
-				return $result[0]['username'];
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
+		if(!$key)
 			return false;
-		}
+
+		return current($this->db->query('SELECT username FROM password_recovery_key WHERE recoverykey = ?', [$key])->row());
 	}
-	
+
 	public function insertKey($key, $username, $ip)
 	{
-		if($key && $ip && $username)
-		{
-			$this->db->query("INSERT INTO password_recovery_key VALUES (?, ?, ?, ?)", array($key, $username, $ip, time()));
-			return true;
-		}
-		else
-		{
+		if(!$key || !$ip || !$username)
 			return false;
-		}
+
+		$this->db->query('INSERT INTO password_recovery_key VALUES(?, ?, ?, ?)', [$key, $username, $ip, time()]);
+		return true;
 	}
-	
+
 	public function deleteKey($key)
 	{
-		if($key)
-		{
-			$this->db->query("DELETE FROM password_recovery_key WHERE recoverykey = ?", array($key));
-			
-			return true;
-		}
-		else
-		{	
+		if(!$key)
 			return false;
-		}
+
+		$this->db->query('DELETE FROM password_recovery_key WHERE recoverykey = ?', [$key]);
+		return true;
 	}
 }
