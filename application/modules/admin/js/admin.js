@@ -73,38 +73,5 @@ var Admin = {
 				$("#header_field").html("Default");
 			}
 		});
-	},
-
-	remoteCheck: function()
-	{
-		setTimeout(function() {
-			$(".shouldHaveAlert").addClass("alert");
-		}, 500);
-
-		$.get(Config.URL + "admin/remote", function(data)
-		{
-			switch(data)
-			{
-				case '1':
-					$("#system_box").addClass("alert");
-					$("#update").fadeIn(500);
-				break;
-
-				case '2':
-					UI.alert('This copy of FusionCMS has been terminated due to illegal usage. If you actually own a legit copy, please contact us at fusion-hub.com', 6000);
-
-					setTimeout(function()
-					{
-						window.location = Config.URL;
-					}, 6000);
-				break;
-			}
-		});
 	}
 }
-
-
-$(document).ready(function()
-{
-	Admin.remoteCheck();
-});
