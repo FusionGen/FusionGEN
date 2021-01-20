@@ -1,3 +1,0 @@
-You may use these theme files to do whatever you would like.
-
-I would even suggest you to use them as base for your themes to speed up development!
