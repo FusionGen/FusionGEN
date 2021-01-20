@@ -165,8 +165,9 @@ $config['description'] = "test";
 | If you're on a LAN environment put it to false, otherwise
 | the website won't load since it relies on those libraries.
 |
+| DEPRECATED FEATURE. DO NOT USE!
 */
-$config['cdn'] = true;
+$config['cdn'] = false; 
 
 /*
 |--------------------------------------------------------------------------
