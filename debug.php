@@ -45,9 +45,9 @@ function connect($hostname, $username, $password, $port, $database = null)
     return $connection;
 }
 
-function selectDb($connection, $database)
+function select_db($connection, $database)
 {
-    if (!$connection->selectDb($database)) {
+    if (!$connection->select_db($database)) {
         die("<div class='error'>mysql connection to CMS database could not be established: " . $connection->error . "</div>");
     }
 
@@ -55,17 +55,17 @@ function selectDb($connection, $database)
 }
 
 $cms_database_connection = connect($db['cms']['hostname'], $db['cms']['username'], $db['cms']['password'], $db['cms']['port'] ?? null);
-selectDb($cms_database_connection, $db['cms']['database']);
+select_db($cms_database_connection, $db['cms']['database']);
 
 echo "<div>CMS connection successful</div>";
 
 $auth_database_connection = connect($db['account']['hostname'], $db['account']['username'], $db['account']['password'], $db['account']['port'] ?? null);
-selectDb($auth_database_connection, $db['account']['database']);
+select_db($auth_database_connection, $db['account']['database']);
 
 echo "<div>Realmd/logon/auth connection successful</div>";
 
 if ($cms_database_connection) {
-    selectDb($cms_database_connection, $db['cms']['database']);
+    select_db($cms_database_connection, $db['cms']['database']);
     $realms = $cms_database_connection->query("SELECT * FROM realms") or die("<div class='error'>Realms table: " . $cms_database_connection->error . "</div>");
     $row    = $realms->fetch_assoc();
 
@@ -90,8 +90,8 @@ if ($cms_database_connection) {
 
             echo "<div class='realm'>Realm #" . $row['id'] . " (" . $row['realmName'] . ") connections (world & characters) successful</div>";
 
-            selectDb($characters_connection[$row['id']], $row['char_database']);
-            selectDb($world_connection[$row['id']], $row['char_database']);
+            select_db($characters_connection[$row['id']], $row['char_database']);
+            select_db($world_connection[$row['id']], $row['char_database']);
 
             try {
                 $connect = fsockopen($row['hostname'], $row['realm_port'], $errno, $errstr, 1.5);
