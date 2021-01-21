@@ -121,6 +121,17 @@ class MX_Controller
 			$username = CI::$APP->input->cookie("fcms_username");
 			$password = CI::$APP->input->cookie("fcms_password");
 
-			if($password && column('account', 'password') == 'verifier' && column('account', 'salt')) // Emulator Uses SRP6 Encryption.
+			if($password && column('account', 'password') == 'verifier' && column('account', 'salt')); // Emulator Uses SRP6 Encryption.
+
+			if($username && $password)
+			{	
+				$check = CI::$APP->user->setUserDetails($username, $password);	
+
+				if($check == 0)	
+				{	
+					redirect('news');	
+				}	
+			}
+		}
 	}
 }
