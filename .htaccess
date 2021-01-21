@@ -74,27 +74,6 @@ ModPagespeedEnableFilters collapse_whitespace,remove_comments
 </IfModule>
 # We also want to compress / minify CSS, Images, Remove HTML Whitespace and Comments
 
-#Alternative caching using Apache's "mod_headers", if it's installed.
-#Caching of common files - ENABLED
-<IfModule mod_headers.c>
-
-# 1 Month
-<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
-Header set Cache-Control "max-age=2592000, public"
-</FilesMatch>
-
-# 2 DAYS
-<FilesMatch "\.(xml|txt)$">
-Header set Cache-Control "max-age=172800, public, must-revalidate"
-</FilesMatch>
-
-# 2 HOURS
-<FilesMatch "\.(html|htm)$">
-Header set Cache-Control "max-age=7200, must-revalidate"
-</FilesMatch>
-
-</IfModule>
-
 # Headers Module start
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css|xml|gz|html|ttf)$">
@@ -115,57 +94,6 @@ Header set Cache-Control "max-age=7200, must-revalidate"
   mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 </IfModule>
 # Gzip Compression end
-
-# Cache Start
-<IfModule mod_expires.c>
-  ExpiresActive on
-
-# Perhaps better to whitelist expires rules? Perhaps.
-  ExpiresDefault                          "access plus 1 month"
-
-# cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
-  ExpiresByType text/cache-manifest       "access plus 0 seconds"
-
-# Your document html
-  ExpiresByType text/html                 "access plus 0 seconds"
-
-# Data
-  ExpiresByType application/json          "access plus 0 seconds"
-  ExpiresByType application/xml           "access plus 0 seconds"
-  ExpiresByType text/xml                  "access plus 0 seconds"
-
-# Feed
-  ExpiresByType application/atom+xml      "access plus 1 hour"
-  ExpiresByType application/rss+xml       "access plus 1 hour"
-
-# Favicon (cannot be renamed)
-  ExpiresByType image/x-icon              "access plus 1 week"
-
-# Media: images, video, audio
-  ExpiresByType audio/ogg                 "access plus 1 month"
-  ExpiresByType image/gif                 "access plus 1 month"
-  ExpiresByType image/jpeg                "access plus 1 month"
-  ExpiresByType image/png                 "access plus 1 month"
-  ExpiresByType video/mp4                 "access plus 1 month"
-  ExpiresByType video/ogg                 "access plus 1 month"
-  ExpiresByType video/webm                "access plus 1 month"
-
-# HTC files  (css3pie)
-  ExpiresByType text/x-component          "access plus 1 month"
-
-# Webfonts
-  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
-  ExpiresByType application/x-font-ttf    "access plus 1 month"
-  ExpiresByType application/x-font-woff   "access plus 1 month"
-  ExpiresByType font/opentype             "access plus 1 month"
-  ExpiresByType image/svg+xml             "access plus 1 month"
-
-# CSS and JavaScript
-  ExpiresByType application/javascript    "access plus 1 year"
-  ExpiresByType text/css                  "access plus 1 year"
-
-</IfModule>
-#Cache End
 
 # Keep Alive start
 <IfModule mod_headers.c>
