@@ -6,7 +6,7 @@
 
 | Themes | Download URL |
 | --- | --- |
-| BlueWeb Remastered | https://github.com/FusionGen/Themes |
+| BlueWeb Remastered | https://github.com/FusionGen/Themes/tree/master/Blueweb-Remastered |
 
 | FusionGEN Universe | Visit URLs |
 | --- | --- |
