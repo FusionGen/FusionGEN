@@ -29,8 +29,8 @@ We appreciate all contributions made to the cause.
 Thank you and best regards from the maintainers of FusionGEN
 
 - OMGhixD
-- Jiinx
+- Jiinx (Retired Maintainer)
 
 Support and Community Communication takes place on our Official Discord Server (Invitiation link down below)
 
-- Discord https://discord.gg/vRnr6WJ
+- Discord https://discord.gg/5nSt9puU4V
