@@ -1,3 +1,18 @@
+## Useful Links
+
+| Source | Download URL |
+- MySQL 5.7.33 | https://dev.mysql.com/downloads/mysql/5.7.html |
+
+| Themes | Download URL |
+| BlueWeb Remastered | https://github.com/FusionGen/Themes |
+
+| FusionGEN Universe | Visit URLs |
+| Bugtracker | https://github.com/FusionGen/FusionGEN/issues |
+| FusionGEN Wiki | https://github.com/FusionGen/FusionGen/wiki |
+| Security Practices | https://github.com/FusionGen/FusionGen/blob/master/Security%20Practices.md |
+| Useful Information | https://github.com/FusionGen/FusionGen/wiki/Useful-Information |
+| Front-End Variables | https://github.com/FusionGen/FusionGen/wiki/Helpful-variables-for-Front-End-Developers |
+
 ## Installation
 
 Step by step:
