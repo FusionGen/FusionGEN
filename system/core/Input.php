@@ -611,13 +611,13 @@ class CI_Input {
 		}
 
 		// Clean $_POST Data
-		if (is_array($_POST) AND count($_POST) > 0)
-		{
-			foreach ($_POST as $key => $val)
-			{
-				$_POST[$this->_clean_input_keys($key)] = $this->_clean_input_data($val);
-			}
-		}
+		// if (is_array($_POST) AND count($_POST) > 0)
+		// {
+			// foreach ($_POST as $key => $val)
+			// {
+				// $_POST[$this->_clean_input_keys($key)] = $this->_clean_input_data($val);
+			// }
+		// }
 
 		// Clean $_COOKIE Data
 		if (is_array($_COOKIE) AND count($_COOKIE) > 0)
@@ -731,7 +731,7 @@ class CI_Input {
 			exit('Disallowed Key Characters.');
 		}
 
-		// Clean UTF-8 if supported
+		 //Clean UTF-8 if supported
 		if (UTF8_ENABLED === TRUE)
 		{
 			$str = $this->uni->clean_string($str);
