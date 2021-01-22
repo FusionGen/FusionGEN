@@ -43,7 +43,7 @@ function connect($hostname, $username, $password, $port, $database = null)
     $connection = new mysqli($hostname, $username, $password, $database, $port);
 
     if ($connection->connect_errno) {
-        die("<div class='error'>mysql connection to CMS database could not be established: " . $connection->error . "</div>");
+        die("<div class='error'>[DB] mysql connection to CMS database could not be established: " . $connection->error . "</div>");
     }
 
     return $connection;
@@ -52,7 +52,7 @@ function connect($hostname, $username, $password, $port, $database = null)
 function select_db($connection, $database)
 {
     if (!$connection->select_db($database)) {
-        die("<div class='error'>mysql connection to CMS database could not be established: " . $connection->error . "</div>");
+        die("<div class='error'>[DB] mysql connection to CMS database could not be established: " . $connection->error . "</div>");
     }
 
     return true;
