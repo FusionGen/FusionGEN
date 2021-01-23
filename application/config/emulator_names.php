@@ -41,9 +41,10 @@ $emulators = array(
 	"mangosr2_soap" => 				"MaNGoS R2 (3.3.5) - connected through SOAP",
 	/* ArcEMU */
 	"arcemu" => 					"ArcEmu (3.3.5) - connected through ????",
+	/* AscEMU */
+	"ascemu" =>	"AscEMU (Multi Expansion Support) - connected through ????",
 
 	/* DEPRECATED BUT STILL AVAILABLE BUT NO LONGER GIVEN SUPPORT OR UPDATES */
-	"deprecated/ascemu" =>	"No Information - Unknown",
 	"deprecated/arkcore_ra" =>	"No Information - Unknown",
 	"deprecated/arkcore_soap" =>	"No Information - Unknown",
 	"deprecated/blizzlikecore_ra" =>	"No Information - Unknown",
