@@ -610,14 +610,14 @@ class CI_Input {
 			}
 		}
 
-		// Clean $_POST Data
-		// if (is_array($_POST) AND count($_POST) > 0)
-		// {
-			// foreach ($_POST as $key => $val)
-			// {
-				// $_POST[$this->_clean_input_keys($key)] = $this->_clean_input_data($val);
-			// }
-		// }
+		// Clean $_POST Data - This should under no circumstances be disabled as it can potentially cause a major security risk.
+		 if (is_array($_POST) AND count($_POST) > 0)
+		 {
+			 foreach ($_POST as $key => $val)
+			 {
+				 $_POST[$this->_clean_input_keys($key)] = $this->_clean_input_data($val);
+			 }
+		 }
 
 		// Clean $_COOKIE Data
 		if (is_array($_COOKIE) AND count($_COOKIE) > 0)
