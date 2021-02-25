@@ -84,11 +84,11 @@ class Install
     {
 		$ver = phpversion();
 		if ($ver <= 7.0) {
-			die("0");
+                    die("0");
 		} elseif ($ver >= 7.2) {
-			die("0");
+                    die("0");
 		} else {
-			die("1");
+                    die("1");
 		}
     }
 	
