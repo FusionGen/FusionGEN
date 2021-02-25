@@ -59,26 +59,7 @@ var UI = {
     },
     
     Validation: 
-	{
-        license: function(notifyResult) {
-    		var license = $("#license").val();
-            
-            Ajax.checkKey(license, function(valid) {
-                if (valid) {
-                    // prepare data for next step
-				    Ajax.checkPermissions();
-                    Ajax.checkPhpExtensions();
-                    Ajax.checkApacheModules();
-                    Ajax.checkPhpVersion();
-                    
-					notifyResult(true);
-                }
-                else {
-					notifyResult(false, 'This license key is invalid.');
-                }
-            });
-        },
-        
+	{        
         requirements: function(notifyResult) 
 		{
             // check folder permissions
@@ -99,7 +80,7 @@ var UI = {
 									notifyResult(true);
 								}
 								else {
-	                                notifyResult(false, 'FusionCMS requires at least PHP 5.3.');
+	                                notifyResult(false, 'FusionGEN requires PHP 7.1');
 								}
 							});
                         }
