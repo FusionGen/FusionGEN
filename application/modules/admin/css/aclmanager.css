@@ -104,7 +104,7 @@
 	-o-box-shadow:0px 1px 0px #32962d inset;
 }
 
-.expanded {
+.role-item-content {
 	background-color:#333;
 	border-top:1px solid #fff;
 	border-bottom:1px solid #fff;
@@ -152,22 +152,22 @@
 	-o-transform:rotate(90deg);
 }
 
-#roles_list li:hover + .expanded {
+.expanded {
 	height:auto;
 	opacity:1;
 	padding:10px !important;
 	padding-left:15px !important;
 }
 
-.expanded .permission {
+.role-item-content .permission {
 	padding:5px;
 }
 
-.expanded .permission .value {
+.role-item-content .permission .value {
 	float:right;
 }
 
-.expanded .description {
+.role-item-content .description {
 	font-size:14px;
 	border-bottom:1px solid #444;
 	color:#fff;
