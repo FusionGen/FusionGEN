@@ -1,6 +1,6 @@
 <?php
 
 $emulators = array(
-	"trinity_rbac_ra" => "TrinityCore (3.3.5) with RBAC - connected through RA",
-	"trinity_rbac_soap" => "TrinityCore (3.3.5) with RBAC - connected through SOAP"
+	"trinity_rbac_soap" => "TrinityCore (3.3.5a) with RBAC - connected through SOAP",
+	"azerothcore_soap" => "AzerothCore (3.3.5a) - connected through SOAP"
 );
