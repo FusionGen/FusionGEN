@@ -366,16 +366,3 @@ $config['rewrite_short_tags'] = FALSE;
 |
 */
 $config['proxy_ips'] = '';
-
-/*
-|--------------------------------------------------------------------------
-| CDN Configuration
-|--------------------------------------------------------------------------
-|
-| If you do not want your website to have the cdn enabled you can disabled it here
-| by default the website has it enabled
-| If you have another CDN that you'd wish to use, you can also set it there
-|
-*/
-$config['cdn_enabled']  = true;
-$config['cdn_link']     = 'https://cdn.fusiongen.org';

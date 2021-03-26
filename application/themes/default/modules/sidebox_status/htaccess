@@ -1,4 +1,0 @@
-<IfModule mod_expires.c>
-# disable mod_expires for this directory
-ExpiresActive off
-</IfModule>

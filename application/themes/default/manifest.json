@@ -1,10 +1,10 @@
 {
-	"name": "Example theme",
+	"name": "Default",
 	"author": "Jesper Lindström",
 	"website": "http://raxezdev.com",
 	
 	"favicon": "favicon.gif",
-	
+
 	"normal_avatar": "avatars/0_normal.jpg",
 	"small_avatar": "avatars/0_small.jpg",
 
@@ -12,8 +12,8 @@
 		"next": "Next",
 		"previous": "Prev"
 	},
-	
-	"slider_id": "slider_wrapper",
+
+	"slider_id": "slider_bg",
 	"screenshot": "images/screenshot.jpg",
 	"blank_header": ""
 }

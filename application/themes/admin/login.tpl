@@ -81,7 +81,7 @@
 						<input type="text" placeholder="Username" {if $isOnline}disabled value="{$username}"{/if} id="username"/>
 						<input type="password" placeholder="Password" {if $isOnline}disabled value="Password"{/if} id="password"><input type="password" placeholder="Security code" id="security_code" />
 						</br><input type="submit" value="Enter ACP" />
-							</br></br><a href="{$url}">Back to Site</a> | <a href="https://gitlab.com/omghixd/fusiongen">FusionGEN Gitlab</a> | <a href="https://gitlab.com/omghixd/fusiongen/issues?scope=all&utf8=%E2%9C%93&state=all&label_name[]=Solution">Solution Center</a>
+							</br></br><a href="{$url}">Back to Site</a> | <a href="https://github.com/FusionGen/FusionGen">FusionGEN Github</a> | <a href="https://github.com/FusionGen/FusionGen/issues?q=is%3Aissue+is%3Aclosed+label%3ASolution">Solution Center</a>
 					</center>
 					</form>
 				</div>
@@ -97,7 +97,7 @@
 				<aside id="discord">
 					<h1>Join our Discord Server</h1>
 					<div id="discord_icon"></div>
-					<a href="https://discord.gg/vRnr6WJ" target="_blank">FusionGEN</a>
+					<a href="https://discord.gg/5nSt9puU4V" target="_blank">FusionGEN</a>
 				</aside>
 				<aside id="html5">
 					<a href="http://www.w3.org/html/logo/" data-tip="This website makes use of the next generation of web technologies">

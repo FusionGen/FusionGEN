@@ -1,6 +1,6 @@
 <article>
-	<div class="headline">{$headline}</div>
-	<div class="content">
+	<h1 class="top">{$headline}</h1>
+	<section class="body">
 		{$content}
-	</div>
+	</section>
 </article>

@@ -1,4 +1,6 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter Native Session Library
  *
@@ -29,7 +31,10 @@ class Session
     {
         $this->ci = get_instance();
 
-        if ( ! isset($_SESSION)) {
+        // Enables session strict mode to prevent spoofing
+        ini_set('session.use_strict_mode', 'On');
+
+        if (!isset($_SESSION)) {
             session_start();
         }
         $this->initialize($config);
@@ -48,27 +53,25 @@ class Session
      * @param   array   config options
      * @return void
      */
-     private function initialize($config)
-     {
-        $config = array_merge
-        (
-            array
-            (
+    private function initialize($config)
+    {
+        $config = array_merge(
+            array(
                 'sess_namespace' => $this->ci->config->item('sess_namespace'),
                 'sess_expiration' => $this->ci->config->item('sess_expiration')
             ),
             $config
         );
         foreach ($config as $key => $val) {
-            if (method_exists($this, 'set_'.$key)) {
-                $this->{'set_'.$key}($val);
+            if (method_exists($this, 'set_' . $key)) {
+                $this->{'set_' . $key}($val);
             } elseif (isset($this->$key)) {
                 $this->$key = $val;
             }
         }
-        if (isset($_SESSION[$this->sess_namespace]) ) {
+        if (isset($_SESSION[$this->sess_namespace])) {
             $this->store = $_SESSION[$this->sess_namespace];
-            if (! $this->is_expired()) {
+            if (!$this->is_expired()) {
                 return;
             }
         }
@@ -84,13 +87,13 @@ class Session
     public function sess_create()
     {
         // Set the session length. If the session expiration is
-        // set to zero we'll set the expiration two years from now.
+        // set to zero we'll set the expiration two days from now.
         if ($this->sess_expiration == 0) {
-            $this->sess_expiration = (60*60*24*365*2);
+            $this->sess_expiration = ((60 * 60 * 24) * 2);
         }
         $expire_time = time() + intval($this->sess_expiration);
         $_SESSION[$this->sess_namespace] = array(
-            'session_id' => md5(microtime()),
+            'session_id' => session_regenerate_id(true),
             'expire_at' => $expire_time
         );
         $this->store = $_SESSION[$this->sess_namespace];
@@ -104,8 +107,8 @@ class Session
      */
     public function is_expired()
     {
-        if ( ! isset($this->store['expire_at'])) {
-            return TRUE;
+        if (!isset($this->store['expire_at'])) {
+            return true;
         }
         return (time() > $this->store['expire_at']);
     }
@@ -208,7 +211,7 @@ class Session
 
         if (count($newdata) > 0) {
             foreach ($newdata as $key => $val) {
-                $flashdata_key = $this->flashdata_key.':new:'.$key;
+                $flashdata_key = $this->flashdata_key . ':new:' . $key;
                 $this->set_userdata($flashdata_key, $val);
             }
         }
@@ -227,10 +230,10 @@ class Session
         // flashdata as 'new' to preserve it from _flashdata_sweep()
         // Note the function will return FALSE if the $key
         // provided cannot be found
-        $old_flashdata_key = $this->flashdata_key.':old:'.$key;
+        $old_flashdata_key = $this->flashdata_key . ':old:' . $key;
         $value = $this->userdata($old_flashdata_key);
 
-        $new_flashdata_key = $this->flashdata_key.':new:'.$key;
+        $new_flashdata_key = $this->flashdata_key . ':new:' . $key;
         $this->set_userdata($new_flashdata_key, $value);
     }
 
@@ -243,7 +246,7 @@ class Session
      */
     public function flashdata($key)
     {
-        $flashdata_key = $this->flashdata_key.':old:'.$key;
+        $flashdata_key = $this->flashdata_key . ':old:' . $key;
         return $this->userdata($flashdata_key);
     }
 
@@ -260,7 +263,7 @@ class Session
         foreach ($userdata as $name => $value) {
             $parts = explode(':new:', $name);
             if (is_array($parts) && count($parts) === 2) {
-                $new_name = $this->flashdata_key.':old:'.$parts[1];
+                $new_name = $this->flashdata_key . ':old:' . $parts[1];
                 $this->set_userdata($new_name, $value);
                 $this->unset_userdata($name);
             }

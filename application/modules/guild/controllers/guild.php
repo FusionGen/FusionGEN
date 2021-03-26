@@ -47,6 +47,7 @@ class Guild extends MX_Controller
 				'leader' => $this->guildLeader,
 				'realmId' => $realm,
 				'realmName' => $this->realms->getRealm($realm)->getName(),
+				'guildMotd' => $this->template->format($this->guild['motd'], false, false, true, false),
 				'url' => $this->template->page_url
 			);
 

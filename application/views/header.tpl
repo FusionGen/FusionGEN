@@ -19,9 +19,9 @@ Current FusionGEN Version: 1.0.2
                   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
                   crossorigin="anonymous">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-                    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-                    crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
+					integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" 
+					crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
                     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
                     crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@ Current FusionGEN Version: 1.0.2
                     crossorigin="anonymous"></script>
         {/if}
 
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}/{else}{$path}{/if}css/default.css" type="text/css" />
+		<link rel="stylesheet" href="{$path}css/default.css" type="text/css" />
 		<link rel="stylesheet" href="{$style_path}cms.css" type="text/css" />
 		<link rel="stylesheet" href="{$style_path}main.css" type="text/css" />
 		{if $extra_css}<link rel="stylesheet" href="{$path}{$extra_css}" type="text/css" />{/if}
@@ -50,9 +50,8 @@ Current FusionGEN Version: 1.0.2
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 		<script type="text/javascript">var isIE = false;</script>
-		<!--[if IE]><script type="text/javascript">isIE = true;</script><![endif]-->
-		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{else}{$path}{/if}/js/router.js"></script>
-		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{else}{$path}{/if}/js/require.js"></script>
+		<script type="text/javascript" src="{$path}js/router.js"></script>
+		<script type="text/javascript" src="{$path}js/require.js"></script>
 		<script type="text/javascript">
 
 			if(!window.console)

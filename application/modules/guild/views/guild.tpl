@@ -4,8 +4,8 @@
 <section id="guild_top">
 
 	<section id="guild_info">
-		{if $guild.motd}
-			"{nl2br($guild.motd)}"
+		{if $guildMotd}
+			"{nl2br($guildMotd)}"
 		{else}
 			{lang("no_motd", "guild")}
 		{/if}

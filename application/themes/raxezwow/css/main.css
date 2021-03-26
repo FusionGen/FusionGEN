@@ -1,0 +1,321 @@
+@charset "utf-8";
+
+body {
+	background-color:#172a38;
+	background-image:url(../images/bg.jpg);
+	background-repeat:repeat-x;
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size:12px;
+	color:#1e1e1e;
+}
+
+/* Reset margin & padding */
+* {
+	margin:0px;
+	padding:0px;	
+}
+
+/* Link styles */
+a {
+	color:#1c5a94;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#000000;
+}
+
+/* Removes the link-border from images
+in some browsers */
+a img {
+	border:none;
+}
+
+/* Wrapper, keeps the site in place */
+#wrapper {
+	width:960px;
+	height:auto;
+	margin:0px auto 0px auto;
+	position:relative;
+}
+
+/* Top bar */
+#top {
+	width:900px;
+	position:absolute;
+	height:25px;
+	z-index:10;
+	top:0px;
+	color:#eeeeee;
+	padding-top:7px;
+	text-align:right;
+	padding-right:30px;
+}
+
+/* Top bar link styles*/
+#top a {
+	color:#a1c2dd;
+	text-decoration:none;
+}
+
+#top a:hover {
+	color:#baff00;
+}
+
+/* Header image */
+header {
+	width:960px;
+	height:263px;
+	background-image:url(../images/header.jpg);
+	position:relative;
+}
+
+/* Horizontal menu */
+nav {
+	width:100%;
+	height:56px;
+	background-image:url(../images/menu.jpg);
+	display:block;
+}
+
+/* Horizontal menu item */
+nav li {
+	float:left;
+	width:158px;
+	margin-left:1px;
+	margin-right:1px;
+	height:56px;
+	display:block;
+	list-style:none;
+	text-align:center;
+}
+
+/* Horizontal menu link styles */
+nav li a {
+	text-decoration:none;
+	color:#172e3c;
+	font-size:14px;
+	font-weight:bold;
+	display:block;
+	height:41px;
+	width:100%;
+	padding-top:15px;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+
+nav li a:hover {
+	color:#baff00;
+	text-decoration:none;
+	background-image:url(../images/menu_hover.jpg);
+	text-shadow:1px 1px 0px #0c1922;
+}
+
+/* Body div, contains the actual page content,
+such as boxes */
+#body {
+	width:958px;
+	border-left:1px solid #ffffff;
+	border-right:1px solid #ffffff;
+	background-color:#b6b6b6;
+}
+
+/* Left column of the above body div */
+aside {
+	width:220px;
+	height:auto;
+	float:left;
+	margin-left:10px;
+}
+
+/* Right column of the above body div */
+#main {
+	width:710px;
+	height:auto;
+	float:right;
+	margin-right:10px;
+}
+
+/* Needed to prevent floats from messing around */
+.clear {
+	clear:both;
+}
+
+/* A margin-fix, where regular margin didn't work(?) */
+#space {
+	height:10px;
+	width:100%;
+}
+
+/* Left content box inside of the body div, left column.
+Also called a "sidebox" */
+.side_box {
+	background-color:#f0f0f0;
+	width:218px;
+	height:auto;
+	border:1px solid #ffffff;
+	margin-bottom:10px;
+}
+
+/* Left content box top bar / title */
+.side_box_top {
+	width:218px;
+	background-image:url(../images/lefttop.jpg);
+	height:32px;
+	color:#172e3c;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	font-size:14px;
+	padding-top:6px;
+	display
+}
+
+/* Left & right content boxes' content */
+.side_box_body, .main_box_body {
+	padding:5px;
+}
+
+/* Right content box inside of the body div, right column.
+This is the box(es) where the page content goes. */
+.main_box {
+	background-color:#f0f0f0;
+	width:708px;
+	height:auto;
+	border:1px solid #ffffff;
+	margin-bottom:10px;
+	line-height:1.4;
+}
+
+/* Right box top bar / title */
+.main_box_top {
+	width:708px;
+	background-image:url(../images/top.jpg);
+	height:32px;
+	color:#172e3c;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	font-size:14px;
+	padding-top:6px;
+	display:block;
+}
+
+.main_box_top:hover {
+	color:#000;
+	text-decoration:none;
+}
+
+/* Right box bottom */
+.main_box_bottom {
+	clear:both;
+	background-color:#f9f9f9;
+	padding:5px;
+	color:#666;
+}
+
+.main_box_bottom b {
+	color:#333;
+}
+
+/* Avatar */
+.avatar {
+	width:120px;
+	height:120px;
+	float:left;
+	margin-right:5px;
+}
+
+/* Footer */
+footer {
+	width:960px;
+	margin:auto 0px auto 0px;
+	height:66px;
+	background-image:url(../images/footer.jpg);
+	margin-bottom:50px;
+	text-align:center;
+	padding-top:20px;
+	font-size:14px;
+	color:#666;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+/* Footer, cms notice */
+#cms {
+	color:#999;
+	text-shadow:1px 1px 0px #ffffff;
+	text-align:center;
+	margin-top:10px;
+	margin-right:5px;
+	font-size:11px;
+}
+
+#cms a {
+	background-image:url(../images/fcms.png);
+	width:88px;
+	height:13px;
+	display:block;
+	-webkit-transition: all 150ms;
+	-moz-transition: all 150ms;
+	-o-transition: all 150ms;
+	-ms-transition: all 150ms;
+	transition: all 150ms;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:15px;
+}
+
+#cms a:hover {
+	background-position:0px 13px;
+}
+
+/* Left-box list styles [left-menu] */
+.side_box li {
+	list-style:none;
+}
+
+.side_box li a {
+	display:block;
+	width:200px;
+	height:22px;
+	background-image:url(../images/bar.jpg);
+	padding-left:18px;
+	padding-top:6px;
+	text-decoration:none;
+	color:#172e3c;
+	font-size:14px;
+	-webkit-transition: all 250ms;
+	-moz-transition: all 250ms;
+	-o-transition: all 250ms;
+	-ms-transition: all 250ms;
+	transition: all 250ms;
+}
+
+.side_box li a:hover {
+	padding-left:35px;
+	width:183px;
+	font-weight:bold;
+}
+
+.news_comments {
+	display:block;
+	float:right;
+	width:100px;
+	text-align:center;
+	background-color:#e6e6e6;
+	border:1px solid #d6d6d6;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	padding:1px;
+	font-size:10px;
+	text-shadow:1px 1px 0px #ffffff;
+	color:#666;
+}
+
+.news_comments:hover {
+	text-decoration:none;
+	color:#000;
+	border:1px solid #999;
+}
+
+*:focus {
+	outline:none;
+}
