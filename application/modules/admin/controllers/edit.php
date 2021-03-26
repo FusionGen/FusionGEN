@@ -31,7 +31,7 @@ class Edit extends MX_Controller
 		{
 			die();
 		}
-		
+
 		$this->module = $module;
 
 		$this->loadModule();
@@ -62,7 +62,7 @@ class Edit extends MX_Controller
 	private function loadModule()
 	{
 		$this->manifest = @file_get_contents("application/modules/".$this->module."/manifest.json");
-			
+
 		if(!$this->manifest)
 		{
 			die("The module <b>".$this->module."</b> is missing manifest.json");
@@ -136,7 +136,7 @@ class Edit extends MX_Controller
 				{
 					$fusionConfig->set($key, $value);
 				}
-				
+
 				$fusionConfig->save();
 
 				die("The settings have been saved!");
@@ -158,9 +158,13 @@ class Edit extends MX_Controller
 		{
 			if($this->input->post("source"))
 			{
-				$file = fopen("application/modules/".$module."/config/".$name.".php", "w");
-				fwrite($file, $this->input->post("source"));
-				fclose($file);
+                $file = fopen("application/modules/" . $module . "/config/" . $name . ".php", "w");
+                fwrite($file, $this->input->post("source"));
+                fclose($file);
+
+                $file = file("application/modules/" . $module . "/config/" . $name . ".php");
+                $file[0] = str_replace("&lt;", "<", $file[0]);
+                file_put_contents("application/modules/" . $module . "/config/" . $name . ".php", $file);
 
 				die("The settings have been saved!");
 			}
