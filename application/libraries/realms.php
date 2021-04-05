@@ -24,7 +24,7 @@ class Realms
 	private $hordeRaces;
 	private $allianceRaces;
 
-	private $defaultEmulator = "trinity_soap";
+	private $defaultEmulator = "trinity_rbac_soap";
 
 	public function __construct()
 	{
