@@ -437,7 +437,7 @@ class Trinity_rbac_soap implements Emulator
         for($i = 0; $i <= $mail_id; $i++)
         {
             // .send item
-            $this->send("send items $character '$subject' '$body' {$item_command[$i]}");
+            $this->send("send items ".$character." \"".$subject."\" \"".$body."\"".$item_command[$i]);
         }
     }
 
