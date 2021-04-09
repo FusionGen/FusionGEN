@@ -10,7 +10,7 @@
 /**
  * Abstraction layer for supporting different emulators
  */
-class Trinity_sl_rbac_soap implements Emulator
+class Trinity_rbac_sl_soap implements Emulator
 {
     protected $config;
 
