@@ -383,7 +383,7 @@ class Trinity_rbac_sl_soap implements Emulator
      */
     public function sendMail($character, $subject, $body)
     {
-        $this->send("send mail $character '$subject' '$body'");
+        $this->send(".send mail ".$character." \"".$subject."\" \"".$body."\"");
     }
 
     /**
