@@ -63,33 +63,33 @@ class Sessions extends MX_Controller
 
 	private function getBrowser($u_agent)
 	{
-		if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)) 
-		{ 
+		if(preg_match('/trident/i',$u_agent) && !preg_match('/opera/i',$u_agent))
+		{
 			return "ie";
-		} 
-		elseif(preg_match('/firefox/i',$u_agent)) 
-		{ 
+		}
+		elseif(preg_match('/opera/i',$u_agent))
+		{
+			return "opera";
+		}
+		elseif(preg_match('/firefox/i',$u_agent))
+		{
 			return "firefox";
 		}
-		elseif(preg_match('/chrome/i',$u_agent)) 
-		{ 
-			return "chrome";
-		} 
-		elseif(preg_match('/android/i',$u_agent)) 
-		{ 
-			return "android";
-		} 
-		elseif(preg_match('/safari/i',$u_agent)) 
-		{ 
-			return "safari";
+		elseif(preg_match('/edg/i',$u_agent))
+		{
+			return "edge";
 		}
-		elseif(preg_match('/opera/i',$u_agent)) 
-		{ 
-			return "opera";
-		} 
-		elseif(preg_match('/netscape/i',$u_agent)) 
-		{ 
-			return "netscape";
+		elseif(preg_match('/chrome/i',$u_agent))
+		{
+			return "chrome";
+		}
+		elseif(preg_match('/android/i',$u_agent))
+		{
+			return "android";
+		}
+		elseif(preg_match('/safari/i',$u_agent))
+		{
+			return "safari";
 		}
 		else
 		{
