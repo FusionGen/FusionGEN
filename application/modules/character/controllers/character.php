@@ -170,50 +170,50 @@ class Character extends MX_Controller
 		
 		if($this->realms->getRealm($this->realm)->getEmulator()->hasStats())
 		{
-            // Find out which power field to use
-            switch($this->className)
-            {
-                default:
-                    $this->secondBar = "mana";
-                    $this->secondBarValue = $this->stats['maxpower1'];
-                break;
+      // Find out which power field to use   
+      switch($this->className)
+      {
+        default:
+          $this->secondBar = "mana";
+          $this->secondBarValue = $this->stats['maxpower1'];
+        break;
 
-                case "Warrior":
-                    $this->secondBar = "rage";
-                    $this->secondBarValue = $this->stats['maxpower2'] / 10;
-                break;
+        case "Warrior":
+          $this->secondBar = "rage";
+          $this->secondBarValue = $this->stats['maxpower2'] / 10;
+        break;
 
-                case "Rogue":
-                    $this->secondBar = "energy";
-                    $this->secondBarValue = $this->stats['maxpower4'];
-                break;
+        case "Rogue":
+          $this->secondBar = "energy";
+          $this->secondBarValue = $this->stats['maxpower4'];
+        break;
 
-                case "Hunter":
-                    if ($this->stats['maxpower3']){
-                        $this->secondBar = "focus";
-                        $this->secondBarValue = $this->stats['maxpower3'];
-                    } else {
-                        $this->secondBar = "mana";
-                        $this->secondBarValue = $this->stats['maxpower1'];
-                    }
-                break;
-
-                case "Death knight":
-								    if (isset($this->stats['maxpower7'])){
-											$this->secondBar = "runic";
-											$this->secondBarValue = $this->stats['maxpower7'] / 10;
-										} else {
-											$this->secondBar = "runic";
-											$this->secondBarValue = "Unknown";										
-										}
-                break;
-            }
-        }
-        else
-        {
+        case "Hunter":
+          if ($this->stats['maxpower3']){
+            $this->secondBar = "focus";
+            $this->secondBarValue = $this->stats['maxpower3'];
+          } else {
             $this->secondBar = "mana";
-            $this->secondBarValue = lang("unknown", "character");
-        }
+            $this->secondBarValue = $this->stats['maxpower1'];
+          }
+        break;
+
+        case "Death knight":
+				  if (isset($this->stats['maxpower7'])){
+						$this->secondBar = "runic";
+						$this->secondBarValue = $this->stats['maxpower7'] / 10;
+					} else {
+						$this->secondBar = "runic";
+						$this->secondBarValue = "Unknown";										
+					}
+        break;
+			}
+    }
+    else
+    {
+      $this->secondBar = "mana";
+      $this->secondBarValue = lang("unknown", "character");
+    }
 
 		// Load the items
 		$items = $this->armory_model->getItems();
