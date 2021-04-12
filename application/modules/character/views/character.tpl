@@ -154,10 +154,12 @@
 							<td width="50%">{lang("spell_crit", "character")}</td>
 							<td>{if strlen($stats.spellCritPct)}{$stats.spellCritPct}%{else}{lang("unknown", "character")}{/if}</td>
 						</tr>
+						{if $stats && array_key_exists("spirit", $stats)}
 						<tr>
 							<td width="50%">{lang("spirit", "character")}</td>
 							<td>{if strlen($stats.spirit)}{$stats.spirit}{else}{lang("unknown", "character")}{/if}</td>
 						</tr>
+						{/if}
 						<tr>
 							<td width="50%">&nbsp;</td>
 							<td></td>
