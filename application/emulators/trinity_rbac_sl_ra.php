@@ -3,8 +3,6 @@
 /**
  * @package FusionCMS
  * @version 6.x
- * @link    https://code-path.com
- * @copyright (c) 2020 Code path web developing team
  */
 
 require_once __DIR__ . '/trinity_rbac_sl_soap.php';
