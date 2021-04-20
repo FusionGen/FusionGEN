@@ -238,12 +238,12 @@ class External_account_model extends CI_Model
 		{
 			$row = $query->result_array();
 
-			if($row[0]["SecurityLevel"] == "")
+			if($row[0]["gmlevel"] == "")
 			{
-				$row[0]["SecurityLevel"] = 0;
+				$row[0]["gmlevel"] = 0;
 			}
 			
-			return $row[0]["SecurityLevel"];
+			return $row[0]["gmlevel"];
 		}
 		else
 		{
