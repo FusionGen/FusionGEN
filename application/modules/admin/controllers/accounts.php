@@ -178,8 +178,12 @@ class Accounts extends MX_Controller
 		{
 			$external_account_data[column("account", "password")] = $this->realms->getEmulator()->encrypt($this->user->getUsername($id), $this->input->post("password"));
 		}
-		
-		$external_account_access_data[column("account_access", "gmlevel")] = $this->input->post("gm_level");
+
+		if(preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
+			$external_account_access_data[column("account_access", "SecurityLevel")] = $this->input->post("gm_level");
+		} else {
+			$external_account_access_data[column("account_access", "id")] = $this->input->post("gm_level");
+		}
 		
 		$internal_account_data["vp"] = $this->input->post("vp");
 		$internal_account_data["dp"] = $this->input->post("dp");
