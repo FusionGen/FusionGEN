@@ -120,7 +120,7 @@ class Accounts_model extends CI_Model
 			$external_account_access_data[column('account_access', 'AccountID')] = $id;
 			$this->connection->insert(table('account_access'), $external_account_access_data);
 			} else {
-            // Update external access
+                        // Update external access
 			$external_account_access_data[column('account_access', 'id')] = $id;
 			$this->connection->insert(table('account_access'), $external_account_access_data);
 			}
