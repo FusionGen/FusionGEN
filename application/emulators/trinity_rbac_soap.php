@@ -72,8 +72,8 @@ class Trinity_rbac_soap implements Emulator
         ),
 
         'account_access' => array(
-            'id'      => 'id',
-            'gmlevel' => 'gmlevel'
+            'id'            => 'id',
+            'securitylevel' => 'securitylevel'
         ),
 
         'account_banned' => array(
