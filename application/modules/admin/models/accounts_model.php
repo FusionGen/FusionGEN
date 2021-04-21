@@ -73,7 +73,7 @@ class Accounts_model extends CI_Model
 	public function getAccessId($userId = 0)
 	{
 		if(preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
-			$query = $this->connection->query("SELECT ".column("account_access", "SecurityLevel", true)." FROM ".table("account_access")." WHERE ".column("account_access", "AccountID")." = ?", array($userId));
+			$query = $this->connection->query("SELECT ".column("account_access", "SecurityLevel", true)." FROM ".table("account_access")." WHERE ".column("account_access", "AccountId")." = ?", array($userId));
 		} else {
 			$query = $this->connection->query("SELECT ".column("account_access", "gmlevel", true)." FROM ".table("account_access")." WHERE ".column("account", "id")." = ?", array($userId));
 		}
@@ -104,11 +104,11 @@ class Accounts_model extends CI_Model
 		if($this->getAccessId($id))
 		{
 			if(preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
-			// Update external access
-			$this->connection->where(column('account_access', 'AccountID'), $id);
+            // Update external access
+			$this->connection->where(column('account_access', 'AccountId'), $id);
 			$this->connection->update(table('account_access'), $external_account_access_data);
 			} else {
-			// Update external access
+            // Update external access
 			$this->connection->where(column('account_access', 'id'), $id);
 			$this->connection->update(table('account_access'), $external_account_access_data);
 			}
@@ -116,11 +116,11 @@ class Accounts_model extends CI_Model
 		else
 		{
 			if(preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
-			// Update external access
-			$external_account_access_data[column('account_access', 'AccountID')] = $id;
+            // Update external access
+			$external_account_access_data[column('account_access', 'AccountId')] = $id;
 			$this->connection->insert(table('account_access'), $external_account_access_data);
 			} else {
-                        // Update external access
+            // Update external access
 			$external_account_access_data[column('account_access', 'id')] = $id;
 			$this->connection->insert(table('account_access'), $external_account_access_data);
 			}
