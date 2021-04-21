@@ -35,7 +35,7 @@ class Accounts extends MX_Controller
 		// Output my content. The method accepts the same arguments as template->view
 		$this->administrator->view($content, false, "modules/admin/js/accounts.js");
 	}
-	
+
 	public function get($id)
 	{
 		if(!is_numeric($id))
@@ -50,7 +50,7 @@ class Accounts extends MX_Controller
 				"data" => $data,
 				"auto" => true
 			);
-	
+
 			// Load my view
 			$output = $this->template->loadPage("accounts/accounts_search.tpl", $page_data);
 
@@ -65,7 +65,7 @@ class Accounts extends MX_Controller
 			die('<span>No such account</span>');
 		}
 	}
-	
+
 	public function search($data = false)
 	{
 		$value = false;
@@ -90,7 +90,7 @@ class Accounts extends MX_Controller
 		if($data)
 		{
 			$internal_details = $this->accounts_model->getInternalDetails($data['id']);
-	
+
 			$userGroup = $this->acl_model->getGroupsByUser($data['id']);
 
 			// Prepare my data
@@ -107,7 +107,6 @@ class Accounts extends MX_Controller
 	
 			// Load my view
 			$output = $this->template->loadPage("accounts/accounts_found.tpl", $page_data);
-	
 			die($output);
 		}
 		else
