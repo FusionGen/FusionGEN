@@ -45,6 +45,14 @@ body {
 
 a {
 	text-decoration:none;
+	color: #ffa800 !important;
+	transition: all 0.3s;
+}
+
+a:hover {
+	text-decoration:none;
+	color: #965f01 !important;
+	transition: all 0.3s;
 }
 
 a img {

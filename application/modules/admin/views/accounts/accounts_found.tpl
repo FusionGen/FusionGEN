@@ -18,7 +18,7 @@
 	<input type="text" id="email" name="email" value="{$external_details.email}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
 
 	<label for="group">Website user group</label>
-	<div style="background-color: #fff;border-radius: 5px;padding: 5px 10px;border: 1px solid #ccc;">Please assign groups at <a href="{$url}admin/aclmanager/groups">the group manager</a></div>
+	<div style="background-color: #1e1e1e;border-radius: 5px;padding: 5px 10px;border: 1px solid #ccc;">Please assign groups at <a href="{$url}admin/aclmanager/groups">the group manager</a></div>
 
 	<label for="password">Change password</label>
 	<input type="text" id="password" name="password" placeholder="Enter a new password" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
