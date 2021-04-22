@@ -1,7 +1,9 @@
 <?php
 
 //Default days to be banned
-$config['gm_default_ban_days'] = 7;
+//Currently is counted by second(s) 604800 = 7 days
+//TBD: Change it to count by days and not seconds
+$config['gm_default_ban_days'] = 604800;
 
 //The title of the gm answer mail
 $config['gm_answertitle'] = "GM ticket answer";
