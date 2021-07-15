@@ -637,8 +637,8 @@ input[type="email"]:focus {
 }
 
 #shoutbox form input[type="submit"] {
-        margin-top:4px;
-        width:149px;
+	margin-top:4px;
+	width:149px;
 }
 
 #sidebox_login input[type="submit"] {

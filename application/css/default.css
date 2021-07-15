@@ -494,18 +494,18 @@ input[type="radio"] {
 }
 
 /* Item quality colors */
-.q  { color: #ffd100 }
-.q0, .q0 a { color: #9d9d9d }
-.q1, .q1 a { color: #ffffff }
-.q2, .q2 a, .q2:hover { color: #1eff00 }
-.q3, .q3 a { color: #0070dd }
-.q4, .q4 a { color: #a335ee }
-.q5, .q5 a { color: #ff8000 }
-.q6, .q6 a { color: #e5cc80 }
-.q7, .q7 a { color: #e5cc80 }
-.q8, .q8 a { color: #ffff98 }
-.q9, .q9 a { color: #71D5FF }
-.q10, .q10 a { color: #ffd100 }
+.q  { color: #ffd100 } /* Default (yellow) */
+.q0, .q0 a { color: #9d9d9d } /* Poor */
+.q1, .q1 a { color: #ffffff } /* Common */
+.q2, .q2 a, .q2:hover { color: #1eff00 } /* Uncommon */
+.q3, .q3 a { color: #0070dd } /* Rare */
+.q4, .q4 a { color: #a335ee } /* Epic */
+.q5, .q5 a { color: #ff8000 } /* Legendary */
+.q6, .q6 a { color: #e5cc80 } /* Artifact */
+.q7, .q7 a { color: #e5cc80 } /* Heirloom */
+.q8, .q8 a { color: #ffff98 } /* Light yellow (item set bonuses) */
+.q9, .q9 a { color: #71D5FF } /* Light blue (glyph type) */
+.q10, .q10 a { color: #ff4040 } /* Red (requirement not met, error) */
 
 /* Sockets */
 .socket-meta   { padding-left: 26px; background: url(../images/misc/socket_meta.gif) no-repeat left center }
@@ -731,18 +731,18 @@ input[type="radio"] {
 	word-wrap:break-word;
 }
 
-.color-c1 { color: #C79C6E; } /* warrior */
-.color-c2 { color: #F58CBA; } /* paladin */
-.color-c3 { color: #ABD473; } /* hunter */
-.color-c4 { color: #FFF569; } /* rogue */
-.color-c5 { color: #FFFFFF; } /* priest */
-.color-c6 { color: #C41F3B; } /* death knight */
-.color-c7 { color: #0070DE; } /* shaman */
-.color-c8 { color: #69CCF0; } /* mage */
-.color-c9 { color: #9482C9; } /* warlock */
-.color-c10 { color: #00ffba; } /* monk */
-.color-c11 { color: #FF7D0A; } /* druid */
-.color-c12 { color: #a330c9; } /* demon hunter */
+.color-c1 { color: #C69B6D; } /* Warrior */
+.color-c2 { color: #F48CBA; } /* Paladin */
+.color-c3 { color: #AAD372; } /* Hunter */
+.color-c4 { color: #FFF468; } /* Rogue */
+.color-c5 { color: #F0EBE0; } /* Priest */
+.color-c6 { color: #C41E3B; } /* Death Knight */
+.color-c7 { color: #2359FF; } /* Shaman */
+.color-c8 { color: #68CCEF; } /* Mage */
+.color-c9 { color: #9382C9; } /* Warlock */
+.color-c10 { color: #00FFBA; } /* Monk */
+.color-c11 { color: #FF7C0A; } /* Druid */
+.color-c12 { color: #A335EE; } /* Demon Hunter */
 
 /* CSS Loader Spinner */
 .lds-ring {

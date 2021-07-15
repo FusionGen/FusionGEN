@@ -3,7 +3,7 @@
 		<tr>
 			<td><label for="register_username">{lang("username", "register")}</label></td>
 			<td>
-				<input type="text" name="register_username" id="register_username" value="{set_value('register_username')}" onChange="Validate.checkUsername()"/>
+				<input type="text" name="register_username" id="register_username" autocomplete="username" value="{set_value('register_username')}" onChange="Validate.checkUsername()"/>
 				<span id="username_error">{$username_error}</span>
 			</td>
 		</tr>
@@ -17,14 +17,14 @@
 		<tr>
 			<td><label for="register_password">{lang("password", "register")}</label></td>
 			<td>
-				<input type="password" name="register_password" id="register_password" value="{set_value('register_password')}" onChange="Validate.checkPassword()"/>
+				<input type="password" name="register_password" id="register_password" autocomplete="new-password" value="{set_value('register_password')}" onChange="Validate.checkPassword()"/>
 				<span id="password_error">{$password_error}</span>
 			</td>
 		</tr>
 		<tr>
 			<td><label for="register_password_confirm">{lang("confirm", "register")}</label></td>
 			<td>
-				<input type="password" name="register_password_confirm" id="register_password_confirm" value="{set_value('register_password_confirm')}" onChange="Validate.checkPasswordConfirm()"/>
+				<input type="password" name="register_password_confirm" autocomplete="new-password" id="register_password_confirm" value="{set_value('register_password_confirm')}" onChange="Validate.checkPasswordConfirm()"/>
 				<span id="password_confirm_error">{$password_confirm_error}</span>
 			</td>
 		</tr>

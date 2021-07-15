@@ -13,8 +13,8 @@
  */
 
 $lang['log_in'] = "Log in";
-$lang['user_doesnt_exist'] = "User doesn\'t exist";
-$lang['password_doesnt_match'] = "Password doesn\'t match";
+$lang['user_doesnt_exist'] = "User doesn't exist";
+$lang['password_doesnt_match'] = "Password doesn't match";
 $lang['username'] = "Username";
 $lang['password'] = "Password";
 $lang['remember_me'] = "Check this if you want to stay signed in";
