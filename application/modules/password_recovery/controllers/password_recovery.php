@@ -20,7 +20,7 @@ class Password_recovery extends MX_Controller
 
 	public function index()
 	{
-		$this->template->setTitle('Password recovery');
+		$this->template->setTitle('Recovery');
 
 		// Nothing in the email so they didnt filled in a username
 		$this->input->post('recover_username') || $this->template->box(breadcumb(array(
@@ -42,6 +42,46 @@ class Password_recovery extends MX_Controller
 			'password_recovery' => lang('password_recovery', 'recovery'),
 		)), lang('email_sent', 'recovery'), true);
 	}
+
+	public function email()
+	{
+        $this->template->setTitle("Username recovery by email");
+
+        if($this->input->post('recover_email'))
+        {
+            $email = $this->input->post('recover_email');
+            $username = $this->password_recovery_model->getUsername($email);
+
+            if($username)
+            {
+                sendMail($email, $this->config->item('password_recovery_sender_email'), $this->config->item('server_name') . ': ' . lang("username", "recovery"), ' <br> Your username is: <strong>' . $username . '<strong>');
+
+                $this->template->view($this->template->loadPage("page.tpl", array(
+                    "module" => "default", 
+                    "headline" => lang("password_recovery", "recovery"), 
+                    "content" => lang("email_sent", "recovery")
+                )));
+            }
+            else
+            {
+				//Wrong username or an error occured
+				$this->template->view($this->template->loadPage("page.tpl", array(
+                    "module" => "default", 
+                    "headline" => lang("password_recovery_email", "recovery"), 
+                    "content" => lang("doesnt_exist", "recovery")." <a href=''>".lang("go_back", "recovery")."</a>",
+				)));
+            }
+        }
+        else
+        {
+            //Nothing in the email so they didnt filled in a username
+            $this->template->view($this->template->loadPage("page.tpl", array(
+				"module" => "default", 
+				"headline" => lang("password_recovery", "recovery"), 
+				"content" => $this->template->loadPage("password_recovery_email.tpl", array("class" => array("class" => "page_form")))
+            )));
+        }	
+    }
 
 	public function requestPassword($key = '')
 	{
