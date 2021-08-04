@@ -14,10 +14,12 @@
 
 $lang['username'] = "Username";
 $lang['recover'] = "Recover password!";
+$lang['recover_username'] = "Recover username!";
 $lang['new_password'] = "Your new password is";
 $lang['your_new_password'] = "your new password";
 $lang['smtp_disabled'] = "This feature is disabled because the server doesn't have SMTP installed.";
 $lang['password_recovery'] = "Password recovery";
+$lang['password_recovery_email'] = "Username recovery";
 $lang['email_sent'] = "An email has been sent to you with further information. Please check your inbox to proceed.";
 $lang['reset_password'] = "reset your password";
 $lang['email'] = "You have requested to reset your password, to complete the request please navigate to ";

@@ -2,6 +2,28 @@
 
 class Password_recovery_model extends CI_Model
 {
+
+	public function getUsername($email){
+		if(!$email)
+		{
+			return false;
+		}
+		else
+		{
+			$query = $this->external_account_model->getConnection()->query("SELECT ".column("account", "username")." FROM ".table("account")." WHERE ".column("account", "email"). "= ?", array($email));
+	
+			if($query->num_rows() > 0)
+			{
+				$result = $query->result_array();
+				return $result[0]['username'];
+			}
+			else 
+			{
+				return false;	
+			}
+		}
+	}
+
 	public function getEmail($username)
 	{
 		if(!$username)
