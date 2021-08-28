@@ -15,7 +15,7 @@
 	
 	<section id="armory_name">
 		<h1>{$name} <a href="{$url}guild/{$realmId}/{$guild}">{$guildName}</a></h1>
-		<h2><b>{$level}</b> {$raceName} {$className}, <i>{$realmName}</i></h2>
+		<h2 class="color-c{$class}"><b>{$level}</b> {$raceName} {$className}, <i>{$realmName}</i></h2>
 	</section>
 
 	<div class="clear"></div>
