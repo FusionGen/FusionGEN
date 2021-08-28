@@ -48,7 +48,7 @@ Current FusionGEN Version: 1.0.2
 		
 		<!-- Load scripts -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 		<script type="text/javascript">var isIE = false;</script>
 		<script type="text/javascript" src="{$path}js/router.js"></script>
 		<script type="text/javascript" src="{$path}js/require.js"></script>
