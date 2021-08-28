@@ -28,7 +28,7 @@ sudo apt-get install apache2 apache2-doc apache2-npm-prefork apache2-utils libex
 - Install PHP (php7.1.33 latest version of PHP) -- **FusionGEN Maintainer Edit: We don't support 7.2 or above! , please install PHP Version 7.1.33**
 
 ```
-sudo apt-get install libapache2-mod-php7.1 php7.1 php7.1-common php7.1-curl php7.1-dev php7.1-gd php-pear php-imagick php7.1-mcrypt php7.1-mysql php7.1-ps php7.1-xsl php7.1-json php7.1-soap php7.1-
+sudo apt-get install libapache2-mod-php7.1 php7.1 php7.1-common php7.1-curl php7.1-dev php7.1-gd php-pear php-imagick php7.1-mcrypt php7.1-mysql php7.1-ps php7.1-xsl php7.1-json php7.1-soap php7.1-gmp
 ```
 
 ## 2) Configure Apache2 & create an empty fusiongen database

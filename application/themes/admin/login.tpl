@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="{$url}application/themes/admin/css/login.css" type="text/css" />
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
-		<script type="text/javascript" src="{if $cdn}https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js{else}{$url}application/js/jquery.min.js{/if}"></script>
+		<script type="text/javascript" src="{if $cdn}https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js{else}{$url}application/js/jquery.min.js{/if}"></script>
 
 		<script type="text/javascript">
 			function getCookie(c_name)
