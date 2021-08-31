@@ -56,7 +56,7 @@ class Install
     
     private function checkPhpExtensions()
     {
-        $req = array('mysqli', 'curl', 'openssl', 'soap', 'gd', 'mbstring', 'json');
+        $req = array('mysqli', 'curl', 'openssl', 'soap', 'gd', 'mbstring', 'json', 'gmp');
         $loaded = get_loaded_extensions();
         $errors = array();
         
@@ -82,12 +82,7 @@ class Install
     
     private function checkPhpVersion()
     {
-        $ver = phpversion();
-        if ($ver <= 7.0 || $ver >= 7.2) {
-            die("0");
-        } else {
-            die("1");
-        }
+		die( version_compare(PHP_VERSION, '7.0', '>=') ? '1' : '0' );
     }
 	
 	private function checkDbConnection()
