@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `password_recovery_key`;
 CREATE TABLE `password_recovery_key` (
 	`recoverykey` VARCHAR(255) NOT NULL,
 	`username` VARCHAR(255) NOT NULL,
