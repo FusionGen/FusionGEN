@@ -59,17 +59,13 @@ var UI = {
             var license = $("#license").val();
 
             Ajax.checkKey(license, function(valid) {
-                if (valid) {
-                    // prepare data for next step
-                    Ajax.checkPermissions();
-                    Ajax.checkPhpExtensions();
-                    Ajax.checkApacheModules();
-                    Ajax.checkPhpVersion();
+                // prepare data for next step
+                Ajax.checkPermissions();
+                Ajax.checkPhpExtensions();
+                Ajax.checkApacheModules();
+                Ajax.checkPhpVersion();
 
-                    notifyResult(true);
-                } else {
-                    notifyResult(false, 'This license key is invalid.');
-                }
+                notifyResult(true);
             });
         },
 
