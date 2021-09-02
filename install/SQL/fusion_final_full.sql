@@ -174,13 +174,12 @@ INSERT INTO `menu` VALUES ('11', 'Sign in', 'login', 'side', '1', '1', '13');
 INSERT INTO `menu` VALUES ('13', 'User panel', 'ucp', 'side', '2', '0', '16');
 INSERT INTO `menu` VALUES ('16', 'Online players', 'online', 'top', '1', '0', '5');
 INSERT INTO `menu` VALUES ('17', 'Online players', 'online', 'side', '1', '0', '17');
-INSERT INTO `menu` VALUES ('18', 'Armory', 'armory', 'side', '1', '0', '19');
-INSERT INTO `menu` VALUES ('19', 'Private messages', 'messages', 'side', '2', '0', '20');
-INSERT INTO `menu` VALUES ('20', 'Changelog', 'changelog', 'side', '1', '0', '21');
-INSERT INTO `menu` VALUES ('21', 'Admin panel', 'admin', 'side', '5', '0', '18');
-INSERT INTO `menu` VALUES ('22', 'PvP Statistics', 'pvp_statistics', 'side', '1', '0', '22');
-INSERT INTO `menu` VALUES ('23', 'Log out', 'logout', 'side', '2', '0', '23');
-INSERT INTO `menu` VALUES ('24', 'Log out', 'logout', 'top', '2', '0', '24');
+INSERT INTO `menu` VALUES ('18', 'Armory', 'armory', 'side', '1', '0', '18');
+INSERT INTO `menu` VALUES ('19', 'Changelog', 'changelog', 'side', '1', '0', '19');
+INSERT INTO `menu` VALUES ('20', 'Admin panel', 'admin', 'side', '5', '0', '20');
+INSERT INTO `menu` VALUES ('21', 'PvP Statistics', 'pvp_statistics', 'side', '1', '0', '21');
+INSERT INTO `menu` VALUES ('22', 'Log out', 'logout', 'side', '2', '0', '22');
+INSERT INTO `menu` VALUES ('23', 'Log out', 'logout', 'top', '2', '0', '23');
 
 -- ----------------------------
 -- Table structure for `monthly_income`
