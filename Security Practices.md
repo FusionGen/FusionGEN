@@ -3,8 +3,6 @@
 
 2. Disable non-essential modules:
 - GM Panel
-- Private Messaging
-- Shoutbox
 - Teleport Hub
 
 3. Use HTTPS
