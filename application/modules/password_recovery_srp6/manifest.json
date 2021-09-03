@@ -1,0 +1,24 @@
+{
+    "name": "Password recovery (SRP6)",
+    "description": "Requires SMTP (mail) server to function",
+    "author": {
+        "name": "FusionGEN & Darksider",
+        "website": "https:\/\/github.com/fusiongen"
+    },
+
+    "permissions": {
+        "view": { "default": true, "description": "View the password recovery page (SRP6)" }
+    },
+
+    "roles": {
+        "view": {
+            "description": "View the password recovery page",
+
+            "permissions": {
+                "view": true
+            }
+        }
+    },
+
+    "enabled": true
+}
