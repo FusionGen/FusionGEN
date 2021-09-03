@@ -470,7 +470,7 @@ class Template
 
 		foreach($slides_arr as $key=>$image)
 		{
-			if(!preg_match("/http:\/\//i", $image['link']) || !preg_match("/https:\/\//i", $image['link']))
+			if(!preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $image['link']))
 			{
 				$slides_arr[$key]['link'] = $this->page_url . $image['link'];
 			}
