@@ -8,31 +8,36 @@ class Azerothcore_soap implements Emulator
 {
 	protected $config;
 
-    /**
-     * Whether or not this emulator supports remote console
-     */
+/**
+ * Whether or not this emulator supports remote console
+ */
     protected $hasConsole = true;
 
-    /**
-     * Whether or not this emulator supports character stats
-     */
+/**
+ * Whether or not this emulator supports character stats
+ */
     protected $hasStats = true;
 
-    /**
-     * Console object
-     */
+/**
+ * Console object
+ */
     protected $console;
 
-    /**
-     * Array of expansion ids and their corresponding names
-     */
+/**
+ * SRP6
+ */
+    protected $SRP6 = true;
+
+/**
+ * Array of expansion ids and their corresponding names
+ */
     protected $expansions = array(
         2 => 'WotLK',
     );
 
-    /**
-     * Array of table names
-     */
+/**
+ * Array of table names
+ */
     protected $tables = array(
         'account'         => 'account',
         'account_access'  => 'account_access',
@@ -44,10 +49,10 @@ class Azerothcore_soap implements Emulator
         'guild'           => 'guild',
         'gm_tickets'      => 'gm_ticket'
     );
-
-    /**
-     * Array of column names
-     */
+    
+/**
+ * Array of column names
+ */
     protected $columns = array(
 
         'account' => array(
@@ -156,9 +161,9 @@ class Azerothcore_soap implements Emulator
         )
     );
 
-    /**
-     * Array of queries
-     */
+/**
+ * Array of queries
+ */
     protected $queries = array(
         'get_ip_banned'             => 'SELECT ip, bandate, bannedby, banreason, unbandate FROM ip_banned WHERE ip=? AND unbandate > ?',
         'get_character'             => 'SELECT * FROM characters WHERE guid=?',
@@ -178,9 +183,77 @@ class Azerothcore_soap implements Emulator
     {
         $this->config = $config;
 
-        if(!extension_loaded('gmp')) // make sure it's loaded
+        // Check for SRP6
+        $this->SRP6 = $this->isSRP6();
+
+        // Swap
+        $this->swap();
+
+        if($this->SRP6 && !extension_loaded('gmp')) // make sure it's loaded
             show_error('GMP extension is not enabled.');
     }
+/*
+ * isSRP6
+ */
+        protected function isSRP6()
+        {
+            // Path to cache file
+            $cache = str_replace(['\\', '/'], DIRECTORY_SEPARATOR, APPPATH . 'cache/data/auth_encryption.cache');
+    
+            // Check if cache exists
+            if(file_exists($cache) && $cache_content = file_get_contents($cache))
+                return ($cache_content === 'true') ? true : false;
+    
+            // Connect to auth DB
+            $DB = CI::$APP->load->database('account', true);
+    
+            // Check for `verifier` column
+            $RES = $DB->field_exists('verifier', $this->getTable('account'));
+    
+            // Free up RAM
+            $DB = false;
+            unset($DB);
+    
+            // Save cache
+            file_put_contents($cache, ($RES) ? 'true' : 'false');
+    
+            return $RES;
+        }
+    
+/*
+ Swap
+ swap table names, column names and queries if emulator is not SRP6 based
+ */
+        protected function swap()
+        {
+            // This is SRP6! we're good to go
+            if($this->SRP6)
+                return true;
+    
+            // Update column names
+            $this->columns = array_merge($this->columns, [
+                'account' => [
+                    'id'         => 'id',
+                    'username'   => 'username',
+                    'password'   => 'sha_pass_hash',
+                    'email'      => 'email',
+                    'joindate'   => 'joindate',
+                    'last_ip'    => 'last_ip',
+                    'last_login' => 'last_login',
+                    'expansion'  => 'expansion',
+                    'v'          => 'v',
+                    's'          => 's',
+                    'sessionkey' => 'sessionkey'
+                ]
+            ]);
+    
+            // Update queries
+            $this->queries = array_merge($this->queries, [
+                'get_account_id' => 'SELECT id id, username username, sha_pass_hash password, email email, joindate joindate, last_ip last_ip, last_login last_login, expansion expansion FROM account WHERE id = ?',
+                'get_account'    => 'SELECT id id, username username, sha_pass_hash password, email email, joindate joindate, last_ip last_ip, last_login last_login, expansion expansion FROM account WHERE username = ?',
+            ]);
+        }
+     
 
     /**
      * Get the name of a table
@@ -285,6 +358,15 @@ class Azerothcore_soap implements Emulator
      */
     public function encrypt($username, $password, $salt = null)
     {
+                // non-SRP6 encryption
+                if(!$this->SRP6)
+                {
+                    if(!is_string($username)) { $username = ''; }
+                    if(!is_string($password)) { $password = ''; }
+        
+                    return sha1(strtoupper($username).':'.strtoupper($password));
+                }
+        
         static::forge(); // once only
 
         is_string($username) || $username = '';
