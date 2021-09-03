@@ -298,27 +298,6 @@ CREATE TABLE `pending_accounts` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `private_message`
--- ----------------------------
-DROP TABLE IF EXISTS `private_message`;
-CREATE TABLE `private_message` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) NOT NULL,
-  `sender_id` int(10) NOT NULL,
-  `title` varchar(50) DEFAULT NULL,
-  `message` text NOT NULL,
-  `time` int(10) NOT NULL,
-  `read` int(1) DEFAULT '0',
-  `deleted_user` int(1) DEFAULT '0',
-  `deleted_sender` int(1) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `FK_private_message_account_data` (`user_id`),
-  KEY `FK_private_message_account_data_2` (`sender_id`),
-  CONSTRAINT `FK_private_message_account_data` FOREIGN KEY (`user_id`) REFERENCES `account_data` (`id`),
-  CONSTRAINT `FK_private_message_account_data_2` FOREIGN KEY (`sender_id`) REFERENCES `account_data` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
--- ----------------------------
 -- Table structure for `ranks`
 -- ----------------------------
 DROP TABLE IF EXISTS `ranks`;
@@ -362,20 +341,6 @@ CREATE TABLE `realms` (
   `emulator` varchar(255) DEFAULT NULL,
   `realm_port` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for `shouts`
--- ----------------------------
-DROP TABLE IF EXISTS `shouts`;
-CREATE TABLE `shouts` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `author` int(30) NOT NULL,
-  `content` varchar(255) NOT NULL,
-  `date` int(10) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_shouts_account_data` (`author`),
-  CONSTRAINT `FK_shouts_account_data` FOREIGN KEY (`author`) REFERENCES `account_data` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
