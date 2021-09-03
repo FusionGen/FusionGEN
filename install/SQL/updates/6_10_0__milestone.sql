@@ -11,7 +11,6 @@ ALTER TABLE `account_data` ADD COLUMN `total_votes` INT(11) NOT NULL DEFAULT '0'
 ALTER TABLE `account_data` ADD COLUMN `language` VARCHAR(40) NOT NULL DEFAULT 'english' AFTER `nickname`;
 ALTER TABLE `sideboxes` ADD COLUMN `permission` VARCHAR(50) AFTER `order`;
 ALTER TABLE `comments` ADD COLUMN `is_gm` INT(1) NOT NULL DEFAULT '0' AFTER `content`;
-ALTER TABLE `shouts` ADD COLUMN `is_gm` INT(1) NOT NULL DEFAULT '0' AFTER `date`;
 ALTER TABLE `pages` ADD COLUMN `permission` VARCHAR(50) AFTER `content`;
 
 ALTER TABLE `sideboxes` CHANGE COLUMN `displayName` `displayName` TEXT(0);
