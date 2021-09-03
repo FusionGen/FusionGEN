@@ -189,26 +189,35 @@ class Azerothcore_soap implements Emulator
         // Swap
         $this->swap();
 
-        if($this->SRP6 && !extension_loaded('gmp')) // make sure it's loaded
+        // Make sure it's loaded
+        if($this->SRP6 && !extension_loaded('gmp'))
             show_error('GMP extension is not enabled.');
     }
 /*
  * isSRP6
+ * Determine if emulator actually using SRP6 encryption
  */
-        protected function isSRP6()
+private function isSRP6()
         {
+            // Encryption
+            $encryption = [
+            'SHP'  => 'SHP',
+            'SRP6' => 'SRP6'
+            ];
+
             // Path to cache file
             $cache = str_replace(['\\', '/'], DIRECTORY_SEPARATOR, APPPATH . 'cache/data/auth_encryption.cache');
     
             // Check if cache exists
             if(file_exists($cache) && $cache_content = file_get_contents($cache))
-                return ($cache_content === 'true') ? true : false;
+            return ($cache_content === $encryption['SRP6']) ? true : false;
     
             // Connect to auth DB
             $DB = CI::$APP->load->database('account', true);
     
             // Check for `verifier` column
-            $RES = $DB->field_exists('verifier', $this->getTable('account'));
+            // Make sure `sha_pass_hash` column does NOT exists
+            $isSRP6 = !$DB->field_exists('sha_pass_hash', $this->getTable('account'));
     
             // Free up RAM
             $DB = false;
@@ -217,16 +226,16 @@ class Azerothcore_soap implements Emulator
             // Save cache
             file_put_contents($cache, ($RES) ? 'true' : 'false');
     
-            return $RES;
+            return $isSRP6;
         }
     
 /*
  Swap
- swap table names, column names and queries if emulator is not SRP6 based
+ Fix table names, column names and queries if emulator is not SRP6 based
  */
-        protected function swap()
+        private function swap()
         {
-            // This is SRP6! we're good to go
+            // This emulator is SRP6 based! we're good to go
             if($this->SRP6)
                 return true;
     
@@ -364,7 +373,7 @@ class Azerothcore_soap implements Emulator
                     if(!is_string($username)) { $username = ''; }
                     if(!is_string($password)) { $password = ''; }
         
-                    return sha1(strtoupper($username).':'.strtoupper($password));
+                    return sha1(strtoupper($username) . ':' . strtoupper($password));
                 }
         
         static::forge(); // once only
