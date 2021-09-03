@@ -139,7 +139,7 @@ nav ul li a:hover {
     text-align: center;
     color: #fff;
     border-bottom: 1px solid #ffa800;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 5px;
 }
 
@@ -188,7 +188,7 @@ nav ul li a:hover {
     font-weight: normal;
     text-align: center;
     color: #fff;
-    padding: 5px;
+    padding: 4.2px;
     display: block;
     font-weight: bolder;
 }
