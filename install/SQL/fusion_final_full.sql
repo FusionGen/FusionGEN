@@ -2,39 +2,456 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `account_data`
 -- ----------------------------
-DROP TABLE IF EXISTS `account_data`;
-CREATE TABLE `account_data` (
+
+CREATE TABLE IF NOT EXISTS `account_data` (
   `id` int(11) NOT NULL,
-  `vp` int(11) DEFAULT '0',
-  `dp` int(11) DEFAULT '0',
+  `vp` int(11) DEFAULT 0,
+  `dp` int(11) DEFAULT 0,
+  `total_votes` int(11) NOT NULL DEFAULT 0,
   `location` varchar(255) DEFAULT NULL,
   `nickname` varchar(32) DEFAULT NULL,
+  `language` varchar(40) NOT NULL DEFAULT 'english',
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `acl_roles`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `acl_roles` (
+  `name` varchar(50) NOT NULL,
+  `module` varchar(50) NOT NULL,
+  `description` varchar(255) DEFAULT '',
+  PRIMARY KEY (`name`,`module`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Data record for `acl_roles`
+-- ----------------------------
+
+INSERT INTO `acl_roles` (`name`, `module`, `description`) VALUES 
+('100', '--MENU--', ''),
+('101', '--MENU--', ''),
+('11', '--MENU--', ''),
+('13', '--MENU--', ''),
+('19', '--MENU--', ''),
+('2', '--MENU--', ''),
+('21', '--MENU--', ''),
+('5', '--MENU--', ''),
+('6', '--MENU--', ''),
+('8', '--MENU--', '');
+
+-- ----------------------------
+--  Table structure for `acl_roles_permissions`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `acl_roles_permissions` (
+  `role_name` varchar(50) NOT NULL,
+  `permission_name` varchar(50) NOT NULL,
+  `module` varchar(50) NOT NULL,
+  `value` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`role_name`,`permission_name`,`module`),
+  UNIQUE KEY `role_name_permission_name` (`role_name`,`permission_name`,`module`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Data record for `acl_groups`
+-- ----------------------------
+
+INSERT INTO `acl_roles_permissions` (`role_name`, `permission_name`, `module`, `value`) VALUES 
+('100', '100', '--MENU--', 1),
+('101', '101', '--MENU--', 1),
+('11', '11', '--MENU--', 1),
+('13', '13', '--MENU--', 1),
+('19', '19', '--MENU--', 1),
+('2', '2', '--MENU--', 1),
+('21', '21', '--MENU--', 1),
+('5', '5', '--MENU--', 1),
+('6', '6', '--MENU--', 1),
+('8', '8', '--MENU--', 1);
+
+-- ----------------------------
+--  Table structure for `acl_groups`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `acl_groups` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `color` varchar(7) DEFAULT '#FFFFFF',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Data records for `acl_groups`
+-- ----------------------------
+
+ INSERT INTO `acl_groups` (`id`, `name`, `color`, `description`) VALUES
+ (1, 'Guest', '', 'Rank that the user gets when they are not logged in, can be defined in the configs that it is this rank.'),
+ (2, 'Player', '', 'Default player rank, the normal rank that you get when you are logged in and got no extra special rights.'),
+ (3, 'GM', '#8e208f', 'The rank GM, they got rights to access the Admin panel but then only with their tools that they need, examples are player support tickets, ...'),
+ (4, 'Moderator', '#00a3b6', 'They can manage shouts, users, ...'),
+ (5, 'QA', '#2a9553', 'A QA (= Quality Assurance) checks the quality on the website, ingame and on the other services, they then report this to the developers to get bugs fixed whey they find some.'),
+ (6, 'Developer', '#d56007', 'A developer'),
+ (7, 'Administrator', '#dc6200', 'The Administrators take care of the staff'),
+ (8, 'Owner', '#ae1600', 'This is the owner of the server.');
+
+-- ----------------------------
+--  Table structure for `acl_group_roles`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `acl_group_roles` (
+  `group_id` int(10) unsigned NOT NULL,
+  `role_name` varchar(50) NOT NULL,
+  `module` varchar(50) NOT NULL,
+  PRIMARY KEY (`group_id`,`role_name`,`module`),
+  UNIQUE KEY `group_id_role_id` (`group_id`,`role_name`,`module`),
+  CONSTRAINT `FK__groups` FOREIGN KEY (`group_id`) REFERENCES `acl_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Data record for `acl_account_permissions`
+-- ----------------------------
+
+INSERT INTO `acl_group_roles` (`group_id`, `role_name`, `module`) VALUES 
+(1, '11', '--MENU--'),
+(1, '2', '--MENU--'),
+(1, '5', '--MENU--'),
+(1, '8', '--MENU--'),
+(1, 'use', 'sidebox_language_picker'),
+(1, 'view', 'armory'),
+(1, 'view', 'changelog'),
+(1, 'view', 'character'),
+(1, 'view', 'guild'),
+(1, 'view', 'login'),
+(1, 'view', 'news'),
+(1, 'view', 'online'),
+(1, 'view', 'password_recovery'),
+(1, 'view', 'profile'),
+(1, 'view', 'register'),
+(2, '100', '--MENU--'),
+(2, '101', '--MENU--'),
+(2, '13', '--MENU--'),
+(2, '19', '--MENU--'),
+(2, '6', '--MENU--'),
+(2, 'updateAccount', 'ucp'),
+(2, 'use', 'messages'),
+(2, 'use', 'news'),
+(2, 'use', 'sidebox_language_picker'),
+(2, 'use', 'sidebox_poll'),
+(2, 'use', 'sidebox_shoutbox'),
+(2, 'view', 'armory'),
+(2, 'view', 'changelog'),
+(2, 'view', 'character'),
+(2, 'view', 'donate'),
+(2, 'view', 'guild'),
+(2, 'view', 'login'),
+(2, 'view', 'news'),
+(2, 'view', 'password_recovery'),
+(2, 'view', 'profile'),
+(2, 'view', 'register'),
+(2, 'view', 'store'),
+(2, 'view', 'teleport'),
+(2, 'view', 'ucp'),
+(2, 'view', 'vote'),
+(3, '100', '--MENU--'),
+(3, '101', '--MENU--'),
+(3, '13', '--MENU--'),
+(3, '19', '--MENU--'),
+(3, '21', '--MENU--'),
+(3, '6', '--MENU--'),
+(3, 'manageTickets', 'gm'),
+(3, 'moderate', 'news'),
+(3, 'moderate', 'sidebox_shoutbox'),
+(3, 'updateAccount', 'ucp'),
+(3, 'use', 'messages'),
+(3, 'use', 'news'),
+(3, 'use', 'sidebox_language_picker'),
+(3, 'use', 'sidebox_poll'),
+(3, 'use', 'sidebox_shoutbox'),
+(3, 'view', 'armory'),
+(3, 'view', 'changelog'),
+(3, 'view', 'character'),
+(3, 'view', 'donate'),
+(3, 'view', 'guild'),
+(3, 'view', 'login'),
+(3, 'view', 'news'),
+(3, 'view', 'online'),
+(3, 'view', 'password_recovery'),
+(3, 'view', 'profile'),
+(3, 'view', 'register'),
+(3, 'view', 'store'),
+(3, 'view', 'teleport'),
+(3, 'view', 'ucp'),
+(3, 'view', 'vote'),
+(4, '100', '--MENU--'),
+(4, '101', '--MENU--'),
+(4, '13', '--MENU--'),
+(4, '19', '--MENU--'),
+(4, '6', '--MENU--'),
+(4, 'moderate', 'news'),
+(4, 'moderate', 'sidebox_shoutbox'),
+(4, 'updateAccount', 'ucp'),
+(4, 'use', 'messages'),
+(4, 'use', 'news'),
+(4, 'use', 'sidebox_language_picker'),
+(4, 'use', 'sidebox_poll'),
+(4, 'use', 'sidebox_shoutbox'),
+(4, 'view', 'armory'),
+(4, 'view', 'changelog'),
+(4, 'view', 'donate'),
+(4, 'view', 'guild'),
+(4, 'view', 'login'),
+(4, 'view', 'news'),
+(4, 'view', 'online'),
+(4, 'view', 'password_recovery'),
+(4, 'view', 'profile'),
+(4, 'view', 'register'),
+(4, 'view', 'store'),
+(4, 'view', 'teleport'),
+(4, 'view', 'ucp'),
+(4, 'view', 'vote'),
+(5, '100', '--MENU--'),
+(5, '101', '--MENU--'),
+(5, '13', '--MENU--'),
+(5, '19', '--MENU--'),
+(5, '6', '--MENU--'),
+(5, 'updateAccount', 'ucp'),
+(5, 'use', 'messages'),
+(5, 'use', 'news'),
+(5, 'use', 'sidebox_language_picker'),
+(5, 'use', 'sidebox_poll'),
+(5, 'use', 'sidebox_shoutbox'),
+(5, 'view', 'armory'),
+(5, 'view', 'changelog'),
+(5, 'view', 'character'),
+(5, 'view', 'donate'),
+(5, 'view', 'guild'),
+(5, 'view', 'login'),
+(5, 'view', 'news'),
+(5, 'view', 'online'),
+(5, 'view', 'password_recovery'),
+(5, 'view', 'profile'),
+(5, 'view', 'register'),
+(5, 'view', 'store'),
+(5, 'view', 'teleport'),
+(5, 'view', 'ucp'),
+(5, 'view', 'vote'),
+(6, '100', '--MENU--'),
+(6, '101', '--MENU--'),
+(6, '13', '--MENU--'),
+(6, '19', '--MENU--'),
+(6, '6', '--MENU--'),
+(6, 'manage', 'changelog'),
+(6, 'manageTickets', 'gm'),
+(6, 'moderate', 'sidebox_shoutbox'),
+(6, 'updateAccount', 'ucp'),
+(6, 'use', 'messages'),
+(6, 'use', 'news'),
+(6, 'use', 'sidebox_language_picker'),
+(6, 'use', 'sidebox_poll'),
+(6, 'use', 'sidebox_shoutbox'),
+(6, 'view', 'armory'),
+(6, 'view', 'changelog'),
+(6, 'view', 'character'),
+(6, 'view', 'donate'),
+(6, 'view', 'guild'),
+(6, 'view', 'login'),
+(6, 'view', 'news'),
+(6, 'view', 'online'),
+(6, 'view', 'password_recovery'),
+(6, 'view', 'profile'),
+(6, 'view', 'register'),
+(6, 'view', 'store'),
+(6, 'view', 'teleport'),
+(6, 'view', 'ucp'),
+(6, 'view', 'vote'),
+(7, '100', '--MENU--'),
+(7, '101', '--MENU--'),
+(7, '13', '--MENU--'),
+(7, '19', '--MENU--'),
+(7, '21', '--MENU--'),
+(7, '6', '--MENU--'),
+(7, 'administrate', 'donate'),
+(7, 'manage', 'changelog'),
+(7, 'manage', 'news'),
+(7, 'manage', 'page'),
+(7, 'manage', 'sidebox_poll'),
+(7, 'manage', 'store'),
+(7, 'manage', 'teleport'),
+(7, 'manage', 'vote'),
+(7, 'manageAccounts', 'admin'),
+(7, 'manageMenu', 'admin'),
+(7, 'manageSideboxes', 'admin'),
+(7, 'manageSlider', 'admin'),
+(7, 'manageTickets', 'gm'),
+(7, 'moderate', 'news'),
+(7, 'moderate', 'sidebox_shoutbox'),
+(7, 'moderate', 'store'),
+(7, 'updateAccount', 'ucp'),
+(7, 'use', 'messages'),
+(7, 'use', 'news'),
+(7, 'use', 'sidebox_language_picker'),
+(7, 'use', 'sidebox_poll'),
+(7, 'use', 'sidebox_shoutbox'),
+(7, 'view', 'admin'),
+(7, 'view', 'armory'),
+(7, 'view', 'changelog'),
+(7, 'view', 'character'),
+(7, 'view', 'donate'),
+(7, 'view', 'guild'),
+(7, 'view', 'login'),
+(7, 'view', 'news'),
+(7, 'view', 'online'),
+(7, 'view', 'password_recovery'),
+(7, 'view', 'profile'),
+(7, 'view', 'register'),
+(7, 'view', 'store'),
+(7, 'view', 'teleport'),
+(7, 'view', 'ucp'),
+(7, 'view', 'vote'),
+(7, 'viewLanguage', 'admin'),
+(7, 'viewLogs', 'admin'),
+(7, 'viewSessions', 'admin'),
+(8, '100', '--MENU--'),
+(8, '101', '--MENU--'),
+(8, '13', '--MENU--'),
+(8, '19', '--MENU--'),
+(8, '21', '--MENU--'),
+(8, '6', '--MENU--'),
+(8, 'administrate', 'donate'),
+(8, 'editSystemSettings', 'admin'),
+(8, 'globalAnnouncement', 'admin'),
+(8, 'manage', 'changelog'),
+(8, 'manage', 'news'),
+(8, 'manage', 'page'),
+(8, 'manage', 'sidebox_poll'),
+(8, 'manage', 'store'),
+(8, 'manage', 'teleport'),
+(8, 'manage', 'vote'),
+(8, 'manageAccounts', 'admin'),
+(8, 'manageCache', 'admin'),
+(8, 'manageMenu', 'admin'),
+(8, 'manageModules', 'admin'),
+(8, 'managePermissions', 'admin'),
+(8, 'manageSideboxes', 'admin'),
+(8, 'manageSlider', 'admin'),
+(8, 'manageTheme', 'admin'),
+(8, 'manageTickets', 'gm'),
+(8, 'moderate', 'news'),
+(8, 'moderate', 'sidebox_shoutbox'),
+(8, 'moderate', 'store'),
+(8, 'updateAccount', 'ucp'),
+(8, 'use', 'messages'),
+(8, 'use', 'news'),
+(8, 'use', 'sidebox_language_picker'),
+(8, 'use', 'sidebox_poll'),
+(8, 'use', 'sidebox_shoutbox'),
+(8, 'view', 'admin'),
+(8, 'view', 'armory'),
+(8, 'view', 'changelog'),
+(8, 'view', 'character'),
+(8, 'view', 'donate'),
+(8, 'view', 'guild'),
+(8, 'view', 'login'),
+(8, 'view', 'news'),
+(8, 'view', 'online'),
+(8, 'view', 'password_recovery'),
+(8, 'view', 'profile'),
+(8, 'view', 'register'),
+(8, 'view', 'store'),
+(8, 'view', 'teleport'),
+(8, 'view', 'ucp'),
+(8, 'view', 'vote'),
+(8, 'viewLanguage', 'admin'),
+(8, 'viewLogs', 'admin'),
+(8, 'viewSessions', 'admin');
+
+-- ----------------------------
+--  Table structure for `acl_account_permissions`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `acl_account_permissions` (
+  `account_id` int(10) unsigned NOT NULL,
+  `permission_name` varchar(50) NOT NULL,
+  `module` varchar(50) NOT NULL,
+  `value` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`account_id`),
+  UNIQUE KEY `account_id_permission_id` (`account_id`,`permission_name`,`module`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `acl_account_roles`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `acl_account_roles` (
+  `account_id` int(11) unsigned NOT NULL,
+  `role_name` varchar(50) NOT NULL,
+  `module` varchar(50) NOT NULL,
+  PRIMARY KEY (`account_id`,`role_name`),
+  UNIQUE KEY `account_id_role_name` (`account_id`,`role_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `acl_account_groups`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `acl_account_groups` (
+  `account_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`account_id`,`group_id`),
+  UNIQUE KEY `account_id_group_id` (`account_id`,`group_id`),
+  KEY `FK__acl_groups` (`group_id`),
+  CONSTRAINT `FK__acl_groups` FOREIGN KEY (`group_id`) REFERENCES `acl_groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `tag`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `tag` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `articles`
 -- ----------------------------
-DROP TABLE IF EXISTS `articles`;
-CREATE TABLE `articles` (
+
+CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `headline` varchar(70) DEFAULT NULL,
+  `headline` text DEFAULT NULL,
   `content` text NOT NULL,
   `timestamp` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
-  `comments` int(11) DEFAULT '0',
+  `comments` int(11) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of articles
 -- ----------------------------
+
 INSERT INTO `articles` VALUES ('1', 'Welcome to your new FusionGEN Powered Website!', 'Your website has been successfully installed and we, the FusionGEN Community/Contributors, sincerely hope that you will have a nice time using it.<div><br></div><div>To proceed, log into the administrator panel using an administrator account and the security code you specified during the installation.</div><div><br></div><div>If you run into problems, please contact us via the <a href=\"https://discord.gg/vRnr6WJ" target=\"_blank\">FusionGEN Discord</a>.</div><div><br></div><div>Best regards,</div><div>the FusionGEN Community/Contributors</div>', '1551917460', '1', '', '-1');
+
+-- ----------------------------
+-- Table structure for `article_tag`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `article_tag` (
+  `article_id` int(11) NOT NULL,
+  `tag_id` int(10) NOT NULL,
+  PRIMARY KEY (`article_id`,`tag_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `changelog`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `changelog`;
 CREATE TABLE `changelog` (
   `change_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -51,9 +468,21 @@ CREATE TABLE `changelog` (
 -- Records of changelog
 -- ----------------------------
 
+CREATE TABLE IF NOT EXISTS `changelog` (
+  `change_id` int(10) NOT NULL AUTO_INCREMENT,
+  `changelog` text NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `type` int(10) NOT NULL,
+  `time` int(10) NOT NULL,
+  PRIMARY KEY (`change_id`),
+  KEY `FK_changelog_changelog_type` (`type`),
+  CONSTRAINT `FK_changelog_changelog_type` FOREIGN KEY (`type`) REFERENCES `changelog_type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- ----------------------------
 -- Table structure for `changelog_type`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `changelog_type`;
 CREATE TABLE `changelog_type` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -66,9 +495,15 @@ CREATE TABLE `changelog_type` (
 -- Records of changelog_type
 -- ----------------------------
 
+INSERT INTO `changelog_type` (`id`, `typeName`) VALUES 
+(1, 'Website'),
+(2, 'Gameserver'),
+(3, 'Other');
+
 -- ----------------------------
 -- Table structure for `ci_sessions`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `ci_sessions`;
 CREATE TABLE `ci_sessions` (
   `session_id` varchar(40) NOT NULL DEFAULT '0',
@@ -83,19 +518,21 @@ CREATE TABLE `ci_sessions` (
 -- ----------------------------
 -- Table structure for `comments`
 -- ----------------------------
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE `comments` (
+
+CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `article_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `timestamp` int(11) DEFAULT NULL,
   `content` varchar(255) NOT NULL,
+  `is_gm` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `daily_signups`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `daily_signups`;
 CREATE TABLE `daily_signups` (
   `date` varchar(255) NOT NULL DEFAULT '',
@@ -106,6 +543,7 @@ CREATE TABLE `daily_signups` (
 -- ----------------------------
 -- Table structure for `image_slider`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `image_slider`;
 CREATE TABLE `image_slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -119,6 +557,7 @@ CREATE TABLE `image_slider` (
 -- ----------------------------
 -- Records of image_slider
 -- ----------------------------
+
 INSERT INTO `image_slider` VALUES ('1', '{path}slides/1.jpg', '', '', '2');
 INSERT INTO `image_slider` VALUES ('2', '{path}slides/2.jpg', 'register', 'Join the battle today! Click here to sign up!', '3');
 INSERT INTO `image_slider` VALUES ('3', '{path}slides/3.jpg', 'vote', 'Vote and be rewarded', '4');
@@ -128,6 +567,7 @@ INSERT INTO `image_slider` VALUES ('5', '{path}slides/5.jpg', '', '', '6');
 -- ----------------------------
 -- Table structure for `item_display`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `item_display`;
 CREATE TABLE `item_display` (
   `entry` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -137,21 +577,19 @@ CREATE TABLE `item_display` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
 -- ----------------------------
--- Records of item_display
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `menu`
 -- ----------------------------
-DROP TABLE IF EXISTS `menu`;
-CREATE TABLE `menu` (
+
+CREATE TABLE IF NOT EXISTS `menu` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL DEFAULT 'FusionCMS Link',
+  `name` text DEFAULT NULL,
   `link` varchar(255) DEFAULT '#',
   `side` varchar(255) DEFAULT 'top',
   `rank` int(11) NOT NULL,
-  `specific_rank` tinyint(1) NOT NULL DEFAULT '0',
+  `specific_rank` tinyint(1) NOT NULL DEFAULT 0,
   `order` int(11) DEFAULT NULL,
+  `direct_link` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Is it a direct link or not? is needed for the ajax.',
+  `permission` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_menu_ranks` (`rank`),
   CONSTRAINT `FK_menu_ranks` FOREIGN KEY (`rank`) REFERENCES `ranks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -160,30 +598,34 @@ CREATE TABLE `menu` (
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES ('1', 'Home', 'news', 'top', '1', '0', '1');
-INSERT INTO `menu` VALUES ('2', 'Register', 'register', 'top', '1', '1', '2');
-INSERT INTO `menu` VALUES ('3', 'How to connect', 'page/connect', 'top', '1', '0', '3');
-INSERT INTO `menu` VALUES ('4', 'Forum', 'forum', 'top', '1', '0', '4');
-INSERT INTO `menu` VALUES ('5', 'Sign in', 'login', 'top', '1', '1', '6');
-INSERT INTO `menu` VALUES ('6', 'User panel', 'ucp', 'top', '2', '0', '7');
-INSERT INTO `menu` VALUES ('7', 'Home', 'news', 'side', '1', '0', '8');
-INSERT INTO `menu` VALUES ('8', 'Register', 'register', 'side', '1', '1', '9');
-INSERT INTO `menu` VALUES ('9', 'How to connect', 'page/connect', 'side', '1', '0', '10');
-INSERT INTO `menu` VALUES ('10', 'Forum', 'forum', 'side', '1', '0', '11');
-INSERT INTO `menu` VALUES ('11', 'Sign in', 'login', 'side', '1', '1', '13');
-INSERT INTO `menu` VALUES ('13', 'User panel', 'ucp', 'side', '2', '0', '16');
-INSERT INTO `menu` VALUES ('16', 'Online players', 'online', 'top', '1', '0', '5');
-INSERT INTO `menu` VALUES ('17', 'Online players', 'online', 'side', '1', '0', '17');
-INSERT INTO `menu` VALUES ('18', 'Armory', 'armory', 'side', '1', '0', '18');
-INSERT INTO `menu` VALUES ('19', 'Changelog', 'changelog', 'side', '1', '0', '19');
-INSERT INTO `menu` VALUES ('20', 'Admin panel', 'admin', 'side', '5', '0', '20');
-INSERT INTO `menu` VALUES ('21', 'PvP Statistics', 'pvp_statistics', 'side', '1', '0', '21');
-INSERT INTO `menu` VALUES ('22', 'Log out', 'logout', 'side', '2', '0', '22');
-INSERT INTO `menu` VALUES ('23', 'Log out', 'logout', 'top', '2', '0', '23');
+
+INSERT INTO menu 
+(`id`, `name`, `link`, `side`, `rank`, `specific_rank`, `order`, `direct_link`, `permission`) VALUES 
+(1, 'Home', 'news', 'top', 1, 0, 1, 0, NULL),
+(2, 'Register', 'register', 'top', 1, 1, 2, 0, '2'),
+(3, 'How to connect', 'page/connect', 'top', 1, 0, 3, 0, NULL),
+(4, 'Forum', 'forum', 'top', 1, 0, 4, 0, NULL),
+(5, 'Sign in', 'login', 'top', 1, 1, 6, 0, '5'),
+(6, 'User panel', 'ucp', 'top', 2, 0, 7, 0, '6'),
+(7, 'Home', 'news', 'side', 1, 0, 8, 0, NULL),
+(8, 'Register', 'register', 'side', 1, 1, 9, 0, '8'),
+(9, 'How to connect', 'page/connect', 'side', 1, 0, 10, 0, NULL),
+(10, 'Forum', 'forum', 'side', 1, 0, 11, 0, NULL),
+(11, 'Sign in', 'login', 'side', 1, 1, 13, 0, '11'),
+(13, 'User panel', 'ucp', 'side', 2, 0, 16, 0, '13'),
+(16, 'Online players', 'online', 'top', 1, 0, 5, 0, NULL),
+(17, 'Online players', 'online', 'side', 1, 0, 17, 0, NULL),
+(18, 'Armory', 'armory', 'side', 1, 0, 18, 0, NULL),
+(19, 'Changelog', 'changelog', 'side', 1, 0, 19, 0, NULL),
+(20, 'Admin panel', 'admin', 'side', 5, 0, 20, 0, '20'),
+(21, 'PvP Statistics', 'pvp_statistics', 'side', 1, 0, 21, 0, NULL),
+(22, 'Log out', 'logout', 'side', 2, 0, 22, 0, '22'),
+(23, 'Log out', 'logout', 'top', 2, 0, 23, 0, '23');
 
 -- ----------------------------
 -- Table structure for `monthly_income`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `monthly_income`;
 CREATE TABLE `monthly_income` (
   `month` varchar(255) NOT NULL DEFAULT '',
@@ -194,6 +636,7 @@ CREATE TABLE `monthly_income` (
 -- ----------------------------
 -- Table structure for `monthly_votes`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `monthly_votes`;
 CREATE TABLE `monthly_votes` (
   `month` varchar(255) NOT NULL DEFAULT '',
@@ -204,6 +647,7 @@ CREATE TABLE `monthly_votes` (
 -- ----------------------------
 -- Table structure for `order_log`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `order_log`;
 CREATE TABLE `order_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -219,13 +663,14 @@ CREATE TABLE `order_log` (
 -- ----------------------------
 -- Table structure for `pages`
 -- ----------------------------
-DROP TABLE IF EXISTS `pages`;
-CREATE TABLE `pages` (
+
+CREATE TABLE IF NOT EXISTS `pages` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(50) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `content` text,
-  `rank_needed` int(10) NOT NULL DEFAULT '1',
+  `name` text DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `permission` varchar(50) DEFAULT NULL,
+  `rank_needed` int(10) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE KEY `identifier` (`identifier`),
   KEY `fk_rank_needed_ranks` (`rank_needed`),
@@ -233,15 +678,27 @@ CREATE TABLE `pages` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for `password_recovery_key`
+-- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `password_recovery_key` (
+  `recoverykey` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `ip` varchar(50) NOT NULL,
+  `time` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Records of pages
 -- ----------------------------
 INSERT INTO `pages` VALUES ('1', 'connect', 'How to connect', '<b>1.</b> First of all, you must create an account.\nThe account is used to log into both the game and our website. <a href=\"http://81.231.122.182/projects/FusionCMS_V6/register\">Click here</a> to open the registration page. \n<br>\n<br>\n<b>2.</b> Install World of Warcraft. \nYou can download it (legally) from here: <a href=\"https://www.worldofwarcraft.com/account/download/clients/pc/InstallWoW.exe\" target=\"_blank\">Windows</a> or <a href=\"https://www.worldofwarcraft.com/account/download/clients/mac/InstallWoW.zip\" target=\"_blank\">Mac</a>.\nMake sure to upgrade to our current supported patch, which is 3.3.5 (build 12340).\nPatch mirrors can be found <a href=\"http://www.wowwiki.com/Patch_mirrors\" target=\"_blank\">here</a>.\n<br>\n<br>\n<b>3.</b> Open up the \"World of Warcraft\" directory. The default directory is \"C:\\Program Files\\World of Warcraft\". \nWhen you\'ve found it, open up the directory called \"data\", then go into the directory called either enUS or enGB, depending on your client language.\n<br>\n<br>\n<b>4.</b> Open up the file called \"realmlist.wtf\" with a text editor such as Notepad. To do this, you must right click on the file and choose properties, then select notepad as the default software for files with the \".wtf\" ending. You may also just start the text editor and drag the file into the edit window.\n<br>\n<br>\n<b>5.</b> Erase all text and change it to:\n\n<div style=\"padding:30px;display:block;font-weight:bold;\">set realmlist logon.myserver.com (edit from admin panel -&gt; pages)</div>\n\n<b>You may now start playing! If you need any help, do not hesitate to create a support ticket.</b>', '1');
 
+
 -- ----------------------------
 -- Table structure for `paygol_logs`
 -- ----------------------------
-DROP TABLE IF EXISTS `paygol_logs`;
-CREATE TABLE `paygol_logs` (
+
+CREATE TABLE IF NOT EXISTS `paygol_logs` (
   `message_id` varchar(255) NOT NULL DEFAULT '',
   `service_id` varchar(255) DEFAULT NULL,
   `shortcode` varchar(255) DEFAULT NULL,
@@ -255,14 +712,15 @@ CREATE TABLE `paygol_logs` (
   `price` varchar(255) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
   `timestamp` int(11) DEFAULT NULL,
+  `converted_price` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`message_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `paypal_logs`
 -- ----------------------------
-DROP TABLE IF EXISTS `paypal_logs`;
-CREATE TABLE `paypal_logs` (
+
+CREATE TABLE IF NOT EXISTS `paypal_logs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `payment_status` varchar(50) NOT NULL,
   `payment_amount` double NOT NULL,
@@ -271,15 +729,17 @@ CREATE TABLE `paypal_logs` (
   `receiver_email` varchar(255) NOT NULL,
   `payer_email` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `validated` int(1) DEFAULT '0',
-  `error` text,
+  `validated` int(1) DEFAULT 0,
+  `error` text DEFAULT NULL,
+  `pending_reason` text DEFAULT NULL,
   `timestamp` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `pending_accounts`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `pending_accounts`;
 CREATE TABLE `pending_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -294,12 +754,25 @@ CREATE TABLE `pending_accounts` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of pending_accounts
+--  Table structure for `logs`
 -- ----------------------------
+
+CREATE TABLE IF NOT EXISTS `logs` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `module` varchar(50) NOT NULL,
+  `logType` varchar(255) NOT NULL,
+  `logMessage` text NOT NULL,
+  `user` int(11) unsigned DEFAULT NULL,
+  `ip` varchar(45) NOT NULL,
+  `custom` text DEFAULT NULL,
+  `time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `ranks`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `ranks`;
 CREATE TABLE `ranks` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -315,6 +788,7 @@ CREATE TABLE `ranks` (
 -- ----------------------------
 -- Records of ranks
 -- ----------------------------
+
 INSERT INTO `ranks` VALUES ('1', 'Guest', '-1', '0', '0', '0', '0');
 INSERT INTO `ranks` VALUES ('2', 'Player', '0', '0', '0', '0', '0');
 INSERT INTO `ranks` VALUES ('3', 'Game master', '1', '1', '0', '0', '0');
@@ -325,34 +799,42 @@ INSERT INTO `ranks` VALUES ('6', 'Owner', '4', '1', '1', '1', '1');
 -- ----------------------------
 -- Table structure for `realms`
 -- ----------------------------
-DROP TABLE IF EXISTS `realms`;
-CREATE TABLE `realms` (
+
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `hostname` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `char_database` varchar(255) DEFAULT NULL,
   `world_database` varchar(255) DEFAULT NULL,
-  `cap` int(5) DEFAULT '100',
+  `cap` int(5) DEFAULT 100,
   `realmName` varchar(255) DEFAULT NULL,
   `console_username` varchar(255) DEFAULT NULL,
   `console_password` varchar(255) DEFAULT NULL,
   `console_port` int(6) DEFAULT NULL,
   `emulator` varchar(255) DEFAULT NULL,
   `realm_port` int(11) DEFAULT NULL,
+  `override_port_world` int(11) DEFAULT NULL,
+  `override_username_world` varchar(255) DEFAULT NULL,
+  `override_password_world` varchar(255) DEFAULT NULL,
+  `override_hostname_world` varchar(255) DEFAULT NULL,
+  `override_port_char` int(11) DEFAULT NULL,
+  `override_username_char` varchar(255) DEFAULT NULL,
+  `override_password_char` varchar(255) DEFAULT NULL,
+  `override_hostname_char` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `sideboxes`
 -- ----------------------------
-DROP TABLE IF EXISTS `sideboxes`;
-CREATE TABLE `sideboxes` (
+
+CREATE TABLE IF NOT EXISTS `sideboxes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(50) NOT NULL DEFAULT '',
-  `displayName` varchar(50) DEFAULT NULL,
-  `rank_needed` int(10) NOT NULL DEFAULT '1',
-  `order` int(11) DEFAULT '100',
+  `displayName` text DEFAULT NULL,
+  `rank_needed` int(10) NOT NULL DEFAULT 1,
+  `order` int(11) DEFAULT 100,
+  `permission` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_sb_rank_needed` (`rank_needed`),
   CONSTRAINT `fk_sb_rank_needed` FOREIGN KEY (`rank_needed`) REFERENCES `ranks` (`id`)
@@ -361,12 +843,14 @@ CREATE TABLE `sideboxes` (
 -- ----------------------------
 -- Records of sideboxes
 -- ----------------------------
+
 INSERT INTO `sideboxes` VALUES ('1', 'status', 'Server status', '1', '2');
 INSERT INTO `sideboxes` VALUES ('2', 'info_login', 'User area', '2', '1');
 
 -- ----------------------------
 -- Table structure for `sideboxes_custom`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `sideboxes_custom`;
 CREATE TABLE `sideboxes_custom` (
   `sidebox_id` int(10) NOT NULL,
@@ -376,12 +860,9 @@ CREATE TABLE `sideboxes_custom` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of sideboxes_custom
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `sideboxes_poll_answers`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `sideboxes_poll_answers`;
 CREATE TABLE `sideboxes_poll_answers` (
   `answerid` int(10) NOT NULL AUTO_INCREMENT,
@@ -392,13 +873,11 @@ CREATE TABLE `sideboxes_poll_answers` (
   CONSTRAINT `FK__sideboxes_poll_questions` FOREIGN KEY (`questionid`) REFERENCES `sideboxes_poll_questions` (`questionid`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of sideboxes_poll_answers
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for `sideboxes_poll_questions`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `sideboxes_poll_questions`;
 CREATE TABLE `sideboxes_poll_questions` (
   `questionid` int(10) NOT NULL AUTO_INCREMENT,
@@ -407,12 +886,9 @@ CREATE TABLE `sideboxes_poll_questions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of sideboxes_poll_questions
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `sideboxes_poll_votes`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `sideboxes_poll_votes`;
 CREATE TABLE `sideboxes_poll_votes` (
   `questionid` int(11) DEFAULT NULL,
@@ -423,12 +899,9 @@ CREATE TABLE `sideboxes_poll_votes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of sideboxes_poll_votes
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `spelltext_en`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `spelltext_en`;
 CREATE TABLE `spelltext_en` (
   `spellId` int(11) NOT NULL,
@@ -438,6 +911,7 @@ CREATE TABLE `spelltext_en` (
 -- ----------------------------
 -- Records of spelltext_en
 -- ----------------------------
+
 INSERT INTO `spelltext_en` VALUES ('5', 'Instantly Kills the target. I hope you feel good about yourself now.....');
 INSERT INTO `spelltext_en` VALUES ('56', 'Stuns target for 3 sec.');
 INSERT INTO `spelltext_en` VALUES ('89', 'Cripples the target, reducing movement speed by 40%, increasing time between melee and ranged attacks by 20%. Lasts 20 sec.');
@@ -6942,16 +7416,18 @@ INSERT INTO `spelltext_en` VALUES ('75973', 'Summons an X-53 Touring Rocket. Thi
 -- ----------------------------
 -- Table structure for `store_groups`
 -- ----------------------------
-DROP TABLE IF EXISTS `store_groups`;
-CREATE TABLE `store_groups` (
+
+CREATE TABLE IF NOT EXISTS `store_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
+  `orderNumber` int(8) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of store_groups
 -- ----------------------------
+
 INSERT INTO `store_groups` VALUES ('1', 'Warrior weapons');
 INSERT INTO `store_groups` VALUES ('2', 'Test group');
 INSERT INTO `store_groups` VALUES ('3', 'Warglaives');
@@ -6959,6 +7435,7 @@ INSERT INTO `store_groups` VALUES ('3', 'Warglaives');
 -- ----------------------------
 -- Table structure for `banlist_pics`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `banlist_pics`;
 CREATE TABLE `banlist_pics` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
@@ -6967,15 +7444,15 @@ CREATE TABLE `banlist_pics` (
   `uploaded_by` int(5) unsigned NOT NULL,
   `uploaded_date` int(5) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `store_items`
 -- ----------------------------
-DROP TABLE IF EXISTS `store_items`;
-CREATE TABLE `store_items` (
+
+CREATE TABLE IF NOT EXISTS `store_items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `itemid` text,
+  `itemid` text DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `quality` int(2) DEFAULT NULL,
   `vp_price` int(4) DEFAULT NULL,
@@ -6984,39 +7461,44 @@ CREATE TABLE `store_items` (
   `description` varchar(255) DEFAULT NULL,
   `icon` varchar(255) DEFAULT 'inv_misc_questionmark',
   `group` int(11) DEFAULT NULL,
-  `query` text,
+  `query` text DEFAULT NULL,
   `query_database` varchar(50) DEFAULT '',
-  `query_need_character` int(1) DEFAULT '0',
-  `tooltip` int(1) DEFAULT '0',
+  `query_need_character` int(1) DEFAULT 0,
+  `command` text DEFAULT NULL,
+  `command_need_character` int(1) DEFAULT NULL,
+  `require_character_offline` int(1) NOT NULL DEFAULT 0,
+  `tooltip` int(1) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `fk_group` (`group`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `teleport_locations`
 -- ----------------------------
-DROP TABLE IF EXISTS `teleport_locations`;
-CREATE TABLE `teleport_locations` (
+
+CREATE TABLE IF NOT EXISTS `teleport_locations` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT 'Unnamed',
   `description` varchar(255) DEFAULT NULL,
-  `x` float DEFAULT '0',
-  `y` float DEFAULT '0',
-  `z` float DEFAULT '0',
-  `orientation` float DEFAULT '0',
-  `mapId` smallint(6) DEFAULT '0',
-  `vpCost` int(11) DEFAULT '0',
-  `dpCost` int(11) DEFAULT '0',
-  `goldCost` int(11) DEFAULT '0',
-  `realm` int(11) DEFAULT '1',
+  `x` float DEFAULT 0,
+  `y` float DEFAULT 0,
+  `z` float DEFAULT 0,
+  `orientation` float DEFAULT 0,
+  `mapId` smallint(6) DEFAULT 0,
+  `vpCost` int(11) DEFAULT 0,
+  `dpCost` int(11) DEFAULT 0,
+  `goldCost` int(11) DEFAULT 0,
+  `realm` int(11) DEFAULT 1,
+  `required_faction` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `realm_fk` (`realm`),
   CONSTRAINT `realm_fk` FOREIGN KEY (`realm`) REFERENCES `realms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `visitor_log`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `visitor_log`;
 CREATE TABLE `visitor_log` (
   `date` varchar(10) DEFAULT NULL,
@@ -7026,6 +7508,7 @@ CREATE TABLE `visitor_log` (
 -- ----------------------------
 -- Table structure for `vote_log`
 -- ----------------------------
+
 DROP TABLE IF EXISTS `vote_log`;
 CREATE TABLE `vote_log` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -7041,25 +7524,14 @@ CREATE TABLE `vote_log` (
 -- ----------------------------
 -- Table structure for `vote_sites`
 -- ----------------------------
-DROP TABLE IF EXISTS `vote_sites`;
-CREATE TABLE `vote_sites` (
+
+CREATE TABLE IF NOT EXISTS `vote_sites` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `vote_sitename` varchar(50) DEFAULT 'FusionCMS',
   `vote_url` varchar(255) DEFAULT 'http://',
   `vote_image` varchar(255) DEFAULT NULL,
-  `hour_interval` int(10) NOT NULL DEFAULT '12',
-  `points_per_vote` tinyint(4) NOT NULL DEFAULT '1',
-  `api_enabled` int(1) NOT NULL DEFAULT '0',
+  `hour_interval` int(10) NOT NULL DEFAULT 12,
+  `points_per_vote` tinyint(4) NOT NULL DEFAULT 1,
+  `callback_enabled` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Table structure for `vote_site_callback`
--- ----------------------------
-DROP TABLE IF EXISTS `vote_site_callback`;
-CREATE TABLE `vote_site_callback` (
-  `site_id` int(10) NOT NULL,
-  `custom_callback_url` varchar(255) NOT NULL,
-  KEY `FK__vote_sites` (`site_id`),
-  CONSTRAINT `FK__vote_sites` FOREIGN KEY (`site_id`) REFERENCES `vote_sites` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
