@@ -3,7 +3,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for `account_data`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `account_data` (
+DROP TABLE IF EXISTS `account_data` (
   `id` int(11) NOT NULL,
   `vp` int(11) DEFAULT 0,
   `dp` int(11) DEFAULT 0,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `account_data` (
 --  Table structure for `acl_roles`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `acl_roles` (
+DROP TABLE IF EXISTS `acl_roles` (
   `name` varchar(50) NOT NULL,
   `module` varchar(50) NOT NULL,
   `description` varchar(255) DEFAULT '',
@@ -45,7 +45,7 @@ INSERT INTO `acl_roles` (`name`, `module`, `description`) VALUES
 --  Table structure for `acl_roles_permissions`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `acl_roles_permissions` (
+DROP TABLE IF EXISTS `acl_roles_permissions` (
   `role_name` varchar(50) NOT NULL,
   `permission_name` varchar(50) NOT NULL,
   `module` varchar(50) NOT NULL,
@@ -74,7 +74,7 @@ INSERT INTO `acl_roles_permissions` (`role_name`, `permission_name`, `module`, `
 --  Table structure for `acl_groups`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `acl_groups` (
+DROP TABLE IF EXISTS `acl_groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `color` varchar(7) DEFAULT '#FFFFFF',
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `acl_groups` (
 --  Table structure for `acl_group_roles`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `acl_group_roles` (
+DROP TABLE IF EXISTS `acl_group_roles` (
   `group_id` int(10) unsigned NOT NULL,
   `role_name` varchar(50) NOT NULL,
   `module` varchar(50) NOT NULL,
@@ -372,7 +372,7 @@ INSERT INTO `acl_group_roles` (`group_id`, `role_name`, `module`) VALUES
 --  Table structure for `acl_account_permissions`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `acl_account_permissions` (
+DROP TABLE IF EXISTS `acl_account_permissions` (
   `account_id` int(10) unsigned NOT NULL,
   `permission_name` varchar(50) NOT NULL,
   `module` varchar(50) NOT NULL,
@@ -385,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `acl_account_permissions` (
 --  Table structure for `acl_account_roles`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `acl_account_roles` (
+DROP TABLE IF EXISTS `acl_account_roles` (
   `account_id` int(11) unsigned NOT NULL,
   `role_name` varchar(50) NOT NULL,
   `module` varchar(50) NOT NULL,
@@ -397,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `acl_account_roles` (
 --  Table structure for `acl_account_groups`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `acl_account_groups` (
+DROP TABLE IF EXISTS `acl_account_groups` (
   `account_id` int(10) unsigned NOT NULL,
   `group_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`account_id`,`group_id`),
@@ -410,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `acl_account_groups` (
 --  Table structure for `tag`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `tag` (
+DROP TABLE IF EXISTS `tag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
@@ -421,7 +421,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 -- Table structure for `articles`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `articles` (
+DROP TABLE IF EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `headline` text DEFAULT NULL,
   `content` text NOT NULL,
@@ -442,7 +442,7 @@ INSERT INTO `articles` VALUES ('1', 'Welcome to your new FusionGEN Powered Websi
 -- Table structure for `article_tag`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `article_tag` (
+DROP TABLE IF EXISTS `article_tag` (
   `article_id` int(11) NOT NULL,
   `tag_id` int(10) NOT NULL,
   PRIMARY KEY (`article_id`,`tag_id`)
@@ -468,7 +468,7 @@ CREATE TABLE `changelog` (
 -- Records of changelog
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `changelog` (
+DROP TABLE IF EXISTS `changelog` (
   `change_id` int(10) NOT NULL AUTO_INCREMENT,
   `changelog` text NOT NULL,
   `author` varchar(50) NOT NULL,
@@ -519,7 +519,7 @@ CREATE TABLE `ci_sessions` (
 -- Table structure for `comments`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `comments` (
+DROP TABLE IF EXISTS `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `article_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
@@ -580,7 +580,7 @@ CREATE TABLE `item_display` (
 -- Table structure for `menu`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `menu` (
+DROP TABLE IF EXISTS `menu` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` text DEFAULT NULL,
   `link` varchar(255) DEFAULT '#',
@@ -664,7 +664,7 @@ CREATE TABLE `order_log` (
 -- Table structure for `pages`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `pages` (
+DROP TABLE IF EXISTS `pages` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(50) NOT NULL,
   `name` text DEFAULT NULL,
@@ -681,7 +681,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
 -- Table structure for `password_recovery_key`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `password_recovery_key` (
+DROP TABLE IF EXISTS `password_recovery_key` (
   `recoverykey` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `ip` varchar(50) NOT NULL,
@@ -698,7 +698,7 @@ INSERT INTO `pages` VALUES ('1', 'connect', 'How to connect', '<b>1.</b> First o
 -- Table structure for `paygol_logs`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `paygol_logs` (
+DROP TABLE IF EXISTS `paygol_logs` (
   `message_id` varchar(255) NOT NULL DEFAULT '',
   `service_id` varchar(255) DEFAULT NULL,
   `shortcode` varchar(255) DEFAULT NULL,
@@ -720,7 +720,7 @@ CREATE TABLE IF NOT EXISTS `paygol_logs` (
 -- Table structure for `paypal_logs`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `paypal_logs` (
+DROP TABLE IF EXISTS `paypal_logs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `payment_status` varchar(50) NOT NULL,
   `payment_amount` double NOT NULL,
@@ -757,7 +757,7 @@ CREATE TABLE `pending_accounts` (
 --  Table structure for `logs`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `logs` (
+DROP TABLE IF EXISTS `logs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `module` varchar(50) NOT NULL,
   `logType` varchar(255) NOT NULL,
@@ -828,7 +828,7 @@ INSERT INTO `ranks` VALUES ('6', 'Owner', '4', '1', '1', '1', '1');
 -- Table structure for `sideboxes`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `sideboxes` (
+DROP TABLE IF EXISTS `sideboxes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(50) NOT NULL DEFAULT '',
   `displayName` text DEFAULT NULL,
@@ -7417,7 +7417,7 @@ INSERT INTO `spelltext_en` VALUES ('75973', 'Summons an X-53 Touring Rocket. Thi
 -- Table structure for `store_groups`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `store_groups` (
+DROP TABLE IF EXISTS `store_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `orderNumber` int(8) DEFAULT 0,
@@ -7450,7 +7450,7 @@ CREATE TABLE `banlist_pics` (
 -- Table structure for `store_items`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `store_items` (
+DROP TABLE IF EXISTS `store_items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `itemid` text DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -7476,7 +7476,7 @@ CREATE TABLE IF NOT EXISTS `store_items` (
 -- Table structure for `teleport_locations`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `teleport_locations` (
+DROP TABLE IF EXISTS `teleport_locations` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT 'Unnamed',
   `description` varchar(255) DEFAULT NULL,
@@ -7525,7 +7525,7 @@ CREATE TABLE `vote_log` (
 -- Table structure for `vote_sites`
 -- ----------------------------
 
-CREATE TABLE IF NOT EXISTS `vote_sites` (
+DROP TABLE IF EXISTS `vote_sites` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `vote_sitename` varchar(50) DEFAULT 'FusionCMS',
   `vote_url` varchar(255) DEFAULT 'http://',
