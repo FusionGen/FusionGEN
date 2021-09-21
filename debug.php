@@ -38,21 +38,26 @@
 
 require 'application/config/database.php';
 
+function showConnectionError($connection) 
+{
+    die("<div class='error'>[DB] mysql connection to CMS database could not be established: " . $connection->connect_error . "</div>");
+}
+
 function connect($hostname, $username, $password, $port, $database = null)
 {
     $connection = new mysqli($hostname, $username, $password, $database, $port);
-
+        
     if ($connection->connect_errno) {
-        die("<div class='error'>[DB] mysql connection to CMS database could not be established: " . $connection->error . "</div>");
+        showConnectionError($connection);
     }
 
     return $connection;
 }
 
 function select_db($connection, $database)
-{
+{    
     if (!$connection->select_db($database)) {
-        die("<div class='error'>[DB] mysql connection to CMS database could not be established: " . $connection->error . "</div>");
+        showConnectionError($connection);
     }
 
     return true;
