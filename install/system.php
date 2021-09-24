@@ -82,7 +82,7 @@ class Install
     
     private function checkPhpVersion()
     {
-		die( version_compare(PHP_VERSION, '7.0', '>=') ? '1' : '0' );
+		die( version_compare(PHP_VERSION, '7.2', '<') ? '1' : '0' );
     }
 	
 	private function checkDbConnection()
