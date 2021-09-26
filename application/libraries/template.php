@@ -468,7 +468,7 @@ class Template
 		// Load the slides from the database
 		$slides_arr = $this->CI->cms_model->getSlides();
 
-		if (is_array($slides_arr) || is_object($slides_arr))
+		if (is_array($slides_arr) || is_object($slides_arr) || isset($slides_arr))
 		{
 			foreach($slides_arr as $key=>$image)
 			{
