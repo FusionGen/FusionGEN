@@ -224,7 +224,7 @@ private function isSRP6()
             unset($DB);
     
             // Save cache
-            file_put_contents($cache, ($RES) ? 'true' : 'false');
+            file_put_contents($cache, ($isSRP6) ? $encryption['SRP6'] : $encryption['SHP']);
     
             return $isSRP6;
         }
