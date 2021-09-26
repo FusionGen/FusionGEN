@@ -1,6 +1,6 @@
 <?php
 
-class Password_recovery extends MX_Controller
+class password_recovery_srp6 extends MX_Controller
 {
 	public function __construct()
 	{
