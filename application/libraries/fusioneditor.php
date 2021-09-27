@@ -43,7 +43,7 @@ class FusionEditor
 					'tools' => $tools,
 					'url' => $this->CI->template->page_url,
 					'height' => $height,
-                    'content' => $content
+					'content' => $content
 				);
 
 		// Load the editor
