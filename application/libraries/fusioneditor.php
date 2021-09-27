@@ -43,8 +43,7 @@ class FusionEditor
 					'tools' => $tools,
 					'url' => $this->CI->template->page_url,
 					'height' => $height,
-                    'content' => $content,
-                    "cdn_link" => $this->CI->config->item('cdn_enabled') === true ? $this->CI->config->item('cdn_link') : null,
+					'content' => $content
 				);
 
 		// Load the editor
