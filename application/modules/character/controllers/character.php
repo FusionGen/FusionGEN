@@ -170,50 +170,50 @@ class Character extends MX_Controller
 		
 		if($this->realms->getRealm($this->realm)->getEmulator()->hasStats())
 		{
-      // Find out which power field to use   
-      switch($this->className)
-      {
-        default:
-          $this->secondBar = "mana";
-          $this->secondBarValue = $this->stats['maxpower1'];
-        break;
+			// Find out which power field to use
+			switch($this->className)
+			{
+				default:
+					$this->secondBar = "mana";
+					$this->secondBarValue = $this->stats['maxpower1'];
+				break;
 
-        case "Warrior":
-          $this->secondBar = "rage";
-          $this->secondBarValue = $this->stats['maxpower2'] / 10;
-        break;
+				case "Warrior":
+					$this->secondBar = "rage";
+					$this->secondBarValue = $this->stats['maxpower2'] / 10;
+				break;
 
-        case "Rogue":
-          $this->secondBar = "energy";
-          $this->secondBarValue = $this->stats['maxpower4'];
-        break;
+				case "Rogue":
+					$this->secondBar = "energy";
+					$this->secondBarValue = $this->stats['maxpower4'];
+				break;
 
-        case "Hunter":
-          if ($this->stats['maxpower3']){
-            $this->secondBar = "focus";
-            $this->secondBarValue = $this->stats['maxpower3'];
-          } else {
-            $this->secondBar = "mana";
-            $this->secondBarValue = $this->stats['maxpower1'];
-          }
-        break;
+				case "Hunter":
+					if ($this->stats['maxpower3']){
+						$this->secondBar = "focus";
+						$this->secondBarValue = $this->stats['maxpower3'];
+					} else {
+						$this->secondBar = "mana";
+						$this->secondBarValue = $this->stats['maxpower1'];
+					}
+				break;
 
-        case "Death knight":
-				  if (isset($this->stats['maxpower7'])){
+				case "Death knight":
+					if (isset($this->stats['maxpower7'])){
 						$this->secondBar = "runic";
 						$this->secondBarValue = $this->stats['maxpower7'] / 10;
 					} else {
 						$this->secondBar = "runic";
-						$this->secondBarValue = "Unknown";										
+						$this->secondBarValue = "Unknown";
 					}
-        break;
+				break;
 			}
-    }
-    else
-    {
-      $this->secondBar = "mana";
-      $this->secondBarValue = lang("unknown", "character");
-    }
+		}
+		else
+		{
+			$this->secondBar = "mana";
+			$this->secondBarValue = lang("unknown", "character");
+		}
 
 		// Load the items
 		$items = $this->armory_model->getItems();
@@ -232,7 +232,7 @@ class Character extends MX_Controller
 					9 => "hands",
 					10 => "finger1",
 					11 => "finger2",
- 					12 => "trinket1",
+					12 => "trinket1",
 					13 => "trinket2",
 					14 => "back",
 					15 => "mainhand",
@@ -272,6 +272,10 @@ class Character extends MX_Controller
 
 	private function getBackground()
 	{
+		switch($this->className)
+		{
+			case "Demon Hunter": return "mardum"; break;
+		}
 		switch($this->raceName)
 		{
 			default: return "shattrath"; break;
@@ -285,6 +289,9 @@ class Character extends MX_Controller
 			case "Tauren": return "thunderbluff"; break;
 			case "Undead": return "undercity"; break;
 			case "Troll": return "orgrimmar"; break;
+			case "Goblin": return "kezan"; break;
+			case "Worgen": return "gilneas"; break;
+			case "Pandaren": return "wanderingisle"; break;
 		}
 	}
 
