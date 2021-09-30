@@ -131,7 +131,7 @@ class Install
 		$data['keywords'] = $_POST['keywords'];
 		$data['description'] = $_POST['description'];
 		$data['analytics'] = ($_POST['analytics']) ? $_POST['analytics'] : false;
-		$data['cdn'] = ($_POST['cdn'] == "yes") ? true : false;
+		$data['cdn'] = ($_POST['cdn'] == '1') ? true : false;
 		$data['security_code'] = $_POST['security_code'];
 
 		foreach($data as $key => $value)

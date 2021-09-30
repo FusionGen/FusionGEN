@@ -27,14 +27,15 @@ CREATE TABLE `ranks` (
   `is_admin` int(1) DEFAULT '0',
   `is_owner` int(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ranks
 -- ----------------------------
-INSERT INTO `ranks` VALUES ('1', 'Guest', '-1', '0', '0', '0', '0');
-INSERT INTO `ranks` VALUES ('2', 'Player', '0', '0', '0', '0', '0');
-INSERT INTO `ranks` VALUES ('3', 'Game master', '1', '1', '0', '0', '0');
-INSERT INTO `ranks` VALUES ('4', 'Developer', '2', '1', '1', '0', '0');
-INSERT INTO `ranks` VALUES ('5', 'Administrator', '3', '1', '1', '1', '0');
-INSERT INTO `ranks` VALUES ('6', 'Owner', '4', '1', '1', '1', '1');
+INSERT INTO `ranks` VALUES
+('1', 'Guest', '-1', '0', '0', '0', '0'),
+('2', 'Player', '0', '0', '0', '0', '0'),
+('3', 'Game master', '1', '1', '0', '0', '0'),
+('4', 'Developer', '2', '1', '1', '0', '0'),
+('5', 'Administrator', '3', '1', '1', '1', '0'),
+('6', 'Owner', '4', '1', '1', '1', '1');

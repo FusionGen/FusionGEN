@@ -1,1 +1,1 @@
-ALTER TABLE `pages` MODIFY COLUMN `content` mediumtext
+ALTER TABLE `pages` MODIFY COLUMN `content` mediumtext;

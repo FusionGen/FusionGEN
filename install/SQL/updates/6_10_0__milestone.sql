@@ -30,7 +30,7 @@ CREATE TABLE `acl_roles` (
 	`description` VARCHAR(255) NULL DEFAULT '',
 	PRIMARY KEY (`name`, `module`)
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 
@@ -46,7 +46,7 @@ CREATE TABLE `acl_roles_permissions` (
 	PRIMARY KEY (`role_name`, `permission_name`, `module`),
 	UNIQUE INDEX `role_name_permission_name` (`role_name`, `permission_name`, `module`)
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 -- ----------------------------
@@ -61,7 +61,7 @@ CREATE TABLE `acl_groups` (
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`)
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 -- ----------------------------
@@ -80,7 +80,7 @@ CREATE TABLE `acl_account_permissions` (
 	PRIMARY KEY (`account_id`),
 	UNIQUE INDEX `account_id_permission_id` (`account_id`, `permission_name`, `module`)
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 -- ----------------------------
@@ -94,7 +94,7 @@ CREATE TABLE `acl_account_roles` (
 	PRIMARY KEY (`account_id`, `role_name`),
 	UNIQUE INDEX `account_id_role_name` (`account_id`, `role_name`)
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 -- ----------------------------
@@ -125,7 +125,7 @@ CREATE TABLE `acl_group_roles` (
 	UNIQUE INDEX `group_id_role_id` (`group_id`, `role_name`, `module`),
 	CONSTRAINT `FK__groups` FOREIGN KEY (`group_id`) REFERENCES `acl_groups` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 -- ----------------------------
@@ -140,7 +140,7 @@ CREATE TABLE `acl_account_groups` (
 	INDEX `FK__acl_groups` (`group_id`),
 	CONSTRAINT `FK__acl_groups` FOREIGN KEY (`group_id`) REFERENCES `acl_groups` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 -- NEWS TAGS
@@ -150,7 +150,7 @@ CREATE TABLE `tag` (
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`)
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 CREATE TABLE `article_tag` (
@@ -158,7 +158,7 @@ CREATE TABLE `article_tag` (
 	`tag_id` INT(10) NOT NULL,
 	PRIMARY KEY (`article_id`, `tag_id`)
 )
-COLLATE='latin1_swedish_ci'
+COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
 BEGIN;
