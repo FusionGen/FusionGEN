@@ -109,15 +109,19 @@ class External_account_model extends CI_Model
 	 * @param String $password
 	 * @param String $email
 	 */
-	public function createAccount($username, $password, $email, $expansion, $isHashed = false) 
+	public function createAccount($username, $password, $email, $expansion, $isHashed = false, $salt = null) 
 	{
 		$this->connect();
 
-		$sha_pass_hash = $this->user->createHash($username, $password);
+		if (!$isHashed)
+		{
+			$sha_pass_hash = $this->user->createHash($username, $password);
+		}
 
 		$data = array(
 			column("account", "username") => $username,
-			column("account", "password") => ($isHashed) ? $password : $sha_pass_hash,
+			column("account", "salt") => $salt,
+			column("account", "password") => $isHashed ? $password : $sha_pass_hash,
 			column("account", "email") => $email,
 			column("account", "expansion") => $expansion,
 			column("account", "last_ip") => $this->input->ip_address(),

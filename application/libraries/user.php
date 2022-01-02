@@ -82,14 +82,23 @@ class User
 	}
 
 	/**
+	 * Creates a salt of the username we enter
+	 * @param String $username
+	 * @return String salt username
+	 */
+	public function createSalt($username) {
+		return $this->CI->realms->getEmulator()->salt($username);
+	}
+
+	/**
 	 * Creates a hash of the password we enter
 	 * @param String $username
 	 * @param String $password in plain text
 	 * @return String hashed password
 	 */
-	public function createHash($username = "", $password = "")
+	public function createHash($username = "", $password = "", $salt = null)
 	{
-		return $this->CI->realms->getEmulator()->encrypt($username, $password);
+		return $this->CI->realms->getEmulator()->encrypt($username, $password, $salt);
 	}
 
 	/**

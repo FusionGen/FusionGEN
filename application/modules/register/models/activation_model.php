@@ -4,10 +4,13 @@ class Activation_model extends CI_Model
 {
 	public function add($username, $password, $email, $expansion)
 	{
+		$salt = $this->user->createSalt($username);
+
 		$data = array(
 			'username' => $username,
 			'email' => $email,
-			'password' =>  $this->user->createHash($username, $password),
+			'salt' => $salt,
+			'password' =>  $this->user->createHash($username, $password, $salt),
 			'expansion' => $expansion,
 			'timestamp' => time(),
 			'ip' => $this->input->ip_address(),
