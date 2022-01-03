@@ -224,7 +224,7 @@ class Register extends MX_Controller
 
 		$this->activation_model->remove($account['id'], $account['username'], $account['email']);
 
-		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], $account['expansion'], true, $account['salt']);
+		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], $account['expansion'], true);
 		
 		// Log in
 		$this->user->setUserDetails($account['username'], $account['password']);
