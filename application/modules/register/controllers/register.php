@@ -227,7 +227,16 @@ class Register extends MX_Controller
 		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], $account['expansion'], true);
 		
 		// Log in
-		$this->user->setUserDetails($account['username'], $account['password']);
+		if ((get_class($this->realms->getEmulator()) == "Azerothcore_soap"))
+		{
+			list($salt, $password) = explode('|', $account['password']);
+
+			$this->user->setUserDetails($account['username'], hex2Bin($password));
+		}
+		else
+		{
+			$this->user->setUserDetails($account['username'], $account['password']);
+		}
 
 		// Show success message
 		$data = array(

@@ -14,6 +14,13 @@ class Activation_model extends CI_Model
 			'key' => sha1($username.$email.$password.time())
 		);
 
+		if ((get_class($this->realms->getEmulator()) == "Azerothcore_soap"))
+		{
+			$salt = $this->realms->getEmulator()->salt($username);
+
+			$data['password'] = bin2Hex($salt) . '|' . bin2hex($this->user->createHash($username, $password, $salt));
+		}
+
 		$this->db->insert("pending_accounts", $data);
 
 		return $data['key'];
