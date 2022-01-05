@@ -40,7 +40,7 @@ class Ipb extends Plugin
 		$key = $this->generateAutoLoginKey();
 		$expire = time() + 86400;
 
-		$this->db->query("INSERT INTO ".$this->CI->config->item('forum_table_prefix')."members(`name`, `members_pass_hash`, `email`, `members_display_name`, `joined`, `members_pass_salt`, `member_login_key`, `member_login_key_expire`, `members_l_display_name`, `members_l_username`, `members_seo_name`, `member_group_id`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '3')", array($this->username, $password, $this->email, $this->username, time(), $salt, $key, $expire, $this->username, $this->username, $this->username));
+        $this->db->query("INSERT INTO ".$this->CI->config->item('forum_table_prefix')."core_members(`name`, `members_pass_hash`, `email`, `members_seo_name`, `joined`, `members_pass_salt`, `member_group_id`) VALUES(?, ?, ?, ?, ?, ?, '3')", array($this->username, $password, $this->email, $this->username, time(), $salt));
 	}
 
 	/**
