@@ -28,3 +28,5 @@ Delete, Reload, Shutdown, Super
 
 8. DO NOT USE PHPMYADMIN.
 
+9. If you host your FusionGEN Website through a shared/web-hosting solution that has CPANEL (most if not all do), please do consider putting password protection on application/modules/admin - This will prompt you with an extra set of required credentials everytime you enter the admincp. Should a bruteforce or any other line of defense fail. (highly recommended)
+
