@@ -197,7 +197,7 @@ class Azerothcore_soap implements Emulator
  * isSRP6
  * Determine if emulator actually using SRP6 encryption
  */
-private function isSRP6()
+public function isSRP6()
         {
             // Encryption
             $encryption = [
