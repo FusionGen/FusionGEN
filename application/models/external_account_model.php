@@ -113,16 +113,27 @@ class External_account_model extends CI_Model
 	{
 		$this->connect();
 
-		$sha_pass_hash = $this->user->createHash($username, $password);
+		if (!$isHashed)
+		{
+			$sha_pass_hash = $this->user->createHash($username, $password);
+		}
 
 		$data = array(
 			column("account", "username") => $username,
-			column("account", "password") => ($isHashed) ? $password : $sha_pass_hash,
+			column("account", "password") => $isHashed ? $password : $sha_pass_hash,
 			column("account", "email") => $email,
 			column("account", "expansion") => $expansion,
 			column("account", "last_ip") => $this->input->ip_address(),
 			column("account", "joindate") => date("Y-m-d")
 		);
+
+		if ($this->realms->getEmulator()->isSRP6() && $isHashed)
+		{
+			list($salt, $password) = explode('|', $password);
+
+			$data[column("account", "salt")] = hex2Bin($salt);
+			$data[column("account", "password")] = hex2Bin($password);
+		}
 
 		// Fix for ArcEmu & AscEmu
 		if((get_class($this->realms->getEmulator()) == "Arcemu") || (get_class($this->realms->getEmulator()) == "AscEmu"))

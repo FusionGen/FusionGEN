@@ -227,7 +227,16 @@ class Register extends MX_Controller
 		$this->external_account_model->createAccount($account['username'], $account['password'], $account['email'], $account['expansion'], true);
 		
 		// Log in
-		$this->user->setUserDetails($account['username'], $account['password']);
+		if ($this->realms->getEmulator()->isSRP6())
+		{
+			list(1 => $password) = explode('|', $account['password']);
+
+			$this->user->setUserDetails($account['username'], hex2Bin($password));
+		}
+		else
+		{
+			$this->user->setUserDetails($account['username'], $account['password']);
+		}
 
 		// Show success message
 		$data = array(

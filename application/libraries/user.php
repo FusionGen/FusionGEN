@@ -87,9 +87,9 @@ class User
 	 * @param String $password in plain text
 	 * @return String hashed password
 	 */
-	public function createHash($username = "", $password = "")
+	public function createHash($username = "", $password = "", $salt = null)
 	{
-		return $this->CI->realms->getEmulator()->encrypt($username, $password);
+		return $this->CI->realms->getEmulator()->encrypt($username, $password, $salt);
 	}
 
 	/**
