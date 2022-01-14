@@ -3,14 +3,14 @@
 		<tr>
 			<td><label for="login_username">{lang("username", "login")}</label></td>
 			<td>
-				<input type="text" name="login_username" id="login_username" value="{$username}"/>
+				<input type="text" name="login_username" id="login_username" autocomplete="username" value="{$username}"/>
 				<span id="username_error">{$username_error}</span>
 			</td>
 		</tr>
 		<tr>
 			<td><label for="login_password">{lang("password", "login")}</label></td>
 			<td>
-				<input type="password" name="login_password" id="login_password" value=""/>
+				<input type="password" name="login_password" id="login_password" autocomplete="current-password" value=""/>
 				<span id="password_error">{$password_error}</span>
 			</td>
 		</tr>

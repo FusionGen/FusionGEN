@@ -33,15 +33,15 @@
 	<table style="width:90%">
 		<tr>
 			<td style="width:25% !important"><label for="old_password">Old password</label></td>
-			<td><input type="password" name="old_password" id="old_password"/></td>
+			<td><input type="password" name="old_password" id="old_password" autocomplete="current-password"/></td>
 		</tr>
 		<tr>
 			<td><label for="new_password">New password</label></td>
-			<td><input type="password" name="new_password" id="new_password"/></td>
+			<td><input type="password" name="new_password" id="new_password" autocomplete="new-password"/></td>
 		</tr>
 		<tr>
 			<td><label for="new_password_confirm">Confirm password</label></td>
-			<td><input type="password" name="new_password_confirm" id="new_password_confirm"/></td>
+			<td><input type="password" name="new_password_confirm" id="new_password_confirm" autocomplete="new-password"/></td>
 		</tr>
 	</table>
 

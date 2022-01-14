@@ -77,3 +77,4 @@ $lang['wod'] = "Warlods of Draenor";
 $lang['legion'] = "Legion";
 $lang['legion-ar'] = "Legion Allied Races";
 $lang['bfa'] = "Battle for Azeroth";
+$lang['sl'] = "Shadowlands";

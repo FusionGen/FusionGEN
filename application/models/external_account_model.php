@@ -238,12 +238,21 @@ class External_account_model extends CI_Model
 		{
 			$row = $query->result_array();
 
-			if($row[0]["gmlevel"] == "")
+			if(preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
+			if($row[0]["SecurityLevel"] == "")
+			{
+				$row[0]["SecurityLevel"] = 0;
+			}
+			
+			return $row[0]["SecurityLevel"];
+			} else {
+				if($row[0]["gmlevel"] == "")
 			{
 				$row[0]["gmlevel"] = 0;
 			}
 			
 			return $row[0]["gmlevel"];
+			}
 		}
 		else
 		{
@@ -384,7 +393,12 @@ class External_account_model extends CI_Model
 		$this->connect();
 
 		$this->connection->where(column("account", "id"), $userId);
-		$this->connection->update(table("account_access"), array(column("account_access", "gmlevel") => $newRank));
+		
+		if(preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
+			$this->connection->update(table("account_access"), array(column("account_access", "SecurityLevel") => $newRank));
+		} else {
+			$this->connection->update(table("account_access"), array(column("account_access", "gmlevel") => $newRank));
+		}
 	}
 	
 	/*
@@ -416,7 +430,6 @@ class External_account_model extends CI_Model
 				//Return id 0
 				return false;
 			}
-				
 		}
 	}
 	

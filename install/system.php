@@ -82,7 +82,12 @@ class Install
     
     private function checkPhpVersion()
     {
-		die( version_compare(PHP_VERSION, '7.0', '>=') ? '1' : '0' );
+        $ver = phpversion();
+        if ($ver <= 7.0 || $ver >= 7.2) {
+            die("0");
+        } else {
+            die("1");
+        }
     }
 	
 	private function checkDbConnection()
@@ -126,7 +131,7 @@ class Install
 		$data['keywords'] = $_POST['keywords'];
 		$data['description'] = $_POST['description'];
 		$data['analytics'] = ($_POST['analytics']) ? $_POST['analytics'] : false;
-		$data['cdn'] = ($_POST['cdn'] == "yes") ? true : false;
+		$data['cdn'] = ($_POST['cdn'] == '1') ? true : false;
 		$data['security_code'] = $_POST['security_code'];
 
 		foreach($data as $key => $value)

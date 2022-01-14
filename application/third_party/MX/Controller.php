@@ -91,13 +91,13 @@ class MX_Controller
 		// Default to current version
 		if(!array_key_exists("min_required_version", $module))
 		{
-			$module['min_required_version'] = CI::$APP->config->item('FusionCMSVersion');
+			$module['min_required_version'] = CI::$APP->config->item('FusionGENVersion');
 		}
 
 		// Does the module got the correct version?
-		if(!CI::$APP->template->compareVersions($module['min_required_version'], CI::$APP->config->item('FusionCMSVersion')))
+		if(!CI::$APP->template->compareVersions($module['min_required_version'], CI::$APP->config->item('FusionGENVersion')))
 		{
-			show_error("The module <b>".strtolower($moduleName)."</b> requires FusionCMS v".$module['min_required_version'].", please update at fusion-hub.com");
+			show_error("The module <b>".strtolower($moduleName)."</b> requires FusionGEN v".$module['min_required_version'].", please update at github.com/FusionGen");
 		}
 
 		/* copy a loader instance and initialize */
@@ -121,14 +121,17 @@ class MX_Controller
 			$username = CI::$APP->input->cookie("fcms_username");
 			$password = CI::$APP->input->cookie("fcms_password");
 
-			if($username && $password)
-			{
-				$check = CI::$APP->user->setUserDetails($username, $password);
+			if($password && column('account', 'password') == 'verifier' && column('account', 'salt')) // Emulator Uses SRP6 Encryption.
+			$password = urldecode(preg_replace('~.(?:fcms_password=([^;]+))?~', '$1', @$_SERVER['HTTP_COOKIE'])); // Fix for HTTP_COOKIE Error.
 
-				if($check == 0)
-				{
-					redirect('news');
-				}
+			if($username && $password)
+			{	
+				$check = CI::$APP->user->setUserDetails($username, $password);	
+
+				if($check == 0)	
+				{	
+					redirect('news');	
+				}	
 			}
 		}
 	}

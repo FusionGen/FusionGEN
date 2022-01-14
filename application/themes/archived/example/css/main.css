@@ -1,0 +1,193 @@
+/**
+ * -------------------------------------------------------------------------------
+ *     You may modify and use this example theme as you wish!
+ * -------------------------------------------------------------------------------
+ *
+ * If the selectors are complete mindfuck for you, just see it like this:
+ * "nav ul li a" simply means that <a> has to be inside of <li>, which has to
+ * be inside of <ul> which has to be inside of <nav>. This is basic child/parent
+ * selectors and it is very useful - learn it!
+ *
+ * <nav>, <article>, <section>, <aside> are all HTML5 elements. They work just like
+ * <div> but simply has a different name. We use "HTML5shiv" to make them work in
+ * older browsers, so don't worry about it!
+ */
+
+/* General styles */
+body {
+	background-color:#ccc;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#ffffff;
+}
+
+/* Global reset */
+* {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+
+/* Global link styles */
+a {
+	text-decoration:none;
+	color:#00baff;
+}
+
+a:hover {
+	color:#fff;
+}
+
+/* Make sure input, select and textarea behave the same */
+input, select, textarea {
+	box-sizing:content-box;
+	-ms-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+}
+
+/* Website wrapper */
+#wrapper {
+	width:980px;
+	margin:50px auto; /* 50px to top and bottom, auto to left and right (to center) */
+	border:1px solid #000;
+	background-color:#999;
+}
+
+/* Header */
+header {
+	height:270px;
+	background-color:#454545;
+	border-bottom:1px solid #000;
+}
+
+header .headline {
+	text-align:center;
+	font-weight:normal;
+	font-size:64px;
+	color:#00baff;
+	padding-top:100px;
+}
+
+/* Horizontal menu */
+nav {
+	border-bottom:1px solid #000;
+	background-color:#333;
+}
+
+nav ul li {
+	float:left;
+}
+
+nav ul li a {
+	display:block;
+	padding:10px 20px;
+	color:#00baff;
+}
+
+nav ul li a:hover {
+	color:#fff;
+}
+
+nav ul li:hover {
+	background-color:#1e1e1e;
+}
+
+/* Right side */
+#right {
+	float:right;
+	width:250px;
+	padding-top:10px;
+}
+
+/* Right box */
+#right article {
+	margin:10px;
+	margin-top:0px;
+	margin-left:0px;
+	background-color:#666;
+	border:1px solid #000;
+}
+
+#right article .headline {
+	font-size:14px;
+	font-weight:normal;
+	text-align:center;
+	color:#00baff;
+	background-color:#333;
+	border-bottom:1px solid #000;
+	padding:5px;
+}
+
+#right article .content {
+	padding:5px;
+}
+
+/* Side menu */
+#right article #menu {
+	padding:0px;
+}
+
+#right article #menu ul li a {
+	padding:5px;
+	display:block;
+	color:#fff;
+}
+
+#right article #menu ul li a:hover {
+	padding-left:10px;
+	color:#00baff;
+	background-color:#555;
+}
+
+/* Left side */
+#left {
+	padding-top:10px;
+	width:730px;
+	float:left;
+}
+
+#left article {
+	margin:10px;
+	margin-top:0px;
+	background-color:#666;
+	border:1px solid #000;
+}
+
+#left article .headline {
+	font-size:14px;
+	font-weight:normal;
+	text-align:center;
+	color:#00baff;
+	background-color:#333;
+	border-bottom:1px solid #000;
+	padding:5px;
+	display:block;
+}
+
+#left article .content {
+	padding:5px;
+}
+
+#left #slider_wrapper {
+	width:703px;
+	height:201px;
+	padding:3px;
+	background-color:#1e1e1e;
+	overflow:hidden;
+}
+
+/* Footer */
+footer {
+	padding:10px;
+	text-align:center;
+	background-color:#666;
+	border-top:1px solid #000;
+	margin-top:10px;
+}
+
+footer .headline {
+	font-size:14px;
+	font-weight:normal;
+	margin-bottom:5px;
+}

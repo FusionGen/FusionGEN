@@ -268,7 +268,7 @@ class Template
 			"menu_side" => $this->getMenu("side"),
 			"path" => base_url() . APPPATH,
 			"favicon" => $this->theme_data['favicon'],
-			"cdn_link" => $this->CI->config->item('cdn_enabled') === true ? $this->CI->config->item('cdn_link') : null,
+			"cdn" => $this->CI->config->item('cdn'),
 			"extra_css" => $css,
 			"extra_js" => $js,
 			"analytics" => $this->CI->config->item('analytics'),
@@ -468,20 +468,17 @@ class Template
 		// Load the slides from the database
 		$slides_arr = $this->CI->cms_model->getSlides();
 
-		if (isset($slides_arr) && (is_array($slides_arr) || is_object($slides_arr)))
+		foreach($slides_arr as $key=>$image)
 		{
-			foreach($slides_arr as $key=>$image)
+			if(!preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $image['link']))
 			{
-				if(!preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $image['link']))
-				{
-					$slides_arr[$key]['link'] = $this->page_url . $image['link'];
-				}
-			
-				$slides_arr[$key]['text'] = langColumn($image['text']);
-			
-				// Replace {path} by the theme image path
-				$slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image']);
+				$slides_arr[$key]['link'] = $this->page_url . $image['link'];
 			}
+
+			$slides_arr[$key]['text'] = langColumn($image['text']);
+
+			// Replace {path} by the theme image path
+			$slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image']);
 		}
 		
 		return $slides_arr;

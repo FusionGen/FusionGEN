@@ -1,19 +1,19 @@
 {
-	"name": "Example theme",
-	"author": "Jesper Lindström",
-	"website": "https://github.com/jesperlindstrom",
-	
-	"favicon": "favicon.gif",
-	
-	"normal_avatar": "avatars/0_normal.jpg",
-	"small_avatar": "avatars/0_small.jpg",
+    "name": "Example Theme Remastered",
+    "author": "Jesper Lindström & OMGhixD",
+    "website": "https://github.com/fusiongen",
 
-	"slider_text": {
-		"next": "Next",
-		"previous": "Prev"
-	},
-	
-	"slider_id": "slider_wrapper",
-	"screenshot": "images/screenshot.jpg",
-	"blank_header": ""
+    "favicon": "favicon.gif",
+
+    "normal_avatar": "avatars/0_normal.jpg",
+    "small_avatar": "avatars/0_small.jpg",
+
+    "slider_text": {
+        "next": "Next",
+        "previous": "Prev"
+    },
+
+    "slider_id": "slider_wrapper",
+    "screenshot": "images/screenshot.jpg",
+    "blank_header": ""
 }

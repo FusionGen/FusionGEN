@@ -1,0 +1,23 @@
+{
+    "name": "Password recovery (SHA_PASS_HASH)",
+    "description": "Requires SMTP (mail) server to function",
+    "author": {
+        "name": "FusionGEN",
+        "website": "https:\/\/github.com\/fusiongen"
+    },
+    "permissions": {
+        "view": {
+            "default": true,
+            "description": "View the password recovery page (SHA_PASS_HASH) "
+        }
+    },
+    "roles": {
+        "view": {
+            "description": "View the password recovery page",
+            "permissions": {
+                "view": true
+            }
+        }
+    },
+    "enabled": false
+}

@@ -116,7 +116,7 @@ class Icon extends MX_Controller
 	private function getIconName($item)
 	{
 		// Get the item XML data
-		$xml = file_get_contents("http://www.wowhead.com/item=".$item."&xml");
+		$xml = file_get_contents("https://www.wowhead.com/item=".$item."&xml");
 
 		// In case it wasn't found: show ?-icon
 		if(empty($xml))

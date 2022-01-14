@@ -45,8 +45,7 @@ class Admin extends MX_Controller
 			'income' => $this->getIncome(),
 			'votes' => $this->getVotes(),
 			'signups' => $this->getSignups(),
-			'graph' => $this->getGraph(),
-			'pendingUpdate' => $this->getPendingUpdate()
+			'graph' => $this->getGraph()
 		);
 
 		// Load my view
@@ -57,39 +56,6 @@ class Admin extends MX_Controller
 
 		// Output my content. The method accepts the same arguments as template->view
 		$this->administrator->view($content, false, "modules/admin/js/admin.js");
-	}
-
-	private function getPendingUpdate()
-	{
-		if(!is_dir("update") || !is_dir("update/updates"))
-		{
-			return false;
-		}
-
-		$updates = array(0 => "");
-
-		$updatePackages = glob("update/updates/*/");
-
-		if($updatePackages)
-		{
-			foreach($updatePackages as $path)
-			{
-				if(is_dir($path))
-				{
-					$version = preg_replace("/[a-z\/]*/i", "", $path);
-					$version = preg_replace("/_/", ".", $version);
-
-					array_push($updates, $version);
-				}
-			}
-
-			$updates = array_reverse($updates);
-		}
-
-		if($this->template->compareVersions($updates[0], $this->config->item('FusionCMSVersion'), true))
-		{
-			return $updates[0];
-		}
 	}
 
 	private function getUnique()

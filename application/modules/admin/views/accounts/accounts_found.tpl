@@ -5,10 +5,10 @@
 	<label>Last log in</label>
 	<b>{$external_details.last_login}</b> by <b>{$external_details.last_ip}</b>
 
-	<label for="vp">VP</label>
+	<label for="vp">Vote-Points</label>
 	<input type="text" id="vp" name="vp" value="{$internal_details.vp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
 
-	<label for="dp">DP</label>
+	<label for="dp">Donation-Points</label>
 	<input type="text" id="dp" name="dp" value="{$internal_details.dp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
 
 	<label for="nickname">Nickname</label>
@@ -17,14 +17,16 @@
 	<label for="email">Email</label>
 	<input type="text" id="email" name="email" value="{$external_details.email}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
 
-	<label for="group">Website user group</label>
-	<div style="background-color: #fff;border-radius: 5px;padding: 5px 10px;border: 1px solid #ccc;">Please assign groups at <a href="{$url}admin/aclmanager/groups">the group manager</a></div>
+	<label for="group">Website usergroup</label>
+    <div style="background-color: #1e1e1e;border-radius: 5px;padding: 5px 10px;border: 1px solid #ccc;">Please assign groups at the <a href="{$url}admin/aclmanager/groups" style="color:#ffa800">group manager</a></div>
 
 	<label for="password">Change password</label>
 	<input type="text" id="password" name="password" placeholder="Enter a new password" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
 
-	<label for="gm_level">GM level</label>
-	<input type="text" id="gm_level" name="gm_level" value="{if !$access_id.gmlevel}0{else}{$access_id.gmlevel}{/if}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
+	<label for="gm_level">GM-level</label>
+	{foreach from=$access_id item=gmlevel}
+	<input type="text" id="gm_level" name="gm_level" value="{if !$gmlevel}0{else}{$gmlevel}{/if}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
+	{/foreach}
 
 	<label for="expansion">Expansion</label>
 	<select id="expansion" name="expansion" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>

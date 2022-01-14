@@ -135,8 +135,8 @@ header nav a:active {
 }
 
 header nav .active, input[type="submit"]:hover, input[type="submit-top"]:hover {
-	border:1px solid 	#dc8044;
-	background-color:	#1e1e1e;
+	border:1px solid #dc8044;
+	background-color: #1e1e1e;
 	transition:all 0.3s ease;
 }
 

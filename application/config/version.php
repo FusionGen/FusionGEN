@@ -1,1 +1,1 @@
-<?php $config['FusionCMSVersion'] = '6.2.1';
+<?php $config['FusionGENVersion'] = '1.0.1';

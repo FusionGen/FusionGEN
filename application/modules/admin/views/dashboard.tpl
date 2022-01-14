@@ -7,18 +7,6 @@
 </div>
 {/if}
 
-{if $pendingUpdate}
-	<section id="content" style="border-top:none;">
-		<section class="box big shouldHaveAlert">
-		<h1>Pending update</h1>
-		<span style="text-align:center;padding:15px;">
-			There is a pending update to <b>{$pendingUpdate}</b> available.
-			<a class="nice_button" href="{$url}update" data-hasevent="1">Go to the update installer</a>
-		</span>
-		</section>
-	</section>
-{/if}
-
 <div class="info_box">
 	<aside>
 		<h2>Website</h2>
@@ -129,13 +117,9 @@
 			</tr>
 			<tr>
 				<td>CMS version</td>
-				<td style="text-align:right;">1.0.1</td>
+				<td style="text-align:right;">{$version}</td>
 			</tr>
 		</table>
-		<div id="update" style="display:none;">
-			<div class="divider"></div>
-			<a href="#" class="button">An update is available</a>
-		</div>
 	</section>
 
 	<section class="box">
