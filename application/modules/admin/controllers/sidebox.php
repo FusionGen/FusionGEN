@@ -219,7 +219,7 @@ class Sidebox extends MX_Controller
 		// Handle custom sidebox text
 		if($data["type"] == "custom")
 		{
-			$text = $this->input->post("text");
+			$text = $this->input->post("text", false); // Content should be relatively "safe" so we can skip xss_clean.
 			$this->sidebox_model->editCustom($id, $text);
 		}
 

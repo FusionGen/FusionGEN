@@ -111,7 +111,7 @@ class Admin extends MX_Controller
 
 		$headline = $this->input->post('name');
 		$identifier = $this->input->post('identifier');
-		$content = $this->input->post('content');
+		$content = $this->input->post('content', false); // Content should be relatively "safe" so we can skip xss_clean.
 
 		if(strlen($headline) > 70 || empty($headline))
 		{

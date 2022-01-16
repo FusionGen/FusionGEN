@@ -169,7 +169,7 @@ class CI_Input {
 	* @param	bool
 	* @return	string
 	*/
-	function post($index = NULL, $xss_clean = FALSE)
+	function post($index = NULL, $xss_clean = TRUE)
 	{
 		// Check if a field has been provided
 		if ($index === NULL AND ! empty($_POST))
