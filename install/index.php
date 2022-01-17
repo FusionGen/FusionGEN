@@ -73,19 +73,13 @@ if ($php_version_success && $mysql_success && $curl_success && $gd_success && $j
 $writeable_directories = array(
     'cache' => '/application/cache/',
     'config' => '/application/config/config.php',
-	'modules' => '/application/modules/'
+    'modules' => '/application/modules/'
 );
 
 foreach ($writeable_directories as $value) {
     if (!is_writeable(".." . $value)) {
         $all_requirement_success = false;
     }
-}
-
-if(file_exists("/.lock")) {
-    $is_installed = true;
-} else {
-    $is_installed = false;
 }
 
 $dashboard_url = $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];

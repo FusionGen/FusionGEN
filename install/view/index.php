@@ -11,7 +11,7 @@
         <link rel='stylesheet' type='text/css' href='assets/bootstrap/css/bootstrap.min.css' />
         <link rel='stylesheet' type='text/css' href='assets/css/font-awesome/css/font-awesome.min.css' />
         <link rel='stylesheet' type='text/css' href='assets/css/install.css' />
-		<script type='text/javascript' src="assets/js/realms.js"></script>
+        <script type='text/javascript' src="assets/js/realms.js"></script>
         <script type='text/javascript' src='assets/js/jquery-1.11.3.min.js'></script>
         <script type='text/javascript' src='assets/js/jquery-validation/jquery.validate.min.js'></script>
         <script type='text/javascript' src='assets/js/jquery-validation/jquery.form.js'></script>
@@ -215,7 +215,7 @@
                                                     <?php } ?>
                                                 </td>
                                             </tr>
-											<tr>
+                                            <tr>
                                                 <td>OpenSSL</td>
                                                 <td> <?php if ($openssl_success) { ?>
                                                         On
@@ -312,7 +312,7 @@
                             </div>
                         </div>
 
-						<div role="tabpanel" class="tab-pane" id="general-tab">
+                        <div role="tabpanel" class="tab-pane" id="general-tab">
 							<form name="general-form" id="general-form" action="do_general.php" method="post" autocomplete="off">
 								<div class="section clearfix">
 									<p>Enter general settings</p>
@@ -397,7 +397,7 @@
 									</button>
 								</div>
 							</form>
-						</div>
+                        </div>
 
                         <div role="tabpanel" class="tab-pane" id="database-tab">
                             <form name="database-form" id="database-form" action="do_database.php" method="post" autocomplete="off">
@@ -483,7 +483,7 @@
                                 </div>
                             </form>
                         </div>
-						<div role="tabpanel" class="tab-pane" id="realms-tab">
+                        <div role="tabpanel" class="tab-pane" id="realms-tab">
 							<form name="realms-form" id="realms-form" action="do_realms.php" method="post" autocomplete="off">
 								<div class="section clearfix">
 									<p>Realms settings</p>
@@ -593,9 +593,9 @@
 									</button>
 								</div>
 							</form>
-						</div>
+                        </div>
 
-						<div role="tabpanel" class="tab-pane" id="owner-tab">
+                        <div role="tabpanel" class="tab-pane" id="owner-tab">
 							<form name="owner-form" id="owner-form" action="do_owner.php" method="post" autocomplete="off">
 								<div class="section clearfix">
 									<p>Homepage Owner</p>
@@ -618,7 +618,7 @@
 									</button>
 								</div>
 							</form>
-						</div>
+                        </div>
 
                         <div role="tabpanel" class="tab-pane" id="finished-tab">
                             <div class="section">
@@ -658,12 +658,12 @@
     };
 
     $(document).ready(function () {
-		var $introductionTab = $("#introduction-tab"),
-			$requirementsTab = $("#requirements-tab"),
-			$generalTab = $("#general-tab"),
+        var $introductionTab = $("#introduction-tab"),
+            $requirementsTab = $("#requirements-tab"),
+            $generalTab = $("#general-tab"),
             $databaseTab = $("#database-tab"),
-			$realmsTab = $("#realms-tab"),
-			$ownerTab = $("#owner-tab");
+            $realmsTab = $("#realms-tab"),
+            $ownerTab = $("#owner-tab");
 
         $(".form-next").click(function () {
 			if ($requirementsTab.hasClass("active")) {
@@ -680,7 +680,7 @@
                 $("#requirements").addClass("active");
             }
         });
-		
+
 		$("#general-form").submit(function () {
             var $form = $(this);
             onFormSubmit($form);
@@ -693,7 +693,7 @@
                         $("#general").find("i").removeClass("fa-circle-o").addClass("fa-check-circle");
                         $("#database").addClass("active");
                         $("#database-tab").addClass("active");
-						$("#host").focus();
+                        $("#host").focus();
                     } else {
 						$("#alert-container").html('<div class="alert alert-danger" role="alert">' + result.message + '</div>');
                     }
@@ -714,8 +714,8 @@
                         $("#database").find("i").removeClass("fa-circle-o").addClass("fa-check-circle");
                         $("#realms").addClass("active");
                         $("#realms-tab").addClass("active");
-						Ajax.initialize();
-						$("#hostname").focus();
+                        Ajax.initialize();
+                        $("#hostname").focus();
                     } else {
                         $("#alert-container").html('<div class="alert alert-danger" role="alert">' + result.message + '</div>');
                     }
@@ -723,8 +723,8 @@
             });
             return false;
         });
-		
-		$("#realms-form").submit(function () {
+
+        $("#realms-form").submit(function () {
             var $form = $(this);
             onFormSubmit($form);
             $form.ajaxSubmit({
@@ -736,7 +736,7 @@
                         $("#realms").find("i").removeClass("fa-circle-o").addClass("fa-check-circle");
                         $("#finished").addClass("active");
                         $("#owner-tab").addClass("active");
-						$("#accname").focus();
+                        $("#accname").focus();
                     } else {
                         $("#alert-container").html('<div class="alert alert-danger" role="alert">' + result.message + '</div>');
                     }
@@ -744,7 +744,7 @@
             });
             return false;
         });
-		$("#owner-form").submit(function () {
+        $("#owner-form").submit(function () {
             var $form = $(this);
             onFormSubmit($form);
             $form.ajaxSubmit({
