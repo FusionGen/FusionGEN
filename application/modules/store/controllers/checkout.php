@@ -22,7 +22,7 @@ class Checkout extends MX_Controller
 	 */
 	public function index()
 	{
-		$cart = $this->input->post("cart");
+		$cart = $this->input->post("cart", true);
 
 		// Make sure they sent us a cart object
 		if(!$cart)

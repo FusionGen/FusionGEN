@@ -127,11 +127,11 @@ class Register extends MX_Controller
 			// Show success message
 			$data = array(
 						"url" => $this->template->page_url,
-						"account" => $this->input->post('register_username'),
+						"account" => $this->input->post('register_username', true),
 						"bridgeName" => $this->config->item('forum_bridge'),
-						"username" => $this->input->post('register_username'),
-						"email" => $this->input->post('register_email'),
-						"password" => $this->input->post('register_password'),
+						"username" => $this->input->post('register_username', true),
+						"email" => $this->input->post('register_email', true),
+						"password" => $this->input->post('register_password', true),
 						"email_activation" => $this->config->item('enable_email_activation')
 					);
 

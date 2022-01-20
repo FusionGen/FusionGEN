@@ -1,2 +1,6 @@
-
+#codeigniter 3
+application/logs/*
+application/cache/*
+application/config/config.php
 application/config/fusion.php
+application/config/database.php

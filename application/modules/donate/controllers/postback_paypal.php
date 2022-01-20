@@ -84,13 +84,13 @@ class Postback_paypal extends MX_Controller
 		curl_close($ch);
 
 		// Gather the values we need
-		$this->custom = $this->input->post('custom');
-		$this->payment_status = $this->input->post('payment_status');
-		$this->payment_amount = $this->input->post('mc_gross');
-		$this->payment_currency = $this->input->post('mc_currency');
-		$this->txn_id = $this->input->post('txn_id');
-		$this->receiver_email = $this->input->post('receiver_email');
-		$this->payer_email = $this->input->post('payer_email');
+		$this->custom = $this->input->post('custom', true);
+		$this->payment_status = $this->input->post('payment_status', true);
+		$this->payment_amount = $this->input->post('mc_gross', true);
+		$this->payment_currency = $this->input->post('mc_currency', true);
+		$this->txn_id = $this->input->post('txn_id', true);
+		$this->receiver_email = $this->input->post('receiver_email', true);
+		$this->payer_email = $this->input->post('payer_email', true);
 		
 		/*
 		 * REASON LEGENDA:

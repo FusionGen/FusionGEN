@@ -59,8 +59,8 @@ class Login extends MX_Controller
 
 			if(!isset($check)) // only if captcha is valid
 			{
-				$sha_pass_hash = $this->user->createHash($this->input->post('login_username'), $this->input->post('login_password'));
-				$check = $this->user->setUserDetails($this->input->post('login_username'), $sha_pass_hash);
+				$sha_pass_hash = $this->user->createHash($this->input->post('login_username', true), $this->input->post('login_password', true));
+				$check = $this->user->setUserDetails($this->input->post('login_username', true), $sha_pass_hash);
 			}
 
 			// No errors
@@ -84,7 +84,7 @@ class Login extends MX_Controller
 			else
 			{
 				// Update sanitization according to CMS standards.
-				$data['username'] = $this->template->format($this->input->post('login_username'), false, false, true, false);
+				$data['username'] = $this->template->format($this->input->post('login_username', true), false, false, true, false);
 				$this->session->set_userdata('attempts', $this->session->userdata('attempts') + 1);
 
 				// Wrong username

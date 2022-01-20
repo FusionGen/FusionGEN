@@ -105,8 +105,8 @@ class Teleport extends MX_Controller
 	public function submit()
 	{
 		//Get the post variables
-		$characterGuid = $this->input->post('guid'); 
-		$teleportLocationId = $this->input->post('id'); 
+		$characterGuid = $this->input->post('guid', true); 
+		$teleportLocationId = $this->input->post('id', true); 
 	
 		if($teleportLocationId && $characterGuid)
 		{

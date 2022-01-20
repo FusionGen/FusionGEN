@@ -23,7 +23,7 @@ class password_recovery_srp6 extends MX_Controller
 		$this->template->setTitle('Recovery');
 
 		// Nothing in the email so they didnt filled in a username
-		$this->input->post('recover_username') || $this->template->box(breadcumb(array(
+		$this->input->post('recover_username', true) || $this->template->box(breadcumb(array(
 			'password_recovery' => lang('password_recovery', 'recovery'),
 		)), $this->template->loadPage('password_recovery.tpl', ['class' => ['class' => 'page_form']]), true);
 

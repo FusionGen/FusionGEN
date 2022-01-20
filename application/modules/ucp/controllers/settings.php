@@ -56,8 +56,8 @@ class Settings extends MX_Controller
 	
 	public function submit()
 	{
-		$oldPassword = $this->input->post('old_password');
-		$newPassword = $this->input->post('new_password');
+		$oldPassword = $this->input->post('old_password', true);
+		$newPassword = $this->input->post('new_password', true);
 		
 		if($oldPassword && $newPassword)
 		{
@@ -91,8 +91,8 @@ class Settings extends MX_Controller
 
 		// Gather the values
 
-		$nickname = $this->input->post("nickname");
-		$location = $this->input->post("location");
+		$nickname = $this->input->post("nickname", true);
+		$location = $this->input->post("location", true);
 
 		if(!is_string($nickname) || !is_string($location))
 		{
@@ -108,7 +108,7 @@ class Settings extends MX_Controller
 		// Change language
 		if($this->config->item('show_language_chooser'))
 		{
-			$values['language'] = $this->input->post("language");
+			$values['language'] = $this->input->post("language", true);
 
 			if(!is_dir("application/language/".$values['language']))
 			{

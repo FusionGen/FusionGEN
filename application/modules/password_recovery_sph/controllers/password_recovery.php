@@ -25,7 +25,7 @@ class password_recovery_sph extends MX_Controller
 	{
 		$this->template->setTitle("Password recovery");
 
-		if($this->input->post('recover_username'))
+		if($this->input->post('recover_username', true))
 		{
 			$email = $this->password_recovery_model->getEmail($this->input->post('recover_username'));
 			

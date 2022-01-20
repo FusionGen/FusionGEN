@@ -62,7 +62,7 @@ class Vote extends MX_Controller
 			"user_ip" => $this->input->ip_address()
 		);
 
-		$vote_site_id = $this->input->post('id'); //The site where we are voting for.
+		$vote_site_id = $this->input->post('id', true); //The site where we are voting for.
 		
 		if(!$vote_site_id)
 		{

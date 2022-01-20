@@ -43,7 +43,7 @@ class Armory extends MX_Controller
 
 	public function search()
 	{
-		$string = $this->input->post("search");
+		$string = $this->input->post("search", true);
 
 		if(!$string || strlen($string) <= 2)
 		{

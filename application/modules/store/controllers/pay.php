@@ -25,7 +25,7 @@ class Pay extends MX_Controller
 	 */
 	public function index()
 	{
-		$cart = $this->input->post("data");
+		$cart = $this->input->post("data", true);
 
 		// Make sure they sent us a cart object
 		if(!$cart)

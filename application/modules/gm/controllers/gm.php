@@ -82,7 +82,7 @@ class Gm extends MX_Controller
 		if($ticket)
 		{
 			//Set parameters
-			$itemId = array(array('id' => $this->input->post('item')));
+			$itemId = array(array('id' => $this->input->post('item', true)));
 			
 			$title = $this->config->item('gm_senditemtitle');
 			$body = $this->config->item('gm_senditembody');
@@ -169,7 +169,7 @@ class Gm extends MX_Controller
 		if($ticket)
 		{
 			$title = $this->config->item('gm_answertitle');
-			$body = $this->input->post('message');
+			$body = $this->input->post('message', true);
 			if(strlen($body) >= 8000)
 				die(lang("message_too_long", "gm"));
 
@@ -250,7 +250,7 @@ class Gm extends MX_Controller
 		}
 
 		$bannedBy = $this->user->getUsername();
-		$banReason = $this->input->post('reason');
+		$banReason = $this->input->post('reason', true);
 		
 		$ban = $this->gm_model->getBan($this->external_account_model->getConnection(), $this->external_account_model->getId($username));
 		
