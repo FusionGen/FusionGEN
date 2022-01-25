@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	$(document).ready(function()
 	{
-		$(".item_bg").html(lang("loading", "item"));
+		$('.item_bg').html('{lang('loading', 'item')}');
 		
 		$.get(Config.URL + "tooltip/" + {$realm} + "/" + {$id}, function(data)
 	 	{
