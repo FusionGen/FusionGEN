@@ -163,7 +163,7 @@ class News extends MX_Controller
 		}
 
 		// Get the articles with the lower and upper limit decided by our pagination.
-		$this->news_articles = $this->news_model->getArticles($this->startIndex, ($this->startIndex + $config['per_page']));
+		$this->news_articles = $this->news_model->getArticles((int)$this->startIndex, ((int)$this->startIndex + $config['per_page']));
 
 		// For each key we need to add the special values that we want to print
 		foreach($this->news_articles as $key => $article)
