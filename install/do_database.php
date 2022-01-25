@@ -23,24 +23,24 @@ if (isset($_POST)) {
         echo json_encode(array("success" => false, "message" => $mysqli->connect_error));
         exit();
     }
-	
+
     if (mysqli_connect_errno()) {
         echo json_encode(array("success" => false, "message" => $mysqli_auth->connect_error));
         exit();
     }
-	
-	$mysqli_fusion = @new mysqli($host, $dbuser, $dbpassword, $dbname);
-	$mysqli_auth = @new mysqli($host, $auth_db_user, $auth_db_pass, $auth_db);
 
-	if (!mysqli_select_db($mysqli_fusion, $dbname)) {
-		echo json_encode(array("success" => false, "message" => "Looks like your fusiongen database doesn't exist"));
-		exit();
-	}
+    $mysqli_fusion = @new mysqli($host, $dbuser, $dbpassword, $dbname);
+    $mysqli_auth = @new mysqli($host, $auth_db_user, $auth_db_pass, $auth_db);
 
-	if (!mysqli_select_db($mysqli_auth, $auth_db)) {
-		echo json_encode(array("success" => false, "message" => "Looks like your auth database doesn't exist"));
-		exit();
-	}
+    if (!mysqli_select_db($mysqli_fusion, $dbname)) {
+        echo json_encode(array("success" => false, "message" => "Looks like your fusiongen database doesn't exist"));
+        exit();
+    }
+
+    if (!mysqli_select_db($mysqli_auth, $auth_db)) {
+        echo json_encode(array("success" => false, "message" => "Looks like your auth database doesn't exist"));
+        exit();
+    }
 
     if (!is_file('SQL/database.sql')) {
         echo json_encode(array("success" => false, "message" => "The database.sql file could not be found!"));
@@ -48,7 +48,7 @@ if (isset($_POST)) {
     }
 
     if(file_exists("../application/config/database.php")) {
-		unlink("../application/config/database.php");
+        unlink("../application/config/database.php");
     }
     $db = fopen("../application/config/database.php", "w");
 
@@ -60,7 +60,7 @@ $db["cms"]["hostname"] = "'.$host.'";
 $db["cms"]["username"] = "'.$dbuser.'";
 $db["cms"]["password"] = "'.$dbpassword.'";
 $db["cms"]["database"] = "'.$dbname.'";
-$db["cms"]["port"] 	   = '.(is_numeric($dbport) ? $dbport : self::MYSQL_DEFAULT_PORT).';
+$db["cms"]["port"]        = '.(is_numeric($dbport) ? $dbport : self::MYSQL_DEFAULT_PORT).';
 $db["cms"]["dbdriver"] = "mysqli";
 $db["cms"]["dbprefix"] = "";
 $db["cms"]["pconnect"] = TRUE;
@@ -93,22 +93,22 @@ $db["account"]["stricton"] = FALSE;';
     fwrite($db, $raw);
     fclose($db);
 
-	//nooby but easy to add more files
-	//should we make a select box for item display IDs -> do_realms?
+    //nooby but easy to add more files
+    //should we make a select box for item display IDs -> do_realms?
 
     //start installation
     $sql = file_get_contents("SQL/database.sql");
-	$sql2 = file_get_contents("SQL/item_display_335a.sql");
+    $sql2 = file_get_contents("SQL/item_display_335a.sql");
     $mysqli->multi_query($sql);
-	do {	} 
-	
-	while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
-	
-	$mysqli->multi_query($sql2);
-	do {	} 
-	
-	while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
-	
+    do {    } 
+
+    while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
+
+    $mysqli->multi_query($sql2);
+    do {    }
+
+    while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
+
     $mysqli->close();
     // database created
 
