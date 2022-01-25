@@ -13,14 +13,14 @@ if (isset($_POST)) {
 
     global $db;
 
-    $mysqli = new mysqli($db["account"]["hostname"], $db["account"]["username"], $db["account"]["password"], $db["account"]["database"], $db["account"]["port"]);
+    $mysqli = new mysqli($db['account']['hostname'], $db['account']['username'], $db['account']['password'], $db['account']['database'], $db['account']['port']);
 
     if (mysqli_connect_errno()) {
         echo json_encode(array("success" => false, "message" => $mysqli->connect_error));
         exit();
     }
 
-    $query = mysqli_query($mysqli, "SELECT username from accounts WHERE username = ".$accname."");
+    $query = mysqli_query($mysqli, "SELECT username from account WHERE username = '".$accname."' LIMIT 1");
     if (mysqli_num_rows($query) == 0) {
         echo json_encode(array("success" => false, "message" => "Accountname not found!"));
         exit();
