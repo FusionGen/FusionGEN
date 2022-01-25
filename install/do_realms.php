@@ -10,7 +10,7 @@ class Realms
             {
                 case "getEmulators": $this->getEmulators(); break;
             }
-           }
+        }
 
         if (isset($_POST)) {
             $hostname = $_POST["hostname"];
@@ -26,10 +26,10 @@ class Realms
             $console_port = $_POST["console_port"];
             $emulator = $_POST["emulator"];
             $realm_port = $_POST["realm_port"];
-
+        
             if (!($hostname && $username && $characters && $world && $cap && $realmName && $console_username && $console_password && $console_port && $realm_port)) {
-				echo json_encode(array("success" => false, "message" => "Please input all fields."));
-				exit();
+                echo json_encode(array("success" => false, "message" => "Please input all fields."));
+                exit();
             }
 
             require('../application/config/database.php');
@@ -47,29 +47,29 @@ class Realms
                 echo json_encode(array("success" => false, "message" => "Looks like your world database doesn't exist"));
                 exit();
             }
-			
+
             $query = ("INSERT INTO realms(`id`, `hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
-                        VALUES('?',
-                            '".$hostname."',
-                            '".$username."',
-                            '".$password."',
-                            '".$characters."',
-                            '".$world."',
-                            '".$cap."',
-                            '".$realmName."',
-                            '".$console_username."',
-                            '".$console_password."',
-                            '".$console_port."',
-                            '".$emulator."',
-                            '".$realm_port."',
-                            '".$db_port."',
-                            '".$username."',
-                            '".$password."',
-                            '".$hostname."',
-                            '".$db_port."',
-                            '".$username."',
-                            '".$password."',
-                            '".$hostname."');");
+                      VALUES('?',
+                             '".$hostname."',
+                             '".$username."',
+                             '".$password."',
+                             '".$characters."',
+                             '".$world."',
+                             '".$cap."',
+                             '".$realmName."',
+                             '".$console_username."',
+                             '".$console_password."',
+                             '".$console_port."',
+                             '".$emulator."',
+                             '".$realm_port."',
+                             '".$db_port."',
+                             '".$username."',
+                             '".$password."',
+                             '".$hostname."',
+                             '".$db_port."',
+                             '".$username."',
+                             '".$password."',
+                             '".$hostname."');");
 
             if(mysqli_query($mysqli, $query)){
                 echo json_encode(array("success" => true));
@@ -84,6 +84,46 @@ class Realms
     {
         require_once("../application/config/emulator_names.php");
         die(json_encode($emulators));
+    }
+
+    private function realms()
+    {
+        $this->connect();
+
+        $realms = json_decode(stripslashes($_POST['realms']), true);
+
+        if(is_array($realms))
+        {
+            foreach($realms as $realm)
+            {
+                $this->db->query("INSERT INTO realms(`hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
+                            VALUES('".$this->db->real_escape_string($realm['emulator'])."',
+                                   '".$this->db->real_escape_string($realm['cap'])."',
+                                   '".$this->db->real_escape_string($realm['characters'])."',
+                                   '".$this->db->real_escape_string($realm['console_password'])."',
+                                   '".$this->db->real_escape_string($realm['console_port'])."',
+                                   '".$this->db->real_escape_string($realm['console_username'])."',
+                                   '".$this->db->real_escape_string($realm['hostname'])."',
+                                   '".$this->db->real_escape_string($realm['password'])."',
+                                   '".$this->db->real_escape_string($realm['port'])."',
+                                   '".$this->db->real_escape_string($realm['realmName'])."',
+                                   '".$this->db->real_escape_string($realm['username'])."',
+                                   '".$this->db->real_escape_string($realm['world'])."',
+                                   '".$this->db->real_escape_string($realm['db_port'])."',
+                                   '".$this->db->real_escape_string($realm['db_port'])."')");
+            }
+        }
+    }
+
+    private function finalStep()
+    {
+        $file = fopen('.lock', 'w');
+        fclose($file);
+        
+        if(file_exists(".lock"))
+        {
+            die('success');
+        }
     }
 }
 
