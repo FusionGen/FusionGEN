@@ -77,9 +77,13 @@ class News extends MX_Controller
 		echo $this->template->loadPage('rss.tpl', $data);
 	}
 
-	public function view($id)
+	public function view($id = null)
 	{
 		requirePermission("canViewSpecificArticle");
+
+		if(!$id || !is_numeric($id)) {
+			header('Location: '. pageURL .'news');
+		}
 
 		// if it's not an int or the article doesn't exist, load the index page.
 		if(!$this->news_model->articleExists($id))
