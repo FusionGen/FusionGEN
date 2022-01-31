@@ -47,9 +47,9 @@ class Realms
                 echo json_encode(array("success" => false, "message" => "Looks like your world database doesn't exist"));
                 exit();
             }
-			
+
             $query = ("INSERT INTO realms(`id`, `hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
-                        VALUES('?',
+                        VALUES('1',
                             '".$hostname."',
                             '".$username."',
                             '".$password."',
