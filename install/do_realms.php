@@ -35,8 +35,8 @@ class Realms
             require('../application/config/database.php');
 
             $mysqli = new mysqli($db['cms']['hostname'], $db['cms']['username'], $db['cms']['password'], $db['cms']['database'], $db['cms']['port']);
-            $mysqli_characters = @new mysqli($hostname, $username, $password, $characters);
-            $mysqli_world = @new mysqli($hostname, $username, $password, $world);
+            $mysqli_characters = @new mysqli($hostname, $username, $password, $characters, $db_port);
+            $mysqli_world = @new mysqli($hostname, $username, $password, $world, $db_port);
 
             if (!mysqli_select_db($mysqli_characters, $characters)) {
                 echo json_encode(array("success" => false, "message" => "Looks like your characters database doesn't exist"));
