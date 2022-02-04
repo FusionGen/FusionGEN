@@ -23,12 +23,12 @@ if (isset($_POST)) {
         echo json_encode(array("success" => false, "message" => $mysqli->connect_error));
         exit();
     }
-	
+
     if (mysqli_connect_errno()) {
         echo json_encode(array("success" => false, "message" => $mysqli_auth->connect_error));
         exit();
     }
-	
+
     $mysqli_fusion = @new mysqli($host, $dbuser, $dbpassword, $dbname);
     $mysqli_auth = @new mysqli($host, $auth_db_user, $auth_db_pass, $auth_db);
 
@@ -40,7 +40,7 @@ if (isset($_POST)) {
     if (!mysqli_select_db($mysqli_auth, $auth_db)) {
         echo json_encode(array("success" => false, "message" => "Looks like your auth database doesn't exist"));
         exit();
-	}
+    }
 
     if (!is_file('SQL/database.sql')) {
         echo json_encode(array("success" => false, "message" => "The database.sql file could not be found!"));
@@ -60,7 +60,7 @@ $db["cms"]["hostname"] = "'.$host.'";
 $db["cms"]["username"] = "'.$dbuser.'";
 $db["cms"]["password"] = "'.$dbpassword.'";
 $db["cms"]["database"] = "'.$dbname.'";
-$db["cms"]["port"] 	   = '.(is_numeric($dbport) ? $dbport : self::MYSQL_DEFAULT_PORT).';
+$db["cms"]["port"]        = '.(is_numeric($dbport) ? $dbport : self::MYSQL_DEFAULT_PORT).';
 $db["cms"]["dbdriver"] = "mysqli";
 $db["cms"]["dbprefix"] = "";
 $db["cms"]["pconnect"] = TRUE;
@@ -100,15 +100,15 @@ $db["account"]["stricton"] = FALSE;';
     $sql = file_get_contents("SQL/database.sql");
     $sql2 = file_get_contents("SQL/item_display_335a.sql");
     $mysqli->multi_query($sql);
-    do {	} 
+    do {    } 
 
     while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
 
     $mysqli->multi_query($sql2);
-    do {	} 
-	
+    do {    }
+
     while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
-	
+
     $mysqli->close();
     // database created
 
