@@ -77,9 +77,13 @@ class News extends MX_Controller
 		echo $this->template->loadPage('rss.tpl', $data);
 	}
 
-	public function view($id)
+	public function view($id = null)
 	{
 		requirePermission("canViewSpecificArticle");
+
+		if(!$id || !is_numeric($id)) {
+			header('Location: '. pageURL .'news');
+		}
 
 		// if it's not an int or the article doesn't exist, load the index page.
 		if(!$this->news_model->articleExists($id))
@@ -163,7 +167,7 @@ class News extends MX_Controller
 		}
 
 		// Get the articles with the lower and upper limit decided by our pagination.
-		$this->news_articles = $this->news_model->getArticles((int)$this->startIndex, ((int)$this->startIndex + $config['per_page']));
+		$this->news_articles = $this->news_model->getArticles($this->startIndex, ($this->startIndex + $config['per_page']));
 
 		// For each key we need to add the special values that we want to print
 		foreach($this->news_articles as $key => $article)
