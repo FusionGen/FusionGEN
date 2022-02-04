@@ -35,8 +35,8 @@ class Realms
             require('../application/config/database.php');
 
             $mysqli = new mysqli($db['cms']['hostname'], $db['cms']['username'], $db['cms']['password'], $db['cms']['database'], $db['cms']['port']);
-            $mysqli_characters = @new mysqli($hostname, $username, $password, $characters);
-            $mysqli_world = @new mysqli($hostname, $username, $password, $world);
+            $mysqli_characters = @new mysqli($hostname, $username, $password, $characters, $db_port);
+            $mysqli_world = @new mysqli($hostname, $username, $password, $world, $db_port);
 
             if (!mysqli_select_db($mysqli_characters, $characters)) {
                 echo json_encode(array("success" => false, "message" => "Looks like your characters database doesn't exist"));
@@ -48,8 +48,8 @@ class Realms
                 exit();
             }
 			
-            $query = ("INSERT INTO realms(`id`, `hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
-                        VALUES('?',
+            $query = ("INSERT INTO realms(`hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
+                        VALUES(
                             '".$hostname."',
                             '".$username."',
                             '".$password."',
