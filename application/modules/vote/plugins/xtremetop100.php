@@ -14,7 +14,7 @@ require_once APPPATH . 'modules/vote/plugins/classes/VoteCallbackPlugin.php';
 class Xtremetop100 extends VoteCallbackPlugin
 {
     public $url            = "xtremetop100.com";
-    public $voteLinkFormat = "{vote_link}-{user_id}";
+    public $voteLinkFormat = "{vote_link}&{user_id}";
 
     protected function checkAccess()
     {
