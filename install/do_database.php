@@ -30,7 +30,6 @@ if (isset($_POST)) {
     }
 	
     $mysqli_fusion = @new mysqli($host, $dbuser, $dbpassword, $dbname, $dbport);
-    $mysqli_auth = @new mysqli($host, $auth_db_user, $auth_db_pass, $auth_db, $auth_port);
 
     if (!mysqli_select_db($mysqli_fusion, $dbname)) {
         echo json_encode(array("success" => false, "message" => "Looks like your fusiongen database doesn't exist"));
