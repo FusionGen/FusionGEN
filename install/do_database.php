@@ -16,8 +16,14 @@ if (isset($_POST)) {
         exit();
     }
 
+<<<<<<< HEAD
+    $mysqli = @new mysqli($host, $dbuser, $dbpassword, $dbname);
+    $mysqli_auth = @new mysqli($auth_host, $auth_db_user, $auth_db_pass, $auth_db);
+    $mysqli_fusion = @new mysqli($host, $dbuser, $dbpassword, $dbname);
+=======
     $mysqli = @new mysqli($host, $dbuser, $dbpassword, $dbname, $dbport);
     $mysqli_auth = @new mysqli($auth_host, $auth_db_user, $auth_db_pass, $auth_db, $auth_port);
+>>>>>>> ec7683f275115a70b545309298cddd143bc39f7f
 
     if (mysqli_connect_errno()) {
         echo json_encode(array("success" => false, "message" => $mysqli->connect_error));
@@ -28,9 +34,12 @@ if (isset($_POST)) {
         echo json_encode(array("success" => false, "message" => $mysqli_auth->connect_error));
         exit();
     }
+<<<<<<< HEAD
+=======
 	
     $mysqli_fusion = @new mysqli($host, $dbuser, $dbpassword, $dbname, $dbport);
     $mysqli_auth = @new mysqli($host, $auth_db_user, $auth_db_pass, $auth_db, $auth_port);
+>>>>>>> ec7683f275115a70b545309298cddd143bc39f7f
 
     if (!mysqli_select_db($mysqli_fusion, $dbname)) {
         echo json_encode(array("success" => false, "message" => "Looks like your fusiongen database doesn't exist"));
