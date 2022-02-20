@@ -8,6 +8,7 @@ if (isset($_POST)) {
     $keywords = $_POST['keywords'];
     $description = $_POST['description'];
     $analytics = ($_POST['analytics']) ? $_POST['analytics'] : false;
+    $cdn = ($_POST['cdn'] == '1') ? true : false;
     $security_code = $_POST['security_code'];
 
     if (!($title && $server_name && $realmlist && $security_code)) {
