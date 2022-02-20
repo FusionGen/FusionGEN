@@ -96,17 +96,17 @@ $db["account"]["stricton"] = FALSE;';
     //start installation
     $sql = file_get_contents("SQL/database.sql");
     $sql2 = file_get_contents("SQL/item_display_335a.sql");
-    $mysqli->multi_query($sql);
-    do {	} 
+    $mysqli_fusion->multi_query($sql);
+    do {	}
 
-    while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
+    while (mysqli_more_results($mysqli_fusion) && mysqli_next_result($mysqli_fusion));
 
-    $mysqli->multi_query($sql2);
-    do {	} 
+    $mysqli_fusion->multi_query($sql2);
+    do {	}
 	
-    while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
+    while (mysqli_more_results($mysqli_fusion) && mysqli_next_result($mysqli_fusion));
 	
-    $mysqli->close();
+    $mysqli_fusion->close();
     // database created
 
     echo json_encode(array("success" => true));
