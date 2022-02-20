@@ -1,5 +1,6 @@
 <?php
 ini_set('max_execution_time', 30);
+include('../application/config/database.php');
 
 if (isset($_POST)) {
     $accname = $_POST['accname'];
