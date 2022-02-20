@@ -13,7 +13,7 @@ if (isset($_POST)) {
 
     $mysqli = new mysqli($db['account']['hostname'], $db['account']['username'], $db['account']['password'], $db['account']['database'], $db['account']['port']);
 
-    $query = mysqli_query($mysqli, "SELECT username from accounts WHERE username = ".$accname."");
+    $query = mysqli_query($mysqli, "SELECT username from account WHERE username = '".$accname."'");
     if (mysqli_num_rows($query) === 0) {
         echo json_encode(array("success" => false, "message" => "Accountname not found!"));
         exit();
