@@ -428,7 +428,7 @@ CREATE TABLE `articles`  (
 -- ----------------------------
 -- Records of articles
 -- ----------------------------
-INSERT INTO `articles` VALUES (1, 'Welcome to your new FusionGEN Powered Website!', 'Your website has been successfully installed and we, the FusionGEN Community/Contributors, sincerely hope that you will have a nice time using it.<div><br></div><div>To proceed, log into the administrator panel using an administrator account and the security code you specified during the installation.</div><div><br></div><div>If you run into problems, please contact us via the <a href=\"https://discord.gg/vRnr6WJ\" target=\"_blank\">FusionGEN Discord</a>.</div><div><br></div><div>Best regards,</div><div>the FusionGEN Community/Contributors</div>', 1551917460, 1, '', -1);
+INSERT INTO `articles` VALUES (1, 'Welcome to your new FusionGEN Powered Website!', 'Your website has been successfully installed and we, the FusionGEN Community/Contributors, sincerely hope that you will have a nice time using it.<div><br></div><div>To proceed, log into the administrator panel using an administrator account and the security code you specified during the installation.</div><div><br></div><div>If you run into problems, please contact us via the <a href=\"https://discord.gg/5nSt9puU4V\" target=\"_blank\">FusionGEN Discord</a>.</div><div><br></div><div>Best regards,</div><div>the FusionGEN Community/Contributors</div>', UNIX_TIMESTAMP(), 1, '', -1);
 
 -- ----------------------------
 -- Table structure for banlist_pics

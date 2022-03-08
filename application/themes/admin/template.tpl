@@ -193,7 +193,7 @@
 				<aside id="discord">
 					<h1>Join our Discord Server</h1>
 					<div id="discord_icon"></div>
-					<a href="https://discord.gg/vRnr6WJ" target="_blank">FusionGEN</a>
+					<a href="https://discord.gg/5nSt9puU4V" target="_blank">FusionGEN</a>
 				</aside>
 				<aside id="html5">
 					<a href="http://www.w3.org/html/logo/" data-tip="This website makes use of the next generation of web technologies">
