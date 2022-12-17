@@ -62,7 +62,7 @@ call_user_func(static function ($a, $b) { var_dump($a, $b); }, 1, 2);
      * {@inheritdoc}
      *
      * Must run before NativeFunctionInvocationFixer.
-     * Must run after NoBinaryStringFixer.
+     * Must run after NoBinaryStringFixer, NoUselessConcatOperatorFixer.
      */
     public function getPriority(): int
     {
@@ -111,6 +111,9 @@ call_user_func(static function ($a, $b) { var_dump($a, $b); }, 1, 2);
         }
     }
 
+    /**
+     * @param array<int, int> $arguments
+     */
     private function processCall(Tokens $tokens, int $index, array $arguments): void
     {
         $firstArgIndex = $tokens->getNextMeaningfulToken(

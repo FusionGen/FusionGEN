@@ -117,6 +117,17 @@ final class ErrorOutput
         }
     }
 
+    /**
+     * @param array{
+     *     function?: string,
+     *     line?: int,
+     *     file?: string,
+     *     class?: class-string,
+     *     type?: '::'|'->',
+     *     args?: mixed[],
+     *     object?: object,
+     * } $trace
+     */
     private function outputTrace(array $trace): void
     {
         if (isset($trace['class'], $trace['type'], $trace['function'])) {

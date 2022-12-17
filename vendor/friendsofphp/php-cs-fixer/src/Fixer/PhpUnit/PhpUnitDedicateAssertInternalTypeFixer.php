@@ -31,6 +31,9 @@ use PhpCsFixer\Tokenizer\TokensAnalyzer;
  */
 final class PhpUnitDedicateAssertInternalTypeFixer extends AbstractPhpUnitFixer implements ConfigurableFixerInterface
 {
+    /**
+     * @var array<string, string>
+     */
     private array $typeToDedicatedAssertMap = [
         'array' => 'assertIsArray',
         'boolean' => 'assertIsBool',
@@ -100,7 +103,7 @@ final class MyTest extends \PHPUnit\Framework\TestCase
     /**
      * {@inheritdoc}
      *
-     * Must run after NoBinaryStringFixer, PhpUnitDedicateAssertFixer.
+     * Must run after NoBinaryStringFixer, NoUselessConcatOperatorFixer, PhpUnitDedicateAssertFixer.
      */
     public function getPriority(): int
     {

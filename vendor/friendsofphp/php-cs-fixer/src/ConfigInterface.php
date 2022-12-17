@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace PhpCsFixer;
 
 use PhpCsFixer\Fixer\FixerInterface;
-use SplFileInfo;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -40,7 +39,7 @@ interface ConfigInterface
     /**
      * Returns files to scan.
      *
-     * @return iterable<SplFileInfo>
+     * @return iterable<\SplFileInfo>
      */
     public function getFinder(): iterable;
 
@@ -78,6 +77,8 @@ interface ConfigInterface
      * Get rules.
      *
      * Keys of array are names of fixers/sets, values are true/false.
+     *
+     * @return array<string, array<string, mixed>|bool>
      */
     public function getRules(): array;
 
@@ -101,7 +102,7 @@ interface ConfigInterface
     public function setCacheFile(string $cacheFile): self;
 
     /**
-     * @param iterable<SplFileInfo> $finder
+     * @param iterable<\SplFileInfo> $finder
      */
     public function setFinder(iterable $finder): self;
 
@@ -130,6 +131,8 @@ interface ConfigInterface
      * Value for set must be bool (turn it on or off).
      * Value for fixer may be bool (turn it on or off) or array of configuration
      * (turn it on and contains configuration for FixerInterface::configure method).
+     *
+     * @param array<string, array<string, mixed>|bool> $rules
      */
     public function setRules(array $rules): self;
 
