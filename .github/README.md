@@ -64,7 +64,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-The FusionGen source is released under the [GNU AGPL v3](https://github.com/FusionGen/FusionGEN/blob/main/.github/LICENSE)
+The FusionGen source is released under the [GNU AGPL v3](https://github.com/FusionGen/FusionGEN/blob/main/LICENSE)
 
 ## Authors & Contributors
 
