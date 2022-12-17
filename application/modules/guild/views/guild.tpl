@@ -28,7 +28,7 @@
 				<table class="table table-responsive text-nowrap nice_table">
 					<thead>
 						<tr>
-							<th>{lang("name", "guild")}</th>
+							<th>{lang("members", "guild")}</th>
 							<th>{lang("race", "guild")}</th>
 							<th>{lang("class", "guild")}</th>
 							<th>{lang("faction", "guild")}</th>
