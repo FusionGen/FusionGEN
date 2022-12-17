@@ -1,0 +1,26 @@
+{
+	"name":"Mod panel",
+	"description":"Provides web tools for moderators/GMs",
+	"author":
+	{
+		"name":"Err0r",
+		"website":""
+	},
+
+	"permissions": {
+		"view": { "default": false, "description": "View the mod panel. Required for all mod-tools." }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the mod panel. Required for all mod-tools.",
+			"dangerLevel": 1,
+
+			"permissions": {
+				"view": true
+			}
+		}
+	},
+
+	"enabled": true
+}

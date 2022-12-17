@@ -1,0 +1,344 @@
+/*-------------------------------------------------------------------------*/
+/* Btn blue
+/*-------------------------------------------------------------------------*/
+.btn-blue {
+	--border-gap: 5px;
+
+	width: auto;
+	height: auto;
+	color: #000000;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	padding: var(--field-padding) 1.9rem;
+	font-size: var(--field-font-size);
+	text-align: center;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	font-weight: var(--field-font-weight);
+	font-family: var(--font-family-primary);
+	border-radius: var(--field-border-radius);
+	-moz-border-radius: var(--field-border-radius);
+	-webkit-border-radius: var(--field-border-radius);
+	text-transform: uppercase;
+
+	background: rgb(68,156,255);
+	background: -moz-linear-gradient(top,  rgba(68,156,255,1) 0%, rgba(50,81,149,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(68,156,255,1) 0%,rgba(50,81,149,1) 100%);
+	background: linear-gradient(to bottom,  rgba(68,156,255,1) 0%,rgba(50,81,149,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#449cff', endColorstr='#325195',GradientType=0 );
+
+	transition: var(--field-transition-delay) color ease-in-out;
+	-o-transition: var(--field-transition-delay) color ease-in-out;
+	-ms-transition: var(--field-transition-delay) color ease-in-out;
+	-moz-transition: var(--field-transition-delay) color ease-in-out;
+	-webkit-transition: var(--field-transition-delay) color ease-in-out;
+}
+
+.btn-blue.-round {
+	--field-border-radius: 8px;
+}
+
+.btn-blue.-outline::before {
+	width: -webkit-calc(100% + (var(--border-gap) * 2));
+	width: -moz-calc(100% + (var(--border-gap) * 2));
+	width: calc(100% + (var(--border-gap) * 2));
+
+	height: -webkit-calc(100% + (var(--border-gap) * 2));
+	height: -moz-calc(100% + (var(--border-gap) * 2));
+	height: calc(100% + (var(--border-gap) * 2));
+
+	top: -webkit-calc(-1 * var(--border-gap));
+	top: -moz-calc(-1 * var(--border-gap));
+	top: calc(-1 * var(--border-gap));
+
+	left: -webkit-calc(-1 * var(--border-gap));
+	left: -moz-calc(-1 * var(--border-gap));
+	left: calc(-1 * var(--border-gap));
+
+	/*
+
+	border: 1px #35589f solid;
+	-o-border-image: -o-linear-gradient(#459bff, #35589f) 15;
+	border-image: -webkit-gradient(linear, left top, left bottom, from(#459bff), to(#35589f)) 15;
+	border-image: linear-gradient(#459bff, #35589f) 15;
+
+	*/
+
+	padding: 1px;
+	background: -o-linear-gradient(0deg, #35589f, #459bff);
+	background: linear-gradient(0deg, #35589f, #459bff);
+	-webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
+	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: destination-out;
+	mask-composite: exclude;
+
+	content: '';
+	position: absolute;
+	border-radius: var(--field-border-radius);
+	-moz-border-radius: var(--field-border-radius);
+	-webkit-border-radius: var(--field-border-radius);
+}
+
+.btn-blue.-noise::after {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	content: '';
+	position: absolute;
+	background-color: transparent;
+	background-image: url('../../images/patterns/pattern-noise-01.png');
+	background-repeat: repeat;
+	background-position: center center;
+}
+
+.btn-blue:hover,
+.btn-blue:active {
+	color: var(--color-idle);
+}
+
+.btn-blue[disabled] {
+	cursor: not-allowed;
+	opacity: 0.8;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Btn gray
+/*-------------------------------------------------------------------------*/
+.btn-gray {
+	--field-font-weight: 500;
+	--field-border-radius: 50px;
+
+	width: auto;
+	height: auto;
+	color: #5b5b78;
+	border: 1px solid #56566e;
+	cursor: pointer;
+	display: inline-block;
+	padding: var(--field-padding) 2.5rem;
+	font-size: var(--field-font-size);
+	text-align: center;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	font-weight: var(--field-font-weight);
+	font-family: var(--font-family-tertiary);
+	border-radius: var(--field-border-radius);
+	-moz-border-radius: var(--field-border-radius);
+	-webkit-border-radius: var(--field-border-radius);
+	text-transform: uppercase;
+	background-color: #181820;
+	transition: var(--field-transition-delay) color ease-in-out;
+	-o-transition: var(--field-transition-delay) color ease-in-out;
+	-ms-transition: var(--field-transition-delay) color ease-in-out;
+	-moz-transition: var(--field-transition-delay) color ease-in-out;
+	-webkit-transition: var(--field-transition-delay) color ease-in-out;
+}
+
+.btn-gray:hover,
+.btn-gray:active {
+	color: var(--color-idle);
+}
+
+.btn-gray[disabled] {
+	cursor: not-allowed;
+	opacity: 0.8;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Btn big
+/*-------------------------------------------------------------------------*/
+.btn-big {
+	width: 100%;
+	height: 162px;
+	margin: -3rem 0;
+	padding: 0 4rem;
+	display: inline-block;
+	background-size: 100% 162px;
+	background-color: transparent;
+	background-image: url('../../images/graphics/btn-big.png');
+	background-repeat: no-repeat;
+	background-position: top center;
+
+	transition: 300ms -webkit-filter ease-in-out;
+	-o-transition: 300ms -webkit-filter ease-in-out;
+	-ms-transition: 300ms -webkit-filter ease-in-out;
+	-moz-transition: 300ms -webkit-filter ease-in-out;
+	-webkit-transition: 300ms -webkit-filter ease-in-out;
+
+	transition: 300ms filter ease-in-out;
+	-o-transition: 300ms filter ease-in-out;
+	-ms-transition: 300ms filter ease-in-out;
+	-moz-transition: 300ms filter ease-in-out;
+	-webkit-transition: 300ms filter ease-in-out;
+} @media screen and (min-width: 576px) {.btn-big {width: 450px;}}
+
+.btn-big:hover,
+.btn-big:active {
+	-webkit-filter: brightness(1.30);
+	filter: brightness(1.30);
+}
+
+.btn-big span {
+	width: 100%;
+	height: 100%;
+	color: var(--color-idle);
+	z-index: 9;
+	display: block;
+	font-size: 1.83875rem;
+	text-align: center;
+	line-height: 162px;
+	font-family: var(--font-family-primary);
+	text-transform: uppercase;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Fields
+/*-------------------------------------------------------------------------*/
+select,
+textarea,
+input[type='tel'],
+input[type='url'],
+input[type='date'],
+input[type='file'],
+input[type='text'],
+input[type='time'],
+input[type='week'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='search'],
+input[type='password'],
+input[type='datetime-local'] {
+	--color-idle: #5b5b78;
+	--color-base: #747499;
+	--field-font-weight: 500;
+
+	width: 100%;
+	height: auto;
+	color: var(--color-idle);
+	border: none;
+	padding: var(--field-padding);
+	font-size: var(--field-font-size);
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	font-weight: var(--field-font-weight);
+	font-family: var(--font-family-tertiary);
+	border-radius: var(--field-border-radius);
+	-moz-border-radius: var(--field-border-radius);
+	-webkit-border-radius: var(--field-border-radius);
+
+	background-color: #2e2e3d;
+
+	transition: var(--field-transition-delay) color ease-in-out;
+	-o-transition: var(--field-transition-delay) color ease-in-out;
+	-ms-transition: var(--field-transition-delay) color ease-in-out;
+	-moz-transition: var(--field-transition-delay) color ease-in-out;
+	-webkit-transition: var(--field-transition-delay) color ease-in-out;
+}
+
+select:focus,
+textarea:focus,
+input[type='tel']:focus,
+input[type='url']:focus,
+input[type='date']:focus,
+input[type='file']:focus,
+input[type='text']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='email']:focus,
+input[type='month']:focus,
+input[type='number']:focus,
+input[type='search']:focus,
+input[type='password']:focus,
+input[type='datetime-local']:focus {
+	color: var(--color-base);
+	background-color: #2e2e3d;
+}
+
+select:active,
+textarea:active,
+input[type='tel']:active,
+input[type='url']:active,
+input[type='date']:active,
+input[type='file']:active,
+input[type='text']:active,
+input[type='time']:active,
+input[type='week']:active,
+input[type='email']:active,
+input[type='month']:active,
+input[type='number']:active,
+input[type='search']:active,
+input[type='password']:active,
+input[type='datetime-local']:active {
+	color: var(--color-base);
+	background-color: #2e2e3d;
+}
+
+select[disabled],
+textarea[disabled],
+input[type='tel'][disabled],
+input[type='url'][disabled],
+input[type='date'][disabled],
+input[type='file'][disabled],
+input[type='text'][disabled],
+input[type='time'][disabled],
+input[type='week'][disabled],
+input[type='email'][disabled],
+input[type='month'][disabled],
+input[type='number'][disabled],
+input[type='search'][disabled],
+input[type='password'][disabled],
+input[type='datetime-local'][disabled] {
+	cursor: not-allowed;
+	opacity: 0.8;
+}
+
+.input-group-text {
+    color: #8288b5;
+    background-color: #181a23;
+    border: 1px solid #181a23;
+}
+
+/* Fields: Textarea
+/*---------------------------------------------------------------*/
+textarea {
+	width: auto;
+	resize: vertical !important;
+}
+
+/* Fields: Select
+/*---------------------------------------------------------------*/
+select {
+	cursor: pointer;
+
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+	appearance: none;         /* Removes Default style */
+	-o-appearance: none;      /* Removes Default Opera style */
+	-moz-appearance: none;    /* Removes Default Firefox style */
+	-khtml-appearance: none;  /* Removes Default Firefox style */
+	-webkit-appearance: none; /* Removes default Chrome and Safari style */
+}
+
+select option,
+select optgroup {
+	color: var(--color-idle);
+	text-transform: capitalize;
+	background-color: var(--background-base);
+}
+
+/* Fields: Placeholder
+/*---------------------------------------------------------------*/
+:-moz-placeholder           {color: var(--color-inactive);}
+:input-placeholder          {color: var(--color-inactive);}
+:-o-input-placeholder       {color: var(--color-inactive);}
+:-ms-input-placeholder      {color: var(--color-inactive);}
+::-webkit-input-placeholder {color: var(--color-inactive);}

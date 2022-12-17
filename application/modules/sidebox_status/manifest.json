@@ -1,0 +1,11 @@
+{
+	"name": "Sidebox: server status",
+	"description": "Displays online players for each realm",
+
+	"author": {
+		"name": "FusionCMS",
+		"website": "http://fusion-hub.com"
+	},
+	
+	"enabled": true
+}

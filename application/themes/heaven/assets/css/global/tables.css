@@ -1,0 +1,40 @@
+/*-------------------------------------------------------------------------*/
+/* Nice table
+/*-------------------------------------------------------------------------*/
+.nice-table {
+	--color-idle: #39465b;
+	--color-active: #61779c;
+
+	width: 100%;
+}
+
+.nice-table tr {}
+
+.nice-table tr th,
+.nice-table tr td {
+	padding: 0.8rem;
+	font-weight: bold;
+	font-family: var(--font-family-tertiary);
+	vertical-align: middle;
+	text-transform: uppercase;
+}
+
+.nice-table tr td {
+	color: #576c8d;
+}
+
+.nice-table tr th {
+	color: #3d4b62;
+}
+
+/* Nice table: Gutters
+/*---------------------------------------------------------------*/
+.nice-table.-gutters {}
+
+.nice-table.-gutters tr th {
+	border-bottom: 2px solid #303c58;
+}
+
+.nice-table.-gutters tr td {
+	border-bottom: 1px solid #293248;
+}

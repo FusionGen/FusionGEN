@@ -1,0 +1,141 @@
+/*-------------------------------------------------------------------------*/
+/* Sidebox
+/*-------------------------------------------------------------------------*/
+.sidebox {
+	width: 100%;
+	height: var(--fixedHeight);
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+
+	overflow: hidden;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: var(--background-shade);
+}
+
+/* Sidebox: Head
+/*---------------------------------------------------------------*/
+.sidebox .sidebox-head {
+	color: var(--color-primary);
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 1.25rem;
+	text-align: center;
+	font-family: var(--font-family-secondary);
+	text-transform: uppercase;
+	background-color: var(--background-light);
+}
+
+.sidebox .sidebox-head span {
+	color: var(--color-secondary);
+}
+
+/* Sidebox: Body
+/*---------------------------------------------------------------*/
+.sidebox .sidebox-body {
+	width: 100%;
+	height: auto;
+	padding: 1rem;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+/*-------------------------------------------------------------------------*/
+/* Sidebox: TopPvP
+/*-------------------------------------------------------------------------*/
+.sidebox-toppvp {
+	--toppvp-gap: 0.36rem;
+}
+
+.sidebox-toppvp .toppvp-player {
+	width: 100%;
+	margin: -webkit-calc(var(--toppvp-gap) * -1) 0;
+	margin: -moz-calc(var(--toppvp-gap) * -1) 0;
+	margin: calc(var(--toppvp-gap) * -1) 0;
+}
+
+/* TopPvP: Table
+/*---------------------------------------------------------------*/
+.sidebox-toppvp .toppvp-player table {
+	width: 100%;
+}
+
+.sidebox-toppvp .toppvp-player table thead {}
+
+.sidebox-toppvp .toppvp-player table thead tr {}
+
+.sidebox-toppvp .toppvp-player table thead tr th {
+	color: var(--color-primary);
+	padding: var(--toppvp-gap) 0;
+	font-size: 1rem;
+	text-align: center;
+	font-family: var(--font-family-secondary);
+	text-transform: uppercase;
+}
+
+.sidebox-toppvp .toppvp-player table tbody {}
+
+.sidebox-toppvp .toppvp-player table tbody tr {}
+
+.sidebox-toppvp .toppvp-player table tbody tr td {
+	padding: var(--toppvp-gap) 0;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.sidebox-toppvp .toppvp-player table thead tr th:first-child,
+.sidebox-toppvp .toppvp-player table tbody tr td:first-child {
+	width: 0%;
+}
+
+/* TopPvP: Rank
+/*---------------------------------------------------------------*/
+.sidebox-toppvp .toppvp-player .player-rank {
+	width: 45px;
+	height: 45px;
+	color: #000000;
+	display: inline-block;
+	font-size: 1.125rem;
+	text-align: center;
+	line-height: 45px;
+	font-family: var(--font-family-secondary);
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #313d5c;
+} .sidebox-toppvp .toppvp-player [gold]   .player-rank {background-color: #e2c676;}
+  .sidebox-toppvp .toppvp-player [silver] .player-rank {background-color: #a7bdc8;}
+  .sidebox-toppvp .toppvp-player [bronze] .player-rank {background-color: #967a6f;}
+
+/* TopPvP: Name
+/*---------------------------------------------------------------*/
+.sidebox-toppvp .toppvp-player .player-name {
+	font-size: 0.75rem;
+	font-family: var(--font-family-secondary);
+	text-transform: uppercase;
+}
+
+/* TopPvP: Kills
+/*---------------------------------------------------------------*/
+.sidebox-toppvp .toppvp-player .player-kills {
+	color: var(--color-primary);
+	font-size: 0.75rem;
+	font-family: var(--font-family-secondary);
+}

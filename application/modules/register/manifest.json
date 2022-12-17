@@ -1,0 +1,25 @@
+{
+	"name": "Register",
+	"description": "Allows users to sign up",
+
+	"author": {
+		"name": "FusionCMS",
+		"website": "http://fusion-hub.com"
+	},
+	
+	"permissions": {
+		"view": { "default": true, "description": "View the register page" }
+	},
+
+	"roles": {
+		"view": {
+			"description": "View the register page",
+
+			"permissions": {
+				"view": true
+			}
+		}
+	},
+
+	"enabled": true
+}
