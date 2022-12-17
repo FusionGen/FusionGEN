@@ -1,8 +1,16 @@
 version: 2
- 
+
 updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+
   - package-ecosystem: "composer"
-      directory: "/"
-      versioning-strategy: increase-if-necessary
-      schedule:
-         interval: "daily"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
