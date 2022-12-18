@@ -80,7 +80,7 @@ class Cmangos_soap implements Emulator
         ),
 
 		'account_logons' => array(
-            'id'         => 'accountId',
+            'accountId'  => 'accountId',
             'last_ip'    => 'ip',
             'last_login' => 'loginTime'
         ),

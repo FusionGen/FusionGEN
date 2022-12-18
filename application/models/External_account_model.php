@@ -387,7 +387,14 @@ class External_account_model extends CI_Model
 		$this->connection->where(column("account", "id"), $userId);
 		
 		if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
-            $this->connection->update(table("account"), array(column("account_logons", "last_ip") => $ip));
+			$data = array(
+            	'accountId' => $userId,
+            	'ip' => $ip,
+            	'loginTime' => date("Y-m-d H:i:s"),
+            	'loginSource' => '0'
+            );
+            
+            $this->connection->insert(table("account_logons"), $data);
         } else {
             $this->connection->update(table("account"), array(column("account", "last_ip") => $ip));
         }
