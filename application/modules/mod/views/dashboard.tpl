@@ -27,52 +27,6 @@
 		</div>
 	{/foreach}
 {/if}
-
-<div class="col-12 mb-3">
-	<div class="card-body bg-quaternary">
-		<div class="widget-summary">
-			<div class="widget-summary-col widget-summary-col-icon">
-				<div class="summary-icon">
-					<i class="fas fa-life-ring"></i>
-				</div>
-			</div>
-			<div class="widget-summary-col">
-				<div class="summary">
-					<h4 class="title">Forum threads</h4>
-					<div class="info">
-						<strong class="amount"><span class="counter" data-from="0" data-to="1281"></span></strong>
-					</div>
-				</div>
-				<div class="summary-footer">
-					<a href="{$url}" class="text-uppercase">(view all)</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="col-12 mb-3">
-	<div class="card-body bg-quaternary">
-		<div class="widget-summary">
-			<div class="widget-summary-col widget-summary-col-icon">
-				<div class="summary-icon">
-					<i class="fas fa-life-ring"></i>
-				</div>
-			</div>
-			<div class="widget-summary-col">
-				<div class="summary">
-					<h4 class="title">Forum Post</h4>
-					<div class="info">
-						<strong class="amount"><span class="counter" data-from="0" data-to="1281"></span></strong>
-					</div>
-				</div>
-				<div class="summary-footer">
-					<a href="{$url}" class="text-uppercase">(view all)</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 </div>
 </div>
 
