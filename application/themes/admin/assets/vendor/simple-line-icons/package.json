@@ -44,7 +44,7 @@
     "url": "https://github.com/thesabbir/simple-line-icons/issues"
   },
   "dependencies": {
-    "less": "^3.12.2"
+    "less": "^3.13.1"
   },
   "description": "Simple and elegant line icons.",
   "homepage": "https://thesabbir.github.io/simple-line-icons",
