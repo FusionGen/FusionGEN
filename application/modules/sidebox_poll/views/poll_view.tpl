@@ -1,4 +1,4 @@
-{if $poll.total > 0}
+{if $poll}
 	<script type="text/javascript">
 		var pollTotal = {$total};
 
