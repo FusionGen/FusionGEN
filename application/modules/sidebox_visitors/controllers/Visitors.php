@@ -33,8 +33,8 @@ class Visitors extends MX_Controller
 
         if ($visitors) {
             foreach ($visitors as $key => $value) {
-                if ($value['user_data']) {
-                    $data = unserialize($value['user_data']);
+                if ($value['data']) {
+                    $data = unserialize($value['data']);
                     $visitors[$key]['user_id'] = $this->getUserId($data);
                     $visitors[$key]['nickname'] = $this->getNickname($data);
 
