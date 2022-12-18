@@ -276,7 +276,6 @@ INSERT INTO `acl_group_roles` VALUES (7, 'viewLanguage', 'admin');
 INSERT INTO `acl_group_roles` VALUES (7, 'viewLogs', 'admin');
 INSERT INTO `acl_group_roles` VALUES (7, 'viewSessions', 'admin');
 INSERT INTO `acl_group_roles` VALUES (8, 'administrate', 'donate');
-INSERT INTO `acl_group_roles` VALUES (8, 'administrator', 'forum');
 INSERT INTO `acl_group_roles` VALUES (8, 'editBackupSettings', 'admin');
 INSERT INTO `acl_group_roles` VALUES (8, 'editSystemSettings', 'admin');
 INSERT INTO `acl_group_roles` VALUES (8, 'executeBackupActions', 'admin');
@@ -299,7 +298,6 @@ INSERT INTO `acl_group_roles` VALUES (8, 'manageSlider', 'admin');
 INSERT INTO `acl_group_roles` VALUES (8, 'manageTheme', 'admin');
 INSERT INTO `acl_group_roles` VALUES (8, 'moderate', 'news');
 INSERT INTO `acl_group_roles` VALUES (8, 'moderate', 'store');
-INSERT INTO `acl_group_roles` VALUES (8, 'moderator', 'forum');
 INSERT INTO `acl_group_roles` VALUES (8, 'updateAccount', 'ucp');
 INSERT INTO `acl_group_roles` VALUES (8, 'use', 'news');
 INSERT INTO `acl_group_roles` VALUES (8, 'use', 'sidebox_language_picker');
@@ -310,7 +308,6 @@ INSERT INTO `acl_group_roles` VALUES (8, 'view', 'bugtracker');
 INSERT INTO `acl_group_roles` VALUES (8, 'view', 'changelog');
 INSERT INTO `acl_group_roles` VALUES (8, 'view', 'character');
 INSERT INTO `acl_group_roles` VALUES (8, 'view', 'donate');
-INSERT INTO `acl_group_roles` VALUES (8, 'view', 'forum');
 INSERT INTO `acl_group_roles` VALUES (8, 'view', 'guild');
 INSERT INTO `acl_group_roles` VALUES (8, 'view', 'mod');
 INSERT INTO `acl_group_roles` VALUES (8, 'view', 'news');
@@ -436,8 +433,6 @@ CREATE TABLE `articles`  (
 -- ----------------------------
 -- Records of articles
 -- ----------------------------
-INSERT INTO `articles` VALUES (7, 1664999563, 5, 1, 1, '[\"1668023141_fusiongenlogo.png\",\"1668023141_1649443169_emojisky_com-5125181.png\"]', 'bla en', '<p>bla</p>', 'bla de', '<p>bla de</p>', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
-INSERT INTO `articles` VALUES (8, 1664999572, 5, -1, 1, '[\"1668023875_1649443169_emojisky_com-5125181.png\"]', 'Headline EN', '<p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>', 'Headline DE', '<p>Content DE</p>', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- ----------------------------
 -- Table structure for backup
@@ -642,7 +637,6 @@ CREATE TABLE `menu`  (
 -- ----------------------------
 INSERT INTO `menu` VALUES (1, 'Home', 'news', 'top', 1, 0, 1, NULL, NULL, NULL);
 INSERT INTO `menu` VALUES (2, '{\"english\":\"How to connect\"}', 'page/connect', 'top', 1, 0, 3, NULL, NULL, NULL);
-INSERT INTO `menu` VALUES (3, 'Forum', 'forum', 'top', 1, 0, 4, NULL, NULL, NULL);
 INSERT INTO `menu` VALUES (4, 'Online players', 'online', 'bottom', 1, 0, 5, NULL, NULL, NULL);
 INSERT INTO `menu` VALUES (5, 'PvP Statistics', 'pvp_statistics', 'side', 1, 0, 6, NULL, NULL, NULL);
 INSERT INTO `menu` VALUES (6, '{\"english\":\"dropdown item\"}', 'tt', 'top', 1, 0, 7, NULL, 'L', 7);
