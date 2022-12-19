@@ -1,0 +1,10 @@
+{
+	"name": "Item tooltip",
+	"description": "Required by the armory and character viewer to display item stats",
+	"author": {
+		"name": "FusionCMS",
+		"website": "http:\/\/fusion-hub.com"
+	},
+	
+	"enabled": true
+}

@@ -1,0 +1,28 @@
+{
+	"description":"Armory search page",
+	"author":
+	{
+		"name":"FusionGen",
+		"website":"https:\/\/fusiongen.net"
+	},
+	"permissions":
+	{
+		"view":
+		{
+			"default":true,
+			"description":"View the armory search"
+		}
+	},
+	"roles":
+	{
+		"view":
+		{
+			"description":"View the armory search",
+			"permissions":
+			{
+				"view":true
+			}
+		}
+	},
+	"enabled":true
+}

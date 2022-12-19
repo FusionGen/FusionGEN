@@ -1,0 +1,30 @@
+{
+	"description":"Auth Module for Login",
+	"author":
+	{
+		"name":"FusionGen",
+		"website":"http:\/\/fusiongen.net"
+	},
+	"permissions":
+	{
+		"view":
+		{
+			"default":true,
+			"description":"View the module pages"
+		}
+	},
+	"roles":
+	{
+		"view":
+		{
+			"description":"View the module pages",
+			"permissions":
+			{
+				"view":true
+			}
+		}
+	},
+	"admin":
+	[],
+	"enabled":true
+}

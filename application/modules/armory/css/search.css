@@ -1,0 +1,12 @@
+.characters-table tr td.characters-icon {
+	width:40px;
+}
+
+.characters-table tr td.characters-icon > img {
+	height:33px;
+	width:33px;
+}
+
+.characters-table tbody tr td {
+	vertical-align:middle;
+}
