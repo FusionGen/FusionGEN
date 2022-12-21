@@ -350,15 +350,6 @@ class Trinity_rbac_soap implements Emulator
      */
     public function encrypt($username, $password, $salt = null)
     {
-        if (!is_string($username)) {
-            $username = '';
-        }
-        if (!is_string($password)) {
-            $password = '';
-        }
-
-        return sha1(strtoupper($username) . ':' . strtoupper($password));
-
         static::forge(); // once only
 
         is_string($username) || $username = '';
@@ -376,7 +367,8 @@ class Trinity_rbac_soap implements Emulator
         $verifier = str_pad(gmp_export(gmp_powm($g, $h, $N), 1, GMP_LSW_FIRST), 32, chr(0), STR_PAD_RIGHT);
 
         return array(
-			"verifier" => $verifier
+            "salt" => $salt,
+            "verifier" => $verifier
         );
     }
 
