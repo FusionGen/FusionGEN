@@ -6,8 +6,8 @@
 	{if $dp}<img src="{$url}application/images/icons/coins.png" align="absmiddle" /> <b>{$dp} {lang("dp", "store")}</b>{/if}
 	
 	<div class="mb-3 d-flex justify-content-between">
-	<a href="javascript:void(0)" onClick="Store.Cart.back()" class="btn btn-primary btn-sm button_left"><i class="fa-solid fa-circle-left"></i> {lang("go_back", "store")}</a>
-	<a href="javascript:void(0)" onClick="Store.Cart.pay()" class="btn btn-primary btn-sm button_right">{lang("checkout", "store")} <i class="fa-solid fa-circle-right"></i></a>
+	<a href="javascript:void(0)" onClick="Store.Cart.back()" class="nice_button button_left"><i class="fa-solid fa-circle-left"></i> {lang("go_back", "store")}</a>
+	<a href="javascript:void(0)" onClick="Store.Cart.pay()" class="nice_button button_right">{lang("checkout", "store")} <i class="fa-solid fa-circle-right"></i></a>
 	</div>
 </div>
 
@@ -33,7 +33,7 @@
 				{if ($item.query && $item.query_need_character) || !$item.query}
 					<div class="col-md-3">
 						{if $realm.characters}
-							<select class="form-control" data-id="{$item.id}" data-available="1">
+							<select data-id="{$item.id}" data-available="1">
 								{foreach from=$realm.characters item=character}
 									<option value="{$character.guid}">{$character.name} (Lvl {$character.level})</option>
 								{/foreach}

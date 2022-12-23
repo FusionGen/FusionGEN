@@ -184,7 +184,7 @@
 										</div>
 
 										<div class="ms-auto p-1">
-											<a href="javascript:void(0)" onClick="Store.Cart.checkout(this)" class="btn btn-primary btn-sm">{lang("checkout", "store")}</a>
+											<a href="javascript:void(0)" onClick="Store.Cart.checkout(this)" class="nice_button">{lang("checkout", "store")}</a>
 										</div>
 									</div>
 								</div>

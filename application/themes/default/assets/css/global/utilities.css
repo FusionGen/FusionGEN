@@ -337,3 +337,7 @@
 .nav-link:hover, .nav-link:focus {
     color: #9dd0f2;
 }
+
+.card {
+	background-color: rgba(18, 26, 34, 1);
+}
