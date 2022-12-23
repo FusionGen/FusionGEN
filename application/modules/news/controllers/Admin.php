@@ -291,13 +291,6 @@ class Admin extends MX_Controller
 
                 //die(print_r($type_contents));
                 $type_content = json_encode($type_content);
-            } else {
-                $type_contents = json_decode($news["type_content"], true);
-                foreach ($type_contents as $file) {
-                    if (file_exists(FCPATH . "/uploads/news/" . $file)) {
-                        unlink(FCPATH . "/uploads/news/" . $file);
-                    }
-                }
             }
 
             $this->news_model->update($id, $type, $type_content, $comments, $headline_en, $content_en, $headline_de, $content_de, $headline_es, $content_es, $headline_fr, $content_fr, $headline_no, $content_no, $headline_ro, $content_ro, $headline_se, $content_se, $headline_ru, $content_ru, $headline_zh, $content_zh, $headline_ko, $content_ko);
