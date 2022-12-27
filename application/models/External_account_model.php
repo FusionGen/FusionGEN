@@ -124,11 +124,10 @@ class External_account_model extends CI_Model
             $data[column("account", "password")] = $hash["verifier"];
             $data[column("account", "salt")] = $hash["salt"];
         } else {
-            $data[column("account", "password")] = $hash;
+            $data[column("account", "password")] = $hash["verifier"];
         }
 
-
-            $data[column("account", "last_ip")] = $this->input->ip_address();
+		$data[column("account", "last_ip")] = $this->input->ip_address();
         
 
         $this->connection->insert(table("account"), $data);
