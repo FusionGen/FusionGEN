@@ -27,14 +27,18 @@ class Tasks
         $this->CI->load->model('internal_user_model');
         $this->CI->load->config('backups');
 
-        $this->update_url = 'https://fusiongen.net/updates';
+        $this->update_url = 'https://update.fusiongen.net/updates';
         $this->FCPATH = FCPATH;
 
         if ($this->CI->config->item('auto_backups')) {
             $this->CI->dbbackup->backup();
         }
 
-		$this->installupdates();
+		$url = curl_init($this->update_url);
+		if(curl_getinfo($url, CURLINFO_HTTP_CODE) === 200)
+		{
+			$this->installupdates();
+		}
     }
 	
 	private function check_updates()
@@ -44,10 +48,6 @@ class Tasks
         $this->update->setCurrentVersion($this->CI->config->item('FusionGENVersion'));
 
         $this->update->setUpdateUrl($this->update_url);
-
-		/*$logger = new \Monolog\Logger("default");
-        $logger->pushHandler(new Monolog\Handler\StreamHandler(APPPATH . '/logs/update.log'));
-        $this->update->setLogger($logger);*/
     }
 
     private function installupdates()
