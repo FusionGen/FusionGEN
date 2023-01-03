@@ -43,7 +43,7 @@ class Azerothcore_soap implements Emulator
         'account'         => 'account',
         'account_access'  => 'account_access',
         'account_banned'  => 'account_banned',
-        'ip_banned'          => 'ip_banned',
+        'ip_banned'       => 'ip_banned',
         'characters'      => 'characters',
         'item_template'   => 'item_template',
         'character_stats' => 'character_stats',
@@ -368,18 +368,15 @@ class Azerothcore_soap implements Emulator
     public function salt($username)
     {
         static $salt;
-        if (
-            $saltUser = \CI::$APP->external_account_model->getConnection()->query(sprintf(
-                'SELECT TRIM("\0" FROM %s) FROM %s WHERE username = ?',
-                column('account', 'salt'),
-                table('account')
-            ), [$username])->row_array()
-        ) {
-            $salt = $salt ?: current($saltUser); // get the stored salt
 
-            if ($salt) { // if it exists
-                return $salt;
-            }
+        $salt = $salt ?: current(\CI::$APP->external_account_model->getConnection()->query(sprintf(
+            'SELECT TRIM("\0" FROM %s) FROM %s WHERE username = ?',
+            column('account', 'salt'),
+            table('account')
+        ), [$username])->row_array()); // get the stored salt
+
+        if ($salt) { // if it exists
+            return $salt;
         }
 
         $salt = random_bytes(32);

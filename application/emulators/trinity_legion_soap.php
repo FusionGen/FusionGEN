@@ -362,7 +362,6 @@ class Trinity_legion_soap implements Emulator
         );
     }
 
-
     /**
     * Password encryption for battlenet
     */

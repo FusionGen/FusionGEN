@@ -368,18 +368,15 @@ class Cmangos_soap implements Emulator
     public function salt($username)
     {
         static $salt;
-        if (
-            $saltUser = \CI::$APP->external_account_model->getConnection()->query(sprintf(
-                'SELECT TRIM("\0" FROM %s) FROM %s WHERE username = ?',
-                column('account', 'salt'),
-                table('account')
-            ), [$username])->row_array()
-        ) {
-            $salt = $salt ?: current($saltUser); // get the stored salt
 
-            if ($salt) { // if it exists
-                return strtoupper($salt);
-            }
+        $salt = $salt ?: current(\CI::$APP->external_account_model->getConnection()->query(sprintf(
+            'SELECT TRIM("\0" FROM %s) FROM %s WHERE username = ?',
+            column('account', 'salt'),
+            table('account')
+        ), [$username])->row_array()); // get the stored salt
+
+        if ($salt) { // if it exists
+            return $salt;
         }
 
         $client = new UserClient($username);
