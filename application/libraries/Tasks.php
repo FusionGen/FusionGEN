@@ -34,11 +34,11 @@ class Tasks
             $this->CI->dbbackup->backup();
         }
 
-		$url = curl_init($this->update_url);
-		if(curl_getinfo($url, CURLINFO_HTTP_CODE) === 200)
-		{
-			$this->installupdates();
-		}
+        $url = curl_init($this->update_url);
+        if(curl_getinfo($url, CURLINFO_HTTP_CODE) === 200)
+        {
+		    $this->installupdates();
+        }
     }
 	
 	private function check_updates()
