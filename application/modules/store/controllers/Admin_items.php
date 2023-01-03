@@ -235,7 +235,7 @@ class Admin_items extends MX_Controller
         $data["icon"] = $this->input->post("icon");
 
         if (!is_numeric(preg_replace("/,/", "", $data["itemid"]))) {
-            die("UI.alert('Invalid item ID')");
+            die("Invalid item ID");
         }
 
         if (preg_match("/,/", $data["itemid"])) {
@@ -249,7 +249,7 @@ class Admin_items extends MX_Controller
             $item_data = $this->realms->getRealm($data["realm"])->getWorld()->getItem($data["itemid"]);
 
             if (!$item_data) {
-                die("UI.alert('Invalid item')");
+                die("Invalid item");
             }
 
             $post_name = $this->input->post('name');

@@ -146,8 +146,11 @@ var Items = {
 
 		$.post(Config.URL + ((isGroup)?this.Links.createGroup:this.Links.create), values, function(data)
 		{
-			console.log(data);
-			eval(data);
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: data,
+			})
 		});
 	},
 
