@@ -37,7 +37,7 @@ class Tasks
         $url = curl_init($this->update_url);
         if(curl_getinfo($url, CURLINFO_HTTP_CODE) === 200)
         {
-		    $this->installupdates();
+            $this->installupdates();
         }
     }
 	
