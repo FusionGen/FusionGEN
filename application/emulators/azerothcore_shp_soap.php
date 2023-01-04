@@ -1,16 +1,10 @@
 <?php
 
-defined('BASEPATH') or die('Silence is golden.');
-
-/**
- * @package FusionCMS
- * @version 6.x
- */
-
 /**
  * Abstraction layer for supporting different emulators
  */
-class Trinity_rbac_sl_soap implements Emulator
+
+class Azerothcore_shp_soap implements Emulator
 {
     protected $config;
 
@@ -32,31 +26,30 @@ class Trinity_rbac_sl_soap implements Emulator
     /**
      * Encryption
      */
-    protected $encryption = 'SRP6';
-    protected $battlenet = true;
+    protected $encryption = 'SHP';
+    protected $battlenet = false;
 
     /**
      * Array of expansion ids and their corresponding names
      */
     protected $expansions = array(
-        8 => "Shadowlands"
+        2 => 'WotLK',
     );
 
     /**
      * Array of table names
      */
     protected $tables = array(
-        'account'            => 'account',
-        'account_access'     => 'account_access',
-        'account_banned'     => 'account_banned',
-        'ip_banned'          => 'ip_banned',
-        'battlenet_accounts' => 'battlenet_accounts',
-        'characters'         => 'characters',
-        'item_template'      => 'item_template',
-        'character_stats'    => 'character_stats',
-        'guild_member'       => 'guild_member',
-        'guild'              => 'guild',
-        'gm_tickets'         => 'gm_bug'
+        'account'         => 'account',
+        'account_access'  => 'account_access',
+        'account_banned'  => 'account_banned',
+        'ip_banned'       => 'ip_banned',
+        'characters'      => 'characters',
+        'item_template'   => 'item_template',
+        'character_stats' => 'character_stats',
+        'guild_member'    => 'guild_member',
+        'guild'           => 'guild',
+        'gm_tickets'      => 'gm_ticket'
     );
 
     /**
@@ -67,8 +60,7 @@ class Trinity_rbac_sl_soap implements Emulator
         'account' => array(
             'id'         => 'id',
             'username'   => 'username',
-            'salt'       => 'salt',
-            'password'   => 'verifier',
+            'password'   => 'sha_hash_pass',
             'email'      => 'email',
             'joindate'   => 'joindate',
             'last_ip'    => 'last_ip',
@@ -77,8 +69,8 @@ class Trinity_rbac_sl_soap implements Emulator
         ),
 
         'account_access' => array(
-            'AccountId'     => 'AccountId',
-            'SecurityLevel' => 'SecurityLevel'
+            'id'      => 'id',
+            'gmlevel' => 'gmlevel'
         ),
 
         'account_banned' => array(
@@ -88,15 +80,6 @@ class Trinity_rbac_sl_soap implements Emulator
             'bandate'   => 'bandate',
             'unbandate' => 'unbandate',
             'bannedby'  => 'bannedby'
-        ),
-
-        'battlenet_accounts' => array(
-            'id' => 'id',
-            'email' => 'email',
-            'sha_pass_hash' => 'sha_pass_hash',
-            'joindate' => 'joindate',
-            'last_ip' => 'last_ip',
-            'last_login' => 'last_login'
         ),
 
         'ip_banned' => array(
@@ -148,10 +131,12 @@ class Trinity_rbac_sl_soap implements Emulator
             'maxpower4'     => 'maxpower4',
             'maxpower5'     => 'maxpower5',
             'maxpower6'     => 'maxpower6',
+            'maxpower7'     => 'maxpower7',
             'strength'      => 'strength',
             'agility'       => 'agility',
             'stamina'       => 'stamina',
             'intellect'     => 'intellect',
+            'spirit'        => 'spirit',
             'armor'         => 'armor',
             'blockPct'      => 'blockPct',
             'dodgePct'      => 'dodgePct',
@@ -160,8 +145,7 @@ class Trinity_rbac_sl_soap implements Emulator
             'rangedCritPct' => 'rangedCritPct',
             'spellCritPct'  => 'spellCritPct',
             'attackPower'   => 'attackPower',
-            'spellPower'    => 'spellPower',
-            'resilience'    => 'resilience'
+            'spellPower'    => 'spellPower'
         ),
 
         'guild' => array(
@@ -177,10 +161,11 @@ class Trinity_rbac_sl_soap implements Emulator
 
         'gm_tickets' => array(
             'ticketId'   => 'Id',
+            'name'       => 'name',
             'guid'       => 'playerGuid',
-            'message'    => 'note',
+            'message'    => 'description',
             'createTime' => 'createTime',
-            'completed'  => 'comment',
+            'completed'  => 'completed',
             'closedBy'   => 'closedBy'
         )
     );
@@ -192,7 +177,7 @@ class Trinity_rbac_sl_soap implements Emulator
         'get_ip_banned'             => 'SELECT ip, bandate, bannedby, banreason, unbandate FROM ip_banned WHERE ip=? AND unbandate > ?',
         'get_character'             => 'SELECT * FROM characters WHERE guid=?',
         'get_item'                  => 'SELECT entry, Flags, name, Quality, bonding, InventoryType, MaxDurability, armor, RequiredLevel, ItemLevel, class, subclass, dmg_min1, dmg_max1, dmg_type1, holy_res, fire_res, nature_res, frost_res, shadow_res, arcane_res, delay, socketColor_1, socketColor_2, socketColor_3, spellid_1, spellid_2, spellid_3, spellid_4, spellid_5, spelltrigger_1, spelltrigger_2, spelltrigger_3, spelltrigger_4, spelltrigger_5, displayid, stat_type1, stat_value1, stat_type2, stat_value2, stat_type3, stat_value3, stat_type4, stat_value4, stat_type5, stat_value5, stat_type6, stat_value6, stat_type7, stat_value7, stat_type8, stat_value8, stat_type9, stat_value9, stat_type10, stat_value10, stackable FROM item_template WHERE entry=?',
-        'get_rank'                  => 'SELECT AccountId AccountId, SecurityLevel SecurityLevel, RealmID RealmID FROM account_access WHERE AccountId=?',
+        'get_rank'                  => 'SELECT id id, gmlevel gmlevel, RealmID RealmID FROM account_access WHERE id=?',
         'get_banned'                => 'SELECT id id, bandate bandate, bannedby bannedby, banreason banreason, active active FROM account_banned WHERE id=? AND active=1',
         'get_account_id'            => 'SELECT id id, username username, verifier password, email email, joindate joindate, last_ip last_ip, last_login last_login, expansion expansion FROM account WHERE id = ?',
         'get_account'               => 'SELECT id id, username username, verifier password, email email, joindate joindate, last_ip last_ip, last_login last_login, expansion expansion FROM account WHERE username = ?',
@@ -207,7 +192,8 @@ class Trinity_rbac_sl_soap implements Emulator
     {
         $this->config = $config;
 
-        if (!extension_loaded('gmp')) { // make sure it's loaded
+        // Make sure it's loaded
+        if (!extension_loaded('gmp')) {
             show_error('GMP extension is not enabled.');
         }
     }
@@ -347,91 +333,19 @@ class Trinity_rbac_sl_soap implements Emulator
     /**
      * Password encryption
      */
-    public function encrypt($username, $password, $salt = null)
+    public function encrypt($username, $password)
     {
-        static::forge(); // once only
-
-        is_string($username) || $username = '';
-        is_string($password) || $password = '';
-        is_string($salt) || $salt = $this->salt($username);
-
-        // algorithm constants
-        $g = gmp_init(7);
-        $N = gmp_init('894B645E89E1535BBDAD5B8B290650530801B18EBFBF5E8FAB3C82872A3E9BB7', 16);
-
-        // calculate first then calculate the second hash; at last convert to integer (little-endian)
-        $h = gmp_import(sha1($salt . sha1(strtoupper($username . ':' . $password), true), true), 1, GMP_LSW_FIRST);
-
-        // convert back to byte array, within a 32 pad; remember zeros go on the end in little-endian
-        $verifier = str_pad(gmp_export(gmp_powm($g, $h, $N), 1, GMP_LSW_FIRST), 32, chr(0), STR_PAD_RIGHT);
-
-        return array(
-            "verifier" => $verifier
-        );
-    }
-
-
-    /**
-    * Password encryption for battlenet
-    */
-    public function encrypt2($email, $password)
-    {
-        if (!is_string($email)) {
-            $email = "";
+        if (!is_string($username)) {
+            $username = "";
         }
         if (!is_string($password)) {
             $password = "";
         }
-        $sha_pass_hash = strtoupper(bin2hex(strrev(hex2bin(strtoupper(hash("sha256", strtoupper(hash("sha256", strtoupper($email)) . ":" . strtoupper($password))))))));
+        $sha_pass_hash = sha1(strtoupper($username) . ':' . strtoupper($password));
 
-        return $sha_pass_hash;
-    }
-
-    /**
-     * Fetches salt for the user or generates a new salt one and
-     * set it for them automatically if there is none.
-     *
-     * @param  string $username [description]
-     * @return string           [description]
-     */
-    public function salt($username)
-    {
-        static $salt;
-        if (
-            $saltUser = \CI::$APP->external_account_model->getConnection()->query(sprintf(
-                'SELECT TRIM("\0" FROM %s) FROM %s WHERE username = ?',
-                column('account', 'salt'),
-                table('account')
-            ), [$username])->row_array()
-        ) {
-            $salt = $salt ?: current($saltUser); // get the stored salt
-
-            if ($salt) { // if it exists
-                return $salt;
-            }
-        }
-
-        $salt = random_bytes(32);
-
-        register_shutdown_function(function () use ($salt, $username) {
-            \CI::$APP->external_account_model->getConnection()->query(sprintf(
-                'UPDATE %s SET %s = ? WHERE username = ?',
-                table('account'),
-                column('account', 'salt')
-            ), [$salt, $username]);
-        }); // ..saves the salt for the user before finishing the scripts
-
-        return $salt;
-    }
-
-    /**
-     * Send console command
-     *
-     * @param String $command
-     */
-    public function sendCommand($command)
-    {
-        $this->send($command);
+        return array(
+           "verifier" => $sha_pass_hash
+        );
     }
 
     /**
@@ -444,6 +358,16 @@ class Trinity_rbac_sl_soap implements Emulator
     public function sendMail($character, $subject, $body)
     {
         $this->send(".send mail " . $character . " \"" . $subject . "\" \"" . $body . "\"");
+    }
+
+    /**
+     * Send console command
+     *
+     * @param String $command
+     */
+    public function sendCommand($command)
+    {
+        $this->send($command);
     }
 
     /**
@@ -463,30 +387,28 @@ class Trinity_rbac_sl_soap implements Emulator
 
         foreach ($items as $i) {
             // Check if item has been added
-            if (!isset($item_stacks[$i['id']])) {
+            if (array_key_exists($i['id'], $item_stacks)) {
+                // If stack is full
+                if ($item_stacks[$i['id']]['max_count'] == $item_stacks[$i['id']]['count'][$item_stacks[$i['id']]['stack_id']]) {
+                    // Create a new stack
+                    $item_stacks[$i['id']]['stack_id']++;
+                    $item_stacks[$i['id']]['count'][$item_stacks[$i['id']]['stack_id']] = 0;
+                }
+
+                // Add one to the currently active stack
+                $item_stacks[$i['id']]['count'][$item_stacks[$i['id']]['stack_id']]++;
+            } else {
                 // Load the item row
-                $item_row = \CI::$APP->realms->getRealm($this->config['id'])->getWorld()->getItem($i['id']);
+                $item_row = get_instance()->realms->getRealm($this->config['id'])->getWorld()->getItem($i['id']);
 
                 // Add the item to the stacks array
                 $item_stacks[$i['id']] = array(
-                    'id'        => $i['id'],
-                    'count'     => array(1),
-                    'stack_id'  => 0,
-                    'max_count' => $item_row['stackable'],
+                    'id' => $i['id'],
+                    'count' => array(1),
+                    'stack_id' => 0,
+                    'max_count' => $item_row['stackable']
                 );
-
-                continue;
             }
-
-            // If stack is full
-            if ($item_stacks[$i['id']]['max_count'] == $item_stacks[$i['id']]['count'][$item_stacks[$i['id']]['stack_id']]) {
-                // Create a new stack
-                $item_stacks[$i['id']]['stack_id']++;
-                $item_stacks[$i['id']]['count'][$item_stacks[$i['id']]['stack_id']] = 0;
-            }
-
-            // Add one to the currently active stack
-            $item_stacks[$i['id']]['count'][$item_stacks[$i['id']]['stack_id']]++;
         }
 
         // Loop through all items
@@ -505,11 +427,11 @@ class Trinity_rbac_sl_soap implements Emulator
                 $item_count++;
 
                 if (!isset($item_command[$mail_id])) {
-                    $item_command[$mail_id] = '';
+                    $item_command[$mail_id] = "";
                 }
 
                 // Append the command
-                $item_command[$mail_id] .= ' ' . $item['id'] . ':' . $count;
+                $item_command[$mail_id] .= " " . $item['id'] . ":" . $count;
             }
         }
 
@@ -528,22 +450,24 @@ class Trinity_rbac_sl_soap implements Emulator
      */
     public function send($command)
     {
-        $client = new SoapClient(null, array(
-            'location' => 'http://' . $this->config['hostname'] . ':' . $this->config['console_port'],
-            'uri'      => 'urn:TC',
-            'login'    => $this->config['console_username'],
-            'password' => $this->config['console_password'],
-        )); // ..opens a new socket to the server using the initial configs
+        $client = new SoapClient(
+            null,
+            array(
+                "location" => "http://" . $this->config['hostname'] . ":" . $this->config['console_port'],
+                "uri" => "urn:AC",
+                'login' => $this->config['console_username'],
+                'password' => $this->config['console_password']
+            )
+        );
 
         try {
-            $client->executeCommand(new SoapParam($command, 'command'));
+            $result = $client->executeCommand(new SoapParam($command, "command"));
         } catch (Exception $e) {
-            die('Something went wrong! An administrator has been noticed and will send your order as soon as possible.<br/><br/>
-                <b>Error:</b> <br/>' . $e->getMessage()); // @note this isn't dev friendly and make impossible to catch errors
+            die("Something went wrong! An administrator has been noticed and will send your order as soon as possible.<br /><br /><b>Error:</b> <br />" . $e->getMessage());
         }
     }
 
-    /**
+/**
      * Forges and patches everything that this emulator needs
      * in order to work properly.
      *
@@ -563,7 +487,6 @@ class Trinity_rbac_sl_soap implements Emulator
 
         if (!strpos($temp = file_get_contents(APPPATH . 'third_party/MX/Controller.php'), 'verifier')) {
             $temp = preg_replace('~^((\s+).+cookie\([\'"]fcms_password[\'"]\).+)~m', "$1
-
 $2if($password && column('account', 'password') == 'verifier' && column('account', 'salt')) // emulator uses srp6 encryption
 $2    \$password = urldecode(preg_replace('%.(?:fcms_password=([^;]+))?%', '\\$1', @\$_SERVER['HTTP_COOKIE']));", $temp);
 
