@@ -127,10 +127,24 @@ class External_account_model extends CI_Model
             $data[column("account", "password")] = $hash["verifier"];
         }
 
-		$data[column("account", "last_ip")] = $this->input->ip_address();
-        
+		if (!preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
+		{
+            $data[column("account", "last_ip")] = $this->input->ip_address();
+        }
 
-        $this->connection->insert(table("account"), $data);
+        $userId = $this->connection->insert(table("account"), $data);
+		
+		if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
+		{
+			$ip_data = array(
+            	'accountId' => $userId,
+            	'ip' => $this->input->ip_address(),
+            	'loginTime' => date("Y-m-d H:i:s"),
+            	'loginSource' => '0'
+            );
+            
+            $this->connection->insert(table("account_logons"), $ip_data);
+        }
 
         // Battlenet accounts
         if ($this->realms->getEmulator()->battlenet() == true) {
