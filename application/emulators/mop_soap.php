@@ -33,6 +33,7 @@ class Mop_soap implements Emulator
      * Array of expansion ids and their corresponding names
      */
     protected $expansions = array(
+        4 => "Mists of Pandaria",
         3 => "Cataclysm",
         2 => "WotLK",
         1 => "TBC",
@@ -43,7 +44,7 @@ class Mop_soap implements Emulator
      * Array of table names
      */
     protected $tables = array(
-        "account" => "account",
+        "account"         => "account",
         "account_access"  => "account_access",
         "account_banned"  => "account_banned",
         'ip_banned'       => 'ip_banned',
@@ -61,31 +62,31 @@ class Mop_soap implements Emulator
     protected $columns = array(
 
         "account" => array(
-            "id" => "id",
-            "username" => "username",
-            "password" => "sha_pass_hash",
-            "email" => "email",
-            "joindate" => "joindate",
-            "last_ip" => "last_ip",
+            "id"         => "id",
+            "username"   => "username",
+            "password"   => "sha_pass_hash",
+            "email"      => "email",
+            "joindate"   => "joindate",
+            "last_ip"    => "last_ip",
             "last_login" => "last_login",
-            "expansion" => "expansion",
-            "v" => "v",
-            "s" => "s",
+            "expansion"  => "expansion",
+            "v"          => "v",
+            "s"          => "s",
             "sessionkey" => "sessionkey"
         ),
 
         "account_access" => array(
-            "id" => "id",
+            "id"      => "id",
             "gmlevel" => "gmlevel"
         ),
 
         "account_banned" => array(
-            "id" => "id",
+            "id"        => "id",
             "banreason" => "banreason",
-            "active" => "active",
-            "bandate" => "bandate",
+            "active"    => "active",
+            "bandate"   => "bandate",
             "unbandate" => "unbandate",
-            "bannedby" => "bannedby"
+            "bannedby"  => "bannedby"
         ),
 
         'ip_banned' => array(
@@ -97,81 +98,81 @@ class Mop_soap implements Emulator
         ),
 
         "characters" => array(
-            "guid" => "guid",
-            "account" => "account",
-            "name" => "name",
-            "race" => "race",
-            "class" => "class",
-            "gender" => "gender",
-            "level" => "level",
-            "zone" => "zone",
-            "online" => "online",
-            "money" => "money",
-            "totalKills" => "totalKills",
+            "guid"             => "guid",
+            "account"          => "account",
+            "name"             => "name",
+            "race"             => "race",
+            "class"            => "class",
+            "gender"           => "gender",
+            "level"            => "level",
+            "zone"             => "zone",
+            "online"           => "online",
+            "money"            => "money",
+            "totalKills"       => "totalKills",
             "totalHonorPoints" => "totalHonorPoints",
-            "position_x" => "position_x",
-            "position_y" => "position_y",
-            "position_z" => "position_z",
-            "orientation" => "orientation",
-            "map" => "map"
+            "position_x"       => "position_x",
+            "position_y"       => "position_y",
+            "position_z"       => "position_z",
+            "orientation"      => "orientation",
+            "map"              => "map"
         ),
 
         "item_template" => array(
-            "entry" => "entry",
-            "name" => "name",
-            "Quality" => "Quality",
+            "entry"         => "entry",
+            "name"          => "name",
+            "Quality"       => "Quality",
             "InventoryType" => "InventoryType",
             "RequiredLevel" => "RequiredLevel",
-            "ItemLevel" => "ItemLevel",
-            "class" => "class",
-            "subclass" => "subclass"
+            "ItemLevel"     => "ItemLevel",
+            "class"         => "class",
+            "subclass"      => "subclass"
         ),
 
         "character_stats" => array(
-            "guid" => "guid",
-            "maxhealth" => "maxhealth",
-            "maxpower1" => "maxpower1",
-            "maxpower2" => "maxpower2",
-            "maxpower3" => "maxpower3",
-            "maxpower4" => "maxpower4",
-            "maxpower5" => "maxpower5",
-            "maxpower6" => "maxpower6",
-            "maxpower7" => "maxpower7",
-            "strength" => "strength",
-            "agility" => "agility",
-            "stamina" => "stamina",
-            "intellect" => "intellect",
-            "spirit" => "spirit",
-            "armor" => "armor",
-            "blockPct" => "blockPct",
-            "dodgePct" => "dodgePct",
-            "parryPct" => "parryPct",
-            "critPct" => "critPct",
+            "guid"          => "guid",
+            "maxhealth"     => "maxhealth",
+            "maxpower1"     => "maxpower1",
+            "maxpower2"     => "maxpower2",
+            "maxpower3"     => "maxpower3",
+            "maxpower4"     => "maxpower4",
+            "maxpower5"     => "maxpower5",
+            "maxpower6"     => "maxpower6",
+            "maxpower7"     => "maxpower7",
+            "strength"      => "strength",
+            "agility"       => "agility",
+            "stamina"       => "stamina",
+            "intellect"     => "intellect",
+            "spirit"        => "spirit",
+            "armor"         => "armor",
+            "blockPct"      => "blockPct",
+            "dodgePct"      => "dodgePct",
+            "parryPct"      => "parryPct",
+            "critPct"       => "critPct",
             "rangedCritPct" => "rangedCritPct",
-            "spellCritPct" => "spellCritPct",
-            "attackPower" => "attackPower",
-            "spellPower" => "spellPower",
-            "resilience" => "resilience"
+            "spellCritPct"  => "spellCritPct",
+            "attackPower"   => "attackPower",
+            "spellPower"    => "spellPower",
+            "resilience"    => "resilience"
         ),
 
         "guild" => array(
-            "guildid" => "guildid",
-            "name" => "name",
+            "guildid"    => "guildid",
+            "name"       => "name",
             "leaderguid" => "leaderguid"
         ),
 
         "guild_member" => array(
             "guildid" => "guildid",
-            "guid" => "guid"
+            "guid"    => "guid"
         ),
 
         "gm_tickets" => array(
-            "ticketId" => "ticketId",
-            "guid" => "guid",
-            "message" => "message",
+            "ticketId"   => "ticketId",
+            "guid"       => "guid",
+            "message"    => "message",
             "createTime" => "createTime",
-            "completed" => "completed",
-            "closedBy" => "closedBy"
+            "completed"  => "completed",
+            "closedBy"   => "closedBy"
         )
     );
 
