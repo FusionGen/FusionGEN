@@ -10,7 +10,7 @@
     <div id="{$realm->getName()}" class="accordion-collapse collapse {if count($realms) == 1}show{/if}" aria-labelledby="{$realm->getId()}" data-bs-parent="#online_page">
       <div class="accordion-body p-0" id="online_realm_{$realm->getId()}">
 			{if $realm->getOnline() > 0}
-			<table class="nice_table">
+			<div class="nice_table table-responsive">
 			<thead>
 				<tr>
 					<th class="p-3"><a href="javascript:void(0)" onClick="Sort.name({$realm->getId()})">{lang("character", "online")}</a></th>
@@ -34,7 +34,7 @@
 			{else}
 				<center style="margin-bottom:10px;">{lang("no_players", "online")}</center>
 			{/if}
-			</table>
+			</div>
 		</div>
     </div>
 		{else}

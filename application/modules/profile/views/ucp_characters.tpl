@@ -4,7 +4,7 @@
 	
 		{foreach from=$realms item=realm}
 			{if $realm->getCharacterCount($id) > 0}
-				<table class="nice_table mb-3">
+				<div class="nice_table table-responsive mb-3">
 					<thead>
 						<tr>
 							<th scope="col" colspan="6" class="h4 text-center">{$realm->getName()}</th>
@@ -24,7 +24,7 @@
 									<td class="col-3">{$character.name}</td>
 
 									
-									<td class="col-4 user-points">
+									<td class="col-4 user-points text-nowrap">
 										{if $money}
 											<span class="gold-points"><i class="fa-solid fa-coins"></i> {$money["gold"]}</span>
 											<span class="silver-points"><i class="fa-solid fa-coins"></i> {$money["silver"]}</span>
@@ -43,7 +43,7 @@
 						{/foreach}
 						
 					</tbody>
-				</table>
+				</div>
 			{/if}
 		{/foreach}
 
