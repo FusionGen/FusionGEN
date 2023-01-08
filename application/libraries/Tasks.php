@@ -34,11 +34,27 @@ class Tasks
             $this->CI->dbbackup->backup();
         }
 
-        $url = curl_init($this->update_url);
-        if(curl_getinfo($url, CURLINFO_HTTP_CODE) === 200)
-        {
-            $this->installupdates();
+        /* Start update auto update*/
+        $ch = curl_init($this->update_url);
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_exec($ch);
+
+        if (!curl_errno($ch)) {
+            switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
+                case 200:
+                     $this->installupdates();
+                break;
+                case 301:
+                     $this->installupdates();
+                break;
+                default:
+                     log_message('error', 'Update URL broken. Check for update not possible');
+		    }
         }
+
+		curl_close($ch);
+        /* End update auto update*/
     }
 	
 	private function check_updates()
