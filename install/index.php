@@ -19,6 +19,7 @@ $gmp_success = false;
 $rewrite_success = false;
 $soap_success = false;
 $openssl_success = false;
+$zip_success = false;
 
 $php_version_min = "8.0.0";
 $php_version_max = "8.2.0";
@@ -68,8 +69,13 @@ if (extension_loaded('openssl')) {
     $openssl_success = true;
 }
 
+//check zip
+if (extension_loaded('zip')) {
+    $zip_success = true;
+}
+
 //check if all requirement is success
-if ($php_version_success && $mysql_success && $curl_success && $gd_success && $json_success && $gmp_success && $soap_success && $mbstring_success && $openssl_success /*&& $rewrite_success*/) {
+if ($php_version_success && $mysql_success && $curl_success && $gd_success && $json_success && $gmp_success && $soap_success && $mbstring_success && $openssl_success && $zip_success) {
     $all_requirement_success = true;
 } else {
     $all_requirement_success = false;

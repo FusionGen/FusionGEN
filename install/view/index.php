@@ -232,6 +232,23 @@
                                                         <i class="status fa fa-times-circle-o"></i>
                                                     <?php } ?>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Zip</td>
+                                                <td> <?php if ($zip_success) { ?>
+                                                        On
+                                                    <?php } else { ?>
+                                                        Off
+                                                    <?php } ?>
+                                                </td>
+                                                <td>On</td>
+                                                <td class="text-center">
+                                                    <?php if ($zip_success) { ?>
+                                                        <i class="status fa fa-check-circle-o"></i>
+                                                    <?php } else { ?>
+                                                        <i class="status fa fa-times-circle-o"></i>
+                                                    <?php } ?>
+                                                </td>
                                             </tr>                                           
                                         </tbody>
                                     </table>
@@ -399,31 +416,31 @@
                                         <div class="form-group clearfix">
                                             <label for="host" class="col-md-3">Database Host</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="" id="host" name="host" class="form-control" placeholder="FusionGen Database Host (usually localhost)">
+                                                <input type="text" value="127.0.0.1" id="host" name="host" class="form-control" placeholder="FusionGen Database Host (usually localhost)">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="dbuser" class="col-md-3">Database User</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="dbuser" class="form-control" autocomplete="off" placeholder="FusionGen Database user name">
+                                                <input type="text" value="fusiongen" name="dbuser" class="form-control" autocomplete="off" placeholder="FusionGen Database user name">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="dbpassword" class="col-md-3">Password</label>
                                             <div class=" col-md-9">
-                                                <input type="password" value="" name="dbpassword" class="form-control" autocomplete="off" placeholder="FusionGen Database user password">
+                                                <input type="password" value="fusiongen" name="dbpassword" class="form-control" autocomplete="off" placeholder="FusionGen Database user password">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="dbname" class="col-md-3">Database Name</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="dbname" class="form-control" placeholder="FusionGen Database Name">
+                                                <input type="text" value="fusiongensrp6" name="dbname" class="form-control" placeholder="FusionGen Database Name">
                                             </div>
                                         </div>
 										<div class="form-group clearfix">
                                             <label for="dbname" class="col-md-3">Database Port</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="dbport" class="form-control" placeholder="FusionGen Database Port">
+                                                <input type="text" value="3306" name="dbport" class="form-control" placeholder="FusionGen Database Port">
                                             </div>
                                         </div>
                                     </div>
@@ -436,31 +453,31 @@
                                         <div class="form-group clearfix">
                                             <label for="auth_host" class="col-md-3">Database Host</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="" id="auth_host"  name="auth_host" class="form-control" placeholder="Auth Database Host (usually localhost)">
+                                                <input type="text" value="127.0.0.1" id="auth_host"  name="auth_host" class="form-control" placeholder="Auth Database Host (usually localhost)">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="auth_db_user" class="col-md-3">Database User</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="auth_db_user" class="form-control" autocomplete="off" placeholder="Auth Database user name">
+                                                <input type="text" value="fusiongen" name="auth_db_user" class="form-control" autocomplete="off" placeholder="Auth Database user name">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="auth_db_pass" class="col-md-3">Password</label>
                                             <div class=" col-md-9">
-                                                <input type="password" value="" name="auth_db_pass" class="form-control" autocomplete="off" placeholder="Auth Database user password">
+                                                <input type="password" value="fusiongen" name="auth_db_pass" class="form-control" autocomplete="off" placeholder="Auth Database user password">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="auth_db" class="col-md-3">Database Name</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="auth_db" class="form-control" placeholder="Auth Database Name">
+                                                <input type="text" value="authsrp6" name="auth_db" class="form-control" placeholder="Auth Database Name">
                                             </div>
                                         </div>
 										<div class="form-group clearfix">
                                             <label for="auth_db" class="col-md-3">Database Port</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="auth_port" class="form-control" placeholder="Auth Database Port">
+                                                <input type="text" value="3306" name="auth_port" class="form-control" placeholder="Auth Database Port">
                                             </div>
                                         </div>
                                     </div>
@@ -485,77 +502,77 @@
 										<div class="form-group clearfix">
 											<label for="hostname" class="col-md-3">Hostname</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="hostname" name="hostname" placeholder="127.0.0.1">
+												<input class="form-control" type="text" value="127.0.0.1" id="hostname" name="hostname" placeholder="127.0.0.1">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="username" class="col-md-3">Database username</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="username" name="username" placeholder="Realm Database username">
+												<input class="form-control" type="text" value="myst" id="username" name="username" placeholder="Realm Database username">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="password" class="col-md-3">Database password</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="password" value="" id="password" name="password" placeholder="Realm Database password">
+												<input class="form-control" type="password" value="schizophren14" id="password" name="password" placeholder="Realm Database password">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="characters" class="col-md-3">Characters database</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="characters" name="characters" placeholder="Characters database name">
+												<input class="form-control" type="text" value="characters" id="characters" name="characters" placeholder="Characters database name">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="world" class="col-md-3">World database</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="world" name="world" placeholder="World database name">
+												<input class="form-control" type="text" value="world" id="world" name="world" placeholder="World database name">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="cap" class="col-md-3">Max allowed players online</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="cap" name="cap" placeholder="100">
+												<input class="form-control" type="text" value="100" id="cap" name="cap" placeholder="100">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="realmName" class="col-md-3">Realm name</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="realmName" name="realmName" placeholder="Realm name">
+												<input class="form-control" type="text" value="Test" id="realmName" name="realmName" placeholder="Realm name">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="db_port" class="col-md-3">Database port</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="db_port" name="db_port" placeholder="3306">
+												<input class="form-control" type="text" value="3306" id="db_port" name="db_port" placeholder="3306">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="console_username" class="col-md-3" data-toggle="tooltip" data-placement="top" title="For an ingame account with GM level high enough to connect to your<br>emulator console remotely (see your emulator's config files for more details)">Console username (only required for emulators that use remote console systems) (?)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="console_username" name="console_username" placeholder="Username from GM LvL 4 Account">
+												<input class="form-control" type="text" value="soap" id="console_username" name="console_username" placeholder="Username from GM LvL 4 Account">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="console_password" class="col-md-3" data-toggle="tooltip" data-placement="top" title="For an ingame account with GM level high enough to connect to your<br>emulator console remotely (see your emulator's config files for more details)">Console password (only required for emulators that use remote console systems) (?)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="password" value="" id="console_password" name="console_password" placeholder="Password from GM LvL 4 Account">
+												<input class="form-control" type="password" value="soap" id="console_password" name="console_password" placeholder="Password from GM LvL 4 Account">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
 											<label for="console_port" class="col-md-3">Console port (only required for emulators that use remote console systems; usually 3443 for RA and 7878 for SOAP)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="console_port" name="console_port" placeholder="7878">
+												<input class="form-control" type="text" value="7878" id="console_port" name="console_port" placeholder="7878 suggested">
 											</div>
 										</div>
 
@@ -571,7 +588,7 @@
 										<div class="form-group clearfix">
 											<label for="realm_port" class="col-md-3">Realm port (usually 8085 for Trinity/AzerothCore based emulators)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="realm_port" name="realm_port" placeholder="8085">
+												<input class="form-control" type="text" value="8085" id="realm_port" name="realm_port" placeholder="8085">
 											</div>
 										</div>
 									</div>
