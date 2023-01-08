@@ -20,7 +20,7 @@ class Tasks
 
     public function __construct()
     {
-		$this->CI = &get_instance();
+        $this->CI = &get_instance();
 
         $this->CI->load->library('dbbackup');
         $this->CI->load->library('user');
@@ -43,8 +43,6 @@ class Tasks
         if (!curl_errno($ch)) {
             switch ($http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE)) {
                 case 200:
-                     $this->installupdates();
-                break;
                 case 301:
                      $this->installupdates();
                 break;
