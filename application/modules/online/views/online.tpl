@@ -3,14 +3,14 @@
 	<div class="accordion-item mb-3">
     <h2 class="accordion-header" id="{$realm->getId()}">
 		{if $realm->isOnline()}
-			<button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#{$realm->getName()}" aria-expanded="true" aria-controls="{$realm->getName()}">
+			<button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#realm-{$realm->getId()}" aria-expanded="true" aria-controls="realm-{$realm->getId()}">
 				{$realm->getName()} ({$realm->getOnline()})
 			</button>
     </h2>
-    <div id="{$realm->getName()}" class="accordion-collapse collapse {if count($realms) == 1}show{/if}" aria-labelledby="{$realm->getId()}" data-bs-parent="#online_page">
+    <div id="realm-{$realm->getId()}" class="accordion-collapse collapse {if count($realms) == 1}show{/if}" aria-labelledby="{$realm->getId()}" data-bs-parent="#online_page">
       <div class="accordion-body p-0" id="online_realm_{$realm->getId()}">
 			{if $realm->getOnline() > 0}
-			<div class="nice_table table-responsive">
+			<table class="nice_table">
 			<thead>
 				<tr>
 					<th class="p-3"><a href="javascript:void(0)" onClick="Sort.name({$realm->getId()})">{lang("character", "online")}</a></th>
@@ -34,11 +34,11 @@
 			{else}
 				<center style="margin-bottom:10px;">{lang("no_players", "online")}</center>
 			{/if}
-			</div>
+			</table>
 		</div>
     </div>
 		{else}
-		<button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#{$realm->getName()}" aria-expanded="true" aria-controls="{$realm->getName()}">
+		<button class="accordion-button text-center" type="button" data-bs-toggle="collapse" data-bs-target="#realm-{$realm->getId()}" aria-expanded="true" aria-controls="realm-{$realm->getId()}">
 			{$realm->getName()} ({lang("offline", "online")})
 		</button>
 		{/if}
