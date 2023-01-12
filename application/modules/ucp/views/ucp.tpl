@@ -6,7 +6,7 @@
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">{lang("account_overview", "ucp")}</div>
 			<div class="section-body">
-				<div class="table table-borderless table-responsive user-table">
+				<table class="table table-borderless table-responsive user-table">
 					<tr>
 						<td><div class="user-table-icon"><i class="fas fa-user"></i></div> {lang("nickname", "ucp")}</td>
 						<td>{$username}</td>
@@ -63,7 +63,7 @@
 						<td>{$dp}</td>
 						<td class="text-end"><a data-bs-toggle="tooltip" data-bs-placement="top" title="{lang("data_tip_donate", "ucp")}" href="{$url}donate">{lang("donate", "main")}</a></td>
 					</tr>
-				</div>
+				</table>
 			</div>
 			
 			{if $characters > 0}
