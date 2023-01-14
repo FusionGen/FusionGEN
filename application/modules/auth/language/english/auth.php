@@ -10,11 +10,10 @@ $lang["login_button"] = "Sign In";
 $lang['log_in'] = "Login";
 
 //Errors
-$lang["user_doesnt_exist"] = "User doesn't exists";
-$lang["user_exist"] = "User already exists";
-
-//Password
-$lang["password_doesnt_match"] = "Password doesn't match";
+$lang["error"] = "No account found with the given credentials.";
+$lang["ip_blocked"] = "Your IP has been blocked.";
+$lang["try_again"] = "Please try again in";
+$lang["minutes"] = "minutes.";
 
 //Captcha
 $lang["captcha_invalid"] = "Captcha is invalid";
