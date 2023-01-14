@@ -41,7 +41,7 @@
 		<textarea name="content" class="form-control tinymce mb-3" id="content" cols="30" rows="10">{$sideboxCustomText}</textarea>
 	</div>
 
-	<form role="form" onSubmit="Sidebox.save(document.getElementById('submit_form'), {$sidebox.id}); return false">
+	<form class="mt-3" role="form" onSubmit="Sidebox.save(document.getElementById('submit_form'), {$sidebox.id}); return false">
 		<button type="submit" class="btn btn-primary btn-sm">Save sidebox</button>
 	</form>
 </div>
