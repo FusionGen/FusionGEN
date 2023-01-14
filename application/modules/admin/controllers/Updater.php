@@ -17,7 +17,7 @@ class Updater extends MX_Controller
         parent::__construct();
 
         //URL to check update json from
-        $this->update_url = 'https://update.fusiongen.net/updates';
+        $this->update_url = 'https://update.fusiongen.net';
 
         //Base directory to start apllying updates
         $this->FCPATH = FCPATH;

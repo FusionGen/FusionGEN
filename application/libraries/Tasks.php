@@ -27,7 +27,7 @@ class Tasks
         $this->CI->load->model('internal_user_model');
         $this->CI->load->config('backups');
 
-        $this->update_url = 'https://update.fusiongen.net/updates';
+        $this->update_url = 'https://update.fusiongen.net';
         $this->FCPATH = FCPATH;
 
         if ($this->CI->config->item('auto_backups')) {
