@@ -36,10 +36,8 @@ class External_account_model extends CI_Model
             $this->email = "";
             $this->joindate =  "";
             $this->expansion = 0;
-
-                $this->last_ip =  "";
-                $this->last_login = "";
-            
+            $this->last_ip =  "";
+            $this->last_login = "";
         }
     }
 
@@ -62,7 +60,7 @@ class External_account_model extends CI_Model
         $this->connect();
 
         if (!$where) {
-            $query = $this->connection->query(query("get_account_id"), array($this->session->userdata('id')));
+            $query = $this->connection->query(query("get_account_id"), array($this->session->userdata('uid')));
         } else {
             $query = $this->connection->query(query("get_account"), array($where));
         }
@@ -77,10 +75,8 @@ class External_account_model extends CI_Model
             $this->email = $result["email"];
             $this->joindate = $result["joindate"];
             $this->expansion = $result["expansion"];
-
-                $this->last_ip = $result["last_ip"];
-                $this->last_login = $result["last_login"];
-            
+            $this->last_ip = $result["last_ip"];
+            $this->last_login = $result["last_login"];
 
             return true;
         } else {
@@ -90,10 +86,8 @@ class External_account_model extends CI_Model
             $this->email = "";
             $this->joindate =  "";
             $this->expansion = 0;
-
-                $this->last_ip =  "";
-                $this->last_login = "";
-            
+            $this->last_ip =  "";
+            $this->last_login = "";
 
             return false;
         }

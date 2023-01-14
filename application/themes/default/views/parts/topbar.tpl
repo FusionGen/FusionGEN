@@ -17,8 +17,8 @@
 			<div class="col-sm-12 col-md-7" membership-bar="">
 				<!-- Membership bar.Start -->
 				<div class="membership-bar not-logged-in d-inline-flex flex-row align-items-center">
-					<a href="{$url}login" class="nice_button btn-neon" title="Login" onclick="App.initPopupLogin(event);" data-hasevent="0">Login</a>
-					<span sep=""></span><a href="{$url}register" class="nice_button btn-sky" title="Register" data-hasevent="1">Register</a>
+					<a href="{$url}login" class="nice_button btn-neon" title="Login">Login</a>
+					<span sep=""></span><a href="{$url}register" class="nice_button btn-sky" title="Register">Register</a>
 				</div>
 				<!-- Membership bar.End -->
 			</div>

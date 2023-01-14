@@ -16,12 +16,10 @@ class Cms_model extends CI_Model
      */
     public function __construct()
     {
+        $this->db = $this->load->database("cms", true);
+
         $this->load->library('user_agent');
         $this->load->library('tasks');
-
-        $this->FCPATH = FCPATH;
-
-        $this->db = $this->load->database("cms", true);
 
         $this->logVisit();
         $this->clearSessions();
@@ -43,49 +41,27 @@ class Cms_model extends CI_Model
         );
 
         $this->db->where('ip_address', $session['ip_address']);
-        $this->db->where('user_agent', $session['user_agent']);
+        $this->db->update("ci_sessions", $session);
 
-        $query = $this->db->get("ci_sessions");
+        $query = $this->getSession($session);
 
         $data = array(
             "ip_address" => $session['ip_address'],
-            "user_agent" => $session["user_agent"],
-            "timestamp"  => time(),
-            "data"       => ""
         );
 
-        if ($this->session->userdata('online')) {
-            $udata = array(
-                'id'       => $this->session->userdata('id'),
-                'nickname' => $this->session->userdata('nickname'),
-            );
-
-            $data['data'] = serialize($udata);
+        if($session["user_agent"])
+        {
+            $data['user_agent'] = $session["user_agent"];
         }
 
-        if ($query->num_rows() == 0) {
-            $data['id'] = uniqid(time());
-            $this->db->insert("ci_sessions", $data);
-        } else {
-            $this->db->where('ip_address', $session['ip_address']);
-            $this->db->update("ci_sessions", $data);
-        }
+
+        $this->db->where('ip_address', $session['ip_address']);
+        $this->db->update("ci_sessions", $data);
     }
 
     private function clearSessions()
     {
         $this->db->query("DELETE FROM ci_sessions WHERE timestamp < ?", array(time() - 60 * 60));
-
-        /* Remove double visitor logs -> bug */
-        $query = $this->db->where('ip', $this->input->ip_address())
-                          ->where('timestamp >', time() - 3)
-                          ->order_by('id', 'DESC')
-                          ->limit(2)
-                          ->get("visitor_log");
-
-        if ($query->num_rows() > 1) {
-            $this->db->query("DELETE FROM visitor_log WHERE id  = ?", array($query->result_array()[0]['id']));
-        }
     }
 
     public function getModuleConfigKey($moduleId, $key)
@@ -347,6 +323,20 @@ class Cms_model extends CI_Model
             $this->user->setLanguage($setLang);
         } else {
             $this->session->set_userdata(array('language' => $setLang));
+        }
+    }
+
+	private function getSession($session)
+    {
+        $this->db->where('ip_address', $session['ip_address']);
+        $this->db->where('user_agent', $session['user_agent']);
+        $query = $this->db->get("ci_sessions");
+
+        if ($query->num_rows() > 0) {
+            $result = $query->result_array();
+            return $result;
+        } else {
+            return false;
         }
     }
 }

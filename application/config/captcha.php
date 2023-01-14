@@ -5,7 +5,7 @@
  * Enable captcha for site
  *
  */
-$config["use_captcha"] = true;
+$config['use_captcha'] = true;
 
 /**
  *
@@ -22,7 +22,16 @@ $config["captcha_type"] = 'inbuilt';
  * After how many tries should a captcha pop up?
  *
  */
-$config["captcha_attemps"] = 3;
+$config['captcha_attemps'] = 3;
+
+/**
+ *
+ * After how many tries should we block an IP address?
+ * How many minutes should an IP address remain blocked?
+ *
+ */
+$config['block_attemps'] = 5;
+$config['block_duration'] = 15;
 
 /**
  *

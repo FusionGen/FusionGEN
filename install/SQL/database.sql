@@ -494,7 +494,7 @@ CREATE TABLE `ci_sessions`  (
   `user_agent` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `data` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
+  PRIMARY KEY (`id`, `ip_address`) USING BTREE,
   INDEX `last_activity_idx`(`timestamp`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 

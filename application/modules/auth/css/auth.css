@@ -2,61 +2,10 @@
 .rounded-bottom-start {border-bottom-left-radius: 0.25rem!important;}
 .rounded-bottom-end {border-bottom-right-radius: 0.25rem!important;}
 
-.card-login-avatar {
-	position:relative;
-	height:8rem;
-	width:8rem;
-	background-color:rgba(0,0,0,.125);
-	border-radius: 100%;
-	z-index:1;
+.invalid-feedback {
+    color: #dc3545!important;
 }
 
-.card-login-avatar > i,
-.card-login-avatar > svg {
-	width:65%;
-	height:65%;
-}
-
-.card-login-avatar > img {
-	width:75%;
-	height:75%;
-	border-radius:100%;
-}
-
-.card-login-avatar:before {
-	display:block;
-	position:absolute;
-	content:"";
-	top:0;
-	left:0;
-	width:8rem;
-	height:8rem;
-	background-color:transparent;
-	border-radius: 100%;
-}
-
-.card-login-avatar .loading {
-	display:none;
-	position:absolute;
-	content:"";
-	top:0;
-	left:0;
-	width:8rem;
-	height:8rem;
-	border-radius:100%;
-	border-top:3px solid darkgreen;
-	
-	animation-name: spin;
-	animation-duration: 1000ms;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear; 
-}	
-
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+.error {
+    color: #dc3545!important;
 }

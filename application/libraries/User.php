@@ -57,7 +57,7 @@ class User
             $this->CI->internal_user_model->initialize($this->CI->external_account_model->getId());
 
             $userdata = array(
-                'id' => $this->CI->external_account_model->getId(),
+                'uid' => $this->CI->external_account_model->getId(),
                 'username' => $this->CI->external_account_model->getUsername(),
                 'password' => $this->CI->external_account_model->getShaPassHash(),
                 'email' => $this->CI->external_account_model->getEmail(),
@@ -300,7 +300,7 @@ class User
     {
         // If they are logged in sync the settings with our object
         if ($this->CI->session->userdata('online') == true) {
-            $this->id = $this->CI->session->userdata('id');
+            $this->id = $this->CI->session->userdata('uid');
             $this->username = $this->CI->session->userdata('username');
             $this->password = $this->CI->session->userdata('password');
             $this->email = $this->CI->session->userdata('email');

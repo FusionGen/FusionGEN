@@ -39,7 +39,7 @@ class Internal_user_model extends CI_Model
     public function initialize($id = false)
     {
         if (!$id) {
-            $id = $this->session->userdata('id');
+            $id = $this->session->userdata('uid');
         }
 
         $this->connection->select('*')->from('account_data')->where(array('id' => $id));
@@ -72,7 +72,7 @@ class Internal_user_model extends CI_Model
     public function makeNew()
     {
         $array = array(
-            'id' => $this->external_account_model->getId(),
+            'uid' => $this->external_account_model->getId(),
             'vp' => 0,
             'dp' => 0,
             'location' => "Unknown",
