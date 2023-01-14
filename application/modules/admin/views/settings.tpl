@@ -20,7 +20,7 @@
 			<a class="nav-link" href="#cdn" data-bs-target="#cdn" data-bs-toggle="tab">CDN</a>
         </li>
 		<li class="nav-item">
-			<button onClick="Settings.showHelp()" type="button" class="btn btn-primary"><i class="fa-solid fa-circle-info fa-lg"></i></button>
+			<a class="nav-link" href="#security" data-bs-target="#security" data-bs-toggle="tab">Security</a>
         </li>
     </ul>
 
@@ -318,16 +318,6 @@
             </div>
 
 			<div class="form-group row">
-			<label class="col-sm-2 col-form-label" for="cache">Cache on?</label>
-			<div class="col-sm-10">
-			<select class="form-control" name="cache" id="cache">
-				<option value="true" {if $config.cache}selected{/if}>Yes</option>
-				<option value="false" {if !$config.cache}selected{/if}>No</option>
-			</select>
-			</div>
-			</div>
-
-			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="has_smtp">Enable password recovery (requires SMTP server)</label>
 			<div class="col-sm-10">
 			<select class="form-control" id="has_smtp">
@@ -363,12 +353,12 @@
 			</div>
 			</div>
 			
-			<button class="btn btn-primary btn-sm" type="submit">Save settings</button>
-		</form>
+			<button class="btn btn-primary btn-sm" type="submit">Save</button>
+        </form>
         </div>
 
         <div class="tab-pane" id="smtp">
-		<form role="form" onSubmit="Settings.saveSmtpSettings(); return false">
+        <form role="form" onSubmit="Settings.saveSmtpSettings(); return false">
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="use_own_smtp_settings">Use own SMTP settings (enter them below)</label>
 			<div class="col-sm-10">
@@ -439,9 +429,10 @@
             </div>
             </div>
 
-			<button class="btn btn-primary btn-sm" type="submit">Save settings</button>
+			<button class="btn btn-primary btn-sm" type="submit">Save</button>
 			<button class="btn btn-primary btn-sm" onclick="Settings.mailDebug(); return false">Mail debug</button>
-		</form>
+            <button onClick="Settings.showHelp()" type="button" class="btn btn-primary pull-right"><i class="fa-solid fa-circle-info fa-lg"></i></button>
+        </form>
         </div>
 
         <div class="tab-pane" id="performance">
@@ -455,7 +446,17 @@
 			</select>
 			</div>
 			</div>
-			<button class="btn btn-primary btn-sm" type="submit">Save settings</button>
+			
+			<div class="form-group row mb-3">
+			<label class="col-sm-2 col-form-label" for="cache">Cache on?</label>
+			<div class="col-sm-10">
+			<select class="form-control" name="cache" id="cache">
+				<option value="true" {if $config.cache}selected{/if}>Yes</option>
+				<option value="false" {if !$config.cache}selected{/if}>No</option>
+			</select>
+			</div>
+			</div>
+			<button class="btn btn-primary btn-sm" type="submit">Save</button>
 		</form>
         </div>
 
@@ -489,12 +490,12 @@
 			</div>
             </div>
 
-			<button class="btn btn-primary btn-sm" type="submit">Save social links</button>
+			<button class="btn btn-primary btn-sm" type="submit">Save</button>
 		</form>
         </div>
 
 		<div class="tab-pane" id="cdn">
-          <form role="form" onSubmit="Settings.saveCDN(); return false">
+		<form role="form" onSubmit="Settings.saveCDN(); return false">
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="cdn_value">CDN</label>
 			<div class="col-sm-10">
@@ -512,12 +513,49 @@
 			</div>
             </div>
 
-			<button class="btn btn-primary btn-sm" type="submit">Save CDN</button>
-		</form>
-		<div class="alert alert-dark mt-3" role="alert">
+			<button class="btn btn-primary btn-sm" type="submit">Save</button>
+        </form>
+        <div class="alert alert-dark mt-3" role="alert">
 			Do you like the CDN system and want to continue using it? We would appreciate your help!<br>
 			With a small <a href="https://github.com/FusionGen/FusionGEN/blob/main/.github/FUNDING.yml">donation</a> of only $5 you help to keep the CDN system alive
-		</div>
+        </div>
+        </div>
+
+        <div class="tab-pane" id="security">
+        <form role="form" onSubmit="Settings.saveSecurity(); return false">
+			<div class="form-group row">
+			<label class="col-sm-2 col-form-label" for="use_captcha">Use captcha? (Recommended: yes)</label>
+			<div class="col-sm-10">
+			<select class="form-control" id="use_captcha">
+				<option value="true" {if $config.use_captcha == '1'}selected{/if}>Yes</option>
+				<option value="false" {if $config.use_captcha == '0'}selected{/if}>No</option>
+			</select>
+			</div>
+            </div>
+
+			<div class="form-group row">
+			<label class="col-sm-2 col-form-label" for="captcha_attemps">Captcha attemps (default: 3)</label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" id="captcha_attemps" value="{$config.captcha_attemps}" />
+			</div>
+            </div>
+
+			<div class="form-group row">
+			<label class="col-sm-2 col-form-label" for="block_attemps">Block attemps</label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" id="block_attemps" value="{$config.block_attemps}" />
+			</div>
+            </div>
+
+			<div class="form-group row mb-3">
+			<label class="col-sm-2 col-form-label" for="block_duration">Block duration in minutes (default: 15)</label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" id="block_duration" value="{$config.block_duration}" />
+			</div>
+            </div>
+
+			<button class="btn btn-primary btn-sm" type="submit">Save</button>
+        </form>
         </div>
     </div>
 </div>

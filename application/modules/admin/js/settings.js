@@ -207,7 +207,6 @@ var Settings = {
 			vote_reminder_image:$("#vote_reminder_image").val(),
 			reminder_interval:$("#reminder_interval").val(),
 			has_smtp:$("#has_smtp").val(),
-			cache:$("#cache").val(),
 			csrf_token_name: Config.CSRF
 		};
 
@@ -273,6 +272,7 @@ var Settings = {
 	{
 		var data = {
 			disable_visitor_graph:$("#disable_visitor_graph").val(),
+			cache:$("#cache").val(),
 			csrf_token_name: Config.CSRF
 		};
 
@@ -347,6 +347,38 @@ var Settings = {
 				Swal.fire({
 					icon: "success",
 					title: "CDN have been saved!",
+				});
+			}
+			else
+			{
+				console.log(values);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: response,
+				})
+			}
+		});
+	},
+
+	saveSecurity: function()
+	{
+		var values = {
+			use_captcha:$("#use_captcha").val(),
+			captcha_attemps:$("#captcha_attemps").val(),
+			block_attemps:$("#block_attemps").val(),
+			block_duration:$("#block_duration").val(),
+			csrf_token_name: Config.CSRF
+		};
+
+		$.post(Config.URL + "admin/settings/saveSecurity", values, function(response)
+		{
+			if(response == "yes")
+			{
+				console.log(values);
+				Swal.fire({
+					icon: "success",
+					title: "Security settings has been saved!",
 				});
 			}
 			else

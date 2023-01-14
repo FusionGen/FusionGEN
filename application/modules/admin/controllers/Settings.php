@@ -36,10 +36,10 @@ class Settings extends MX_Controller
         $config['vote_reminder_image'] = $this->config->item('vote_reminder_image');
         $config['reminder_interval'] = $this->config->item('reminder_interval');
         $config['has_smtp'] = $this->config->item('has_smtp');
-        $config['cache'] = $this->config->item('cache');
 
         // Performance
         $config['disable_visitor_graph'] = $this->config->item('disable_visitor_graph');
+        $config['cache'] = $this->config->item('cache');
 
         // SMTP
         $config['use_own_smtp_settings'] = $this->config->item('use_own_smtp_settings');
@@ -60,6 +60,12 @@ class Settings extends MX_Controller
 		// CDN
         $config['cdn_value'] = $this->config->item('cdn');
         $config['cdn_link'] = $this->config->item('cdn_link');
+		
+        // Security
+        $config['use_captcha'] = $this->config->item('use_captcha');
+        $config['captcha_attemps'] = $this->config->item('captcha_attemps');
+        $config['block_attemps'] = $this->config->item('block_attemps');
+        $config['block_duration'] = $this->config->item('block_duration');
 
         // Prepare my data
         $data = array(
@@ -100,7 +106,6 @@ class Settings extends MX_Controller
         $fusionConfig->set('vote_reminder_image', $this->input->post('vote_reminder_image'));
         $fusionConfig->set('reminder_interval', $this->input->post('reminder_interval') * 60 * 60);
         $fusionConfig->set('has_smtp', $this->input->post('has_smtp'));
-        $fusionConfig->set('cache', $this->input->post('cache'));
 
         switch ($this->input->post('disabled_expansions')) {
             case "sl":
@@ -159,10 +164,13 @@ class Settings extends MX_Controller
     public function savePerformance()
     {
         $fusionConfig = new ConfigEditor("application/config/performance.php");
+        $fusionConfig2 = new ConfigEditor("application/config/fusion.php");
 
         $fusionConfig->set('disable_visitor_graph', $this->input->post('disable_visitor_graph'));
+        $fusionConfig2->set('cache', $this->input->post('cache'));
 
         $fusionConfig->save();
+        $fusionConfig2->save();
 
         die('yes');
     }
@@ -234,6 +242,20 @@ class Settings extends MX_Controller
 
 		$fusionConfig->set('cdn', $this->input->post('cdn_value'));
 		$fusionConfig->set('cdn_link', $this->input->post('cdn_link'));
+
+        $fusionConfig->save();
+
+        die('yes');
+    }
+	
+	public function saveSecurity()
+    {
+        $fusionConfig = new ConfigEditor("application/config/captcha.php");
+
+        $fusionConfig->set('use_captcha', $this->input->post('use_captcha'));
+        $fusionConfig->set('captcha_attemps', $this->input->post('captcha_attemps'));
+        $fusionConfig->set('block_attemps', $this->input->post('block_attemps'));
+        $fusionConfig->set('block_duration', $this->input->post('block_duration'));
 
         $fusionConfig->save();
 
