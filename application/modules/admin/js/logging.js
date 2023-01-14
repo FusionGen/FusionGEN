@@ -9,7 +9,7 @@ var Logging = {
 		var module = $('#module').val();
 		var search = $('#search').val();
 
-		$("#log_list").html('<center><img src="' + Config.URL + 'application/themes/admin/images/ajax.gif" /><br /><br /></center>');
+		$("#log_list").html('<center><i class="fa-solid fa-spinner fa-xl mt-3"></i></center>');
 
 		$.post(Config.URL + "admin/logging/search", {search: search, module: module, csrf_token_name: Config.CSRF}, function(data)
 		{
@@ -17,7 +17,7 @@ var Logging = {
 			{
 				$(this).html(data).fadeIn(500, function()
 				{
-					Tooltip.refresh();
+					$('[data-toggle="tooltip"]').tooltip();
 				});
 			});
 		});
@@ -44,7 +44,7 @@ var Logging = {
 
 			$("#new_logs_" + Logging.id).fadeIn(300, function()
 			{
-				Tooltip.refresh();
+				$('[data-toggle="tooltip"]').tooltip();
 			});
 		});
 	}

@@ -26,8 +26,8 @@
                                     <a data-toggle="tooltip" title="View profile" href="../profile/{$log.user}" target="_blank">{$CI->user->getUsername($log.user)}</a>
                                 {/if}
                                 </td>
-                            <td width="15%" style="font-size:10px;">{$log.ip}</td>
-                            <td width="15%" style="font-size:10px;">{date("Y-m-d H:i", $log.time)}</td>
+                            <td width="15%">{$log.ip}</td>
+                            <td width="15%">{date("Y-m-d H:i", $log.time)}</td>
                         </tr>
                     
             {/foreach}

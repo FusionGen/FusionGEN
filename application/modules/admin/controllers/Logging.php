@@ -28,7 +28,7 @@ class Logging extends MX_Controller
         $data = array(
             'logs' => $logs, // Get the logs from 0 till 10
             'modules' => $this->administrator->getEnabledModules(),
-            'show_more' => $this->logger->getLogCount() - count(array($logs))
+            'show_more' => $this->logger->getLogCount() - count($logs)
         );
 
         // Load my view
@@ -85,6 +85,7 @@ class Logging extends MX_Controller
             // Prepare my data
             $data = array(
                 'logs' => $logs,
+                'show_more' => ''
             );
 
             // Load my view
