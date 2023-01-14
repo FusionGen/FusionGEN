@@ -13,4 +13,29 @@ class Session_model extends CI_Model
             return false;
         }
     }
+
+    public function getSessId($sess_id)
+    {
+		$this->db->select("*");
+		
+		$this->db->from('ci_sessions');
+		$this->db->where('id', $sess_id);
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0)
+		{
+            $result = $query->result_array();
+            return $result[0];
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteSessions($ip)
+    {
+		$this->db->not_like('ip_address', $ip);  // WHERE `title` NOT LIKE '%match% ESCAPE '!'
+		$this->db->delete('ci_sessions');
+
+		$this->logger->createLog("Cleared sessions", "");
+    }
 }

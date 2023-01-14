@@ -16,12 +16,20 @@ class Sessions extends MX_Controller
     {
         $sessions = $this->session_model->get();
 
-        if ($sessions) {
+        if ($sessions)
+		{
             foreach ($sessions as $key => $value) {
-                if ($value['data']) {
-                    $data = unserialize($value['data']);
-                    $sessions[$key]['id'] = $this->getUserId($data);
-                    $sessions[$key]['nickname'] = $this->getNickname($data);
+				$session = $this->session_model->getSessId($sessions[$key]['id']);
+				if (!empty($session['data']))
+				{
+					$session = $this->parseSession($session['data']);
+					$session = unserialize($session);
+				}
+
+                if ($this->getUserId($session))
+				{
+                    $sessions[$key]['uid'] = $this->getUserId($session);
+                    $sessions[$key]['nickname'] = $this->getNickname($session);
                 }
 
                 $date = new DateTime();
@@ -40,14 +48,18 @@ class Sessions extends MX_Controller
         $output = $this->template->loadPage("sessions/sessions.tpl", $data);
         $content = $this->administrator->box('Active sessions', $output);
 
-        $this->administrator->view($content);
+        $this->administrator->view($content, false, "modules/admin/js/session.js");
     }
 
     private function getUserId($data)
     {
-        if (array_key_exists("id", $data)) {
-            return $data['id'];
+        if (array_key_exists("uid", $data)) {
+            return $data['uid'];
         }
+		else
+		{
+			return false;
+		}
     }
 
     private function getNickname($data)
@@ -93,5 +105,42 @@ class Sessions extends MX_Controller
             // Default to most common one to prevent errors
             return "windows";
         }
+    }
+	
+    private function parseSession($sess_data)
+    {
+        $sess_data = rtrim($sess_data, ";");
+        $sess_info = array();
+        $parts = explode(";", $sess_data);
+        
+        foreach ($parts as $part) {
+            $part = explode("|", $part);
+            $key = preg_replace('/:.*/', '', $part[0]);
+            $value = preg_replace('/.*:/', '', $part[1]);
+            $value = str_replace('"', '', $value);
+            $sess_info[$key] = $value;
+        }
+        unset($sess_info["__ci_last_regenerate"]);
+        unset($sess_info["captcha"]);
+        unset($sess_info[""]);
+        unset($sess_info["admin_access"]);
+        unset($sess_info["language"]);
+        unset($sess_info["expansion"]);
+        unset($sess_info["password"]);
+        unset($sess_info["email"]);
+        unset($sess_info["last_ip"]);
+        unset($sess_info["register_date"]);
+        
+        $sess_info = serialize($sess_info);
+        return $sess_info;
+    }
+
+    public function deleteSessions()
+    {
+        $ip_address = $this->input->ip_address();
+
+        $this->session_model->deleteSessions($ip_address);
+
+        die('1');
     }
 }

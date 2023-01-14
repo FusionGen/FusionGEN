@@ -1,6 +1,9 @@
 <div class="col-12">
 	<div class="card">
-		<div class="card-header">Users in the past 30 minutes (<strong>{count($sessions)}</strong>)</div>
+		<div class="card-header">
+		Users in the past 30 minutes (<strong>{if $sessions}{count($sessions)}{else}0{/if}</strong>)
+		<button class="btn btn-primary btn-sm pull-right" href="javascript:void(0)" onClick="Session.delete()">Clear sessions</button>
+		</div>
 		<div class="card-body">
 			<table class="table table-responsive-md table-hover">
 			<thead>
@@ -21,7 +24,7 @@
 							</td>
 							<td width="20%">
 								{if isset($visitor.nickname)}
-									<a href="{$smarty.const.pageURL}profile/{$visitor.id}" target="_blank">{$visitor.nickname}</a>
+									<a href="{$url}profile/{$visitor.uid}" target="_blank">{$visitor.nickname}</a>
 								{else}
 									Guest
 								{/if}
@@ -30,11 +33,11 @@
 								{$visitor.ip_address}
 							</td>
 							<td width="20%">
-								<img src="{$smarty.const.pageURL}application/images/browsers/{$visitor.browser}.png" style="opacity:1;position:absolute;margin-top:2px;"/>
+								<img src="{$url}application/images/browsers/{$visitor.browser}.png" style="opacity:1;position:absolute;margin-top:2px;"/>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ucfirst($visitor.browser)}
 							</td>
 							<td width="20%">
-								<img src="{$smarty.const.pageURL}application/images/platforms/{$visitor.os}.png" style="opacity:1;position:absolute;margin-top:2px;"/>
+								<img src="{$url}application/images/platforms/{$visitor.os}.png" style="opacity:1;position:absolute;margin-top:2px;"/>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ucfirst($visitor.os)}
 							</td>
 						</tr>
