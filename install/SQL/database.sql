@@ -485,6 +485,19 @@ CREATE TABLE `changelog_type`  (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for failed_logins
+-- ----------------------------
+DROP TABLE IF EXISTS `failed_logins`;
+CREATE TABLE `failed_logins`  (
+  `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `attempts` int(5) NOT NULL DEFAULT 0,
+  `last_attempt` datetime NULL DEFAULT NULL,
+  `block_until` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for ci_sessions
 -- ----------------------------
 DROP TABLE IF EXISTS `ci_sessions`;
