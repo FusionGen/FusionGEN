@@ -40,7 +40,7 @@
 			</div>
 			<h2 class="card-title">Latest Moderator Actions</h2>
 		</header>
-        <div class="card-body">
+        <div class="card-body table-responsive">
 			<table class="table table-bordered table-striped mb-0 dataTable no-footer" id="modlogs">
 			<thead>
 				<tr role="row">
