@@ -70,12 +70,10 @@ class Auth extends MX_Controller
 
         if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
         {
-            $this->form_validation->set_rules('captcha', 'captcha', 'trim|required|exact_length[7]|xss_clean');
+            $this->form_validation->set_rules('captcha', 'captcha', 'trim|required|exact_length[7]|alpha_numeric');
         }
 
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-
-        $error = false;
 
         $data = array(
             "type" => "login",
@@ -98,7 +96,6 @@ class Auth extends MX_Controller
                     // The IP address is blocked, calculate remaining minutes
 					$remaining_minutes = round(($find['block_until'] - time()) / 60);
                     $data["messages"]["error"] = lang("ip_blocked", "auth") . "<br>" . lang("try_again", "auth") . " " . $remaining_minutes . " " . lang("minutes", "auth");
-                    $error = true;
 					die(json_encode($data));
                 }
             }
@@ -107,6 +104,17 @@ class Auth extends MX_Controller
             if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
             {
                 $data['showCaptcha'] = true;
+            }
+
+            //Check captcha
+            if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
+            {
+                if ($this->input->post('captcha') != $this->captcha->getValue() || empty($this->input->post('captcha')))
+                {
+                    $this->increaseAttempts($ip_address);
+                    $data['messages']["error"] = lang("captcha_invalid", "auth");
+                    die(json_encode($data));
+                }
             }
 
             //Check password
@@ -122,85 +130,38 @@ class Auth extends MX_Controller
 					{
                         if (isset($_POST["submit"]) && $this->input->post("submit") == "true")
                         {
+                            $this->increaseAttempts($ip_address);
+                            if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
+                            {
+                                $data["showCaptcha"] = true;
+                            }
                             $data["messages"]["error"] = lang("error", "auth");
-                            $error = true;
+                            die(json_encode($data));
                         }
                     }
                 }
             }
             else
             {
-                $data["messages"]["error"] = lang("error", "auth");
-                $error = true;
-            }
-
-		    //Check captcha
-            if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
-            {
-                if ($this->input->post('captcha') != $this->captcha->getValue() || empty($this->input->post('captcha')))
+                $this->increaseAttempts($ip_address);
+                if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
                 {
-                    $data['messages']["error"] = lang("captcha_invalid", "auth");
-                    $error = true;
+                    $data["showCaptcha"] = true;
                 }
+                $data["messages"]["error"] = lang("error", "auth");
+                die(json_encode($data));
             }
 
 		    //Check csrf
             if ($this->input->post("token") != $this->security->get_csrf_hash())
             {
+                $this->increaseAttempts($ip_address);
                 $data["messages"]["error"] = "";
-                $error = true;
-            }
-
-            //Increase login attempts
-            if ($error == true)
-            {
-		    	if(isset($_POST["submit"]) && $this->input->post("submit") == "true")
-		    	{
-		    		$this->session->set_userdata('attempts', $this->session->userdata('attempts') + 1);
-					
-					if (!empty($find['attempts']))
-					{
-					    //Update failed login attempts and last_attempt
-					    $ip_data = array(
-				            'attempts' => $find['attempts'] + 1,
-				            'last_attempt' => date('Y-m-d H:i:s'),
-				        );
-
-                        $this->login_model->updateIP($ip_address, $ip_data);
-					}
-					else
-					{
-						$ip_data = array(
-                            'ip_address' => $ip_address,
-                            'attempts' => 1,
-                            'last_attempt' => date('Y-m-d H:i:s'),
-                        );
-                        $this->login_model->insertIP($ip_data);
-					}
-					
-					//Get new ip datas
-					$find = $this->login_model->getIP($ip_address);
-
-					if (!empty($find['attempts']) && $find['attempts'] >= $this->config->item('block_attemps'))
-					{
-                        //Block the IP address
-                        $block_until = time() + ($this->config->item('block_duration') * 60);
-                        $block_data = array(
-                            'block_until' => $block_until
-                        );
-				    
-                        $this->login_model->updateIP($ip_address, $block_data);
-                    }
-		    	}
-		    
-                if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
-                {
-                    $data["showCaptcha"] = true;
-                }
+                die(json_encode($data));
             }
 
             //Login
-            if ($error == false && $this->input->post("submit") == "true")
+            if ($this->input->post("submit") == "true")
             {
                 $sha_pass_hash = $this->user->createHash($this->input->post('username'), $this->input->post('password'));
                 $check = $this->user->setUserDetails($this->input->post('username'), $sha_pass_hash["verifier"]);
@@ -212,7 +173,6 @@ class Auth extends MX_Controller
 
                     unset($_SESSION['captcha']);
                     $this->session->unset_userdata('attempts');
-                    $this->login_model->deleteIP($ip_address);
 
                     // Remember me
                     if (isset($_POST["remember"]))
@@ -226,21 +186,63 @@ class Auth extends MX_Controller
 
 					$this->external_account_model->setLastIp($this->user->getId(), $this->input->ip_address());
                     $this->plugins->onLogin($this->input->post('username'));
+					$this->login_model->deleteIP($ip_address);
+
+                    die(json_encode($data));
                 }
             }
         }
         else
         {
             $data['messages']["error"] = validation_errors();
-            $error = true;
+            die(json_encode($data));
         }
-
-        die(json_encode($data));
     }
 
     public function getCaptcha()
     {
         $this->captcha->generate();
         $this->captcha->output();
+    }
+	
+	private function increaseAttempts($ip_address)
+    {
+        $find = $this->login_model->getIP($ip_address);
+		
+        $this->session->set_userdata('attempts', $this->session->userdata('attempts') + 1);
+
+		if (!empty($find['attempts']))
+		{
+		    //Update failed login attempts and last_attempt
+		    $ip_data = array(
+		        'attempts' => $find['attempts'] + 1,
+		        'last_attempt' => date('Y-m-d H:i:s'),
+		    );
+
+            $this->login_model->updateIP($ip_address, $ip_data);
+		}
+		else
+		{
+			$ip_data = array(
+                'ip_address' => $ip_address,
+                'attempts' => 1,
+                'last_attempt' => date('Y-m-d H:i:s'),
+            );
+            $this->login_model->insertIP($ip_data);
+		}
+		
+		//Get new ip datas
+		$find = $this->login_model->getIP($ip_address);
+
+		if (!empty($find['attempts']) && $find['attempts'] >= $this->config->item('block_attemps'))
+		{
+            //Block the IP address
+            $block_until = time() + ($this->config->item('block_duration') * 60);
+            $block_data = array(
+                'block_until' => $block_until
+            );
+		
+            $this->login_model->updateIP($ip_address, $block_data);
+        }
     }
 }
