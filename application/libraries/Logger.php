@@ -43,7 +43,7 @@ class Logger
         $modLogs = $this->CI->logger_model->getModLogsDb();
 
         //Get Characters name if isAcc = 0
-        for ($i = 0; $i < count($modLogs); $i++) {
+        for ($i = 0; $i < count((array)$modLogs); $i++) {
             if ($modLogs[$i]["isAcc"] == false) {
                 $realm = $this->CI->realms->getRealm($modLogs[$i]["realm"]);
                 $characters = $realm->getCharacters();
