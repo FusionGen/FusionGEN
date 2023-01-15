@@ -72,7 +72,7 @@ class Internal_user_model extends CI_Model
     public function makeNew()
     {
         $array = array(
-            'uid' => $this->external_account_model->getId(),
+            'id' => $this->external_account_model->getId(),
             'vp' => 0,
             'dp' => 0,
             'location' => "Unknown",
