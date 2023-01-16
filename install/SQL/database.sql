@@ -7543,6 +7543,8 @@ CREATE TABLE `store_groups`  (
 -- ----------------------------
 -- Records of store_groups
 -- ----------------------------
+INSERT INTO `store_groups` (`id`, `title`, `orderNumber`) VALUES
+(1, 'Test group', 1);
 
 -- ----------------------------
 -- Table structure for store_items
