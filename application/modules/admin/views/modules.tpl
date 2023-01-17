@@ -111,7 +111,7 @@
 											</button>
 											<div class="dropdown-menu">
 												{if hasPermission("toggleModules")}
-													<a href="javascript:void(0)" onClick="Modules.enableModule('{$key}', this);" class="dropdown-item text-danger">Disable</a>
+													<a href="javascript:void(0)" onClick="Modules.enableModule('{$key}', this);" class="dropdown-item text-success">Enable</a>
 												{/if}
 												{if $module.has_configs && hasPermission("editModuleConfigs")}
 													<a href="{$url}admin/edit/{$key}" class="dropdown-item">Edit Configs</a>
