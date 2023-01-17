@@ -45,7 +45,7 @@ if(isset($_POST)) {
 
     $raw = '<?php
 $active_group = "cms";
-$active_record = true;
+$query_builder = true;
 
 $db["cms"]["hostname"] = "'.$host.'";
 $db["cms"]["username"] = "'.$dbuser.'";
