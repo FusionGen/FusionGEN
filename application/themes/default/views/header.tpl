@@ -69,7 +69,6 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/OwlCarousel2/js/owl.carousel.js"></script>
 		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/MagnificPopup/js/jquery.magnific-popup.min.js"></script>
 		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/main.js"></script>
-		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/popup-login.js"></script>
 		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/cookie.js"></script>
 		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/slider.js"></script>
 		<script type="text/javascript" src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/ui.js"></script>	
