@@ -13,7 +13,7 @@ var Mod = {
 				console.log(data);
 				Swal.fire({
 				icon: "success",
-				title: "" + character + "kicked",
+				title: 'Character' + " " + character + " " + 'has been kicked',
 				});
 			});
 		}
