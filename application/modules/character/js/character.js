@@ -16,7 +16,7 @@ var Character = {
 		 	{
 		 		$(".get_icon_" + id).each(function()
 		 		{
-		 			$(this).html("<div class='item'><a href='" + Config.URL + "item/" + realm + "/" + id + "' rel='item=" + id + "' data-realm='" + realm + "'></a><img src='https://wow.zamimg.com/images/wow/icons/large/" + data + ".jpg' /></div>");
+		 			$(this).html("<div class='item'><a href='" + Config.URL + "item/" + realm + "/" + id + "' rel='item=" + id + "' data-realm='" + realm + "'></a><img src='https://icons.wowdb.com/retail/large/" + data + ".jpg' /></div>");
 		 			Tooltip.refresh();
 		 		});
 		 	});
