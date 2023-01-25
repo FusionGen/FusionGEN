@@ -366,6 +366,7 @@ class Trinity_rbac_sl_soap implements Emulator
         $verifier = str_pad(gmp_export(gmp_powm($g, $h, $N), 1, GMP_LSW_FIRST), 32, chr(0), STR_PAD_RIGHT);
 
         return array(
+            "salt" => $salt,
             "verifier" => $verifier
         );
     }
