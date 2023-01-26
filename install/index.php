@@ -22,7 +22,7 @@ $openssl_success = false;
 $zip_success = false;
 
 $php_version_min = "8.0.0";
-$php_version_max = "8.2.0";
+$php_version_max = "8.3.0";
 $current_php_version = phpversion();
 
 if ($current_php_version <= $php_version_max && $current_php_version >= $php_version_min) {
