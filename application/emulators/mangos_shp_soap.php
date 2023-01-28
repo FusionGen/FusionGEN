@@ -33,11 +33,8 @@ class mangos_shp_soap implements Emulator
      * Array of expansion ids and their corresponding names
      */
     protected $expansions = array(
-        4 => "Mists of Pandaria",
-        3 => "Cataclysm",
         2 => "WotLK",
         1 => "TBC",
-        0 => "None"
     );
 
     /**
