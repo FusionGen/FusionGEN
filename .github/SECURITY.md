@@ -6,6 +6,7 @@ Please follow the guideline below to get in touch with us, even if you're not su
 ## Reporting a Vulnerability
 **Please do not open GitHub issues for security vulnerabilities, as GitHub issues are publicly accessible!**
 
-Instead, contact us per mail ([admin@fusiongen.net](mailto:admin@fusiongen.net)). We guarantee a response within two workdays and a security patch as fast as possible.
+Instead, contact us per Discord (Err0r#4481 or join our Discord server [https://discord.gg/5nSt9puU4V](https://discord.gg/5nSt9puU4V).
+We guarantee a response within two workdays and a security patch as fast as possible.
 
 Thanks for your cooperation and your understanding.
