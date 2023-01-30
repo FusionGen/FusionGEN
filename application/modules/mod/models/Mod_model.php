@@ -97,13 +97,13 @@ class Mod_model extends CI_Model
         if ($realmdConnection && $IP && $bannedBy && $banReason) {
             if (column("ip_banned", "banreason") && column("ip_banned", "bandate")) {
                 //check if it go the banreason and bandate
-                $realmdConnection->query("INSERT INTO " . table("ip_banned") . " (`" . column("ip_banned", "ip") . "`, `" . column("ip_banned", "bandate") . "`, `" . column("ip_banned", "unbandate") . "`, `" . column("ip_banned", "bannedby") . "`, `" . column("ip_banned", "banreason") . "`) VALUES (" . $IP . ", " . time() . ", " . $banDate . ", '" . $bannedBy . "', '" . $banReason . "')");
+                $realmdConnection->query("INSERT INTO " . table("ip_banned") . " (`" . column("ip_banned", "ip") . "`, `" . column("ip_banned", "bandate") . "`, `" . column("ip_banned", "unbandate") . "`, `" . column("ip_banned", "bannedby") . "`, `" . column("ip_banned", "banreason") . "`) VALUES ('" . $IP . "', " . time() . ", " . $banDate . ", '" . $bannedBy . "', '" . $banReason . "')");
             } elseif (column("ip_banned", "banreason") && !column("ip_banned", "bandate")) {
                 //check if it got only banreason
-                $realmdConnection->query("INSERT INTO " . table("ip_banned") . " (`" . column("ip_banned", "ip") . "`, `" . column("ip_banned", "banreason") . "`) VALUES (" . $IP . ", '" . $banReason . "')");
+                $realmdConnection->query("INSERT INTO " . table("ip_banned") . " (`" . column("ip_banned", "ip") . "`, `" . column("ip_banned", "banreason") . "`) VALUES ('" . $IP . "', '" . $banReason . "')");
             } else {
                 //else it doesn't got the banreason and bandate
-                $realmdConnection->query("INSERT INTO " . table("ip_banned") . " (`" . column("ip_banned", "ip") . "`) VALUES (" . $IP . ")");
+                $realmdConnection->query("INSERT INTO " . table("ip_banned") . " (`" . column("ip_banned", "ip") . "`) VALUES ('" . $IP . "')");
             }
         } else {
             return false;
