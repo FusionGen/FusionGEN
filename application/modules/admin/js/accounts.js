@@ -23,7 +23,7 @@ var Accounts = {
 			{
 				$(this).html(data).fadeIn(500, function()
 				{
-					Tooltip.refresh();
+					$('[data-toggle="tooltip"]').tooltip();
 				});
 			});
 		});
@@ -39,7 +39,7 @@ var Accounts = {
 			{
 				$(this).html(data).fadeIn(500, function()
 				{
-					Tooltip.refresh();
+					$('[data-toggle="tooltip"]').tooltip();
 				});
 			});
 		});
