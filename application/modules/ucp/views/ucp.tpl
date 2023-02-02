@@ -73,6 +73,7 @@
 				<div class="section-body">
 					{foreach from=$realms item=realm}
 						{if $realm->getCharacterCount() > 0}
+                        <div class="table-responsive text-nowrap">
 							<table class="nice_table mb-3">
 									<thead>
 										<tr>
@@ -106,6 +107,7 @@
 										</tr>
 									{/foreach}
 							</table>
+                        </div>
 						{/if}
 					{/foreach}
 				</div>
