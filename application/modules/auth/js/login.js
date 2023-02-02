@@ -1,7 +1,5 @@
 var Auth = {
 	timeout: null,
-	usernameTimeout: null,
-	passwordTimeout: null,
 	useCaptcha: false,
 
 	login: function(submit = false) {
@@ -28,41 +26,35 @@ var Auth = {
 		clearTimeout (Auth.timeout);
 		Auth.timeout = setTimeout (function()
 		{
-			if($(".password-input").val().length >= 6)
-			{
-				$.post(Config.URL + "auth/checkLogin", postData, function(data) {
-					try {
-						data = JSON.parse(data);
-						console.log(data);
+			$.post(Config.URL + "auth/checkLogin", postData, function(data) {
+				try {
+					data = JSON.parse(data);
+					console.log(data);
 
-						if(data["type"] === "login") {
-							if(data["redirect"] === true) {
-								window.location.href = Config.URL + "ucp";
-								return;
-							}
+					if(data["redirect"] === true) {
+						window.location.href = Config.URL + "ucp";
+						return;
+					}
 
-							if(data["showCaptcha"] === true) {
-								$(".captcha-field").removeClass("d-none");
-							}
+					if(data["showCaptcha"] === true) {
+						$(".captcha-field").removeClass("d-none");
+					}
 
-							for(var i = 0; i<fields.length;i++) {
-								if(fields[i] == "password" && postData["submit"] != true) continue;
-								if(data["messages"]["error"] != "") {
-									if($(".username-input, .password-input").val() != "") { //Check if doesnt empty
-										$(".username-input, .password-input, .captcha-input").parents(".input-group").addClass("border border-danger");
-										$(".username-input, .password-input, .captcha-input").addClass("is-invalid");
-										$(".error-feedback").addClass("invalid-feedback d-block").removeClass("d-none").html(data["messages"]["error"]);
-									}
-								}
-
+					for(var i = 0; i<fields.length;i++) {
+						if(fields[i] == "password" && postData["submit"] != true) continue;
+						if(data["messages"]["error"] != "") {
+							if($(".username-input, .password-input").val() != "") { //Check if doesnt empty
+								$(".username-input, .password-input, .captcha-input").parents(".input-group").addClass("border border-danger");
+								$(".username-input, .password-input, .captcha-input").addClass("is-invalid");
+								$(".error-feedback").addClass("invalid-feedback d-block").removeClass("d-none").html(data["messages"]["error"]);
 							}
 						}
-					} catch(e) {
-						console.error(e);
-						console.log(data);
-					}				
-				});
-			}
+					}
+				} catch(e) {
+					console.error(e);
+					console.log(data);
+				}				
+			});
 
 			console.log(postData);
 
