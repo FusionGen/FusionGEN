@@ -14,10 +14,10 @@ var Modules = {
 					if(data == 'SUCCESS')
 					{
 						$(element).attr("onClick", "Modules.disableModule('" + moduleId + "', this)").html("Disable");
-						$(element).removeClass("btn-success");
-						$(element).addClass("btn-danger");
+						$(element).removeClass("btn-success text-success");
+						$(element).addClass("text-danger");
 						
-						var parent = $(element).parent();
+						var parent = $(element).parent().closest('.pull-right');
 
 						$("#enabled_modules").append(parent.parent()[0]);
 						$("#disabled_count").html(parseInt($("#disabled_count").html()) - 1);
@@ -46,10 +46,10 @@ var Modules = {
 					{
 						$(element).attr("onClick", "Modules.enableModule('" + moduleId + "', this)").html("Enable");
 						
-						$(element).removeClass("btn-danger");
-						$(element).addClass("btn-success");
+						$(element).removeClass("btn-danger text-danger");
+						$(element).addClass("text-success");
 						
-						var parent = $(element).parent();
+						var parent = $(element).parent().closest('.pull-right');
 
 						$("#disabled_modules").append(parent.parent()[0]);
 						$("#enabled_count").html(parseInt($("#enabled_count").html()) - 1);
