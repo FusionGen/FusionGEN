@@ -46,7 +46,7 @@ class Data_model extends CI_Model
             'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
         );
 
-        $this->statements['skyfire'] = array(
+        $this->statements['mop'] = array(
             'TopArenaTeams' => "SELECT `arenaTeamId` AS arenateamid, `rating`, `rank`, `name`, `captainGuid` AS captain, `type` FROM `arena_team` WHERE `type` = ? ORDER BY rating DESC LIMIT ?;",
             'TeamMembers' => "SELECT 
                                     `arena_team_member`.`arenaTeamId` AS arenateamid, 
