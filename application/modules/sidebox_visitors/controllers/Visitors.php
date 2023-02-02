@@ -33,12 +33,17 @@ class Visitors extends MX_Controller
 
         if ($visitors) {
             foreach ($visitors as $key => $value) {
-                if ($value['data']) {
-                    $data = unserialize($value['data']);
+                if ($value['data'])
+                {
+
+                    $sessions = $this->parseSession($value['data']);
+					$data = unserialize($sessions);
+
                     $visitors[$key]['user_id'] = $this->getUserId($data);
                     $visitors[$key]['nickname'] = $this->getNickname($data);
 
-                    if (!array_key_exists($visitors[$key]['user_id'], $realVisitors)) {
+                    if (!array_key_exists($visitors[$key]['user_id'], $realVisitors))
+                    {
                         $realVisitors[$visitors[$key]['user_id']] = $visitors[$key]['nickname'];
                     }
                 }
@@ -52,8 +57,8 @@ class Visitors extends MX_Controller
 
     private function getUserId($data)
     {
-        if (array_key_exists("id", $data)) {
-            return (int)$data['id'];
+        if (array_key_exists("uid", $data)) {
+            return (int)$data['uid'];
         }
     }
 
@@ -62,5 +67,24 @@ class Visitors extends MX_Controller
         if (array_key_exists("nickname", $data)) {
             return $data['nickname'];
         }
+    }
+
+    private function parseSession($sess_data)
+    {
+        $sess_data = rtrim($sess_data, ";");
+        $sess_info = array();
+        $parts = explode(";", $sess_data);
+        
+        foreach ($parts as $part) {
+            $part = explode("|", $part);
+            $key = preg_replace('/:.*/', '', $part[0]);
+            $value = preg_replace('/.*:/', '', $part[1]);
+            $value = str_replace('"', '', $value);
+            $sess_info[$key] = $value;
+        }
+        unset($sess_info["__ci_last_regenerate"], $sess_info["captcha"], $sess_info[""], $sess_info["admin_access"], $sess_info["language"], $sess_info["expansion"], $sess_info["password"], $sess_info["email"], $sess_info["last_ip"], $sess_info["register_date"]);
+        
+        $sess_info = serialize($sess_info);
+        return $sess_info;
     }
 }

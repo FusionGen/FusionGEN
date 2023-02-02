@@ -33,9 +33,7 @@ class Session_model extends CI_Model
 
     public function deleteSessions($ip)
     {
-		$this->db->not_like('ip_address', $ip);  // WHERE `title` NOT LIKE '%match% ESCAPE '!'
+		$this->db->not_like('ip_address', $ip);
 		$this->db->delete('ci_sessions');
-
-		$this->logger->createLog("Cleared sessions", "");
     }
 }
