@@ -36,7 +36,7 @@ $config["paypal_mode"] = "sandbox";
  * Check your client id in:
  * https://developer.paypal.com/developer/applications
 */
-$config["paypal_userid"] = "AYca6WjE5OL4G1570-DDoiL3ubAIlfkt3XaBxXMC2Q0NJyFHd84Nx-20JwN7GPPbsL4JU0yMYw0aa2C3";
+$config["paypal_userid"] = "";
 
 /**
  * PayPal Secret Password
@@ -44,7 +44,7 @@ $config["paypal_userid"] = "AYca6WjE5OL4G1570-DDoiL3ubAIlfkt3XaBxXMC2Q0NJyFHd84N
  * Check your secret password in:
  * https://developer.paypal.com/developer/applications
 */
-$config["paypal_secretpass"] = "EOvtTOG5PE8jLTRvZ1dgjX3yHobj3KxX_VfD8OLeLYNdt4pFlkOhZct_hSDAp9I36A6dahCbQ5fSGjZi";
+$config["paypal_secretpass"] = "";
 
 
 /*******************************************************************/
