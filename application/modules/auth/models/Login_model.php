@@ -2,9 +2,6 @@
 
 /**
  * @package FusionGen
- * @author  Jesper Lindström
- * @author  Xavier Geerinck
- * @author  Elliott Robbins
  * @author  Err0r
  * @link    https://fusiongen.net
  */

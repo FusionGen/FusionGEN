@@ -35,7 +35,7 @@ class Logging_model extends CI_Model
         $module = $this->db->escape_str($module);
 
         if ($search) {
-            $query = $this->db->query("SELECT * FROM `logs` WHERE " . (($module) ? "`module` = '" . $module . "' AND " : "") . " (`user` = ? OR `ip` = ?)", array($userId, $search));
+            $query = $this->db->query("SELECT * FROM `logs` WHERE " . (($module) ? "`module` = '" . $module . "' AND " : "") . " (`user_id` = ? OR `ip` = ?)", array($userId, $search));
         } else {
             $query = $this->db->query("SELECT * FROM `logs` " . (($module) ? "WHERE `module` = '" . $module . "'" : ""));
         }
@@ -50,8 +50,8 @@ class Logging_model extends CI_Model
 
     public function getLogs($id = false, $offset = 0, $limit = 0)
     {
-        $this->db->select("id, module, logType, logMessage, user, ip, custom, time");
-        $this->db->where('user', $id);
+        $this->db->select("*");
+        $this->db->where('user_id', $id);
         $this->db->order_by('time', 'DESC');
         if ($limit > 0 && $offset == 0) {
             $this->db->limit($limit);

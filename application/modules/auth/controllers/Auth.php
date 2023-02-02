@@ -64,7 +64,6 @@ class Auth extends MX_Controller
 
     public function checkLogin()
     {
-        $fields = array("username", "password");
         $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[4]|max_length[14]|xss_clean|alpha_numeric');
         $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[6]|xss_clean');
 
@@ -76,7 +75,6 @@ class Auth extends MX_Controller
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
         $data = array(
-            "type" => "login",
             "redirect" => false,
             "messages" => false
         );
@@ -135,6 +133,7 @@ class Auth extends MX_Controller
                             {
                                 $data["showCaptcha"] = true;
                             }
+                            $this->logger->createLog("user", "login", "Login", '', Logger::STATUS_FAILED, $this->input->post("username"));
                             $data["messages"]["error"] = lang("error", "auth");
                             die(json_encode($data));
                         }
@@ -187,6 +186,7 @@ class Auth extends MX_Controller
 					$this->external_account_model->setLastIp($this->user->getId(), $this->input->ip_address());
                     $this->plugins->onLogin($this->input->post('username'));
 					$this->login_model->deleteIP($ip_address);
+					$this->logger->createLog("user", "login", "Login");
 
                     die(json_encode($data));
                 }

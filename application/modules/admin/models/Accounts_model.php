@@ -68,7 +68,7 @@ class Accounts_model extends CI_Model
 			{
 				if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) // fuck cmangos
 				{
-					$result = $query->result();
+					$result = $query->result_array();
 					return $result[0];
 				} else {
 					$result = $query->result_array();
@@ -112,15 +112,25 @@ class Accounts_model extends CI_Model
 
     public function save($id, $external_account_data, $external_account_access_data, $internal_data)
     {
-        if (column("account", "v") && column("account", "s") && column("account", "sessionkey")) {
-            $external_account_data[column("account", "v")] = "";
-            $external_account_data[column("account", "s")] = "";
-            $external_account_data[column("account", "sessionkey")] = "";
+		$old_external_data = $this->accounts_model->getById($id);
+		$old_internal_data = $this->accounts_model->getInternalDetails($id);
+
+		$old_values = array_merge($old_external_data, $old_internal_data);
+		$new_values = array_merge($external_account_data, $external_account_access_data, $internal_data);
+
+        // Initialize an empty array to store the changed values
+        $changed_values = array();
+
+        // Compare the old and new values and store the changed values in the array
+        foreach ($new_values as $key => $value) {
+            if (isset($old_values[$key]) && $old_values[$key] != $value) {
+                $changed_values[$key] = array(
+                    'old' => $old_values[$key],
+                    'new' => $value
+                );
+            }
         }
-
-        $this->connection->where(column('account', 'id'), $id);
-        $this->connection->update(table('account'), $external_account_data);
-
+		
         if ($this->getAccessId($id)) {
             if (preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
                 // Update external access
@@ -155,7 +165,7 @@ class Accounts_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('account_data', $internal_data);
 
-        $this->logger->createLog("Edited account", $this->user->getUsername($id) . " (" . $id . ")");
+        $this->logger->createLog("admin", "edit", "Edited account " . $this->user->getUsername($id) . " (" . $id . ")", $changed_values);
     }
 
     public function getLogs($id, $offset = 0, $limit = 0)
@@ -164,8 +174,8 @@ class Accounts_model extends CI_Model
             return null;
         }
 
-        $this->db->select("id, module, logType, logMessage, user, ip, custom, time");
-        $this->db->where('user', $id);
+        $this->db->select("*");
+        $this->db->where('user_id', $id);
         $this->db->order_by('time', 'DESC');
         if ($limit > 0 && $offset == 0) {
             $this->db->limit($limit);

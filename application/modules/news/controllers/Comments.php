@@ -91,7 +91,7 @@ class Comments extends MX_Controller
                 $this->comments_model->addComment($comment);
 
                 // Add log
-                $this->logger->createLog('Added comment', $id);
+                $this->logger->createLog("user", "add", "Added comment", ['ID' => $id]);
 
                 $this->plugins->onAddComment($id, $message);
 
@@ -140,7 +140,7 @@ class Comments extends MX_Controller
         $this->cache->delete('comments_' . $articleId . '_*.cache');
 
         // Add log
-        $this->logger->createLog('Deleted comment', $id);
+		$this->logger->createLog("admin", "delete", "Deleted comment", ['ID' => $id]);
 
         $this->plugins->onDeleteComment($id, $articleId);
 

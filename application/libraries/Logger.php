@@ -16,6 +16,12 @@ if (!defined('BASEPATH')) {
 class Logger
 {
     private $CI;
+	
+	/**
+     * Logs status
+     **/
+    public const STATUS_FAILED  = 'failed';
+    public const STATUS_SUCCEED = 'succeed';
 
     public function __construct()
     {
@@ -57,28 +63,30 @@ class Logger
     }
 
     /**
-     * Create a new log with the given message and with or without type and modulename,
-     * will use the current module if not set.
+     * Create a new log with the given data
      *
      * @param $message
-     * @param string $type
-     * @param string $moduleName
+     * @param string $event
+     * @param string $message
+     * @param string $status
+     * @param string $custom
+     * @param int $user
      */
-    public function createLog($type, $message, $moduleName = "")
+    public function createLog($type, $event, $message, $custom = [], $status = self::STATUS_SUCCEED, $user = null,)
     {
-        // If no module name was given get the current one.
-        if (empty($moduleName)) {
-            $moduleName = $this->CI->template->getModuleName();
-        }
-
-        $userId = 0;
+        // Module name
+        $module = $this->CI->template->getModuleName();
 
         if ($this->CI->user->isOnline()) {
-            $userId = $this->CI->user->getId();
+            $user = $this->CI->user->getId();
         }
+		else
+		{
+			$user = $this->CI->internal_user_model->getIdByNickname($user);
+		}
 
         // Call our model and add to the db.
-        $this->CI->logger_model->createLogDb($moduleName, $type, $message, $userId, $this->CI->input->ip_address());
+        $this->CI->logger_model->createLogDb($module, $user, $type, $event, $message, $status, json_encode($custom), $this->CI->input->ip_address());
     }
 
     public function createModLog($action, $affected, $isAcc, $realmId)

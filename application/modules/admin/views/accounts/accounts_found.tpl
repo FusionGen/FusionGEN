@@ -63,7 +63,7 @@
 								<li>
 									<div class="tm-box">
 										<p class="text-muted mb-0">{date("d.m.Y H:i:s", $log.time)} <span class="float-end"><a href="https://db-ip.com/{$log.ip}" target="_blank">{$log.ip}</a></span></p>
-										<p>{$log.logType} ({$log.logMessage})</p>
+										<p> {if $log.status == 'succeed'}<i class="fa-regular fa-circle-check text-success"></i>{else}<i class="fa-regular fa-circle-xmark text-danger"></i>{/if} {$log.message}</p>
 									</div>
 								</li>
 							</ol>
@@ -149,12 +149,7 @@
 							</div>
 						</div>
 
-						<div class="row mb-3">
-							<div class="form-group col-md-6">
-								<label for="password">Change password</label>
-								<input class="form-control" type="password" id="password" name="password" placeholder="Enter a new password" {if !hasPermission("editAccounts")}disabled="disabled"{/if}/>
-							</div>
-							
+						<div class="row mb-3">						
 							<div class="form-group col-md-6 border-top-0 pt-0">
 								<label for="group">Website usergroup</label>
 								<div style="border-radius: 5px;padding: 5px 10px;border: 1px solid #282d36;">Please assign groups at the <a href="{$url}admin/aclmanager/groups" style="color:#ffa800">group manager</a></div>

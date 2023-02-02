@@ -137,7 +137,7 @@ class Admin extends MX_Controller
         $this->news_model->delete($id);
 
         // Add log
-        $this->logger->createLog('Deleted article', $id);
+        $this->logger->createLog("admin", "news", "Deleted article", Logger::STATUS_SUCCEED, $id);
 
         $this->plugins->onDelete($id);
     }
@@ -296,7 +296,7 @@ class Admin extends MX_Controller
             $this->news_model->update($id, $type, $type_content, $comments, $headline_en, $content_en, $headline_de, $content_de, $headline_es, $content_es, $headline_fr, $content_fr, $headline_no, $content_no, $headline_ro, $content_ro, $headline_se, $content_se, $headline_ru, $content_ru, $headline_zh, $content_zh, $headline_ko, $content_ko);
 
             // Add log
-            $this->logger->createLog('Edited article', $headline);
+		$this->logger->createLog("admin", "news", "Edited a news", Logger::STATUS_SUCCEED, ['news' => $headline]);
 
             $this->plugins->onUpdate($id, $type, $type_content, $comments, $headline_en, $content_en, $headline_de, $content_de, $headline_es, $content_es, $headline_fr, $content_fr, $headline_no, $content_no, $headline_ro, $content_ro, $headline_se, $content_se, $headline_ru, $content_ru, $headline_zh, $content_zh, $headline_ko, $content_ko);
         } else {
@@ -307,7 +307,7 @@ class Admin extends MX_Controller
             $this->news_model->create($type, $type_content, $comments, $headline_en, $content_en, $headline_de, $content_de, $headline_es, $content_es, $headline_fr, $content_fr, $headline_no, $content_no, $headline_ro, $content_ro, $headline_se, $content_se, $headline_ru, $content_ru, $headline_zh, $content_zh, $headline_ko, $content_ko);
 
             // Add log
-            $this->logger->createLog('Created article', $headline);
+            $this->logger->createLog("admin", "news", "Created a news", Logger::STATUS_SUCCEED, ['news' => $headline]);
 
             $this->plugins->onCreate($type, $type_content, $comments, $headline_en, $content_en, $headline_de, $content_de, $headline_es, $content_es, $headline_fr, $content_fr, $headline_no, $content_no, $headline_ro, $content_ro, $headline_se, $content_se, $headline_ru, $content_ru, $headline_zh, $content_zh, $headline_ko, $content_ko);
         }

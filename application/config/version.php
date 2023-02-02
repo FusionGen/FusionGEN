@@ -1,1 +1,1 @@
-<?php $config['FusionGENVersion'] = '1.0.5';
+<?php $config['FusionGENVersion'] = '1.0.6';

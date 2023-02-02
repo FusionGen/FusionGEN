@@ -184,7 +184,7 @@ class Admin extends MX_Controller
         $this->donate_model->updatePayPal($id, $data);
 
         // Add log
-        $this->logger->createLog('Manually completed transaction', $id);
+        $this->logger->createLog("admin", "add", "Manually completed transaction", ['ID' => $id]);
     }
 
     /**

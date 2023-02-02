@@ -5,7 +5,7 @@
 			<li>
 				<div class="tm-box">
 					<p class="text-muted mb-0">{date("d.m.Y H:i:s", $log.time)} <span class="float-end"><a href="https://db-ip.com/{$log.ip}" target="_blank">{$log.ip}</a></span></p>
-					<p>{$log.logType} ({$log.logMessage})</p>
+					<p>{$log.type} ({$log.message})</p>
 				</div>
 			</li>
 		</ol>

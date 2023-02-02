@@ -16,9 +16,9 @@ class Logger_model extends CI_Model
             return null;
         }
 
-        $this->db->select('id, module, logType, logMessage, user, ip, custom, time');
+        $this->db->select('*');
         if ($logType != "") {
-            $this->db->where('logType', $logType);
+            $this->db->where('type', $logType);
         }
         $this->db->order_by('time', 'DESC');
         if ($limit > 0 && $offset == 0) {
@@ -62,9 +62,9 @@ class Logger_model extends CI_Model
         }
     }
 
-    public function createLogDb($moduleName, $logType, $logMessage, $user, $ip)
+    public function createLogDb($module, $user, $type, $event, $message, $status, $custom, $ip)
     {
-        $this->db->query("INSERT INTO `logs` (`module`, `logType`, `logMessage`, `user`, `ip`, `time`) VALUES (?, ?, ?, ?, ?, ?)", array($moduleName, $logType, $logMessage, $user, $ip, time()));
+        $this->db->query("INSERT INTO `logs` (`module`, `user_id`, `type`, `event`, `message`, `status`, `custom`, `ip`, `time`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", array($module, $user, $type, $event, $message, $status, $custom, $ip, time()));
     }
 
     public function createModLogDb($action, $mod, $affected, $ip, $isAcc, $realmId)

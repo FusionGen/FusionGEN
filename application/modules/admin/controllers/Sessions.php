@@ -120,16 +120,7 @@ class Sessions extends MX_Controller
             $value = str_replace('"', '', $value);
             $sess_info[$key] = $value;
         }
-        unset($sess_info["__ci_last_regenerate"]);
-        unset($sess_info["captcha"]);
-        unset($sess_info[""]);
-        unset($sess_info["admin_access"]);
-        unset($sess_info["language"]);
-        unset($sess_info["expansion"]);
-        unset($sess_info["password"]);
-        unset($sess_info["email"]);
-        unset($sess_info["last_ip"]);
-        unset($sess_info["register_date"]);
+        unset($sess_info["__ci_last_regenerate"], $sess_info["captcha"], $sess_info[""], $sess_info["admin_access"], $sess_info["language"], $sess_info["expansion"], $sess_info["password"], $sess_info["email"], $sess_info["last_ip"], $sess_info["register_date"]);
         
         $sess_info = serialize($sess_info);
         return $sess_info;
@@ -140,6 +131,8 @@ class Sessions extends MX_Controller
         $ip_address = $this->input->ip_address();
 
         $this->session_model->deleteSessions($ip_address);
+
+        $this->logger->createLog("admin", "purge", "Cleared sessions");
 
         die('1');
     }
