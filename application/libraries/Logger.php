@@ -50,7 +50,8 @@ class Logger
 
         //Get Characters name if isAcc = 0
         for ($i = 0; $i < count((array)$modLogs); $i++) {
-            if ($modLogs[$i]["isAcc"] == false) {
+            if ($modLogs[$i]["isAcc"] == false)
+            {
                 $realm = $this->CI->realms->getRealm($modLogs[$i]["realm"]);
                 $characters = $realm->getCharacters();
                 $charId = $modLogs[$i]["affected"];
@@ -72,18 +73,15 @@ class Logger
      * @param string $custom
      * @param int $user
      */
-    public function createLog($type, $event, $message, $custom = [], $status = self::STATUS_SUCCEED, $user = null,)
+    public function createLog($type, $event, $message, $custom = [], $status = self::STATUS_SUCCEED, $user = null)
     {
         // Module name
         $module = $this->CI->template->getModuleName();
 
-        if ($this->CI->user->isOnline()) {
+        if ($this->CI->user->isOnline())
+        {
             $user = $this->CI->user->getId();
         }
-		else
-		{
-			$user = $this->CI->internal_user_model->getIdByNickname($user);
-		}
 
         // Call our model and add to the db.
         $this->CI->logger_model->createLogDb($module, $user, $type, $event, $message, $status, json_encode($custom), $this->CI->input->ip_address());
@@ -93,7 +91,8 @@ class Logger
     {
         $modId = 0;
 
-        if ($this->CI->user->isOnline()) {
+        if ($this->CI->user->isOnline())
+        {
             $modId = $this->CI->user->getId();
         }
 
