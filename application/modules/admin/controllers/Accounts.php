@@ -56,13 +56,8 @@ class Accounts extends MX_Controller
             die('<span>No such account</span>');
         }
 
-        if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) // fuck cmangos
-		{
-			$data = $this->accounts_model->getById($id);
-			$data = $this->objectToArray($data);
-		} else {
-			$data = $this->accounts_model->getById($data);
-		}
+        $data = $this->accounts_model->getById($id);
+
         if ($data)
 		{
             $page_data = array(
@@ -90,14 +85,9 @@ class Accounts extends MX_Controller
             $value = $this->input->post('value');
         }
 
-        if ($data != false && is_numeric($data)) {
-			if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) // fuck cmangos
-			{
-				$data = $this->accounts_model->getById($data);
-				$data = $this->objectToArray($data);
-			} else {
-				$data = $this->accounts_model->getById($data);
-			}
+        if ($data != false && is_numeric($data))
+		{
+		    $data = $this->accounts_model->getById($data);
         } elseif (preg_match("/^[a-zA-Z0-9]*$/", $value) && strlen($value) > 3 && strlen($value) < 15) {
             //It's a username
             $data = $this->accounts_model->getByUsername($value);
@@ -179,30 +169,12 @@ class Accounts extends MX_Controller
             $this->acl_model->removePermissionsFromUser($id);
 
             foreach ($_POST as $k => $v) {
-                if ($v !== '' && !in_array($k, array("vp", "dp", "nickname", "email", "group", "expansion", "password", "gm_level"))) {
+                if ($v !== '' && !in_array($k, array("vp", "dp", "nickname", "email", "group", "expansion", "gm_level"))) {
                     $permissionParts = explode("-", $k);
 
                     // UserID, permissionName, moduleName
                     $this->acl_model->assignPermissionToUser($id, $permissionParts[1], $permissionParts[0], $v);
                 }
-            }
-        }
-
-        // Make sure to check if we got something filled in here.
-        if ($this->input->post("password")) {
-            $encryption = $this->realms->getEmulator()->encryption();
-            switch ($encryption) {
-                case 'SHP':
-                    $external_account_data[column("account", "password")] = $this->realms->getEmulator()->encrypt($this->user->getUsername($id), $this->input->post("password"));
-                    break;
-                case 'SRP6':
-                case 'HEX':
-                    $PW = $this->user->createHash($this->user->getUsername($id), $this->input->post("password"));
-                    $external_account_data[column("account", "password")] = $PW['verifier'];
-                    break;
-                default:
-                    die('Something went wrong');
-                    break;
             }
         }
 
@@ -217,11 +189,6 @@ class Accounts extends MX_Controller
         $internal_account_data["vp"] = $this->input->post("vp");
         $internal_account_data["dp"] = $this->input->post("dp");
         $internal_account_data["nickname"] = $this->input->post("nickname");
-
-        /*if(!$external_account_data[column("account", "email")] || !$internal_account_data["nickname"])
-        {
-            die('The following fields can\'t be empty: [email]');
-        }*/
 
         $this->accounts_model->save($id, $external_account_data, $external_account_access_data, $internal_account_data);
 
@@ -255,27 +222,4 @@ class Accounts extends MX_Controller
             die("<span>No results</span>");
         }
     }
-	
-	public function is_json($string)
-	{
-		json_decode($string);
-		return (json_last_error() == JSON_ERROR_NONE);
-	}
-	
-	public function objectToArray($objectOrArray)
-	{
-		if (is_string($objectOrArray) && $this->is_json($objectOrArray)) $objectOrArray = json_decode($objectOrArray);
-
-		if (is_object($objectOrArray)) $objectOrArray = (array) $objectOrArray;
-
-		if (!is_array($objectOrArray)) return $objectOrArray;
-
-		if (count($objectOrArray) == 0) return [];
-
-		$output = [];
-		foreach ($objectOrArray as $key => $o_a) {
-			$output[$key] = $this->objectToArray($o_a);
-		}
-		return $output;
-	}
 }
