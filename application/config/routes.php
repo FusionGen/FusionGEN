@@ -32,6 +32,9 @@ $route['404_override'] = 'errors';
 $route['login'] = 'auth/login';
 $route['logout'] = 'auth/logout';
 //$route['register'] = 'auth/register';
+$route['password_recovery'] = 'auth/password_recovery';
+$route['password_recovery/create_request'] = 'auth/password_recovery/create_request';
+$route['password_recovery/reset_password'] = 'auth/password_recovery/reset_password';
 
 // News
 $route['news/(:num)'] = "news/index/$1";
@@ -62,13 +65,6 @@ $route['admin/edit/(:any)'] = "admin/edit/index/$1";
 
 // Vote
 $route['vote/callback/(:any)'] = "vote/callback/index/$1";
-
-// Forum
-$route['forum/(:num)'] = "forum/getForum/$1";
-$route['forum/(:num)/new'] = "forum/newTopic/$1";
-$route['forum/(:num)/(:num)'] = "forum/getTopic/$1/$2";
-$route['forum/(:num)/(:num)/remove/topic'] = "forum/removeTopic/$1/$2";
-$route['forum/(:num)/(:num)/remove/post'] = "forum/removePost/$1/$2";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
