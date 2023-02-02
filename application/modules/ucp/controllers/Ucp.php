@@ -24,7 +24,7 @@ class Ucp extends MX_Controller
             "dp" => $this->internal_user_model->getDp(),
             "url" => $this->template->page_url,
             "location" => $this->internal_user_model->getLocation(),
-            "email" => $this->user->getEmail(),
+            "email" => $this->mask_email($this->user->getEmail()),
             "groups" => $this->acl_model->getGroupsByUser($this->user->getId()),
             "register_date" => $this->user->getRegisterDate(),
             "status" => $this->user->getAccountStatus(),
@@ -77,5 +77,15 @@ class Ucp extends MX_Controller
 
         $content = $this->template->loadPage("ucp_characters.tpl", $characters_data);
         $this->template->view($content, "modules/ucp/css/ucp.css");
+    }
+	
+    private function mask_email($email)
+    {
+        $mail_parts = explode("@", $email);
+        $len = strlen($mail_parts[0]);
+
+        $mail_parts[0] = substr($mail_parts[0], 0, 2).str_repeat('*', $len - 2).substr($mail_parts[0], $len - 1, 2); // show first 2 letters and last 1 letter
+
+        return implode("@", $mail_parts);
     }
 }
