@@ -80,11 +80,11 @@ class Admin_items extends MX_Controller
         $this->cache->delete('store_items.cache');
 
         // Add log
-        $this->logger->createLog('Added item group', $data["title"]);
+        $this->logger->createLog("admin", "add", "Added item group", ['Group' => $data['title']]);
 
         $this->plugins->onCreateGroup($data['title']);
 
-        die('window.location="' . $this->template->page_url . 'store/admin_items"');
+        die('yes');
     }
 
     public function edit_group($id)
@@ -157,11 +157,11 @@ class Admin_items extends MX_Controller
         $this->cache->delete('store_items.cache');
 
         // Add log
-        $this->logger->createLog('Item added', $data['name']);
+        $this->logger->createLog("admin", "add", "Item added", ['Item' => $data['name']]);
 
         $this->plugins->onAddItem($data);
 
-        die('window.location="' . $this->template->page_url . 'store/admin_items"');
+        die('yes');
     }
 
     /**
@@ -236,6 +236,10 @@ class Admin_items extends MX_Controller
 
         if (!is_numeric(preg_replace("/,/", "", $data["itemid"]))) {
             die("Invalid item ID");
+        }
+
+		if ($data["group"] == 0) {
+            die("Group can't be empty");
         }
 
         if (preg_match("/,/", $data["itemid"])) {
@@ -333,11 +337,11 @@ class Admin_items extends MX_Controller
         $this->cache->delete('store_items.cache');
 
         // Add log
-        $this->logger->createLog('Edited item', $data['name']);
+		$this->logger->createLog("admin", "edit", "Edited item", ['Item' => $data['name']]);
 
         $this->plugins->onEditItem($id, $data);
 
-        die('window.location="' . $this->template->page_url . 'store/admin_items"');
+        die('yes');
     }
 
     /**
@@ -368,7 +372,7 @@ class Admin_items extends MX_Controller
         $this->items_model->editGroup($id, $data);
 
         // Add log
-        $this->logger->createLog('Edited item group', $id);
+        $this->logger->createLog("admin", "edit", "Edited item group", ['ID' => $id, 'Group' => $data["title"]]);
 
         $this->plugins->onEditGroup($id);
 
@@ -388,7 +392,7 @@ class Admin_items extends MX_Controller
         $this->items_model->delete($id);
 
         // Add log
-        $this->logger->createLog('Deleted item', $id);
+        $this->logger->createLog("admin", "delete", "Deleted item", ['ID' => $id]);
 
         $this->plugins->onDeleteItem($id);
 
@@ -406,7 +410,7 @@ class Admin_items extends MX_Controller
         $this->items_model->deleteGroup($id);
 
         // Add log
-        $this->logger->createLog('Deleted group', $id);
+        $this->logger->createLog("admin", "delete", "Deleted item group", ['ID' => $id]);
 
         $this->plugins->onDeleteGroup($id);
 

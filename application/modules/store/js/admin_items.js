@@ -146,11 +146,19 @@ var Items = {
 
 		$.post(Config.URL + ((isGroup)?this.Links.createGroup:this.Links.create), values, function(data)
 		{
-			Swal.fire({
-				icon: 'error',
-				title: 'Oops...',
-				text: data,
-			})
+			if(data == "yes")
+			{
+				window.location = Config.URL + "store/admin_items";
+			}
+			else
+			{
+				console.log(data);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: data,
+				})
+			}
 		});
 	},
 
@@ -181,8 +189,19 @@ var Items = {
 
 		$.post(Config.URL + this.Links.save + id, values, function(data)
 		{
-			console.log(data);
-			eval(data);
+			if(data == "yes")
+			{
+				window.location = Config.URL + "store/admin_items";
+			}
+			else
+			{
+				console.log(data);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: data,
+				})
+			}
 		});
 	},
 
