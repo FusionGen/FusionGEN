@@ -27,7 +27,7 @@
 			<div class="section-header">Teleport <span>Hub</span></div>
 			<div class="section-body">
 				<div class="row">
-					<div class="col-5">
+					<div class="col-sm-12 col-lg-6">
 						{if $total}
 							{foreach from=$characters item=realm}
 								<table class="table table-striped table-hover table-responsive character-select">
@@ -67,12 +67,12 @@
 							{/foreach}
 						{/if}
 					</div>
-					<div class="col-7 location-col">
+					<div class="col-sm-12 col-6 location-col">
 						<table class="table table-striped table-hover table-responsive location-select">
 							<tbody>
 								{if $locations}
 									{foreach from=$locations item=location}
-										<tr class="location-select" data-realm="{$location.realm}" data-faction="{$location.required_faction}">
+										<tr class="location-select location" data-realm="{$location.realm}" data-faction="{$location.required_faction}">
 											<td class="w-100">
 												<span class="d-block">{$location.name}</span>
 												<span class="text-muted">{$location.description}</span>

@@ -24,14 +24,9 @@ class Teleport extends MX_Controller
      */
     private function init()
     {
-        /*
-         * Get the teleport locations
-         * Array ( [0] => Array ( [id] => 1 [teleport_name] => Elwynn Forest [x] => -9055.14 [y] => 342.213 [z] => 94.2731 [orientation] => 2.88417 [MapId] => 0 ) ) 1
-         */
+
         $this->teleportLocations = $this->teleport_model->getTeleportLocations();
-        /*
-         * Array ( [0] => Array ( [realmId] => 1 [realmName] => Funserver [characters] => Array ( [0] => Array ( [guid] => 344067 [name] => Theknight [race] => 7 [class] => 6 [gender] => 0 [level] => 255 ) ) ) )
-         */
+
         $this->characters = $this->user->getCharacters($this->user->getId());
 
         foreach ($this->characters as $realm_key => $realm) {
@@ -129,8 +124,6 @@ class Teleport extends MX_Controller
                         $realmConnection->setGold($this->user->getId(), $characterGuid, ($realmConnection->getGold($this->user->getId(), $characterGuid) - ($teleport_exists['goldCost'] * 100 * 100)));
 
                         //Change the location of our user
-                        //Array ( [0] => Array ( [id] => 1 [teleport_name] => Elwynn Forest [x] => -9055.14 [y] => 342.213 [z] => 94.2731 [orientation] => 2.88417 [MapId] => 0 ) ) 1
-
                         $this->teleport_model->setLocation($location['x'], $location['y'], $location['z'], $location['orientation'], $location['mapId'], $characterGuid, $realmConnection->getConnection());
 
                         $this->plugins->onTeleport($this->user->getId(), $characterGuid, $teleport_exists['vpCost'], $teleport_exists['dpCost'], $teleport_exists['goldCost'], $location['x'], $location['y'], $location['z'], $location['orientation'], $location['mapId']);
@@ -143,7 +136,7 @@ class Teleport extends MX_Controller
                     die(lang("must_be_offline", "teleport"));
                 }
             } else {
-                die(lang("doesnt_exist", "teleport"));
+                die(lang("wrong_faction", "teleport"));
             }
         } else {
             die(lang("no_location", "teleport"));

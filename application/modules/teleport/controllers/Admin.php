@@ -152,10 +152,10 @@ class Admin extends MX_Controller
 
         $data["name"] = $this->input->post("name");
         $data["description"] = $this->input->post("description");
-        $data["x"] = $this->input->post("x");
-        $data["y"] = $this->input->post("y");
-        $data["z"] = $this->input->post("z");
-        $data["orientation"] = $this->input->post("orientation");
+        $data["x"] = str_replace(',','.', $this->input->post("x"));
+        $data["y"] = str_replace(',','.', $this->input->post("y"));
+        $data["z"] = str_replace(',','.', $this->input->post("z"));
+        $data["orientation"] = str_replace(',','.', $this->input->post("orientation"));
         $data["mapId"] = $this->input->post("mapId");
         $data["vpCost"] = $this->input->post("vpCost");
         $data["dpCost"] = $this->input->post("dpCost");
