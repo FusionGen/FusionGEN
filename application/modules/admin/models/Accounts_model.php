@@ -94,12 +94,10 @@ class Accounts_model extends CI_Model
 
     public function getAccessId($userId = 0)
     {
-        if (preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
-            $query = $this->connection->query("SELECT " . column("account_access", "SecurityLevel", true) . " FROM " . table("account_access") . " WHERE " . column("account_access", "AccountId") . " = ?", array($userId));
-        } elseif (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+        if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
             $query = $this->connection->query("SELECT " . column("account", "gmlevel", true) . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($userId));
         } else {
-            $query = $this->connection->query("SELECT " . column("account_access", "gmlevel", true) . " FROM " . table("account_access") . " WHERE " . column("account", "id") . " = ?", array($userId));
+            $query = $this->connection->query("SELECT " . column("account_access", "gmlevel", true) . " FROM " . table("account_access") . " WHERE " . column("account_access", "id") . " = ?", array($userId));
         }
 
         if ($query->num_rows() > 0) {
@@ -132,11 +130,7 @@ class Accounts_model extends CI_Model
         }
 		
         if ($this->getAccessId($id)) {
-            if (preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
-                // Update external access
-                $this->connection->where(column('account_access', 'AccountId'), $id);
-                $this->connection->update(table('account_access'), $external_account_access_data);
-            } elseif (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+            if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
                 // Update external access
                 $this->connection->where(column('account', 'id'), $id);
                 $this->connection->update(table('account'), $external_account_access_data);
@@ -146,11 +140,7 @@ class Accounts_model extends CI_Model
                 $this->connection->update(table('account_access'), $external_account_access_data);
             }
         } else {
-            if (preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
-                // Update external access
-                $external_account_access_data[column('account_access', 'AccountId')] = $id;
-                $this->connection->insert(table('account_access'), $external_account_access_data);
-            } elseif (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+            if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
                 // Update external access
                 $external_account_access_data[column('account', 'id')] = $id;
                 $this->connection->insert(table('account'), $external_account_access_data);

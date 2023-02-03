@@ -178,9 +178,7 @@ class Accounts extends MX_Controller
             }
         }
 
-        if (preg_match("/^trinity/i", get_class($this->realms->getEmulator()))) {
-            $external_account_access_data[column("account_access", "SecurityLevel")] = $this->input->post("gm_level");
-        } elseif (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+        if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
             $external_account_access_data[column("account", "gmlevel")] = $this->input->post("gm_level");
         } else {
             $external_account_access_data[column("account_access", "gmlevel")] = $this->input->post("gm_level");
