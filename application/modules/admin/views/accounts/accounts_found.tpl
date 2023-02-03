@@ -33,7 +33,7 @@
 						<b style="color:#808697;">DP </b> <a class="pull-right"><b>{$internal_details.dp}</b> </a>
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-						<b style="color:#808697;">GM Level </b> <a class="pull-right"><b>{if !$access_id.gmlevel}0{else}{$access_id.gmlevel}{/if}</b> </a>
+						<b style="color:#808697;">GM Level </b> <a class="pull-right"><b>{if !$access_id}0{else}{$access_id.gmlevel}{/if}</b> </a>
 					</li>
 				</ul>
 
