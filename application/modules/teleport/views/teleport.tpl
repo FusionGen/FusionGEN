@@ -67,7 +67,7 @@
 							{/foreach}
 						{/if}
 					</div>
-					<div class="col-sm-12 col-6 location-col">
+					<div class="col-sm-12 col-lg-6 location-col">
 						<table class="table table-striped table-hover table-responsive location-select">
 							<tbody>
 								{if $locations}
