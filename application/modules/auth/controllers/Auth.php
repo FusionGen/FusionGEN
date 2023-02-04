@@ -65,7 +65,7 @@ class Auth extends MX_Controller
     public function checkLogin()
     {
         $this->form_validation->set_rules('username', 'username', 'trim|required|min_length[4]|max_length[14]|xss_clean|alpha_numeric');
-        $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[6]|xss_clean');
+        $this->form_validation->set_rules('password', 'password', 'trim|required|min_length[4]|xss_clean');
 
         if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
         {
