@@ -32,7 +32,7 @@ class Trinity_legion_soap implements Emulator
     /**
      * Encryption
      */
-    protected $encryption = 'SHP';
+    protected $encryption = 'SPH';
     protected $battlenet = true;
 
     /**

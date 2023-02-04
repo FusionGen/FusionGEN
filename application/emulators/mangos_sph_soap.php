@@ -26,7 +26,7 @@ class mangos_shp_soap implements Emulator
     /**
      * Encryption
      */
-    protected $encryption = 'SHP';
+    protected $encryption = 'SPH';
     protected $battlenet = false;
 
     /**
