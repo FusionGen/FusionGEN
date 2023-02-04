@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class mangos_three_shp_soap implements Emulator
+class Mangos_three_shp_soap implements Emulator
 {
     protected $config;
 
@@ -33,7 +33,6 @@ class mangos_three_shp_soap implements Emulator
      * Array of expansion ids and their corresponding names
      */
     protected $expansions = array(
-        4 => "Mists of Pandaria",
         3 => "Cataclysm",
         2 => "WotLK",
         1 => "TBC",
