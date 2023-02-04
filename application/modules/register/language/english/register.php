@@ -13,7 +13,7 @@
  */
 
 $lang['register'] = "Register";
-$lang['username_limit_length'] = "Username must be between 4 and 32 characters long";
+$lang['username_limit_length'] = "Username must be between 4 and 24 characters long";
 $lang['username_limit'] = "Username may only contain alphabetical and numerical characters";
 $lang['username_not_available'] = "Username is not available";
 $lang['email_invalid'] = "Email must be a valid email";

@@ -57,7 +57,7 @@ var Validate = {
 			value = field.val();
 
 		// Length check
-		if(value.length < 4 || value.length > 32)
+		if(value.length < 4 || value.length > 24)
 		{
 			this.invalid(field_name, lang("username_limit_length", "register"));
 		}
@@ -132,7 +132,7 @@ var Validate = {
 			field = $(field_name),
 			value = field.val();
 
-		if(value.length < 4)
+		if(value.length < 6)
 		{
 			this.invalid(field_name, lang("password_short", "register"));
 		}
