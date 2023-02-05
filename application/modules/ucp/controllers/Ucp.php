@@ -24,7 +24,6 @@ class Ucp extends MX_Controller
             "dp" => $this->internal_user_model->getDp(),
             "url" => $this->template->page_url,
             "location" => $this->internal_user_model->getLocation(),
-            "email" => $this->mask_email($this->user->getEmail()),
             "groups" => $this->acl_model->getGroupsByUser($this->user->getId()),
             "register_date" => $this->user->getRegisterDate(),
             "status" => $this->user->getAccountStatus(),
@@ -46,6 +45,13 @@ class Ucp extends MX_Controller
             "realms" => $this->realms->getRealms(),
             "realmObj" => $this->realms,
         );
+        
+        $data['email'] = false;
+
+        if ($this->user->getEmail())
+        {
+            $data['email'] = $this->mask_email($this->user->getEmail());
+        }
 
         $this->template->view($this->template->loadPage("page.tpl", array(
             "module" => "default",
