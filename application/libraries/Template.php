@@ -504,7 +504,7 @@ class Template
         // Get the database values
         $links = $this->CI->cms_model->getLinks($side);
 
-        foreach ($links as $key => $item) {
+        foreach ((array) $links as $key => $item) {
             if (!hasViewPermission($links[$key]['permission'], "--MENU--") && $links[$key]['permission']) {
                 continue;
             }
