@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-9 col-md-10 ps-4">
 		<div class="d-flex h-100 align-items-center">
-			<span class="h1">{$name}</span>
+			<span class="h1 color-c{$class}">{$name}</span>
 			<div class="border-start border-2 ms-3 ps-3">
 				<div class=""> {$raceName} {$className}</div>
 				<div class="">{if $guildName}<a href="{$url}guild/{$realmId}/{$guild}">❮{$guildName}❯</a>{/if} {$realmName}</div>
