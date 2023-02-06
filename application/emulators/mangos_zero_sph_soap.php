@@ -4,7 +4,7 @@
  * Abstraction layer for supporting different emulators
  */
 
-class Mangos_zero_shp_soap implements Emulator
+class Mangos_zero_sph_soap implements Emulator
 {
     protected $config;
 
@@ -441,7 +441,7 @@ class Mangos_zero_shp_soap implements Emulator
             null,
             array(
                 "location" => "http://" . $this->config['hostname'] . ":" . $this->config['console_port'],
-                "uri" => "urn:SF",
+                "uri" => "urn:MaNGOS",
                 'login' => $this->config['console_username'],
                 'password' => $this->config['console_password']
             )
