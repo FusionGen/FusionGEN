@@ -46,34 +46,22 @@ class Accounts_model extends CI_Model
     public function getById($id = false)
     {
         if (!$id)
-		{
+        {
             $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . "");
 
             return $query->result_array();
         } else {
-			if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) // fuck cmangos
-			{
-				$this->connection->select('a.*, b.ip as last_ip, b.loginTime as last_login');
-				$this->connection->from('account a');
-				$this->connection->join('account_logons b', 'b.accountId = a.id');
-				$this->connection->where('a.id', $id);
-				$this->connection->order_by("last_login",'DESC');
-				$this->connection->order_by("last_ip",'DESC');
-				$query = $this->connection->get();
-			} else {
-				$query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($id));
-			}
+            if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
+            {
+                $query = $this->connection->query(query("get_account_id"), array($id));
+            } else {
+                $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($id));
+            }
 
-			if ($query->num_rows() > 0)
-			{
-				if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) // fuck cmangos
-				{
-					$result = $query->result_array();
-					return $result[0];
-				} else {
-					$result = $query->result_array();
-					return $result[0];
-				}
+            if ($query->num_rows() > 0)
+            {
+                $result = $query->result_array();
+                return $result[0];
             } else {
             return false;
         }
@@ -94,7 +82,7 @@ class Accounts_model extends CI_Model
 
     public function getAccessId($userId = 0)
     {
-        if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+        if (preg_match("/mangos/i", get_class($this->realms->getEmulator()))) {
             $query = $this->connection->query("SELECT " . column("account", "gmlevel", true) . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($userId));
         } else {
             $query = $this->connection->query("SELECT " . column("account_access", "gmlevel", true) . " FROM " . table("account_access") . " WHERE " . column("account_access", "id") . " = ?", array($userId));
@@ -110,11 +98,11 @@ class Accounts_model extends CI_Model
 
     public function save($id, $external_account_data, $external_account_access_data, $internal_data)
     {
-		$old_external_data = $this->accounts_model->getById($id);
-		$old_internal_data = $this->accounts_model->getInternalDetails($id);
+        $old_external_data = $this->accounts_model->getById($id);
+        $old_internal_data = $this->accounts_model->getInternalDetails($id);
 
-		$old_values = array_merge($old_external_data, $old_internal_data);
-		$new_values = array_merge($external_account_data, $external_account_access_data, $internal_data);
+        $old_values = array_merge($old_external_data, $old_internal_data);
+        $new_values = array_merge($external_account_data, $external_account_access_data, $internal_data);
 
         // Initialize an empty array to store the changed values
         $changed_values = array();
@@ -128,9 +116,9 @@ class Accounts_model extends CI_Model
                 );
             }
         }
-		
+
         if ($this->getAccessId($id)) {
-            if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+            if (preg_match("/mangos/i", get_class($this->realms->getEmulator()))) {
                 // Update external access
                 $this->connection->where(column('account', 'id'), $id);
                 $this->connection->update(table('account'), $external_account_access_data);
@@ -140,7 +128,7 @@ class Accounts_model extends CI_Model
                 $this->connection->update(table('account_access'), $external_account_access_data);
             }
         } else {
-            if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+            if (preg_match("/mangos/i", get_class($this->realms->getEmulator()))) {
                 // Update external access
                 $external_account_access_data[column('account', 'id')] = $id;
                 $this->connection->insert(table('account'), $external_account_access_data);
