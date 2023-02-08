@@ -471,128 +471,40 @@ input[type="radio"] {
     margin-right: 7px;
 }
 
+/*Class colors*/
+.color-c1 { color: #C69B6D ! important; } /* Warrior */
+.color-c2 { color: #F48CBA ! important; } /* Paladin */
+.color-c3 { color: #AAD372 ! important; } /* Hunter */
+.color-c4 { color: #FFF468 ! important; } /* Rogue */
+.color-c5 { color: #FFFFFF ! important; } /* Priest */
+.color-c6 { color: #C41E3A ! important; } /* Death Knight */
+.color-c7 { color: #0070DD ! important; } /* Shaman */
+.color-c8 { color: #3FC7EB ! important; } /* Mage */
+.color-c9 { color: #8788EE ! important; } /* Warlock */
+.color-c10 { color: #00FF98 ! important; } /* Monk */
+.color-c11 { color: #FF7C0A ! important; } /* Druid */
+.color-c12 { color: #A330C9 ! important; } /* Demon Hunter */
+.color-c13 { color: #33937F ! important; } /* Evoker */
 
 /* Item quality colors */
-
-.q {
-    color: #ffd100
-}
-
-
-/* Default (yellow) */
-
-.q0,
-.q0 a {
-    color: #9d9d9d
-}
-
-
-/* Poor */
-
-.q1,
-.q1 a {
-    color: #ffffff
-}
-
-
-/* Common */
-
-.q2,
-.q2 a,
-.q2:hover {
-    color: #1eff00
-}
-
-
-/* Uncommon */
-
-.q3,
-.q3 a {
-    color: #0070dd
-}
-
-
-/* Rare */
-
-.q4,
-.q4 a {
-    color: #a335ee
-}
-
-
-/* Epic */
-
-.q5,
-.q5 a {
-    color: #ff8000
-}
-
-
-/* Legendary */
-
-.q6,
-.q6 a {
-    color: #e5cc80
-}
-
-
-/* Artifact */
-
-.q7,
-.q7 a {
-    color: #e5cc80
-}
-
-
-/* Heirloom */
-
-.q8,
-.q8 a {
-    color: #ffff98
-}
-
-
-/* Light yellow (item set bonuses) */
-
-.q9,
-.q9 a {
-    color: #71D5FF
-}
-
-
-/* Light blue (glyph type) */
-
-.q10,
-.q10 a {
-    color: #ff4040
-}
-
-
-/* Red (requirement not met, error) */
-
+.q  { color: #ffd100 ! important; } /* Default (yellow) */
+.q0, .q0 a { color: #9d9d9d ! important; } /* Poor */
+.q1, .q1 a { color: #ffffff ! important; } /* Common */
+.q2, .q2 a, .q2:hover { color: #1eff00 ! important; } /* Uncommon */
+.q3, .q3 a { color: #0070dd ! important; } /* Rare */
+.q4, .q4 a { color: #a335ee ! important; } /* Epic */
+.q5, .q5 a { color: #ff8000 ! important; } /* Legendary */
+.q6, .q6 a { color: #e5cc80 ! important; } /* Artifact */
+.q7, .q7 a { color: #e5cc80 ! important; } /* Heirloom (new 00ccff)*/
+.q8, .q8 a { color: #ffff98 ! important; } /* Light yellow (item set bonuses) */
+.q9, .q9 a { color: #71D5FF ! important; } /* Light blue (glyph type) */
+.q10, .q10 a { color: #ff4040 ! important; } /* Red (requirement not met, error) */
 
 /* Sockets */
-
-.socket-meta {
-    padding-left: 26px;
-    background: url(../images/misc/socket_meta.gif) no-repeat left center
-}
-
-.socket-red {
-    padding-left: 26px;
-    background: url(../images/misc/socket_red.gif) no-repeat left center
-}
-
-.socket-yellow {
-    padding-left: 26px;
-    background: url(../images/misc/socket_yellow.gif) no-repeat left center
-}
-
-.socket-blue {
-    padding-left: 26px;
-    background: url(../images/misc/socket_blue.gif) no-repeat left center
-}
-
+.socket-meta   { padding-left: 20px; background: url(../images/misc/socket_meta.gif) no-repeat left center; }
+.socket-red    { padding-left: 20px; background: url(../images/misc/socket_red.gif) no-repeat left center; }
+.socket-yellow { padding-left: 20px; background: url(../images/misc/socket_yellow.gif) no-repeat left center; }
+.socket-blue   { padding-left: 20px; background: url(../images/misc/socket_blue.gif) no-repeat left center; }
 
 /* FusionEditor WYSIWYG field */
 
@@ -798,38 +710,3 @@ input[type="radio"] {
 .comment {
     word-wrap: break-word;
 }
-
-/*Class colors*/
-.color-c1 { color: #C69B6D ! important; } /* Warrior */
-.color-c2 { color: #F48CBA ! important; } /* Paladin */
-.color-c3 { color: #AAD372 ! important; } /* Hunter */
-.color-c4 { color: #FFF468 ! important; } /* Rogue */
-.color-c5 { color: #FFFFFF ! important; } /* Priest */
-.color-c6 { color: #C41E3A ! important; } /* Death Knight */
-.color-c7 { color: #0070DD ! important; } /* Shaman */
-.color-c8 { color: #3FC7EB ! important; } /* Mage */
-.color-c9 { color: #8788EE ! important; } /* Warlock */
-.color-c10 { color: #00FF98 ! important; } /* Monk */
-.color-c11 { color: #FF7C0A ! important; } /* Druid */
-.color-c12 { color: #A330C9 ! important; } /* Demon Hunter */
-.color-c13 { color: #33937F ! important; } /* Evoker */
-
-/* Item quality colors */
-.q  { color: #ffd100 ! important; } /* Default (yellow) */
-.q0, .q0 a { color: #9d9d9d ! important; } /* Poor */
-.q1, .q1 a { color: #ffffff ! important; } /* Common */
-.q2, .q2 a, .q2:hover { color: #1eff00 ! important; } /* Uncommon */
-.q3, .q3 a { color: #0070dd ! important; } /* Rare */
-.q4, .q4 a { color: #a335ee ! important; } /* Epic */
-.q5, .q5 a { color: #ff8000 ! important; } /* Legendary */
-.q6, .q6 a { color: #e5cc80 ! important; } /* Artifact */
-.q7, .q7 a { color: #e5cc80 ! important; } /* Heirloom (new 00ccff)*/
-.q8, .q8 a { color: #ffff98 ! important; } /* Light yellow (item set bonuses) */
-.q9, .q9 a { color: #71D5FF ! important; } /* Light blue (glyph type) */
-.q10, .q10 a { color: #ff4040 ! important; } /* Red (requirement not met, error) */
-
-/* Sockets */
-.socket-meta   { padding-left: 26px; background: url(../images/misc/socket_meta.gif) no-repeat left center; }
-.socket-red    { padding-left: 26px; background: url(../images/misc/socket_red.gif) no-repeat left center; }
-.socket-yellow { padding-left: 26px; background: url(../images/misc/socket_yellow.gif) no-repeat left center; }
-.socket-blue   { padding-left: 26px; background: url(../images/misc/socket_blue.gif) no-repeat left center; }
