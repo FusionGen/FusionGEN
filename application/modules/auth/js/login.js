@@ -40,14 +40,13 @@ var Auth = {
 						$(".captcha-field").removeClass("d-none");
 					}
 
-					for(var i = 0; i<fields.length;i++) {
-						if(fields[i] == "password" && postData["submit"] != true) continue;
-						if(data["messages"]["error"] != "") {
-							if($(".username-input, .password-input").val() != "") { //Check if doesnt empty
-								$(".username-input, .password-input, .captcha-input").parents(".input-group").addClass("border border-danger");
-								$(".username-input, .password-input, .captcha-input").addClass("is-invalid");
-								$(".error-feedback").addClass("invalid-feedback d-block").removeClass("d-none").html(data["messages"]["error"]);
-							}
+					for(var i = 0; i<fields.length;i++)
+                    {
+						if(data["messages"]["error"] != "")
+                        {
+							$(".username-input, .password-input, .captcha-input").parents(".input-group").addClass("border border-danger");
+							$(".username-input, .password-input, .captcha-input").addClass("is-invalid");
+							$(".error-feedback").addClass("invalid-feedback d-block").removeClass("d-none").html(data["messages"]["error"]);
 						}
 					}
 				} catch(e) {
