@@ -69,7 +69,7 @@
 					<span class="text-upper h4">{$stats.maxhealth}</span>
 					</div>
 					<div class="progress" style="height: 5px;">
-						<div class="progress-bar  bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+						<div class="progress-bar  bg-health" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				</div>
 			{/if}
