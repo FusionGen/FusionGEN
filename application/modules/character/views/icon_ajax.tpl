@@ -1,7 +1,9 @@
 <span class="get_icon_{$id}">
-	<div class='item'>
+	<div class="item">
 		<a></a>
-		<img src="{$url}application/images/armory/default/loading.gif" />
+		<div class="text-center fa-2x" style="height:56px; width:56px;">
+			<i class="fas fa-spinner fa-spin align-middle"></i>
+		</div>
 	</div>
 </span>
 
