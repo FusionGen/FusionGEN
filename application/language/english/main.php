@@ -63,3 +63,9 @@ $lang['teleport_hub'] = "Teleport Hub";
 
 $lang['mod_panel'] = "Mod Panel";
 $lang['admin_panel'] = "Admin Panel";
+
+$lang['login'] = "Login";
+$lang['logout'] = "Logout";
+$lang['register'] = "Register";
+$lang['account'] = "Account";
+
