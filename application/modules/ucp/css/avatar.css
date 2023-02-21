@@ -14,7 +14,6 @@
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
-  color: #fff;
 }
 
 .file-upload-btn:active {
@@ -40,13 +39,13 @@
 
 .image-upload-wrap {
   margin-top: 20px;
-  border: 4px dashed #0d6efd;
+  border: 4px dashed #1f252e;
   position: relative;
 }
 
 .image-dropping,
 .image-upload-wrap:hover {
-  border: 4px dashed #2e6ab9cc;
+  border: 4px dashed #262c34;
 }
 
 .image-title-wrap {
@@ -61,7 +60,6 @@
 .drag-text h3 {
   font-weight: 100;
   text-transform: uppercase;
-  color: #fff;
   padding: 60px 0;
 }
 

@@ -3,12 +3,12 @@
 <div class="mb-3 dm-uploader"  id="drag-and-drop-zone">
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 text-center">
-		<img class="rounded-circle me-3 img-thumbnail mb-3" src="{$avatar}" width="153px" height="153px"><br>
+		<img class="rounded-circle mb-3" src="{$avatar}" width="153px" height="153px"><br>
 		<button class="nice_button" href="javascript:void(0)" onClick="Avatar.remove()">Delete avatar</button>
 	</div>
 
 	<div class="file-upload dm-uploader">
-		<button class="file-upload-btn btn-primary" type="button" onClick="$('.file-upload-input').trigger('click')">Add Image</button>
+		<button class="file-upload-btn" type="button" onClick="$('.file-upload-input').trigger('click')">Add Image</button>
 		<small class="status text-muted"></small>
 	
 		<div class="image-upload-wrap" id="drag-and-drop-zone">
