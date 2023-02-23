@@ -24,7 +24,7 @@
 		{$article.readMore = true}
 	{/if}
 
-	<article class="pagebody news-article {if $is_single}is-single{/if} {if $article.comments != -1}has-comments{/if} {if $article.tags}has-tags{/if} {if key(reset($articles)) == $key}first-item{/if} {if !isset($articles[$key + 1])}last-item{/if}" pagebody>
+	<article class="pagebody news-article {if $is_single}is-single{/if} {if $article.comments != -1}has-comments{/if} {if $article.tags}has-tags{/if} {if key(reset($articles)) == $key}first-item{/if} {if !isset($articles[$key + 1])}last-item{/if}">
 		<div glow><div glow-lines></div></div>
 
 			<div class="row">
@@ -74,7 +74,7 @@
 	{if $is_single && $article.comments != -1}<div class="news-comments" {$article.comments_id}></div>{/if}
 {/foreach}
 
-{if $pagination}{preg_replace(['/&nbsp;/', '/<a[^>]*><\\/a[^>]*>/'], '', str_replace('a ', 'a class="nice_button" ', $pagination))}{/if}
+{if $pagination}{$pagination}{/if}
 
 {/strip}
 

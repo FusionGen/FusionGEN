@@ -45,7 +45,7 @@
 							<a data-toggle="tooltip" title="View profile" href="../profile/{$log.user_id}" target="_blank">{$CI->user->getUsername($log.user_id)}</a>
 						{/if}
 					</td>
-					<td class="text-center"  width="15%">
+					<td class="text-center" width="15%">
 					{if $log.status == 'succeed'}
 						<span class="text-success"><i class="fa-regular fa-circle-check fa-xl"></i></span>
 					{else}
