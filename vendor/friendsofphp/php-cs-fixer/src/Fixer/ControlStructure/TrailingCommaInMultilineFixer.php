@@ -77,23 +77,13 @@ final class TrailingCommaInMultilineFixer extends AbstractFixer implements Confi
 
 SAMPLE
                     ,
-                    new VersionSpecification(70300),
+                    new VersionSpecification(7_03_00),
                     ['after_heredoc' => true]
                 ),
-                new VersionSpecificCodeSample("<?php\nfoo(\n    1,\n    2\n);\n", new VersionSpecification(70300), ['elements' => [self::ELEMENTS_ARGUMENTS]]),
-                new VersionSpecificCodeSample("<?php\nfunction foo(\n    \$x,\n    \$y\n)\n{\n}\n", new VersionSpecification(80000), ['elements' => [self::ELEMENTS_PARAMETERS]]),
+                new VersionSpecificCodeSample("<?php\nfoo(\n    1,\n    2\n);\n", new VersionSpecification(7_03_00), ['elements' => [self::ELEMENTS_ARGUMENTS]]),
+                new VersionSpecificCodeSample("<?php\nfunction foo(\n    \$x,\n    \$y\n)\n{\n}\n", new VersionSpecification(8_00_00), ['elements' => [self::ELEMENTS_PARAMETERS]]),
             ]
         );
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * Must run after NoMultilineWhitespaceAroundDoubleArrowFixer.
-     */
-    public function getPriority(): int
-    {
-        return 0;
     }
 
     /**
@@ -119,7 +109,7 @@ SAMPLE
                 ->setAllowedValues([new AllowedValueSubset([self::ELEMENTS_ARRAYS, self::ELEMENTS_ARGUMENTS, self::ELEMENTS_PARAMETERS, self::MATCH_EXPRESSIONS])])
                 ->setDefault([self::ELEMENTS_ARRAYS])
                 ->setNormalizer(static function (Options $options, $value) {
-                    if (\PHP_VERSION_ID < 80000) { // @TODO: drop condition when PHP 8.0+ is required
+                    if (\PHP_VERSION_ID < 8_00_00) { // @TODO: drop condition when PHP 8.0+ is required
                         foreach ([self::ELEMENTS_PARAMETERS, self::MATCH_EXPRESSIONS] as $option) {
                             if (\in_array($option, $value, true)) {
                                 throw new InvalidOptionsForEnvException(sprintf('"%s" option can only be enabled with PHP 8.0+.', $option));
@@ -140,8 +130,8 @@ SAMPLE
     {
         $fixArrays = \in_array(self::ELEMENTS_ARRAYS, $this->configuration['elements'], true);
         $fixArguments = \in_array(self::ELEMENTS_ARGUMENTS, $this->configuration['elements'], true);
-        $fixParameters = \PHP_VERSION_ID >= 80000 && \in_array(self::ELEMENTS_PARAMETERS, $this->configuration['elements'], true); // @TODO: drop condition when PHP 8.0+ is required
-        $fixMatch = \PHP_VERSION_ID >= 80000 && \in_array(self::MATCH_EXPRESSIONS, $this->configuration['elements'], true); // @TODO: drop condition when PHP 8.0+ is required
+        $fixParameters = \PHP_VERSION_ID >= 8_00_00 && \in_array(self::ELEMENTS_PARAMETERS, $this->configuration['elements'], true); // @TODO: drop condition when PHP 8.0+ is required
+        $fixMatch = \PHP_VERSION_ID >= 8_00_00 && \in_array(self::MATCH_EXPRESSIONS, $this->configuration['elements'], true); // @TODO: drop condition when PHP 8.0+ is required
 
         for ($index = $tokens->count() - 1; $index >= 0; --$index) {
             $prevIndex = $tokens->getPrevMeaningfulToken($index);
@@ -201,6 +191,9 @@ SAMPLE
         $endIndex = $tokens->findBlockEnd($blockType['type'], $startIndex);
 
         $beforeEndIndex = $tokens->getPrevMeaningfulToken($endIndex);
+        if (!$tokens->isPartialCodeMultiline($beforeEndIndex, $endIndex)) {
+            return;
+        }
         $beforeEndToken = $tokens[$beforeEndIndex];
 
         // if there is some item between braces then add `,` after it
@@ -242,6 +235,9 @@ SAMPLE
         }
 
         $previousIndex = $tokens->getPrevMeaningfulToken($closeIndex);
+        if (!$tokens->isPartialCodeMultiline($previousIndex, $closeIndex)) {
+            return;
+        }
 
         if (!$tokens[$previousIndex]->equals(',')) {
             $tokens->insertAt($previousIndex + 1, new Token(','));

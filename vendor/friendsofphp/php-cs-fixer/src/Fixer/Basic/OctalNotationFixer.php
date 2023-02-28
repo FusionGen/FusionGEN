@@ -35,7 +35,7 @@ final class OctalNotationFixer extends AbstractFixer
             [
                 new VersionSpecificCodeSample(
                     "<?php \$foo = 0123;\n",
-                    new VersionSpecification(80100)
+                    new VersionSpecification(8_01_00)
                 ),
             ]
         );
@@ -46,7 +46,7 @@ final class OctalNotationFixer extends AbstractFixer
      */
     public function isCandidate(Tokens $tokens): bool
     {
-        return \PHP_VERSION_ID >= 80100 && $tokens->isTokenKindFound(T_LNUMBER);
+        return \PHP_VERSION_ID >= 8_01_00 && $tokens->isTokenKindFound(T_LNUMBER);
     }
 
     /**
@@ -61,13 +61,13 @@ final class OctalNotationFixer extends AbstractFixer
 
             $content = $token->getContent();
 
-            if (1 !== Preg::match('#^0\d+$#', $content)) {
+            if (1 !== Preg::match('#^0[\d_]+$#', $content)) {
                 continue;
             }
 
             $tokens[$index] = 1 === Preg::match('#^0+$#', $content)
                 ? new Token([T_LNUMBER, '0'])
-                : new Token([T_LNUMBER, '0o'.substr($content, 1)])
+                : new Token([T_LNUMBER, '0o'.('_' === $content[1] ? '0' : '').substr($content, 1)])
             ;
         }
     }
