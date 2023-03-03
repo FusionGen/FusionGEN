@@ -134,7 +134,7 @@ class Auth extends MX_Controller
                             {
                                 $data["showCaptcha"] = true;
                             }
-                            $this->logger->createLog("user", "login", "Login", [], Logger::STATUS_FAILED, $this->input->post("username"));
+                            $this->logger->createLog("user", "login", "Login", [], Logger::STATUS_FAILED, $this->user->getId($this->input->post("username")));
                             $data["messages"]["error"] = lang("error", "auth");
                             die(json_encode($data));
                         }
