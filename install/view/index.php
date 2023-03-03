@@ -249,6 +249,23 @@
                                                         <i class="status fa fa-times-circle-o"></i>
                                                     <?php } ?>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <td>XML</td>
+                                                <td> <?php if ($xml_success) { ?>
+                                                        On
+                                                    <?php } else { ?>
+                                                        Off
+                                                    <?php } ?>
+                                                </td>
+                                                <td>On</td>
+                                                <td class="text-center">
+                                                    <?php if ($xml_success) { ?>
+                                                        <i class="status fa fa-check-circle-o"></i>
+                                                    <?php } else { ?>
+                                                        <i class="status fa fa-times-circle-o"></i>
+                                                    <?php } ?>
+                                                </td>
                                             </tr>                                           
                                         </tbody>
                                     </table>
