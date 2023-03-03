@@ -25,7 +25,7 @@ class Logger_model extends CI_Model
             $this->db->limit($limit);
         }
         if ($limit > 0 && $offset > 0) {
-            $this->db->limit(($offset + $limit), $offset);
+            $this->db->limit($limit, $offset);
         }
         $query = $this->db->get('logs');
 
