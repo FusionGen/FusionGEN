@@ -1,6 +1,6 @@
 <?php
-
-if (!defined('BASEPATH')) {
+if (!defined('BASEPATH'))
+{
     exit('No direct script access allowed');
 }
 
@@ -37,24 +37,25 @@ class Template
      */
     public function __construct()
     {
-        $this->CI = &get_instance();
+        $this->CI =& get_instance();
 
         // Get the theme name
         $this->theme = $this->CI->config->item('theme');
 
         // Construct the paths
         $this->module_name = $this->CI->router->fetch_module();
-        $this->theme_path = "themes/" . $this->theme . "/";
-        $this->view_path = "views/";
-        $this->style_path = base_url() . APPPATH . "themes/" . $this->theme . "/css/";
-        $this->image_path = base_url() . APPPATH . "themes/" . $this->theme . "/images/";
-        $this->page_url = ($this->CI->config->item('rewrite')) ? base_url() : base_url() . 'index.php/';
+        $this->theme_path  = "themes/" . $this->theme . "/";
+        $this->view_path   = "views/";
+        $this->style_path  = base_url() . APPPATH . "themes/" . $this->theme . "/css/";
+        $this->image_path  = base_url() . APPPATH . "themes/" . $this->theme . "/images/";
+        $this->page_url    = ($this->CI->config->item('rewrite')) ? base_url() : base_url() . 'index.php/';
         $this->loadManifest();
         $this->loadModuleManifest();
-        $this->title = "";
+        $this->title       = "";
         $this->custom_page = false;
 
-        if (!defined("pageURL")) {
+        if (!defined("pageURL"))
+        {
             define("pageURL", $this->page_url);
         }
     }
@@ -64,9 +65,12 @@ class Template
      */
     private function loadManifest()
     {
-        if (!file_exists(APPPATH . $this->theme_path)) {
+        if (!file_exists(APPPATH . $this->theme_path))
+        {
             show_error("Invalid theme. The folder <b>" . APPPATH . $this->theme_path . "</b> doesn't exist!");
-        } elseif (!file_exists(APPPATH . $this->theme_path . "/manifest.json")) {
+        }
+        elseif (!file_exists(APPPATH . $this->theme_path . "/manifest.json"))
+        {
             show_error("Invalid theme. The file <b>manifest.json</b> is missing!");
         }
 
@@ -79,7 +83,8 @@ class Template
         // Fix the favicon link
         $array['favicon'] = $this->image_path . $array['favicon'];
 
-        if (!isset($array['blank_header'])) {
+        if (!isset($array['blank_header']))
+        {
             $array['blank_header'] = '';
         }
 
@@ -92,9 +97,12 @@ class Template
      */
     private function loadModuleManifest()
     {
-        if (!file_exists(APPPATH . "modules/" . strtolower($this->getModuleName()))) {
+        if (!file_exists(APPPATH . "modules/" . strtolower($this->getModuleName())))
+        {
             show_error("Invalid Module. The folder <b>" . APPPATH . "modules/" . strtolower($this->getModuleName()) . "</b> doesn't exist!");
-        } elseif (!file_exists(APPPATH . $this->theme_path . "/manifest.json")) {
+        }
+        elseif (!file_exists(APPPATH . $this->theme_path . "/manifest.json"))
+        {
             show_error("The manifest.json file for <b>" . strtolower($this->getModuleName()) . "</b> does not exist");
         }
 
@@ -104,14 +112,14 @@ class Template
         // Convert to array
         $array = json_decode($data, true);
 
-        if (!is_array($array)) {
+        if (!is_array($array))
+        {
             show_error("The manifest.json file for <b>" . strtolower($this->getModuleName()) . "</b> is not properly formatted");
         }
 
         // Save the data
         $this->module_data = $array;
     }
-
 
     /**
      * Returns if the slider should be shown on the current page.
@@ -121,14 +129,17 @@ class Template
     private function isSliderShown()
     {
         // Is it enabled?
-        if ($this->CI->config->item('slider')) {
+        if ($this->CI->config->item('slider'))
+        {
             // Only on news page?, if yes make sure we are on the news page, then show it
-            if ($this->CI->config->item('slider_home') && $this->CI->router->class == "news") {
+            if ($this->CI->config->item('slider_home') && $this->CI->router->class == "news")
+            {
                 return true;
             }
 
             // If we want to only show it on the home page, then do not show it on the other pages.
-            elseif ($this->CI->config->item('slider_home') && $this->CI->router->class != "news") {
+            elseif ($this->CI->config->item('slider_home') && $this->CI->router->class != "news")
+            {
                 return false;
             }
 
@@ -148,18 +159,24 @@ class Template
     public function view($content, $css = false, $js = false)
     {
         // Avoid loading the main site in the ACP layout
-        if ($this->CI->input->get('is_acp')) {
+        if ($this->CI->input->get('is_acp'))
+        {
             $this->CI->load->library('administrator');
             $this->CI->administrator->view('<script>window.location.reload(true)</script>');
         }
 
         $output = "";
 
-        if ($this->CI->config->item("message_enabled") && $this->CI->router->fetch_class() != "auth" && !$this->CI->user->isStaff()) {
+        if ($this->CI->config->item("message_enabled") && $this->CI->router->fetch_class() != "auth" && !$this->CI->user->isStaff())
+        {
             $output = $this->handleAnnouncement();
-        } elseif ($this->CI->input->is_ajax_request() && isset($_GET['is_json_ajax']) && $_GET['is_json_ajax'] == 1) {
+        }
+        elseif ($this->CI->input->is_ajax_request() && isset($_GET['is_json_ajax']) && $_GET['is_json_ajax'] == 1)
+        {
             $output = $this->handleAjaxRequest($content, $css, $js);
-        } else {
+        }
+        else
+        {
             $output = $this->handleNormalPage($content, $css, $js);
         }
 
@@ -179,12 +196,13 @@ class Template
     {
         //Load the sideboxes
         $sideboxes = $this->loadSideboxes();
-        $header = $this->getHeader($css, $js);
-        $modals = $this->getModals();
+        $header    = $this->getHeader($css, $js);
+        $modals    = $this->getModals();
 
         $url = $this->CI->router->fetch_class();
 
-        if ($this->CI->router->fetch_method() != "index") {
+        if ($this->CI->router->fetch_method() != "index")
+        {
             $url .= "/" . $this->CI->router->fetch_method();
         }
 
@@ -226,6 +244,7 @@ class Template
             "js" => $js,
             "css" => $css,
             "slider" => $this->isSliderShown(),
+            "serverName" => $this->CI->config->item('server_name'),
             "language" => $this->CI->language->getClientData()
         );
 
@@ -277,16 +296,21 @@ class Template
      */
     private function handleFiles($files = array())
     {
-        $existsTypes = array("css", "js");
+        $existsTypes = array(
+            "css",
+            "js"
+        );
         $returnFiles = array();
 
         //If $files is not an array, then definied it to an array
-        if (!is_array($files)) {
+        if (!is_array($files))
+        {
             $oldFiles = $files;
-            $files = array();
+            $files    = array();
 
             //if $oldFiles is an string, than push it to the array
-            if (is_string($oldFiles)) {
+            if (is_string($oldFiles))
+            {
                 array_push($files, $oldFiles);
             }
 
@@ -294,22 +318,32 @@ class Template
             unset($oldFiles);
         }
 
-        foreach ($files as $file) {
+        foreach ($files as $file)
+        {
             $expldFile = explode(".", $file);
-            $fileType = isset($expldFile[count($expldFile) - 1]) ? $expldFile[count($expldFile) - 1] : "undefined";
-            if (in_array($fileType, $existsTypes)) {
+            $fileType  = isset($expldFile[count($expldFile) - 1]) ? $expldFile[count($expldFile) - 1] : "undefined";
+            if (in_array($fileType, $existsTypes))
+            {
                 //Check if URL and valid URL
-                if (substr($file, 0, 4) == "http" && filter_var($file, FILTER_VALIDATE_URL) !== false) {
+                if (substr($file, 0, 4) == "http" && filter_var($file, FILTER_VALIDATE_URL) !== false)
+                {
                     array_push($returnFiles, $file);
-                } else {
+                }
+                else
+                {
                     //Check if asset file exists
-                    if (file_exists(APPPATH . $file)) {
+                    if (file_exists(APPPATH . $file))
+                    {
                         array_push($returnFiles, $file);
-                    } else {
+                    }
+                    else
+                    {
                         show_error("This file doesn't exists. ('" . $file . "'')");
                     }
                 }
-            } else {
+            }
+            else
+            {
                 show_error("This type is not supported yet ('" . $fileType . "' in '" . $file . "')");
             }
         }
@@ -325,6 +359,10 @@ class Template
      */
     private function getHeader($css = false, $js = false)
     {
+        header('X-XSS-Protection: 1; mode=block');
+        header('X-Frame-Options: SAMEORIGIN');
+        header('X-Content-Type-Options: nosniff');
+
         // Gather the header data
         $header_data = array(
             "style_path" => $this->style_path,
@@ -333,7 +371,7 @@ class Template
             "image_path" => $this->image_path,
             "url" => $this->page_url,
             "title" => $this->title . $this->CI->config->item('title'),
-			"serverName" => $this->CI->config->item('server_name'),
+            "serverName" => $this->CI->config->item('server_name'),
             "slider_interval" => $this->CI->config->item('slider_interval'),
             "slider_style" => $this->CI->config->item('slider_style'),
             "vote_reminder" => $this->voteReminder(),
@@ -356,17 +394,25 @@ class Template
             "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : null,
             "recaptcha" => $this->CI->config->item('captcha_type') === 'recaptcha',
             "recaptcha_sitekey" => $this->CI->config->item('recaptcha_sitekey'),
-            "social_media" => array('facebook' => $this->CI->config->item('facebook'), 'twitter' => $this->CI->config->item('twitter'), 'youtube' => $this->CI->config->item('youtube'), 'discord' => $this->CI->config->item('discord')),
-			"use_captcha" => false,
-			"captcha_type" => $this->CI->config->item('captcha_type')
+            "social_media" => array(
+                'facebook' => $this->CI->config->item('facebook'),
+                'twitter' => $this->CI->config->item('twitter'),
+                'youtube' => $this->CI->config->item('youtube'),
+                'discord' => $this->CI->config->item('discord')
+            ),
+            "use_captcha" => false,
+            "captcha_type" => $this->CI->config->item('captcha_type')
         );
 
         $headerView = "application/" . $this->theme_path . "views/header.tpl";
 
         // Check if this theme wants to replace our view with it's own
-        if (file_exists($headerView)) {
+        if (file_exists($headerView))
+        {
             return $this->CI->smarty->view($headerView, $header_data, true);
-        } else {
+        }
+        else
+        {
             // Load the theme
             return $this->CI->smarty->view($this->view_path . "header.tpl", $header_data, true);
         }
@@ -379,12 +425,13 @@ class Template
      */
     private function voteReminder()
     {
-        if ($this->CI->config->item('vote_reminder') && !$this->CI->input->cookie("vote_reminder")) {
+        if ($this->CI->config->item('vote_reminder') && !$this->CI->input->cookie("vote_reminder"))
+        {
             $this->CI->input->set_cookie("vote_reminder", "1", $this->CI->config->item('reminder_interval'));
-
+            
             return true;
         }
-
+        
         return false;
     }
 
@@ -402,27 +449,43 @@ class Template
         $sideboxes_db = $this->CI->cms_model->getSideboxes();
 
         // If we got sideboxes
-        if ($sideboxes_db) {
+        if ($sideboxes_db)
+        {
             // Go through them all and add them to the output.
-            foreach ($sideboxes_db as $sidebox) {
-                if ($sidebox['permission'] && !hasViewPermission($sidebox['permission'], "--SIDEBOX--")) {
+            foreach ($sideboxes_db as $sidebox)
+            {
+                if ($sidebox['permission'] && !hasViewPermission($sidebox['permission'], "--SIDEBOX--"))
+                {
                     continue;
                 }
 
                 $fileLocation = 'application/modules/sidebox_' . $sidebox['type'] . '/controllers/' . ucfirst($sidebox['type']) . '.php';
 
-                if (file_exists($fileLocation)) {
+                if (file_exists($fileLocation))
+                {
                     require_once($fileLocation);
 
-                    if ($sidebox['type'] == 'custom') {
+                    if ($sidebox['type'] == 'custom')
+                    {
                         $object = new $sidebox['type']($sidebox['id']);
-                    } else {
+                    }
+                    else
+                    {
                         $object = new $sidebox['type']();
                     }
 
-                    array_push($out, array('name' => langColumn($sidebox['displayName']), 'data' => $object->view(), 'type' => $sidebox['type']));
-                } else {
-                    array_push($out, array('name' => "Oops, something went wrong", 'data' => 'The following sidebox module is missing or contains an invalid module structure: <b>sidebox_' . $sidebox['type'] . '</b>'));
+                    array_push($out, array(
+                        'name' => langColumn($sidebox['displayName']),
+                        'data' => $object->view(),
+                        'type' => $sidebox['type']
+                    ));
+                }
+                else
+                {
+                    array_push($out, array(
+                        'name' => "Oops, something went wrong",
+                        'data' => 'The following sidebox module is missing or contains an invalid module structure: <b>sidebox_' . $sidebox['type'] . '</b>'
+                    ));
                 }
             }
         }
@@ -443,24 +506,26 @@ class Template
         $data['module'] = array_key_exists("module", $data) ? $data['module'] : $this->module_name;
 
         // Get the rest of the data
-        $data['url'] = array_key_exists("url", $data) ? $data['url'] : $this->page_url;
+        $data['url']        = array_key_exists("url", $data) ? $data['url'] : $this->page_url;
         $data['theme_path'] = array_key_exists("theme_path", $data) ? $data['theme_path'] : $this->theme_path;
         $data['image_path'] = array_key_exists("image_path", $data) ? $data['image_path'] : $this->image_path;
-        $data['CI'] = array_key_exists("CI", $data) ? $data['CI'] : $this->CI;
+        $data['CI']         = array_key_exists("CI", $data) ? $data['CI'] : $this->CI;
 
         // Should we load from the default views or not?
-        if ($data['module'] == "default") {
+        if ($data['module'] == "default")
+        {
             // Shorthand for loading views/page.tpl
             $page = ($page == "page.tpl") ? "views/page.tpl" : $page;
-
+            
             return $this->CI->smarty->view($this->theme_path . $page, $data, true, true);
         }
 
         // Consruct the path
         $themeView = "application/" . $this->theme_path . "modules/" . $data['module'] . "/" . $page;
-
+        
         // Check if this theme wants to replace our view with it's own
-        if (file_exists($themeView)) {
+        if (file_exists($themeView))
+        {
             return $this->CI->smarty->view($themeView, $data, true);
         }
 
@@ -480,12 +545,14 @@ class Template
         $data = array(
             "module" => "default",
             "headline" => $title,
-            "content" => $body
+            "content" => $body,
+            "serverName" => $this->CI->config->item('server_name')
         );
 
         $page = $this->loadPage("page.tpl", $data);
-
-        if ($full) {
+        
+        if ($full)
+        {
             $this->view($page, $css, $js);
         }
 
@@ -504,20 +571,27 @@ class Template
         // Get the database values
         $links = $this->CI->cms_model->getLinks($side);
 
-        foreach ((array) $links as $key => $item) {
-            if (!hasViewPermission($links[$key]['permission'], "--MENU--") && $links[$key]['permission']) {
+        foreach ((array) $links as $key => $item)
+        {
+            if (!hasViewPermission($links[$key]['permission'], "--MENU--") && $links[$key]['permission'])
+            {
                 continue;
             }
 
             // Xss protect out names
-            $links[$key]['name'] = $this->format(langColumn($links[$key]['name']), false, false);
+            $links[$key]['name']   = $this->format(langColumn($links[$key]['name']), false, false);
             $links[$key]['active'] = false;
 
-            if (!preg_match("/^\/|[a-z][a-z0-9+\-.]*:/i", $links[$key]['link'])) {
-                if ($this->getModuleName() == $links[$key]['link']) {
+            if (!preg_match("/^\/|[a-z][a-z0-9+\-.]*:/i", $links[$key]['link']))
+            {
+                if ($this->getModuleName() == $links[$key]['link'])
+                {
                     $links[$key]['active'] = true;
-                } elseif ($this->getModuleName() == "page") {
-                    if ($this->getModuleName() . "/" . $this->custom_page == $links[$key]['link']) {
+                }
+                elseif ($this->getModuleName() == "page")
+                {
+                    if ($this->getModuleName() . "/" . $this->custom_page == $links[$key]['link'])
+                    {
                         $links[$key]['active'] = true;
                     }
                 }
@@ -542,11 +616,12 @@ class Template
         // Load the slides from the database
         $slides_arr = $this->CI->cms_model->getSlides();
 
-        foreach ($slides_arr as $key => $image) {
+        foreach ($slides_arr as $key => $image)
+        {
             $slides_arr[$key]['header'] = langColumn($image['header']);
-            $slides_arr[$key]['body'] = langColumn($image['body']);
+            $slides_arr[$key]['body']   = langColumn($image['body']);
             $slides_arr[$key]['footer'] = langColumn($image['footer']);
-
+            
             // Replace {path} by the theme image path
             $slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image']);
         }
@@ -559,17 +634,22 @@ class Template
      */
     public function show404()
     {
-        if ($this->CI->input->get('is_acp')) {
+        if ($this->CI->input->get('is_acp'))
+        {
             header('HTTP/1.0 404 Not Found');
         }
-        if ($this->CI->input->get('is_mod')) {
+        if ($this->CI->input->get('is_mod'))
+        {
             header('HTTP/1.0 404 Not Found');
         }
 
         $this->setTitle(lang("404_title", "error"));
 
-        $message = $this->loadPage("error.tpl", array('module' => 'errors', 'is404' => true));
-        $output = $this->box(lang("404", "error"), $message);
+        $message = $this->loadPage("error.tpl", array(
+            'module' => 'errors',
+            'is404' => true
+        ));
+        $output  = $this->box(lang("404", "error"), $message);
 
         $this->view($output);
     }
@@ -581,9 +661,12 @@ class Template
      */
     public function showError($error = false)
     {
-        $message = $this->loadPage("error.tpl", array('module' => 'errors', 'errorMessage' => $error));
-        $output = $this->box($error, $message);
-
+        $message = $this->loadPage("error.tpl", array(
+            'module' => 'errors',
+            'errorMessage' => $error
+        ));
+        $output  = $this->box($error, $message);
+        
         $this->view($output);
     }
 
@@ -601,25 +684,32 @@ class Template
 
         $a = preg_replace("/\./", "", $a);
         $b = preg_replace("/\./", "", $b);
-
+        
         // Add ending zeros if necessary
-        if (strlen($a) < $maxLength) {
-            for ($i = 0; $i <= ($maxLength - strlen($a)); $i++) {
+        if (strlen($a) < $maxLength)
+        {
+            for ($i = 0; $i <= ($maxLength - strlen($a)); $i++)
+            {
                 $a .= "0";
             }
         }
 
         // Add ending zeros if necessary
-        if (strlen($b) < $maxLength) {
-            for ($i = 0; $i <= ($maxLength - strlen($b)); $i++) {
+        if (strlen($b) < $maxLength)
+        {
+            for ($i = 0; $i <= ($maxLength - strlen($b)); $i++)
+            {
                 $b .= "0";
             }
         }
 
-        if ($notEqual) {
-            return (int)$a > (int)$b;
-        } else {
-            return (int)$a >= (int)$b;
+        if ($notEqual)
+        {
+            return (int) $a > (int) $b;
+        }
+        else
+        {
+            return (int) $a >= (int) $b;
         }
     }
 
@@ -634,24 +724,27 @@ class Template
     public function format($text, $nl2br = false, $xss = true, $break = false)
     {
         // Prevent Cross Site Scripting
-        if ($xss && is_string($text)) {
+        if ($xss && is_string($text))
+        {
             $text = $this->CI->security->xss_clean($text);
             $text = htmlspecialchars($text);
         }
 
         // Wordwrap
-        if ($break) {
+        if ($break)
+        {
             $text = wordwrap($text, $break, "<br />", true);
         }
 
         // Convert new lines to <br>
-        if ($nl2br) {
+        if ($nl2br)
+        {
             $text = nl2br($text);
         }
 
         return $text;
     }
-
+    
     /**
      * Format time as "XX days/hours/minutes/seconds"
      *
@@ -660,24 +753,27 @@ class Template
      */
     public function formatTime($time)
     {
-        if (!is_numeric($time)) {
+        if (!is_numeric($time))
+        {
             return "Not a number";
         }
-
+        
         $a = array(
-            30 * 24 * 60 * 60       => 'month',
-            24 * 60 * 60            =>  'day',
-            60 * 60                 =>  'hour',
-            60                      =>  'minute',
-            1                       =>  'second'
+            30 * 24 * 60 * 60 => 'month',
+            24 * 60 * 60 => 'day',
+            60 * 60 => 'hour',
+            60 => 'minute',
+            1 => 'second'
         );
 
-        foreach ($a as $secs => $str) {
+        foreach ($a as $secs => $str)
+        {
             $d = $time / $secs;
-
-            if ($d >= 1) {
+            
+            if ($d >= 1)
+            {
                 $r = round($d);
-
+                
                 return $r . ' ' . ($r > 1 ? lang($str . 's') : lang($str));
             }
         }
