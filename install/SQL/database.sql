@@ -844,20 +844,20 @@ DROP TABLE IF EXISTS `paypal_logs`;
 CREATE TABLE `paypal_logs`  (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `payment_id` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hash` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `total` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `points` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `payment_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `points` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `create_time` int(11) NULL DEFAULT NULL,
-  `currency` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `error` longtext CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL,
+  `currency` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `error` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `invoice_number` varchar(25) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
-  `payer_email` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
-  `token` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
-  `transactions_code` varchar(255) CHARACTER SET utf8 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `invoice_number` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `payer_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
+  `transactions_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of paypal_logs
