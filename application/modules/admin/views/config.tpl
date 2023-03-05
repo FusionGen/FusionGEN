@@ -45,7 +45,6 @@
 								</div>
 							{elseif is_array($sub_option)}
 								<label class="col-sm-2 col-form-label" for="{$label}-{$sub_label}"><b>{ucfirst(preg_replace("/_/", " ", $sub_label))}</b></label>
-								test
 							{elseif $sub_option === true}
 								<label class="col-sm-2 col-form-label" for="{$label}-{$sub_label}">{ucfirst(preg_replace("/_/", " ", $sub_label))}</label>
 								<div class="col-sm-10">
@@ -56,7 +55,7 @@
 								</div>
 							{elseif $sub_option === false}
 								<label class="col-sm-2 col-form-label" for="{$label}-{$sub_label}">{ucfirst(preg_replace("/_/", " ", $sub_label))}</label>
-								<div class="col-sm-10">
+								<div class="col">
 								<select class="form-control" id="{$label}-{$sub_label}" name="{$label}-{$sub_label}">
 									<option value="true">Yes</option>
 									<option selected value="false">No</option>
@@ -64,7 +63,7 @@
 								</div>
 							{else}
 								<label class="col-sm-2 col-form-label" for="{$label}-{$sub_label}">{ucfirst(preg_replace("/_/", " ", $sub_label))}</label>
-								<div class="col-sm-10">
+								<div class="col">
 									<input class="form-control" type="text" value="{$sub_option}" id="{$label}-{$sub_label}" name="{$label}-{$sub_label}" />
 								</div>
 							{/if}
