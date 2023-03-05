@@ -14,18 +14,27 @@ if(isset($_POST)) {
     $auth_db = $_POST["auth_db"];
     $auth_port = $_POST["auth_port"];
 
-    if(!($host && $dbuser && $dbname && $auth_host && $auth_db_user && $auth_db_pass && $auth_db)) {
+    if (!($host && $dbuser && $dbpassword && $dbname && $auth_host && $auth_db_user && $auth_db_pass && $auth_db))
+    {
         echo json_encode(array("success" => false, "message" => "Please input all fields."));
         exit();
     }
-	
+
     try {
         $mysqli_fusion = new mysqli($host, $dbuser, $dbpassword, $dbname, $dbport);
     } catch (Exception $e) {
         echo json_encode(array("success" => false, "message" => "Fusion DB: ".$e->getMessage()));
         exit();
 	}
-	
+
+    $result = mysqli_query($mysqli_fusion, "SELECT VERSION() as mysql_version");
+    $row = mysqli_fetch_assoc($result);
+    if ($row['mysql_version'] < '5.7')
+    {
+        echo json_encode(array("success" => false, "message" => "Fusion DB: MySQL server version is too old! Please use at least MySQL 5.7"));
+        exit();
+    }
+
     try {
         $mysqli_auth = new mysqli($auth_host, $auth_db_user, $auth_db_pass, $auth_db, $auth_port);
     } catch (Exception $e) {
@@ -33,12 +42,14 @@ if(isset($_POST)) {
         exit();
 	}
 
-    if(!is_file('SQL/database.sql')) {
+    if (!is_file('SQL/database.sql'))
+    {
         echo json_encode(array("success" => false, "message" => "The database.sql file could not be found!"));
         exit();
     }
 
-    if(file_exists("../application/config/database.php")) {
+    if (file_exists("../application/config/database.php"))
+    {
         unlink("../application/config/database.php");
     }
     $db = fopen("../application/config/database.php", "w");
