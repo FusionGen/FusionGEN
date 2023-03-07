@@ -29,7 +29,8 @@ if(isset($_POST)) {
 
     $result = mysqli_query($mysqli_fusion, "SELECT VERSION() as mysql_version");
     $row = mysqli_fetch_assoc($result);
-    if ($row['mysql_version'] < '5.7')
+    $version = substr($row['mysql_version'], 0, strpos($row['mysql_version'], "-"));
+    if (version_compare($version, '5.7.0', '<'))
     {
         echo json_encode(array("success" => false, "message" => "Fusion DB: MySQL server version is too old! Please use at least MySQL 5.7"));
         exit();
