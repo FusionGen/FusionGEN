@@ -1,4 +1,5 @@
 <?php
+
 class Api extends MX_Controller
 {
     public function __construct()
@@ -15,19 +16,17 @@ class Api extends MX_Controller
     public function checkLogin()
     {
         //Check for API enabled status
-        if ($this->config->item("api_enabled") == false)
-        {
+        if ($this->config->item("api_enabled") == false) {
             $data["info"]["disabled"] = "API endpoint has been disabled!";
             die(json_encode($data));
         }
 
         //Check for API SecretKey
-        if (empty($this->config->item("secret_key")))
-        {
+        if (empty($this->config->item("secret_key"))) {
             $data["info"]["secretkey"] = "Please setup your secretkey!";
             die(json_encode($data));
         }
-        
+
         //Form Validation
         $this->form_validation->set_rules("username", "username", "trim|required|min_length[4]|max_length[24]|xss_clean|alpha_numeric");
         $this->form_validation->set_rules("password", "password", "trim|required|min_length[6]|xss_clean");
@@ -39,20 +38,16 @@ class Api extends MX_Controller
             "messages" => false,
         ];
 
-        if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["apikey"]))
-        {
-            if ($_POST["apikey"] == $this->config->item("api_enabled"))
-            {
+        if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["apikey"])) {
+            if ($_POST["apikey"] == $this->config->item("api_enabled")) {
                 //Get the players IP address
                 $ip_address = $this->input->ip_address();
 
                 //Check if the IP address has been blocked
                 $find = $this->api_model->getIP($ip_address);
 
-                if ($find)
-                {
-                    if (time() < $find["block_until"])
-                    {
+                if ($find) {
+                    if (time() < $find["block_until"]) {
                         // The IP address is blocked, calculate remaining minutes
                         $remaining_minutes = round(($find["block_until"] - time()) / 60);
                         $data["messages"]["error"] = lang("ip_blocked", "api") . "<br>" . lang("try_again", "api") . " " . "Lock Time" . $remaining_minutes . " " . lang("minutes", "api") . "<br>";
@@ -64,15 +59,12 @@ class Api extends MX_Controller
 
                 //Check password
                 $existsUser = $this->external_account_model->usernameExists($this->input->post("username"));
-                if ($existsUser)
-                {
-                    if ($this->input->post("password") != "")
-                    {
+                if ($existsUser) {
+                    if ($this->input->post("password") != "") {
                         $userId = $this->user->getId($this->input->post("username"));
                         $sha_pass_hash = $this->user->createHash($this->input->post("username"), $this->input->post("password"));
 
-                        if (strtoupper($this->external_account_model->getInfo($userId, "password")["password"]) != strtoupper($sha_pass_hash["verifier"]))
-                        {
+                        if (strtoupper($this->external_account_model->getInfo($userId, "password")["password"]) != strtoupper($sha_pass_hash["verifier"])) {
                             $this->increaseAttempts($ip_address);
                             $this->logger->createLog("user", "login", "Login", [], Logger::STATUS_FAILED, $this->user->getId($this->input->post("username")));
                             $data["messages"]["error"] = lang("error", "api");

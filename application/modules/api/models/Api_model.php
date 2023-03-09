@@ -17,8 +17,7 @@ class Api_model extends CI_Model
         $this->db->where('ip_address', $ip);
         $query = $this->db->get('failed_logins');
 
-		if($query->num_rows() > 0)
-		{
+        if ($query->num_rows() > 0) {
             $result = $query->result_array();
             return $result[0];
         } else {
