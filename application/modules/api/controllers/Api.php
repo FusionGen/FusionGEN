@@ -39,7 +39,10 @@ class Api extends MX_Controller
         ];
 
         if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["apikey"])) {
-            if ($_POST["apikey"] == $this->config->item("api_enabled")) {
+            
+            if ($_POST["apikey"] == $this->config->item("secret_key")) {
+
+
                 //Get the players IP address
                 $ip_address = $this->input->ip_address();
 
@@ -94,15 +97,15 @@ class Api extends MX_Controller
                     }
                 }
             } else {
-                $data["success"] = false;
+                $data["info"]["secretkey"] = "Invalid Secret Key!";
                 die(json_encode($data));
             }
         } else {
-            $data["info"]["secretkey"] = "Invalid Secret Key!";
+            $data["success"] = false;
             die(json_encode($data));
         }
     }
-
+    
     private function increaseAttempts($ip_address)
     {
         $find = $this->api_model->getIP($ip_address);
