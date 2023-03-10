@@ -1,4 +1,4 @@
 <?php
 
-$config["api_enabled"] = true;
-$config["secret_key"] = "sdsdsd";
+$config['api_enabled'] = true;
+$config['secret_key'] = "asasasas";

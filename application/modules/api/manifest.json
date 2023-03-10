@@ -1,23 +1,30 @@
 {
-	"description": "Private API Module",
-	"author": {
-		"name": "JustZerooo",
-		"website": "https:\/\/jsr-gaming.de"
+	"description":"Private API Module",
+	"author":
+	{
+		"name":"JustZerooo",
+		"website":"http:\/\/fusiongen.net"
 	},
-	"permissions": {
-		"view": {
-			"default": true,
-			"description": "View the module pages"
+	"permissions":
+	{
+		"view":
+		{
+			"default":false,
+			"description":"View the module pages"
 		}
 	},
-	"roles": {
-		"view": {
-			"description": "View the module pages",
-			"permissions": {
-				"view": true
+	"roles":
+	{
+		"view":
+		{
+			"description":"View the module pages",
+			"permissions":
+			{
+				"view":false
 			}
 		}
 	},
-	"admin": [],
-	"enabled": true
+	"admin":
+	[],
+	"enabled":true
 }

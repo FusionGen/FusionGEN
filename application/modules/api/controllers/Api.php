@@ -53,7 +53,7 @@ class Api extends MX_Controller
                     if (time() < $find["block_until"]) {
                         // The IP address is blocked, calculate remaining minutes
                         $remaining_minutes = round(($find["block_until"] - time()) / 60);
-                        $data["messages"]["error"] = lang("ip_blocked", "api") . "<br>" . lang("try_again", "api") . " " . "Lock Time" . $remaining_minutes . " " . lang("minutes", "api") . "<br>";
+                        $data["messages"]["accounterror"] = lang("ip_blocked", "api") . "<br>" . lang("try_again", "api") . " " . "Lock Time" . $remaining_minutes . " " . lang("minutes", "api") . "<br>";
                         $data["info"]["lockminutes"] = $remaining_minutes;
 
                         die(json_encode($data));
@@ -70,14 +70,14 @@ class Api extends MX_Controller
                         if (strtoupper($this->external_account_model->getInfo($userId, "password")["password"]) != strtoupper($sha_pass_hash["verifier"])) {
                             $this->increaseAttempts($ip_address);
                             $this->logger->createLog("user", "login", "Login", [], Logger::STATUS_FAILED, $this->user->getId($this->input->post("username")));
-                            $data["messages"]["error"] = lang("error", "api");
+                            $data["info"]["passworderror"] = lang("passworderror", "api");
 
                             die(json_encode($data));
                         }
                     }
                 } else {
                     $this->increaseAttempts($ip_address);
-                    $data["messages"]["error"] = lang("error", "api");
+                    $data["info"]["accounterror"] = lang("accounterror", "api");
                     die(json_encode($data));
                 }
 
@@ -89,7 +89,7 @@ class Api extends MX_Controller
                     //if no errors, login
                     if ($check == 0) {
                         $this->session->unset_userdata("attempts");
-                        $data["success"] = true;
+                        $data["info"]["success"] = true;
                         $this->api_model->deleteIP($ip_address);
                         $this->logger->createLog("user", "login", "Login");
 
@@ -101,11 +101,11 @@ class Api extends MX_Controller
                 die(json_encode($data));
             }
         } else {
-            $data["success"] = false;
+            $data["info"]["success"] = false;
             die(json_encode($data));
         }
     }
-    
+
     private function increaseAttempts($ip_address)
     {
         $find = $this->api_model->getIP($ip_address);
