@@ -6,8 +6,8 @@
 |--------------------------------------------------------------------------
 */
 
-$config['donation_currency'] = "EUR";
-$config['donation_currency_sign'] = "€";
+$config['donation_currency'] = "USD";
+$config['donation_currency_sign'] = "$";
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ $config['donation_currency_sign'] = "€";
 |--------------------------------------------------------------------------
 */
 
-$config["use_paypal"] = true;
+$config['use_paypal'] = true;
 
 /**
  * PayPal Mode
@@ -25,7 +25,7 @@ $config["use_paypal"] = true;
  * sandbox = Testing the code end-to-end
  * live    = Ready for production
 */
-$config["paypal_mode"] = "sandbox";
+$config['paypal_mode'] = "sandbox";
 
 /**
  * PayPal Client ID
@@ -33,7 +33,7 @@ $config["paypal_mode"] = "sandbox";
  * Check your client id in:
  * https://developer.paypal.com/developer/applications
 */
-$config["paypal_userid"] = "AUzIfDDtTcDkirP_5PyJ3bPWPEHpd1mGUFVZ2TnYLOc_pkblCw9Z7bL8_rhzKw3vwPwnuUlJETNS8znU";
+$config['paypal_userid'] = "AS6enu-55A8Q4lCmUbl_3LD5rwfdFaMqCvtGk0YgAw-1SWAwqLkSQvAD9qQHLYc4boz8Qf8r7xvmx63y";
 
 /**
  * PayPal Secret Password
@@ -41,4 +41,4 @@ $config["paypal_userid"] = "AUzIfDDtTcDkirP_5PyJ3bPWPEHpd1mGUFVZ2TnYLOc_pkblCw9Z
  * Check your secret password in:
  * https://developer.paypal.com/developer/applications
 */
-$config["paypal_secretpass"] = "EOBBUs_Enf-tJR3PgOJsyNnUPsQ3VDAj8ZaODYntRlXh9p1yvhmpBfVbLP22TP4z9xI_AsbS9geDRMhx";
+$config['paypal_secretpass'] = "EGHXycrMMKloP98u3bCLwyZGzHWbZATYSU3tyeEroDvpenyOzwQEnECagdZdlQpKI8LMvL9Z-Jc3M-f1";
