@@ -76,18 +76,24 @@ $config['has_smtp'] = 0;
 
 /*
 |--------------------------------------------------------------------------
-| Disabled expansions
+| Max expansions
 |--------------------------------------------------------------------------
 |
-| You may disable expansions by their expansion ids, in case you're
-| running a WoTLK server and don't want accounts to have Cataclysm
-| expansion enabled.
+| Set the maximum expansion for accounts
 |
-| array(3) would disable Cataclysm while array(2,3) would disable both
-| WoTLK and Cataclysm.
+| 0 = Vanilla/Classic
+| 1 = The Burning Crusade/TBC
+| 2 = Wrath of The Lich King/Wotlk
+| 3 = Cataclysm
+| 4 = Mists of Pandaria/MoP
+| 5 = Warlods of Draenor/WoD
+| 6 = Legion
+| 7 = Battle for Azeroth/BFA
+| 8 = Shadowlands/SL
+| 9 = Dragonflight/DF
 |
 */
-$config['disabled_expansions'] = array();
+$config['max_expansion'] = "0";
 
 /*
 |--------------------------------------------------------------------------
