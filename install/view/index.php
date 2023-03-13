@@ -378,18 +378,19 @@
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class="col-md-3" for="expansion">Max expansion</label>
+											<label class="col-md-3" for="max_expansion">Max expansion</label>
 											<div class="col-md-9">
-												<select class="form-control" id="expansion" name="expansion">
-													<option value="sl">Shadowlands (9.x.x)</option>
-													<option value="bfa">Battle for Azeroth (8.x.x)</option>
-													<option value="legion">Legion (7.x.x)</option>
-													<option value="wod">Warlords of Draenor (6.x.x)</option>
-													<option value="mop">Mists of Pandaria 5.x.x)</option>
-													<option value="cata">Cataclysm (4.3.4)</option>
-													<option value="wotlk">Wrath of the Lich King (3.3.5)</option>
-													<option value="tbc">The Burning Crusade (2.4.3)</option>
-													<option value="vanilla">Vanilla / No Expansion (1.12.1)</option>
+												<select class="form-control" id="max_expansion" name="max_expansion">
+													<option value="9">Dragonflight (10.x.x)</option>
+													<option value="8">Shadowlands (9.x.x)</option>
+													<option value="7">Battle for Azeroth (8.x.x)</option>
+													<option value="6">Legion (7.x.x)</option>
+													<option value="5">Warlords of Draenor (6.x.x)</option>
+													<option value="4">Mists of Pandaria 5.x.x)</option>
+													<option value="3">Cataclysm (4.3.4)</option>
+													<option value="2">Wrath of the Lich King (3.3.5)</option>
+													<option value="1">The Burning Crusade (2.4.3)</option>
+													<option value="0">Vanilla / No Expansion (1.12.1)</option>
 												</select>
 											</div>
 										</div>
