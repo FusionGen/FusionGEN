@@ -22,7 +22,6 @@ class Cms_model extends CI_Model
         $this->load->library('tasks');
 
         $this->logVisit();
-        $this->clearSessions();
 
         if ($this->config->item('detect_language')) {
             $this->setLangugage();
@@ -57,11 +56,6 @@ class Cms_model extends CI_Model
 
         $this->db->where('ip_address', $session['ip_address']);
         $this->db->update("ci_sessions", $data);
-    }
-
-    private function clearSessions()
-    {
-        $this->db->query("DELETE FROM ci_sessions WHERE timestamp < ?", array(time() - 60 * 60));
     }
 
     public function getModuleConfigKey($moduleId, $key)
