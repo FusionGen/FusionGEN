@@ -26,7 +26,7 @@ class Mop_soap implements Emulator
     /**
      * Encryption
      */
-    protected $encryption = 'SHP';
+    protected $encryption = 'SPH';
     protected $battlenet = false;
 
     /**
@@ -298,7 +298,7 @@ class Mop_soap implements Emulator
     }
 
     /**
-     * Whether or not console actions are enabled for this emulator
+     * Get encryption for this emulator
      *
      * @return String
      */
