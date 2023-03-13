@@ -102,12 +102,8 @@ $db["account"]["stricton"] = false;';
     fwrite($db, $raw);
     fclose($db);
 
-    //nooby but easy to add more files
-    //should we make a select box for item display IDs -> do_realms?
-
     //start installation
     $sql = file_get_contents("SQL/database.sql");
-    $sql2 = file_get_contents("SQL/item_display_335a.sql");
 
     try {
         $mysqli_fusion->multi_query($sql);
@@ -116,16 +112,6 @@ $db["account"]["stricton"] = false;';
         while (mysqli_more_results($mysqli_fusion) && mysqli_next_result($mysqli_fusion));
     } catch (Exception $e) {
         echo json_encode(array("success" => false, "message" => "Fusion DB import failed! Error: ".$e->getMessage()));
-        exit();
-	}
-
-    try {
-        $mysqli_fusion->multi_query($sql2);
-        do {	}
-	
-        while (mysqli_more_results($mysqli_fusion) && mysqli_next_result($mysqli_fusion));
-    } catch (Exception $e) {
-        echo json_encode(array("success" => false, "message" => "Item display table import failed! Error: ".$e->getMessage()));
         exit();
 	}
 

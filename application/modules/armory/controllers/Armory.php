@@ -193,7 +193,7 @@ class Armory extends MX_Controller
         $cache = $this->cache->get("items/item_" . $realm . "_" . $id);
 
         if ($cache !== false) {
-            $cache2 = $this->cache->get("items/display_" . $cache['displayid']);
+            $cache2 = $this->cache->get("items/display_iconname_" . $id);
 
             if ($cache2 != false) {
                 return '<img src="https://icons.wowdb.com/retail/small/' . $cache2 . '.jpg" align="absmiddle" />';

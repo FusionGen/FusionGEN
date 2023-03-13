@@ -10,6 +10,7 @@ if (isset($_POST)) {
     $description = $_POST['description'];
     $analytics = ($_POST['analytics']) ? $_POST['analytics'] : false;
     $security_code = $_POST['security_code'];
+    $max_expansion = $_POST['max_expansion'];
 
     if (!($title && $server_name && $realmlist && $security_code)) {
         echo json_encode(array("success" => false, "message" => "Please input all fields."));
@@ -38,49 +39,11 @@ if (isset($_POST)) {
     $data['description'] = $description;
     $data['analytics'] = ($analytics) ? $analytics : false;
     $data['security_code'] = $security_code;
+    $data['max_expansion'] = $max_expansion;
 
     foreach($data as $key => $value)
     {
         $config->set($key, $value);
-    }
-
-    switch($_POST['expansion'])
-    {
-		case "sl":
-            $config->set('disabled_expansions', array());
-			break;
-
-		case "bfa":
-            $config->set('disabled_expansions', array(8));
-			break;
-
-        case "legion":
-            $config->set('disabled_expansions', array(7,8));
-			break;
-        
-        case "wod":
-            $config->set('disabled_expansions', array(6,7,8));
-			break;
-        
-        case "mop":
-            $config->set('disabled_expansions', array(5,6,7,8));
-			break;
-        
-        case "cata":
-            $config->set('disabled_expansions', array(4,5,6,7,8));
-			break;
-        
-        case "wotlk":
-            $config->set('disabled_expansions', array(3,4,5,6,7,8));
-			break;
-        
-        case "tbc":
-            $config->set('disabled_expansions', array(2,3,4,5,6,7,8));
-			break;
-        
-        case "vanilla":
-            $config->set('disabled_expansions', array(1,2,3,4,5,6,7,8));
-			break;
     }
 	
     $config->save();

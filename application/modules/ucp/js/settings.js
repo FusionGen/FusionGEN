@@ -21,13 +21,7 @@ var Settings = {
 			{
 				Swal.fire({
 					text: lang("pw_doesnt_match", "ucp"),
-					icon: 'error',
-					target: 'body',
-					toast: true,
-					position: 'bottom-right',
-					timer: 10000,
-					timerProgressBar: true,
-					showConfirmButton: false,
+					icon: 'error'
 				});
 				
 				Settings.canSubmit = false;
@@ -61,12 +55,6 @@ var Settings = {
 					Swal.fire({
 						text: lang("changes_saved", "ucp"),
 						icon: 'success',
-						target: 'body',
-						toast: true,
-						position: 'bottom-right',
-						timer: 10000,
-						timerProgressBar: true,
-						showConfirmButton: false,
 						willClose: () => {
 							window.location.reload(true);
 						}
@@ -76,13 +64,7 @@ var Settings = {
 				{
 					Swal.fire({
 						text: lang("invalid_pw", "ucp"),
-						icon: 'error',
-						target: 'body',
-						toast: true,
-						position: 'bottom-right',
-						timer: 10000,
-						timerProgressBar: true,
-						showConfirmButton: false,
+						icon: 'error'
 					});
 
 					Settings.wrongPassword = $("#old_password").val();
@@ -92,9 +74,6 @@ var Settings = {
 					Swal.fire({
 						text: data,
 						icon: 'error',
-						timer: 10000,
-						timerProgressBar: true,
-						showConfirmButton: false,
 					});
 				}
 			});
@@ -120,26 +99,14 @@ var Settings = {
 		{
 			Swal.fire({
 				text: lang("nickname_error", "ucp"),
-				icon: 'error',
-				target: 'body',
-				toast: true,
-				position: 'bottom-right',
-				timer: 10000,
-				timerProgressBar: true,
-				showConfirmButton: false,
+				icon: 'error'
 			});
 		}
 		else if(loc.length > 32)
 		{
 			Swal.fire({
 				text: lang("location_error", "ucp"),
-				icon: 'error',
-				target: 'body',
-				toast: true,
-				position: 'bottom-right',
-				timer: 10000,
-				timerProgressBar: true,
-				showConfirmButton: false,
+				icon: 'error'
 			});
 		}
 		else
@@ -163,12 +130,6 @@ var Settings = {
 					Swal.fire({
 						text: lang("changes_saved", "ucp"),
 						icon: 'success',
-						target: 'body',
-						toast: true,
-						position: 'bottom-right',
-						timer: 10000,
-						timerProgressBar: true,
-						showConfirmButton: false,
 						willClose: () => {
 							window.location.reload(true);
 						}
@@ -178,36 +139,21 @@ var Settings = {
 				{					
 					Swal.fire({
 						text: lang("nickname_taken", "ucp"),
-						icon: 'error',
-						target: 'body',
-						toast: true,
-						position: 'bottom-right',
-						timer: 10000,
-						timerProgressBar: true,
-						showConfirmButton: false,
+						icon: 'error'
 					});
 				}
 				else if(/3/.test(data))
 				{
 					Swal.fire({
 						text: lang("invalid_language", "ucp"),
-						icon: 'error',
-						target: 'body',
-						toast: true,
-						position: 'bottom-right',
-						timer: 10000,
-						timerProgressBar: true,
-						showConfirmButton: false,
+						icon: 'error'
 					});
 				}
 				else
 				{
 					Swal.fire({
 						text: data,
-						icon: 'error',
-						timer: 10000,
-						timerProgressBar: true,
-						showConfirmButton: false,
+						icon: 'error'
 					});
 				}
 			});

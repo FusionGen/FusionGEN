@@ -52,7 +52,7 @@ class Item extends MX_Controller
         $cache = $this->cache->get("items/item_" . $this->realm . "_" . $id);
 
         if ($cache !== false) {
-            $cache2 = $this->cache->get("items/display_" . $cache['displayid']);
+            $cache2 = $this->cache->get("items/display_iconname_" . $id);
 
             if ($cache2 != false) {
                 return "<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg' /></div>";
