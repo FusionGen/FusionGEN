@@ -308,26 +308,10 @@ class Characters_model
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
 
-            $factions = array(
-                1 => 1,
-                2 => 2,
-                3 => 1,
-                4 => 1,
-                5 => 2,
-                6 => 2,
-                7 => 1,
-                8 => 2,
-                9 => 2,
-                10 => 2,
-                11 => 1,
-                22 => 1,
-                24 => 0,
-                25 => 1,
-                26 => 2
-            );
-
-            if (array_key_exists($row[0]['race'], $factions)) {
-                return $factions[$row[0]['race']];
+            if (in_array($row[0]['race'], get_instance()->realms->getAllianceRaces())) {
+                return 1;
+            } elseif (in_array($row[0]['race'], get_instance()->realms->getHordeRaces())) {
+                return 2;
             } else {
                 return 0;
             }
