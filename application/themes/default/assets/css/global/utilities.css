@@ -341,3 +341,7 @@
 .card {
 	background-color: rgba(18, 26, 34, 1);
 }
+
+.page-item.active .page-link {
+    background-color: rgba(52, 77, 102, 0.5)!important;
+}
