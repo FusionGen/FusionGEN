@@ -35,6 +35,7 @@ class Mangos_one_two_sph_soap implements Emulator
     protected $expansions = array(
         2 => "WotLK",
         1 => "TBC",
+        0 => "None"
     );
 
     /**
@@ -290,7 +291,7 @@ class Mangos_one_two_sph_soap implements Emulator
     }
 
     /**
-     * Whether or not console actions are enabled for this emulator
+     * Get encryption for this emulator
      *
      * @return String
      */

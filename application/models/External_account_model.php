@@ -100,9 +100,11 @@ class External_account_model extends CI_Model
      * @param String $password
      * @param String $email
      */
-    public function createAccount($username, $password, $email, $expansion)
+    public function createAccount($username, $password, $email)
     {
         $this->connect();
+        
+        $expansion = $this->config->item('max_expansion');
 
         $hash = $this->user->createHash($username, $password);
         $encryption = $this->realms->getEmulator()->encryption();
@@ -364,12 +366,19 @@ class External_account_model extends CI_Model
         $this->connection->update(table("account"), array(column("account", "email") => $newEmail));
     }
 
-    public function setExpansion($username, $newExpansion)
+    public function setExpansion($newExpansion, $username = false)
     {
         $this->connect();
-
-        $this->connection->where(column("account", "username"), $username);
-        $this->connection->update(table("account"), array(column("account", "expansion") => $newExpansion));
+        
+        if ($username)
+        {
+            // Update only the expansion column for the given username
+            $this->connection->where(column("account", "username"), $username);
+            $this->connection->update(table("account"), [column("account", "expansion") => $newExpansion]);
+        } else {
+            // Update the 'expansion' column for all user
+            $this->connection->update(table("account"), [column("account", "expansion") => $newExpansion]);
+        }
     }
 
     public function setRank($userId, $newRank)

@@ -69,7 +69,6 @@ class Register extends MX_Controller
                         "email_error" => $this->emailError,
                         "password_error" => "",
                         "password_confirm_error" => "",
-                        "expansions" => $this->realms->getExpansions(),
                         "use_captcha" => $this->config->item('use_captcha'),
                         "captcha_type" => $this->config->item('captcha_type'),
                         "captcha_error" => "",
@@ -98,11 +97,6 @@ class Register extends MX_Controller
                 "content" => $this->template->loadPage("register.tpl", $data),
             )), false, "modules/register/js/validate.js", "Account Creation");
         } else {
-            if ($this->input->post("register_expansion") != false) {
-                if (!array_key_exists($this->input->post("register_expansion"), $this->realms->getExpansions())) {
-                    die("Hey, don't modify the expansion value...");
-                }
-            }
 
             if (!$this->username_check($this->input->post("register_username"))) {
                 die();
@@ -118,7 +112,7 @@ class Register extends MX_Controller
             );
 
             //Register our user.
-            $this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'), $this->input->post('register_expansion'));
+            $this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
 
             // Log in
             $sha_pass_hash = $this->user->createHash($this->input->post('register_username'), $this->input->post('register_password'));

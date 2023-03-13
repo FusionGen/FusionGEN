@@ -34,8 +34,9 @@ class Azerothcore_soap implements Emulator
      */
     protected $expansions = array(
         2 => 'WotLK',
+        1 => 'TBC',
+        0 => 'None'
     );
-
     /**
      * Array of table names
      */
@@ -302,7 +303,7 @@ class Azerothcore_soap implements Emulator
     }
 
     /**
-     * Whether or not console actions are enabled for this emulator
+     * Get encryption for this emulator
      *
      * @return String
      */

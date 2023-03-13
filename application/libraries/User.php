@@ -614,7 +614,7 @@ class User
      */
     public function setExpansion($newExpansion)
     {
-        $this->CI->external_account_model->setExpansion($this->username, $newExpansion);
+        $this->CI->external_account_model->setExpansion($newExpansion, $this->username);
         $this->CI->session->set_userdata('expansion', $newExpansion);
     }
 

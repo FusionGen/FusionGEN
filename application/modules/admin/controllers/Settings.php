@@ -28,7 +28,8 @@ class Settings extends MX_Controller
         $config['title'] = $this->config->item('title');
         $config['server_name'] = $this->config->item('server_name');
         $config['realmlist'] = $this->config->item('realmlist');
-        $config['disabled_expansions'] = $this->config->item('disabled_expansions');
+        $config['expansions'] = $this->realms->getExpansions();
+        $config['max_expansion'] = $this->config->item('max_expansion');
         $config['keywords'] = $this->config->item('keywords');
         $config['description'] = $this->config->item('description');
         $config['analytics'] = $this->config->item('analytics');
@@ -106,57 +107,14 @@ class Settings extends MX_Controller
         $fusionConfig->set('vote_reminder_image', $this->input->post('vote_reminder_image'));
         $fusionConfig->set('reminder_interval', $this->input->post('reminder_interval') * 60 * 60);
         $fusionConfig->set('has_smtp', $this->input->post('has_smtp'));
-
-        switch ($this->input->post('disabled_expansions')) {
-            case "sl":
-                $disabled_expansions = array();
-                break;
-
-            case "bfa":
-                $disabled_expansions = array(9);
-                break;
-
-            case "legion-ar":
-                $disabled_expansions = array(8,9);
-                break;
-
-            case "legion":
-                $disabled_expansions = array(7,8,9);
-                break;
-
-            case "wod":
-                $disabled_expansions = array(6,7,8,9);
-                break;
-
-            case "mop":
-                $disabled_expansions = array(5,6,7,8,9);
-                break;
-
-            case "cata":
-                $disabled_expansions = array(4,5,6,7,8,9);
-                break;
-
-            case "wotlk":
-                $disabled_expansions = array(3,4,5,6,7,8,9);
-                break;
-
-            case "tbc":
-                $disabled_expansions = array(2,3,4,5,6,7,8,9);
-                break;
-
-            case "none":
-                $disabled_expansions = array(1,2,3,4,5,6,7,8,9);
-                $disabled_expansions = array(1,2,3,4,5,6,7,8,9);
-                break;
-
-            default:
-                $disabled_expansions = array();
-                break;
-        }
-
-        $fusionConfig->set('disabled_expansions', $disabled_expansions);
+        $fusionConfig->set('max_expansion', $this->input->post('max_expansion'));
 
         $fusionConfig->save();
+        
+        if ($this->input->post('max_expansion') != $this->config->item('max_expansion'))
+        {
+            $this->external_account_model->setExpansion($this->input->post('max_expansion'));
+        }
 
         die('yes');
     }

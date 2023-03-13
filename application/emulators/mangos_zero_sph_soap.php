@@ -288,7 +288,7 @@ class Mangos_zero_sph_soap implements Emulator
     }
 
     /**
-     * Whether or not console actions are enabled for this emulator
+     * Get encryption for this emulator
      *
      * @return String
      */

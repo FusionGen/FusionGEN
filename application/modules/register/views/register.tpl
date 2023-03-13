@@ -33,13 +33,6 @@ input + span[id] {
 			<span id="password_confirm_error">{$password_confirm_error}</span>
 			</div>
 	
-			<label for="register_expansion" hidden>{lang("expansion", "register")}</label>
-			<select id="register_expansion" name="register_expansion" hidden>
-				{foreach from=$expansions key=id item=expansion}
-					<option value="{$id}">{$expansion}</option>
-				{/foreach}
-			</select>
-	
 			{if $use_captcha && $captcha_type == 'inbuilt'}
 				<label for="captcha"><img src="{$url}register/getCaptcha?{time()}" /></label>
 	

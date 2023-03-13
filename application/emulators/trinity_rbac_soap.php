@@ -44,7 +44,6 @@ class Trinity_rbac_soap implements Emulator
      * Array of expansion ids and their corresponding names
      */
     protected $expansions = array(
-        3 => 'Cataclysm',
         2 => 'WotLK',
         1 => 'TBC',
         0 => 'None'
@@ -316,7 +315,7 @@ class Trinity_rbac_soap implements Emulator
     }
 
     /**
-     * Whether or not console actions are enabled for this emulator
+     * Get encryption for this emulator
      *
      * @return String
      */

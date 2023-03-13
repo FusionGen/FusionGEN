@@ -39,7 +39,15 @@ class Trinity_rbac_sl_soap implements Emulator
      * Array of expansion ids and their corresponding names
      */
     protected $expansions = array(
-        8 => "Shadowlands"
+        8 => "Shadowlands",
+        7 => "Battle for Azeroth",
+        6 => "Legion",
+        5 => "Warlords of Draenor",
+        4 => "Mists of Pandaria",
+        3 => "Cataclysm",
+        2 => "WotLK",
+        1 => 'TBC',
+        0 => 'None'
     );
 
     /**
@@ -315,7 +323,7 @@ class Trinity_rbac_sl_soap implements Emulator
     }
 
     /**
-     * Whether or not console actions are enabled for this emulator
+     * Get encryption for this emulator
      *
      * @return String
      */

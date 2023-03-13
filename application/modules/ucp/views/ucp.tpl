@@ -46,11 +46,6 @@
 							<td>{$location}</td>
 							<td class="text-end"><a href="{$url}ucp/settings">{lang("edit", "ucp")}</a></td>
 						</tr>
-						<tr>
-							<td><div class="user-table-icon"><i class="fa-solid fa-puzzle-piece"></i></div> {lang("expansion", "ucp")}</td>
-							<td>{$expansion}</td>
-							<td class="text-end"><a href="{$url}ucp/expansion">{lang("edit", "ucp")}</a></td>
-						</tr>
 						
 						<tr><td class="pb-3"></td></tr>
 						

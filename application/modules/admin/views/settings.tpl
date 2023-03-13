@@ -285,13 +285,12 @@
             </div>
 
 			<div class="form-group row">
-			<label class="col-sm-2 col-form-label" for="disabled_expansions">Max expansion</label>
+			<label class="col-sm-2 col-form-label" for="max_expansion">Max expansion</label>
 			<div class="col-sm-10">
-			<select class="form-control" id="disabled_expansions">
-				<option value="cata" {if count($config.disabled_expansions) == 0}selected{/if}>Cataclysm</option>
-				<option value="wotlk" {if count($config.disabled_expansions) == 1}selected{/if}>Wrath of the Lich King</option>
-				<option value="tbc" {if count($config.disabled_expansions) == 2}selected{/if}>The Burning Crusade</option>
-				<option value="none" {if count($config.disabled_expansions) == 3}selected{/if}>No expansion allowed</option>
+			<select class="form-control" id="max_expansion">
+                {foreach from=$config.expansions key=id item=expansion}
+					<option value="{$id}" {if $config.max_expansion == $id}selected{/if}>{$expansion}</option>
+				{/foreach}
 			</select>
 			</div>
             </div>
