@@ -613,11 +613,11 @@ INSERT INTO `image_slider` (`id`, `image`, `link`, `text`, `order`, `header`, `b
 -- Table structure for item_icons
 -- ----------------------------
 DROP TABLE IF EXISTS `item_icons`;
-CREATE TABLE `item_icons`  (
+CREATE TABLE `item_icons` (
   `item_id` int(11) NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`item_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of item_icons
