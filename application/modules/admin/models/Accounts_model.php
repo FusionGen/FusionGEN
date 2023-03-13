@@ -143,6 +143,10 @@ class Accounts_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('account_data', $internal_data);
 
+        // Update external
+        $this->connection->where(column('account', 'id'), $id);
+        $this->connection->update(table('account'), $external_account_data);
+
         $this->logger->createLog("admin", "edit", "Edited account " . $this->user->getUsername($id) . " (" . $id . ")", $changed_values);
     }
 
