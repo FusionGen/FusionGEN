@@ -164,7 +164,6 @@ class Accounts extends MX_Controller
         $external_account_data[column("account", "expansion")] = $this->input->post("expansion");
         $external_account_data[column("account", "email")] = $this->input->post("email");
 
-
         if (hasPermission("editPermissions")) {
             $this->acl_model->removePermissionsFromUser($id);
 
