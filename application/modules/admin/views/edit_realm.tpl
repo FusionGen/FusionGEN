@@ -1,6 +1,6 @@
 <div class="card">
-	<header class="card-header">Realm settings</div>
-
+	<div class="card-header">Realm settings</div>
+	<div class="card-body">
 	<form onSubmit="Settings.saveRealm({$realm->getId()}); return false">
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="realmName">Realm name</label>
@@ -134,4 +134,5 @@
 
 		<button class="btn btn-primary btn-sm" type="submit">Save realm</button>
 	</form>
+	</div>
 </div>
