@@ -1,6 +1,5 @@
 {
     "require": {
-        "friendsofphp/php-cs-fixer": "^3.11",
         "visualappeal/php-auto-update": "^1.0",
         "laizerox/php-wowemu-auth": "^1.0",
         "monolog/monolog": "^2.8",
