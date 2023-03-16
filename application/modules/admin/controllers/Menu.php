@@ -175,7 +175,6 @@ class Menu extends MX_Controller
         $data['side'] = $this->input->post('side');
         $data['lrd'] = $this->input->post('lrd');
         $data['dropdown_id'] = $this->input->post('dropdown_id');
-		die($data['name']);
 
         $this->menu_model->edit($id, $data);
 
