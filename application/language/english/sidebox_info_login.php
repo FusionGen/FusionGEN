@@ -8,7 +8,6 @@ $lang["login_label_remember"] = "Remember me";
 $lang["login_link_password_forgot"] = "Forgot Password?";
 $lang["login_button"] = "Sign In";
 
-
 //Errors
 $lang["user_doesnt_exist"] = "User doesn't exists";
 $lang["user_exist"] = "User already exists";
