@@ -281,7 +281,7 @@ input[type="radio"] {
 }
 
 .realm {
-    font-size: 12px;
+    font-size: 1rem;
     margin: 0px auto 0px auto;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -623,7 +623,7 @@ input[type="radio"] {
 
 .sidebox_info td {
     padding: 5px;
-    font-size: 10px;
+    font-size: 1rem;
 }
 
 .sidebox_info td:first-child {
@@ -643,12 +643,10 @@ input[type="radio"] {
     margin-left: 10px;
 }
 
-
 /* Poll sidebox */
 
 .poll_question {
     text-align: center;
-    font-size: 14px;
     font-weight: bold;
     padding: 5px;
     margin-bottom: 5px;
@@ -657,7 +655,6 @@ input[type="radio"] {
 #poll_answers .poll_answer,
 #poll_results .poll_answer {
     padding: 5px;
-    font-size: 12px;
 }
 
 #poll_answers .poll_answer label {
