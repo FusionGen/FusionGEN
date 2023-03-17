@@ -35,6 +35,7 @@ class Poll extends MX_Controller
         } else {
             $poll['total'] = 0;
             $poll['answers'] = false;
+            $poll['question'] = false;
             $myVote = false;
         }
 
