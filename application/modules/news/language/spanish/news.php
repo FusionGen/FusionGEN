@@ -21,3 +21,4 @@ $lang['comments'] = "Comentarios";
 $lang['posted_by'] = "Publicado por";
 $lang['on'] = "el"; /* Publicado por Jesper >el< 2013/01/29 */
 $lang['read_more'] = "Leer más";
+$lang['system'] = "Sistema";
