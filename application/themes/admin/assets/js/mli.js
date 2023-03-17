@@ -19,7 +19,7 @@ function MultiLanguageInput(field)
 	var initialize = function()
 	{
 		field.prop("type", "hidden");
-		field.after('<div class="languages row"></div>');
+		field.after('<div class="languages"></div>');
 
 		area = field.next('.languages');
 

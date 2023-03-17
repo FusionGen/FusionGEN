@@ -7,7 +7,7 @@
 	<div class="card-body">
 	<form role="form" onSubmit="Pages.send(); return false">
 		<div class="form-group row">
-		<label class="col-sm-2 col-form-label" for="headline">Headline</label>
+		<label class="col-sm-2 col-form-label" for="headline" id="languages">Headline</label>
 		<div class="col-sm-10">
 		<input class="form-control" type="text" id="headline" />
 		</div>

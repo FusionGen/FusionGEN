@@ -25,13 +25,16 @@ class Sidebox extends MX_Controller
 
         $sideboxes = $this->cms_model->getSideboxes();
 
-        if ($sideboxes) {
-            foreach ($sideboxes as $key => $value) {
+        if ($sideboxes)
+        {
+            foreach ($sideboxes as $key => $value)
+            {
                 $sideboxes[$key]['name'] = $this->sideboxModules["sidebox_" . $value['type']]['name'];
 
                 $sideboxes[$key]['displayName'] = langColumn($sideboxes[$key]['displayName']);
 
-                if (strlen($sideboxes[$key]['displayName']) > 15) {
+                if (strlen($sideboxes[$key]['displayName']) > 15)
+                {
                     $sideboxes[$key]['displayName'] = mb_substr($sideboxes[$key]['displayName'], 0, 15) . '...';
                 }
             }
@@ -60,8 +63,10 @@ class Sidebox extends MX_Controller
 
         $this->administrator->loadModules();
 
-        foreach ($this->administrator->getModules() as $name => $manifest) {
-            if (preg_match("/sidebox_/i", $name)) {
+        foreach ($this->administrator->getModules() as $name => $manifest)
+        {
+            if (preg_match("/sidebox_/i", $name))
+            {
                 $sideboxes[$name] = $manifest;
             }
         }
@@ -75,22 +80,24 @@ class Sidebox extends MX_Controller
 
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
-        if ($data["type"] == "custom") {
-            $data["content"] = $this->input->post("content");
-        }
 
-        if (!$data["displayName"]) {
+        if (!$data["displayName"])
+        {
             die('Name can\'t be empty');
         }
 
         $id = $this->sidebox_model->add($data);
 
-        if ($this->input->post('visibility') == "group") {
+        if ($this->input->post('visibility') == "group")
+        {
             $this->sidebox_model->setPermission($id);
         }
 
         // Handle custom sidebox text
-        if ($data['type'] == "custom") {
+        if ($data['type'] == "custom")
+        {
+            $data["content"] = $this->input->post("content");
+
             if (!$data["content"]) {
                 die('Content can\'t be empty');
             }
@@ -132,14 +139,16 @@ class Sidebox extends MX_Controller
     {
         requirePermission("editSideboxes");
 
-        if (!is_numeric($id) || !$id) {
+        if (!is_numeric($id) || !$id)
+        {
             die();
         }
 
         $sidebox = $this->sidebox_model->getSidebox($id);
         $sideboxCustomText = $this->sidebox_model->getCustomText($id);
 
-        if (!$sidebox) {
+        if (!$sidebox)
+        {
             show_error("There is no sidebox with ID " . $id);
 
             die();
@@ -172,21 +181,25 @@ class Sidebox extends MX_Controller
     {
         requirePermission("editSideboxes");
 
-        if (!$id || !$direction) {
+        if (!$id || !$direction)
+        {
             die();
         } else {
             $order = $this->sidebox_model->getOrder($id);
 
-            if (!$order) {
+            if (!$order)
+            {
                 die();
             } else {
-                if ($direction == "up") {
+                if ($direction == "up")
+                {
                     $target = $this->sidebox_model->getPreviousOrder($order);
                 } else {
                     $target = $this->sidebox_model->getNextOrder($order);
                 }
 
-                if (!$target) {
+                if (!$target)
+                {
                     die();
                 } else {
                     $this->sidebox_model->setOrder($id, $target['order']);
@@ -206,12 +219,11 @@ class Sidebox extends MX_Controller
 
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
-        if ($data["type"] == "custom") {
-            $data["content"] = $this->input->post("content");
-        }
 
-        foreach ($data as $value) {
-            if (!$value) {
+        foreach ($data as $value)
+        {
+            if (!$value)
+            {
                 die("The fields can\'t be empty");
             }
         }
@@ -219,16 +231,19 @@ class Sidebox extends MX_Controller
         $this->sidebox_model->edit($id, $data);
 
         // Handle custom sidebox text
-        if ($data["type"] == "custom") {
-            $text = $this->input->post("content");
+        if ($data["type"] == "custom")
+        {
+            $text = $this->input->post("content", false);
             $this->sidebox_model->editCustom($id, $text);
         }
 
         $hasPermission = $this->sidebox_model->hasPermission($id);
 
-        if ($this->input->post('visibility') == "group" && !$hasPermission) {
+        if ($this->input->post('visibility') == "group" && !$hasPermission)
+        {
             $this->sidebox_model->setPermission($id);
-        } elseif ($this->input->post('visibility') != "group" && $hasPermission) {
+        } elseif ($this->input->post('visibility') != "group" && $hasPermission)
+        {
             $this->sidebox_model->deletePermission($id);
         }
 
@@ -239,7 +254,8 @@ class Sidebox extends MX_Controller
     {
         requirePermission("deleteSideboxes");
 
-        if (!$id || !is_numeric($id)) {
+        if (!$id || !is_numeric($id))
+        {
             die();
         }
 
