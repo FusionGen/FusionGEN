@@ -125,8 +125,6 @@
 			<div style="height:10px"></div>
 		{/if}
 	{else}
-		<center>{lang("no_answers", "sidebox_poll")}</center>
+		<center>{lang("no_poll", "sidebox_poll")}</center>
 	{/if}
-{else}
-	<center>{lang("no_poll", "sidebox_poll")}</center>
 {/if}
