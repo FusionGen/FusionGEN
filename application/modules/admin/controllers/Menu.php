@@ -78,6 +78,10 @@ class Menu extends MX_Controller
         $lrd = $this->input->post('lrd');
         $dropdown_id = $this->input->post('dropdown_id');
 
+        if (empty($name)) {
+            die("name can't be empty");
+        }
+
         if (empty($link)) {
             die("Link can't be empty");
         }
