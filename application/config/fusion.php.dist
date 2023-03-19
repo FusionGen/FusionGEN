@@ -123,10 +123,10 @@ $config['max_expansion'] = "0";
 |
 |--------------------------------------------------------------------------
 */
-$config['slider']          = false;
-$config['slider_home']     = false;
+$config['slider'] = false;
+$config['slider_home'] = false;
 $config['slider_interval'] = 5000;
-$config['slider_style']    = false;
+$config['slider_style'] = false;
 
 /*
 |--------------------------------------------------------------------------
