@@ -80,11 +80,19 @@ class Menu extends MX_Controller
 
         $id = $this->menu_model->add($name, $link, $side, $lrd, $dropdown_id);
 
+        if (empty($data["name"])) {
+            die("Name can't be empty");
+        }
+
+        if (empty($data["link"])) {
+            die("Link can't be empty");
+        }
+
         if ($this->input->post('visibility') == "group") {
             $this->menu_model->setPermission($id);
         }
 
-        die('window.location.reload(true);');
+        die("yes");
     }
 
     public function delete($id)
