@@ -97,7 +97,7 @@ var Menu = {
 
 		$.post(Config.URL + this.Links.create, values, function(data)
 		{
-			console.log(values);
+			console.log(data);
 			if(data == "yes")
 			{
 				console.log(data);
