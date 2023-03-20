@@ -86,6 +86,10 @@ class Bans extends MX_Controller
         $dateObject = $this->input->post('date');
         $date = strtotime($dateObject) + 86399; // add 23 hours, 59 minutes and 59 seconds
 
+        if (empty($ip)) {
+            die("Ip can't be empty");
+        }
+
         if (empty($banReason)) {
             die("Banreason can't be empty");
         }

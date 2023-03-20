@@ -4,6 +4,13 @@ var Mod = {
 		Swal.fire({
 			title: 'Kick',
 			html: '<input class="swal2-input" type="text" id="kick_character" placeholder="Character name" value="">',
+			preConfirm: () => {
+				if((document.getElementById('kick_character').value == "") || (document.getElementById('kick_character').value == '') || ((document.getElementById('kick_character').value == null)) ){
+				  Swal.showValidationMessage(
+					`Character name can't be empty`
+				  )
+				}
+			}
 		}).then(function(result) {
 		if (result.isConfirmed) {
 			var character = $("#kick_character").val();
