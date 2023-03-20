@@ -56,7 +56,7 @@
 	<form role="form" onSubmit="Menu.create(this); return false" id="submit_form">
 	
 	<div class="form-group row">
-	<label class="col-sm-2 col-form-label" for="name">Title</label>
+	<label class="col-sm-2 col-form-label" for="name">Name</label>
 	<div class="col-sm-10">
 		<input class="form-control" type="text" name="name" id="name" placeholder="My link" />
 	</div>
