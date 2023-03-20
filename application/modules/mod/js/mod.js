@@ -124,6 +124,7 @@ var Mod = {
 						icon: "success",
 						title: 'Account' + " " + account + " " + 'has been banned',
 					});
+					window.location = Config.URL + "mod/bans/";
 				}
 				else
 				{
@@ -164,6 +165,7 @@ var Mod = {
 							icon: "success",
 							title: 'Account has been unbanned',
 						});
+						window.location = Config.URL + "mod/bans/";
 					}
 					else
 					{
