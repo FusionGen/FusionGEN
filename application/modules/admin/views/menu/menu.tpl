@@ -49,21 +49,23 @@
 	</div>
 </div>
 
-<div class="card" id="add_link" style="display:none;">
+<div class="card mt-4" id="add_link" style="display:none;">
 	<div class="card-header">New Menu</div>
-
+	<div class="card-body">
 	<div class="col-12">
 	<form role="form" onSubmit="Menu.create(this); return false" id="submit_form">
 	
 	<div class="form-group row">
-	<label class="col-sm-2 col-form-label" for="name">Title</label>
+	<label class="col-sm-2 col-form-label" for="name" id="languages">Name</label>
+	<div class="col-sm-10">
 		<input class="form-control" type="text" name="name" id="name" placeholder="My link" />
+	</div>
 	</div>
 
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="type" data-toggle="tooltip" data-placement="bottom" title="External links must begin with http://">URL (or <a href="javascript:void(0)" onClick="Menu.selectCustom()">select from custom pages</a>) <a>(?)</a></label>
 	<div class="col-sm-10">
-		<input class="form-control" type="text" class="form-control" name="link" id="link" placeholder="http://"/>
+		<input class="form-control" type="text" name="link" id="link" placeholder="http://"/>
 	</div>
 	</div>
 	
@@ -121,7 +123,7 @@
 	</div>
 </div>
 </div>
-
+</div>
 <script>
 	require([Config.URL + "application/themes/admin/assets/js/mli.js"], function()
 	{

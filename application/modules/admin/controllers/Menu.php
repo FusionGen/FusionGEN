@@ -78,13 +78,27 @@ class Menu extends MX_Controller
         $lrd = $this->input->post('lrd');
         $dropdown_id = $this->input->post('dropdown_id');
 
+		$array = json_decode($name, true);
+
+		foreach ($array as $key => $value)
+		{
+			if (empty($value))
+			{
+				die("$key name can't be empty");
+			}
+		}
+
+        if (empty($link)) {
+            die("Link can't be empty");
+        }
+
         $id = $this->menu_model->add($name, $link, $side, $lrd, $dropdown_id);
 
         if ($this->input->post('visibility') == "group") {
             $this->menu_model->setPermission($id);
         }
 
-        die('window.location.reload(true);');
+        die("yes");
     }
 
     public function delete($id)

@@ -98,6 +98,24 @@ var Menu = {
 		$.post(Config.URL + this.Links.create, values, function(data)
 		{
 			console.log(data);
+			if(data == "yes")
+			{
+				console.log(data);
+				Swal.fire({
+					icon: "success",
+					title: "New link has been saved!",
+				});
+				window.location = Config.URL + "admin/menu";
+			}
+			else
+			{
+				console.log(data);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: data,
+				})
+			}
 		});
 	},
 
