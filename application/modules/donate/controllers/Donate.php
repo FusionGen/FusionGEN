@@ -37,13 +37,13 @@ class Donate extends MX_Controller
 
         $data = array(
             "paypal" => $paypal,
-            "use_paypal" => $this->config->item("use_paypal"),
             "user_id" => $user_id,
             "server_name" => $this->config->item('server_name'),
             "currency" => $this->config->item('donation_currency'),
             "currency_sign" => $this->config->item('donation_currency_sign'),
-            
         );
+
+        $data['use_paypal'] = (!empty($this->config->item("paypal_userid")) && !empty($this->config->item("paypal_secretpass")) && $this->config->item("use_paypal")) ? true : false;
 
         $output = $this->template->loadPage("donate.tpl", $data);
 

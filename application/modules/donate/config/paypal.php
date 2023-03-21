@@ -15,7 +15,7 @@ $config['donation_currency_sign'] = "$";
 |--------------------------------------------------------------------------
 */
 
-$config['use_paypal'] = true;
+$config['use_paypal'] = false;
 
 /**
  * PayPal Mode
@@ -33,7 +33,7 @@ $config['paypal_mode'] = "sandbox";
  * Check your client id in:
  * https://developer.paypal.com/developer/applications
 */
-$config['paypal_userid'] = "AS6enu-55A8Q4lCmUbl_3LD5rwfdFaMqCvtGk0YgAw-1SWAwqLkSQvAD9qQHLYc4boz8Qf8r7xvmx63y";
+$config['paypal_userid'] = "";
 
 /**
  * PayPal Secret Password
@@ -41,4 +41,4 @@ $config['paypal_userid'] = "AS6enu-55A8Q4lCmUbl_3LD5rwfdFaMqCvtGk0YgAw-1SWAwqLkS
  * Check your secret password in:
  * https://developer.paypal.com/developer/applications
 */
-$config['paypal_secretpass'] = "EGHXycrMMKloP98u3bCLwyZGzHWbZATYSU3tyeEroDvpenyOzwQEnECagdZdlQpKI8LMvL9Z-Jc3M-f1";
+$config['paypal_secretpass'] = "";
