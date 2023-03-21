@@ -52,6 +52,11 @@ class Bans extends MX_Controller
 
         $ban = $this->mod_model->getBan($this->external_account_model->getConnection(), $this->external_account_model->getId($username));
 
+        if (!$username || !$ban)
+        {
+            die("Invalid username");
+        }
+
         if ($ban['banCount'] == 0) {
             $this->mod_model->setBan($this->external_account_model->getConnection(), $this->external_account_model->getId($username), $bannedBy, $banReason, $date);
         } else {
