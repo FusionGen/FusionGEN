@@ -73,6 +73,7 @@ This project exists thanks to:
 - **[Jesper Lindström](https://github.com/jesperlindstrom)** (FusionCMS)
 - **The [FusionGen developers and contributors](https://github.com/FusionGen/FusionGEN/graphs/contributors)**
 
-## Website
+## Links
 
 **[FusionGen.net](https://fusiongen.net/)**
+**[Discord](https://discord.gg/5nSt9puU4V)**
