@@ -10,61 +10,61 @@ class Accounts_model extends CI_Model
         $this->connection = $this->external_account_model->getConnection();
     }
 
-    public function getAllUsers($term)
+    public function get_users($limit, $start, $search = null)
     {
-        $this->connection->select('id, username, email');
-        $this->connection->like('username', $term);
-        $this->connection->or_like('email', $term);
-        $query = $this->connection->get('account');
-        return $query->result();
-    }
+        $this->connection->select('id, username, email, joindate, expansion');
+        $this->connection->from('account');
 
-    public function getByEmail($email = "")
-    {
-        $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "email") . " = ?", array($email));
-
-        if ($query->num_rows() > 0) {
-            $result = $query->result_array();
-            return $result[0];
-        } else {
-            return false;
-        }
-    }
-
-    public function getByUsername($username = "")
-    {
-        $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "username") . " = ?", array($username));
-
-        if ($query->num_rows() > 0) {
-            $result = $query->result_array();
-            return $result[0];
-        } else {
-            return false;
-        }
-    }
-
-    public function getById($id = false)
-    {
-        if (!$id)
+        if (!empty($search))
         {
-            $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . "");
-
-            return $query->result_array();
-        } else {
-            if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
-            {
-                $query = $this->connection->query(query("get_account_id"), array($id));
-            } else {
-                $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($id));
-            }
-
-            if ($query->num_rows() > 0)
-            {
-                $result = $query->result_array();
-                return $result[0];
-            } else {
-            return false;
+            $this->connection->group_start()
+                             ->like('username', $search)
+                             ->or_like('email', $search)
+                             ->group_end();
         }
+
+        $this->connection->limit($limit, $start);
+        $query = $this->connection->get();
+        return $query->result_array();
+    }
+
+    public function count_all_users()
+    {
+        return $this->connection->count_all('account');
+    }
+
+    public function count_filtered_users($search = null)
+    {
+        $this->connection->select('*');
+        $this->connection->from('account');
+
+        if (!empty($search))
+        {
+            $this->connection->group_start()
+                             ->like('username', $search)
+                             ->or_like('email', $search)
+                             ->group_end();
+        }
+
+        $query = $this->connection->get();
+        return $query->num_rows();
+    }
+
+    public function getById($id)
+    {
+        if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
+        {
+            $query = $this->connection->query(query("get_account_id"), array($id));
+        } else {
+            $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($id));
+        }
+
+        if ($query->num_rows() > 0)
+        {
+            $result = $query->result_array();
+            return $result[0];
+        } else {
+            return false;
         }
     }
 

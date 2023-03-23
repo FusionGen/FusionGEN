@@ -22,13 +22,11 @@ class Accounts extends MX_Controller
     {
         // Change the title
         $this->administrator->setTitle("Accounts");
-        $accounts = $this->accounts_model->getById();
 
         // Prepare my data
         $data = array(
             'url' => $this->template->page_url,
-            'found' => false,
-            'accounts' => $accounts
+            'found' => false
         );
 
         // Load my view
@@ -40,13 +38,28 @@ class Accounts extends MX_Controller
         // Output my content. The method accepts the same arguments as template->view
         $this->administrator->view($content, false, "modules/admin/js/accounts.js");
     }
-
-    public function select2()
+    
+    public function get_accs_ajax()
     {
-        header('Content-Type: application/json');
-        $q = $this->input->get('q');
-        echo json_encode($this->accounts_model->getAllUsers($q));
-        die();
+        $total_users = $this->accounts_model->count_all_users();
+
+        $search_value = $this->input->post('search');
+
+        $filtered_users = $this->accounts_model->count_filtered_users($search_value);
+
+        $start = $this->input->post('start');
+
+        $length = $this->input->post('length');
+
+        $users = $this->accounts_model->get_users($length, $start, $search_value);
+
+        $output = array(
+            "draw" => intval($this->input->post('draw')),
+            "recordsTotal" => $total_users,
+            "recordsFiltered" => $filtered_users,
+            "data" => $users
+        );
+        die(json_encode($output));
     }
 
     public function get($id)

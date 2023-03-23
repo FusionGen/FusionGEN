@@ -1,18 +1,4 @@
 {if !$found}
-<div class="card">
-	<header class="card-header">
-		<div class="card-actions">
-			<a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-			<a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-		</div>
-
-		<h2 class="card-title">Search</h2>
-	</header>
-	<div class="card-body">
-		<select class="form-control" name="search_accounts" id="search_accounts"></select>
-	</div>
-</div>
-
 <section class="card">
 	<header class="card-header">
 		<div class="card-actions">
@@ -31,21 +17,10 @@
 					<th>EMail</th>
 					<th>Joindate</th>
 					<th>Expansion</th>
+                    <th>Action</th>
 				</tr>
 			</thead>
-			<tbody>
-			{if $accounts}
-				{foreach from=$accounts item=accs}
-					<tr>
-						<td>{$accs.id}</td>
-						<td>{$accs.username}</td>
-						<td>{$accs.email}</td>
-						<td>{$accs.joindate}</td>
-						<td>{$accs.expansion}</td>
-					</tr>
-				{/foreach}
-			{/if}
-			</tbody>
+			<tbody></tbody>
 		</table>
 	</div>
 </section>
@@ -78,52 +53,32 @@
 
 <script>
 $(document).ready(function() {
-    $('#acclist').DataTable();
-} );
-</script>
+    var table = $('#acclist').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "{$url}admin/accounts/get_accs_ajax",
+            "type": "POST",
+            "data": function(d) {
+                d.csrf_token_name = Config.CSRF,
+                d.search = $('input[type="search"]').val();
+            }
+        },
+        "columns": [
+            { "data": "id" },
+            { "data": "username" },
+            { "data": "email" },
+            { "data": "joindate" },
+            { "data": "expansion" },
+            { "data": null, "render": function(data, type, row, meta) {
+                return '<a href="{$url}admin/accounts/get/'+row.id+'">View</a>';
+            }}
+        ]
+    });
 
-<script>
-$(document).ready(function(){
-    $("#search_accounts").select2({
-		theme: "classic",
-		placeholder: 'Search for accountname or email',
-		minimumInputLength: 1,
-        ajax: { 
-            url: "{$url}admin/accounts/select2",
-            type: "get",
-            dataType: 'json',
-            delay: 250,
-            data: function(params) {
-                    return {
-                        q: params.term
-                    }
-                },
-                processResults: function(data) {
-                    return {
-                        results: $.map(data, function(obj) {
-                            return {
-                                id: obj.id,
-                                text: obj.username + ' - ' + obj.email
-                            };
-                        })
-                    };
-                }
-        }
+    // Suche durchführen, wenn Suchbegriff geändert wird
+    $('input[type="search"]').on('keyup', function() {
+        table.search(this.value).draw();
     });
 });
-</script>
-
-<script type="text/javascript">
-	$(document).on('select2:open', () => {
-		document.querySelector('.select2-search__field').focus();
-	});
-
-    $(document).ready(function() {
-    $("#search_accounts-single").select2();
-
-    $("#search_accounts").on("select2:select", function (e) {
-	window.open('{$url}admin/accounts/get/' + e.params.data.id, '_self');
-	});
-
-    });
 </script>

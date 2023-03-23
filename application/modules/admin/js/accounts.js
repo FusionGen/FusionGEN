@@ -10,24 +10,6 @@ var Accounts = {
 		save: "admin/accounts/save/",
 		loadMore: "admin/accounts/loadMoreLogs/",
 	},
-	
-	searchAccount: function() 
-	{
-		var value = $("#search_accounts").val();
-		
-		$("#form_accounts_search").html('<center><div class="bounce-loader"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></center>');
-
-		$.post(Config.URL + "admin/accounts/search", {value: value, csrf_token_name: Config.CSRF}, function(data)
-		{
-			$("#form_accounts_search").fadeOut(150, function()
-			{
-				$(this).html(data).fadeIn(500, function()
-				{
-					$('[data-toggle="tooltip"]').tooltip();
-				});
-			});
-		});
-	},
 
 	getAccount: function(id) 
 	{
