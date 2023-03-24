@@ -72,9 +72,11 @@ class Visitors extends MX_Controller
     private function parseSession($sess_data)
     {
         $sess_data = rtrim($sess_data, ";");
+        $sess_data = preg_replace('/(;password\|.*?;email\|)/', '', $sess_data);
+
         $sess_info = array();
         $parts = explode(";", $sess_data);
-        
+
         foreach ($parts as $part) {
             $part = explode("|", $part);
             $key = preg_replace('/:.*/', '', $part[0]);
@@ -82,8 +84,7 @@ class Visitors extends MX_Controller
             $value = str_replace('"', '', $value);
             $sess_info[$key] = $value;
         }
-        unset($sess_info["__ci_last_regenerate"], $sess_info["captcha"], $sess_info[""], $sess_info["admin_access"], $sess_info["language"], $sess_info["expansion"], $sess_info["password"], $sess_info["email"], $sess_info["last_ip"], $sess_info["register_date"]);
-        
+
         $sess_info = serialize($sess_info);
         return $sess_info;
     }
