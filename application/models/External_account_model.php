@@ -103,7 +103,7 @@ class External_account_model extends CI_Model
     public function createAccount($username, $password, $email)
     {
         $this->connect();
-        
+
         $expansion = $this->config->item('max_expansion');
 
         $hash = $this->user->createHash($username, $password);
@@ -123,22 +123,22 @@ class External_account_model extends CI_Model
             $data[column("account", "password")] = $hash["verifier"];
         }
 
-		if (!preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
-		{
+        if (!preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
+        {
             $data[column("account", "last_ip")] = $this->input->ip_address();
         }
 
         $userId = $this->connection->insert(table("account"), $data);
-		
-		if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
-		{
-			$ip_data = array(
-            	'accountId' => $userId,
-            	'ip' => $this->input->ip_address(),
-            	'loginTime' => date("Y-m-d H:i:s"),
-            	'loginSource' => '0'
+
+        if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
+        {
+            $ip_data = array(
+                'accountId' => $userId,
+                'ip' => $this->input->ip_address(),
+                'loginTime' => date("Y-m-d H:i:s"),
+                'loginSource' => '0'
             );
-            
+
             $this->connection->insert(table("account_logons"), $ip_data);
         }
 
@@ -369,7 +369,7 @@ class External_account_model extends CI_Model
     public function setExpansion($newExpansion, $username = false)
     {
         $this->connect();
-        
+
         if ($username)
         {
             // Update only the expansion column for the given username
@@ -396,25 +396,25 @@ class External_account_model extends CI_Model
         }
     }
 
-	public function setLastIp($userId, $ip)
-	{
-		$this->connect();
+    public function setLastIp($userId, $ip)
+    {
+        $this->connect();
 
-		$this->connection->where(column("account", "id"), $userId);
-		
-		if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
-			$data = array(
-            	'accountId' => $userId,
-            	'ip' => $ip,
-            	'loginTime' => date("Y-m-d H:i:s"),
-            	'loginSource' => '0'
+        $this->connection->where(column("account", "id"), $userId);
+
+        if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator()))) {
+            $data = array(
+                'accountId' => $userId,
+                'ip' => $ip,
+                'loginTime' => date("Y-m-d H:i:s"),
+                'loginSource' => '0'
             );
-            
+
             $this->connection->insert(table("account_logons"), $data);
         } else {
             $this->connection->update(table("account"), array(column("account", "last_ip") => $ip));
         }
-	}
+    }
 
     /*
     | -------------------------------------------------------------------

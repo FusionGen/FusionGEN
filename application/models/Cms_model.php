@@ -53,7 +53,6 @@ class Cms_model extends CI_Model
             $data['user_agent'] = $session["user_agent"];
         }
 
-
         $this->db->where('ip_address', $session['ip_address']);
         $this->db->update("ci_sessions", $data);
     }
@@ -320,7 +319,7 @@ class Cms_model extends CI_Model
         }
     }
 
-	private function getSession($session)
+    private function getSession($session)
     {
         $this->db->where('ip_address', $session['ip_address']);
         $this->db->where('user_agent', $session['user_agent']);

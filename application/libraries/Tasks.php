@@ -14,8 +14,8 @@ use VisualAppeal\AutoUpdate;
 class Tasks
 {
     private $CI;
-	private $db;
-	private $update;
+    private $db;
+    private $update;
     private $update_url;
 
     public function __construct()
@@ -48,14 +48,14 @@ class Tasks
                 break;
                 default:
                      log_message('error', 'Update URL broken. Check for update not possible');
-		    }
+            }
         }
 
-		curl_close($ch);
+        curl_close($ch);
         /* End update auto update*/
     }
-	
-	private function check_updates()
+
+    private function check_updates()
     {
         $this->update = new AutoUpdate(FCPATH . 'temp', FCPATH . '', 60);
 
@@ -66,7 +66,7 @@ class Tasks
 
     private function installupdates()
     {
-		
+
         $this->check_updates();
 
         if ($this->update->checkUpdate() === false) {

@@ -63,7 +63,7 @@ class Mangos_three_sph_soap implements Emulator
         "account" => array(
             "id"         => "id",
             "username"   => "username",
-            'gmlevel'    => 'gmlevel',			
+            'gmlevel'    => 'gmlevel',
             "password"   => "sha_pass_hash",
             "email"      => "email",
             "joindate"   => "joindate",
@@ -164,7 +164,7 @@ class Mangos_three_sph_soap implements Emulator
             "message"    => "ticket_text",
             "createTime" => "ticket_lastchange",
             "completed"  => "resolved",
-			//"closedBy" => "closed"
+            //"closedBy" => "closed"
         )
     );
 
@@ -319,7 +319,7 @@ class Mangos_three_sph_soap implements Emulator
         return $this->hasStats;
     }
 
-	/**
+    /**
      * Password encryption
      */
     public function encrypt($username, $password)

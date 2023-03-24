@@ -256,35 +256,35 @@ class Characters_model
     }
 
     /**
-	* Get the character by the guid
-	* @param String $guid
-	* @return Array
-	*/
-	
-	public function getCharacterByGuid($guid)
-	{
-		$this->connect();
-		$query = $this->db->query("SELECT * FROM ".table('characters', $this->realmId)." WHERE ".column("characters", "guid", false, $this->realmId)."=?", array($guid));
+    * Get the character by the guid
+    * @param String $guid
+    * @return Array
+    */
 
-		if($this->db->error())
-		{
+    public function getCharacterByGuid($guid)
+    {
+        $this->connect();
+        $query = $this->db->query("SELECT * FROM ".table('characters', $this->realmId)." WHERE ".column("characters", "guid", false, $this->realmId)."=?", array($guid));
+
+        if($this->db->error())
+        {
             $error = $this->db->error();
-			if ($error['code'] != 0) {
+            if ($error['code'] != 0) {
                 die($error["message"]);
             }
-		}
+        }
 
-		if($query->num_rows() > 0)
-		{
-			$row = $query->result_array();
+        if($query->num_rows() > 0)
+        {
+            $row = $query->result_array();
 
-			return $row[0];
-		}
-		else
-		{
-			return false;
-		}
-	}
+            return $row[0];
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     /**
     * Get the character faction (alliance/horde) by the guid
