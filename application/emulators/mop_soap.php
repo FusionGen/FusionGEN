@@ -327,7 +327,7 @@ class Mop_soap implements Emulator
         return $this->hasStats;
     }
 
-	/**
+    /**
      * Password encryption
      */
     public function encrypt($username, $password)

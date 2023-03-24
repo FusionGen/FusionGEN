@@ -383,7 +383,7 @@ class Administrator
                         "isOnline" => $this->CI->user->isOnline(),
                         "username" => $this->CI->user->getUsername(),
                         "avatar"    => $this->CI->user->getAvatar($this->CI->user->getId()),
-						"cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : null
+                        "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : null
                     );
 
                     $output = $this->CI->smarty->view($this->theme_path . "login.tpl", $data, true);

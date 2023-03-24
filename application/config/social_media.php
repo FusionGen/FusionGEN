@@ -19,7 +19,6 @@ if (! defined('BASEPATH')) {
 |--------------------------------------------------------------------------
 */
 
-
 $config['facebook'] = "https://facebook.com";
 $config['twitter'] = "https://twitter.com";
 $config['youtube'] = "https://youtube.com";

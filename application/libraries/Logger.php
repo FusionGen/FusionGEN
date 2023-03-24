@@ -16,8 +16,8 @@ if (!defined('BASEPATH')) {
 class Logger
 {
     private $CI;
-	
-	/**
+
+    /**
      * Logs status
      **/
     public const STATUS_FAILED  = 'failed';

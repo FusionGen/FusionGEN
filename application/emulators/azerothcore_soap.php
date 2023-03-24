@@ -44,7 +44,7 @@ class Azerothcore_soap implements Emulator
         'account'         => 'account',
         'account_access'  => 'account_access',
         'account_banned'  => 'account_banned',
-        'ip_banned'          => 'ip_banned',
+        'ip_banned'       => 'ip_banned',
         'characters'      => 'characters',
         'item_template'   => 'item_template',
         'character_stats' => 'character_stats',
