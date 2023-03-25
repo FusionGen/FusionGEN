@@ -316,21 +316,12 @@ class Realms
                 'silver' => 0,
                 'gold' => 0
             );
-
-
-            $gold['gold'] = $money / 10000;
-            $expld = explode('.', $gold['gold']);
-            $gold['gold'] = $expld[0];
-
-            if (count($expld) > 1) {
-                if (strlen($expld[1]) > 2) {
-                    $gold['copper'] = number_format(substr($expld[1], strlen($expld[1]) - 2));
-                    $gold['silver'] = number_format(substr($expld[1], 0, 2));
-                } else {
-                    $gold['silver'] = number_format($expld[1]);
-                }
-            }
-
+    
+            $gold['gold'] = floor($money / 10000);
+            $remainder = $money % 10000;
+            $gold['silver'] = floor($remainder / 100);
+            $gold['copper'] = $remainder % 100;
+    
             return $gold;
         } else {
             return false;
