@@ -22,7 +22,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<meta property="og:description" content="{$description}">
 		<meta property="og:site_name" content="{$serverName}">
 		
-		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:card" content="summary">
 		<meta name="twitter:image:alt" content="{$title}">
 		<meta name="twitter:image" content="{$url}application/images/misc/preview-thumbnail.png">
 		<meta name="twitter:site" content="@{$social_media['twitter']}">
