@@ -1,4 +1,3 @@
-{if !$found}
 <section class="card">
 	<header class="card-header">
 		<div class="card-actions">
@@ -24,32 +23,6 @@
 		</table>
 	</div>
 </section>
-{/if}
-
-<div id="form_accounts_search" class="mb-3">
-	{if $found}
-		<script type="text/javascript">
-			$(document).ready(function()
-			{
-				function checkIfLoaded()
-				{
-					if(typeof Accounts != "undefined")
-					{
-						Accounts.getAccount({$data.id});
-					}
-					else
-					{
-						setTimeout(checkIfLoaded, 50);
-					}
-				}
-
-				checkIfLoaded();
-			});
-		</script>
-	{else}
-		<!-- results -->
-	{/if}
-</div>
 
 <script>
 $(document).ready(function() {

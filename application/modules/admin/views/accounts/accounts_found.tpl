@@ -107,15 +107,39 @@
 				<div id="edit" class="tab-pane">
 					<h4 class="mb-3 font-weight-semibold text-dark">Account edit</h4>
 					<form onSubmit="Accounts.save(this, {$external_details.id}); return false" id="submit_form">
-						<div class="row mb-3">
-							<div class="form-group col-md-6">
-								<label for="vp">Vote-Points</label>
-								<input class="form-control" type="text" id="vp" name="vp" value="{$internal_details.vp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+                        <div class="form-group row mb-3">
+							<div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" for="vp">Vote-Points</label>
+								<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+									<div class="input-group form-control-small">
+										<input class="spinner-input form-control" type="text" id="vp" name="vp" value="{$internal_details.vp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+										<div class="spinner-buttons input-group-btn btn-group-vertical">
+											<button type="button" class="btn spinner-up btn-xs btn-default" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+												<i class="fas fa-angle-up"></i>
+											</button>
+											<button type="button" class="btn spinner-down btn-xs btn-default" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+												<i class="fas fa-angle-down"></i>
+											</button>
+										</div>
+									</div>
+								</div>
 							</div>
 
-							<div class="form-group col-md-6 border-top-0 pt-0">
-								<label for="dp">Donation-Points</label>
-								<input class="form-control" type="text" id="dp" name="dp" value="{$internal_details.dp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+                            <div class="col-sm-6">
+                            <label class="col-sm-6 col-form-label" for="dp">Donation-Points</label>
+								<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+									<div class="input-group form-control-small">
+										<input class="spinner-input form-control" type="text" id="dp" name="dp" value="{$internal_details.dp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+										<div class="spinner-buttons input-group-btn btn-group-vertical">
+											<button type="button" class="btn spinner-up btn-xs btn-default" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+												<i class="fas fa-angle-up"></i>
+											</button>
+											<button type="button" class="btn spinner-down btn-xs btn-default" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+												<i class="fas fa-angle-down"></i>
+											</button>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 
