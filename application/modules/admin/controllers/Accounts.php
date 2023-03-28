@@ -61,6 +61,10 @@ class Accounts extends MX_Controller
 
     public function get($id = false)
     {
+        if (!is_numeric($id))
+        {
+            die('<span>No such account</span>');
+        }
         $data = $this->accounts_model->getById($id);
 
         if ($data) {
