@@ -105,7 +105,7 @@ class Icon extends MX_Controller
 
         $itemData = $this->xmlToArray($xml);
 
-        if (!isset($xml->error) && !empty($xml->error))
+        if (!isset($xml->error) && !isset($itemData['error']))
         {
             $icon = $itemData['item']['icon'];
 
