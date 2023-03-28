@@ -37,6 +37,9 @@ class Icon extends MX_Controller
                     {
                         $icon = $item_wowhead;
                         die($icon);
+                    } else {
+                        $icon = "inv_misc_questionmark";
+                        die($icon);
                     }
                 }
             }
@@ -102,7 +105,7 @@ class Icon extends MX_Controller
 
         $itemData = $this->xmlToArray($xml);
 
-        if (!isset($xml->error))
+        if (!isset($xml->error) && !empty($xml->error))
         {
             $icon = $itemData['item']['icon'];
 
@@ -123,9 +126,11 @@ class Icon extends MX_Controller
             else {
                 return false;
             }
+
+            return $icon;
         }
 
-        return $icon;
+        return false;
     }
 
     /**
