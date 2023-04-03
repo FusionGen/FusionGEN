@@ -123,7 +123,7 @@
 						<div class="row mb-3">
 							<div class="form-group col-md-6">
 								<label for="gm_level">GM-level</label>
-								<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9 }'>
+								<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 99 }'>
 									<div class="input-group">
 										{foreach from=$access_id item=gmlevel}
 											<input class="spinner-input form-control" type="text" id="gm_level" name="gm_level" value="{if !$gmlevel}0{else}{$gmlevel}{/if}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
