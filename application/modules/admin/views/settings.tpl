@@ -61,26 +61,25 @@
 			<div data-toggle="tooltip" data-placement="bottom" title="The logon emulator is the emulator of the first realm"><b>Logon/realmd/auth emulator:</b> {if $realms}{strtoupper($realms[0]->getConfig("emulator"))}{/if}</div>
 			</div>
 			</section>
-			
+
 			<div class="card" id="add_realm" style="display:none;">
-			<header class="card-header">New realm</header>
-	
-			<div class="col-sm-12">
+			<div class="card-header">New realm</div>
+			<div class="card-body">
 			<form role="form" onSubmit="Settings.addRealm(); return false">
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="realmName">Realm name</label>
 				<div class="col-sm-10">
-					<input class="form-control" type="text" id="realmName" />
+					<input class="form-control" type="text" id="realmName"/>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="realmName">Hostname / IP (to your emulator server)</label>
 				<div class="col-sm-10">
-					<input class="form-control" type="text" id="hostname" />
+					<input class="form-control" type="text" id="hostname"/>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Server structure (mainly for the bigger private servers with clustered hosts)</label>
 				<div class="col-sm-10">
@@ -91,139 +90,199 @@
 				</select>
 				</div>
 				</div>
-	
+
 				<div id="one">
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="username">Database username</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="text" id="username" />
+					<input class="form-control" type="text" id="username"/>
 					</div>
 					</div>
-	
-					<div class="form-group row">
+
+					<div class="form-group row mb-3">
 					<label class="col-sm-2 col-form-label" for="password">Database password</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="password" id="password" />
+					<input class="form-control" type="password" id="password"/>
 					</div>
 					</div>
 				</div>
-	
+
 				<div id="two" style="display:none;">
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_hostname_char">Characters &amp; world: database hostname</label>
 					<div class="col-sm-10">
-						<input class="form-control" type="text" id="override_hostname_char" />
+						<input class="form-control" type="text" id="override_hostname_char"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_username_char">Characters &amp; world: database username</label>
 					<div class="col-sm-10">
-						<input class="form-control" type="text" id="override_username_char" />
+						<input class="form-control" type="text" id="override_username_char"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_password_char">Characters &amp; world: database password</label>
 					<div class="col-sm-10">
-						<input class="form-control" type="password" id="override_password_char" />
+						<input class="form-control" type="password" id="override_password_char"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_port_char">Characters &amp; world: database port</label>
 					<div class="col-sm-10">
-						<input class="form-control" type="text" id="override_port_char" value="3306" />
+					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="override_port_char" value="3306"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
 					</div>
 					</div>
 				</div>
-	
+
 				<div id="three" style="display:none;">
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_hostname_char_three">Characters: database hostname</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="text" id="override_hostname_char_three" />
+					<input class="form-control" type="text" id="override_hostname_char_three"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_username_char_three">Characters: database username</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="text" id="override_username_char_three" />
+					<input class="form-control" type="text" id="override_username_char_three"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_password_char_three">Characters: database password</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="password" id="override_password_char_three" />
+					<input class="form-control" type="password" id="override_password_char_three"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_port_char_three">Characters: database port</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="text" id="override_port_char_three" value="3306" />
+					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="override_port_char_three" value="3306"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
 					</div>
 					</div>
-	
+					</div>
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_hostname_world_three">World: database hostname</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="text" id="override_hostname_world_three" />
+					<input class="form-control" type="text" id="override_hostname_world_three"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_username_world_three">World: database username</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="text" id="override_username_world_three" />
+					<input class="form-control" type="text" id="override_username_world_three"/>
 					</div>
 					</div>
-	
+
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_password_world_three">World: database password</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="password" id="override_password_world_three" />
+					<input class="form-control" type="password" id="override_password_world_three"/>
 					</div>
 					</div>
-	
-					<div class="form-group row">
+
+					<div class="form-group row mb-3">
 					<label class="col-sm-2 col-form-label" for="override_port_world_three">World: database port</label>
 					<div class="col-sm-10">
-					<input class="form-control" type="text" id="override_port_world_three" value="3306" />
+					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="override_port_world_three" value="3306"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
 					</div>
 					</div>
 				</div>
-	
-				<div class="form-group row">
+
+				<div class="form-group row mt-3">
 				<label class="col-sm-2 col-form-label" for="characters">Characters database</label>
 				<div class="col-sm-10">
 					<input class="form-control" type="text" id="characters"/>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="world">World database</label>
 				<div class="col-sm-10">
-				<input class="form-control" type="text" id="world" />
+				<input class="form-control" type="text" id="world"/>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="cap">Max allowed players online</label>
 				<div class="col-sm-10">
-					<input class="form-control" type="text" id="cap" />
+					<div data-plugin-spinner data-plugin-options='{ "value": 0, "min": 0, "max": 99999 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="cap"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="port">Realm port (cmangos: 8129, others: 8085)</label>
 				<div class="col-sm-10">
-					<input class="form-control" type="text" id="port" />
+					<div data-plugin-spinner data-plugin-options='{ "value": 0, "min": 0, "max": 65535 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="port"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="emulator">Emulator</label>
 				<div class="col-sm-10">
@@ -234,30 +293,41 @@
 				</select>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="console_port">Console port (only required for emulators that use RA or SOAP; usually 3443 for RA and 7878 for SOAP)</label>
 				<div class="col-sm-10">
-					<input class="form-control" type="text" id="console_port" />
+					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+						<div class="input-group">
+							<input class="spinner_input form-control" type="text" id="console_port"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
 				</div>
-	
+
 				<div class="form-group row">
-				<label class="col-sm-2 col-form-label" for="console_username" data-toggle="tooltip" data-placement="bottom" title="For an ingame account with GM level high enough to connect to your<br />emulator console remotely (see your emulator's config files for more details)">Console username (only required for emulators that use remote console systems) (?)</label>
+				<label class="col-sm-2 col-form-label" for="console_username" data-toggle="tooltip" data-placement="bottom" title="For an ingame account with GM level high enough to connect to your&#013;emulator console remotely (see your emulator's config files for more details)">Console username (only required for emulators that use remote console systems) (?)</label>
 				<div class="col-sm-10">
-					<input class="form-control" type="text" id="console_username" />
+					<input class="form-control" type="text" id="console_username"/>
 				</div>
 				</div>
-	
-				<div class="form-group row">
-				<label class="col-sm-2 col-form-label" for="console_password" data-toggle="tooltip" data-placement="bottom" title="For an ingame account with GM level high enough to connect to your<br />emulator console remotely (see your emulator's config files for more details)">Console password (only required for emulators that use remote console systems) (?)</label>
+
+				<div class="form-group row mb-3">
+				<label class="col-sm-2 col-form-label" for="console_password" data-toggle="tooltip" data-placement="bottom" title="For an ingame account with GM level high enough to connect to your&#013;emulator console remotely (see your emulator's config files for more details)">Console password (only required for emulators that use remote console systems) (?)</label>
 				<div class="col-sm-10">
-					<input class="form-control" type="password" id="console_password" />
+					<input class="form-control" type="password" id="console_password"/>
 				</div>
 				</div>
 					<button class="btn btn-primary btn-sm" type="submit">Add realm</button>
 			</form>
-			
 			</div>
 			</div>
 		</div>
@@ -266,21 +336,21 @@
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="title">Website title</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="title" placeholder="MyServer" value="{$config.title}" />
+				<input class="form-control" type="text" id="title" placeholder="MyServer" value="{$config.title}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="server_name">Server name</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="server_name" placeholder="MyServer" value="{$config.server_name}" />
+				<input class="form-control" type="text" id="server_name" placeholder="MyServer" value="{$config.server_name}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="realmlist">Realmlist</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="realmlist" placeholder="logon.myserver.com" value="{$config.realmlist}" />
+				<input class="form-control" type="text" id="realmlist" placeholder="logon.myserver.com" value="{$config.realmlist}"/>
 			</div>
             </div>
 
@@ -298,14 +368,14 @@
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="keywords">Search engine: keywords (separated by comma)</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="keywords" placeholder="world of warcraft,wow,private server,pvp" value="{$config.keywords}" />
+				<input class="form-control" type="text" id="keywords" placeholder="world of warcraft,wow,private server,pvp" value="{$config.keywords}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="description">Search engine: description</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="description" placeholder="Best World of Warcraft private server in the entire world!" value="{$config.description}" />
+				<input class="form-control" type="text" id="description" placeholder="Best World of Warcraft private server in the entire world!" value="{$config.description}"/>
 			</div>
             </div>
 
@@ -326,7 +396,7 @@
 			</div>
             </div>
 
-			<div class="form-group row mb-1">
+			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="vote_reminder">Enable vote reminder popup</label>
 			<div class="col-sm-10">
 			<select class="form-control" id="vote_reminder" onChange="Settings.toggleVoteReminder(this)">
@@ -337,17 +407,17 @@
             </div>
 
 			<div id="vote_reminder_settings" {if !$config.vote_reminder}style="display:none;"{/if}>
-			<div class="form-group row mb-1">
+			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="vote_reminder_image">Vote reminder image URL</label>
 			<div class="col-sm-10">
-				<input class="form-control mb-1" type="text" id="vote_reminder_image" placeholder="http://mywebsite.com/images/banner.gif" value="{$config.vote_reminder_image}"/>
+				<input class="form-control" type="text" id="vote_reminder_image" placeholder="http://mywebsite.com/images/banner.gif" value="{$config.vote_reminder_image}"/>
 			</div>
 			</div>
 
-			<div class="form-group row">
+			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="reminder_interval">Vote reminder interval (in hours)</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="reminder_interval" value="{$config.reminder_interval/60/24}" placeholder="12" />
+				<input class="form-control" type="text" id="reminder_interval" value="{$config.reminder_interval/60/24}" placeholder="12"/>
 			</div>
 			</div>
 			</div>
@@ -358,7 +428,7 @@
 
         <div class="tab-pane" id="smtp">
         <form role="form" onSubmit="Settings.saveSmtpSettings(); return false">
-			<div class="form-group row">
+			<div class="form-group row mb-1">
 			<label class="col-sm-2 col-form-label" for="use_own_smtp_settings">Use own SMTP settings (enter them below)</label>
 			<div class="col-sm-10">
 			<select class="form-control" id="use_own_smtp_settings" onChange="Settings.toggleSMTPusage(this)">
@@ -385,35 +455,47 @@
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="smtp_sender">SMTP sender</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="smtp_sender" value="{$config.smtp_sender}" />
+				<input class="form-control" type="text" id="smtp_sender" value="{$config.smtp_sender}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="smtp_host">SMTP hostname</label>
 			<div class="col-sm-10">
-			<input class="form-control" type="text" id="smtp_host" value="{$config.smtp_host}" />
+			<input class="form-control" type="text" id="smtp_host" value="{$config.smtp_host}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="smtp_user">SMTP username</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="smtp_user" value="{$config.smtp_user}" />
+				<input class="form-control" type="text" id="smtp_user" value="{$config.smtp_user}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="smtp_pass">SMTP password</label>
 			<div class="col-sm-10">
-			<input class="form-control" type="password" id="smtp_pass" value="{$config.smtp_pass}" />
+			<input class="form-control" type="password" id="smtp_pass" value="{$config.smtp_pass}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="smtp_port">SMTP port</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="smtp_port" value="{$config.smtp_port}" />
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" id="smtp_port" value="{$config.smtp_port}"/>
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 			</div>
             </div>
 
@@ -445,7 +527,7 @@
 			</select>
 			</div>
 			</div>
-			
+
 			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="cache">Cache on?</label>
 			<div class="col-sm-10">
@@ -464,28 +546,28 @@
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="fb_link">Facebook</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="fb_link" value="{$config.facebook}" />
+				<input class="form-control" type="url" id="fb_link" placeholder="https://" value="{$config.facebook}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="twitter_link">Twitter</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="twitter_link" value="{$config.twitter}" />
+				<input class="form-control" type="url" id="twitter_link" placeholder="https://" value="{$config.twitter}"/>
 			</div>
             </div>
 
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="yt_link">Youtube</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="yt_link" value="{$config.youtube}" />
+				<input class="form-control" type="url" id="yt_link" placeholder="https://" value="{$config.youtube}"/>
 			</div>
             </div>
 
 			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="discord_link">Discord</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="discord_link" value="{$config.discord}" />
+				<input class="form-control" type="url" id="discord_link" placeholder="https://" value="{$config.discord}"/>
 			</div>
             </div>
 
@@ -508,7 +590,7 @@
 			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="cdn_link">CDN URL</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="cdn_link" value="{$config.cdn_link}" />
+				<input class="form-control" type="text" id="cdn_link" value="{$config.cdn_link}"/>
 			</div>
             </div>
 
@@ -516,42 +598,72 @@
         </form>
         <div class="alert alert-dark mt-3" role="alert">
 			Do you like the CDN system and want to continue using it? We would appreciate your help!<br>
-			With a small <a href="https://github.com/FusionGen/FusionGEN/blob/main/.github/FUNDING.yml">donation</a> of only $5 you help to keep the CDN system alive
+			With a small <a href="https://www.paypal.com/donate/?hosted_button_id=HMX3ESBF2PGXC">donation</a> of only $5 you help to keep the CDN system alive
         </div>
         </div>
 
         <div class="tab-pane" id="security">
         <form role="form" onSubmit="Settings.saveSecurity(); return false">
 			<div class="form-group row">
-			<label class="col-sm-2 col-form-label" for="use_captcha">Use captcha? (Recommended: yes)</label>
-			<div class="col-sm-10">
-			<select class="form-control" id="use_captcha">
-				<option value="true" {if $config.use_captcha == '1'}selected{/if}>Yes</option>
-				<option value="false" {if $config.use_captcha == '0'}selected{/if}>No</option>
-			</select>
-			</div>
-            </div>
+				<div class="col-sm-6 mb-3">
+					<label class="col-form-label" for="use_captcha">Use captcha? (Recommended: yes)</label>
+					<select class="form-control" id="use_captcha">
+						<option value="true" {if $config.use_captcha == '1'}selected{/if}>Yes</option>
+						<option value="false" {if $config.use_captcha == '0'}selected{/if}>No</option>
+					</select>
+				</div>
 
-			<div class="form-group row">
-			<label class="col-sm-2 col-form-label" for="captcha_attemps">Captcha attemps (default: 3)</label>
-			<div class="col-sm-10">
-				<input class="form-control" type="text" id="captcha_attemps" value="{$config.captcha_attemps}" />
-			</div>
-            </div>
+				<div class="col-sm-6 mb-3">
+					<label class="col-form-label" for="captcha_attemps">Captcha attemps (default: 3)</label>
+					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="captcha_attemps" value="{$config.captcha_attemps}"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
-			<div class="form-group row">
-			<label class="col-sm-2 col-form-label" for="block_attemps">Block attemps</label>
-			<div class="col-sm-10">
-				<input class="form-control" type="text" id="block_attemps" value="{$config.block_attemps}" />
-			</div>
-            </div>
+				<div class="col-sm-6 mb-3">
+					<label class="col-form-label" for="block_attemps">Block attemps</label>
+					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="block_attemps" value="{$config.block_attemps}"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
-			<div class="form-group row mb-3">
-			<label class="col-sm-2 col-form-label" for="block_duration">Block duration in minutes (default: 15)</label>
-			<div class="col-sm-10">
-				<input class="form-control" type="text" id="block_duration" value="{$config.block_duration}" />
+				<div class="col-sm-6 mb-3">
+					<label class="col-form-label" for="block_duration">Block duration in minutes (default: 15)</label>
+					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
+						<div class="input-group">
+							<input class="spinner-input form-control" type="text" id="block_duration" value="{$config.block_duration}"/>
+							<div class="spinner-buttons input-group-btn btn-group-vertical">
+								<button type="button" class="btn spinner-up btn-xs btn-default">
+									<i class="fas fa-angle-up"></i>
+								</button>
+								<button type="button" class="btn spinner-down btn-xs btn-default">
+									<i class="fas fa-angle-down"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-            </div>
 
 			<button class="btn btn-primary btn-sm" type="submit">Save</button>
         </form>
