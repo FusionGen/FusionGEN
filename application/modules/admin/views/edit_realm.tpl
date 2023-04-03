@@ -42,7 +42,7 @@
 		<div class="col-sm-10">
 		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
 			<div class="input-group">
-				<input class="spinner-input form-control" type="text" id="override_port_char" value="{$port_char}"  />
+				<input class="spinner-input form-control" type="text" id="override_port_char" value="{$port_char}"/>
 				<div class="spinner-buttons input-group-btn btn-group-vertical">
 					<button type="button" class="btn spinner-up btn-xs btn-default">
 						<i class="fas fa-angle-up"></i>
@@ -82,7 +82,7 @@
 		<div class="col-sm-10">
 		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
 			<div class="input-group">
-				<input class="spinner-input form-control" type="text" id="override_port_world" value="{$port_world}"  />
+				<input class="spinner-input form-control" type="text" id="override_port_world" value="{$port_world}"/>
 				<div class="spinner-buttons input-group-btn btn-group-vertical">
 					<button type="button" class="btn spinner-up btn-xs btn-default">
 						<i class="fas fa-angle-up"></i>
@@ -132,7 +132,19 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="port">Realm port (usually 8129)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="port" name="port" value="{$realm->getConfig('realm_port')}"/>
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" id="port" name="port" value="{$realm->getConfig('realm_port')}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 
