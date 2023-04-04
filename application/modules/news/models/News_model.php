@@ -32,16 +32,17 @@ class News_model extends CI_Model
             return $this->template->format($result);
         } else {
             // Instead of showing a blank space, we show a default article
+            $default_lang = $this->language->getAbbreviationByLanguage($this->language->getDefaultLanguage());
             return array(
                         array(
-                            'id'           => 0,
-                            'headline_en'  => 'Welcome to FusionGEN V2!',
-                            'content_en'   => 'Welcome to your new website! This news article will disappear as soon as you add a new one.',
-                            'author_id'    => 0,
-                            'timestamp'    => time(),
-                            'type'         => 0,
-                            'type_content' => null,
-                            'comments'     => -1
+                            'id'                             => 0,
+                            'headline_' . $default_lang . '' => 'Welcome to FusionGEN V2!',
+                            'content_' . $default_lang . ''  => 'Welcome to your new website! This news article will disappear as soon as you add a new one.',
+                            'author_id'                      => 0,
+                            'timestamp'                      => time(),
+                            'type'                           => 0,
+                            'type_content'                   => null,
+                            'comments'                       => -1
                         )
                     );
         }
