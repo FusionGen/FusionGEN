@@ -616,14 +616,17 @@ class Template
         // Load the slides from the database
         $slides_arr = $this->CI->cms_model->getSlides();
 
-        foreach ($slides_arr as $key => $image)
+        if ($slides_arr)
         {
-            $slides_arr[$key]['header'] = langColumn($image['header']);
-            $slides_arr[$key]['body']   = langColumn($image['body']);
-            $slides_arr[$key]['footer'] = langColumn($image['footer']);
-            
-            // Replace {path} by the theme image path
-            $slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image']);
+            foreach ($slides_arr as $key => $image)
+            {
+                $slides_arr[$key]['header'] = langColumn($image['header']);
+                $slides_arr[$key]['body']   = langColumn($image['body']);
+                $slides_arr[$key]['footer'] = langColumn($image['footer']);
+                
+                // Replace {path} by the theme image path
+                $slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image']);
+            }
         }
 
         return $slides_arr;
