@@ -27,9 +27,13 @@ class Status extends CI_Controller
         $realms = $this->realms->getRealms();
 
         $total = 0;
-        foreach ($realms as $realm) {
-            $count = $realm->getOnline();
-            $total += $count;
+        foreach ($realms as $realm)
+        {
+            if ($realm->isOnline(true))
+            {
+                $count = $realm->getOnline();
+                $total += $count;
+            }
         }
 
         $uptimes = $this->flush_uptime($realms);
