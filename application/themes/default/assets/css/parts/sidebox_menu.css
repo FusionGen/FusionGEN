@@ -22,7 +22,7 @@
 .navbar-side .navbar-nav .nav-item .nav-link {
 	color: #baddf4;
 	display: block;
-	padding: 0.794rem 1rem 0.794rem 3.375rem;
+	padding: 0.794rem 1rem 0.794rem 2.5rem;
 	font-size: 1.125rem;
 	box-shadow: inset 0 0 0 1px #141a21, inset 0 0 0 2px rgba(104, 193, 232, 0.08), inset 0 0 0 2px rgba(65, 77, 104, 0.14), 0 0 6px 0 rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: inset 0 0 0 1px #141a21, inset 0 0 0 2px rgba(104, 193, 232, 0.08), inset 0 0 0 2px rgba(65, 77, 104, 0.14), 0 0 6px 0 rgba(0, 0, 0, 0.15);
@@ -67,18 +67,18 @@
 	height: 30px;
 	top: 50%;
 	left: 1rem;
-	content: '';
 	position: absolute;
-	margin-top: -15px;
+	margin-top: -10px;
 }
 
 .navbar-side .navbar-nav .nav-item .nav-link .arrow::before {
 	width: 100%;
 	height: 100%;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
 	top: 0;
 	left: 0;
-	opacity: 0;
-	content: '';
 	position: absolute;
 	transition: 300ms opacity ease-in-out;
 	-o-transition: 300ms opacity ease-in-out;
