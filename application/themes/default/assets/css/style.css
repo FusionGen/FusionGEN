@@ -30,7 +30,6 @@
 @import url('./plugins/jquery.selectbox.css');
 
 /* Theme parts */
-
 @import url('./parts/banner.css');
 @import url('./parts/footer.css');
 @import url('./parts/header.css');
@@ -42,6 +41,10 @@
 @import url('./parts/welcome_box.css');
 @import url('./parts/notifications.css');
 @import url('./parts/sidebox_menu.css');
+
+/* Modules parts */
+@import url('./modules/news.css');
+@import url('./modules/donate.css');
 
 /* Theme custom stylesheets */
 @import url('./custom.css');
