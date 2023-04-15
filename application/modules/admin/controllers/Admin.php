@@ -42,6 +42,7 @@ class Admin extends MX_Controller
             'votes' => $this->getVotes(),
             'signups' => $this->getSignups(),
             'graphMonthly' => $this->graphMonthly(),
+            'graphDaily' => $this->graphDaily(),
             "autoUpdate" => $this->config->item("auto_update")
         );
 
@@ -93,7 +94,8 @@ class Admin extends MX_Controller
 
         $cache = $this->cache->get("total_accounts");
 
-        if ($cache !== false) {
+        if ($cache !== false)
+        {
             $data['total'] = $cache;
         } else {
             $data['total'] = $this->external_account_model->getAccountCount();
@@ -105,19 +107,22 @@ class Admin extends MX_Controller
 
     private function graphMonthly()
     {
-        if ($this->config->item('disable_visitor_graph')) {
+        if ($this->config->item('disable_visitor_graph'))
+        {
             return false;
         }
 
-        $cache = $this->cache->get("dashboard");
+        $cache = $this->cache->get("dashboard_monthly");
 
-        if ($cache !== false) {
+        if ($cache !== false)
+        {
             $data = $cache;
         } else {
             $rows = $this->dashboard_model->getGraph();
             $fullGraph = array();
 
-            foreach ($rows as $row) {
+            foreach ($rows as $row)
+            {
                 $expld = explode("-", $row["date"]);
 
                 $year = $expld[0];
@@ -126,96 +131,118 @@ class Admin extends MX_Controller
 
                 $date = new DateTime();
                 $fullYear = array();
-                for ($i = 1; $i <= 12; $i++) {
-                    if ($date->format("Y") == $year && $i > $date->format("m")) {
+                for ($i = 1; $i <= 12; $i++)
+                {
+                    if ($date->format("Y") == $year && $i > $date->format("m"))
+                    {
                         continue;
                     }
-                    if ($date->format("Y") != $year && $i < $date->format("m")) {
+
+                    if ($date->format("Y") != $year && $i < $date->format("m"))
+                    {
                         continue;
                     }
+
                     $fullYear[($i < 10 ? "0" : "") . $i] = 0;
                 }
 
-                if (!isset($fullGraph[$year]["month"])) {
+                if (!isset($fullGraph[$year]["month"]))
+                {
                     $fullGraph[$year]["month"] = $fullYear;
                 }
-                if (isset($fullGraph[$year]["month"][$month])) {
+
+                if (isset($fullGraph[$year]["month"][$month]))
+                {
                     $fullGraph[$year]["month"][$month] = $fullGraph[$year]["month"][$month] + $row["ipCount"];
                 }
             }
+
             $data = $fullGraph;
+
+            $this->cache->save("dashboard_monthly", $data, 60 * 60 * 24);
+        }
+
+        return $data;
+    }
+    
+    private function graphDaily()
+    {
+        if ($this->config->item('disable_visitor_graph'))
+        {
+            return false;
+        }
+    
+        $cache = $this->cache->get("dashboard_daily");
+    
+        if ($cache !== false)
+        {
+            $data = $cache;
+        } else {
+            $rows = $this->dashboard_model->getGraph(true);
+    
+            $fullMonth = array();
+    
+            foreach ($rows as $row)
+            {
+                $expld = explode("-", $row["date"]);
+    
+                $year = $expld[0];
+                $month = $expld[1];
+                $day = $expld[2];
+    
+                $date = new DateTime();
+                $fullDays = array();
+                for ($i = 1; $i <= 31; $i++)
+                {
+                    if ($date->format("Y") == $year && $date->format("m") == $month && $i > $date->format("d"))
+                    {
+                        continue;
+                    }
+    
+                    $fullDays[($i < 10 ? "0" : "") . $i] = 0;
+                }
+    
+                if (!isset($fullMonth[$year]["day"]))
+                {
+                    $fullMonth[$year]["day"] = $fullDays;
+                }
+    
+                if (isset($fullMonth[$year]["day"][$day]))
+                {
+                    $fullMonth[$year]["day"][$day] += $row["ipCount"];
+                }
+            }
+    
+            $currentYear = date('Y');
+            $currentMonth = date('m');
+    
+            $data = $fullMonth[$currentYear]["day"];
+
+            if (!isset($data))
+            {
+                $data = array();
+            }
+
+            $this->cache->save("dashboard_daily", $data, 60 * 60 * 24);
         }
 
         return $data;
     }
 
-    private function getHighestValue($array)
-    {
-        if ($array) {
-            $highest = 0;
-
-            foreach ($array as $value) {
-                if ($value['ipCount'] > $highest) {
-                    $highest = $value['ipCount'];
-                }
-            }
-
-            return $highest;
-        } else {
-            return false;
-        }
-    }
-
-    private function arrayFormat($array)
-    {
-        if ($array) {
-            $output = "";
-            $first = true;
-
-            foreach ($array as $month) {
-                if ($first) {
-                    $first = false;
-                    $output .= $month['ipCount'];
-                } else {
-                    $output .= "," . $month['ipCount'];
-                }
-            }
-
-            return $output;
-        } else {
-            return false;
-        }
-    }
-
-    private function getLastDate($array)
-    {
-        if ($array) {
-            $value = preg_replace("/-/", " / ", $array[count($array) - 1]['date']);
-
-            return preg_replace("/ \/ [0-9]*$/", "", $value);
-        } else {
-            return false;
-        }
-    }
-
-    private function getFirstDate($array)
-    {
-        if ($array) {
-            $value = preg_replace("/-/", " / ", $array[0]['date']);
-
-            return preg_replace("/ \/ [0-9]*$/", "", $value);
-        } else {
-            return false;
-        }
-    }
-
     public function checkSoap()
     {
+        if (!extension_loaded('soap'))
+        {
+            show_error('SOAP not installed');
+        }
+
         $realms = $this->realms->getRealms();
 
-        foreach ($realms as $realm) {
-            if ($realm->isOnline(true)) {
-                $checks = $this->realms->getRealm($realm->getId())->getEmulator()->sendCommand('.server info');
+        foreach ($realms as $realm)
+        {
+            if ($realm->isOnline(true))
+            {
+                $this->realms->getRealm($realm->getId())->getEmulator()->sendCommand('.server info');
             }
         }
     }
@@ -238,7 +265,8 @@ class Admin extends MX_Controller
 
     public function notifications($count = false)
     {
-        if ($count) {
+        if ($count)
+        {
             $notifications = $this->cms_model->getNotifications($this->user->getId(), true);
 
             echo $notifications;
@@ -259,7 +287,8 @@ class Admin extends MX_Controller
 
     public function markReadNotification($id, $all = false)
     {
-        if ($all) {
+        if ($all)
+        {
             $uid = $this->user->getId();
             $this->cms_model->setReadNotification($id, $uid, true);
             die('yes');

@@ -42,17 +42,3 @@ var AutoUpdater = {
 		});
 	}
 }
-
-var checkSoap = {
-	check: function() {
-		$.get(Config.URL + "admin/checkSoap", function(data) {		
-			try {
-				if(data.includes("Something")) {
-					$(".soapcheck").html('<div class="alert alert-danger alert-dismissible fade show text-center" role="alert"><a href="'+ Config.URL +'admin/checkSoap" class="alert-link"><strong>Oh no!</strong> Looks like a realm has a soap problem!</a></div>');
-				}
-			} catch(e) {
-				console.log(e);
-			}
-		});
-	}
-}

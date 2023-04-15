@@ -71,8 +71,6 @@
 						</div>
 						<div id="show_more_count">
 							<div class="timeline-item" >
-								<!--<h3 class="timeline-header border-0">
-								<a class="btn btn-primary btn-sx" id="button_log_count" onClick="Accounts.loadMore({$external_details.id},true); return false;">Load more ({$show_more})</a>-->
 								<input type="hidden" id="js_load_more" value="{$show_more}">
 							</h3>
 							</div>

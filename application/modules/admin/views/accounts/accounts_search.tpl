@@ -49,7 +49,6 @@ $(document).ready(function() {
         ]
     });
 
-    // Suche durchführen, wenn Suchbegriff geändert wird
     $('input[type="search"]').on('keyup', function() {
         table.search(this.value).draw();
     });
