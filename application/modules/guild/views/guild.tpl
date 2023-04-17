@@ -16,7 +16,7 @@
 						{/if}
 					</div>
 					<div class="mt-4">
-						<span class="fw-bold">{count($members)}</span> {lang("members", "guild")}, {$realmName}
+						<span class="fw-bold">{if $members}{count($members)}{/if}</span> {lang("members", "guild")}, {$realmName}
 					</div>
 				</div>
 			</div>
@@ -38,12 +38,14 @@
 					</thead>
 					<tbody>
 					<tr>
-						<td><a href="{$url}character/{$realmId}/{$leader.guid}">{$leader.name}</a> <i class="fa-solid fa-crown"></i></td>
-						<td><img src="{$url}application/images/stats/{$leader.raceId}-{$leader.gender}.gif" width="20px"></td>
-						<td><img src="{$url}application/images/stats/{$leader.classId}.gif" width="20px"></td>
-						<td><img src="{$url}application/images/factions/{$leader.faction}.png" width="20px"></td>
-						<td>{$leader.level}</td>
-						<td>{lang("leader", "guild")}</td>
+                        {if $leader}
+                            <td><a href="{$url}character/{$realmId}/{$leader.guid}">{$leader.name}</a> <i class="fa-solid fa-crown"></i></td>
+                            <td><img src="{$url}application/images/stats/{$leader.raceId}-{$leader.gender}.gif" width="20px"></td>
+                            <td><img src="{$url}application/images/stats/{$leader.classId}.gif" width="20px"></td>
+                            <td><img src="{$url}application/images/factions/{$leader.faction}.png" width="20px"></td>
+                            <td>{$leader.level}</td>
+                            <td>{lang("leader", "guild")}</td>
+						{/if}
 						{if $members}
 							{foreach from=$members item=character}
 								{if $character.guid != $guild.leaderguid}

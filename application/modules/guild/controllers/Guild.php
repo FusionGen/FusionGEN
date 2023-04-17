@@ -65,20 +65,27 @@ class Guild extends MX_Controller
     public function loadGuild($realm, $id)
     {
         $this->guild = $this->guild_model->getGuild($realm, $id);
-        if (!empty($this->guild['leaderguid'])) {
+        if (!empty($this->guild['leaderguid']) && $this->realms->getRealm($realm)->getCharacters()->characterExists($this->guild['leaderguid']))
+        {
             $this->guildLeader = $this->guild_model->loadMember($realm, $this->guild['leaderguid']);
         }
+
         $this->members = $this->guild_model->getGuildMembers($realm, $id);
-        //var_dump($this->members);
 
-        if ($this->guild) {
-            $this->guildLeader['classId'] = $this->guildLeader['class'];
-            $this->guildLeader['raceId'] = $this->guildLeader['race'];
-            $this->guildLeader['gender'] = $this->guildLeader['gender'];
-            $this->guildLeader['faction'] = $this->realms->getRealm($realm)->getCharacters()->getFaction($this->guild['leaderguid']);
+        if ($this->guild)
+        {
+            if ($this->realms->getRealm($realm)->getCharacters()->characterExists($this->guild['leaderguid']))
+            {
+                $this->guildLeader['classId'] = $this->guildLeader['class'];
+                $this->guildLeader['raceId'] = $this->guildLeader['race'];
+                $this->guildLeader['gender'] = $this->guildLeader['gender'];
+                $this->guildLeader['faction'] = $this->realms->getRealm($realm)->getCharacters()->getFaction($this->guild['leaderguid']);
+            }
 
-            if ($this->members) {
-                foreach ($this->members as $key => $value) {
+            if ($this->members)
+            {
+                foreach ($this->members as $key => $value)
+                {
                     $this->members[$key]['classId'] = $this->members[$key]['class'];
                     $this->members[$key]['raceId'] = $this->members[$key]['race'];
                     $this->members[$key]['gender'] = $this->members[$key]['gender'];
