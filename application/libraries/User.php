@@ -372,9 +372,21 @@ class User
         return $this->CI->internal_user_model->getNickname($id);
     }
 
+    /**
+     * Get the user's avatar
+     * @param Int $id
+     */
     public function getAvatar($id = false)
     {
-        return base_url() . "uploads/avatar/" . $this->CI->internal_user_model->getAvatar($id);
+        return base_url().APPPATH . "images/avatar/". $this->CI->internal_user_model->getAvatar($id);
+    }
+
+    /**
+     * Get the user's avatar id
+     */
+    public function getAvatarId($id = false)
+    {
+        return $this->CI->internal_user_model->getAvatarId($id);
     }
 
     /**
@@ -650,4 +662,14 @@ class User
         $this->role = $newRoleId;
         $this->CI->internal_user_model->setRoleId($this->id, $newRoleId);
     }
+
+    /**
+	 * Set the avatar id of the user
+	 * @param $newAvatarId
+	 */
+	public function setAvatar($newAvatarId)
+	{
+		$this->avatarId = $newAvatarId;
+		$this->CI->internal_user_model->setAvatar($this->id, $newAvatarId);
+	}
 }

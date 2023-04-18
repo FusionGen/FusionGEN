@@ -29,9 +29,6 @@ $lang['change_email'] = "Cambiar Correo Electrónico";
 $lang['password'] = "Contraseña";
 $lang['change_password'] = "Cambiar Contraseña";
 
-$lang['change_expansion'] = "Cambiar Expansión";
-
-$lang['expansion'] = "Expansión";
 $lang['account_rank'] = "Rango de la Cuenta";
 $lang['voting_points'] = "Puntos de Voto";
 $lang['donation_points'] = "Puntos de Donación";
@@ -44,13 +41,8 @@ $lang['edit'] = "Editar";
 
 // Avatar
 $lang['change_avatar'] = "Cambiar avatar";
-$lang['make_use'] = "Hacemos uso de";
-$lang['provides_way'] = "que proporciona una manera fácil de mantener tus avatares en la web.";
-$lang['to_change'] = "Para cambiar tu avatar necesitas";
-$lang['sign_up_for'] = "registrarte en";
-$lang['or'] = "o";
-$lang['log_into'] = "iniciar sesión en";
-$lang['using_email'] = "usando el siguiente correo electrónico:";
+$lang['avatar_invalid'] = "El avatar seleccionado no es válido.";
+$lang['avatar_invalid_rank'] = "El avatar seleccionado requiere un mayor rango de usuario.";
 
 // Settings
 $lang['settings'] = "Configuración de Cuenta";
@@ -68,27 +60,4 @@ $lang['invalid_pw'] = "¡Contraseña incorrecta!";
 $lang['nickname_taken'] = "El apodo ya está en uso";
 $lang['invalid_language'] = "Idioma inválido";
 
-// Change expansion
-$lang['change_expansion'] = "Cambiar expansión";
-$lang['expansion_changed'] = "Tu expansión ha sido cambiada.";
-$lang['back_to_ucp'] = "¡Haz clic aquí para volver al Panel de Control de Usuario!";
-$lang['invalid_expansion'] = "¡La expansión que seleccionaste no existe!";
-$lang['expansion'] = "Expansión";
-$lang['none'] = "Ninguna";
-
 $lang['change_information'] = "Cambiar información";
-
-/**
- * Only translate these if World of Warcraft does it themselves,
- * otherwise you'll confuse people who expect to see them in English
- */
-$lang['vanilla'] = "Vanilla/Classic";
-$lang['tbc'] = "The Burning Crusade";
-$lang['wotlk'] = "Wrath of The Lich King";
-$lang['cata'] = "Cataclysm";
-$lang['mop'] = "Mists of Pandaria";
-$lang['wod'] = "Warlods of Draenor";
-$lang['legion'] = "Legion";
-$lang['legion-ar'] = "Legion Allied Races";
-$lang['bfa'] = "Battle for Azeroth";
-$lang['sl'] = "Shadowlands";

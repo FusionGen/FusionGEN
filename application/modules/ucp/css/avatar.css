@@ -1,78 +1,41 @@
-.file-upload {
-  width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+.avatars {
+    padding: 3rem;
 }
 
-.file-upload-btn {
-  width: 100%;
-  margin: 0;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  transition: all .2s ease;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: 700;
+.my_avatar {
+    display: block;
+    box-shadow: inset 0 0 0 1px #605b55, inset 0 0 3px 1px rgba(0, 0, 0, 0.8), 0 0 6px 1px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 0 0 1px #605b55, inset 0 0 3px 1px rgba(0, 0, 0, 0.8), 0 0 6px 1px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: inset 0 0 0 1px #605b55, inset 0 0 3px 1px rgba(0, 0, 0, 0.8), 0 0 6px 1px rgba(0, 0, 0, 0.6);
+    border-radius: 1px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    background-size: 100% 100%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-.file-upload-btn:active {
-  border: 0;
-  transition: all .2s ease;
+.my_avatar::before {
+    width: 100%;
+    height: 0;
+    content: '';
+    display: table;
+    padding: 100% 0 0 0;
 }
 
-.file-upload-content {
-  display: none;
-  text-align: center;
+.avatars_name {
+	font-size: 1.125rem;
+	font-weight: 600;
+	font-family: var(--font-family-primary);
 }
 
-.file-upload-input {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  opacity: 0;
-  cursor: pointer;
+.avatar_current {
+    border: 2px solid #67cbff;
 }
 
-.image-upload-wrap {
-  margin-top: 20px;
-  border: 4px dashed #1f252e;
-  position: relative;
-}
-
-.image-dropping,
-.image-upload-wrap:hover {
-  border: 4px dashed #262c34;
-}
-
-.image-title-wrap {
-  padding: 0 15px 15px 15px;
-  color: #222;
-}
-
-.drag-text {
-  text-align: center;
-}
-
-.drag-text h3 {
-  font-weight: 100;
-  text-transform: uppercase;
-  padding: 60px 0;
-}
-
-.file-upload-image {
-  max-height: 200px;
-  max-width: 200px;
-  margin: auto;
-  padding: 20px;
-}
-
-.img-thumbnail {
-    padding: 0.25rem;
-    border: 1px solid #1b1d29;
-    max-width: 100%;
-    height: 153px;
+@media screen and (max-width: 576px) {
+    .col-xs-6 {
+        width: 50%;
+    }
 }

@@ -41,6 +41,8 @@ $lang['edit'] = "Edit";
 
 // Avatar
 $lang['change_avatar'] = "Change avatar";
+$lang['avatar_invalid'] = "The selected avatar is invalid.";
+$lang['avatar_invalid_rank'] = "The selected avatar requires greater user rank.";
 
 // Settings
 $lang['settings'] = "Account settings";

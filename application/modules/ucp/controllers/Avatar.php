@@ -15,62 +15,38 @@ class Avatar extends MX_Controller
     public function index()
     {
         // Prepare data
-        $content = array(
-            'avatar' => $this->user->getAvatar(),
-            'debug' => $this->config->item('avatar_upload_debug')
-        );
-
-        $title = breadcumb(array(
-                            "ucp" => lang("ucp"),
-                            "ucp/avatar" => lang("change_avatar", "ucp")
-                        ));
-
         $data = array(
-            "module" => "default",
-            "headline" => $title,
-            "content"  => $this->template->loadPage("avatar.tpl", $content)
+            'isStaff'	=> $this->user->isStaff(),
+            'avatar' 	=> $this->user->getAvatar($this->user->getId()),
+            'avatarId'	=> $this->user->getAvatarId($this->user->getId()),
+            'avatars'	=> $this->settings_model->get_all_avatars()
         );
 
-        $page = $this->template->loadPage("page.tpl", $data);
+        // Load the avatar page
+		$content = $this->template->loadPage("avatar.tpl", $data);
 
-        //Load the template form
-        $this->template->view($page, "modules/ucp/css/avatar.css", "modules/ucp/js/avatar.js");
+		$title = lang("change_avatar", "ucp");
+
+		// Put it in a content box
+		$this->template->box($title, $content, true, "modules/ucp/css/avatar.css", "modules/ucp/js/avatar.js");
     }
 
-    public function upload()
+    public function change()
     {
-        $config['upload_path']          = './uploads/avatar/';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg';
-        $config['max_size']             = 2048;
-        $config['encrypt_name']         = true;
+		$avatar_id = $this->input->post('avatar_id');
 
-        $this->load->library('upload', $config);
-
-        if (!$this->upload->do_upload('file')) {
-            $error = array('error' => $this->upload->display_errors());
-
-            die(json_encode([
-                'status' => 'error',
-                'message' => $error
-            ]));
-        } else {
-            $data = $this->upload->data();
-
-            $avatar = $this->internal_user_model->getAvatar($this->user->getId());
-
-            if ($avatar != 'default.gif') {
-                unlink('./uploads/avatar/' . $avatar);
-            }
-
-            $this->settings_model->setAvatar($this->user->getId(), $data['file_name']);
-
-            die();
-        }
-    }
-
-    public function remove()
-    {
-        $this->settings_model->removeAvatar($this->user->getId());
-        die('1');
-    }
+		$avatar = $this->settings_model->get_avatar_id($avatar_id);
+		if(!$avatar)
+        {
+			die(json_encode(array("error" => lang("avatar_invalid", "ucp"))));
+		}
+		
+		if($avatar['staff'] && !$this->user->isStaff())
+        {
+			die(json_encode(array("error" => lang("avatar_invalid_rank", "ucp"))));
+		}
+		
+		$this->user->setAvatar($avatar['id']);
+		die(json_encode(array("success" => true)));
+	}
 }

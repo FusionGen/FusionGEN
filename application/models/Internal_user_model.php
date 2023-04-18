@@ -32,7 +32,7 @@ class Internal_user_model extends CI_Model
             $this->location = "";
             $this->nickname = "";
             $this->language = $this->config->item('language');
-            $this->avatar = 'default.gif';
+            $this->avatarId = 1;
         }
     }
 
@@ -60,7 +60,7 @@ class Internal_user_model extends CI_Model
             $this->location = $result[0]['location'];
             $this->nickname = $result[0]['nickname'];
             $this->language = $result[0]['language'];
-            $this->avatar = $result[0]['avatar'];
+            $this->avatarId = $result[0]['avatar'];
         } else {
             $this->makeNew();
         }
@@ -78,7 +78,7 @@ class Internal_user_model extends CI_Model
             'location' => "Unknown",
             'nickname' => $this->external_account_model->getUsername(),
             'language' => $this->config->item('language'),
-            'avatar' => 'default.gif'
+            'avatar' => 1
         );
 
         $this->connection->insert("account_data", $array);
@@ -87,6 +87,7 @@ class Internal_user_model extends CI_Model
         $this->dp = 0;
         $this->location = "Unknown";
         $this->nickname = $this->external_account_model->getUsername();
+        $this->avatarId = 1;
     }
 
     public function nicknameExists($nickname)
@@ -213,20 +214,38 @@ class Internal_user_model extends CI_Model
         return $this->language;
     }
 
-    public function getAvatar($id)
+    public function getAvatar($id = false)
     {
-        if (!$id) {
-            return $this->avatar;
-        } else {
-            $query = $this->connection->query("SELECT avatar FROM account_data WHERE id = ?", array($id));
+        $avatarId = !$id ? $this->avatarId : $this->getAvatarId($id);
 
-            if ($query->num_rows() > 0) {
-                $result = $query->result_array();
+        $query = $this->connection->query("SELECT avatar FROM avatars WHERE id = ?", array($avatarId));
 
-                return $result[0]['avatar'];
-            }
+        if($query->num_rows() > 0)
+        {
+            $result = $query->result_array();
+
+            return $result[0]['avatar'];
         }
+
+        return false;
     }
+
+	public function getAvatarId($id = false)
+    {
+		if(!$id)
+        {
+			return $this->avatarId;
+		} else {
+			$query = $this->connection->query("SELECT avatar FROM account_data WHERE id = ?", array($id));
+
+			if($query->num_rows() > 0)
+            {
+				$result = $query->result_array();
+
+				return $result[0]['avatar'];
+			}
+		}
+	}
 
     /*
     | -------------------------------------------------------------------
@@ -251,5 +270,10 @@ class Internal_user_model extends CI_Model
     public function setLocation($userId, $location)
     {
         $this->connection->query("UPDATE account_data SET location = ? WHERE id = ?", array($location, $userId));
+    }
+
+    public function setAvatar($userId, $avatarId)
+    {
+        $this->connection->query("UPDATE account_data SET avatar = ? WHERE id = ?", array($avatarId, $userId));
     }
 }
