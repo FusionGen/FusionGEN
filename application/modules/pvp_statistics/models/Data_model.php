@@ -46,6 +46,23 @@ class Data_model extends CI_Model
             'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
         );
 
+        $this->statements['azerothcore_sph'] = array(
+            'TopArenaTeams' => "SELECT `arenaTeamId` AS arenateamid, `rating`, `rank`, `name`, `captainGuid` AS captain, `type` FROM `arena_team` WHERE `type` = ? ORDER BY rating DESC LIMIT ?;",
+            'TeamMembers' => "SELECT 
+                                    `arena_team_member`.`arenaTeamId` AS arenateamid, 
+                                    `arena_team_member`.`guid` AS guid, 
+                                    `arena_team_member`.`personalRating` AS rating,
+                                    `arena_team_member`.`seasonGames` AS games,
+                                    `arena_team_member`.`seasonWins` AS wins,
+                                    `characters`.`name` AS name,
+                                    `characters`.`class` AS class,
+                                    `characters`.`level` AS level
+                                FROM `arena_team_member` 
+                                RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
+                                WHERE `arena_team_member`.`arenateamid` = ? ORDER BY guid ASC;",
+            'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
+        );
+
         $this->statements['mop'] = array(
             'TopArenaTeams' => "SELECT `arenaTeamId` AS arenateamid, `rating`, `rank`, `name`, `captainGuid` AS captain, `type` FROM `arena_team` WHERE `type` = ? ORDER BY rating DESC LIMIT ?;",
             'TeamMembers' => "SELECT 
