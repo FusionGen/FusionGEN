@@ -8,7 +8,7 @@
             {foreach from=$avatars key=key item=data}
                 {if $data.staff == 0}
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-2">
-                        <a href="#" data-avatar-id="{$data.id}" class="my_avatar {if $avatarId == $data.id}avatar_current{/if}" onclick="Avatar.change(this)" style="background-image: url('{$url}application/images/avatar/{$data.avatar}');"></a>
+                        <a href="javascript:void(0);" data-avatar-id="{$data.id}" class="my_avatar {if $avatarId == $data.id}avatar_current{/if}" onclick="Avatar.change(this)" style="background-image: url('{$url}application/images/avatar/{$data.avatar}');"></a>
                     </div>
                 {/if}
             {/foreach}
@@ -22,7 +22,7 @@
                 {foreach from=$avatars key=key item=data}
                     {if $data.staff == 1}
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-2">
-                            <a href="#" data-avatar-id="{$data.id}" class="my_avatar {if $avatarId == $data.id}avatar_current{/if}" onclick="Avatar.change(this)" style="background-image: url('{$url}application/images/avatar/{$data.avatar}');"></a>
+                            <a href="javascript:void(0);" data-avatar-id="{$data.id}" class="my_avatar {if $avatarId == $data.id}avatar_current{/if}" onclick="Avatar.change(this)" style="background-image: url('{$url}application/images/avatar/{$data.avatar}');"></a>
                         </div>
                     {/if}
                 {/foreach}
