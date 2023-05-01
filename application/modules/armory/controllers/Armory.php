@@ -23,169 +23,128 @@ class Armory extends MX_Controller
 
     public function index()
     {
-        // Pass "cant_be_empty" string to the client side language system
-        clientLang("cant_be_empty", "armory");
+        clientLang("search_too_short", "armory");
 
         $this->template->setTitle(lang("search_title", "armory"));
 
-        $page = $this->template->loadPage("search.tpl");
+        $realms = $this->realms->getRealms();
 
         $data = array(
-                "module" => "default",
-                "headline" => lang("search_headline", "armory"),
-                "content" => $page
-            );
+            "realms" => $realms,
+        );
 
-        $page = $this->template->loadPage("page.tpl", $data);
-
-        $this->template->view($page, "modules/armory/css/search.css", "modules/armory/js/search.js");
+        $this->template->view($this->template->loadPage("page.tpl", array(
+            "module" => "default", 
+            "headline" => lang("search_headline", "armory"),
+            "content" => $this->template->loadPage("search.tpl", $data)
+        )), "modules/armory/css/search.css", "modules/armory/js/search.js");
     }
-
-    public function search()
+    
+    public function get_data()
     {
+        $realm = $this->input->post('realm');
+        $table = $this->input->post('table');
+        $start = $this->input->post('start');
+        $length = $this->input->post('length');
         $string = $this->input->post("search");
 
-        if (!$string || strlen($string) <= 2) {
-            die(lang("search_too_short", "armory"));
-        } else {
-            $string = preg_replace('/%/', '\%', $string);
-
-            $search_id = sha1($string);
-
-            $cache = $this->cache->get("search/" . $search_id . "_" . getLang());
-
-            if ($cache === false) {
-                // Is there item cache available?
-                $items = $this->cache->get("search/items_" . $search_id);
-
-                $characters = array();
-                $guilds = array();
-
-                if ($items === false) {
-                    $items = array();
-                    $cache_items = true;
-                } else {
-                    $cache_items = false;
-                }
-
-                $realms = $this->realms->getRealms();
-
-                //Get characters, guilds, items for each realm
-                foreach ($realms as $realm) {
-                    // Assign the realm ID
-                    $i = $realm->getId();
-
-
-                    $found_characters = $this->armory_model->findCharacter($string, $i);
-
-                    if ($found_characters) {
-                        foreach ($found_characters as $found_character) {
-                            array_push(
-                                $characters,
-                                array(
-                                                    'guid' => $found_character['guid'],
-                                                    'name' => $found_character['name'],
-                                                    'race' => $found_character['race'],
-                                                    'gender' => $found_character['gender'],
-                                                    'class' => $found_character['class'],
-                                                    'level' => $found_character['level'],
-                                                    'className' => $this->realms->getClass($found_character['class']),
-                                                    'raceName' => $this->realms->getRace($found_character['race']),
-                                                    'avatar' => $this->realms->formatAvatarPath($found_character),
-                                                    'realm' => $i,
-                                                    'realmName' => $realm->getName()
-                                                )
-                            );
-                        }
-                    }
-
-                    if ($cache_items) {
-                        //Search for a item
-                        $found_items = $this->armory_model->findItem($string, $i);
-
-                        if ($found_items) {
-                            foreach ($found_items as $found_item) {
-                                array_push(
-                                    $items,
-                                    array(
-                                                        'id' => $found_item['entry'],
-                                                        'name' => $found_item['name'],
-                                                        'level' => $found_item['ItemLevel'],
-                                                        'required' => $found_item['RequiredLevel'],
-                                                        'type' => $this->getItemType($found_item['InventoryType'], $found_item['class'], $found_item['subclass']),
-                                                        'quality' => $found_item['Quality'],
-                                                        'realm' => $i,
-                                                        'realmName' => $realm->getName(),
-                                                        'icon' => $this->getIcon($found_item['entry'], $i)
-                                                    )
-                                );
-                            }
-                        }
-                    }
-
-                    //Search for a guild
-                    $found_guilds = $this->armory_model->findGuild($string, $i);
-
-                    if ($found_guilds) {
-                        foreach ($found_guilds as $found_guild) {
-                            array_push(
-                                $guilds,
-                                array(
-                                                    'id' => $found_guild['guildid'],
-                                                    'name' => $found_guild['name'],
-                                                    'members' => $found_guild['GuildMemberCount'],
-                                                    'realm' => $i,
-                                                    'realmName' => $realm->getName(),
-                                                    'ownerGuid' => $found_guild['leaderguid'],
-                                                    'ownerName' => $found_guild['leaderName']
-                                                )
-                            );
-                        }
-                    }
-                }
-
-                $show = array(
-                            'characters' => 'none',
-                            'guilds' => 'none',
-                            'items' => 'none'
-                        );
-
-                if (count($characters) > count($guilds) && count($characters) > count($items)) {
-                    $show['characters'] = "block";
-                } elseif (count($guilds) > count($characters) && count($guilds) > count($items)) {
-                    $show['guilds'] = "block";
-                } elseif (count($items) > count($guilds) && count($items) > count($characters)) {
-                    $show['items'] = "block";
-                } else {
-                    // Default to characters
-                    $show['characters'] = "block";
-                }
-
-
-                $data = array(
-                    'url' => $this->template->page_url,
-                    'characters' => $characters,
-                    'guilds' => $guilds,
-                    'items' => $items,
-                    'show' => $show,
-                    'realms' => $realms
-                );
-
-                if ($cache_items) {
-                    // Cache items for a week
-                    $this->cache->save("search/items_" . $search_id, $items, 60 * 60 * 24 * 7);
-                }
-
-                $page = $this->template->loadPage("result.tpl", $data);
-
-                // Cache full output
-                $this->cache->save("search/" . $search_id . "_" . getLang(), $page, 60 * 60 * 24);
-            } else {
-                $page = $cache;
-            }
-
-            die($page);
+        if(!$string || strlen($string) <= 2 || !$realm || !is_numeric($realm)|| !is_numeric($start)|| !is_numeric($length) || !ctype_alnum($string))
+        {
+			die();
         }
+
+        $result = [];
+
+        switch ($table)
+        {
+            case 'items':
+                $data = $this->armory_model->get_items($string, $length, $start, $realm);
+
+                if ($data)
+                {
+                    foreach ($data as $row)
+                    {
+                        $result[] = [
+                            'id' => $row['entry'],
+                            'name' => $row['name'],
+                            'level' => $row['ItemLevel'],
+                            'required' => $row['RequiredLevel'],
+                            'type' => $this->getItemType($row['InventoryType'], $row['class'], $row['subclass']),
+                            'quality' => $row['Quality'],
+                            'realm' => $realm,
+                            'icon' => $this->getIcon($row['entry'], $realm)
+                        ];
+                    }
+                }
+
+                $total = $this->armory_model->get_items_count($string, $realm);
+                $output = [
+                    'draw' => $this->input->post('draw'),
+                    'recordsTotal' => $total,
+                    'recordsFiltered' => $total,
+                    'data' => $result
+                ];
+
+                die(json_encode($output));
+            case 'guilds':
+                $data = $this->armory_model->get_guilds($string, $length, $start, $realm);
+
+                if ($data)
+                {
+                    foreach ($data as $row)
+                    {
+                        $result[] = [
+                            'id' => $row['guildid'],
+                            'name' => $row['name'],
+                            'members' => $row['GuildMemberCount'],
+                            'realm' => $realm,
+                            'ownerGuid' => $row['leaderguid'],
+                            'ownerName' => $row['leaderName']
+                        ];
+                    }
+                }
+
+                $total = $this->armory_model->get_guilds_count($string, $realm);
+                $output = [
+                    'draw' => $this->input->post('draw'),
+                    'recordsTotal' => $total,
+                    'recordsFiltered' => $total,
+                    'data' => $result
+                ];
+
+                die(json_encode($output));
+            case 'characters':
+                $data = $this->armory_model->get_characters($string, $length, $start, $realm);
+
+                if ($data)
+                {
+                    foreach ($data as $row)
+                    {
+                        $result[] = [
+                            'guid' => $row['guid'],
+                            'name' => $row['name'],
+                            'race' => $this->realms->getRealm($realm)->getCharacters()->getFaction($row['guid']),
+                            'gender' => $row['gender'],
+                            'class' => $row['class'],
+                            'level' => $row['level'],
+                            'avatar' => $this->realms->formatAvatarPath($row),
+                            'realm' => $realm
+                        ];
+                    }
+                }
+
+                $total = $this->armory_model->get_characters_count($string, $realm);
+                $output = [
+                    'draw' => $this->input->post('draw'),
+                    'recordsTotal' => $total,
+                    'recordsFiltered' => $total,
+                    'data' => $result
+                ];
+
+                die(json_encode($output));
+        }
+
+        die(json_encode($result));
     }
 
     private function getIcon($id, $realm)

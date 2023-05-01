@@ -1,25 +1,58 @@
-<script type="text/javascript">
-	if(typeof Search != "undefined")
-	{
-		Search.current = null;
-	}
-</script>
+<div class="page-subbody mt-0">
+    <form onSubmit="Search.show_data();return false;">
+        <div class="input-group">
+            <input class="col-xs-12 col-sm-12 col-md-12 col-lg-3 form-control mx-1" type="text" id="search_field" name="search_field" placeholder="{lang("search_placeholder", "armory")}">
+        
+            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1" id="realm" name="realm" onchange="Search.toggle();return false;">
+                <option value="0" disabled>{lang("realm", "armory")}</option>
+                {for $i = 0; $i<count((array)$realms); $i++}
+                    <option {if $i == 0}selected{/if} value="{$realms[$i]->getId()}">{$realms[$i]->getName()}</option>				
+                {/for}
+            </select>
+        
+            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1" id="table" name="table" onchange="Search.toggle();return false;">
+                <option value="items">{lang("items", "armory")}</option>
+                <option value="guilds">{lang("guilds", "armory")}</option>
+                <option value="characters">{lang("characters", "armory")}</option>
+            </select>
+        
+            <button class="nice_button mx-1" type="submit">{lang("search_button", "armory")}</button>
+        </div>
+    </form>
+</div>
 
-<form onSubmit="Search.submit();return false;">
-	<div class="row py-3 justify-content-lg-end">
-		<div class="col-10 col-lg-11">
-			<input class="form-control" type="text" id="search_field" name="search_field" placeholder="{lang('search_placeholder', 'armory')}">
-		</div>
-		<div class="col-1 text-center">
-			<input type="submit" class="nice_button" value="{lang('search_button', 'armory')}">
-		</div>
-	</div>
-</form>
-
-<div id="amory_result"></div>
-
-<hr class="my-5" />
-
-<div id="search_box">
-	<div id="search_results"></div>
+<div class="page-subbody mt-4 p-4 mt-0 table-responsive" id="search_box">
+	<table class="nice_table" id="search_results_items">
+        <thead>
+            <tr>
+				<th>{lang("name", "armory")}</th>
+				<th class="text-center">{lang("level", "armory")}</th>
+				<th class="text-center">{lang("required", "armory")}</th>
+				<th>{lang("type", "armory")}</th>
+			</tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <table class="nice_table" id="search_results_characters">
+        <thead>
+            <tr>
+				<th style="width:10px"></th>
+				<th>{lang("name", "armory")}</th>
+				<th>{lang("faction", "armory")}</th>
+				<th>{lang("level", "armory")}</th>
+				<th></th>
+			</tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <table class="nice_table" id="search_results_guilds">
+        <thead>
+            <tr>
+				<th>{lang("name", "armory")}</th>
+				<th class="text-center">{lang("members", "armory")}</th>
+				<th class="text-center">{lang("owner", "armory")}</th>
+			</tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 </div>

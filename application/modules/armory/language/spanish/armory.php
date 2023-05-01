@@ -24,6 +24,7 @@ $lang['no_characters_found'] = "no se encontraron personajes";
 $lang['no_items_found'] = "no se encontraron objetos";
 $lang['no_guilds_found'] = "no se encontraron hermandades";
 $lang['name'] = "Nombre";
+$lang['faction'] = "Facción";
 $lang['members'] = "Miembros";
 $lang['owner'] = "Dueño";
 $lang['realm'] = "Reino";

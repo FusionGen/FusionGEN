@@ -24,6 +24,7 @@ $lang['no_characters_found'] = "No characters found";
 $lang['no_items_found'] = "No items found";
 $lang['no_guilds_found'] = "No guilds found";
 $lang['name'] = "Name";
+$lang['faction'] = "Faction";
 $lang['members'] = "Members";
 $lang['owner'] = "Owner";
 $lang['realm'] = "Realm";
