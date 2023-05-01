@@ -352,6 +352,10 @@
     border: none;
 }
 
+.page-item.disabled .page-link {
+    background-color: rgba(52,77,102,0.2);
+}
+
 .bg-primary {
     background-color: #223148 !important;
 }
