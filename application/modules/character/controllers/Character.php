@@ -26,7 +26,7 @@ class Character extends MX_Controller
     {
         parent::__construct();
 
-        requirePermission("view");
+        $this->user->userArea();
 
         // Set JS and CSS paths
         $this->js = "modules/character/js/character.js";
@@ -179,8 +179,8 @@ class Character extends MX_Controller
 
                 case "Hunter":
                     if (isset($this->stats['maxpower3'])) {
-                        $this->secondBar = "focus";
-                        $this->secondBarValue = $this->stats['maxpower3'];
+                        $this->secondBar = "mana";
+                        $this->secondBarValue = $this->stats['maxpower1'];
                     } else {
                         $this->secondBar = "mana";
                         $this->secondBarValue = "Unknown";
