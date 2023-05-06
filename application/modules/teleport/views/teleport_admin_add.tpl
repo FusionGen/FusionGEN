@@ -45,7 +45,19 @@
 		<div class="form-group row mb-3">
 		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="vpCost" id="vpCost" value="0"/>
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="0"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 		</div>
@@ -54,7 +66,19 @@
 		<div class="form-group row mb-3">
 		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 		</div>
@@ -63,7 +87,19 @@
 		<div class="form-group row mb-3">
 		<label class="col-sm-2 col-form-label" for="goldCost">Gold price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="goldCost" id="goldCost" value="0"/>
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" name="goldCost" id="goldCost" value="0"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 		</div>

@@ -31,7 +31,7 @@
 							<label class="col-sm-4 col-form-label" for="backups_interval">Interval</label>
 							<div class="col-sm-4">
 								<div data-plugin-spinner>
-									<div class="input-group form-control-small">
+									<div class="input-group">
 										<input class="spinner-input form-control" type="text" id="backups_interval" name="backups_interval" value="{$config.backups_interval}" {if !hasPermission("editBackupSettings", "admin")}disabled{/if}>
 										<div class="spinner-buttons input-group-btn btn-group-vertical">
 											<button type="button" class="btn spinner-up btn-xs btn-default" {if !hasPermission("editBackupSettings", "admin")}disabled{/if}>
@@ -57,7 +57,7 @@
 							<label class="col-sm-4 col-form-label" for="backups_max_keep">Max keep</label>
 							<div class="col-sm-8">
 								<div data-plugin-spinner>
-									<div class="input-group form-control-small">
+									<div class="input-group">
 										<input class="spinner-input form-control" type="text" id="backups_max_keep" name="backups_max_keep" value="{$config.backups_max_keep}" {if !hasPermission("editBackupSettings", "admin")}disabled{/if}>
 										<div class="spinner-buttons input-group-btn btn-group-vertical">
 											<button type="button" class="btn spinner-up btn-xs btn-default" {if !hasPermission("editBackupSettings", "admin")}disabled{/if}>

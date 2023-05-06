@@ -50,7 +50,7 @@
 		<label class="col-sm-2 col-form-label">Need character</label>
 		<div class="col-sm-10 align-self-center">
 		<div class="checkbox-custom checkbox-default">
-			<input type="checkbox" id="command_need_character" name="command_need_character" checked="yes" value="1"/>
+			<input type="checkbox" class="form-control" id="command_need_character" name="command_need_character" checked="yes" value="1"/>
 		<label for="command_need_character" class="inline_label">Make the user select a character</label>
 		</div>
 		</div>
@@ -60,7 +60,7 @@
 		<label class="col-sm-2 col-form-label">Require offline</label>
 		<div class="col-sm-10 align-self-center">
 		<div class="checkbox-custom checkbox-default">
-			<input type="checkbox" id="require_character_offline" name="require_character_offline" value="1"/>
+			<input type="checkbox" class="form-control" id="require_character_offline" name="require_character_offline" value="1"/>
 		<label for="require_character_offline" class="inline_label">Make sure the selected character is offline</label>
 		</div>
 		</div>
@@ -105,14 +105,38 @@
 		<div class="vp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="vpCost" id="vpCost" value="0"/>
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="0">
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
 		<div class="dp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
@@ -172,7 +196,7 @@
 		<label class="col-sm-2 col-form-label">Need character</label>
 		<div class="col-sm-10 align-self-center">
 		<div class="checkbox-custom checkbox-default">
-			<input type="checkbox" id="query_need_character" name="query_need_character" checked="yes" value="1"/>
+			<input type="checkbox" class="form-control" id="query_need_character" name="query_need_character" checked="yes" value="1"/>
 		<label for="query_need_character" class="inline_label">Make the user select a character</label>
 		</div>
 		</div>
@@ -182,7 +206,7 @@
 		<label class="col-sm-2 col-form-label">Require offline</label>
 		<div class="col-sm-10 align-self-center">
 		<div class="checkbox-custom checkbox-default">
-			<input type="checkbox" id="require_character_offline" name="require_character_offline" value="1"/>
+			<input type="checkbox" class="form-control" id="require_character_offline" name="require_character_offline" value="1"/>
 		<label for="require_character_offline" class="inline_label">Make sure the selected character is offline</label>
 		</div>
 		</div>
@@ -228,14 +252,38 @@
 		<div class="vp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="vpCost" id="vpCost" value="0">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="0">
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
 		<div class="dp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="dpCost" id="dpCost" value="0">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
@@ -297,14 +345,38 @@
 		<div class="vp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="vpCost" id="vpCost" value="0"/>
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="0">
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
 		<div class="dp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 

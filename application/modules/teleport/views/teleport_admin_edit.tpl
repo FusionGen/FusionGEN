@@ -42,27 +42,63 @@
 
 		<div id="vp_price" style="display:none;">
 		<div class="form-group row mb-3">
-			<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
-			<div class="col-sm-10">
-			<input class="form-control" type="text" name="vpCost" id="vpCost" value="{$teleport_location.vpCost}"/>
+		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
+		<div class="col-sm-10">
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="{$teleport_location.vpCost}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 		</div>
 
 		<div id="dp_price" style="display:none;">
 		<div class="form-group row mb-3">
-			<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
-			<div class="col-sm-10">
-			<input class="form-control" type="text" name="dpCost" id="dpCost" value="{$teleport_location.dpCost}"/>
+		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
+		<div class="col-sm-10">
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$teleport_location.dpCost}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 		</div>
 
 		<div id="gold_price" style="display:none;">
 		<div class="form-group row mb-3">
-			<label class="col-sm-2 col-form-label" for="goldCost">Gold price</label>
-			<div class="col-sm-10">
-			<input class="form-control" type="text" name="goldCost" id="goldCost" value="{$teleport_location.goldCost}"/>
+		<label class="col-sm-2 col-form-label" for="goldCost">Gold price</label>
+		<div class="col-sm-10">
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" name="goldCost" id="goldCost" value="{$teleport_location.goldCost}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 		</div>
@@ -98,11 +134,23 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="mapId">Map ID</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="mapId" id="mapId" value="{$teleport_location.mapId}"/>
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 99999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" name="mapId" id="mapId" value="{$teleport_location.mapId}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 		</div>
 		</div>
 
-		<div class="form-group row">
+		<div class="form-group row mb-3">
 		<label class="col-sm-2 col-form-label" for="required_faction">Required faction</label>
 		<div class="col-sm-10">
 		<select class="form-control" id="required_faction" name="required_faction">

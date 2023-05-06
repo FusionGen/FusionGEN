@@ -5,100 +5,148 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="realmName">Realm name</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="realmName" name="realmName" value="{$realm->getName()}" />
+		<input class="form-control" type="text" id="realmName" name="realmName" value="{$realm->getName()}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="realmName">Hostname / IP (to your emulator server)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="hostname" value="{$realm->getConfig('hostname')}" />
+		<input class="form-control" type="text" id="hostname" value="{$realm->getConfig('hostname')}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_hostname_char">Characters: database hostname</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="override_hostname_char" value="{$hostname_char}" />
+		<input class="form-control" type="text" id="override_hostname_char" value="{$hostname_char}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_username_char">Characters: database username</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="override_username_char" value="{$username_char}" />
+		<input class="form-control" type="text" id="override_username_char" value="{$username_char}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_password_char">Characters: database password</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="password" id="override_password_char" value="{$password_char}" />
+		<input class="form-control" type="password" id="override_password_char" value="{$password_char}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_port_char">Characters: database port</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="override_port_char" value="{$port_char}"  />
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" id="override_port_char" value="{$port_char}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
 		</div>
-        </div>
+		</div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_hostname_world">World: database hostname</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="override_hostname_world" value="{$hostname_world}" />
+		<input class="form-control" type="text" id="override_hostname_world" value="{$hostname_world}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_username_world">World: database username</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="override_username_world" value="{$username_world}" />
+		<input class="form-control" type="text" id="override_username_world" value="{$username_world}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_password_world">World: database password</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="password" id="override_password_world" value="{$password_world}" />
+		<input class="form-control" type="password" id="override_password_world" value="{$password_world}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="override_port_world">World: database port</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="override_port_world" value="{$port_world}"  />
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" id="override_port_world" value="{$port_world}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
 		</div>
-        </div>
+		</div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="characters">Characters database</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="characters" name="characters" value="{$realm->getConfig('characters_database')}" />
+		<input class="form-control" type="text" id="characters" name="characters" value="{$realm->getConfig('characters_database')}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="world">World database</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="world" name="world" value="{$realm->getConfig('world_database')}" />
+		<input class="form-control" type="text" id="world" name="world" value="{$realm->getConfig('world_database')}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="cap">Max allowed players online</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="cap" name="cap" value="{$realm->getCap()}" />
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 99999 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" id="cap" name="cap" value="{$realm->getCap()}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
 		</div>
-        </div>
+		</div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="port">Realm port (usually 8129)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="port" name="port" value="{$realm->getConfig('realm_port')}" />
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" id="port" name="port" value="{$realm->getConfig('realm_port')}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
 		</div>
-        </div>
+		</div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="emulator">Emulator</label>
@@ -109,28 +157,40 @@
 			{/foreach}
 		</select>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="console_port">Console port (only required for emulators that use remote console systems; usually 3443 for RA and 7878 for SOAP)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="console_port" name="console_port" value="{$realm->getConfig('console_port')}"/>
+		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
+			<div class="input-group">
+				<input class="spinner-input form-control" type="text" id="console_port" name="console_port" value="{$realm->getConfig('console_port')}"/>
+				<div class="spinner-buttons input-group-btn btn-group-vertical">
+					<button type="button" class="btn spinner-up btn-xs btn-default">
+						<i class="fas fa-angle-up"></i>
+					</button>
+					<button type="button" class="btn spinner-down btn-xs btn-default">
+						<i class="fas fa-angle-down"></i>
+					</button>
+				</div>
+			</div>
 		</div>
-        </div>
+		</div>
+		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="console_username" data-tip="For an ingame account with GM level high enough to connect to your<br />emulator console remotely (see your emulator's config files for more details)">Console username (only required for emulators that use remote console systems) (?)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="console_username" name="console_username" value="{$realm->getConfig('console_username')}" />
+		<input class="form-control" type="text" id="console_username" name="console_username" value="{$realm->getConfig('console_username')}"/>
 		</div>
-        </div>
+		</div>
 
 		<div class="form-group row mb-3">
 		<label class="col-sm-2 col-form-label" for="console_password" data-tip="For an ingame account with GM level high enough to connect to your<br />emulator console remotely (see your emulator's config files for more details)">Console password (only required for emulators that use remote console systems) (?)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="console_password" name="console_password" placeholder="Enter a new password if you want to change it" />
+		<input class="form-control" type="text" id="console_password" name="console_password" placeholder="Enter a new password if you want to change it"/>
 		</div>
-        </div>
+		</div>
 
 		<button class="btn btn-primary btn-sm" type="submit">Save realm</button>
 	</form>

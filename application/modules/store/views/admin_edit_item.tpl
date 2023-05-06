@@ -109,14 +109,38 @@
 		<div class="vp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" name="vpCost" id="vpCost" value="{$item.vp_price}">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="{$item.vp_price}">
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
 		<div class="dp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}"/>
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
@@ -233,14 +257,38 @@
 		<div class="vp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="vpCost" id="vpCost" value="{$item.vp_price}">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="{$item.vp_price}">
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
 		<div class="dp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}"/>
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
@@ -302,14 +350,38 @@
 		<div class="vp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="vpCost">VP price</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" name="vpCost" id="vpCost" value="{$item.vp_price}">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="{$item.vp_price}">
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
 		<div class="dp_price form-group row">
 		<label class="col-sm-2 col-form-label" for="dpCost">DP price</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" name="dpCost" id="dpCost" value="{$item.dp_price}">
+			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}"/>
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 

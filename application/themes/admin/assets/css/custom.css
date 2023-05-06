@@ -93,78 +93,18 @@
 }
 
 /* Item quality colors */
-.q {
-    color: #ffd100
-}
-
-/* Default (yellow) */
-.q0,
-.q0 a {
-    color: #9d9d9d
-}
-
-/* Poor */
-.q1,
-.q1 a {
-    color: #ffffff
-}
-
-/* Common */
-.q2,
-.q2 a,
-.q2:hover {
-    color: #1eff00
-}
-
-/* Uncommon */
-.q3,
-.q3 a {
-    color: #0070dd
-}
-
-
-/* Rare */
-.q4,
-.q4 a {
-    color: #a335ee
-}
-
-/* Epic */
-
-.q5,
-.q5 a {
-    color: #ff8000
-}
-
-/* Legendary */
-.q6,
-.q6 a {
-    color: #e5cc80
-}
-
-/* Artifact */
-.q7,
-.q7 a {
-    color: #e5cc80
-}
-
-/* Heirloom */
-.q8,
-.q8 a {
-    color: #ffff98
-}
-
-/* Light yellow (item set bonuses) */
-.q9,
-.q9 a {
-    color: #71D5FF
-}
-
-/* Light blue (glyph type) */
-.q10,
-.q10 a {
-    color: #ff4040
-}
+.q  { color: #ffd100 ! important; } /* Default (yellow) */
+.q0, .q0 a { color: #9d9d9d ! important; } /* Poor */
+.q1, .q1 a { color: #ffffff ! important; } /* Common */
+.q2, .q2 a, .q2:hover { color: #1eff00 ! important; } /* Uncommon */
+.q3, .q3 a { color: #0070dd ! important; } /* Rare */
+.q4, .q4 a { color: #a335ee ! important; } /* Epic */
+.q5, .q5 a { color: #ff8000 ! important; } /* Legendary */
+.q6, .q6 a { color: #e5cc80 ! important; } /* Artifact */
+.q7, .q7 a { color: #e5cc80 ! important; } /* Heirloom (new 00ccff)*/
+.q8, .q8 a { color: #ffff98 ! important; } /* Light yellow (item set bonuses) */
+.q9, .q9 a { color: #71D5FF ! important; } /* Light blue (glyph type) */
+.q10, .q10 a { color: #ff4040 ! important; } /* Red (requirement not met, error) */
 
 /* Labels */
 .label {
