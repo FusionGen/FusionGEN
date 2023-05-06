@@ -442,7 +442,7 @@ CREATE TABLE `articles`  (
 DROP TABLE IF EXISTS `avatars`;
 CREATE TABLE `avatars`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `avatar` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `avatar` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `staff` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT= 25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
@@ -450,30 +450,31 @@ CREATE TABLE `avatars`  (
 -- ----------------------------
 -- Records of avatars
 -- ----------------------------
-INSERT INTO `avatars` VALUES (1, 'rookie_avatar_1.jpg', 0);
-INSERT INTO `avatars` VALUES (2, 'rookie_avatar_2.jpg', 0);
-INSERT INTO `avatars` VALUES (3, 'rookie_avatar_3.jpg', 0);
-INSERT INTO `avatars` VALUES (4, 'rookie_avatar_4.jpg', 0);
-INSERT INTO `avatars` VALUES (5, 'rookie_avatar_5.jpg', 0);
-INSERT INTO `avatars` VALUES (6, 'rookie_avatar_6.jpg', 0);
-INSERT INTO `avatars` VALUES (7, 'rookie_avatar_7.jpg', 0);
-INSERT INTO `avatars` VALUES (8, 'rookie_avatar_8.jpg', 0);
-INSERT INTO `avatars` VALUES (9, 'rookie_avatar_9.jpg', 0);
-INSERT INTO `avatars` VALUES (10, 'rookie_avatar_10.jpg', 0);
-INSERT INTO `avatars` VALUES (11, 'staff_1.jpg', 1);
-INSERT INTO `avatars` VALUES (12, 'staff_2.jpg', 1);
-INSERT INTO `avatars` VALUES (13, 'staff_3.jpg', 1);
-INSERT INTO `avatars` VALUES (14, 'staff_4.jpg', 1);
-INSERT INTO `avatars` VALUES (15, 'staff_5.jpg', 1);
-INSERT INTO `avatars` VALUES (16, 'staff_6.jpg', 1);
-INSERT INTO `avatars` VALUES (17, 'staff_7.jpg', 1);
-INSERT INTO `avatars` VALUES (18, 'staff_8.jpg', 1);
-INSERT INTO `avatars` VALUES (19, 'staff_9.jpg', 1);
-INSERT INTO `avatars` VALUES (20, 'staff_10.jpg', 1);
-INSERT INTO `avatars` VALUES (21, 'staff_11.jpg', 1);
-INSERT INTO `avatars` VALUES (22, 'staff_12.jpg', 1);
-INSERT INTO `avatars` VALUES (23, 'staff_13.jpg', 1);
-INSERT INTO `avatars` VALUES (24, 'staff_14.jpg', 1);
+INSERT INTO `avatars` (`id`, `avatar`, `staff`) VALUES
+(1, 'rookie_avatar_1.jpg', 0),
+(2, 'rookie_avatar_2.jpg', 0),
+(3, 'rookie_avatar_3.jpg', 0),
+(4, 'rookie_avatar_4.jpg', 0),
+(5, 'rookie_avatar_5.jpg', 0),
+(6, 'rookie_avatar_6.jpg', 0),
+(7, 'rookie_avatar_7.jpg', 0),
+(8, 'rookie_avatar_8.jpg', 0),
+(9, 'rookie_avatar_9.jpg', 0),
+(10, 'rookie_avatar_10.jpg', 0),
+(11, 'staff_1.jpg', 1),
+(12, 'staff_2.jpg', 1),
+(13, 'staff_3.jpg', 1),
+(14, 'staff_4.jpg', 1),
+(15, 'staff_5.jpg', 1),
+(16, 'staff_6.jpg', 1),
+(17, 'staff_7.jpg', 1),
+(18, 'staff_8.jpg', 1),
+(19, 'staff_9.jpg', 1),
+(20, 'staff_10.jpg', 1),
+(21, 'staff_11.jpg', 1),
+(22, 'staff_12.jpg', 1),
+(23, 'staff_13.jpg', 1),
+(24, 'staff_14.jpg', 1);
 
 -- ----------------------------
 -- Table structure for backup
