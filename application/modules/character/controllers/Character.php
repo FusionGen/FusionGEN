@@ -178,12 +178,12 @@ class Character extends MX_Controller
                     break;
 
                 case "Hunter":
-                    if (isset($this->stats['maxpower3'])) {
+                    if ($this->stats['maxpower3']) {
                         $this->secondBar = "focus";
                         $this->secondBarValue = $this->stats['maxpower3'];
                     } else {
                         $this->secondBar = "mana";
-                        $this->secondBarValue = "Unknown";
+                        $this->secondBarValue = $this->stats['maxpower1'];
                     }
                     break;
 
