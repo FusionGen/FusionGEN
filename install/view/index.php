@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="Err0r">
         <link rel="icon" href="assets/images/favicon.png">
-        <title>Installation - FusionGEN</title>
+        <title>安装 - FusionGEN</title>
         <link rel='stylesheet' type='text/css' href='assets/bootstrap/css/bootstrap.min.css'>
         <link rel='stylesheet' type='text/css' href='assets/css/font-awesome/css/font-awesome.min.css'>
         <link rel='stylesheet' type='text/css' href='assets/css/install.css'>
@@ -25,12 +25,12 @@
                 </div>
                 <div class="panel-body no-padding">
                     <div class="tab-container clearfix">
-					<div id="introduction" class="tab-title col-sm-3 active"><i class="fa fa-circle-o"></i><strong> Introduction</strong></div>
-                        <div id="requirements" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Requirements</strong></span></div>
-						<div id="general" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> General</strong></div>
-                        <div id="database" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Database</strong></div>
-						<div id="realms" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Realms</strong></div>
-                        <div id="finished" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Finish</strong></div> 
+					<div id="introduction" class="tab-title col-sm-3 active"><i class="fa fa-circle-o"></i><strong> 简介</strong></div>
+                        <div id="requirements" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> 系统要求</strong></span></div>
+						<div id="general" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> 常规设置</strong></div>
+                        <div id="database" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> 数据库</strong></div>
+						<div id="realms" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> 游戏服务器</strong></div>
+                        <div id="finished" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> 完成</strong></div> 
                     </div>
                     <div id="alert-container"></div>
 
@@ -39,35 +39,35 @@
 							<div class="section clearfix">
 								<div>
 									<div class="introduction">
-										<center><h3>Welcome to FusionGEN</h3></center>
-										<center><b>Dear User</b>, This is <b>FusionGEN</b>. </br>A continuation project continued by fellow web-developers under the conditions of Open-Source. Many people loved FusionCMS, But time is evolving and FusionCMS has been idle for quite some time. We are here to bring up a new Open-Source Project to bring <b>you</b> an optimized and cared for CMS that will evolve over time with love and passion from its contributors. FusionGEN is still powered by the Codeigniter Framework, it's Original PHP Code, It's Original HTML Code and It's Original Javascript Code. What we are focusing on is improving it all. Making it stronger, faster and more Modern. </br></br>Thank you for downloading FusionGEN</br>Enjoy!</center> 
+										<center><h3>欢迎使用 FusionGEN</h3></center>
+										<center><b>亲爱的用户</b>，这是 <b>FusionGEN</b>。</br>在开源的条件下，由其他网页开发者继续的一个项目。许多人喜欢 FusionCMS，但是时间在变化，FusionCMS 已经停滞了一段时间。我们在这里推出一个新的开源项目，为 <b>您</b> 提供一个优化和关怀的内容管理系统（CMS），并且将随着时间的推移与贡献者的热爱和热情不断发展。FusionGEN 仍然由 Codeigniter 框架驱动，拥有其原始的 PHP 代码、HTML 代码和 JavaScript 代码。我们的重点是改进所有内容，使其更强大、更快速和更现代化。</br></br>感谢您下载 FusionGEN</br>祝您使用愉快！</center> 
 									</div>
 								</div>
 							</div>
 							<div class="panel-footer">
 								<button type="submit" class="btn btn-info form-next">
-									<span class="loader hide"> Please wait...</span>
-									<span class="button-text"><i class='fa fa-chevron-right'></i> Start the installer</span> 
+									<span class="loader hide"> 请稍等...</span>
+									<span class="button-text"><i class='fa fa-chevron-right'></i> 开始安装程序</span> 
 								</button>
 							</div>
 						</div>
                         <div role="tabpanel" class="tab-pane" id="requirements-tab">
                             <div class="section">
-                                <p>1. Please configure your PHP settings to match following requirements:</p>
+                                <p>1. 请配置您的 PHP 设置以满足以下要求：</p>
                                 <hr>
                                 <div>
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th width="25%">PHP Settings</th>
-                                                <th width="27%">Current Version</th>
-                                                <th>Min Version</th>
-                                                <th class="text-center">Status</th>
+                                                <th width="25%">PHP 设置</th>
+                                                <th width="27%">当前版本</th>
+                                                <th>最低版本</th>
+                                                <th class="text-center">状态</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>PHP Version</td>
+                                                <td>PHP 版本</td>
                                                 <td><?php echo $current_php_version; ?></td>
                                                 <td><?php echo $php_version_min; ?></td>
                                                 <td class="text-center">
@@ -84,25 +84,25 @@
                             </div>
 
                             <div class="section">
-                                <p>2. Please make sure the extensions/settings listed below are installed/enabled:</p>
+                                <p>2. 请确保以下列出的扩展和设置已安装/启用：</p>
                                 <hr>
                                 <div>
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th width="25%">Extension/settings</th>
-                                                <th width="27%">Current Settings</th>
-                                                <th>Required Settings</th>
-                                                <th class="text-center">Status</th>
+                                                <th width="25%">扩展/设置</th>
+                                                <th width="27%">当前设置</th>
+                                                <th>所需设置</th>
+                                                <th class="text-center">状态</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>MySQLi</td>
                                                 <td> <?php if ($mysql_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -117,9 +117,9 @@
                                             <tr>
                                                 <td>GD</td>
                                                 <td> <?php if ($gd_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -134,9 +134,9 @@
                                             <tr>
                                                 <td>cURL</td>
                                                 <td> <?php if ($curl_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -151,9 +151,9 @@
 											<tr>
                                                 <td>json</td>
                                                 <td> <?php if ($json_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -168,9 +168,9 @@
 											<tr>
                                                 <td>GMP</td>
                                                 <td> <?php if ($gmp_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -185,9 +185,9 @@
 											<tr>
                                                 <td>SOAP</td>
                                                 <td> <?php if ($soap_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -202,9 +202,9 @@
 											<tr>
                                                 <td>MBString</td>
                                                 <td> <?php if ($mbstring_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -219,9 +219,9 @@
                                             <tr>
                                                 <td>OpenSSL</td>
                                                 <td> <?php if ($openssl_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -236,9 +236,9 @@
                                             <tr>
                                                 <td>Zip</td>
                                                 <td> <?php if ($zip_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -253,9 +253,9 @@
                                             <tr>
                                                 <td>XML</td>
                                                 <td> <?php if ($xml_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -273,25 +273,25 @@
                             </div>
 
 							<!--<div class="section">
-                                <p>3. Please make sure the modules listed below are installed/enabled:</p>
+                                <p>3. 请确保已安装/启用以下模块：</p>
                                 <hr>
                                 <div>
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th width="25%">Extension/settings</th>
-                                                <th width="27%">Current Settings</th>
-                                                <th>Required Settings</th>
-                                                <th class="text-center">Status</th>
+                                                <th width="25%">模块/设置</th>
+                                                <th width="27%">当前设置</th>
+                                                <th>所需设置</th>
+                                                <th class="text-center">状态</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>Rewrite</td>
                                                 <td> <?php if ($rewrite_success) { ?>
-                                                        On
+                                                        已启用
                                                     <?php } else { ?>
-                                                        Off
+                                                        未启用
                                                     <?php } ?>
                                                 </td>
                                                 <td>On</td>
@@ -309,7 +309,7 @@
                             </div>-->
 
                             <div class="section">
-                                <p>3. Please make sure you have set the <strong>writable</strong> permission on the following folders/files:</p>
+                                <p>3. 请确保您已对以下文件夹/文件设置了<strong>可写</strong>权限：</p>
                                 <hr>
                                 <div>
                                     <table>
@@ -343,73 +343,73 @@
                                 if (!$all_requirement_success) {
                                     echo "disabled=disabled";
                                 }
-                                ?> class="btn btn-info form-next"><i class='fa fa-chevron-right'></i> Next</button>
+                                ?> class="btn btn-info form-next"><i class='fa fa-chevron-right'></i> 下一步</button>
                             </div>
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="general-tab">
 							<form name="general-form" id="general-form" action="do_general.php" method="post" autocomplete="off">
 								<div class="section clearfix">
-									<p>Enter general settings</p>
+									<p>填写常规设置</p>
 									<hr>
 									<div>
 										<div class="form-group clearfix">
-											<label class="col-md-3" for="title">Website title</label>
+											<label class="col-md-3" for="title">网站名称</label>
 											<div class="col-md-9">
-												<input class="form-control" type="text" value="" id="title" name="title" placeholder="My Desired Website Title">
+												<input class="form-control" type="text" value="" id="title" name="title" placeholder="我的网站名称">
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class="col-md-3" for="server_name">Server name</label>
+											<label class="col-md-3" for="server_name">服务器名称</label>
 											<div class="col-md-9">
-												<input class="form-control" type="text" value="" id="server_name" name="server_name" placeholder="My Desired Server Name">
+												<input class="form-control" type="text" value="" id="server_name" name="server_name" placeholder="我的服务器名称">
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class="col-md-3" for="realmlist">Realmlist</label>
+											<label class="col-md-3" for="realmlist">服务器地址</label>
 											<div class="col-md-9">
-												<input class="form-control" type="text" value="" id="realmlist" name="realmlist" placeholder="logon.myserver.com">
+												<input class="form-control" type="text" value="" id="realmlist" name="realmlist" placeholder="logon.tbcstar.com">
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class=" col-md-3" for="security_code">Admin Panel (ACP) Security Password</label>
+											<label class=" col-md-3" for="security_code">管理员面板（ACP）安全密码</label>
 											<div class="col-md-9">
 												<input class="form-control" type="text" value="" id="security_code" name="security_code">
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class="col-md-3" for="max_expansion">Max expansion</label>
+											<label class="col-md-3" for="max_expansion">最大资料片版本</label>
 											<div class="col-md-9">
 												<select class="form-control" id="max_expansion" name="max_expansion">
-													<option value="9">Dragonflight (10.x.x)</option>
-													<option value="8">Shadowlands (9.x.x)</option>
-													<option value="7">Battle for Azeroth (8.x.x)</option>
-													<option value="6">Legion (7.x.x)</option>
-													<option value="5">Warlords of Draenor (6.x.x)</option>
-													<option value="4">Mists of Pandaria 5.x.x)</option>
-													<option value="3">Cataclysm (4.3.4)</option>
-													<option value="2">Wrath of the Lich King (3.3.5)</option>
-													<option value="1">The Burning Crusade (2.4.3)</option>
-													<option value="0">Vanilla / No Expansion (1.12.1)</option>
+													<option value="9">巨龙之风 (10.x.x)</option>
+													<option value="8">暗影国度 (9.x.x)</option>
+													<option value="7">争霸艾泽拉斯 (8.x.x)</option>
+													<option value="6">军团再临 (7.x.x)</option>
+													<option value="5">德拉诺之王 (6.x.x)</option>
+													<option value="4">熊猫人之谜 (5.x.x)</option>
+													<option value="3">大地的裂变 (4.3.4)</option>
+													<option value="2">巫妖王之怒 (3.3.5)</option>
+													<option value="1">燃烧的远征 (2.4.3)</option>
+													<option value="0">经典 / 无扩展 (1.12.1)</option>
 												</select>
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class="col-md-3" for="keywords">Search engine: keywords (recommended for a better SEO Ranking)(separated by comma)</label>
+											<label class="col-md-3" for="keywords">搜索引擎关键词（推荐以逗号分隔，用于更好的SEO排名）</label>
 											<div class="col-md-9">
-												<input class="form-control" type="text" value="" id="keywords" name="keywords" placeholder="world of warcraft,wow,private server,pvp">
+												<input class="form-control" type="text" value="" id="keywords" name="keywords" placeholder="world of warcraft,wow,pvp,魔兽世界,wow,私服,pvp">
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class="col-md-3" for="description">Search engine: description (recommended for a better SEO Ranking)</label>
+											<label class="col-md-3" for="description">搜索引擎描述（推荐以提高SEO排名）</label>
 											<div class="col-md-9">
-												<input class="form-control" type="text" value="" id="description" name="description" placeholder="Best World of Warcraft private server in the entire world!">
+												<input class="form-control" type="text" value="" id="description" name="description" placeholder="全球最佳魔兽世界私服！">
 											</div>
 										</div>
 										<div class="form-group clearfix">
-											<label class=" col-md-3" for="analytics"><a href="https://analytics.google.com/analytics/web/" target="_blank">Google Analytics</a> website ID for advanced statistics (optional)</label>
+											<label class=" col-md-3" for="analytics"><a href="https://analytics.google.com/analytics/web/" target="_blank">Google Analytics</a> 网站ID（可选，用于高级统计）</label>
 											<div class="col-md-9">
-											(A more in-depth Analytic System than what is provided within the Admin Panel [ACP])
+											（比管理面板[ACP]内提供的统计系统更深入的分析系统）
 												<input class="form-control" type="text" value="" id="analytics" name="analytics" placeholder="XX-YYYYYYYY-Z">
 											</div>
 										</div>
@@ -418,8 +418,8 @@
 
 								<div class="panel-footer">
 									<button type="submit" class="btn btn-info form-next">
-										<span class="loader hide"> Please wait...</span>
-										<span class="button-text"><i class='fa fa-chevron-right'></i> Next</span> 
+										<span class="loader hide"> 请稍候...</span>
+										<span class="button-text"><i class='fa fa-chevron-right'></i> 下一步</span> 
 									</button>
 								</div>
 							</form>
@@ -428,74 +428,74 @@
                         <div role="tabpanel" class="tab-pane" id="database-tab">
                             <form name="database-form" id="database-form" action="do_database.php" method="post" autocomplete="off">
                                 <div class="section clearfix">
-                                    <p>1. Please enter your <strong>FusionGen</strong> database connection details.</p>
+                                    <p>1. 请输入您的 <strong>网站</strong> 数据库连接详细信息。</p>
                                     <hr>
                                     <div>
                                         <div class="form-group clearfix">
-                                            <label for="host" class="col-md-3">Database Host</label>
+                                            <label for="host" class="col-md-3">数据库主机</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="" id="host" name="host" class="form-control" placeholder="FusionGen Database Host (usually localhost)">
+                                                <input type="text" value="" id="host" name="host" class="form-control" placeholder="网站数据库主机（通常为localhost）">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
-                                            <label for="dbuser" class="col-md-3">Database User</label>
+                                            <label for="dbuser" class="col-md-3">数据库用户</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="dbuser" class="form-control" autocomplete="off" placeholder="FusionGen Database user name">
+                                                <input type="text" value="" name="dbuser" class="form-control" autocomplete="off" placeholder="网站数据库用户名">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
-                                            <label for="dbpassword" class="col-md-3">Password</label>
+                                            <label for="dbpassword" class="col-md-3">密码</label>
                                             <div class=" col-md-9">
-                                                <input type="password" value="" name="dbpassword" class="form-control" autocomplete="off" placeholder="FusionGen Database user password">
+                                                <input type="password" value="" name="dbpassword" class="form-control" autocomplete="off" placeholder="网站数据库用户密码">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
-                                            <label for="dbname" class="col-md-3">Database Name</label>
+                                            <label for="dbname" class="col-md-3">数据库名称</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="dbname" class="form-control" placeholder="FusionGen Database Name">
+                                                <input type="text" value="" name="dbname" class="form-control" placeholder="网站数据库名称">
                                             </div>
                                         </div>
 										<div class="form-group clearfix">
-                                            <label for="dbname" class="col-md-3">Database Port</label>
+                                            <label for="dbname" class="col-md-3">数据库端口</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="dbport" class="form-control" placeholder="FusionGen Database Port">
+                                                <input type="text" value="" name="dbport" class="form-control" placeholder="网站数据库端口">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="section clearfix">
-                                    <p>2. Please enter your <strong>Auth</strong> database connection details.</p>
+                                    <p>2. 请输入您的 <strong>Auth</strong> 数据库连接详细信息。</p>
                                     <hr>
                                     <div>
                                         <div class="form-group clearfix">
-                                            <label for="auth_host" class="col-md-3">Database Host</label>
+                                            <label for="auth_host" class="col-md-3">数据库主机</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="" id="auth_host"  name="auth_host" class="form-control" placeholder="Auth Database Host (usually localhost)">
+                                                <input type="text" value="" id="auth_host"  name="auth_host" class="form-control" placeholder="Auth数据库主机（通常为localhost）">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
-                                            <label for="auth_db_user" class="col-md-3">Database User</label>
+                                            <label for="auth_db_user" class="col-md-3">数据库用户</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="auth_db_user" class="form-control" autocomplete="off" placeholder="Auth Database user name">
+                                                <input type="text" value="" name="auth_db_user" class="form-control" autocomplete="off" placeholder="Auth数据库用户名">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
-                                            <label for="auth_db_pass" class="col-md-3">Password</label>
+                                            <label for="auth_db_pass" class="col-md-3">密码</label>
                                             <div class=" col-md-9">
-                                                <input type="password" value="" name="auth_db_pass" class="form-control" autocomplete="off" placeholder="Auth Database user password">
+                                                <input type="password" value="" name="auth_db_pass" class="form-control" autocomplete="off" placeholder="Auth数据库用户密码">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
-                                            <label for="auth_db" class="col-md-3">Database Name</label>
+                                            <label for="auth_db" class="col-md-3">数据库名称</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="auth_db" class="form-control" placeholder="Auth Database Name">
+                                                <input type="text" value="" name="auth_db" class="form-control" placeholder="Auth数据库名称">
                                             </div>
                                         </div>
 										<div class="form-group clearfix">
-                                            <label for="auth_db" class="col-md-3">Database Port</label>
+                                            <label for="auth_db" class="col-md-3">数据库端口</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="auth_port" class="form-control" placeholder="Auth Database Port">
+                                                <input type="text" value="" name="auth_port" class="form-control" placeholder="Auth数据库端口">
                                             </div>
                                         </div>
                                     </div>
@@ -503,8 +503,8 @@
 
                                 <div class="panel-footer">
                                     <button type="submit" class="btn btn-info form-next">
-                                        <span class="loader hide"> Please wait...</span>
-                                        <span class="button-text"><i class='fa fa-chevron-right'></i> Finish</span> 
+                                        <span class="loader hide"> 请稍候...</span>
+                                        <span class="button-text"><i class='fa fa-chevron-right'></i> 完成</span> 
                                     </button>
                                 </div>
                             </form>
@@ -512,99 +512,99 @@
                         <div role="tabpanel" class="tab-pane" id="realms-tab">
 							<form name="realms-form" id="realms-form" action="do_realms.php" method="post" autocomplete="off">
 								<div class="section clearfix">
-									<p>Realms settings</p>
+									<p>游戏服务器设置</p>
 									<hr>
-									<span>You must specify a realm so that you can log in later</span><br>
-									<span>If you host the realm databases on another host (i.e. not on the server where you are running the emulator), you can configure that via the admin panel afterwards</span>
+									<span>您必须指定一个游戏服务器以便以后登录</span><br>
+									<span>如果您将游戏服务器数据库托管在另一台主机上（即不在您运行模拟器的服务器上），您可以稍后通过管理面板进行配置</span>
 									<div>
 										<div class="form-group clearfix">
-											<label for="hostname" class="col-md-3">Hostname</label>
+											<label for="hostname" class="col-md-3">主机名</label>
 											<div class=" col-md-9">
 												<input class="form-control" type="text" value="" id="hostname" name="hostname" placeholder="127.0.0.1">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="username" class="col-md-3">Database username</label>
+											<label for="username" class="col-md-3">数据库用户名</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="username" name="username" placeholder="Realm Database username">
+												<input class="form-control" type="text" value="" id="username" name="username" placeholder="游戏服务器数据库用户名">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="password" class="col-md-3">Database password</label>
+											<label for="password" class="col-md-3">数据库密码</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="password" value="" id="password" name="password" placeholder="Realm Database password">
+												<input class="form-control" type="password" value="" id="password" name="password" placeholder="游戏服务器数据库密码">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="characters" class="col-md-3">Characters database</label>
+											<label for="characters" class="col-md-3">角色数据库</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="characters" name="characters" placeholder="Characters database name">
+												<input class="form-control" type="text" value="" id="characters" name="characters" placeholder="角色数据库名称">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="world" class="col-md-3">World database</label>
+											<label for="world" class="col-md-3">世界数据库</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="world" name="world" placeholder="World database name">
+												<input class="form-control" type="text" value="" id="world" name="world" placeholder="世界数据库名称">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="cap" class="col-md-3">Max allowed players online</label>
+											<label for="cap" class="col-md-3">最大在线玩家数量</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="cap" name="cap" placeholder="100">
+												<input class="form-control" type="text" value="" id="cap" name="cap" placeholder="99999">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="realmName" class="col-md-3">Realm name</label>
+											<label for="realmName" class="col-md-3">服务器名称</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="realmName" name="realmName" placeholder="Realm name">
+												<input class="form-control" type="text" value="" id="realmName" name="realmName" placeholder="服务器名称">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="db_port" class="col-md-3">Database port</label>
+											<label for="db_port" class="col-md-3">数据库端口</label>
 											<div class=" col-md-9">
 												<input class="form-control" type="text" value="" id="db_port" name="db_port" placeholder="3306">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="console_username" class="col-md-3" data-toggle="tooltip" data-placement="top" title="For an ingame account with GM level high enough to connect to your<br>emulator console remotely (see your emulator's config files for more details)">Console username (only required for emulators that use remote console systems) (?)</label>
+											<label for="console_username" class="col-md-3" data-toggle="tooltip" data-placement="top" title="只适用于使用远程控制台系统的模拟器，需要具有足够高权限的游戏内账号才能远程连接到控制台（详细信息请参阅模拟器的配置文件）">控制台用户名（仅适用于使用远程控制台系统的模拟器）(?)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="console_username" name="console_username" placeholder="Username from GM LvL 4 Account">
+												<input class="form-control" type="text" value="" id="console_username" name="console_username" placeholder="GM LvL 4账号的用户名">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="console_password" class="col-md-3" data-toggle="tooltip" data-placement="top" title="For an ingame account with GM level high enough to connect to your<br>emulator console remotely (see your emulator's config files for more details)">Console password (only required for emulators that use remote console systems) (?)</label>
+											<label for="console_password" class="col-md-3" data-toggle="tooltip" data-placement="top" title="只适用于使用远程控制台系统的模拟器，需要具有足够高权限的游戏内账号才能远程连接到控制台（详细信息请参阅模拟器的配置文件）">控制台密码（仅适用于使用远程控制台系统的模拟器）(?)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="password" value="" id="console_password" name="console_password" placeholder="Password from GM LvL 4 Account">
+												<input class="form-control" type="password" value="" id="console_password" name="console_password" placeholder="GM LvL 4账号的密码">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="console_port" class="col-md-3">Console port (only required for emulators that use remote console systems; usually 3443 for RA and 7878 for SOAP)</label>
+											<label for="console_port" class="col-md-3">控制台端口（仅适用于使用远程控制台系统的模拟器；通常为3443（RA）或7878（SOAP））</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="console_port" name="console_port" placeholder="7878 suggested">
+												<input class="form-control" type="text" value="" id="console_port" name="console_port" placeholder="建议7878">
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="emulator" class="col-md-3">Emulator</label>
+											<label for="emulator" class="col-md-3">模拟器</label>
 											<div class=" col-md-9">
 											<select class="form-control" id="emulator" name="emulator">
-												<option  value="" class="form-control" disabled="disabled">Loading...</option>
+												<option  value="" class="form-control" disabled="disabled">加载中...</option>
 											</select>
 											</div>
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="realm_port" class="col-md-3">Realm port (usually 8085 for Trinity/AzerothCore based emulators)</label>
+											<label for="realm_port" class="col-md-3">服务器端口（通常为Trinity/AzerothCore等基于的模拟器的8085）</label>
 											<div class=" col-md-9">
 												<input class="form-control" type="text" value="" id="realm_port" name="realm_port" placeholder="8085">
 											</div>
@@ -614,8 +614,8 @@
 
 								<div class="panel-footer">
 									<button type="submit" class="btn btn-info form-next">
-										<span class="loader hide"> Please wait...</span>
-										<span class="button-text"><i class='fa fa-chevron-right'></i> Next</span> 
+										<span class="loader hide"> 请稍候...</span>
+										<span class="button-text"><i class='fa fa-chevron-right'></i> 下一步</span> 
 									</button>
 								</div>
 							</form>
@@ -624,12 +624,12 @@
                         <div role="tabpanel" class="tab-pane" id="owner-tab">
 							<form name="owner-form" id="owner-form" action="do_owner.php" method="post" autocomplete="off">
 								<div class="section clearfix">
-									<p>Homepage Owner</p>
+									<p>主页所有者</p>
 									<hr>
-									<span>Enter your account name to get owner access on the homepage (Case sensitive!)</span>
+									<span>输入您的账户名以获取主页所有者访问权限（区分大小写！）</span>
 									<div>
 										<div class="form-group clearfix">
-											<label for="accname" class="col-md-3">Account Name</label>
+											<label for="accname" class="col-md-3">账户名</label>
 											<div class=" col-md-9">
 												<input class="form-control" type="text" value="" id="accname" name="accname" placeholder="">
 											</div>
@@ -639,8 +639,8 @@
 
 								<div class="panel-footer">
 									<button type="submit" class="btn btn-info form-next">
-										<span class="loader hide"> Please wait...</span>
-										<span class="button-text"><i class='fa fa-chevron-right'></i> Complete Installation</span> 
+										<span class="loader hide"> 请稍候...</span>
+										<span class="button-text"><i class='fa fa-chevron-right'></i> 完成安装</span> 
 									</button>
 								</div>
 							</form>
@@ -649,17 +649,17 @@
                         <div role="tabpanel" class="tab-pane" id="finished-tab">
                             <div class="section">
                                 <div class="clearfix">
-                                    <i class="status fa fa-check-circle-o pull-left" style="font-size: 50px"> </i><span class="pull-left"  style="line-height: 50px;">Congratulation! You have successfully installed FusionGen!</span>  
+                                    <i class="status fa fa-check-circle-o pull-left" style="font-size: 50px"> </i><span class="pull-left"  style="line-height: 50px;">恭喜！您已成功安装 FusionGen！</span>  
                                 </div>
 
                                 <div style="margin: 15px 0 15px 60px; color: #d73b3b;">
-                                    Don't forget to delete "install" folder!
+                                    不要忘记删除 "install" 文件夹！
                                 </div>
 
 								<a class="go-to-login-page" href="<?php echo $dashboard_url; ?>">
                                     <div class="text-center">
                                         <div style="font-size: 100px;"><i class="fa fa-desktop"></i></div>
-                                        <div>GO TO YOUR HOMEPAGE</div>
+                                        <div>前往您的主页</div>
                                     </div>
                                 </a>
                             </div>
