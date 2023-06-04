@@ -12,25 +12,25 @@
  *  will automatically look in that folder too.
  */
 
-$lang['search_title'] = "Search";
-$lang['search_headline'] = "Armory search";
-$lang['search_placeholder'] = "Search characters, items and guilds...";
-$lang['search_button'] = "Search";
-$lang['search_too_short'] = "Search string must be longer than 2 characters!";
-$lang['characters'] = "Characters";
-$lang['items'] = "Items";
-$lang['guilds'] = "Guilds";
-$lang['no_characters_found'] = "No characters found";
-$lang['no_items_found'] = "No items found";
-$lang['no_guilds_found'] = "No guilds found";
-$lang['name'] = "Name";
-$lang['faction'] = "Faction";
-$lang['members'] = "Members";
-$lang['owner'] = "Owner";
-$lang['realm'] = "Realm";
-$lang['level'] = "Level";
-$lang['required'] = "Required";
-$lang['type'] = "Type";
-$lang['view_character_profile'] = "View character profile";
-$lang['cant_be_empty'] = "Search field can't be empty!";
-$lang['misc'] = "Miscellaneous";
+$lang['search_title'] = "搜索";
+$lang['search_headline'] = "军械库搜索";
+$lang['search_placeholder'] = "搜索角色、物品和公会...";
+$lang['search_button'] = "搜索";
+$lang['search_too_short'] = "搜索角色名，必须超过2个字符";
+$lang['characters'] = "角色";
+$lang['items'] = "物品";
+$lang['guilds'] = "公会";
+$lang['no_characters_found'] = "未找到角色";
+$lang['no_items_found'] = "未找到物品";
+$lang['no_guilds_found'] = "未找到公会";
+$lang['name'] = "名称";
+$lang['faction'] = "阵营";
+$lang['members'] = "成员";
+$lang['owner'] = "所有者";
+$lang['realm'] = "服务器";
+$lang['level'] = "等级";
+$lang['required'] = "需求";
+$lang['type'] = "类型";
+$lang['view_character_profile'] = "查看角色资料";
+$lang['cant_be_empty'] = "搜索字段不能为空！";
+$lang['misc'] = "杂项";

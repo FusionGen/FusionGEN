@@ -12,14 +12,14 @@
  *  will automatically look in that folder too.
  */
 
-$lang['expansion'] = "Expansion";
-$lang['last_ip'] = "Last IP";
-$lang['current_ip'] = "Current IP";
+$lang['expansion'] = "版本";
+$lang['last_ip'] = "上次IP";
+$lang['current_ip'] = "当前IP";
 $lang['vp'] = "VP";
 $lang['dp'] = "DP";
-$lang['user_panel'] = "User panel";
-$lang['log_out'] = "Log out";
-$lang['username'] = "Username";
-$lang['password'] = "Password";
-$lang['log_in'] = "Login";
-$lang['register'] = "Sign up";
+$lang['user_panel'] = "用户面板";
+$lang['log_out'] = "注销";
+$lang['username'] = "用户名";
+$lang['password'] = "密码";
+$lang['log_in'] = "登录";
+$lang['register'] = "注册";
