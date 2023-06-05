@@ -1,19 +1,19 @@
 <?php
 
 //Login
-$lang["login_label_user"] = "用户名";
-$lang["login_label_password"] = "密码";
-$lang["login_label_captcha"] = "验证码";
-$lang["login_label_remember"] = "记住我";
-$lang["login_link_password_forgot"] = "忘记密码？";
-$lang["login_button"] = "登录";
-$lang['log_in'] = "登录";
+$lang["login_label_user"] = "Username";
+$lang["login_label_password"] = "Password";
+$lang["login_label_captcha"] = "Captcha";
+$lang["login_label_remember"] = "Remember me";
+$lang["login_link_password_forgot"] = "Forgot Password?";
+$lang["login_button"] = "Sign In";
+$lang['log_in'] = "Login";
 
 //Errors
-$lang["error"] = "没有找到与提供的凭据相匹配的帐户。";
-$lang["ip_blocked"] = "您的IP已被封锁。";
-$lang["try_again"] = "请在";
-$lang["minutes"] = "分钟后重试。";
+$lang["error"] = "No account found with the given credentials.";
+$lang["ip_blocked"] = "Your IP has been blocked.";
+$lang["try_again"] = "Please try again in";
+$lang["minutes"] = "minutes.";
 
 //Captcha
-$lang["captcha_invalid"] = "验证码无效";
+$lang["captcha_invalid"] = "Captcha is invalid";

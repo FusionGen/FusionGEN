@@ -14,7 +14,7 @@
 $lang['abbreviation'] = "en";
 
 // User panel abbreviation
-$lang['ucp'] = "用户面板";
+$lang['ucp'] = "UCP";
 
 /**
  * ====================================
@@ -23,49 +23,49 @@ $lang['ucp'] = "用户面板";
  */
 
 // Singular forms
-$lang['month'] = "月";
-$lang['day'] = "天";
-$lang['hour'] = "小时";
-$lang['minute'] = "分钟";
-$lang['second'] = "秒";
+$lang['month'] = "month";
+$lang['day'] = "day";
+$lang['hour'] = "hour";
+$lang['minute'] = "minute";
+$lang['second'] = "second";
 
 // Plural forms
-$lang['months'] = "月";
-$lang['days'] = "天";
-$lang['hours'] = "小时";
-$lang['minutes'] = "分钟";
-$lang['seconds'] = "秒";
+$lang['months'] = "months";
+$lang['days'] = "days";
+$lang['hours'] = "hours";
+$lang['minutes'] = "minutes";
+$lang['seconds'] = "seconds";
 
 // Permission errors
-$lang['denied'] = "拒绝访问";
-$lang['must_be_signed_in'] = "您必须登录才能查看此页面！";
-$lang['already_signed_in'] = "您已经登录！";
-$lang['no_permission'] = "您没有权限查看此页面。";
-$lang['click_to_sign_in'] = "请点击此处进行登录。";
+$lang['denied'] = "Permission denied";
+$lang['must_be_signed_in'] = "You must be signed in to view this page!";
+$lang['already_signed_in'] = "You are already signed in!";
+$lang['no_permission'] = "You do not have permission to view this page.";
+$lang['click_to_sign_in'] = "Please click here to sign in.";
 
 // Misc
-$lang['reason'] = "原因：";
-$lang['banned'] = "被封禁";
-$lang['close_tool'] = "关闭工具";
-$lang['offline'] = "离线";
+$lang['reason'] = "Reason:";
+$lang['banned'] = "banned";
+$lang['close_tool'] = "Close tool";
+$lang['offline'] = "Offline";
 
-$lang['voting_points'] = "投票积分";
-$lang['donation_points'] = "捐赠积分";
+$lang['voting_points'] = "Voting points";
+$lang['donation_points'] = "Donation points";
 
-$lang['change_avatar'] = "更换头像";
+$lang['change_avatar'] = "Change avatar";
 
 // UCP nav
-$lang['vote'] = "投票";
-$lang['donate'] = "捐赠";
-$lang['store'] = "商店";
-$lang['account_settings'] = "账户设置";
-$lang['teleport_hub'] = "传送中心";
+$lang['vote'] = "Vote";
+$lang['donate'] = "Donate";
+$lang['store'] = "Store";
+$lang['account_settings'] = "Account Settings";
+$lang['teleport_hub'] = "Teleport Hub";
 
-$lang['mod_panel'] = "管理面板";
-$lang['admin_panel'] = "管理员面板";
+$lang['mod_panel'] = "Mod Panel";
+$lang['admin_panel'] = "Admin Panel";
 
-$lang['login'] = "登录";
-$lang['logout'] = "退出";
-$lang['register'] = "注册";
-$lang['account'] = "账户";
+$lang['login'] = "Login";
+$lang['logout'] = "Logout";
+$lang['register'] = "Register";
+$lang['account'] = "Account";
 

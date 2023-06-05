@@ -12,11 +12,11 @@
  *  will automatically look in that folder too.
  */
 
-$lang['changelog_title'] = "更新日志";
-$lang['changes_made_on'] = "更新日期";
-$lang['no_changes'] = "没有要显示的更新内容。";
-$lang['change_info'] = "你做了什么改动？";
-$lang['category_name'] = "分类名称";
-$lang['new_change'] = "新的更新";
-$lang['new_category'] = "新的分类";
-$lang['add'] = "添加";
+$lang['changelog_title'] = "Changelog";
+$lang['changes_made_on'] = "Changes made on";
+$lang['no_changes'] = "There are no changes to show.";
+$lang['change_info'] = "What have you done?";
+$lang['category_name'] = "Category name";
+$lang['new_change'] = "New change";
+$lang['new_category'] = "New category";
+$lang['add'] = "Add";

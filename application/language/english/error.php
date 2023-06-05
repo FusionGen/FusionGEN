@@ -12,10 +12,10 @@
  *  will automatically look in that folder too.
  */
 
-$lang['404_title'] 					= "文件未找到";
-$lang['404'] 						= "404错误 - 文件未找到";
-$lang['404_long'] 					= "您要查找的页面不存在。您是如何到达这里的，真是个谜。但您可以点击下面的按钮返回首页。";
-$lang['permission_denied_title'] 	= "权限被拒绝";
-$lang['permission_denied'] 			= "您无权访问此页面！";
-$lang['lost'] 						= "哎呀！您迷路了。";
-$lang['button_home'] 				= "首页";
+$lang['404_title'] = "File not found";
+$lang['404'] = "404 error - file not found";
+$lang['404_long'] = "The page you are looking for does not exist. How you got here is a mystery. But you can click the button below to go back to the homepage.";
+$lang['permission_denied_title'] = "Permission denied";
+$lang['permission_denied'] = "You don't have permission to access this page!";
+$lang['lost'] = "UH OH! You're lost.";
+$lang['button_home'] = "Home";

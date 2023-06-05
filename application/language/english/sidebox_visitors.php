@@ -12,11 +12,11 @@
  *  will automatically look in that folder too.
  */
 
-$lang['there_are'] = "有";
-$lang['there_is'] = "有";
-$lang['guest'] = "访客";
-$lang['guests'] = "访客";
-$lang['visitor'] = "访客";
-$lang['visitors'] = "访客";
-$lang['online'] = "在线";
-$lang['who'] = "是谁？";
+$lang['there_are'] = "There are";
+$lang['there_is'] = "There is";
+$lang['guest'] = "guest";
+$lang['guests'] = "guests";
+$lang['visitor'] = "visitor";
+$lang['visitors'] = "visitors";
+$lang['online'] = "online";
+$lang['who'] = "who?";

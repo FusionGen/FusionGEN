@@ -710,10 +710,10 @@ CREATE TABLE `menu`  (
 -- Records of menu
 -- ----------------------------
 INSERT INTO `menu` (`id`, `name`, `link`, `side`, `rank`, `specific_rank`, `order`, `permission`, `lrd`, `dropdown_id`) VALUES
-(1, '新闻', 'news', 'top', 1, 0, 1, NULL, NULL, NULL),
-(2, '{\"english\":\"如何连接\"}', 'page/connect', 'top', 1, 0, 3, NULL, NULL, NULL),
-(4, '在线玩家', 'online', 'bottom', 1, 0, 5, NULL, NULL, NULL),
-(5, 'PvP排名', 'pvp_statistics', 'side', 1, 0, 6, NULL, NULL, NULL),
+(1, 'Home', 'news', 'top', 1, 0, 1, NULL, NULL, NULL),
+(2, '{\"english\":\"How to connect\"}', 'page/connect', 'top', 1, 0, 3, NULL, NULL, NULL),
+(4, 'Online players', 'online', 'bottom', 1, 0, 5, NULL, NULL, NULL),
+(5, 'PvP Statistics', 'pvp_statistics', 'side', 1, 0, 6, NULL, NULL, NULL),
 (6, '{\"english\":\"dropdown item\"}', 'tt', 'top', 1, 0, 7, NULL, 'L', 7),
 (7, 'Dropdown', '#', 'top', 1, 0, 2, NULL, 'D', NULL);
 

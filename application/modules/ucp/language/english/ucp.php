@@ -13,51 +13,51 @@
  */
 
 // UCP
-$lang['user_panel'] = "用户控制面板";
-$lang['account_overview'] = "账户概览";
-$lang['account_characters'] = "账户角色";
+$lang['user_panel'] = "User Control panel";
+$lang['account_overview'] = "Account Overview";
+$lang['account_characters'] = "Account characters";
 
-$lang['nickname'] = "昵称";
-$lang['change_nickname'] = "修改昵称";
+$lang['nickname'] = "Nickname";
+$lang['change_nickname'] = "Change Name";
 
-$lang['location'] = "地点";
-$lang['change_location'] = "修改地点";
+$lang['location'] = "Location";
+$lang['change_location'] = "Change Location";
 
-$lang['email'] = "电子邮件";
-$lang['change_email'] = "修改电子邮件";
+$lang['email'] = "Email";
+$lang['change_email'] = "Change Email";
 
-$lang['password'] = "密码";
-$lang['change_password'] = "修改密码";
+$lang['password'] = "Password";
+$lang['change_password'] = "Change Password";
 
-$lang['account_rank'] = "账户级别";
-$lang['voting_points'] = "投票点数";
-$lang['donation_points'] = "捐赠点数";
-$lang['account_status'] = "账户状态";
-$lang['member_since'] = "加入时间";
-$lang['data_tip_vote'] = "通过为服务器投票来获得投票点数";
-$lang['data_tip_donate'] = "通过向服务器捐赠来获得捐赠点数";
+$lang['account_rank'] = "Account rank";
+$lang['voting_points'] = "Voting points";
+$lang['donation_points'] = "Donation points";
+$lang['account_status'] = "Account status";
+$lang['member_since'] = "Member since";
+$lang['data_tip_vote'] = "Earn Vote Points by Voting for the Server";
+$lang['data_tip_donate'] = "Earn Donation Points by Donating to the Server";
 
-$lang['edit'] = "编辑";
+$lang['edit'] = "Edit";
 
 // Avatar
-$lang['change_avatar'] = "更改头像";
-$lang['avatar_invalid'] = "所选头像无效。";
-$lang['avatar_invalid_rank'] = "所选头像要求更高的用户级别。";
+$lang['change_avatar'] = "Change avatar";
+$lang['avatar_invalid'] = "The selected avatar is invalid.";
+$lang['avatar_invalid_rank'] = "The selected avatar requires greater user rank.";
 
 // Settings
-$lang['settings'] = "账户设置";
+$lang['settings'] = "Account settings";
 
-$lang['old_password'] = "旧密码";
-$lang['new_password'] = "新密码";
-$lang['new_password_confirm'] = "确认密码";
-$lang['new_password_submit'] = "更改密码";
+$lang['old_password'] = "Old password";
+$lang['new_password'] = "New password";
+$lang['new_password_confirm'] = "Confirm password";
+$lang['new_password_submit'] = "Change password";
 
-$lang['nickname_error'] = "昵称必须为4至14个字符，并且只能包含字母和数字";
-$lang['location_error'] = "地点最多可为32个字符，并且只能包含字母";
-$lang['pw_doesnt_match'] = "密码不匹配！";
-$lang['changes_saved'] = "已保存更改！";
-$lang['invalid_pw'] = "密码不正确！";
-$lang['nickname_taken'] = "昵称已被使用";
-$lang['invalid_language'] = "无效的语言";
+$lang['nickname_error'] = "Nickname must be between 4 and 14 characters long and may only contain letters and numbers";
+$lang['location_error'] = "Location may only be up to 32 characters long and may only contain letters";
+$lang['pw_doesnt_match'] = "Passwords doesn't match!";
+$lang['changes_saved'] = "Changes have been saved!";
+$lang['invalid_pw'] = "Incorrect password!";
+$lang['nickname_taken'] = "Nickname is already taken";
+$lang['invalid_language'] = "Invalid language";
 
-$lang['change_information'] = "更改信息";
+$lang['change_information'] = "Change information";

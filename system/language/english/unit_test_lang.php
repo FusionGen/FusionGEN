@@ -1,30 +1,59 @@
 <?php
 /**
- * System messages translation for CodeIgniter(tm)
+ * CodeIgniter
  *
- * @author	CodeIgniter community
- * @copyright	Copyright (c) 2014-2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2019 - 2022, CodeIgniter Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
+ * @copyright	Copyright (c) 2019 - 2022, CodeIgniter Foundation (https://codeigniter.com/)
+ * @license	https://opensource.org/licenses/MIT	MIT License
  * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['ut_test_name'] = '测试名';
-$lang['ut_test_datatype'] = '测试的数据类型';
-$lang['ut_res_datatype'] = '期望的数据类型';
-$lang['ut_result'] = '结果';
-$lang['ut_undefined'] = '未定义的测试名';
-$lang['ut_file'] = '文件名';
-$lang['ut_line'] = '行号';
-$lang['ut_passed'] = '通过';
-$lang['ut_failed'] = '失败';
-$lang['ut_boolean'] = '布尔型';
-$lang['ut_integer'] = '整型';
-$lang['ut_float'] = '浮点数';
-$lang['ut_double'] = '双精度数'; // can be the same as float
-$lang['ut_string'] = '字符串';
-$lang['ut_array'] = '数组';
-$lang['ut_object'] = '对象';
-$lang['ut_resource'] = '资源';
+$lang['ut_test_name'] = 'Test Name';
+$lang['ut_test_datatype'] = 'Test Datatype';
+$lang['ut_res_datatype'] = 'Expected Datatype';
+$lang['ut_result'] = 'Result';
+$lang['ut_undefined'] = 'Undefined Test Name';
+$lang['ut_file'] = 'File Name';
+$lang['ut_line'] = 'Line Number';
+$lang['ut_passed'] = 'Passed';
+$lang['ut_failed'] = 'Failed';
+$lang['ut_boolean'] = 'Boolean';
+$lang['ut_integer'] = 'Integer';
+$lang['ut_float'] = 'Float';
+$lang['ut_double'] = 'Float'; // can be the same as float
+$lang['ut_string'] = 'String';
+$lang['ut_array'] = 'Array';
+$lang['ut_object'] = 'Object';
+$lang['ut_resource'] = 'Resource';
 $lang['ut_null'] = 'Null';
-$lang['ut_notes'] = '笔记';
+$lang['ut_notes'] = 'Notes';

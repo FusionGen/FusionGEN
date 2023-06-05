@@ -12,8 +12,8 @@
  *  will automatically look in that folder too.
  */
 
-$lang['next'] = "下一个服务器";
-$lang['previous'] = "上一个服务器";
-$lang['no_stats'] = "没有可显示的PvP统计数据";
-$lang['kills'] = "杀敌数";
-$lang['view_profile'] = "查看角色资料";
+$lang['next'] = "Next realm";
+$lang['previous'] = "Previous realm";
+$lang['no_stats'] = "There are no PvP stats to display";
+$lang['kills'] = "kills";
+$lang['view_profile'] = "View character profile";

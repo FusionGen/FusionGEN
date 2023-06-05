@@ -12,19 +12,19 @@
  *  will automatically look in that folder too.
  */
 
-$lang['teleport_hub'] = "传送中心";
-$lang['cant_afford'] = "您无法负担得起这个！";
-$lang['must_be_offline'] = "角色必须离线！";
-$lang['wrong_faction'] = "您选择的位置仅适用于另一阵营";
-$lang['doesnt_exist'] = "您选择的位置不存在！";
-$lang['no_location'] = "未设置传送位置！";
-$lang['select'] = "选择";
-$lang['selected'] = "已选择";
-$lang['teleported'] = "已传送！";
-$lang['select_char'] = "选择角色";
-$lang['gold'] = "金币";
+$lang['teleport_hub'] = "Teleport hub";
+$lang['cant_afford'] = "You can't afford this!";
+$lang['must_be_offline'] = "The character must be offline!";
+$lang['wrong_faction'] = "The location you selected is only available for the other faction";
+$lang['doesnt_exist'] = "The location you selected does not exist!";
+$lang['no_location'] = "The teleport location was not set!";
+$lang['select'] = "Select";
+$lang['selected'] = "Selected";
+$lang['teleported'] = "has been teleported!";
+$lang['select_char'] = "Select character";
+$lang['gold'] = "gold";
 $lang['vp'] = "VP";
 $lang['dp'] = "DP";
-$lang['free'] = "免费";
-$lang['no_locations'] = "无位置";
-$lang['no_chars'] = "您没有角色";
+$lang['free'] = "Free";
+$lang['no_locations'] = "No locations";
+$lang['no_chars'] = "You have no characters";

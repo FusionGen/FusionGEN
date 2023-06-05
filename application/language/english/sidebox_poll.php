@@ -12,7 +12,7 @@
  *  will automatically look in that folder too.
  */
 
-$lang['show_results'] = "结果";
-$lang['no_poll'] = "当前没有活动的投票";
-$lang['show_options'] = "选项";
-$lang['log_in'] = "请登录以进行投票！";
+$lang['show_results'] = "Results";
+$lang['no_poll'] = "There is currently no active poll";
+$lang['show_options'] = "Options";
+$lang['log_in'] = "Please log in to vote!";
