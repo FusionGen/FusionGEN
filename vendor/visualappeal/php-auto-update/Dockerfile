@@ -1,4 +1,4 @@
-FROM php:8.0-apache
+FROM php:8.2.7-apache
 
 MAINTAINER VisualAppeal <tim@visualappeal.de>
 
