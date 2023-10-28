@@ -175,5 +175,5 @@ img {
     opacity:1
 }
 .navbar-side .navbar-nav .nav-item .nav-link span{
-    vertical-align:sub
+    vertical-align:baseline
 }

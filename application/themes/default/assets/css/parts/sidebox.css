@@ -20,11 +20,10 @@
 	color: #baddf4;
 	margin: 0;
 	padding: 0 0.9375rem;
-	font-size: 1.625rem;
+	font-size: 1.25rem;
 	text-align: center;
 	line-height: 66px;
 	font-weight: 100;
-	font-family: var(--font-family-secondary);
 	text-shadow: 0 0 4px rgba(162, 218, 255, 0.2);
 	text-transform: uppercase;
 }
