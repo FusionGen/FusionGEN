@@ -19,6 +19,7 @@ $lang['view_profile'] = "View profile";
 $lang['attributes'] = "Attributes";
 $lang['pvp'] = "Player vs Player";
 $lang['str'] = "Strength";
+$lang['agi'] = "Agility";
 $lang['sta'] = "Stamina";
 $lang['int'] = "Intellect";
 $lang['sp'] = "Spell power";
