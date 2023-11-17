@@ -104,6 +104,10 @@
 					<td class="text-end">{if isset($stats.strength)}{$stats.strength}{else}{lang("unknown", "character")}{/if}</td>
 				</tr>
 				<tr>
+					<td>{lang("agi", "character")}</td>
+					<td class="text-end">{if isset($stats.agility)}{$stats.agility}{else}{lang("unknown", "character")}{/if}</td>
+				</tr>
+				<tr>
 					<td>{lang("sta", "character")}</td>
 					<td class="text-end">{if isset($stats.stamina)}{$stats.stamina}{else}{lang("unknown", "character")}{/if}</td>
 				</tr>
