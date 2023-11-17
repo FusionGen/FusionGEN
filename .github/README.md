@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/FusionGen/FusionGen">
-    <img src="https://fusiongen.net/application/themes/fusiongen/assets/images/favicon.png" alt="Logo" width="80" height="80">
+    <img src="https://avatars.githubusercontent.com/u/64651572" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">FusionGen</h3>
