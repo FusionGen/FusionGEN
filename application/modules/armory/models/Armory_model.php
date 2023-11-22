@@ -86,11 +86,7 @@ class Armory_model extends CI_Model
 
         $searchString = $this->c_connection->escape_str($searchString);
 
-        //$query = "SELECT " . columns("characters", array("guid", "name", "race", "gender", "class", "level"), $realmId) . " FROM " . table("characters", $realmId) . " WHERE " . column("characters", "name", false, $realmId) . " LIKE '".$searchString."' LIMIT ".$limit." OFFSET ".$offset."";
-        $this->c_connection->select(columns("characters", array("guid", "name", "race", "gender", "class", "level"), $realmId));
-        $this->c_connection->from(table("characters", $realmId));
-        $this->c_connection->like(column("characters", "name", false, $realmId), $searchString);
-        $result = $this->c_connection->get();
+        $result = $this->c_connection->query("SELECT ".columns("characters", array("guid", "name", "race", "gender", "class", "level"), $realmId)." FROM ".table("characters", $realmId)." WHERE UPPER(".column("characters", "name", false, $realmId).") LIKE ? ORDER BY ".column("characters", "level", false, $realmId)." DESC", array('%'.strtoupper($searchString).'%'));
 
         if ($result->num_rows() > 0) {
             $row = $result->result_array();

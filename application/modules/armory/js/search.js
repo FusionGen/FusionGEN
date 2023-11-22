@@ -5,7 +5,7 @@ var Search = {
         var table = $('select[name="table"]').val();
         var search = $('input[name="search_field"]').val();
 
-        if (search.length > 2)
+        if (search.length > 1)
         {
             if (table == "items")
             {
@@ -197,7 +197,7 @@ var Search = {
         var table = $('select[name="table"]').val();
         var search = $('input[name="search_field"]').val();
 
-        if (search.length > 2)
+        if (search.length > 1)
         {
             if (table == "items")
             {
