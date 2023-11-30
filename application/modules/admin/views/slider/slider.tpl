@@ -27,39 +27,39 @@
 		<div class="col-sm-10">
 		<select class="form-control" name="slider_style" id="slider_style">
 			<option value="" {if !$slider_style}selected{/if}>Random (all)</option>
-			
+
 			<option value="1" {if $slider_style == 1}selected{/if}>Back Down</option>
 			<option value="2" {if $slider_style == 2}selected{/if}>Back Up</option>
 			<option value="3" {if $slider_style == 3}selected{/if}>Back Left / Right</option>
 			<option value="4" {if $slider_style == 4}selected{/if}>Back Right / Left</option>
-			
+
 			<option value="5" {if $slider_style == 5}selected{/if}>Bounce Down</option>
 			<option value="6" {if $slider_style == 6}selected{/if}>Bounce Up</option>
 			<option value="7" {if $slider_style == 7}selected{/if}>Bounce Left / Right</option>
 			<option value="8" {if $slider_style == 8}selected{/if}>Bounce Right / Left</option>
-			
+
 			<option value="9" {if $slider_style == 9}selected{/if}>Fade Down</option>
 			<option value="10" {if $slider_style == 10}selected{/if}>Fade Up</option>
 			<option value="11" {if $slider_style == 11}selected{/if}>Fade Left / Right</option>
 			<option value="12" {if $slider_style == 12}selected{/if}>Fade Right / Left</option>
-			
+
 			<option value="13" {if $slider_style == 13}selected{/if}>Fade Top Left / Bottom Right</option>
 			<option value="14" {if $slider_style == 14}selected{/if}>Fade Top Right / Bottom Left</option>
 			<option value="15" {if $slider_style == 15}selected{/if}>Fade Bottom Left / Top Right</option>
 			<option value="16" {if $slider_style == 16}selected{/if}>Fade Bottom Right / Top Left</option>
-			
+
 			<option value="17" {if $slider_style == 17}selected{/if}>Fade Down (Big)</option>
 			<option value="18" {if $slider_style == 18}selected{/if}>Fade Up (Big)</option>
 			<option value="19" {if $slider_style == 19}selected{/if}>Fade Left / Right (Big)</option>
 			<option value="20" {if $slider_style == 20}selected{/if}>Fade Right / Left (Big)</option>
-			
+
 			<option value="21" {if $slider_style == 21}selected{/if}>Rotate Down Left</option>
 			<option value="22" {if $slider_style == 22}selected{/if}>Rotate Down Right</option>
 			<option value="23" {if $slider_style == 23}selected{/if}>Rotate Up Left</option>
 			<option value="24" {if $slider_style == 24}selected{/if}>Rotate Up Right</option>
-			
+
 			<option value="25" {if $slider_style == 25}selected{/if}>Roll</option>
-			
+
 			<option value="26" {if $slider_style == 26}selected{/if}>Slide Down</option>
 			<option value="27" {if $slider_style == 27}selected{/if}>Slide Up</option>
 			<option value="28" {if $slider_style == 28}selected{/if}>Slide Left / Right</option>

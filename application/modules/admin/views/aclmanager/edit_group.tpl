@@ -3,7 +3,7 @@
 
 	<div class="card-body">
 	<form role="form" onSubmit="Groups.save(this, {$group.id}); return false" id="submit_form">
-		
+
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="name">Group name</label>
 		<div class="col-sm-10">
@@ -75,7 +75,7 @@
 									<td>{$link.link}</td>
 								</tr>
 							{else}
-								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This menu link is set to 'Visible to everyone'-mode.<br />If you want to control the visibility per group, please<br /> go to 'Menu links' and change the visibility mode.">
+								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This menu link is set to 'Visible to everyone'-mode.<br>If you want to control the visibility per group, please<br> go to 'Menu links' and change the visibility mode.">
 									<td width="5%" style="text-align:center;"><input class="form-check-input" type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<span>{$link.side}&nbsp;&nbsp;</span>
@@ -84,7 +84,7 @@
 									<td>{$link.link}</td>
 								</tr>
 							{/if}
-						</tbody>							
+						</tbody>
 					{/foreach}
 					</table>
 				</div>
@@ -104,7 +104,7 @@
 									<td>pages/{$page.identifier}</td>
 								</tr>
 							{else}
-								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This page is set to 'Visible to everyone'-mode.<br />If you want to control the visibility per group, please<br /> go to 'Custom pages' and change the visibility mode.">
+								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This page is set to 'Visible to everyone'-mode.<br>If you want to control the visibility per group, please<br> go to 'Custom pages' and change the visibility mode.">
 									<td width="5%" style="text-align:center;"><input class="form-check-input" type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<label for="PAGE_{$page.id}">{langColumn($page.name)}</label></td>
@@ -131,7 +131,7 @@
 									<td>{$sidebox.type}</td>
 								</tr>
 							{else}
-								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This sidebox is set to 'Visible to everyone'-mode.<br />If you want to control the visibility per group, please<br /> go to 'Sideboxes' and change the visibility mode.">
+								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This sidebox is set to 'Visible to everyone'-mode.<br>If you want to control the visibility per group, please<br> go to 'Sideboxes' and change the visibility mode.">
 									<td width="5%" style="text-align:center;"><input class="form-check-input" type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<label for="SIDEBOX_{$sidebox.id}">{langColumn($sidebox.displayName)}</label></td>
@@ -144,7 +144,7 @@
 				</div>
 			{/if}
 		</div>
-		
+
 		<label for="roles" data-toggle="tooltip" data-placement="bottom" title="A role is a pre-defined set of permissions. The color indicates the role's danger-level. Please note that certain permissions may have a default value of 'allowed', such as actions that are meant to be performed by everyone by default.">
 			<a href="javascript:void(0)" onClick="$('#roles input[type=checkbox]').each(function(){ this.checked = true; });" style="float:right;display:block;">[Select all]</a>
 			Roles <a>(?)</a>
@@ -165,7 +165,7 @@
 								</tr>
 							{/foreach}
 						{/if}
-						
+
 						{if $module.manifest}
 							{foreach from=$module.manifest key=roleName item=role}
 								<tr>

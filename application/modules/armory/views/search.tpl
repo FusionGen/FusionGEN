@@ -6,7 +6,7 @@
             <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="realm" name="realm" onchange="Search.toggle();return false;">
                 <option value="0" disabled>{lang("realm", "armory")}</option>
                 {for $i = 0; $i<count((array)$realms); $i++}
-                    <option {if $i == 0}selected{/if} value="{$realms[$i]->getId()}">{$realms[$i]->getName()}</option>				
+                    <option {if $i == 0}selected{/if} value="{$realms[$i]->getId()}">{$realms[$i]->getName()}</option>
                 {/for}
             </select>
         

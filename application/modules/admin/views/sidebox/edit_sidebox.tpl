@@ -8,7 +8,7 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="displayName">Headline</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="displayName" id="displayName" value="{htmlspecialchars($sidebox.displayName)}"/>
+			<input class="form-control" type="text" name="displayName" id="displayName" value="{htmlspecialchars($sidebox.displayName)}">
 		</div>
 		</div>
 
@@ -37,7 +37,7 @@
 		</div>
 	</form>
 
-	<div id="custom_field" style="padding-top:0px;padding-bottom:0px;{if $sidebox.type != "custom"}display:none{/if}" >
+	<div id="custom_field" style="padding-top:0px;padding-bottom:0px;{if $sidebox.type != "custom"}display:none{/if}">
 		<textarea name="content" class="form-control tinymce mb-3" id="content" cols="30" rows="10">{$sideboxCustomText}</textarea>
 	</div>
 

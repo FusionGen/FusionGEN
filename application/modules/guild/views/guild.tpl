@@ -21,7 +21,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">{lang("members", "guild")}</div>
 			<div class="section-body">

@@ -20,7 +20,7 @@
 	</div>
 </div>
 
-<script type="text/javascript">
+<script>
   var delay;
   var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
     mode           : "htmlmixed",

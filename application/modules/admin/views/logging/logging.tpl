@@ -76,7 +76,7 @@
             <span id="show_more_count" {if $show_more <= 0}style="display:none;"{/if}>
                 <!-- Instead of pagination, just use a "show more" button that will show next X logs every time you press it -->
                 <a id="button_log_count" class="btn btn-primary btn-sm" style="display:block" onClick="Logging.loadMore();">Show more ({$show_more})</a>
-                <input type="hidden" id="js_load_more" value="{$show_more}"/>
+                <input type="hidden" id="js_load_more" value="{$show_more}">
             </span>
         {/if}
 	</span>

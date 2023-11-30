@@ -4,7 +4,7 @@
 	{if hasPermission("canAddChange")}
 		<a href="javascript:void(0)" onClick="$('#category_form').hide();$('#change_form').fadeToggle(150)" class="btn btn-primary btn-sm">{lang("new_change", "changelog")}</a>
 	{/if}
-	
+
 	{if hasPermission("canAddCategory")}
 		<a href="javascript:void(0)" onClick="$('#change_form').hide();$('#category_form').fadeToggle(150)" class="btn btn-primary btn-sm">{lang("new_category", "changelog")}</a>
 	{/if}
@@ -26,27 +26,27 @@
 				{/if}
 			</select>
 			</div>
-			
+
 			<div class="col-md-7">
 				<input class="form-control" type="text" placeholder="{lang("change_info", "changelog")}" id="change_text" name="change">
 			</div>
-			
+
 			<div class="col-md-2">
-				<input class="btn btn-primary btn-sm" type="submit" value="{lang("add", "changelog")}"/>
+				<input class="btn btn-primary btn-sm" type="submit" value="{lang("add", "changelog")}">
 			</div>
 		{/if}
 		</div>
 		</form>
 		{/if}
 
-		{if hasPermission("canAddCategory")}		
+		{if hasPermission("canAddCategory")}
 			{form_open('changelog/addCategory', $attributes)}
 			<div class="row">
 				<div class="col-md-10">
 					<input class="form-control" type="text" placeholder="{lang("category_name", "changelog")}" name="category">
 				</div>
 				<div class="col-md-2">
-					<input class="btn btn-primary btn-sm" type="submit" value="{lang("add", "changelog")}"/>
+					<input class="btn btn-primary btn-sm" type="submit" value="{lang("add", "changelog")}">
 				</div>
 			</div>
 			</form>

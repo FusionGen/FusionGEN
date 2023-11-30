@@ -1,16 +1,16 @@
 <div class="container">
 	<div class="row">
-		
+
 		{$link_active = "vote"}
 		{include file="../../ucp/views/ucp_navigation.tpl"}
-		
+
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">Voting <span>Panel</span></div>
 			<div class="section-body">
 			<div class="alert alert-info firefox text-center" style="display:none;" role="alert">
 			  Please allow pop-up windows from this website to be able to vote.
 			</div>
-			
+
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 					{if $vote_sites}
 						{foreach from=$vote_sites item=vote_site}
@@ -38,8 +38,8 @@
 														{lang("voting_point", "vote")}
 													{/if}
 													</div>
-													
-													<input type="hidden" name="id" value="{$vote_site.id}" />
+
+													<input type="hidden" name="id" value="{$vote_site.id}">
 												</form>
 											{else}
 												<div class="h4">

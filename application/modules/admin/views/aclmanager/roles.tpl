@@ -24,11 +24,11 @@
 									<td width="30%">Custom role</td>
 									<td style="text-align:right;">
 										{if hasPermission("editPermissions")}
-											<a href="{$url}admin/aclmanager/editRole/{$role.id}" data-tip="Edit"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_edit.png" /></a>&nbsp;
+											<a href="{$url}admin/aclmanager/editRole/{$role.id}" data-tip="Edit"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_edit.png"></a>&nbsp;
 										{/if}
 
 										{if hasPermission("deletePermissions")}
-											<a href="javascript:void(0)" onClick="Roles.remove({$role.id}, this)" data-tip="Delete"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_minus.png" /></a>
+											<a href="javascript:void(0)" onClick="Roles.remove({$role.id}, this)" data-tip="Delete"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_minus.png"></a>
 										{/if}
 									</td>
 									<td style="text-align:right;font-size:12px;">
@@ -41,7 +41,7 @@
 							<div class="description">{$role.description}</div>
 							{foreach from=$role.permissions key=name item=value}
 								<div class="permission">
-									<div class="value"><img src="{$url}application/images/icons/{($value) ? 'accept' : 'exclamation'}.png" /></div>
+									<div class="value"><img src="{$url}application/images/icons/{($value) ? 'accept' : 'exclamation'}.png"></div>
 									{$name}
 								</div>
 							{/foreach}
@@ -67,7 +67,7 @@
 							<div class="description">{$role.description}</div>
 							{foreach from=$role.permissions key=name item=value}
 								<div class="permission">
-									<div class="value"><img src="{$url}application/images/icons/{($value) ? 'accept' : 'exclamation'}.png" /></div>
+									<div class="value"><img src="{$url}application/images/icons/{($value) ? 'accept' : 'exclamation'}.png"></div>
 									{$name}
 								</div>
 							{/foreach}
@@ -95,7 +95,6 @@
 				$(this).removeClass("expanded");
 			}
 	);
-
 </script>
 
 <!-- later...
@@ -105,12 +104,12 @@
 	<form onSubmit="Roles.create(this); return false" id="submit_form">
 
 		<label for="name">Role name</label>
-		<input type="text" name="name" id="name"/>
+		<input type="text" name="name" id="name">
 
 		<label for="description">Description (optional)</label>
-		<input type="text" name="description" id="description"/>
+		<input type="text" name="description" id="description">
 
-		<input type="submit" value="Submit role" />
+		<input type="submit" value="Submit role">
 	</form>
 </section>
 -->

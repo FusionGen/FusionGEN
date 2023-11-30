@@ -1,5 +1,5 @@
 {if $poll}
-	<script type="text/javascript">
+	<script>
 		var pollTotal = {$total};
 
 		var show_results = "{lang("show_results", "sidebox_poll")}";
@@ -90,7 +90,7 @@
 				{foreach from=$poll.answers item=answer}
 					<div class="poll_answer">
 						<label for="poll_option_{$answer.answerid}">
-							<input type="radio" name="poll_options" id="poll_option_{$answer.answerid}" {if $online}onChange="Poll.vote({$answer.questionid}, {$answer.answerid}, this)"{else}onClick="UI.alert('{lang("log_in", "sidebox_poll")}')"{/if}/>
+							<input type="radio" name="poll_options" id="poll_option_{$answer.answerid}" {if $online}onChange="Poll.vote({$answer.questionid}, {$answer.answerid}, this)"{else}onClick="UI.alert('{lang("log_in", "sidebox_poll")}')"{/if}>
 							{$answer.answer}
 					</label>
 					</div>

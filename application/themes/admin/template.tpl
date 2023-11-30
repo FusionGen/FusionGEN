@@ -3,14 +3,14 @@
 	<head>
 		<title>{if $title}{$title}{/if}{$serverName}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<link rel="shortcut icon" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="icon" type="image/png" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/animate/animate.compat.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css">
@@ -33,7 +33,7 @@
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/theme.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/skins/default.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/custom.css">
-		{if $extra_css}<link rel="stylesheet" href="{$url}application/{$extra_css}" type="text/css">{/if}
+		{if $extra_css}<link rel="stylesheet" href="{$url}application/{$extra_css}">{/if}
 
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -83,7 +83,7 @@
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader-1.0.1.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/custom.js"></script>
 
-		<script type="text/javascript">
+		<script>
 		function getCookie(c_name) {
 			var i, x, y, ARRcookies = document.cookie.split(";");
 
@@ -91,7 +91,7 @@
 				x = ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
 				y = ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
 				x = x.replace(/^\s+|\s+$/g,"");
-				
+
 				if(x == c_name) {
 					return unescape(y);
 				}
@@ -111,8 +111,8 @@
 	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/adminMenu.js"></script>
 	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/mli.js"></script>
 	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/login.js"></script>
-	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/require.js" type="text/javascript"></script>
-	<script type="text/javascript">
+	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/require.js"></script>
+	<script>
 		var scripts = [
 			"{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/jquery.placeholder.min.js",
 			"{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/jquery.transit.min.js",
@@ -136,8 +136,6 @@
 				$(".nano-pane").show();
 			});
 		});
-
-		
 	</script>
 	</head>
 
@@ -166,12 +164,12 @@
 					</ul>
 
 					<span class="separator"></span>
-					
+
 					<ul class="notifications" id="realmstatus">
 						<i class="fas fa-spinner fa-pulse"></i>
 					</ul>
-					
-					<script type="text/javascript">
+
+					<script>
 						var RealmStatus = {
 							statusField: $("#realmstatus"),
 
@@ -183,7 +181,7 @@
 								});
 							}
 						}
-					
+
 						RealmStatus.update();
 					</script>
 
@@ -251,7 +249,7 @@
 			<!-- end: header -->
 		</header>
 	<div class="inner-wrapper">
-		
+
 		<div class="modal fade" id="modalui" tabindex="-1" role="dialog" aria-labelledby="modaluititle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
@@ -263,7 +261,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- Modal -->
 		<div class="modal fade" id="confirm">
 			<div class="modal-dialog modal-dialog-centered">
@@ -359,7 +357,7 @@
 						</ul>
 					</nav>
 				</div>
-				
+
 				<script>
 					if (typeof localStorage !== 'undefined') {
 						if (localStorage.getItem('sidebar-left-position') !== null) {
@@ -370,7 +368,7 @@
 						}
 					}
 				</script>
-				
+
 				<div class="nano-pane" style="opacity: 1; visibility: visible;"><div class="nano-slider" style="height: 412px; transform: translate(0px, 0px);"></div></div>
 			</div>
 		</aside>
@@ -401,7 +399,7 @@
 								<li><i class="fa-brands fa-discord"></i><a href="https://discord.gg/5nSt9puU4V"> Discord</a></li>
 								<li><i class="fa-solid fa-book"></i><a href="https://docs.fusiongen.net/"> Docs</a></li>
 								<li><i class="fa-brands fa-github"></i><a href="https://github.com/FusionGen/FusionGEN"> Github</a></li>
-								<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Us', '#29abe0', 'M4M0BFX1Y');kofiwidget2.draw();</script> 
+								<script src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script>kofiwidget2.init('Support Us', '#29abe0', 'M4M0BFX1Y');kofiwidget2.draw();</script> 
 							</ul>
 						</nav>
 					</div>
@@ -426,7 +424,7 @@
 			})
 		};
 	</script>
-	<script type="text/javascript">
+	<script>
 	var Notify = {
 		notifyField: $("#content"),
 		countField: $("#count"),
@@ -445,7 +443,7 @@
 				Notify.count2Field.html(data);
 			});
 		},
-		
+
 		markRead: function(id, element)
 		{
 			element = $(element);
@@ -454,13 +452,13 @@
 			$("#count").html(parseInt($("#count").html()) - 1);
 			$("#count2").html(parseInt($("#count2").html()) - 1);
 		},
-		
+
 		markAllRead: function()
 		{
 			$.get(Config.URL + "admin/markReadNotification/" + false + "/" + true)
 		}
 	}
-	
+
 	Notify.update();
 	setInterval(Notify.update, 10000);
 	</script>

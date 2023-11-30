@@ -4,7 +4,7 @@
 		<div class="card-body {if !$realm->isOnline()}text-center{/if}">
 			{if $realm->isOnline()}
 				<p>{$realm->getOnline()} / {$realm->getCap()}</p>
-				
+
 				<div class="progress">
 					<div class="progress-bar" role="progressbar bg-success" style="width: {$realm->getPercentage()}%" aria-valuenow="{$realm->getPercentage()}" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>

@@ -17,16 +17,16 @@
 								{$failed_log.username}
 							</a>
 						</td>
-						
+
 						<td width="35%">
-							{if $failed_log.vp_cost}<img src="{$url}application/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;" /> <b>{$failed_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
-							{if $failed_log.dp_cost}<img src="{$url}application/images/icons/coins.png" align="absmiddle"  style="margin:0px;opacity:1;"/> <b>{$failed_log.dp_cost} DP</b>{/if}
+							{if $failed_log.vp_cost}<img src="{$url}application/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$failed_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
+							{if $failed_log.dp_cost}<img src="{$url}application/images/icons/coins.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$failed_log.dp_cost} DP</b>{/if}
 						</td>
 
 						<td>
 							<a data-bs-toggle="tooltip" data-placement="top" data-html="true" title="{foreach from=$failed_log.json item=item}{$item.itemName} to {$item.characterName}<br>{/foreach}">{count($failed_log.json)} items</a>
 						</td>
-						
+
 						{if hasPermission("canRefundOrders")}
 							<td style="text-align:right;">
 								<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Orders.refund({$failed_log.id}, this)">Refund</a>
@@ -45,7 +45,7 @@
 	</div>
 	<div class="card-body">
 	<form class="input-group mb-3" onSubmit="Orders.search('successful'); return false">
-		<input class="form-control" type="text" name="search_successful" id="search_successful" placeholder="Search by username" style="width:90%;margin-right:5px;"/>
+		<input class="form-control" type="text" name="search_successful" id="search_successful" placeholder="Search by username" style="width:90%;margin-right:5px;">
 
 		<button type="submit" class="btn btn-primary">Search</button>
 	</form>
@@ -62,14 +62,14 @@
 								{$completed_log.username}
 							</a>
 						</td>
-						
+
 						<td width="35%">
-							{if $completed_log.vp_cost}<img src="{$url}application/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;" /> <b>{$completed_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
-							{if $completed_log.dp_cost}<img src="{$url}application/images/icons/coins.png" align="absmiddle"  style="margin:0px;opacity:1;"/> <b>{$completed_log.dp_cost} DP</b>{/if}
+							{if $completed_log.vp_cost}<img src="{$url}application/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$completed_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
+							{if $completed_log.dp_cost}<img src="{$url}application/images/icons/coins.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$completed_log.dp_cost} DP</b>{/if}
 						</td>
 
 						<td>
-							<a data-toggle="tooltip" data-placement="top" data-html="true" title="{foreach from=$completed_log.json item=item}{$item.itemName} to {$item.characterName}<br />{/foreach}">{count($completed_log.json)} items</a>
+							<a data-toggle="tooltip" data-placement="top" data-html="true" title="{foreach from=$completed_log.json item=item}{$item.itemName} to {$item.characterName}<br>{/foreach}">{count($completed_log.json)} items</a>
 						</td>
 					</tbody>
 					</tr>

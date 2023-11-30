@@ -5,14 +5,14 @@
 			<div class="form-group row">
 				<div class="col-sm-6 mb-3">
 					<label class="col-form-label" for="title">Group name</label>
-					<input class="form-control" type="text" name="title" id="title" />
+					<input class="form-control" type="text" name="title" id="title">
 				</div>
 
 				<div class="col-sm-6 mb-3">
 					<label class="col-form-label" for="order" data-tip="Specify an order, it will be sorted ascending by group order">Group order</label>
 					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
 						<div class="input-group">
-							<input class="spinner-input form-control" type="text" name="order" id="order" />
+							<input class="spinner-input form-control" type="text" name="order" id="order">
 							<div class="spinner-buttons input-group-btn btn-group-vertical">
 								<button type="button" class="btn spinner-up btn-xs btn-default">
 									<i class="fas fa-angle-up"></i>

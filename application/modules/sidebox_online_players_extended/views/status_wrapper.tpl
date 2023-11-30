@@ -4,7 +4,7 @@
     </div>
 </section>
 
-<script type="text/javascript">
+<script>
     var Status = {
         statusField: $("#update_status"),
 

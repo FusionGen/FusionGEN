@@ -1,5 +1,5 @@
 {if $article.comments != -1}
-	<script type="text/javascript">
+	<script>
 		$(document).ready(function()
 		{
 			function checkIfLoaded()

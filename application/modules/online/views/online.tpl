@@ -27,7 +27,7 @@
                      <td><a data-tip="{lang("view_profile", "online")}" href="{$url}character/{$realm->getId()}/{$character.guid}">{$character.name}</a></td>
                      <td>{$character.level}</td>
                      <td><img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif"></td>
-                     <td><img src="{$url}application/images/stats/{$character.class}.gif" /></td>
+                     <td><img src="{$url}application/images/stats/{$character.class}.gif"></td>
                      <td>{$realmsObj->getZone($character.zone)}</td>
                   </tr>
                   {/foreach}

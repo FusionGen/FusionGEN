@@ -1,7 +1,7 @@
 <div class="card">
 	<div class="card-header"><a href='{$url}store/admin_items' data-bs-toggle="tooltip" data-placement="top" title="Return to items">Items</a> &rarr; New item</div>
 	<div class="card-body">
-	
+
 	<form>
 	<div class="form-group row mb-3">
 	<label class="col-sm-2 col-form-label" for="item_type">Item type</label>
@@ -130,7 +130,7 @@
 		<div class="col-sm-10">
 			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 				<div class="input-group">
-					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}"/>
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}">
 					<div class="spinner-buttons input-group-btn btn-group-vertical">
 						<button type="button" class="btn spinner-up btn-xs btn-default">
 							<i class="fas fa-angle-up"></i>
@@ -278,7 +278,7 @@
 		<div class="col-sm-10">
 			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 				<div class="input-group">
-					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}"/>
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}">
 					<div class="spinner-buttons input-group-btn btn-group-vertical">
 						<button type="button" class="btn spinner-up btn-xs btn-default">
 							<i class="fas fa-angle-up"></i>
@@ -371,7 +371,7 @@
 		<div class="col-sm-10">
 			<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 				<div class="input-group">
-					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}"/>
+					<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="{$item.dp_price}">
 					<div class="spinner-buttons input-group-btn btn-group-vertical">
 						<button type="button" class="btn spinner-up btn-xs btn-default">
 							<i class="fas fa-angle-up"></i>

@@ -86,7 +86,7 @@ $(document).ready(function() {
 	});
 } );
 </script>
-<script type="text/javascript">
+<script>
   $('.counter').countTo({
 	refreshInterval: 50,
   });

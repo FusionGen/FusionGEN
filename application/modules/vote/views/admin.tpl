@@ -17,7 +17,7 @@
 			<tbody>
 			{foreach from=$topsites item=vote_site}
 				<tr>
-					<td>{if $vote_site.vote_image}<img src="{$vote_site.vote_image}" style="opacity:1;" />{else}{$vote_site.vote_sitename}{/if}</td>
+					<td>{if $vote_site.vote_image}<img src="{$vote_site.vote_image}" style="opacity:1;">{else}{$vote_site.vote_sitename}{/if}</td>
 					<td class="align-middle">{$vote_site.points_per_vote} voting point{if $vote_site.points_per_vote > 1}s{/if}</td>
 					<td class="align-middle">{$vote_site.hour_interval} hours</td>
 					<td class="align-middle" style="text-align:center;">

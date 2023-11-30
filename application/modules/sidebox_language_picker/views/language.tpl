@@ -1,4 +1,4 @@
-<style type="text/css">
+<style>
 	#language_picker a {
 		display:block;
 		padding:8px;
@@ -14,7 +14,7 @@
 	}
 
 	#language_picker a:last-child { border-bottom:none; }
-	
+
 	#language_picker a:first-child { border-top:none; }
 
 	#language_picker a img {
@@ -31,7 +31,7 @@
 	}
 </style>
 
-<script type="text/javascript">
+<script>
 	function setLanguage(language, field)
 	{
 		$("#language_picker").fadeOut(250, function()

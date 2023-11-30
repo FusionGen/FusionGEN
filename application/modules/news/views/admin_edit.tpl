@@ -2,7 +2,7 @@
 	<div class="card-header">
 		Edit article <a class="btn btn-primary btn-sm pull-right" href="{$url}news/admin">Back</a>
 	</div>
-	
+
 	<div class="card-body">
 		<div class="row">
 			<div class="tabs">
@@ -44,7 +44,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_en">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_en" value="{$article.headline_en}"/>
+							<input class="form-control" id="headline_en" value="{$article.headline_en}">
 						</div>
 						</div>
 						</form>
@@ -62,7 +62,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_de">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_de" value="{$article.headline_de}"/>
+							<input class="form-control" id="headline_de" value="{$article.headline_de}">
 						</div>
 						</div>
 						</form>
@@ -80,7 +80,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_es">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_es" value="{$article.headline_es}"/>
+							<input class="form-control" id="headline_es" value="{$article.headline_es}">
 						</div>
 						</div>
 						</form>
@@ -98,7 +98,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_fr">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_fr" value="{$article.headline_fr}"/>
+							<input class="form-control" id="headline_fr" value="{$article.headline_fr}">
 						</div>
 						</div>
 						</form>
@@ -116,7 +116,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_no">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_no" value="{$article.headline_no}"/>
+							<input class="form-control" id="headline_no" value="{$article.headline_no}">
 						</div>
 						</div>
 						</form>
@@ -134,7 +134,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_ro">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_ro" value="{$article.headline_ro}"/>
+							<input class="form-control" id="headline_ro" value="{$article.headline_ro}">
 						</div>
 						</div>
 						</form>
@@ -152,7 +152,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_se">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_se" value="{$article.headline_se}"/>
+							<input class="form-control" id="headline_se" value="{$article.headline_se}">
 						</div>
 						</div>
 						</form>
@@ -170,7 +170,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_ru">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_ru" value="{$article.headline_ru}"/>
+							<input class="form-control" id="headline_ru" value="{$article.headline_ru}">
 						</div>
 						</div>
 						</form>
@@ -188,7 +188,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_zh">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_zh" value="{$article.headline_zh}"/>
+							<input class="form-control" id="headline_zh" value="{$article.headline_zh}">
 						</div>
 						</div>
 						</form>
@@ -206,7 +206,7 @@
 						<div class="form-group row mb-3">
 						<label class="col-sm-2 col-form-label" for="headline_ko">Headline</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="headline_ko" value="{$article.headline_ko}"/>
+							<input class="form-control" id="headline_ko" value="{$article.headline_ko}">
 						</div>
 						</div>
 						</form>
@@ -221,19 +221,19 @@
 				</div>
 			</div>
 		</div>
-					
+
 		<form role="form" onSubmit="News.send(this, {$article.id}); return false">
 			<div class="form-group row mb-3">
 				<label class="col-sm-2 col-form-label" for="headline">Article settings</label>
 				<div class="col-sm-10">
 					<div class="checkbox-custom checkbox-default">
-						<input type="checkbox" class="custom-control-input" id="comments" {if $article.comments != -1}checked="yes"{/if} value="1"/>
+						<input type="checkbox" class="custom-control-input" id="comments" {if $article.comments != -1}checked="yes"{/if} value="1">
 						<label for="comments" class="custom-control-label">Allow comments</label>
 					</div>
 				</div>
 			</div>
 		</form>
-		
+
 		<form role="form" onSubmit="News.send(this, {$article.id}); return false" enctype="multipart/form-data">
 		<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label">Thumbnail Type</label>
@@ -269,7 +269,7 @@
 
 					<!-- Model -->
 					<div data-type="image-model" class="col-4 ps-2 pe-2 pt-2" style="max-width:200px; display:none;">
-				
+
 					<div class="ratio-box text-center" data-type="image-ratio-box">
 						<img data-type="noimage" class="btn btn-dark ratio-img img-fluid p-2 image border dashed rounded" src="{$url}application/themes/admin/assets/vendor/imagesloader/img/photo-camera-gray.svg" style="cursor:pointer;">
 						<div data-type="loading" class="img-loading" style="color:#218838; display:none;">
@@ -317,7 +317,7 @@
 			</div>
 			<div id="image_preview"></div>
 		</div>
-		
+
 		<button type="submit" class="btn btn-primary btn-sm">Submit article</button>
 	</form>
 </div>
@@ -342,7 +342,7 @@
 
 	});
 </script>
-<script type="text/javascript">
+<script>
 	var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 	
     require([

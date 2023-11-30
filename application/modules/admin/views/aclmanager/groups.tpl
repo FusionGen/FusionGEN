@@ -49,21 +49,21 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="name">Group name</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" name="name" id="name"/>
+		<input class="form-control" type="text" name="name" id="name">
 		</div>
         </div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="description">Description (optional)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" name="description" id="description"/>
+		<input class="form-control" type="text" name="description" id="description">
 		</div>
         </div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="color">Group color (optional)</label>
 		<div class="col-sm-10">
-		<input type="color" name="color" id="color" value="#ffffff"/>
+		<input type="color" name="color" id="color" value="#ffffff">
 		</div>
         </div>
 
@@ -95,19 +95,19 @@
 									<td width="25%">
 										<span style="font-size:10px;padding:0px;display:inline;">{$link.side}&nbsp;&nbsp;</span>
 
-										<label for="MENU_{$link.id}" style="	display:inline;border:none;font-weight:bold;">{langColumn($link.name)}</label></td>
+										<label for="MENU_{$link.id}" style="display:inline;border:none;font-weight:bold;">{langColumn($link.name)}</label></td>
 									<td style="font-size:10px;">{$link.link}</td>
 								</tr>
 							{else}
-								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This menu link is set to 'Visible to everyone'-mode.<br />If you want to control the visibility per group, please<br /> go to 'Menu links' and change the visibility mode.">
+								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This menu link is set to 'Visible to everyone'-mode.<br>If you want to control the visibility per group, please<br> go to 'Menu links' and change the visibility mode.">
 									<td width="5%" style="text-align:center;"><input type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<span style="font-size:10px;padding:0px;display:inline;">{$link.side}&nbsp;&nbsp;</span>
 
-										<label style="	display:inline;border:none;font-weight:bold;">{langColumn($link.name)}</label></td>
+										<label style="display:inline;border:none;font-weight:bold;">{langColumn($link.name)}</label></td>
 									<td style="font-size:10px;">{$link.link}</td>
 								</tr>
-							{/if}		
+							{/if}
 						</table>
 					{/foreach}
 				</div>
@@ -126,13 +126,13 @@
 									<td style="font-size:10px;">pages/{$page.identifier}</td>
 								</tr>
 							{else}
-								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This page is set to 'Visible to everyone'-mode.<br />If you want to control the visibility per group, please<br /> go to 'Custom pages' and change the visibility mode.">
+								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This page is set to 'Visible to everyone'-mode.<br>If you want to control the visibility per group, please<br> go to 'Custom pages' and change the visibility mode.">
 									<td width="5%" style="text-align:center;"><input type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<label for="PAGE_{$page.id}" style="display:inline;border:none;font-weight:bold;">{langColumn($page.name)}</label></td>
 									<td style="font-size:10px;">pages/{$page.identifier}</td>
 								</tr>
-							{/if}		
+							{/if}
 						</table>
 					{/foreach}
 				</div>
@@ -151,13 +151,13 @@
 									<td style="font-size:10px;">{$sidebox.type}</td>
 								</tr>
 							{else}
-								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This sidebox is set to 'Visible to everyone'-mode.<br />If you want to control the visibility per group, please<br /> go to 'Sideboxes' and change the visibility mode.">
+								<tr style="opacity:0.6" data-toggle="tooltip" data-placement="bottom" title="This sidebox is set to 'Visible to everyone'-mode.<br>If you want to control the visibility per group, please<br> go to 'Sideboxes' and change the visibility mode.">
 									<td width="5%" style="text-align:center;"><input type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<label for="SIDEBOX_{$sidebox.id}" style="display:inline;border:none;font-weight:bold;">{langColumn($sidebox.displayName)}</label></td>
 									<td style="font-size:10px;">{$sidebox.type}</td>
 								</tr>
-							{/if}		
+							{/if}
 						</table>
 					{/foreach}
 				</div>
@@ -168,7 +168,7 @@
 			<a href="javascript:void(0)" onClick="$('#roles input[type=checkbox]').each(function(){ this.checked = true; });" style="float:right;display:block;">[Select all]</a>
 			Roles <a>(?)</a>
 		</label>
-		
+
 		<div id="roles">
 			{foreach from=$modules key=name item=module}
 				{if $module.db || $module.manifest}
@@ -184,7 +184,7 @@
 									</tr>
 								{/foreach}
 							{/if}
-							
+
 							{if $module.manifest}
 								{foreach from=$module.manifest key=roleName item=role}
 									<tr>

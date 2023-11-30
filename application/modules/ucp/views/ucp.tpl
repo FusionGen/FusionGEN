@@ -2,7 +2,7 @@
 	<div class="row">
 		{$link_active = "ucp"}
 		{include file="../../ucp/views/ucp_navigation.tpl"}
-		
+
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">{lang("account_overview", "ucp")}</div>
 			<div class="section-body">
@@ -23,9 +23,9 @@
 							<td>********</td>
 							<td class="text-end"><a href="{$url}ucp/settings">{lang("edit", "ucp")}</a></td>
 						</tr>
-						
+
 						<tr><td class="pb-3"></td></tr>
-						
+
 						<tr>
 							<td><div class="user-table-icon"><i class="fa-solid fa-user-lock"></i></div> {lang("account_status", "ucp")}</td>
 							<td colspan="2">{$status}</td>
@@ -38,17 +38,17 @@
 							<td><div class="user-table-icon"><i class="fa-solid fa-user-shield"></i></div> {lang("account_rank", "ucp")}</td>
 							<td colspan="2">{foreach from=$groups item=group} <span {if $group.color}style="color:{$group.color}"{/if}>{$group.name}</span> {/foreach}</td>
 						</tr>
-						
+
 						<tr><td class="pb-3"></td></tr>
-						
+
 						<tr>
 							<td><div class="user-table-icon"><i class="fa-solid fa-location-dot"></i></div> {lang("location", "ucp")}</td>
 							<td>{$location}</td>
 							<td class="text-end"><a href="{$url}ucp/settings">{lang("edit", "ucp")}</a></td>
 						</tr>
-						
+
 						<tr><td class="pb-3"></td></tr>
-						
+
 						<tr class="user-points">
 							<td><div class="vote-points user-table-icon"><i class="fa-solid fa-coins"></i></div> {lang("voting_points", "main")}</td>
 							<td>{$vp}</td>
@@ -62,7 +62,7 @@
 					</tbody>
 				</table>
 			</div>
-			
+
 			{if $characters > 0}
 				<div class="section-header">{lang("account_characters", "ucp")}</div>
 				<div class="section-body">
@@ -97,7 +97,7 @@
 												{/if}
 											</td>
 
-											<td class="col-5">Lv{$character.level}</td>
+											<td class="col-5">Lvl {$character.level}</td>
 											<td class="col-6"><a href="{$url}character/{$realm->getId()}/{$character.name}">View</a></td>
 										</tr>
 									{/foreach}

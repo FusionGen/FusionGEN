@@ -65,8 +65,8 @@
                 	<td>{$team.rating} Rating</td>
                     <td>{if $team.members}
                         {foreach from=$team.members key=key item=member}
-                            <a href="{$url}character/{$selected_realm}/{$member.guid}" data-tip="<font style='font-weight: bold;'>{$member.name}</font><br />Games played: {$member.games}<br />Games won: {$member.wins}<br />Personal Rating: {$member.rating}" id="team-member">
-                                <img src='{$url}application/images/stats/{$member.class}.gif' align='absbottom'/>
+                            <a href="{$url}character/{$selected_realm}/{$member.guid}" data-tip="<font style='font-weight: bold;'>{$member.name}</font><br>Games played: {$member.games}<br>Games won: {$member.wins}<br>Personal Rating: {$member.rating}" id="team-member">
+                                <img src='{$url}application/images/stats/{$member.class}.gif' align='absbottom'>
                             </a>
                         {/foreach}
                     {/if}</td>
@@ -121,7 +121,7 @@
                 	<td>{$team.rating} Rating</td>
                     <td>{if $team.members}
                         {foreach from=$team.members key=key item=member}
-                            <a href="{$url}character/{$selected_realm}/{$member.guid}" data-tip="<font style='font-weight: bold;'>{$member.name}</font><br />Games played: {$member.games}<br />Games won: {$member.wins}<br />Personal Rating: {$member.rating}" id="team-member">
+                            <a href="{$url}character/{$selected_realm}/{$member.guid}" data-tip="<font style='font-weight: bold;'>{$member.name}</font><br>Games played: {$member.games}<br>Games won: {$member.wins}<br>Personal Rating: {$member.rating}" id="team-member">
                                 <img src='{$url}application/images/stats/{$member.class}.gif' align='absbottom'>
                             </a>
                         {/foreach}

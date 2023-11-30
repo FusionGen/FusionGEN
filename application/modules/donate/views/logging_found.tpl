@@ -5,7 +5,6 @@
 			<td width="15%">
 				<a href="{$url}admin/accounts/get/{$paypal_log.user_id}" target="_blank">
 					{$CI->user->getUsername($paypal_log.user_id)}
-                    
 				</a>
 			</td>
 			<td width="15%">{$paypal_log.total} {$paypal_log.currency}</td>

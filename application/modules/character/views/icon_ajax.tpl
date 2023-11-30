@@ -7,7 +7,7 @@
 	</div>
 </span>
 
-<script type="text/javascript">
+<script>
 	function Interval{$id}()
 	{
 		if(typeof Character != "undefined")
