@@ -8,7 +8,7 @@
 		<textarea class="form-control" id="text" name="text" rows="4">{$changelog.changelog}</textarea>
 	</div>
 	</div>
-	<input class="btn btn-primary btn-sm" type="submit" value="Save change" />
+	<input class="btn btn-primary btn-sm" type="submit" value="Save change">
 	</form>
 	</div>
 </div>

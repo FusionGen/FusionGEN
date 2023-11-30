@@ -227,13 +227,13 @@
 	<label class="col-sm-2 col-form-label" for="headline">Article settings</label>
 	<div class="col-sm-10">
 	<div class="checkbox-custom checkbox-default">
-		<input type="checkbox" class="custom-control-input" id="comments" checked="yes" value="1"/>
+		<input type="checkbox" class="custom-control-input" id="comments" checked="yes" value="1">
 		<label for="comments" class="custom-control-label">Allow comments</label>
 	</div>
 	</div>
 	</div>
 	</form>
-	
+
 	<form role="form" onSubmit="News.send(this); return false" enctype="multipart/form-data">
 	<div class="form-group row mb-3">
 	<label class="col-sm-2 col-form-label">Thumbnail Type</label>
@@ -245,7 +245,7 @@
 	</select>
 	</div>
 	</div>
-	
+
 	<div id="video" style="display:none;">
 	<div class="form-group row mb-3">
 	<label class="col-sm-2 col-form-label" for="type_video">Video url</label>
@@ -254,7 +254,7 @@
 	</div>
 	</div>
 	</div>
-	
+
 	<div id="image" style="display:none;">
 	<div class="form-group row mb-3">
 	<label class="col-sm-2 col-form-label" for="type_image">Thumbnail(s)</label>
@@ -314,7 +314,7 @@
 	</div>
 
   </div>
-	
+
 		<!--Hidden file input for images-->
           <input id="files" type="file" name="files[]" data-button="" multiple="" accept="image/jpeg, image/png, image/gif," style="display:none;">
 	</div>
@@ -343,9 +343,9 @@
 
 	});
 </script>
-<script type="text/javascript">
+<script>
 	var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-	
+
     require([
 		"{$url}application/js/tiny_mce/tinymce.min.js"
 	], function () {
@@ -364,6 +364,6 @@
 			toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment',
 			image_advtab: true
 		});
-		
+
     });
 </script>

@@ -26,7 +26,7 @@
 								</select>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<label class="col-sm-4 col-form-label" for="backups_interval">Interval</label>
 							<div class="col-sm-4">
@@ -71,7 +71,7 @@
 								</div>
 							</div>
 						</div>
-	
+
 						{if hasPermission("editBackupSettings", "admin")}<input class="btn btn-primary btn-sm" type="submit" value="Save">{/if}
 						{if hasPermission("generateBackup", "admin")}<a href="javascript:void(0)" onClick="Backups.generate(this);" class="btn btn-primary btn-sm pull-right">Generate Backup</a>{/if}
 					</form>

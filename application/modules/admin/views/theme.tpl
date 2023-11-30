@@ -1,6 +1,6 @@
 {foreach from=$themes item=manifest key=id}
 	{if $manifest.folderName == $current_theme}
-		<script type="text/javascript">
+		<script>
 			
 			function checkForTheme()
 			{
@@ -22,7 +22,7 @@
 <div class="owl-carousel owl-theme" id="theme_list">
 		{foreach from=$themes item=manifest key=id}
 		<div id="item theme_overflow">
-			<img class="img-thumbnail" src="{$url}application/themes/{$manifest.folderName}/{$manifest.screenshot}" onClick="Theme.select('{strtolower($manifest.folderName)}')"/>
+			<img class="img-thumbnail" src="{$url}application/themes/{$manifest.folderName}/{$manifest.screenshot}" onClick="Theme.select('{strtolower($manifest.folderName)}')">
 		</div>
 		{/foreach}
 </div>
@@ -41,7 +41,7 @@
 					{foreach from=$themes item=manifest key=id}
 						<tr class="border-top active" onClick="Theme.scroll({$id});" id="theme_{$id}">
 							<td class="font-weight-bold border-0 align-middle text-light">
-								<img src="{$url}application/themes/{strtolower($manifest.folderName)}/images/{$manifest.favicon}" />
+								<img src="{$url}application/themes/{strtolower($manifest.folderName)}/images/{$manifest.favicon}">
 								{ucfirst($manifest.name)}
 							</td>
 							<td class="font-weight-bold border-0 align-middle text-light"><a target="_blank" href="{$manifest.website}">{$manifest.author}</a></td>
@@ -63,7 +63,7 @@
 	</div>
 </div>
 
-<script type="text/javascript">
+<script>
 	$('.owl-carousel').owlCarousel({
 		"dots": true,
 		"autoplay": true,
@@ -83,5 +83,4 @@
 			}
 		} 
 	})
-
 </script>

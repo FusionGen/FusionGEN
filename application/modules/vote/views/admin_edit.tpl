@@ -6,25 +6,25 @@
 	<div class="form-group row">
 		<label class="col-lg-3 col-form-label form-control-label" for="vote_url">Your vote link</label>
 		<div class="col-lg-9">
-		<input class="form-control" type="url" name="vote_url" id="vote_url" placeholder="http://" onChange="Topsites.check(this)" value="{$topsite.vote_url}" {if isset($topsite.votelink_format)}data-format="{$topsite.votelink_format}"{/if} />
+		<input class="form-control" type="url" name="vote_url" id="vote_url" placeholder="http://" onChange="Topsites.check(this)" value="{$topsite.vote_url}" {if isset($topsite.votelink_format)}data-format="{$topsite.votelink_format}"{/if}>
 		</div>
 	</div>
 
 	<div class="form-group row">
 		<label class="col-lg-3 col-form-label form-control-label" for="vote_sitename">Site title</label>
 		<div class="col-lg-9">
-		<input class="form-control" type="text" name="vote_sitename" id="vote_sitename" value="{$topsite.vote_sitename}"/>
+		<input class="form-control" type="text" name="vote_sitename" id="vote_sitename" value="{$topsite.vote_sitename}">
 		</div>
 	</div>
 
 	<div class="form-group row">
 		<label class="col-lg-3 col-form-label form-control-label" for="vote_image">Vote site image (will be auto-completed if URL is recognized)</label>
 		<div class="col-lg-9">
-		<input class="form-control" type="text" name="vote_image" id="vote_image" placeholder="(optional)" value="{$topsite.vote_image}" onChange="Topsites.updateImagePreview(this.value)"/>
+		<input class="form-control" type="text" name="vote_image" id="vote_image" placeholder="(optional)" value="{$topsite.vote_image}" onChange="Topsites.updateImagePreview(this.value)">
 
 		<div id="vote_image_preview" {if ! $topsite.vote_image}style="display:none"{/if}>
-			<small>Preview:</small><br/>
-			<img src="{$topsite.vote_image}" alt="Loading..."/>
+			<small>Preview:</small><br>
+			<img src="{$topsite.vote_image}" alt="Loading...">
 		</div>
 		</div>
 	</div>
@@ -34,7 +34,7 @@
 	<div class="col-lg-9">
 	<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
 		<div class="input-group">
-			<input class="spinner-input form-control" type="text" name="hour_interval" id="hour_interval" value="{$topsite.hour_interval}"/>
+			<input class="spinner-input form-control" type="text" name="hour_interval" id="hour_interval" value="{$topsite.hour_interval}">
 			<div class="spinner-buttons input-group-btn btn-group-vertical">
 				<button type="button" class="btn spinner-up btn-xs btn-default">
 					<i class="fas fa-angle-up"></i>
@@ -53,7 +53,7 @@
 	<div class="col-lg-9">
 	<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
 		<div class="input-group">
-			<input class="spinner-input form-control" type="text" name="points_per_vote" id="points_per_vote" value="{$topsite.points_per_vote}"/>
+			<input class="spinner-input form-control" type="text" name="points_per_vote" id="points_per_vote" value="{$topsite.points_per_vote}">
 			<div class="spinner-buttons input-group-btn btn-group-vertical">
 				<button type="button" class="btn spinner-up btn-xs btn-default">
 					<i class="fas fa-angle-up"></i>
@@ -78,7 +78,7 @@
 					<option value="0"{if ! $topsite.callback_enabled} selected{/if}>No</option>
 					<option value="1"{if $topsite.callback_enabled} selected{/if}>Yes</option>
 				</select>
-				
+
 				<div class="dropdown help">
 					<h3>
 						How to configure vote verification for 

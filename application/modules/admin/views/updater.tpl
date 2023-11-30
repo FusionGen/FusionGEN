@@ -8,7 +8,7 @@
 				<a class="nav-link" data-bs-target="#system" href="#system" data-bs-toggle="tab">System info</a>
 			</li>
 		</ul>
-	
+
 		<div class="tab-content">
 			<div class="tab-pane active" id="general">
 				<div class="row">
@@ -22,7 +22,7 @@
 					</div>
 					<div class="col-sm-9 align-self-center">
 						<h4 class="h4 fw-bold">FusionGen Update System</h4>
-						
+
 						<p>
 							<span class="fw-bold text-primary"><i class="fa-solid fa-triangle-exclamation"></i> Warning:</span>
 							<ul>
@@ -44,7 +44,7 @@
 										{count($update.versions)}
 										update{if count($update.versions) > 1}s{/if} is available:
 									</h5>
-									
+
 									<ul>
 									{foreach from=$update.versions item=version key=key}
 										<li>{$version}</li>
@@ -67,35 +67,35 @@
 						{$php_version}
 					</div>
 				</div>
-				
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">CodeIgniter Version</label>
 					<div class="col-sm-9 align-self-center">
 						{$ci_version}
 					</div>
 				</div>
-				
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">CMS Version</label>
 					<div class="col-sm-9 align-self-center">
 						{$version}
 					</div>
 				</div>
-	
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">System hostname</label>
 					<div class="col-sm-9 align-self-center">
 						{$system_hostname}
 					</div>
 				</div>
-	
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">Server Software</label>
 					<div class="col-sm-9 align-self-center align-self-center">
 						{$server_software}
 					</div>
 				</div>
-	
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">allow_url_fopen</label>
 					<div class="col-sm-9 align-self-center align-self-center">
@@ -106,7 +106,7 @@
 						{/if}
 					</div>
 				</div>
-	
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">allow_url_include</label>
 					<div class="col-sm-9 align-self-center align-self-center">
@@ -117,7 +117,7 @@
 						{/if}
 					</div>
 				</div>
-	
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">Apache Modules</label>
 					<div class="col-sm-9 align-self-center">
@@ -128,7 +128,7 @@
 						{/if}
 					</div>
 				</div>
-	
+
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="name">PHP Extensions</label>
 					<div class="col-sm-9 align-self-center mt-1">

@@ -1,7 +1,7 @@
 {if $characters > 0}
 	<div class="section-header">Profile <span>Characters</span></div>
 	<div class="section-body">
-	
+
 		{foreach from=$realms item=realm}
 			{if $realm->getCharacterCount($id) > 0}
             <div class="table-responsive text-nowrap">
@@ -38,7 +38,7 @@
 									<td class="col-5">{$character.name}</td>
 								{/if}
 
-								<td>Lv{$character.level}</td>
+								<td>Lvl {$character.level}</td>
 								<td class="col-6"><a href="{$url}character/{$realm->getId()}/{$character.name}">View</a></td>
 							</tr>
 						{/foreach}

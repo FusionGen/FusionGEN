@@ -4,7 +4,7 @@
 	<div class="card-body">
 		<div class="widget-profile-info">
 			<div class="profile-picture">
-				<img class="avatar" src="{$url}application/images/avatars/{$avatar}.gif"/>
+				<img class="avatar" src="{$url}application/images/avatars/{$avatar}.gif">
 			</div>
 			<div class="profile-info">
 				<h4 class="name font-weight-semibold"><a href="{$url}character/{$realmId}/{$tickets.guid}" target="_blank">{$tickets.name}</a></h4>
@@ -33,7 +33,7 @@
 		<a href="{$url}profile/{$account}" target="_blank">{$CI->user->getUsername({$account})}</a>
 	</div>
 	</div>
-	
+
 	<div class="form-group row">
 	<label class="col-lg-3 col-form-label form-control-label" for="side">Name</label>
 	<div class="col-lg-9 align-self-center">
@@ -47,14 +47,14 @@
 		{date("Y/m/d H:i:s", $tickets.createTime)}
 	</div>
 	</div>
-	
+
 	<div class="form-group row mb-3">
 	<label class="col-lg-3 col-form-label form-control-label" for="side">Message</label>
 	<div class="col-lg-9 align-self-center">
 		{$tickets.message}
 	</div>
 	</div>
-	
+
 	<a href="javascript:void(0)" onClick="Mod.close({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/images/icons/accept.png" align="absmiddle"> Close</a>
 
 	<a href="javascript:void(0)" onClick="Mod.answer({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/images/icons/email.png" align="absmiddle"> Answer</a>

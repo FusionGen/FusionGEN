@@ -9,14 +9,14 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="headline" id="languages">Headline</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="headline" />
+		<input class="form-control" type="text" id="headline">
 		</div>
 		</div>
-			
+
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="identifier">Unique link identifier (as in mywebsite.com/page/<b>mypage</b>)</label>
 		<div class="col-sm-10">
-		<input class="form-control" type="text" id="identifier" placeholder="mypage" />
+		<input class="form-control" type="text" id="identifier" placeholder="mypage">
 		</div>
 		</div>
 

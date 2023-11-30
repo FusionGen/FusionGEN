@@ -9,7 +9,7 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="displayName">Headline</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="displayName" id="displayName" />
+			<input class="form-control" type="text" name="displayName" id="displayName">
 		</div>
 		</div>
 

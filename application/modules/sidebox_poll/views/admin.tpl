@@ -17,7 +17,7 @@
 						</tr>
 					</tbody>
 					</table>
-			
+
 					<div class="card-body">
 					<table class="table table-responsive-md table-hover">
 					<tbody style="border-top:none;">
@@ -51,12 +51,12 @@
 	<form onSubmit="Poll.create(this); return false" id="submit_form">
 
 		<label class="col-sm-2 col-form-label" for="question">Question</label>
-		<input class="form-control" type="text" name="question" id="question"/>
+		<input class="form-control" type="text" name="question" id="question">
 
 		<label class="col-sm-2 col-form-label">Answers (<a href="javascript:void(0)" onClick="Poll.addAnswer()">add more</a>)</label>
 		<div id="answer_fields">
-			<input class="form-control" type="text" name="answer_1" id="answer_1" placeholder="Answer 1"/>
-			<input class="form-control" type="text" name="answer_2" id="answer_2" placeholder="Answer 2"/>
+			<input class="form-control" type="text" name="answer_1" id="answer_1" placeholder="Answer 1">
+			<input class="form-control" type="text" name="answer_2" id="answer_2" placeholder="Answer 2">
 		</div>
 
 		<button type="submit" class="btn btn-primary btn-sm">Submit poll</button>

@@ -12,7 +12,7 @@
                 <span>Offline</span>
             {/if}
         </div>
-		
+
 		{if $realm->isOnline()}
 		<div class="card-body">
         <div class="realm-bar-wrapper">

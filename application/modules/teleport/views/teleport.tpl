@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 	$(document).ready(function()
 	{
 		function initializeTeleport()
@@ -19,10 +19,10 @@
 
 <div class="container">
 	<div class="row">
-		
+
 		{$link_active = "teleport"}
 		{include file="../../ucp/views/ucp_navigation.tpl"}
-		
+
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">Teleport <span>Hub</span></div>
 			<div class="section-body">
@@ -40,9 +40,9 @@
 										{if $realm.characters}
 											{foreach from=$realm.characters item=character}
 												<tr class="character-select">
-													<td style="width:40px;"><img width="36" height="36" src="{$url}application/images/avatars/{$character.avatar}.gif" data-tip="<img src='{$url}application/images/stats/{$character.class}.gif' align='absbottom'/> {$character.name} (Lv{$character.level})"></td>
+													<td style="width:40px;"><img width="36" height="36" src="{$url}application/images/avatars/{$character.avatar}.gif" data-tip="<img src='{$url}application/images/stats/{$character.class}.gif' align='absbottom'> {$character.name} (Lvl {$character.level})"></td>
 													<td>
-														<div class="d-block" data-tip="<img src='{$url}application/images/stats/{$character.class}.gif' align='absbottom'/> {$character.name} (Lv{$character.level})">{$character.name}</div>
+														<div class="d-block" data-tip="<img src='{$url}application/images/stats/{$character.class}.gif' align='absbottom'> {$character.name} (Lvl {$character.level})">{$character.name}</div>
 														<div class="user-points d-block">
 															<span class="gold-points">
 																<i class="fa-solid fa-coins"></i>

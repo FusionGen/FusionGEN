@@ -372,7 +372,7 @@
 }).apply(this, [jQuery]);
 </script>
 
-<script type="text/javascript">
+<script>
     var checkSoap = {
         check: function() {
             $.get(Config.URL + "admin/checkSoap", function(data) {        

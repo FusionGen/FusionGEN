@@ -36,7 +36,7 @@
 			<tbody id="ItemTableResult">
 			{foreach from=$items item=item}
 				<tr>
-					<td><img style="opacity:1;" src="https://icons.wowdb.com/retail/small/{$item.icon}.jpg" /></td>
+					<td><img style="opacity:1;" src="https://icons.wowdb.com/retail/small/{$item.icon}.jpg"></td>
 					<td data-bs-toggle="tooltip" data-placement="top" data-html="true" title="{$item.name}"><b class="q{$item.quality}">{character_limiter($item.name, 30)}</b></td>
 					<td data-bs-toggle="tooltip" data-placement="top" data-html="true" title="{$item.description}">{character_limiter($item.description, 20)}</td>
 					<td>{if array_key_exists("title", $item) && $item.title}{$item.title}{/if}</td>
@@ -53,7 +53,7 @@
 						{if hasPermission("canEditItems")}
 							<a class="btn btn-primary btn-sm" href="{$url}store/admin_items/edit/{$item.id}">Edit</a>
 						{/if}
-			
+
 						{if hasPermission("canRemoveItems")}
 							<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Items.remove({$item.id}, this)">Delete</a>
 						{/if}
@@ -87,7 +87,7 @@
 						{if hasPermission("canEditGroups")}
 							<a class="btn btn-primary btn-sm" href="{$url}store/admin_items/edit_group/{$group.id}">Edit</a>
 						{/if}
-			
+
 						{if hasPermission("canRemoveGroups")}
 							<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Items.removeGroup({$group.id}, this, true)">Delete</a>
 						{/if}

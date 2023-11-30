@@ -23,7 +23,7 @@
 								{if hasPermission("canEdit")}
 								<a href="{$url}page/admin/edit/{$page.id}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>&nbsp;
 								{/if}
-	
+
 								{if hasPermission("canRemove")}
 									<a href="javascript:void(0)" onClick="Pages.remove({$page.id}, this)"><button type="button" class="btn btn-primary btn-sm">Remove</button></a>
 								{/if}

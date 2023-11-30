@@ -6,7 +6,7 @@
 			<div class="user-avatar">
 				<img src="{$avatar}" alt="avatar" class="rounded-circle">
 				<div class="blend"></div>
-			</div>			
+			</div>
 		</div>
 
 		<div class="section-header">{lang("profile_nav", "profile")}</div>
@@ -35,9 +35,9 @@
 							<td><div class="user-table-icon"><i class="fas fa-user"></i></div> {lang("nickname", "profile")}</td>
 							<td>{$username}</td>
 						</tr>
-						
+
 						<tr><td class="pb-3"></td></tr>
-						
+
 						<tr>
 							<td><div class="user-table-icon"><i class="fa-solid fa-user-lock"></i></div> {lang("account_status", "profile")}</td>
 							<td colspan="2">{$status}</td>
@@ -50,16 +50,16 @@
 							<td><div class="user-table-icon"><i class="fa-solid fa-user-shield"></i></div> {lang("account_rank", "profile")}</td>
 							<td colspan="2">{foreach from=$groups item=group} <span {if $group.color}style="color:{$group.color}"{/if}>{$group.name}</span> {/foreach}</td>
 						</tr>
-						
+
 						<tr><td class="pb-3"></td></tr>
-						
+
 						<tr>
 							<td><div class="user-table-icon"><i class="fa-solid fa-location-dot"></i></div> {lang("location", "profile")}</td>
 							<td>{$location}</td>
 						</tr>
 
 						<tr><td class="pb-3"></td></tr>
-						
+
 						<!--<tr>
 							<td><div class="user-table-icon"><i class="fa-solid fa-pen-to-square"></i></div> {lang("forum_posts", "profile")}</td>
 							<td>0</td>
@@ -83,17 +83,17 @@
 									<a href="javascript:void(0);" class="card-title d-block h4 text-truncate">Forum Ipsum {$i}</a>
 									<h6 class="card-subtitle mb-4">
 										<div class="d-flex">
-										
+
 											<div class="user me-3">
 												<i class="fas fa-user"></i>
 												<a href="{$url}profile/1">Admin</a>
 											</div>
-										
+
 											<div class="time me-3">
 												<i class="fas fa-clock"></i>
 												<a href="javascript:void(0);">DateTIme</a>
 											</div>
-									
+
 											<div class="tags me-3">
 												<i class="fa-solid fa-tag"></i>
 												<a href="{$url}/tags">Tag</a>

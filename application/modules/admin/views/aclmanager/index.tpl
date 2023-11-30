@@ -2,7 +2,7 @@
 	<div class="card-header">
 		What do you want to manage?
 	</div>
-	
+
 	<div class="card-body">
 		<div class="row">
 			<div class="col-lg-6 col-xl-6">

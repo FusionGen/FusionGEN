@@ -78,7 +78,7 @@
 
 {/strip}
 
-<script type="text/javascript">
+<script>
 	$('.news-carousel').owlCarousel({
 		'items': 1,
 		"dots": true,

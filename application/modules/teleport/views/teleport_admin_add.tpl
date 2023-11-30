@@ -7,14 +7,14 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="name">Location name</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="name" id="name"/>
+			<input class="form-control" type="text" name="name" id="name">
 		</div>
 		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="description">Description</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="description" id="description"/>
+			<input class="form-control" type="text" name="description" id="description">
 		</div>
 		</div>
 
@@ -47,7 +47,7 @@
 		<div class="col-sm-10">
 		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 			<div class="input-group">
-				<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="0"/>
+				<input class="spinner-input form-control" type="text" name="vpCost" id="vpCost" value="0">
 				<div class="spinner-buttons input-group-btn btn-group-vertical">
 					<button type="button" class="btn spinner-up btn-xs btn-default">
 						<i class="fas fa-angle-up"></i>
@@ -68,7 +68,7 @@
 		<div class="col-sm-10">
 		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 			<div class="input-group">
-				<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="0"/>
+				<input class="spinner-input form-control" type="text" name="dpCost" id="dpCost" value="0">
 				<div class="spinner-buttons input-group-btn btn-group-vertical">
 					<button type="button" class="btn spinner-up btn-xs btn-default">
 						<i class="fas fa-angle-up"></i>
@@ -89,7 +89,7 @@
 		<div class="col-sm-10">
 		<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 			<div class="input-group">
-				<input class="spinner-input form-control" type="text" name="goldCost" id="goldCost" value="0"/>
+				<input class="spinner-input form-control" type="text" name="goldCost" id="goldCost" value="0">
 				<div class="spinner-buttons input-group-btn btn-group-vertical">
 					<button type="button" class="btn spinner-up btn-xs btn-default">
 						<i class="fas fa-angle-up"></i>
@@ -103,39 +103,39 @@
 		</div>
 		</div>
 		</div>
-		
+
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="x">X coordinate</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="x" id="x"/>
+			<input class="form-control" type="text" name="x" id="x">
 		</div>
 		</div>
-		
+
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="y">Y coordinate</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="y" id="y"/>
+			<input class="form-control" type="text" name="y" id="y">
 		</div>
 		</div>
-		
+
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="z">Z coordinate</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="z" id="z"/>
+			<input class="form-control" type="text" name="z" id="z">
 		</div>
 		</div>
 		
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="orientation">Orientation</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="orientation" id="orientation"/>
+			<input class="form-control" type="text" name="orientation" id="orientation">
 		</div>
 		</div>
 
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="mapId">Map ID</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="mapId" id="mapId"/>
+			<input class="form-control" type="text" name="mapId" id="mapId">
 		</div>
 		</div>
 

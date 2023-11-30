@@ -23,12 +23,12 @@
 					<td>{$teleport_location.realmName}</td>
 					<td>
 						{if $teleport_location.vpCost}
-							<img src="{$url}application/images/icons/lightning.png" style="opacity:1;" /> {$teleport_location.vpCost} VP
+							<img src="{$url}application/images/icons/lightning.png" style="opacity:1;"> {$teleport_location.vpCost} VP
 						{elseif $teleport_location.dpCost}
-							<img src="{$url}application/images/icons/coins.png" style="opacity:1;"/>
+							<img src="{$url}application/images/icons/coins.png" style="opacity:1;">
 							{$teleport_location.dpCost} DP
 						{elseif $teleport_location.goldCost}
-						<img src="{$url}application/images/icons/coins.png" style="opacity:1;"/>
+						<img src="{$url}application/images/icons/coins.png" style="opacity:1;">
 							{$teleport_location.goldCost} Gold
 						{else}
 							Free

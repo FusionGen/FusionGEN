@@ -3,23 +3,23 @@
 	<head>
 		<title>{if $title}{$title}{/if}{$serverName}</title>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="shortcut icon" href="{$url}application/themes/admin/assets/images/fusiongen.png">
+		<link rel="icon" type="image/png" href="{$url}application/themes/admin/assets/images/fusiongen.png">
 
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/animate/animate.compat.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/owl.carousel/assets/owl.carousel.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/owl.carousel/assets/owl.theme.default.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.theme.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/morris/morris.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/owl.carousel/assets/owl.carousel.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/owl.carousel/assets/owl.theme.default.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.theme.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/morris/morris.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2-dark.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/select2/css/select2.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css">
@@ -27,12 +27,12 @@
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/datatables/media/css/dataTables.bootstrap5.min.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/codemirror/lib/codemirror.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/codemirror/theme/ayu-mirage.css">
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/theme.css" />
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/skins/default.css" />
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/theme.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/skins/default.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/custom.css">
-		{if $extra_css}<link rel="stylesheet" href="{$url}application/{$extra_css}" type="text/css" />{/if}
+		{if $extra_css}<link rel="stylesheet" href="{$url}application/{$extra_css}">{/if}
 
-		<script type="text/javascript" src="{$url}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
+		<script src="{$url}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/modernizr/modernizr.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
@@ -77,11 +77,11 @@
 		<script src="{$url}application/themes/admin/assets/js/theme.js"></script>
 		<script src="{$url}application/themes/admin/assets/js/theme.init.js"></script>
 		<script src="{$url}application/themes/admin/assets/js/theme.admin.extension.js"></script>
-		
-		<link href="{$url}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader.css">
 		<script src="{$url}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader-1.0.1.js"></script>
 
-		<script type="text/javascript">
+		<script>
 		function getCookie(c_name) {
 			var i, x, y, ARRcookies = document.cookie.split(";");
 
@@ -105,10 +105,10 @@
 		};
 	</script>
 
-	<script src="{$url}application/themes/admin/assets/js/router.js" type="text/javascript"></script>
-	<script src="{$url}application/themes/admin/assets/js/adminMenu.js" type="text/javascript"></script>
-	<script src="{$url}application/js/require.js" type="text/javascript"></script>
-	<script type="text/javascript">
+	<script src="{$url}application/themes/admin/assets/js/router.js"></script>
+	<script src="{$url}application/themes/admin/assets/js/adminMenu.js"></script>
+	<script src="{$url}application/js/require.js"></script>
+	<script>
 		var scripts = [
 			"{$url}application/js/jquery.placeholder.min.js",
 			"{$url}application/js/jquery.transit.min.js",
@@ -279,7 +279,7 @@
 							<i class="fa-solid fa-{$group.icon}" aria-hidden="true"></i>
 							<span>{$text}</span>
 							</a>
-						
+
 						<ul class="nav nav-children admin_section" nr="{$group.nr}" style="display:{if isset($group.active)}block{/if};">
 							{foreach from=$group.links item=link}
 								<li {if isset($link.active)}class="nav-active"{/if}>
@@ -293,18 +293,18 @@
 						</ul>
 					</nav>
 				</div>
-				
+
 				<script>
 					if (typeof localStorage !== 'undefined') {
 						if (localStorage.getItem('sidebar-left-position') !== null) {
 							var initialPosition = localStorage.getItem('sidebar-left-position'),
 								sidebarLeft = document.querySelector('#sidebar-left .nano-content');
-				
+
 							sidebarLeft.scrollTop = initialPosition;
 						}
 					}
 				</script>
-				
+
 				<div class="nano-pane" style="opacity: 1; visibility: visible;"><div class="nano-slider" style="height: 412px; transform: translate(0px, 0px);"></div></div>
 			</div>
 		</aside>

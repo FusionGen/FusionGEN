@@ -33,15 +33,15 @@
 					{if is_array($option) && ctype_digit(implode('', array_keys($option)))}
 						<label class="col-sm-2 col-form-label" for="{$label}">{ucfirst(preg_replace("/_/", " ", $label))}</label>
 						<div class="col-sm-10">
-							<input class="form-control" type="text" value="{foreach from=$option item=value}{$value},{/foreach}" id="{$label}" name="{$label}" />
+							<input class="form-control" type="text" value="{foreach from=$option item=value}{$value},{/foreach}" id="{$label}" name="{$label}">
 						</div>
-					{elseif is_array($option)}	
+					{elseif is_array($option)}
 						<label class="col-sm-2 col-form-label" for="{$label}"><b>{ucfirst(preg_replace("/_/", " ", $label))}</b></label>
-						{foreach from=$option item=sub_option key=sub_label}		
+						{foreach from=$option item=sub_option key=sub_label}
 							{if is_array($sub_option) && ctype_digit(implode('', array_keys($sub_option)))}
 								<label class="col-sm-2 col-form-label" for="{$label}-{$sub_label}">{ucfirst(preg_replace("/_/", " ", $sub_label))}</label>
 								<div class="col-sm-10">
-									<input class="form-control" type="text" value="{foreach from=$sub_option item=value}{$value},{/foreach}" id="{$label}-{$sub_label}" name="{$label}-{$sub_label}" />
+									<input class="form-control" type="text" value="{foreach from=$sub_option item=value}{$value},{/foreach}" id="{$label}-{$sub_label}" name="{$label}-{$sub_label}">
 								</div>
 							{elseif is_array($sub_option)}
 								<label class="col-sm-2 col-form-label" for="{$label}-{$sub_label}"><b>{ucfirst(preg_replace("/_/", " ", $sub_label))}</b></label>
@@ -64,7 +64,7 @@
 							{else}
 								<label class="col-sm-2 col-form-label" for="{$label}-{$sub_label}">{ucfirst(preg_replace("/_/", " ", $sub_label))}</label>
 								<div class="col">
-									<input class="form-control" type="text" value="{$sub_option}" id="{$label}-{$sub_label}" name="{$label}-{$sub_label}" />
+									<input class="form-control" type="text" value="{$sub_option}" id="{$label}-{$sub_label}" name="{$label}-{$sub_label}">
 								</div>
 							{/if}
 						{/foreach}
@@ -87,13 +87,13 @@
 					{else}
 						<label class="col-sm-2 col-form-label" for="{$label}">{ucfirst(preg_replace("/_/", " ", $label))}</label>
 						<div class="col-sm-10">
-							<input class="form-control" type="text" value="{$option}" id="{$label}" name="{$label}" />
+							<input class="form-control" type="text" value="{$option}" id="{$label}" name="{$label}">
 						</div>
 					{/if}
 				{/if}
 				</div>
 			{/foreach}
-			
+
 			<button type="submit" class="btn btn-primary btn-sm">Save config</button>
 		</form>
 	{/if}

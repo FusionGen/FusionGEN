@@ -1,6 +1,6 @@
 <div style="width:70%;margin-left:auto;margin-right:auto;margin-top:20px;margin-bottom:20px;font-size:14px;">
 
-<script type="text/javascript">
+<script>
 	setTimeout(function()
 	{
 		window.location.reload(true);

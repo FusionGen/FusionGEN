@@ -1,7 +1,7 @@
 <section class="box big">
 
 	<h2>
-		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_settings.png"/>
+		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_settings.png">
 		What do you want to manage?
 	</h2>
 

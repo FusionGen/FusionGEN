@@ -2,7 +2,7 @@
 <div class="row top-bar">
 	<div class="col-avatar">
 		<div class="avatar">
-			<img src="{$url}application/images/avatars/{$avatar}.gif"/>
+			<img src="{$url}application/images/avatars/{$avatar}.gif">
 		</div>
 	</div>
 	<div class="col-9 col-md-10 ps-4">
@@ -16,7 +16,7 @@
 	</div>
 </div>
 <!-- Character Top.End -->
-<hr class="my-5" />
+<hr class="my-5">
 <!-- Character Main.Start -->
 <div class="row {if $faction == 1}bg-faction alliance{else if $faction == 2}bg-faction horde{/if}">
 	<div class="col-items">
@@ -29,7 +29,7 @@
 		<div class="item"><a></a>{$items.tabard}</div>
 		<div class="item"><a></a>{$items.wrists}</div>
 	</div>
-	
+
 	<div class="col-main text-center pt-5">
 		<div class="char-avatar d-inline-block">
 			<i class="avatar shadow" style="background-image:url('{$url}/application/images/renderer/face/{$race}_{$gender}.png');"></i>
@@ -38,7 +38,7 @@
 		<div class="avatar-text h1 my-3">{$name}</div>
 		
 	</div>
-	
+
 	<div class="col-items">
 		<div class="item"><a></a>{$items.hands}</div>
 		<div class="item"><a></a>{$items.waist}</div>
@@ -57,7 +57,7 @@
 	<div class="item"><a></a>{$items.ranged}</div>
 </div>
 <!-- Character Main.End -->
-<hr class="my-5" />
+<hr class="my-5">
 <!-- Character Bars.Start -->
 <div class="row my-5">
 	<div class="col-6">
@@ -73,7 +73,7 @@
 					</div>
 				</div>
 			{/if}
-		{/if}		
+		{/if}
 	</div>
 	<div class="col-6">
 		{if isset($secondBarValue)}
@@ -115,14 +115,14 @@
 					<td>{lang("int", "character")}</td>
 					<td class="text-end">{if isset($stats.intellect)}{$stats.intellect}{else}{lang("unknown", "character")}{/if}</td>
 				</tr>
-				
+
 				{if $stats && array_key_exists("spellPower", $stats)}
 				<tr>
 					<td>{lang("sp", "character")}</td>
 					<td class="text-end">{if isset($stats.spellPower)}{$stats.spellPower}{else}{lang("unknown", "character")}{/if}</td>
 				</tr>
 				{/if}
-				
+
 				{if $stats && array_key_exists("attackPower", $stats)}
 				<tr>
 					<td>{lang("ap", "character")}</td>
@@ -130,7 +130,7 @@
 				</tr>
 				{/if}
 			</table>
-			
+
 			<table class="table table-striped table-hover">
 				{if $stats && array_key_exists("resilience", $stats)}
 				<tr>
@@ -138,7 +138,7 @@
 					<td class="text-end">{if isset($stats.resilience)}{$stats.resilience}{else}{lang("unknown", "character")}{/if}</td>
 				</tr>
 				{/if}
-				
+
 				<tr>
 					<td>{lang("armor", "character")}</td>
 					<td class="text-end">{if isset($stats.armor)}{$stats.armor}{else}{lang("unknown", "character")}{/if}</td>
@@ -154,28 +154,28 @@
 				<tr>
 					<td>{lang("parry", "character")}</td>
 					<td class="text-end">{if isset($stats.parryPct)}{$stats.parryPct}%{else}{lang("unknown", "character")}{/if}</td>
-				</tr>				
+				</tr>
 			</table>
-			
+
 			<table class="table table-striped table-hover">
 				<tr>
 					<td>{lang("crit", "character")}</td>
 					<td class="text-end">{if isset($stats.critPct)}{$stats.critPct}%{else}{lang("unknown", "character")}{/if}</td>
-				</tr>		
+				</tr>
 				<tr>
 					<td>{lang("ranged_crit", "character")}</td>
 					<td class="text-end">{if isset($stats.rangedCritPct)}{$stats.rangedCritPct}%{else}{lang("unknown", "character")}{/if}</td>
-				</tr>			
+				</tr>
 				<tr>
 					<td>{lang("spell_crit", "character")}</td>
 					<td class="text-end">{if isset($stats.spellCritPct)}{$stats.spellCritPct}%{else}{lang("unknown", "character")}{/if}</td>
-				</tr>		
-				
+				</tr>
+
 				{if $stats && array_key_exists("spirit", $stats)}
 				<tr>
 					<td>{lang("spirit", "character")}</td>
 					<td class="text-end">{if isset($stats.spirit)}{$stats.spirit}{else}{lang("unknown", "character")}{/if}</td>
-				</tr>			
+				</tr>
 				{/if}
 			</table>
 		</div>
@@ -190,14 +190,14 @@
 					<td class="text-end">{if isset($pvp.kills)}{$pvp.kills}{else}{lang("unknown", "character")}{/if}</td>
 				</tr>
 				{/if}
-				
+
 				{if $pvp.honor !== false}
 				<tr>
 					<td>{lang("honor", "character")}</td>
 					<td class="text-end">{if isset($pvp.honor)}{$pvp.honor}{else}{lang("unknown", "character")}{/if}</td>
 				</tr>
 				{/if}
-				
+
 				{if $pvp.arena !== false}
 				<tr>
 					<td>{lang("arena", "character")}</td>
@@ -212,6 +212,6 @@
 
 <!-- Load wowhead tooltip -->
 {if !$fcms_tooltip}
-<script type="text/javascript" src="https://static.wowhead.com/widgets/power.js"></script>
+<script src="https://wow.zamimg.com/js/tooltips.js"></script>
 <script>var wowhead_tooltips = { "colorlinks": false, "iconizelinks": false, "renamelinks": false }</script>
 {/if}

@@ -1,7 +1,7 @@
-<script type="text/javascript">
+<script>
 	var customPages = JSON.parse('{json_encode($pages)}');
 </script>
-			
+
 <div class="row" id="main_link">
 <div class="col-12">
 	<div class="card">
@@ -58,17 +58,17 @@
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="name" id="languages">Name</label>
 	<div class="col-sm-10">
-		<input class="form-control" type="text" name="name" id="name" placeholder="My link" />
+		<input class="form-control" type="text" name="name" id="name" placeholder="My link">
 	</div>
 	</div>
 
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="type" data-toggle="tooltip" data-placement="bottom" title="External links must begin with http://">URL (or <a href="javascript:void(0)" onClick="Menu.selectCustom()">select from custom pages</a>) <a>(?)</a></label>
 	<div class="col-sm-10">
-		<input class="form-control" type="text" name="link" id="link" placeholder="http://"/>
+		<input class="form-control" type="text" name="link" id="link" placeholder="http://">
 	</div>
 	</div>
-	
+
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="side">Menu location</label>
 	<div class="col-sm-10">
@@ -79,7 +79,7 @@
 	</select>
 	</div>
 	</div>
-	
+
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="lrd">LRD <a data-toggle="tooltip" data-placement="bottom" title="Left, Right or Dropdown?">(?)</a></label>
 	<div class="col-sm-10">
@@ -90,7 +90,7 @@
 	</select>
 	</div>
 	</div>
-	
+
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="dropdown_id">Dropdown  <a data-toggle="tooltip" data-placement="bottom" title="The Name from the dropdown">(?)</a></label>
 	<div class="col-sm-10">
@@ -102,7 +102,7 @@
 	</select>
 	</div>
 	</div>
-	
+
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="visibility">Visibility mode</label>
 	<div class="col-sm-10">
@@ -112,13 +112,13 @@
 	</select>
 	</div>
 	</div>
-	
+
 	<div class="form-group row" id="groups" style="display:none;">
 		Please manage the group visibility via <a href="{$url}admin/aclmanager/groups"> the group manager</a> once you have created the link
 	</div>
 
 	<button type="submit" class="btn btn-primary btn-sm">Submit link</button>
-	
+
 	</form>
 	</div>
 </div>

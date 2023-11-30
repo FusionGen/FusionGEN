@@ -78,20 +78,20 @@
 					{/if}
 					</div>
 				</div>
-				<script type="text/javascript">
+				<script>
 				function isIntoView(elem)
 				{
 					var documentViewTop = $(window).scrollTop();
 					var documentViewBottom = documentViewTop + $(window).height();
-				
+
 					var elementTop = $(elem).offset().top;
 					var elementBottom = elementTop + $(elem).height();
-				
+
 					return ((elementBottom <= documentViewBottom) && (elementTop >= documentViewTop));
 				}
 				$(window).scroll(function()
 				{
-					
+
 					if(document.getElementById("show_more_count") !== null)
 					{
 						if (isIntoView($('#show_more_count')))
@@ -111,7 +111,7 @@
 								<label for="nickname">Displayname</label>
 								<input class="form-control" type="text" id="nickname" name="nickname" value="{$internal_details.nickname}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
 							</div>
-						
+
 							<div class="form-group col-md-6 border-top-0 pt-0">
 								<label for="email">Email</label>
 								<input class="form-control" type="text" id="email" name="email" value="{$external_details.email}" disabled="disabled">
@@ -137,7 +137,7 @@
 									</div>
 								</div>
 							</div>
-						
+
 							<div class="form-group col-md-6 border-top-0 pt-0">
 								<label for="expansion">Expansion</label>
 								<select class="form-control" id="expansion" name="expansion" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
@@ -184,13 +184,13 @@
 							</div>
 						</div>
 
-						<div class="row mb-3">						
+						<div class="row mb-3">
 							<div class="form-group col-md-6 border-top-0 pt-0">
 								<label for="group">Website usergroup</label>
 								<div style="border-radius: 5px;padding: 5px 10px;border: 1px solid #282d36;">Please assign groups at the <a href="{$url}admin/aclmanager/groups" style="color:#ffa800">group manager</a></div>
 							</div>
 						</div>
-					
+
 						{if hasPermission("editAccounts")}
 							<button type="submit" class="btn btn-primary btn-sm">Save account</button>
 						{/if}

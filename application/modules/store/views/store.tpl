@@ -1,12 +1,12 @@
 <div class="container">
 	<div class="row">
-		
+
 		{$link_active = "store"}
 		{include file="../../ucp/views/ucp_navigation.tpl"}
-		
+
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div id="store_wrapper">
-				<script type="text/javascript">
+				<script>
 					$(document).ready(function()
 					{
 						function checkIfLoaded()
@@ -27,7 +27,7 @@
 
 				<div id="checkout"></div>
 
-				
+
 			<div id="store_wrapper">
 				<div id="store">
 					<form onSubmit="return false">
@@ -42,7 +42,7 @@
 								<option value="quality">{lang("item_quality", "store")}</option>
 							</select>
 							</div>
-						
+
 						<div class="col-sm-3">
 							<select id="item_quality" name="item_quality" onChange="Store.Filter.setQuality(this.value)">
 								<option value="ALL" selected>{lang("all_items", "store")}</option>
@@ -74,7 +74,7 @@
 
 
 					<div id="store_content">
-						
+
 
 						<div id="store_realms">
 							{foreach from=$data item=realm key=realmId}
@@ -117,7 +117,7 @@
 																			<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 																		</a>
 																		{/if}
-							
+
 																		{if $item.dp_price}
 																		<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button dp_button">
 																			<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
@@ -132,7 +132,7 @@
 												</div>
 											{/foreach}
 										{/if}
-													
+
 										{if isset($realm.items)}
 										{foreach from=$realm.items.items item=item}
 										<div class="store_item" id="item_{$item.id}">
@@ -142,14 +142,14 @@
 														<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 													</a>
 													{/if}
-					
+
 													{if $item.dp_price}
 													<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button dp_button">
 														<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 													</a>
 													{/if}
 											</div>
-					
+
 											<img class="item_icon" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" align="absmiddle" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
 											<a {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality}">
 												{character_limiter($item.name, 20)}
@@ -163,9 +163,9 @@
 									</div>
 								</div>
 							</div>
-						{/foreach}	
+						{/foreach}
 						</div>
-						
+
 						<div class="card">
 							<div id="cart">
 								<div class="card-header"><span class="fas fa-shopping-cart"></span> {lang("cart", "store")} (<span id="cart_item_count">0</span> {lang("items", "store")})</div>
@@ -178,7 +178,7 @@
 										<div id="vp_price_full" class="p-2">
 											<img src="{$url}application/images/icons/lightning.png"> <span id="vp_price">0</span> {lang("vp", "store")}
 										</div>
-				
+
 										<div id="dp_price_full" class="p-2">
 											<img src="{$url}application/images/icons/coins.png"> <span id="dp_price">0</span> {lang("dp", "store")}
 										</div>

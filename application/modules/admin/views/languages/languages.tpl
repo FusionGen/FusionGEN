@@ -16,7 +16,7 @@
 		{foreach from=$languages item=language key=flag}
 				<tr>
 				<td><img src="{$url}application/images/flags/{$flag}.png" alt="{$flag}"> {ucfirst($language)}</td>
-				
+
 				<td>{if $language == $default}
 						<div style="color:green" class="pull-right">Default language</div>
 					{elseif hasPermission("changeDefaultLanguage")}

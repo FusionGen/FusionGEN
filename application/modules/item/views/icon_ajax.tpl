@@ -7,14 +7,14 @@
 	</div>
 </span>
 
-<script type="text/javascript">
+<script>
 	$(document).ready(function()
 	{
 		$.get(Config.URL + "icon/get/" + {$realm} + "/" + {$id}, function(data)
 	 	{
 	 		$(".get_icon_" + {$id}).each(function()
 	 		{
-	 			$(this).html("<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/" + data + ".jpg' /></div>");
+	 			$(this).html("<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/" + data + ".jpg'></div>");
 	 		});
 	 	});
 	});

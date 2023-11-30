@@ -25,7 +25,7 @@
 						{foreach from=$menu_top item=menu}
 							{if $menu.dropdown_id != 0}{continue}{/if}
 							{if $menu.lrd == "D"}
-								<li class="nav-item dropdown" data-dropdown-initialized="false">
+								<li class="nav-item dropdown text-center" data-dropdown-initialized="false">
 									<a href="#" id="dropdown_2" class="nav-link dropdown-toggle" title="{$menu.name}" data-bs-toggle="dropdown">{$menu.name}</a>
 	
 									<ul class="dropdown-menu" aria-labelledby="dropdown_2">
@@ -36,7 +36,7 @@
 									</ul>
 								</li>
 							{else}
-								<li class="nav-item">
+								<li class="nav-item text-center">
 									<a {$menu.link} class="nav-link {if $menu.active}nav-active{/if}" title="{$menu.name}" data-hasevent="1">{$menu.name}</a>
 								</li>
 							{/if}

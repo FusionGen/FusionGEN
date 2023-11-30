@@ -4,10 +4,10 @@
 	</div>
 </section>
 
-<script type="text/javascript">
+<script>
 	var Status = {
 		statusField: $("#update_status"),
-		
+
 		/**
 		 * Refresh the realm status
 		 */

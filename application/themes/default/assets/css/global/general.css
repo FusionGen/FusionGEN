@@ -77,9 +77,9 @@ body {
 /* Global: Hyperlink
 /*---------------------------------------------------------------*/
 a {
-	color: #8ebcda;
+	color: #8ebcda !important;
 	text-decoration: none !important;
-} a:hover {color: #9dd0f2;}
+} a:hover {color: #9dd0f2 !important;}
 
 /* Global: Image
 /*---------------------------------------------------------------*/
