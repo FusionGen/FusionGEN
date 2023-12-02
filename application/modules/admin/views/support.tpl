@@ -74,7 +74,7 @@
 			{foreach from=$supportrequests item=request}
 				<tr>
 					<td>{$request.id}</td>
-					<td>{date("Y-m-d H:i:s", $request.timestamp)}</td>
+					<td>{date($request.timestamp)}</td>
 				</tr>
 			{/foreach}
 		{/if}

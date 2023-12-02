@@ -430,7 +430,7 @@ CREATE TABLE `articles`  (
   `headline_ko` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `content_ko` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of articles
@@ -601,7 +601,7 @@ CREATE TABLE `email_log`  (
   `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `timestamp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of email_log
@@ -704,18 +704,18 @@ CREATE TABLE `menu`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK_menu_ranks`(`rank`) USING BTREE,
   CONSTRAINT `FK_menu_ranks` FOREIGN KEY (`rank`) REFERENCES `ranks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
 INSERT INTO `menu` (`id`, `name`, `link`, `side`, `rank`, `specific_rank`, `order`, `permission`, `lrd`, `dropdown_id`) VALUES
 (1, 'Home', 'news', 'top', 1, 0, 1, NULL, NULL, NULL),
-(2, '{\"english\":\"How to connect\"}', 'page/connect', 'top', 1, 0, 3, NULL, NULL, NULL),
-(4, 'Online players', 'online', 'bottom', 1, 0, 5, NULL, NULL, NULL),
-(5, 'PvP Statistics', 'pvp_statistics', 'side', 1, 0, 6, NULL, NULL, NULL),
-(6, '{\"english\":\"dropdown item\"}', 'tt', 'top', 1, 0, 7, NULL, 'L', 7),
-(7, 'Dropdown', '#', 'top', 1, 0, 2, NULL, 'D', NULL);
+(2, 'Dropdown', '#', 'top', 1, 0, 2, NULL, 'D', NULL),
+(3, '{\"english\":\"dropdown item\"}', 'armory', 'top', 1, 0, 3, NULL, 'L', 2),
+(4, '{\"english\":\"How to connect\"}', 'page/connect', 'top', 1, 0, 4, NULL, NULL, NULL),
+(5, 'PvP Statistics', 'pvp_statistics', 'side', 1, 0, 5, NULL, NULL, NULL),
+(6, 'Online players', 'online', 'bottom', 1, 0, 6, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for mod_logs
@@ -731,7 +731,7 @@ CREATE TABLE `mod_logs`  (
   `isAcc` int(1) NOT NULL,
   `realm` int(1) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=830 CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of mod_logs
@@ -797,7 +797,7 @@ CREATE TABLE `order_log`  (
   `cart` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `timestamp` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of order_log
@@ -818,13 +818,13 @@ CREATE TABLE `pages`  (
   UNIQUE INDEX `identifier`(`identifier`) USING BTREE,
   INDEX `fk_rank_needed_ranks`(`rank_needed`) USING BTREE,
   CONSTRAINT `fk_rank_needed_ranks` FOREIGN KEY (`rank_needed`) REFERENCES `ranks` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of pages
 -- ----------------------------
 INSERT INTO `pages` (`id`, `identifier`, `name`, `content`, `permission`, `rank_needed`) VALUES
-(1, 'connect', '{\"english\":\"How to connect\"}', '<p><strong>1.</strong> First of all, you must create an account. The account is used to log into both the game and our website. <a href=\"../register\">Click here</a> to open the registration page. <br /><br /><strong>2.</strong> Install World of Warcraft. You can download it (legally) from here: <a href=\"https://www.worldofwarcraft.com/account/download/clients/pc/InstallWoW.exe\" target=\"_blank\" rel=\"noopener\">Windows</a> or <a href=\"https://www.worldofwarcraft.com/account/download/clients/mac/InstallWoW.zip\" target=\"_blank\" rel=\"noopener\">Mac</a>. Make sure to upgrade to our current supported patch, which is 3.3.5 (build 12340). Patch mirrors can be found <a href=\"http://www.wowwiki.com/Patch_mirrors\" target=\"_blank\" rel=\"noopener\">here</a>. <br /><br /><strong>3.</strong> Open up the \"World of Warcraft\" directory. The default directory is \"C:\\Program Files\\World of Warcraft\". When you\'ve found it, open up the directory called \"data\", then go into the directory called either enUS or enGB, depending on your client language. <br /><br /><strong>4.</strong> Open up the file called \"realmlist.wtf\" with a text editor such as Notepad. To do this, you must right click on the file and choose properties, then select notepad as the default software for files with the \".wtf\" ending. You may also just start the text editor and drag the file into the edit window. <br /><br /><strong>5.</strong> Erase all text and change it to:</p>\n<div style=\"padding: 30px; display: block; font-weight: bold;\">set realmlist logon.myserver.com (edit from admin panel -&gt; pages)</div>\n<p><strong>You may now start playing! If you need any help, do not hesitate to create a support ticket.</strong></p>', NULL, 1);
+(1, 'connect', '{\"english\":\"How to connect\"}', '<p><strong>1.</strong> First of all, you must create an account. The account is used to log into both the game and our website. <a href=\"../register\">Click here</a> to open the registration page. <br /><br /><strong>2.</strong> Install World of Warcraft. You can download it (legally) from here: <a href=\"https://www.worldofwarcraft.com/account/download/clients/pc/InstallWoW.exe\" target=\"_blank\" rel=\"noopener\">Windows</a> or <a href=\"https://www.worldofwarcraft.com/account/download/clients/mac/InstallWoW.zip\" target=\"_blank\" rel=\"noopener\">Mac</a>. Make sure to upgrade to our current supported patch, which is 3.3.5 (build 12340). Patch mirrors can be found <a href=\"http://www.wowwiki.com/Patch_mirrors\" target=\"_blank\" rel=\"noopener\">here</a>. <br /><br /><strong>3.</strong> Open up the \"World of Warcraft\" directory. The default directory is \"C:\\Program Files\\World of Warcraft\". When you\'ve found it, open up the directory called \"Data\", then go into the directory called either enUS or enGB, depending on your client language. <br /><br /><strong>4.</strong> Open up the file called \"realmlist.wtf\" with a text editor such as Notepad. To do this, you must right click on the file and choose properties, then select notepad as the default software for files with the \".wtf\" ending. You may also just start the text editor and drag the file into the edit window. <br /><br /><strong>5.</strong> Erase all text and change it to:</p>\n<div style=\"padding: 30px; display: block; font-weight: bold;\">set realmlist logon.myserver.com (edit from admin panel -&gt; pages)</div>\n<p><strong>You may now start playing! If you need any help, do not hesitate to create a support ticket.</strong></p>', NULL, 1);
 
 -- ----------------------------
 -- Table structure for password_recovery_key
@@ -984,20 +984,20 @@ CREATE TABLE `sideboxes`  (
   `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `displayName` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `rank_needed` int(10) NOT NULL DEFAULT 1,
-  `order` int(11) NULL DEFAULT 100,
+  `order` int(11) NULL DEFAULT 1,
   `permission` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_sb_rank_needed`(`rank_needed`) USING BTREE,
   CONSTRAINT `fk_sb_rank_needed` FOREIGN KEY (`rank_needed`) REFERENCES `ranks` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of sideboxes
 -- ----------------------------
 INSERT INTO `sideboxes` (`id`, `type`, `displayName`, `rank_needed`, `order`, `permission`) VALUES
-(1, 'online_players_extended', 'Server status', 1, 3, NULL),
-(3, 'language_picker', '{\"english\":\"Lang\"}', 1, 1, NULL),
-(4, 'toppvp', 'PvP statistics', 1, 100, NULL);
+(1, 'language_picker', '{\"english\":\"Lang\"}', 1, 1, NULL),
+(2, 'online_players_extended', 'Server status', 1, 2, NULL),
+(3, 'toppvp', 'PvP statistics', 1, 3, NULL);
 
 -- ----------------------------
 -- Table structure for sideboxes_custom
@@ -7603,7 +7603,7 @@ CREATE TABLE `store_groups`  (
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `orderNumber` int(8) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Compact;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Compact;
 
 -- ----------------------------
 -- Records of store_groups
@@ -7635,7 +7635,7 @@ CREATE TABLE `store_items`  (
   `tooltip` int(1) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_group`(`group`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2277 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Compact;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Compact;
 
 -- ----------------------------
 -- Records of store_items
@@ -7647,9 +7647,9 @@ CREATE TABLE `store_items`  (
 DROP TABLE IF EXISTS `support_requests`;
 CREATE TABLE `support_requests`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of support_requests
@@ -7707,7 +7707,7 @@ CREATE TABLE `visitor_log`  (
   `timestamp` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=142670 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of visitor_log
@@ -7726,7 +7726,7 @@ CREATE TABLE `vote_log`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK_vote_log_vote_sites`(`vote_site_id`) USING BTREE,
   CONSTRAINT `FK_vote_log_vote_sites` FOREIGN KEY (`vote_site_id`) REFERENCES `vote_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of vote_log
@@ -7745,7 +7745,7 @@ CREATE TABLE `vote_sites`  (
   `points_per_vote` tinyint(4) NOT NULL DEFAULT 1,
   `callback_enabled` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
 -- Records of vote_sites
