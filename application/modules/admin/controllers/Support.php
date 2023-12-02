@@ -68,7 +68,7 @@ class Support extends MX_Controller
         curl_close($ch);
 
         $db = array(
-            'timestamp' => time(),
+            'timestamp' => date('Y-m-d H:i:s'),
         );
 
         $this->dashboard_model->insertRequest($db);
