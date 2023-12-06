@@ -148,7 +148,7 @@ class Character extends MX_Controller
             // Find out which power field to use
             switch ($this->className) {
                 default:
-                    if (isset($this->stats['maxpower4'])) {
+                    if (!empty($this->stats['maxpower1'])) {
                         $this->secondBar = "mana";
                         $this->secondBarValue = $this->stats['maxpower1'];
                     } else {
@@ -158,7 +158,7 @@ class Character extends MX_Controller
                     break;
 
                 case "Warrior":
-                    if (isset($this->stats['maxpower4'])) {
+                    if (!empty($this->stats['maxpower2'])) {
                         $this->secondBar = "rage";
                         $this->secondBarValue = $this->stats['maxpower2'] / 10;
                     } else {
@@ -168,7 +168,7 @@ class Character extends MX_Controller
                     break;
 
                 case "Rogue":
-                    if (isset($this->stats['maxpower4'])) {
+                    if (!empty($this->stats['maxpower4'])) {
                         $this->secondBar = "energy";
                         $this->secondBarValue = $this->stats['maxpower4'];
                     } else {
@@ -178,17 +178,20 @@ class Character extends MX_Controller
                     break;
 
                 case "Hunter":
-                    if ($this->stats['maxpower3']) {
+                    if (!empty($this->stats['maxpower3'])) {
                         $this->secondBar = "focus";
                         $this->secondBarValue = $this->stats['maxpower3'];
-                    } else {
+                    } else if (!empty($this->stats['maxpower1'])) {
                         $this->secondBar = "mana";
                         $this->secondBarValue = $this->stats['maxpower1'];
+                    } else {
+                        $this->secondBar = "mana";
+                        $this->secondBarValue = "Unknown";
                     }
                     break;
 
                 case "Death knight":
-                    if (isset($this->stats['maxpower7'])) {
+                    if (!empty($this->stats['maxpower7'])) {
                         $this->secondBar = "runic";
                         $this->secondBarValue = $this->stats['maxpower7'] / 10;
                     } else {
