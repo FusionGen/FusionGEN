@@ -16,7 +16,7 @@
 						</div>
 					</div>
 
-					<div class="form-group row">
+					<div class="form-group row mt-3">
 						<label class="col-sm-3 col-form-label" for="location_field">{lang("location", "ucp")}</label>
 						<div class="col-sm-9">
 							<input class="form-control" type="text" id="location_field" name="location_field" placeholder="{lang("location", "ucp")}" value="{$location}">
@@ -24,7 +24,7 @@
 					</div>
 
 					{if $show_language_chooser}
-						<div class="form-group row">
+						<div class="form-group row mt-3">
 							<label class="col-sm-3 col-form-label" for="language_field">Website Language</label>
 							<div class="col-sm-9">
 
@@ -40,10 +40,10 @@
 
 					<input class="nice_button mt-3" type="submit" value="{lang("change_information", "ucp")}">
 
-					<div id="settings_info_ajax" class=" text-center mt-3"></div>
+					<div id="settings_info_ajax" class="text-center"></div>
 				</form>
 
-				<hr class="mb-4">
+				<hr>
 
 				<form onSubmit="Settings.submit(); return false" id="settings" class="page_form">
 
@@ -54,14 +54,14 @@
 						</div>
 					</div>
 
-					<div class="form-group row">
+					<div class="form-group row mt-3">
 						<label class="col-sm-3 col-form-label" for="new_password">{lang("new_password", "ucp")}</label>
 						<div class="col-sm-9">
 							<input class="form-control" type="password" id="new_password" name="new_password" placeholder="{lang("new_password", "ucp")}" autocomplete="new-password">
 						</div>
 					</div>
 
-					<div class="form-group row">
+					<div class="form-group row mt-3">
 						<label class="col-sm-3 col-form-label" for="new_password_confirm">Confirm Password</label>
 						<div class="col-sm-9">
 							<input class="form-control" type="password" id="new_password_confirm" name="new_password_confirm" placeholder="{lang("new_password_confirm", "ucp")}" autocomplete="new-password">
