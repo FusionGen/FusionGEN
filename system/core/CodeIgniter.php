@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @var	string
  *
  */
-	const CI_VERSION = '3.1.13-dev';
+	const CI_VERSION = '3.1.13';
 
 /*
  * ------------------------------------------------------
@@ -404,10 +404,6 @@ if ( ! is_php('5.4'))
 	$method = $RTR->method;
 
 	if (empty($class) OR ! file_exists(APPPATH.'controllers/'.$RTR->directory.$class.'.php'))
-	{
-		$e404 = TRUE;
-	}
-	elseif(_string_handler($class))
 	{
 		$e404 = TRUE;
 	}
