@@ -574,19 +574,6 @@ if ( ! function_exists('set_status_header'))
 
 // --------------------------------------------------------------------
 
-if ( ! function_exists('_string_handler'))
-{	
-	function _string_handler($class)
-	{
-		if(preg_match('/\S{50,}/',$class)) 
-		{ 
-			return true;
-		}
-	}
-}
-
-// --------------------------------------------------------------------
-
 if ( ! function_exists('_error_handler'))
 {
 	/**
