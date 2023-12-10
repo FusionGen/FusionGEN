@@ -78,10 +78,13 @@ class Teleport extends MX_Controller
 
         $page_content = $this->template->loadPage("teleport.tpl", $content_data);
 
-        //Load the page
+        // Load the page breadcrumb
         $page_data = array(
             "module" => "default",
-            "headline" => "<span style='cursor:pointer;' onClick='window.location=\"" . $this->template->page_url . "ucp\"'>" . lang("ucp") . "</span> &rarr; " . lang("teleport_hub", "teleport"),
+            "headline" => breadcrumb(array(
+                            "ucp" => lang("ucp"),
+                            "teleport" => lang("teleport_hub", "teleport")
+                        )),
             "content" => $page_content
         );
 

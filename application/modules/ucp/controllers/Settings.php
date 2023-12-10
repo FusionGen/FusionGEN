@@ -50,9 +50,13 @@ class Settings extends MX_Controller
             $settings_data['languages'] = $this->language->getAllLanguages();
         }
 
+        // Load the page breadcrumb
         $data = array(
             "module" => "default",
-            "headline" => lang("user_panel", "ucp"),
+            "headline" => breadcrumb(array(
+                            "ucp" => lang("ucp"),
+                            "ucp/settings" => lang("settings", "ucp")
+                        )),
             "content" => $this->template->loadPage("settings.tpl", $settings_data)
         );
 

@@ -83,7 +83,7 @@ $autoload['drivers'] = array('session');
 |   $autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'emulator', 'form', 'text', 'lang', 'breadcumb', 'permission');
+$autoload['helper'] = array('url', 'emulator', 'form', 'text', 'lang', 'breadcrumb', 'permission');
 
 
 /*
