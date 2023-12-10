@@ -4,8 +4,8 @@
 		<li class="breadcrumb-item {if $item == end($links)} active {/if}">
 			<a {if !$item}class="d-none"{/if} href="{$url}{$link}">{$item}</a>
 		</li>
-		
-		{if $item != end($links)}<li class="breadcrumb-item">→</li>{/if}
+
+		{if $item != end($links)}<li class="breadcrumb-item">➜</li>{/if}
 	{/foreach}
   </ol>
 </nav>
