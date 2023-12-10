@@ -38,12 +38,12 @@ class Vote extends MX_Controller
 
         $output = $this->template->loadPage("vote.tpl", $voteData);
 
-        // Load the topsite page and format the page contents
+        // Load the page breadcrumb
         $data = array(
             "module" => "default",
-            "headline" => breadcumb(array(
+            "headline" => breadcrumb(array(
                             "ucp" => lang("ucp"),
-                            "ucp/avatar" => lang("vote_panel", "vote")
+                            "vote" => lang("vote_panel", "vote")
                         )),
             "content" => $output
         );
