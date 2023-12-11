@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
     require([
 		"{$url}application/js/tiny_mce/tinymce.min.js"
 	], function () {
