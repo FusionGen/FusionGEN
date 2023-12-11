@@ -1715,7 +1715,7 @@ class XML_RPC_Values extends CI_Xmlrpc
 
 		if ($this->mytype === 1)
 		{
-			echo '<strong>XML_RPC_Values</strong>: scalar can have only one value<br />';
+			echo "<strong>XML_RPC_Values</strong>: not a scalar type ($typeof)<br />";
 			return 0;
 		}
 
