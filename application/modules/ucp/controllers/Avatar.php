@@ -25,10 +25,20 @@ class Avatar extends MX_Controller
         // Load the avatar page
 		$content = $this->template->loadPage("avatar.tpl", $data);
 
-		$title = lang("change_avatar", "ucp");
+        // Load the page breadcrumb
+        $page_data = array(
+            "module" => "default",
+            "headline" => breadcrumb(array(
+                            "ucp" => lang("ucp"),
+                            "ucp/avatar" => lang("change_avatar", "ucp")
+                        )),
+            "content" => $content
+        );
 
-		// Put it in a content box
-		$this->template->box($title, $content, true, "modules/ucp/css/avatar.css", "modules/ucp/js/avatar.js");
+		$page = $this->template->loadPage("page.tpl", $page_data);
+
+		// Output the content
+		$this->template->view($page, "modules/ucp/css/avatar.css", "modules/ucp/js/avatar.js");
     }
 
     public function change()

@@ -15,7 +15,7 @@
 
 .section-pageheader .container .row .col-md-12 .pageheader-title {
 	color: #edfbff;
-	font-size: 1.8125rem;
+	font-size: 1.4rem;
 	text-align: center;
 	text-shadow: 0 0 16px rgba(113, 171, 255, 0.17), 0 0 6px rgba(50, 132, 255, 0.61);
 	text-transform: uppercase;
@@ -68,7 +68,7 @@
 
 @media screen and (min-width: 992px) { /* Desktop */
 	.section-pageheader .container .row .col-md-12 .pageheader-title {
-		font-size: 2.5rem;
+		font-size: 2rem;
 		text-align: left;
 	}
 
