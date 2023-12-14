@@ -50,7 +50,10 @@ class Guild extends MX_Controller
 
             $data = array(
                 "module" => "default",
-                "headline" => "<span style='cursor:pointer;' onClick='window.location=\"" . $this->template->page_url . "armory\"'>" . lang("armory", "guild") . "</span> &rarr; " . ((!$this->guild) ? lang("invalid_guild", "guild") : $this->guild['guildName']),
+                "headline" => breadcrumb(array(
+                                "armory" => lang("armory", "guild"),
+                                uri_string() => ((!$this->guild) ? lang("invalid_guild", "guild") : $this->guild['guildName'])
+                            )),
                 "content" => $content
             );
 
