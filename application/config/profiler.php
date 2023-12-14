@@ -1,10 +1,9 @@
 <?php
 
- if (! defined('BASEPATH')) {
-    exit('No direct script access allowed');
+ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * @package FusionGem
+ * @package FusionGen
  * @version 6.0
  * @author  Jesper Lindström
  * @author  Xavier Geerinck
