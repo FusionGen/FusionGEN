@@ -40,5 +40,6 @@ $config['detect_language'] = false;
 */
 $config['supported_languages'] = array(
     'en' => array('name' => 'english'),
+    'es' => array('name' => 'spanish')
     //'de' => array('name' => 'deutsch')
 );
