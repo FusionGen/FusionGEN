@@ -20,7 +20,7 @@ class Armory_model extends CI_Model
         $searchString = $this->w_connection->escape_str($searchString);
 
         //Get the connection and run a query
-        $query = $this->w_connection->query("SELECT " . columns("item_template", array("entry", "name", "ItemLevel", "RequiredLevel", "InventoryType", "Quality", "class", "subclass"), $realmId) . " FROM " . table("item_template", $realmId) . " WHERE UPPER(" . column("item_template", "name", false, $realmId) . ") LIKE ? ORDER BY " . column("item_template", "ItemLevel", false, $realmId) . " DESC LIMIT ".$limit." OFFSET ".$offset."", array('%' . strtoupper($searchString) . '%'));
+        $query = $this->w_connection->query("SELECT " . columns("item_template", array("entry", "name", "ItemLevel", "RequiredLevel", "InventoryType", "Quality", "class", "subclass"), $realmId) . " FROM " . table("item_template", $realmId) . " WHERE UPPER(" . column("item_template", "name", false, $realmId) . ") LIKE ? ORDER BY " . column("item_template", "ItemLevel", false, $realmId) . " DESC LIMIT ".$limit." OFFSET ".$offset."", array('%' . mb_strtoupper($searchString) . '%'));
         
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -86,7 +86,7 @@ class Armory_model extends CI_Model
 
         $searchString = $this->c_connection->escape_str($searchString);
 
-        $result = $this->c_connection->query("SELECT ".columns("characters", array("guid", "name", "race", "gender", "class", "level"), $realmId)." FROM ".table("characters", $realmId)." WHERE UPPER(".column("characters", "name", false, $realmId).") LIKE ? ORDER BY ".column("characters", "level", false, $realmId)." DESC", array('%'.strtoupper($searchString).'%'));
+        $result = $this->c_connection->query("SELECT ".columns("characters", array("guid", "name", "race", "gender", "class", "level"), $realmId)." FROM ".table("characters", $realmId)." WHERE UPPER(".column("characters", "name", false, $realmId).") LIKE ? ORDER BY ".column("characters", "level", false, $realmId)." DESC", array('%'.mb_strtoupper($searchString).'%'));
 
         if ($result->num_rows() > 0) {
             $row = $result->result_array();
