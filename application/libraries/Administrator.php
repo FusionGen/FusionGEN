@@ -31,7 +31,8 @@ class Administrator
         $this->menu = array();
 
         if (!$this->CI->user->isStaff()) {
-            show_404();
+            redirect('errors', 'refresh');
+            exit;
         }
 
         $this->showLogIn();
