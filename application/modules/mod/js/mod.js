@@ -58,6 +58,13 @@ var Mod = {
 		Swal.fire({
 			title: 'Answer',
 			html: '<textarea id="answer_message" class="swal2-textarea" maxlength="7999"></textarea>',
+			preConfirm: () => {
+				if((document.getElementById('answer_message').value == "") || (document.getElementById('answer_message').value == '') || ((document.getElementById('answer_message').value == null)) ){
+				  Swal.showValidationMessage(
+					`Message can't be empty`
+				  )
+				}
+			}
 		}).then(function(result) {
 		if (result.isConfirmed) {
 			var message = $("#answer_message").val();

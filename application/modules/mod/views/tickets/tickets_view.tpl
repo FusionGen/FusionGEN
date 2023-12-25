@@ -1,5 +1,5 @@
 <div class="row">
-<div class="col-lg-4">
+<div class="col-lg-4 mb-3">
 <div id="card">
 	<div class="card-body">
 		<div class="widget-profile-info">
@@ -10,7 +10,7 @@
 				<h4 class="name font-weight-semibold"><a href="{$url}character/{$realmId}/{$tickets.guid}" target="_blank">{$tickets.name}</a></h4>
 				<h5 class="role color-c{$class}"><b>{$level}</b> {$raceName} {$className}</h5>
 				<div class="profile-footer">
-					<a href="#">{if !$status}Offline{else}Online{/if}</a>
+					{if !$status}<p class="text-danger"><i class="fa-solid fa-circle"></i> Offline</p>{else}<p class="text-success"><i class="fa-solid fa-circle"></i> Online</p>{/if}
 				</div>
 			</div>
 		</div>
