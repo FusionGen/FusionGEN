@@ -329,11 +329,17 @@
                 <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                 <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
             </div>
-    
+
             <h2 class="card-title">FusionGen News</h2>
         </header>
-        <div class="card-body news-loading-overlay scrollable" style="height: 300px;" ic-get-from="https://fusiongen.net/api/news" ic-target="#ScrollableNews" ic-trigger-on="load" ic-trigger-delay="1500ms">
-            <div id="ScrollableNews" class="scrollable-content p-2">
+        <div class="card-body scrollable" style="height: 300px;">
+            <div id="fg-commits" class="lh-lg scrollable-content p-3">
+            <script>
+            $(function() {
+                $('#fg-commits').githubInfoWidget(
+                { user: 'FusionGen', repo: 'FusionGen', branch: 'main', last: 20, limitMessageTo: 75 });
+            });
+            </script>
             </div>
         </div>
     </section>
