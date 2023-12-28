@@ -1,2 +1,6 @@
 cache/*
 logs/*.php
+/.vs
+.vscode
+**/.vscode/
+**/.vs/
