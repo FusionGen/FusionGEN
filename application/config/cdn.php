@@ -18,12 +18,12 @@ if (! defined('BASEPATH')) {
 | CDN system
 |--------------------------------------------------------------------------
 |
-| If activated, static files (js/css/images) are loaded via the fusiongen CDN system
-| The geologically closest server to the player is selected for this
+| If activated, static files (js/css/images) are loaded from github via the fusiongen CDN system
+|
 | This should speed up the loading time of the website
 |
-| Only default theme. Files from other themes can be hosted on request. Discord: Err0r#4481
+| Only default theme.
 */
 
 $config['cdn'] = false;
-$config['cdn_link'] = "https://cdn.fusiongen.net/";
+$config['cdn_link'] = "https://cdn.jsdelivr.net/gh/fusiongen/fusiongen@main/";

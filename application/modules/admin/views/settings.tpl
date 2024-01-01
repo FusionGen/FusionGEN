@@ -596,10 +596,6 @@
 
 			<button class="btn btn-primary btn-sm" type="submit">Save</button>
         </form>
-        <div class="alert alert-dark mt-3" role="alert">
-			Do you like the CDN system and want to continue using it? We would appreciate your help!<br>
-			With a small <a href="https://www.paypal.com/donate/?hosted_button_id=HMX3ESBF2PGXC">donation</a> of only $5 you help to keep the CDN system alive
-        </div>
         </div>
 
         <div class="tab-pane" id="security">
