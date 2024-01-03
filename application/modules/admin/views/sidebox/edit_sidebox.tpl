@@ -17,7 +17,7 @@
 		<div class="col-sm-10">
 		<select class="form-control" id="type" name="type" onChange="Sidebox.toggleCustom(this)">
 			{foreach from=$sideboxModules item=module key=name}
-				<option value="{$name}">{$module.name}</option>
+				<option value="{$name}" {if $sidebox.type == preg_replace("/sidebox_/", "", $name)}selected{/if}>{$module.name}</option>
 			{/foreach}
 		</select>
 		</div>
