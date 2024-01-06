@@ -1,7 +1,6 @@
 <?php
 ini_set('set_time_limit', 30);
 
-
 if (isset($_POST)) {
     $title = $_POST['title'];
     $server_name = $_POST['server_name'];
@@ -18,7 +17,7 @@ if (isset($_POST)) {
     }
 
     require_once('../application/libraries/Configeditor.php');
-	
+
     $distConfig = '../application/config/fusion.php.dist';
     $config = '../application/config/fusion.php';
 
@@ -45,7 +44,7 @@ if (isset($_POST)) {
     {
         $config->set($key, $value);
     }
-	
+
     $config->save();
 
     echo json_encode(array("success" => true));
