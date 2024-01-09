@@ -25,6 +25,7 @@
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/css/dataTables.bootstrap5.min.css">
+		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/css/responsive.bootstrap5.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/lib/codemirror.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/theme/ayu-mirage.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader.css">
@@ -67,6 +68,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/js/dataTables.bootstrap5.min.js"></script>
+		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/js/dataTables.responsive.js"></script>
+		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/js/responsive.bootstrap5.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/fuelux/js/spinner.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/lib/codemirror.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/addon/selection/active-line.js"></script>
@@ -82,7 +85,7 @@
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/theme.admin.extension.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader-1.0.1.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/custom.js"></script>
-		<script src="{$url}application/themes/admin/assets/js/githubinfowidget.js"></script>
+		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/githubinfowidget.js"></script>
 
 		<script>
 		function getCookie(c_name) {
