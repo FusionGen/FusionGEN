@@ -6,7 +6,7 @@
 </style>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar mb-3">
             <div class="list-group">
 				{if $logs}
 					{foreach from=$files item=file}
@@ -66,6 +66,7 @@
         $('#table-log').DataTable({
             "order": [],
             "stateSave": true,
+            "responsive": true,
             "stateSaveCallback": function (settings, data) {
                 window.localStorage.setItem("datatable", JSON.stringify(data));
             },

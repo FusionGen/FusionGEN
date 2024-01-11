@@ -28,7 +28,7 @@
 $(document).ready(function() {
     var table = $('#acclist').DataTable({
         "processing": true,
-        "serverSide": true,
+        "responsive": true,
         "ajax": {
             "url": "{$url}admin/accounts/get_accs_ajax",
             "type": "POST",
