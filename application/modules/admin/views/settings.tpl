@@ -65,7 +65,7 @@
 			<div class="card" id="add_realm" style="display:none;">
 			<div class="card-header">New realm</div>
 			<div class="card-body">
-			<form role="form" onSubmit="Settings.addRealm(); return false">
+			<form role="form" onSubmit="Settings.addRealm();">
 				<div class="form-group row">
 				<label class="col-sm-2 col-form-label" for="realmName">Realm name</label>
 				<div class="col-sm-10">

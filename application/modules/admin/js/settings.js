@@ -131,7 +131,12 @@ var Settings = {
 			}
 			else
 			{
-				UI.alert(id);
+				console.log(data);
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: id,
+				})
 			}
 		});
 	},
