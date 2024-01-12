@@ -2,20 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="Err0r">
         <link rel="icon" href="assets/images/favicon.png">
         <title>Installation - FusionGEN</title>
-        <link rel='stylesheet' type='text/css' href='assets/bootstrap/css/bootstrap.min.css'>
-        <link rel='stylesheet' type='text/css' href='assets/css/font-awesome/css/font-awesome.min.css'>
-        <link rel='stylesheet' type='text/css' href='assets/css/install.css'>
-        <script type='text/javascript' src="assets/js/realms.js"></script>
-        <script type='text/javascript' src='assets/js/jquery-1.11.3.min.js'></script>
-        <script type='text/javascript' src='assets/js/jquery-validation/jquery.validate.min.js'></script>
-        <script type='text/javascript' src='assets/js/jquery-validation/jquery.form.js'></script>
-        <script type='text/javascript' src='assets/js/jquery-persist.js'></script>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/install.css">
+        <script src="assets/js/realms.js"></script>
+        <script src="assets/js/jquery-3.7.1.min.js"></script>
+        <script src="assets/js/jquery-validation/jquery.validate.min.js"></script>
+        <script src="assets/js/jquery-validation/jquery.form.min.js"></script>
+        <script src="assets/js/jquery-persist.js"></script>
     </head>
     <body>
         <div class="install-box">
@@ -40,7 +40,7 @@
 								<div>
 									<div class="introduction">
 										<center><h3>Welcome to FusionGEN</h3></center>
-										<center><b>Dear User</b>, This is <b>FusionGEN</b>. </br>A continuation project continued by fellow web-developers under the conditions of Open-Source. Many people loved FusionCMS, But time is evolving and FusionCMS has been idle for quite some time. We are here to bring up a new Open-Source Project to bring <b>you</b> an optimized and cared for CMS that will evolve over time with love and passion from its contributors. FusionGEN is still powered by the Codeigniter Framework, it's Original PHP Code, It's Original HTML Code and It's Original Javascript Code. What we are focusing on is improving it all. Making it stronger, faster and more Modern. </br></br>Thank you for downloading FusionGEN</br>Enjoy!</center> 
+										<center><b>Dear User</b>, This is <b>FusionGEN</b>. <br>A continuation project continued by fellow web-developers under the conditions of Open-Source. Many people loved FusionCMS, But time is evolving and FusionCMS has been idle for quite some time. We are here to bring up a new Open-Source Project to bring <b>you</b> an optimized and cared for CMS that will evolve over time with love and passion from its contributors. FusionGEN is still powered by the Codeigniter Framework, it's Original PHP Code, It's Original HTML Code and It's Original Javascript Code. What we are focusing on is improving it all. Making it stronger, faster and more Modern. <br><br>Thank you for downloading FusionGEN<br>Enjoy!</center> 
 									</div>
 								</div>
 							</div>
@@ -458,7 +458,7 @@
 										<div class="form-group clearfix">
                                             <label for="dbname" class="col-md-3">Database Port</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="dbport" class="form-control" placeholder="FusionGen Database Port">
+                                                <input type="number" value="" name="dbport" class="form-control" placeholder="FusionGen Database Port">
                                             </div>
                                         </div>
                                     </div>
@@ -495,7 +495,7 @@
 										<div class="form-group clearfix">
                                             <label for="auth_db" class="col-md-3">Database Port</label>
                                             <div class=" col-md-9">
-                                                <input type="text" value="" name="auth_port" class="form-control" placeholder="Auth Database Port">
+                                                <input type="number" value="" name="auth_port" class="form-control" placeholder="Auth Database Port">
                                             </div>
                                         </div>
                                     </div>
@@ -569,7 +569,7 @@
 										<div class="form-group clearfix">
 											<label for="db_port" class="col-md-3">Database port</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="db_port" name="db_port" placeholder="3306">
+												<input class="form-control" type="number" value="" id="db_port" name="db_port" placeholder="3306">
 											</div>
 										</div>
 
@@ -590,7 +590,7 @@
 										<div class="form-group clearfix">
 											<label for="console_port" class="col-md-3">Console port (only required for emulators that use remote console systems; usually 3443 for RA and 7878 for SOAP)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="console_port" name="console_port" placeholder="7878 suggested">
+												<input class="form-control" type="number" value="" id="console_port" name="console_port" placeholder="7878 suggested">
 											</div>
 										</div>
 
@@ -606,7 +606,7 @@
 										<div class="form-group clearfix">
 											<label for="realm_port" class="col-md-3">Realm port (usually 8085 for Trinity/AzerothCore based emulators)</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="realm_port" name="realm_port" placeholder="8085">
+												<input class="form-control" type="number" value="" id="realm_port" name="realm_port" placeholder="8085">
 											</div>
 										</div>
 									</div>
@@ -671,7 +671,7 @@
     </body>
 </html>
 
-<script type="text/javascript">
+<script>
 
     var onFormSubmit = function ($form) {
         $form.find('[type="submit"]').attr('disabled', 'disabled').find(".loader").removeClass("hide");
@@ -794,7 +794,7 @@
     });
 </script>
 
-<script type="text/javascript">
+<script>
 	jQuery(document).ready(function() {
 		jQuery('input,select,textarea').persist();
 	});

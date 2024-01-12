@@ -91,12 +91,12 @@
 
 											<div class="time me-3">
 												<i class="fas fa-clock"></i>
-												<a href="javascript:void(0);">DateTIme</a>
+												<a href="javascript:void(0);">DateTime</a>
 											</div>
 
 											<div class="tags me-3">
 												<i class="fa-solid fa-tag"></i>
-												<a href="{$url}/tags">Tag</a>
+												<a href="{$url}tags">Tag</a>
 											</div>
 
 											<div class="comments">

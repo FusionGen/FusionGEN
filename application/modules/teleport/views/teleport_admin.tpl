@@ -3,9 +3,9 @@
 		Teleport locations (<div style="display:inline;" id="teleport_count">{if !$teleport_locations}0{else}{count($teleport_locations)}{/if}</div>){if hasPermission("canAdd")}<a class="btn btn-primary btn-sm pull-right" href="{$url}teleport/admin/new">Create teleport location</a>{/if}
 	</div>
 
-	<div class="card-body">
+	<div class="card-body table-responsive">
 		{if $teleport_locations}
-		<table class="table table-responsive-md table-hover">
+		<table class="table table-hover">
 		<thead>
 				<tr>
 					<th>Name</th>

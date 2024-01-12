@@ -1,9 +1,7 @@
 <!-- Character Top.Start -->
 <div class="row top-bar">
 	<div class="col-avatar">
-		<div class="avatar">
-			<img src="{$url}application/images/avatars/{$avatar}.gif">
-		</div>
+		<img src="{$url}application/images/avatars/{$avatar}.gif">
 	</div>
 	<div class="col-9 col-md-10 ps-4">
 		<div class="d-flex h-100 align-items-center">
@@ -32,7 +30,7 @@
 
 	<div class="col-main text-center pt-5">
 		<div class="char-avatar d-inline-block">
-			<i class="avatar shadow" style="background-image:url('{$url}/application/images/renderer/face/{$race}_{$gender}.png');"></i>
+			<i class="avatar shadow" style="background-image:url('{$url}application/images/renderer/face/{$race}_{$gender}.png');"></i>
 			<div class="char-level bg-dark fw-bold shadow">{$level}</div>
 		</div>
 		<div class="avatar-text h1 my-3">{$name}</div>

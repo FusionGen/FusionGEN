@@ -344,7 +344,7 @@ CREATE TABLE `acl_groups`  (
 -- ----------------------------
 INSERT INTO `acl_groups` (`id`, `name`, `color`, `description`) VALUES
 (1, 'Guest', '', 'Rank that the user gets when they are not logged in, can be defined in the configs that it is this rank.'),
-(2, 'Player', '', 'Default player rank, the normal rank that you get when you are logged in and got no extra special rights.'),
+(2, 'Player', '#c0c0c0', 'Default player rank, the normal rank that you get when you are logged in and got no extra special rights.'),
 (3, 'GM', '#8e208f', 'The rank GM, they got rights to access the Admin panel but then only with their tools that they need, examples are player support tickets, ...'),
 (4, 'Moderator', '#00a3b6', 'They can manage shouts, users, ...'),
 (5, 'QA', '#2a9553', 'A QA (= Quality Assurance) checks the quality on the website, ingame and on the other services, they then report this to the developers to get bugs fixed whey they find some.'),

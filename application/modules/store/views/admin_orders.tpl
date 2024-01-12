@@ -2,13 +2,13 @@
 	<div class="card-header">
 		Failed orders in the past week
 	</div>
-	<div class="card-body">
+	<div class="card-body table-responsive">
 	<span>
 		Orders that show up here have failed because of a system error. If the error didn't occur immediately some items might have been delivered. You should manually investigate if the user should be refunded.
 	</span>
 
 		{if $failed}
-		<table class="table table-responsive-md table-hover">
+		<table class="table table-hover">
 			{foreach from=$failed item=failed_log}
 					<tr>
 						<td width="20%">{date("Y/m/d", $failed_log.timestamp)}</td>
@@ -43,7 +43,7 @@
 	<div class="card-header">
 		Last 10 successful orders
 	</div>
-	<div class="card-body">
+	<div class="card-body table-responsive">
 	<form class="input-group mb-3" onSubmit="Orders.search('successful'); return false">
 		<input class="form-control" type="text" name="search_successful" id="search_successful" placeholder="Search by username" style="width:90%;margin-right:5px;">
 
@@ -53,7 +53,7 @@
 	<span id="order_list_successful">
 		{if $completed}
 			{foreach from=$completed item=completed_log}
-				<table class="table table-responsive-md table-hover">
+				<table class="table table-hover">
 					<tbody style="border-top:none">
 					<tr>
 						<td width="20%">{date("Y/m/d", $completed_log.timestamp)}</td>

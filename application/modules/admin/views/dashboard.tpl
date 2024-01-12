@@ -282,15 +282,15 @@
             <tbody style="border-top:none;">
                 <tr>
                     <td>PHP version</td>
-                    <td style="text-align:right;">{$php_version}</td>
+                    <td class="float-end">{$php_version}</td>
                 </tr>
                 <tr>
                     <td>CodeIgniter version</td>
-                    <td style="text-align:right;">{$ci_version}</td>
+                    <td class="float-end">{$ci_version}</td>
                 </tr>
                 <tr>
                     <td>CMS version</td>
-                    <td style="text-align:right;">{$version}</td>
+                    <td class="float-end">{$version}</td>
                 </tr>
             </tbody>
         </table>
@@ -322,7 +322,7 @@
     </div>
 </div>
 
-<div class="col-lg-6 mb-3">
+<div class="col-lg-8 mb-3">
     <section class="card">
         <header class="card-header">
             <div class="card-actions">
@@ -330,53 +330,20 @@
                 <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
             </div>
 
-            <h2 class="card-title">FusionGen News</h2>
+            <h2 class="card-title">Latest FusionGen Updates</h2>
         </header>
-        <div class="card-body scrollable" style="height: 300px;">
+        <div class="card-body scrollable" style="height: 350px;">
             <div id="fg-commits" class="lh-lg scrollable-content p-3">
             <script>
             $(function() {
                 $('#fg-commits').githubInfoWidget(
-                { user: 'FusionGen', repo: 'FusionGen', branch: 'main', last: 20, limitMessageTo: 75 });
+                { user: 'FusionGen', repo: 'FusionGen', branch: 'main', last: 40, limitMessageTo: 130 });
             });
             </script>
             </div>
         </div>
     </section>
 </div>
-
-<div class="col-lg-6">
-    <section class="card">
-        <header class="card-header">
-            <div class="card-actions">
-                <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-            </div>
-    
-            <h2 class="card-title">FusionGen Market newest items</h2>
-        </header>
-        <div class="card-body market-loading-overlay scrollable" style="height: 300px;" ic-get-from="https://fusiongen.net/api/market" ic-target="#ScrollableMarket" ic-trigger-on="load" ic-trigger-delay="1500ms">
-            <div id="ScrollableMarket" class="scrollable-content p-2">
-            </div>
-        </div>
-    </section>
-</div>
-
-</div>
-
-<script>
-(function ($) {
-    'use strict';
-
-    $('.news-loading-overlay, .market-loading-overlay').loadingOverlay({
-        startShowing: true,
-        css: {
-            'color': '#000',
-            'backgroundColor': '#2e353e'
-        }
-    });
-}).apply(this, [jQuery]);
-</script>
 
 <script>
     var checkSoap = {

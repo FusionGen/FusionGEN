@@ -513,7 +513,7 @@ class Cmangos_soap implements Emulator
         try {
             $result = $client->executeCommand(new SoapParam($command, "command"));
         } catch (Exception $e) {
-            die("Something went wrong! An administrator has been noticed and will send your order as soon as possible.<br /><br /><b>Error:</b> <br />" . $e->getMessage());
+            die("Something went wrong! An administrator has been noticed and will send your order as soon as possible.<br><br><b>Error:</b> <br>" . $e->getMessage());
         }
     }
 }
