@@ -124,7 +124,7 @@
 			<input class="form-control" type="text" name="z" id="z">
 		</div>
 		</div>
-		
+
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="orientation">Orientation</label>
 		<div class="col-sm-10">

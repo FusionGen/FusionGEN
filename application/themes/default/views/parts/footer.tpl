@@ -1,5 +1,5 @@
 <!-- Footer Section.Start -->
-<footer class="footer" footer="">
+<footer class="footer">
   <div class="container-fluid">
     <div class="row row-1">
       <div class="col-sm-12">

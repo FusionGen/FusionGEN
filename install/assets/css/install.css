@@ -91,7 +91,7 @@ label{
     border-radius: 0;
 }
 .loader{
-    background: url('../../assets/images/loader2.gif') no-repeat;
+    background: url('../../assets/images/loader.gif') no-repeat;
     height: 16px;
     display: inline-block;
     padding-left: 20px;

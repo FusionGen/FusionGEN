@@ -59,7 +59,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<!-- Header CSS.End -->
 
 		<!-- Header JS.Start -->
-		<script src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/jquery-3.6.0.min.js"></script>
+		<script src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/jquery-3.7.1.min.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/jquery.placeholder.min.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/jquery.sort.js"></script>
 		<script src="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

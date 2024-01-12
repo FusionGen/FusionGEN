@@ -4,6 +4,8 @@
 This website is powered by FusionGEN
 
 https://github.com/FusionGen/FusionGen
+
+Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 -->
 
 <html>
@@ -22,26 +24,26 @@ https://github.com/FusionGen/FusionGen
 			{/if}
 		{/if} *}
 		
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-		<link rel="shortcut icon" href="{$favicon}" />
+		<link rel="icon" type="image/x-icon" href="{$favicon}">
 		
 		<!-- Search engine related -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="{$description}" />
-		<meta name="keywords" content="{$keywords}" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="{$description}">
+		<meta name="keywords" content="{$keywords}">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 		
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
 		<!-- Load scripts -->
 		<script src="{$url}application/js/html5shiv.js"></script>
-		<script type="text/javascript" src="{$url}application/js/jquery.min.js"></script>
-		<script type="text/javascript">var isIE = false;</script>
-		<script type="text/javascript" src="{$path}js/router.js"></script>
-		<script type="text/javascript" src="{$path}js/require.js"></script>
-		<script type="text/javascript">
+		<script src="{$url}application/js/jquery.min.js"></script>
+		<script>var isIE = false;</script>
+		<script src="{$path}js/router.js"></script>
+		<script src="{$path}js/require.js"></script>
+		<script>
 
 			if(!window.console)
 			{
@@ -64,7 +66,7 @@ https://github.com/FusionGen/FusionGen
 					x = ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
 					y = ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
 					x = x.replace(/^\s+|\s+$/g,"");
-					
+
 					if(x == c_name)
 					{
 						return unescape(y);
@@ -93,7 +95,7 @@ https://github.com/FusionGen/FusionGen
 					effect: "{$slider_style}",
 					id: "{$slider_id}"
 				},
-				
+
 				voteReminder: {if $vote_reminder}1{else}0{/if},
 
 				Theme: {
@@ -110,7 +112,7 @@ https://github.com/FusionGen/FusionGen
 				"{$path}js/jquery.sort.js",
 				"{$path}js/jquery.transit.min.js",
 				"{$path}js/language.js",
-				
+
 				{if $extra_js},"{$path}{$extra_js}"{/if}
 				{*	{if !is_array($extra_js)}
 						,"{$path}{$extra_js}"
@@ -138,7 +140,7 @@ https://github.com/FusionGen/FusionGen
 					{/if}
 
 					UI.initialize();
-					
+
 					{if $extra_css}Router.loadedCSS.push("{$extra_css}");{/if}
 					{*	{if !is_array($extra_css)}
 							Router.loadedCSS.push("{$extra_css}");
@@ -150,7 +152,7 @@ https://github.com/FusionGen/FusionGen
 							{/strip}
 						{/if}
 					{/if} *}
-					
+
 					{if $extra_js}Router.loadedJS.push("{$extra_js}");{/if}
 					{*	{if !is_array($extra_js)}
 							Router.loadedJS.push("{$extra_js}");
@@ -167,7 +169,7 @@ https://github.com/FusionGen/FusionGen
 		</script>
 
 		{if $analytics}
-		<script type="text/javascript">
+		<script>
 		// Google Analytics
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', '{$analytics}']);

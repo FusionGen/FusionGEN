@@ -1,8 +1,8 @@
 <!-- TopBar.Start -->
-<div class="section section-topbar" topbar>
+<div class="section section-topbar">
 	<div class="container-fluid">
 		<div class="row align-items-center">			
-			<div class="col-sm-12 col-md-5" social-media>
+			<div class="col-sm-12 col-md-5">
 				<!-- Social media.Start -->
 				<div class="social-media">
 					<a href="{$social_media['facebook']}" target="_blank" class="social-btn btn-facebook"></a>

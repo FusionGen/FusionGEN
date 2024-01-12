@@ -522,8 +522,8 @@ class Trinity_rbac_soap implements Emulator
         try {
             $client->executeCommand(new SoapParam($command, 'command'));
         } catch (Exception $e) {
-            die('Something went wrong! An administrator has been noticed and will send your order as soon as possible.<br/><br/>
-                <b>Error:</b> <br/>' . $e->getMessage()); // @note this isn't dev friendly and make impossible to catch errors
+            die('Something went wrong! An administrator has been noticed and will send your order as soon as possible.<br><br>
+                <b>Error:</b> <br>' . $e->getMessage()); // @note this isn't dev friendly and make impossible to catch errors
         }
     }
 

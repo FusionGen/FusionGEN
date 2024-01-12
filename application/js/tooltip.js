@@ -28,7 +28,7 @@ function Tooltip()
 		// Re-add
 		this.addEvents();
 	}
-	
+
 	/**
 	 * Adds mouseover events to all elements
 	 * that should show a tooltip.
@@ -39,7 +39,7 @@ function Tooltip()
 		{
 			Tooltip.move(e.pageX, e.pageY);
 		}
-		
+
 		// Add mouse-over event listeners
 		$("[data-tip]").hover(
 			function()
@@ -176,7 +176,7 @@ function Tooltip()
 	 			if(typeof localStorage != "undefined")
 	 			{
 	 				var cache = localStorage.getItem(name);
-	 				
+
 		 			if(cache)
 		 			{
 		 				cache = JSON.parse(cache);

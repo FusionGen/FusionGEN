@@ -76,7 +76,7 @@ class News extends MX_Controller
                 } else {
                     $this->news_articles[$key]['content'] = langColumn($article['content_' . $LangAbbr . '']);
                 }
-                $this->news_articles[$key]['date'] = date("Y/m/d", $article['timestamp']);
+                $this->news_articles[$key]['date'] = date("Y-m-d", $article['timestamp']);
                 $this->news_articles[$key]['author'] = $this->user->getNickname($article['author_id']);
                 $this->news_articles[$key]['link'] = ($article['comments'] == -1) ? '' : "href='javascript:void(0)' onClick='Ajax.showComments(" . $article['id'] . ")'";
                 $this->news_articles[$key]['comments_id'] = "id='comments_" . $article['id'] . "'";
@@ -150,7 +150,7 @@ class News extends MX_Controller
             } else {
                 $this->news_articles[$key]['content'] = character_limiter(langColumn($article['content_' . $LangAbbr . '']), 650);
             }
-            $this->news_articles[$key]['date'] = date("Y/m/d", $article['timestamp']);
+            $this->news_articles[$key]['date'] = date("Y-m-d", $article['timestamp']);
             $this->news_articles[$key]['author'] = ($article['author_id'] == 0) ? lang("system", "news") : $this->user->getNickname($article['author_id']) ;
             $this->news_articles[$key]['link'] = ($article['comments'] == -1) ? '' : "href='javascript:void(0)' onClick='Ajax.showComments(" . $article['id'] . ")'";
             $this->news_articles[$key]['comments_id'] = "id='comments_" . $article['id'] . "'";

@@ -2,14 +2,14 @@
 	<div class="fusioneditor_tools">
 		<div style="float:right;display:none" id="fusioneditor_{$id}_close">
 			<a class="fusioneditor_close" href="javascript:void(0)" onClick="FusionEditor.close('{$id}')" data-tip="{lang("close_tool")}">
-				<img src="{$url}application/images/icons/bullet_arrow_up.png" />
+				<img src="{$url}application/images/icons/bullet_arrow_up.png">
 			</a>
 		</div>
 
 		{foreach from=$tools item=tool key=name}
 			{if $tool.enabled}
 				<a href="javascript:void(0)" onClick="FusionEditor.Tools.{$name}('{$id}')" data-tip="{$tool.text}">
-					<img src="{$url}application/images/icons/{$tool.icon}.png" />
+					<img src="{$url}application/images/icons/{$tool.icon}.png">
 				</a>
 			{/if}
 		{/foreach}
@@ -19,7 +19,7 @@
 	<div id="{$id}" class="fusioneditor_field" style="min-height:{$height}px">{$content}</div>
 </div>
 
-<script type="text/javascript">
+<script>
 	$(document).ready(function()
 	{
 		function enableFusionEditor()
