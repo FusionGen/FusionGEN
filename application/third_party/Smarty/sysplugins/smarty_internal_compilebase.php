@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin CompileBase
  *
@@ -83,14 +82,14 @@ abstract class Smarty_Internal_CompileBase
                 // option flag ?
                 if (isset($this->mapCache[ 'option' ][ trim($mixed, '\'"') ])) {
                     $_indexed_attr[ trim($mixed, '\'"') ] = true;
-                // shorthand attribute ?
+                    // shorthand attribute ?
                 } elseif (isset($this->shorttag_order[ $key ])) {
                     $_indexed_attr[ $this->shorttag_order[ $key ] ] = $mixed;
                 } else {
                     // too many shorthands
                     $compiler->trigger_template_error('too many shorthand attributes', null, true);
                 }
-            // named attribute
+                // named attribute
             } else {
                 foreach ($mixed as $k => $v) {
                     // option flag?
@@ -112,7 +111,7 @@ abstract class Smarty_Internal_CompileBase
                                 );
                             }
                         }
-                    // must be named attribute
+                        // must be named attribute
                     } else {
                         $_indexed_attr[ $k ] = $v;
                     }

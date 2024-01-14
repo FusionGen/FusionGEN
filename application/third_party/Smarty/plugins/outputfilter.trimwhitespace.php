@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty plugin
  *
@@ -25,13 +24,12 @@ function smarty_outputfilter_trimwhitespace($source)
     // Unify Line-Breaks to \n
     $source = preg_replace('/\015\012|\015|\012/', "\n", $source);
     // capture Internet Explorer and KnockoutJS Conditional Comments
-    if (
-        preg_match_all(
-            '#<!--((\[[^\]]+\]>.*?<!\[[^\]]+\])|(\s*/?ko\s+.+))-->#is',
-            $source,
-            $matches,
-            PREG_OFFSET_CAPTURE | PREG_SET_ORDER
-        )
+    if (preg_match_all(
+        '#<!--((\[[^\]]+\]>.*?<!\[[^\]]+\])|(\s*/?ko\s+.+))-->#is',
+        $source,
+        $matches,
+        PREG_OFFSET_CAPTURE | PREG_SET_ORDER
+    )
     ) {
         foreach ($matches as $match) {
             $store[] = $match[ 0 ][ 0 ];
@@ -47,13 +45,12 @@ function smarty_outputfilter_trimwhitespace($source)
     $source = preg_replace('#<!--.*?-->#ms', '', $source);
     // capture html elements not to be messed with
     $_offset = 0;
-    if (
-        preg_match_all(
-            '#(<script[^>]*>.*?</script[^>]*>)|(<textarea[^>]*>.*?</textarea[^>]*>)|(<pre[^>]*>.*?</pre[^>]*>)#is',
-            $source,
-            $matches,
-            PREG_OFFSET_CAPTURE | PREG_SET_ORDER
-        )
+    if (preg_match_all(
+        '#(<script[^>]*>.*?</script[^>]*>)|(<textarea[^>]*>.*?</textarea[^>]*>)|(<pre[^>]*>.*?</pre[^>]*>)#is',
+        $source,
+        $matches,
+        PREG_OFFSET_CAPTURE | PREG_SET_ORDER
+    )
     ) {
         foreach ($matches as $match) {
             $store[] = $match[ 0 ][ 0 ];
@@ -65,7 +62,7 @@ function smarty_outputfilter_trimwhitespace($source)
         }
     }
     $expressions = array(// replace multiple spaces between tags by a single space
-                         // can't remove them entirely, becaue that might break poorly implemented CSS display:inline-block elements
+                         // can't remove them entirely, because that might break poorly implemented CSS display:inline-block elements
                          '#(:SMARTY@!@|>)\s+(?=@!@SMARTY:|<)#s'                                    => '\1 \2',
                          // remove spaces between attributes (but not in attribute values!)
                          '#(([a-z0-9]\s*=\s*("[^"]*?")|(\'[^\']*?\'))|<[a-z0-9_]+)\s+([a-z/>])#is' => '\1 \5',

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Templateparser Parse Tree
  * These are classes to build parse tree in the template parser
@@ -121,25 +120,24 @@ class Smarty_Internal_ParseTree_Template extends Smarty_Internal_ParseTree
                         $text = $subtree->to_smarty_php($parser);
                     }
                     $code .= $text;
+
             }
         }
         return $code;
     }
 
-    private function getChunkedSubtrees()
-    {
+    private function getChunkedSubtrees() {
         $chunks = array();
         $currentMode = null;
         $currentChunk = array();
         for ($key = 0, $cnt = count($this->subtrees); $key < $cnt; $key++) {
+
             if ($this->subtrees[ $key ]->data === '' && in_array($currentMode, array('textstripped', 'text', 'tag'))) {
                 continue;
             }
 
-            if (
-                $this->subtrees[ $key ] instanceof Smarty_Internal_ParseTree_Text
-                && $this->subtrees[ $key ]->isToBeStripped()
-            ) {
+            if ($this->subtrees[ $key ] instanceof Smarty_Internal_ParseTree_Text
+                && $this->subtrees[ $key ]->isToBeStripped()) {
                 $newMode = 'textstripped';
             } elseif ($this->subtrees[ $key ] instanceof Smarty_Internal_ParseTree_Text) {
                 $newMode = 'text';

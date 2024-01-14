@@ -85,7 +85,7 @@ class Smarty_Template_Compiled extends Smarty_Template_Resource_Base
      *
      * @param Smarty_Internal_Template $_template
      *
-     * @return string
+     * @return void
      * @throws Exception
      */
     public function render(Smarty_Internal_Template $_template)
@@ -135,8 +135,7 @@ class Smarty_Template_Compiled extends Smarty_Template_Resource_Base
         if ($source->handler->recompiled) {
             $source->handler->process($_smarty_tpl);
         } elseif (!$source->handler->uncompiled) {
-            if (
-                !$this->exists || $smarty->force_compile
+            if (!$this->exists || $smarty->force_compile
                 || ($_smarty_tpl->compile_check && $source->getTimeStamp() > $this->getTimeStamp())
             ) {
                 $this->compileTemplateSource($_smarty_tpl);
@@ -242,8 +241,7 @@ class Smarty_Template_Compiled extends Smarty_Template_Resource_Base
      */
     private function loadCompiledTemplate(Smarty_Internal_Template $_smarty_tpl)
     {
-        if (
-            function_exists('opcache_invalidate')
+        if (function_exists('opcache_invalidate')
             && (!function_exists('ini_get') || strlen(ini_get("opcache.restrict_api")) < 1)
         ) {
             opcache_invalidate($this->filepath, true);

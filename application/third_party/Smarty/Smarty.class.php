@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Project:     Smarty: the PHP compiling template engine
  * File:        Smarty.class.php
@@ -29,7 +28,6 @@
  * @author    Rodney Rehm
  * @package   Smarty
  */
-
 /**
  * set SMARTY_DIR to absolute path to Smarty library files.
  * Sets SMARTY_DIR only if user application has not already defined it.
@@ -38,7 +36,7 @@ if (!defined('SMARTY_DIR')) {
     /**
      *
      */
-    define('SMARTY_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR);
+    define('SMARTY_DIR', __DIR__ . DIRECTORY_SEPARATOR);
 }
 /**
  * set SMARTY_SYSPLUGINS_DIR to absolute path to Smarty internal plugins.
@@ -62,12 +60,21 @@ if (!defined('SMARTY_MBSTRING')) {
      */
     define('SMARTY_MBSTRING', function_exists('mb_get_info'));
 }
+
+/**
+ * Load helper functions
+ */
+if (!defined('SMARTY_HELPER_FUNCTIONS_LOADED')) {
+    include __DIR__ . '/functions.php';
+}
+
 /**
  * Load Smarty_Autoloader
  */
 if (!class_exists('Smarty_Autoloader')) {
-    include dirname(__FILE__) . '/bootstrap.php';
+    include __DIR__ . '/bootstrap.php';
 }
+
 /**
  * Load always needed external class files
  */
@@ -100,54 +107,54 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    public const SMARTY_VERSION = '4.1.0';
+    const SMARTY_VERSION = '4.3.4';
     /**
      * define variable scopes
      */
-    public const SCOPE_LOCAL    = 1;
-    public const SCOPE_PARENT   = 2;
-    public const SCOPE_TPL_ROOT = 4;
-    public const SCOPE_ROOT     = 8;
-    public const SCOPE_SMARTY   = 16;
-    public const SCOPE_GLOBAL   = 32;
+    const SCOPE_LOCAL    = 1;
+    const SCOPE_PARENT   = 2;
+    const SCOPE_TPL_ROOT = 4;
+    const SCOPE_ROOT     = 8;
+    const SCOPE_SMARTY   = 16;
+    const SCOPE_GLOBAL   = 32;
     /**
      * define caching modes
      */
-    public const CACHING_OFF              = 0;
-    public const CACHING_LIFETIME_CURRENT = 1;
-    public const CACHING_LIFETIME_SAVED   = 2;
+    const CACHING_OFF              = 0;
+    const CACHING_LIFETIME_CURRENT = 1;
+    const CACHING_LIFETIME_SAVED   = 2;
     /**
      * define constant for clearing cache files be saved expiration dates
      */
-    public const CLEAR_EXPIRED = -1;
+    const CLEAR_EXPIRED = -1;
     /**
      * define compile check modes
      */
-    public const COMPILECHECK_OFF       = 0;
-    public const COMPILECHECK_ON        = 1;
-    public const COMPILECHECK_CACHEMISS = 2;
+    const COMPILECHECK_OFF       = 0;
+    const COMPILECHECK_ON        = 1;
+    const COMPILECHECK_CACHEMISS = 2;
     /**
      * define debug modes
      */
-    public const DEBUG_OFF        = 0;
-    public const DEBUG_ON         = 1;
-    public const DEBUG_INDIVIDUAL = 2;
+    const DEBUG_OFF        = 0;
+    const DEBUG_ON         = 1;
+    const DEBUG_INDIVIDUAL = 2;
 
     /**
      * filter types
      */
-    public const FILTER_POST     = 'post';
-    public const FILTER_PRE      = 'pre';
-    public const FILTER_OUTPUT   = 'output';
-    public const FILTER_VARIABLE = 'variable';
+    const FILTER_POST     = 'post';
+    const FILTER_PRE      = 'pre';
+    const FILTER_OUTPUT   = 'output';
+    const FILTER_VARIABLE = 'variable';
     /**
      * plugin types
      */
-    public const PLUGIN_FUNCTION         = 'function';
-    public const PLUGIN_BLOCK            = 'block';
-    public const PLUGIN_COMPILER         = 'compiler';
-    public const PLUGIN_MODIFIER         = 'modifier';
-    public const PLUGIN_MODIFIERCOMPILER = 'modifiercompiler';
+    const PLUGIN_FUNCTION         = 'function';
+    const PLUGIN_BLOCK            = 'block';
+    const PLUGIN_COMPILER         = 'compiler';
+    const PLUGIN_MODIFIER         = 'modifier';
+    const PLUGIN_MODIFIERCOMPILER = 'modifiercompiler';
 
     /**
      * assigned global tpl vars
@@ -644,7 +651,6 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      * PHP7 Compatibility mode
-     *
      * @var bool
      */
     private $isMutingUndefinedOrNullWarnings = false;
@@ -870,7 +876,7 @@ class Smarty extends Smarty_Internal_TemplateBase
                 $this->plugins_dir = (array)$this->plugins_dir;
             }
             foreach ($this->plugins_dir as $k => $v) {
-                $this->plugins_dir[ $k ] = $this->_realpath(rtrim($v, '/\\') . DIRECTORY_SEPARATOR, true);
+                $this->plugins_dir[ $k ] = $this->_realpath(rtrim($v ?? '', '/\\') . DIRECTORY_SEPARATOR, true);
             }
             $this->_cache[ 'plugin_files' ] = array();
             $this->_pluginsDirNormalized = true;
@@ -908,7 +914,7 @@ class Smarty extends Smarty_Internal_TemplateBase
 
     /**
      *
-     * @param string $compile_dir directory to store compiled templates in
+     * @param  string $compile_dir directory to store compiled templates in
      *
      * @return Smarty current Smarty instance for chaining
      */
@@ -1324,6 +1330,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      *
      * @param string $name  property name
      * @param mixed  $value parameter passed to setter
+     *
      */
     public function __set($name, $value)
     {
@@ -1347,7 +1354,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      */
     private function _normalizeDir($dirName, $dir)
     {
-        $this->{$dirName} = $this->_realpath(rtrim($dir, "/\\") . DIRECTORY_SEPARATOR, true);
+        $this->{$dirName} = $this->_realpath(rtrim($dir ?? '', "/\\") . DIRECTORY_SEPARATOR, true);
     }
 
     /**
@@ -1369,7 +1376,7 @@ class Smarty extends Smarty_Internal_TemplateBase
         }
         foreach ($dir as $k => $v) {
             if (!isset($processed[ $k ])) {
-                $dir[ $k ] = $v = $this->_realpath(rtrim($v, "/\\") . DIRECTORY_SEPARATOR, true);
+                $dir[ $k ] = $v = $this->_realpath(rtrim($v ?? '', "/\\") . DIRECTORY_SEPARATOR, true);
                 $processed[ $k ] = true;
             }
         }
@@ -1379,23 +1386,20 @@ class Smarty extends Smarty_Internal_TemplateBase
     }
 
     /**
-     * Activates PHP7 compatibility mode:
-     * - converts E_WARNINGS for "undefined array key" and "trying to read property of null" errors to E_NOTICE
+     * Mutes errors for "undefined index", "undefined array key" and "trying to read property of null".
      *
      * @void
      */
-    public function muteUndefinedOrNullWarnings(): void
-    {
+    public function muteUndefinedOrNullWarnings(): void {
         $this->isMutingUndefinedOrNullWarnings = true;
     }
 
     /**
-     * Indicates if PHP7 compatibility mode is set.
-     *
+     * Indicates if Smarty will mute errors for "undefined index", "undefined array key" and "trying to read property of null".
      * @bool
      */
-    public function isMutingUndefinedOrNullWarnings(): bool
-    {
+    public function isMutingUndefinedOrNullWarnings(): bool {
         return $this->isMutingUndefinedOrNullWarnings;
     }
+
 }

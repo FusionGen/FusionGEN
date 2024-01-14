@@ -114,6 +114,6 @@ class Smarty_Internal_Method_GetTemplateVars
             // force a notice
             $x = $$varName;
         }
-        return new Smarty_Undefined_Variable();
+        return new Smarty_Undefined_Variable;
     }
 }

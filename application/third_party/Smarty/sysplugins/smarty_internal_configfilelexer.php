@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Configfilelexer
  *
@@ -22,12 +21,12 @@
  */
 class Smarty_Internal_Configfilelexer
 {
-    public const START              = 1;
-    public const VALUE              = 2;
-    public const NAKED_STRING_VALUE = 3;
-    public const COMMENT            = 4;
-    public const SECTION            = 5;
-    public const TRIPPLE            = 6;
+    const START              = 1;
+    const VALUE              = 2;
+    const NAKED_STRING_VALUE = 3;
+    const COMMENT            = 4;
+    const SECTION            = 5;
+    const TRIPPLE            = 6;
 
     /**
      * Source
@@ -154,7 +153,7 @@ class Smarty_Internal_Configfilelexer
     /**
      * constructor
      *
-     * @param string                             $data template source
+     * @param   string                             $data template source
      * @param Smarty_Internal_Config_File_Compiler $compiler
      */
     public function __construct($data, Smarty_Internal_Config_File_Compiler $compiler)
@@ -437,10 +436,8 @@ class Smarty_Internal_Configfilelexer
 
     public function yy_r2_7()
     {
-        if (
-            !$this->configBooleanize ||
-            !in_array(strtolower($this->value), array('true', 'false', 'on', 'off', 'yes', 'no'))
-        ) {
+        if (!$this->configBooleanize ||
+            !in_array(strtolower($this->value), array('true', 'false', 'on', 'off', 'yes', 'no'))) {
             $this->yypopstate();
             $this->yypushstate(self::NAKED_STRING_VALUE);
             return true; //reprocess in new state

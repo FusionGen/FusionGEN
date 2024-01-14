@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty plugin
  *
@@ -20,8 +19,10 @@
 /**
  * This class does contain the security settings
  */
+#[\AllowDynamicProperties]
 class Smarty_Security
 {
+
     /**
      * This is the list of template directories that are considered secure.
      * $template_dir is in this list implicitly.
@@ -105,7 +106,7 @@ class Smarty_Security
      *
      * @var array
      */
-    public $php_modifiers = array('escape', 'count', 'nl2br',);
+    public $php_modifiers = array('escape', 'count', 'sizeof', 'nl2br',);
 
     /**
      * This is an array of allowed tags.
@@ -257,8 +258,7 @@ class Smarty_Security
      */
     public function isTrustedPhpFunction($function_name, $compiler)
     {
-        if (
-            isset($this->php_functions)
+        if (isset($this->php_functions)
             && (empty($this->php_functions) || in_array($function_name, $this->php_functions))
         ) {
             return true;
@@ -277,8 +277,7 @@ class Smarty_Security
      */
     public function isTrustedStaticClass($class_name, $compiler)
     {
-        if (
-            isset($this->static_classes)
+        if (isset($this->static_classes)
             && (empty($this->static_classes) || in_array($class_name, $this->static_classes))
         ) {
             return true;
@@ -315,8 +314,7 @@ class Smarty_Security
                 // fall back
                 return $this->isTrustedStaticClass($class_name, $compiler);
             }
-            if (
-                isset($allowed[ $class_name ])
+            if (isset($allowed[ $class_name ])
                 && (empty($allowed[ $class_name ]) || in_array($name, $allowed[ $class_name ]))
             ) {
                 return true;
@@ -331,13 +329,12 @@ class Smarty_Security
      *
      * @param string $modifier_name
      * @param object $compiler compiler object
-     *
+     * @deprecated
      * @return boolean                 true if modifier is trusted
      */
     public function isTrustedPhpModifier($modifier_name, $compiler)
     {
-        if (
-            isset($this->php_modifiers)
+        if (isset($this->php_modifiers)
             && (empty($this->php_modifiers) || in_array($modifier_name, $this->php_modifiers))
         ) {
             return true;
@@ -357,16 +354,15 @@ class Smarty_Security
     public function isTrustedTag($tag_name, $compiler)
     {
         // check for internal always required tags
-        if (
-            in_array(
-                $tag_name,
-                array(
+        if (in_array(
+            $tag_name,
+            array(
                 'assign', 'call', 'private_filter', 'private_block_plugin', 'private_function_plugin',
                 'private_object_block_function', 'private_object_function', 'private_registered_function',
                 'private_registered_block', 'private_special_variable', 'private_print_expression',
                 'private_modifier'
-                )
             )
+        )
         ) {
             return true;
         }
@@ -432,8 +428,7 @@ class Smarty_Security
                     true
                 );
             }
-        } elseif (
-            in_array($modifier_name, $this->allowed_modifiers)
+        } elseif (in_array($modifier_name, $this->allowed_modifiers)
                   && !in_array($modifier_name, $this->disabled_modifiers)
         ) {
             return true;
@@ -559,35 +554,6 @@ class Smarty_Security
             }
         }
         throw new SmartyException("URI '{$uri}' not allowed by security setting");
-    }
-
-    /**
-     * Check if directory of file resource is trusted.
-     *
-     * @param string $filepath
-     *
-     * @return boolean         true if directory is trusted
-     * @throws SmartyException if PHP directory is not trusted
-     */
-    public function isTrustedPHPDir($filepath)
-    {
-        if (empty($this->trusted_dir)) {
-            throw new SmartyException("directory '{$filepath}' not allowed by security setting (no trusted_dir specified)");
-        }
-        // check if index is outdated
-        if (!$this->_trusted_dir || $this->_trusted_dir !== $this->trusted_dir) {
-            $this->_php_resource_dir = array();
-            $this->_trusted_dir = $this->trusted_dir;
-            foreach ((array)$this->trusted_dir as $directory) {
-                $directory = $this->smarty->_realpath($directory . '/', true);
-                $this->_php_resource_dir[ $directory ] = true;
-            }
-        }
-        $addPath = $this->_checkDir($filepath, $this->_php_resource_dir);
-        if ($addPath !== false) {
-            $this->_php_resource_dir = array_merge($this->_php_resource_dir, $addPath);
-        }
-        return true;
     }
 
     /**

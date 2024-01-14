@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Smarty Template Compiler Base
  * This file contains the basic classes and methods for compiling Smarty templates with lexer/parser
@@ -107,8 +106,7 @@ class Smarty_Internal_SmartyTemplateCompiler extends Smarty_Internal_TemplateCom
         if ($isTemplateSource && $this->template->caching) {
             $this->parser->insertPhpCode("<?php\n\$_smarty_tpl->compiled->nocache_hash = '{$this->nocache_hash}';\n?>\n");
         }
-        if (
-            function_exists('mb_internal_encoding')
+        if (function_exists('mb_internal_encoding')
             && function_exists('ini_get')
             && ((int)ini_get('mbstring.func_overload')) & 2
         ) {

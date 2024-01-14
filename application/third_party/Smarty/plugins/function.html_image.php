@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty plugin
  *
@@ -33,7 +32,7 @@
  *
  * @throws SmartyException
  * @return string
- * @uses   smarty_function_escape_special_chars()
+ * @uses    smarty_function_escape_special_chars()
  */
 function smarty_function_html_image($params, Smarty_Internal_Template $template)
 {

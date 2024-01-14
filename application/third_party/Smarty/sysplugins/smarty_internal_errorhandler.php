@@ -6,30 +6,41 @@
  * @package    Smarty
  * @subpackage PluginsInternal
  * @author     Simon Wisselink
+ *
  */
 class Smarty_Internal_ErrorHandler
 {
+
     /**
      * Allows {$foo} where foo is unset.
-     *
      * @var bool
      */
     public $allowUndefinedVars = true;
 
     /**
+     * Allows {$foo->propName} where propName is undefined.
+     * @var bool
+     */
+    public $allowUndefinedProperties = true;
+
+    /**
      * Allows {$foo.bar} where bar is unset and {$foo.bar1.bar2} where either bar1 or bar2 is unset.
-     *
      * @var bool
      */
     public $allowUndefinedArrayKeys = true;
+
+    /**
+     * Allows {$foo->bar} where bar is not an object (e.g. null or false).
+     * @var bool
+     */
+    public $allowDereferencingNonObjects = true;
 
     private $previousErrorHandler = null;
 
     /**
      * Enable error handler to intercept errors
      */
-    public function activate()
-    {
+    public function activate() {
         /*
             Error muting is done because some people implemented custom error_handlers using
             https://php.net/set_error_handler and for some reason did not understand the following paragraph:
@@ -47,8 +58,7 @@ class Smarty_Internal_ErrorHandler
     /**
      * Disable error handler
      */
-    public function deactivate()
-    {
+    public function deactivate() {
         restore_error_handler();
         $this->previousErrorHandler = null;
     }
@@ -59,25 +69,41 @@ class Smarty_Internal_ErrorHandler
      * @link https://php.net/set_error_handler
      *
      * @param integer $errno Error level
-     * @param $errstr
-     * @param $errfile
-     * @param $errline
-     * @param $errcontext
+     * @param         $errstr
+     * @param         $errfile
+     * @param         $errline
+     * @param         $errcontext
      *
      * @return bool
      */
     public function handleError($errno, $errstr, $errfile, $errline, $errcontext = [])
     {
-        if ($this->allowUndefinedVars && $errstr == 'Attempt to read property "value" on null') {
+
+        if ($this->allowUndefinedVars && preg_match(
+                '/^(Attempt to read property "value" on null|Trying to get property (\'value\' )?of non-object)/',
+                $errstr
+            )) {
             return; // suppresses this error
         }
 
-        if (
-            $this->allowUndefinedArrayKeys && preg_match(
-                '/^(Undefined array key|Trying to access array offset on value of type null)/',
+        if ($this->allowUndefinedProperties && preg_match(
+                '/^(Undefined property)/',
                 $errstr
-            )
-        ) {
+            )) {
+            return; // suppresses this error
+        }
+
+        if ($this->allowUndefinedArrayKeys && preg_match(
+            '/^(Undefined index|Undefined array key|Trying to access array offset on value of type)/',
+            $errstr
+        )) {
+            return; // suppresses this error
+        }
+
+        if ($this->allowDereferencingNonObjects && preg_match(
+                '/^Attempt to read property ".+?" on/',
+                $errstr
+            )) {
             return; // suppresses this error
         }
 

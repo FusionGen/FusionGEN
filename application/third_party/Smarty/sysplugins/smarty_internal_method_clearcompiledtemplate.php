@@ -89,25 +89,22 @@ class Smarty_Internal_Method_ClearCompiledTemplate
                     continue;
                 }
                 $unlink = false;
-                if (
-                    (!isset($_compile_id) ||
+                if ((!isset($_compile_id) ||
                      (isset($_filepath[ $_compile_id_part_length ]) &&
-                      $a = !strncmp($_filepath, $_compile_id_part, $_compile_id_part_length))) &&
-                    (!isset($resource_name) ||
-                    (isset($_filepath[ $_resource_part_1_length ]) &&
-                                                   substr_compare(
-                                                       $_filepath,
-                                                       $_resource_part_1,
-                                                       -$_resource_part_1_length,
-                                                       $_resource_part_1_length
-                                                   ) === 0) ||
-                                                   (isset($_filepath[ $_resource_part_2_length ]) &&
-                                                                substr_compare(
-                                                                    $_filepath,
-                                                                    $_resource_part_2,
-                                                                    -$_resource_part_2_length,
-                                                                    $_resource_part_2_length
-                                                                ) === 0))
+                      $a = !strncmp($_filepath, $_compile_id_part, $_compile_id_part_length)))
+                    && (!isset($resource_name) || (isset($_filepath[ $_resource_part_1_length ])
+                                                   && substr_compare(
+                                                          $_filepath,
+                                                          $_resource_part_1,
+                                                          -$_resource_part_1_length,
+                                                          $_resource_part_1_length
+                                                      ) === 0) || (isset($_filepath[ $_resource_part_2_length ])
+                                                                   && substr_compare(
+                                                                          $_filepath,
+                                                                          $_resource_part_2,
+                                                                          -$_resource_part_2_length,
+                                                                          $_resource_part_2_length
+                                                                      ) === 0))
                 ) {
                     if (isset($exp_time)) {
                         if (is_file($_filepath) && time() - filemtime($_filepath) >= $exp_time) {
@@ -119,8 +116,7 @@ class Smarty_Internal_Method_ClearCompiledTemplate
                 }
                 if ($unlink && is_file($_filepath) && @unlink($_filepath)) {
                     $_count++;
-                    if (
-                        function_exists('opcache_invalidate')
+                    if (function_exists('opcache_invalidate')
                         && (!function_exists('ini_get') || strlen(ini_get('opcache.restrict_api')) < 1)
                     ) {
                         opcache_invalidate($_filepath, true);

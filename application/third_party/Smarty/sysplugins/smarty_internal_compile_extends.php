@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile extend
  * Compiles the {extends} tag

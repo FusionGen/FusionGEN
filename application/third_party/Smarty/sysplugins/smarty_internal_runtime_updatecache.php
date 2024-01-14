@@ -25,7 +25,7 @@ class Smarty_Internal_Runtime_UpdateCache
      *
      * @param \Smarty_Template_Cached   $cached
      * @param \Smarty_Internal_Template $_template
-     * @param $no_output_filter
+     * @param                           $no_output_filter
      *
      * @throws \Exception
      */
@@ -116,8 +116,7 @@ class Smarty_Internal_Runtime_UpdateCache
                 $content .= $cache_parts[ 2 ][ $curr_idx ];
             }
         }
-        if (
-            !$no_output_filter && !$_template->cached->has_nocache_code
+        if (!$no_output_filter && !$_template->cached->has_nocache_code
             && (isset($_template->smarty->autoload_filters[ 'output' ])
                 || isset($_template->smarty->registered_filters[ 'output' ]))
         ) {
@@ -137,8 +136,7 @@ class Smarty_Internal_Runtime_UpdateCache
      */
     public function writeCachedContent(Smarty_Internal_Template $_template, $content)
     {
-        if (
-            $_template->source->handler->recompiled || !$_template->caching
+        if ($_template->source->handler->recompiled || !$_template->caching
         ) {
             // don't write cache file
             return false;

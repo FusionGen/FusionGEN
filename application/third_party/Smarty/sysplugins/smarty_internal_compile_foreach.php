@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile Foreach
  * Compiles the {foreach} {foreachelse} {/foreach} tags
@@ -329,7 +328,7 @@ class Smarty_Internal_Compile_Foreachclose extends Smarty_Internal_CompileBase
         }
         list(
             $openTag, $compiler->nocache, $local, $itemVar, $restore
-        ) = $this->closeTag($compiler, array('foreach', 'foreachelse'));
+            ) = $this->closeTag($compiler, array('foreach', 'foreachelse'));
         $output = "<?php\n";
         if ($restore === 2) {
             $output .= "{$itemVar} = {$local}saved;\n";

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile Registered Function
  * Compiles code for the execution of a registered function

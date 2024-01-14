@@ -289,6 +289,10 @@
                     <td class="float-end">{$ci_version}</td>
                 </tr>
                 <tr>
+                    <td>Smarty version</td>
+                    <td class="float-end">{$smarty.version}</td>
+                </tr>
+                <tr>
                     <td>CMS version</td>
                     <td class="float-end">{$version}</td>
                 </tr>

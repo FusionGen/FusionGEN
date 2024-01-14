@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty plugin
  *
@@ -40,7 +39,7 @@
  * @param Smarty_Internal_Template $template template object
  *
  * @return string
- * @uses   smarty_function_escape_special_chars()
+ * @uses    smarty_function_escape_special_chars()
  * @throws \SmartyException
  */
 function smarty_function_html_radios($params, Smarty_Internal_Template $template)
@@ -124,8 +123,8 @@ function smarty_function_html_radios($params, Smarty_Internal_Template $template
                     }
                     break;
                 }
-                // omit break; to fall through!
-                // no break
+            // omit break; to fall through!
+            // no break
             default:
                 if (!is_array($_val)) {
                     $extra .= ' ' . $_key . '="' . smarty_function_escape_special_chars($_val) . '"';

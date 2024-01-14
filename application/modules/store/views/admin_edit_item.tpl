@@ -15,10 +15,10 @@
 	</div>
 	</form>
 
-	<script type="text/javascript">
+	<script>
 		var formType = {if $item.query}"query"{else if $item.command}"command"{else}"item"{/if};
 	</script>
-	
+
 	<form onSubmit="Items.save(this, {$item.id}); return false" id="command_form" {if !$item.command}style="display:none;"{/if}>
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="name">Name</label>
