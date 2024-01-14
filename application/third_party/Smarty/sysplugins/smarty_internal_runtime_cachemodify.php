@@ -32,17 +32,15 @@ class Smarty_Internal_Runtime_CacheModify
                     header('Status: 304 Not Modified');
                     break;
                 case 'cli':
-                    if (
-/* ^phpunit */
-                        !empty($_SERVER[ 'SMARTY_PHPUNIT_DISABLE_HEADERS' ]) /* phpunit$ */
+                    if (/* ^phpunit */
+                    !empty($_SERVER[ 'SMARTY_PHPUNIT_DISABLE_HEADERS' ]) /* phpunit$ */
                     ) {
                         $_SERVER[ 'SMARTY_PHPUNIT_HEADERS' ][] = '304 Not Modified';
                     }
                     break;
                 default:
-                    if (
-/* ^phpunit */
-                        !empty($_SERVER[ 'SMARTY_PHPUNIT_DISABLE_HEADERS' ]) /* phpunit$ */
+                    if (/* ^phpunit */
+                    !empty($_SERVER[ 'SMARTY_PHPUNIT_DISABLE_HEADERS' ]) /* phpunit$ */
                     ) {
                         $_SERVER[ 'SMARTY_PHPUNIT_HEADERS' ][] = '304 Not Modified';
                     } else {
@@ -53,9 +51,8 @@ class Smarty_Internal_Runtime_CacheModify
         } else {
             switch (PHP_SAPI) {
                 case 'cli':
-                    if (
-/* ^phpunit */
-                        !empty($_SERVER[ 'SMARTY_PHPUNIT_DISABLE_HEADERS' ]) /* phpunit$ */
+                    if (/* ^phpunit */
+                    !empty($_SERVER[ 'SMARTY_PHPUNIT_DISABLE_HEADERS' ]) /* phpunit$ */
                     ) {
                         $_SERVER[ 'SMARTY_PHPUNIT_HEADERS' ][] =
                             'Last-Modified: ' . gmdate('D, d M Y H:i:s', $cached->timestamp) . ' GMT';

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Config Source Plugin
  *

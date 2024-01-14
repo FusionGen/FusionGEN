@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile For
  * Compiles the {for} {forelse} {/for} tags

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Data
  * This file contains the basic classes and methods for template and variable creation
@@ -169,7 +168,7 @@ abstract class Smarty_Internal_Data
      * assigns values to template variables by reference
      *
      * @param string  $tpl_var the template variable name
-     * @param $value
+     * @param         $value
      * @param boolean $nocache if true any output of this variable will be not cached
      *
      * @return \Smarty_Internal_Data|\Smarty_Internal_Template|\Smarty

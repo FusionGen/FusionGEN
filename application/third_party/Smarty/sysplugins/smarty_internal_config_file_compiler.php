@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Config File Compiler
  * This is the config file compiler class. It calls the lexer and parser to
@@ -130,8 +129,7 @@ class Smarty_Internal_Config_File_Compiler
         );
         /* @var Smarty_Internal_ConfigFileParser $this->parser */
         $this->parser = new $this->parser_class($this->lex, $this);
-        if (
-            function_exists('mb_internal_encoding')
+        if (function_exists('mb_internal_encoding')
             && function_exists('ini_get')
             && ((int)ini_get('mbstring.func_overload')) & 2
         ) {
@@ -159,10 +157,12 @@ class Smarty_Internal_Config_File_Compiler
             $this->smarty->_debug->end_compile($this->template);
         }
         // template header code
-        $template_header =
-            "<?php /* Smarty version " . Smarty::SMARTY_VERSION . ", created on " . date("Y-m-d H:i:s") .
-            "\n";
-        $template_header .= "         compiled from '{$this->template->source->filepath}' */ ?>\n";
+        $template_header = sprintf(
+            "<?php /* Smarty version %s, created on %s\n         compiled from '%s' */ ?>\n",
+            Smarty::SMARTY_VERSION,
+            date("Y-m-d H:i:s"),
+            str_replace('*/', '* /' , $this->template->source->filepath)
+        );
         $code = '<?php $_smarty_tpl->smarty->ext->configLoad->_loadConfigVars($_smarty_tpl, ' .
                 var_export($this->config_data, true) . '); ?>';
         return $template_header . $this->template->smarty->ext->_codeFrame->create($this->template, $code);

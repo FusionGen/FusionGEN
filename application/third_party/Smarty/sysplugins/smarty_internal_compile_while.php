@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile While
  * Compiles the {while} tag

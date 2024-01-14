@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty plugin
  *
@@ -23,6 +22,8 @@
  */
 function smarty_modifier_capitalize($string, $uc_digits = false, $lc_rest = false)
 {
+    $string = (string) $string;
+
     if (Smarty::$_MBSTRING) {
         if ($lc_rest) {
             // uppercase (including hyphenated words)
@@ -37,13 +38,12 @@ function smarty_modifier_capitalize($string, $uc_digits = false, $lc_rest = fals
         }
         // check uc_digits case
         if (!$uc_digits) {
-            if (
-                preg_match_all(
-                    "!\b([\p{L}]*[\p{N}]+[\p{L}]*)\b!" . Smarty::$_UTF8_MODIFIER,
-                    $string,
-                    $matches,
-                    PREG_OFFSET_CAPTURE
-                )
+            if (preg_match_all(
+                "!\b([\p{L}]*[\p{N}]+[\p{L}]*)\b!" . Smarty::$_UTF8_MODIFIER,
+                $string,
+                $matches,
+                PREG_OFFSET_CAPTURE
+            )
             ) {
                 foreach ($matches[ 1 ] as $match) {
                     $upper_string =
@@ -77,13 +77,12 @@ function smarty_modifier_capitalize($string, $uc_digits = false, $lc_rest = fals
         );
     // check uc_digits case
     if (!$uc_digits) {
-        if (
-            preg_match_all(
-                "!\b([\p{L}]*[\p{N}]+[\p{L}]*)\b!" . Smarty::$_UTF8_MODIFIER,
-                $string,
-                $matches,
-                PREG_OFFSET_CAPTURE
-            )
+        if (preg_match_all(
+            "!\b([\p{L}]*[\p{N}]+[\p{L}]*)\b!" . Smarty::$_UTF8_MODIFIER,
+            $string,
+            $matches,
+            PREG_OFFSET_CAPTURE
+        )
         ) {
             foreach ($matches[ 1 ] as $match) {
                 $upper_string =
@@ -100,6 +99,7 @@ function smarty_modifier_capitalize($string, $uc_digits = false, $lc_rest = fals
 }
 
 /**
+ *
  * Bug: create_function() use exhausts memory when used in long loops
  * Fix: use declared functions for callbacks instead of using create_function()
  * Note: This can be fixed using anonymous functions instead, but that requires PHP >= 5.3

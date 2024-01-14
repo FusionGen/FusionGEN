@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin
  *
@@ -69,16 +68,15 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
      */
     public function populateTimestamp(Smarty_Template_Cached $cached)
     {
-        if (
-            !$this->fetch(
-                $cached->filepath,
-                $cached->source->name,
-                $cached->cache_id,
-                $cached->compile_id,
-                $content,
-                $timestamp,
-                $cached->source->uid
-            )
+        if (!$this->fetch(
+            $cached->filepath,
+            $cached->source->name,
+            $cached->cache_id,
+            $cached->compile_id,
+            $content,
+            $timestamp,
+            $cached->source->uid
+        )
         ) {
             return;
         }
@@ -107,16 +105,15 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
         $content = $cached->content ? $cached->content : null;
         $timestamp = $cached->timestamp ? $cached->timestamp : null;
         if ($content === null || !$timestamp) {
-            if (
-                !$this->fetch(
-                    $_smarty_tpl->cached->filepath,
-                    $_smarty_tpl->source->name,
-                    $_smarty_tpl->cache_id,
-                    $_smarty_tpl->compile_id,
-                    $content,
-                    $timestamp,
-                    $_smarty_tpl->source->uid
-                )
+            if (!$this->fetch(
+                $_smarty_tpl->cached->filepath,
+                $_smarty_tpl->source->name,
+                $_smarty_tpl->cache_id,
+                $_smarty_tpl->compile_id,
+                $content,
+                $timestamp,
+                $_smarty_tpl->source->uid
+            )
             ) {
                 return false;
             }
@@ -154,16 +151,15 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
         $content = $_template->cached->content ? $_template->cached->content : null;
         $timestamp = null;
         if ($content === null) {
-            if (
-                !$this->fetch(
-                    $_template->cached->filepath,
-                    $_template->source->name,
-                    $_template->cache_id,
-                    $_template->compile_id,
-                    $content,
-                    $timestamp,
-                    $_template->source->uid
-                )
+            if (!$this->fetch(
+                $_template->cached->filepath,
+                $_template->source->name,
+                $_template->cache_id,
+                $_template->compile_id,
+                $content,
+                $timestamp,
+                $_template->source->uid
+            )
             ) {
                 return false;
             }
@@ -248,7 +244,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
      */
     protected function sanitize($string)
     {
-        $string = trim($string, '|');
+        $string = trim((string)$string, '|');
         if (!$string) {
             return '';
         }
@@ -315,8 +311,8 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
     {
         extract(unpack('N1s/N1m/a*content', $content));
         /**
-         * @var int $s
-         * @var int $m
+         * @var  int $s
+         * @var  int $m
          */
         return $s + ($m / 100000000);
     }
@@ -432,7 +428,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
             $t[] = 'IVK#COMPILE' . $_compile;
         }
         $_name .= '#';
-        $cid = trim($cache_id, '|');
+        $cid = trim((string)$cache_id, '|');
         if (!$cid) {
             return $t;
         }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile If
  * Compiles the {if} {else} {elseif} {/if} tags

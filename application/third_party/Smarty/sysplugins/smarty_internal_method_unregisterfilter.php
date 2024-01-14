@@ -14,7 +14,7 @@ class Smarty_Internal_Method_UnregisterFilter extends Smarty_Internal_Method_Reg
     /**
      * Unregisters a filter function
      *
-     * @api Smarty::unregisterFilter()
+     * @api  Smarty::unregisterFilter()
      *
      * @link https://www.smarty.net/docs/en/api.unregister.filter.tpl
      *

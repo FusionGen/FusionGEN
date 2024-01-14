@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Templateparser Parsetree
  * These are classes to build parsetree in the template parser

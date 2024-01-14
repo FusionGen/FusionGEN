@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile Nocache
  * Compiles the {nocache} {/nocache} tags.

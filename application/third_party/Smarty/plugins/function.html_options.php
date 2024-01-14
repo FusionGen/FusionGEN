@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty plugin
  *
@@ -117,8 +116,8 @@ function smarty_function_html_options($params, Smarty_Internal_Template $templat
                     }
                     break;
                 }
-                // omit break; to fall through!
-                // no break
+            // omit break; to fall through!
+            // no break
             default:
                 if (!is_array($_val)) {
                     $extra .= ' ' . $_key . '="' . smarty_function_escape_special_chars($_val) . '"';

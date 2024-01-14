@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Internal Plugin Compile Print Expression
  * Compiles any tag which will output an expression or variable
@@ -94,13 +93,12 @@ class Smarty_Internal_Compile_Private_Print_Expression extends Smarty_Internal_C
                 }
                 // autoescape html
                 if ($compiler->template->smarty->escape_html) {
-                    $output = "htmlspecialchars({$output}, ENT_QUOTES, '" . addslashes(Smarty::$_CHARSET) . "')";
+                    $output = "htmlspecialchars((string) {$output}, ENT_QUOTES, '" . addslashes(Smarty::$_CHARSET) . "')";
                 }
                 // loop over registered filters
                 if (!empty($compiler->template->smarty->registered_filters[ Smarty::FILTER_VARIABLE ])) {
-                    foreach (
-                        $compiler->template->smarty->registered_filters[ Smarty::FILTER_VARIABLE ] as $key => $function
-                    ) {
+                    foreach ($compiler->template->smarty->registered_filters[ Smarty::FILTER_VARIABLE ] as $key =>
+                        $function) {
                         if (!is_array($function)) {
                             $output = "{$function}({$output},\$_smarty_tpl)";
                         } elseif (is_object($function[ 0 ])) {
@@ -124,8 +122,7 @@ class Smarty_Internal_Compile_Private_Print_Expression extends Smarty_Internal_C
                     }
                 }
                 foreach ($compiler->variable_filters as $filter) {
-                    if (
-                        count($filter) === 1
+                    if (count($filter) === 1
                         && ($result = $this->compile_variable_filter($compiler, $filter[ 0 ], $output)) !== false
                     ) {
                         $output = $result;

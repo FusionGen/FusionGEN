@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Smarty Plugin Data
  * This file contains the data object
