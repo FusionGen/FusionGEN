@@ -422,7 +422,7 @@ class Realms
                 $level = 1;
             }
         }
-        if ($race == "Lightforged Dranei") {
+        if ($race == "Lightforged Draenei") {
             $race = "lightforged";
         } else {
             // If character is below 30, use lv 1 image
@@ -512,7 +512,7 @@ class Realms
                 $level = 1;
             }
         }
-        if ($race == "Vuplera") {
+        if ($race == "Vulpera") {
             $race = "vulpera";
         } else {
             // If character is below 30, use lv 1 image
