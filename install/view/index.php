@@ -555,7 +555,7 @@
 										<div class="form-group clearfix">
 											<label for="cap" class="col-md-3">Max allowed players online</label>
 											<div class=" col-md-9">
-												<input class="form-control" type="text" value="" id="cap" name="cap" placeholder="100">
+												<input class="form-control" type="number" value="" id="cap" name="cap" placeholder="100">
 											</div>
 										</div>
 
