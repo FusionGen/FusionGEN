@@ -32,6 +32,7 @@ var Settings = {
 				$(element).parents("tr").slideUp(300, function()
 				{
 					$(this).remove();
+					window.location = Config.URL + "admin/settings";
 				});
 
 				$.get(Config.URL + "admin/realmmanager/delete/" + id, function(data)
@@ -102,32 +103,9 @@ var Settings = {
 
 		$.post(Config.URL + "admin/realmmanager/create", data, function(id)
 		{
-			if(/^[0-9]*$/.test(id))
+			if(id == "yes")
 			{
-				var realmHTML = '<li class="list-group-item">\
-								<table width="100%">\
-									<tr>\
-										<td width="10%">ID: ' + id + '</td>\
-										<td width="30%"><b>' + data.name + '</b></td>\
-										<td width="30%">' + data.hostname + '</td>\
-										<td width="20%">' + emulatorText + '</td>\
-										<td style="text-align:right;">\
-											<a href="' + id + '" data-tip="Edit"><img src="' + Config.URL + 'application/themes/admin/images/icons/black16x16/ic_edit.png" /></a>&nbsp;\
-											<a href="javascript:void(0)" onClick="Settings.remove(' + id + ', this)" data-tip="Delete"><img src="' + Config.URL + 'application/themes/admin/images/icons/black16x16/ic_minus.png" /></a>\
-										</td>\
-									</tr>\
-								</table>\
-							</li>';
-
-				$("#realm_count").html(parseInt($("#realm_count").html()) + 1);
-				$("#realm_list").append(realmHTML);
-				$("#add_realm").fadeOut(100, function()
-				{
-					$("#realm_settings").fadeIn(100, function()
-					{
-						$("#non_realm").fadeIn(100);
-					});
-				});
+				window.location = Config.URL + "admin/settings";
 			}
 			else
 			{

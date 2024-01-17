@@ -625,7 +625,7 @@
 							<form name="owner-form" id="owner-form" action="do_owner.php" method="post" autocomplete="off">
 								<div class="section clearfix">
 									<p>Homepage Owner</p>
-									<hr>
+									<hr><br>
 									<span>Enter your account name to get owner access on the homepage (Case sensitive!)</span>
 									<div>
 										<div class="form-group clearfix">

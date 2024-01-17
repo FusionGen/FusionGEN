@@ -120,7 +120,7 @@ var Auth = {
 		} else if($(ele).data("show") == false) {
 			$(ele).html('<i class="fas fa-eye"></i>');
 			$(ele).data("show", true);
-			
+
 			$("input#"+ $(ele).data("input-id")).attr("type", "text");
 		}
 		
