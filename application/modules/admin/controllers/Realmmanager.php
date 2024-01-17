@@ -104,7 +104,7 @@ class Realmmanager extends MX_Controller
 
         $id = $this->realm_model->create($data);
 
-        die((string)$id);
+        die('yes');
     }
 
     public function save($id = false)
