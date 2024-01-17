@@ -11,8 +11,8 @@ class Realm_model extends CI_Model
     {
         $this->db->insert("realms", $data);
 
-        if ($this->db->error()) {
-            die($this->db->error());
+        if ($this->db->error()['message']) {
+            die($this->db->error()['message']);
         }
 
         $query = $this->db->query("SELECT id FROM realms ORDER BY id DESC LIMIT 1");
