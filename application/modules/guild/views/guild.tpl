@@ -24,8 +24,8 @@
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">{lang("members", "guild")}</div>
-			<div class="section-body">
-				<table class="table table-responsive text-nowrap nice_table">
+			<div class="section-body table-responsive">
+				<table class="table text-nowrap nice_table">
 					<thead>
 						<tr>
 							<th>{lang("members", "guild")}</th>
