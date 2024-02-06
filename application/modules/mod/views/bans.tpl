@@ -21,7 +21,7 @@
 			</div>
 			<h2 class="card-title">Banned accs</h2>
 		</header>
-        <div class="card-body">
+        <div class="card-body table-responsive">
 			<table class="table table-bordered table-striped mb-0 dataTable no-footer" id="activeBanList">
 			<thead>
 				<tr role="row">
@@ -61,7 +61,7 @@
 			</div>
 			<h2 class="card-title">Expired bans</h2>
 		</header>
-        <div class="card-body">
+        <div class="card-body table-responsive">
 			<table class="table table-bordered table-striped mb-0 dataTable no-footer" id="ExpiredBanList">
 			<thead>
 				<tr role="row">
