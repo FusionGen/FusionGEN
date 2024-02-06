@@ -41,7 +41,7 @@
 
 {if count($item.spells) > 0}
 	{foreach from=$item.spells item=spell}
-		<a class="q2" href="https://wowhead.com/?spell={$spell.id}" target="_blank">
+		<a class="q2" href="https://wowhead.com/spell={$spell.id}" target="_blank">
 			{$spell.trigger}
 		
 			{if !strlen($spell.text)}
