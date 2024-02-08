@@ -163,12 +163,6 @@
 			</div>
 			<!-- start: user box -->
 				<div class="header-right">
-					<ul class="notifications">
-						<a href="{$url}admin/support" class="label label-primary">Support</a>
-					</ul>
-
-					<span class="separator"></span>
-
 					<ul class="notifications" id="realmstatus">
 						<i class="fas fa-spinner fa-pulse"></i>
 					</ul>
@@ -389,7 +383,7 @@
 			<div class="content-body pt-0 pb-3">
 				<div class="row align-items-center">
 					<div class="col-lg-1">
-						<a href="#" onclick="WhatHappenedHere(this)" class="logo">
+						<a href="#" class="logo">
 							<img alt="FusionGen" class="img-fluid" src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 						</a>
 					</div>
@@ -399,11 +393,9 @@
 					<div class="col-lg-4">
 						<nav id="sub-menu">
 							<ul>
-								<li><i class="fa-solid fa-wifi"></i><a href="https://status.fusiongen.net"> CDN Status</a></li>
-								<li><i class="fa-brands fa-discord"></i><a href="https://discord.gg/5nSt9puU4V"> Discord</a></li>
-								<li><i class="fa-solid fa-book"></i><a href="https://docs.fusiongen.net/"> Docs</a></li>
-								<li><i class="fa-brands fa-github"></i><a href="https://github.com/FusionGen/FusionGEN"> Github</a></li>
-								<script src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script>kofiwidget2.init('Support Us', '#29abe0', 'M4M0BFX1Y');kofiwidget2.draw();</script> 
+								<li><a target="_blank" href="https://discord.gg/5nSt9puU4V"><i class="fa-brands fa-discord"></i> Discord</a></li>
+								<li><a target="_blank" href="https://github.com/FusionGen/FusionGEN"><i class="fa-brands fa-github"></i> Github</a></li>
+								<li><a target="_blank" href="https://ko-fi.com/fusiongen"><i class="fa-solid fa-mug-hot"></i> Support Us</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -411,23 +403,6 @@
 			</div>
 		</div>
 	</footer>
-	<script>
-		function WhatHappenedHere(btn) {
-			Swal.fire({
-				width: 0,
-				padding: '0',
-				color: '#716add',
-				showCancelButton: false,
-				showConfirmButton: false,
-				backdrop: `
-					rgba(0,0,123,0.4)
-					url("https://sweetalert2.github.io/images/nyan-cat.gif")
-					center
-					no-repeat
-					`
-			})
-		};
-	</script>
 	<script>
 	var Notify = {
 		notifyField: $("#content"),

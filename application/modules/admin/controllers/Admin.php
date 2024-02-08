@@ -42,15 +42,14 @@ class Admin extends MX_Controller
             'votes' => $this->getVotes(),
             'signups' => $this->getSignups(),
             'graphMonthly' => $this->graphMonthly(),
-            'graphDaily' => $this->graphDaily(),
-            "autoUpdate" => $this->config->item("auto_update")
+            'graphDaily' => $this->graphDaily()
         );
 
         $output = $this->template->loadPage("dashboard.tpl", $data);
 
         $content = $this->administrator->box('Dashboard', $output);
 
-        $this->administrator->view($content, false, "modules/admin/js/admin.js");
+        $this->administrator->view($content, false);
     }
 
     private function getUnique()
