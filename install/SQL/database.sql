@@ -7576,25 +7576,6 @@ INSERT INTO `spelltext_en` (`spellId`, `spellText`) VALUES
 (75973, 'Summons an X-53 Touring Rocket. This two-passenger mount\'s speed depends upon your riding skill.');
 
 -- ----------------------------
--- Table structure for sql_testupdater
--- ----------------------------
-DROP TABLE IF EXISTS `sql_testupdater`;
-CREATE TABLE `sql_testupdater`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
-
--- ----------------------------
--- Records of sql_testupdater
--- ----------------------------
-INSERT INTO `sql_testupdater` (`id`, `key`, `value`) VALUES
-(1, 'test', 'true'),
-(2, 'lol', 'yes'),
-(3, 'fun', 'yay!');
-
--- ----------------------------
 -- Table structure for store_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `store_groups`;
@@ -7639,20 +7620,6 @@ CREATE TABLE `store_items`  (
 
 -- ----------------------------
 -- Records of store_items
--- ----------------------------
-
--- ----------------------------
--- Table structure for support_requests
--- ----------------------------
-DROP TABLE IF EXISTS `support_requests`;
-CREATE TABLE `support_requests`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
-
--- ----------------------------
--- Records of support_requests
 -- ----------------------------
 
 -- ----------------------------
