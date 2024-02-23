@@ -103,7 +103,6 @@
 
 <script>
     $(document).ready(function () {
-   
         $("#ItemSeachInput").on("keyup", function () {
             var value = $(this).val().toLowerCase();     
             $("#ItemTableResult tr").filter(function () {

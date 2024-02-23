@@ -3,7 +3,6 @@ var Store = {
 	 * Filter object, holds filtering functionality
 	 */
 	Filter: {
-		 
 		showVote: true,
 		showDonate: true,
 		displayQuality: "ALL",
@@ -31,7 +30,7 @@ var Store = {
 			else
 			{
 				this.showVote = true;
-				
+
 				$(".vp_button").each(function()
 				{
 					$(this).show();
@@ -155,13 +154,13 @@ var Store = {
 	 			{
 	 				canHide = false;
 	 			}
-	 			
+
 	 			// Does the item have DP option and is DP enabled
 	 			if(hasDp && Store.Filter.showDonate && canHide)
 	 			{
 	 				canHide = false;
 	 			}
-	 			
+
 	 			// Should we hide it?
 	 			if(canHide)
 	 			{
@@ -187,7 +186,7 @@ var Store = {
 		 	{
 		 		// Filter based on vp / dp toggling
 		 		name = $(this).find(".item_name").html();
-	 			
+
 	 			// Should we hide it?
 	 			if(!regex.test(name))
 	 			{
@@ -241,7 +240,7 @@ var Store = {
 		 		{
 		 			// Filter based on vp / dp toggling
 			 		item = $(this).find(".item_name");
-		 			
+
 		 			// Should we hide it?
 		 			if(item.hasClass("q" + Store.Filter.displayQuality))
 		 			{
@@ -467,12 +466,12 @@ var Store = {
 				$("#cart_item_count").html(Store.Cart.list.length);
 
 				var isInCart = Store.Cart.isInCart(id, priceType);
-				
+
 				if(isInCart)
 				{
 					var countField = $("#cart_item_count_" + isInCart),
 						itemCount;
-					
+
 					if(countField.html().length == 0)
 					{
 						itemCount = 2;
@@ -494,13 +493,12 @@ var Store = {
 						var tooltipHTML = (tooltip) ? 'data-realm="' + realmId +'" rel="item=' + itemId +'"' : '';
 
 						var itemHTML = '<div class="store_item row" id="cart_item_' + Store.Cart.count + '">' +
-											
 											'<a href="' + Config.URL + 'item/' + realmId + '/' + itemId + '" class="item_name col-5 q' + quality  +'" ' + tooltipHTML + '>' +
 												name  + 
 											'</a>' +
 											'<span class="col-1" id="cart_item_count_' + Store.Cart.count + '"></span>' +
 											'<div class="item_price col-2">' +
-												'<img src="' + Config.URL + 'application/images/icons/' + ((priceType == "vp") ? "lightning" : "coins") + '.png" align="absmiddle" />' +
+												'<img src="' + Config.URL + 'application/images/icons/' + ((priceType == "vp") ? "lightning" : "coins") + '.png" align="absmiddle">' +
 												price + " " + ((priceType == "vp") ? lang("vp", "store") : lang("dp", "store")) +
 											'</div>' +
 											'<div class="item_realm col-3">' + realm + '</div>' +
