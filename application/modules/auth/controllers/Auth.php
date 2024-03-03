@@ -123,9 +123,9 @@ class Auth extends MX_Controller
                 if ($this->input->post("password") != "")
                 {
                     $userId = $this->user->getId($this->input->post("username"));
-                    $sha_pass_hash = $this->user->createHash($this->input->post("username"), $this->input->post("password"));
+                    $salt = $this->user->createHash($this->input->post("username"), $this->input->post("password"));
 
-                    if (strtoupper($this->external_account_model->getInfo($userId, "password")["password"]) != strtoupper($sha_pass_hash["verifier"]))
+                    if (strtoupper($this->external_account_model->getInfo($userId, "password")["password"]) != strtoupper($salt["verifier"]))
                     {
                         if (isset($_POST["submit"]) && $this->input->post("submit") == "true")
                         {
@@ -163,8 +163,8 @@ class Auth extends MX_Controller
             //Login
             if ($this->input->post("submit") == "true")
             {
-                $sha_pass_hash = $this->user->createHash($this->input->post('username'), $this->input->post('password'));
-                $check = $this->user->setUserDetails($this->input->post('username'), $sha_pass_hash["verifier"]);
+                $salt = $this->user->createHash($this->input->post('username'), $this->input->post('password'));
+                $check = $this->user->setUserDetails($this->input->post('username'), $salt["verifier"]);
 
                 //if no errors, login
                 if ($check == 0)
@@ -180,7 +180,7 @@ class Auth extends MX_Controller
                         if($this->input->post("remember") == "true")
                         {
                             $this->input->set_cookie("fcms_username", $this->input->post('username'), 60 * 60 * 24 * 365);
-                            $this->input->set_cookie("fcms_password", $sha_pass_hash["verifier"], 60 * 60 * 24 * 365);
+                            $this->input->set_cookie("fcms_password", $salt["verifier"], 60 * 60 * 24 * 365);
                         }
                     }
 

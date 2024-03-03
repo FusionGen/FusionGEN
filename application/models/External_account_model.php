@@ -13,7 +13,7 @@ class External_account_model extends CI_Model
     private $connection;
     private $id;
     private $username;
-    private $sha_pass_hash;
+    private $salt;
     private $email;
     private $joindate;
     private $last_ip;
@@ -32,7 +32,7 @@ class External_account_model extends CI_Model
         } else {
             $this->id = 0;
             $this->username = "Guest";
-            $this->sha_pass_hash = "";
+            $this->salt = "";
             $this->email = "";
             $this->joindate =  "";
             $this->expansion = 0;
@@ -71,7 +71,7 @@ class External_account_model extends CI_Model
 
             $this->id = $result["id"];
             $this->username = $result["username"];
-            $this->sha_pass_hash = $result["password"];
+            $this->salt = $result["password"];
             $this->email = $result["email"];
             $this->joindate = $result["joindate"];
             $this->expansion = $result["expansion"];
@@ -82,7 +82,7 @@ class External_account_model extends CI_Model
         } else {
             $this->id = 0;
             $this->username = "Guest";
-            $this->sha_pass_hash = "";
+            $this->salt = "";
             $this->email = "";
             $this->joindate =  "";
             $this->expansion = 0;
@@ -150,7 +150,7 @@ class External_account_model extends CI_Model
             $battleData = array(
                 column("battlenet_accounts", "id") => $userId,
                 column("battlenet_accounts", "email") => $email,
-                column("battlenet_accounts", "sha_pass_hash") => $hash,
+                column("battlenet_accounts", "salt") => $hash,
                 column("battlenet_accounts", "last_ip") => $this->input->ip_address(),
                 column("battlenet_accounts", "joindate") => date("Y-m-d H:i:s")
             );
@@ -502,7 +502,7 @@ class External_account_model extends CI_Model
 
     public function getShaPassHash()
     {
-        return $this->sha_pass_hash;
+        return $this->salt;
     }
 
     public function getEmail($id = false)

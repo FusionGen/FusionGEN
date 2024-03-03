@@ -101,7 +101,7 @@ class Trinity_rbac_sl_soap implements Emulator
         'battlenet_accounts' => array(
             'id' => 'id',
             'email' => 'email',
-            'sha_pass_hash' => 'sha_pass_hash',
+            'salt' => 'salt',
             'joindate' => 'joindate',
             'last_ip' => 'last_ip',
             'last_login' => 'last_login'
@@ -391,9 +391,9 @@ class Trinity_rbac_sl_soap implements Emulator
         if (!is_string($password)) {
             $password = "";
         }
-        $sha_pass_hash = strtoupper(bin2hex(strrev(hex2bin(strtoupper(hash("sha256", strtoupper(hash("sha256", strtoupper($email)) . ":" . strtoupper($password))))))));
+        $salt = strtoupper(bin2hex(strrev(hex2bin(strtoupper(hash("sha256", strtoupper(hash("sha256", strtoupper($email)) . ":" . strtoupper($password))))))));
 
-        return $sha_pass_hash;
+        return $salt;
     }
 
     /**
