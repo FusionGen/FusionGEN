@@ -115,8 +115,8 @@ class Register extends MX_Controller
             $this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
 
             // Log in
-            $sha_pass_hash = $this->user->createHash($this->input->post('register_username'), $this->input->post('register_password'));
-            $check = $this->user->setUserDetails($this->input->post('register_username'), $sha_pass_hash["verifier"]);
+            $salt = $this->user->createHash($this->input->post('register_username'), $this->input->post('register_password'));
+            $check = $this->user->setUserDetails($this->input->post('register_username'), $salt["verifier"]);
         }
 
         $title = lang("created", "register");

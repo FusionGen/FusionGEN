@@ -43,16 +43,16 @@ class User
      * When they log in this should be called to set all the user details.
      *
      * @param  String $username
-     * @param  String $sha_pass_hash
+     * @param  String $salt
      * @return Int
      */
-    public function setUserDetails($username, $sha_pass_hash)
+    public function setUserDetails($username, $salt)
     {
         $check = $this->CI->external_account_model->initialize($username);
 
         if (!$check) {
             return 1;
-        } elseif (strtoupper($this->CI->external_account_model->getShaPassHash()) == strtoupper($sha_pass_hash)) {
+        } elseif (strtoupper($this->CI->external_account_model->getShaPassHash()) == strtoupper($salt)) {
             // Load the internal values (vp, dp etc.)
             $this->CI->internal_user_model->initialize($this->CI->external_account_model->getId());
 
