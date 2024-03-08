@@ -100,7 +100,7 @@
 																	<img class="item_icon rounded" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" align="absmiddle" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
 																</div>
 																<div class="col-md-8 mt-1">
-																	<a {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality} align-self-center">
+																	<a target="_blank" {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality} align-self-center">
 																		{character_limiter($item.name, 25)}
 																	</a>
 																<p class="text-justify text-truncate mb-0">
@@ -147,7 +147,7 @@
 											</div>
 
 											<img class="item_icon rounded" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" align="absmiddle" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
-											<a {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality}">
+											<a target="_blank" {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality}">
 												{character_limiter($item.name, 25)}
 											</a>
 											<br>{character_limiter($item.description, 25)}

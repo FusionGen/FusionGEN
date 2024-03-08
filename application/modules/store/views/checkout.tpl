@@ -24,7 +24,7 @@
 				<img class="item_icon rounded" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" align="absmiddle" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
 				</div>
 				<div class="col-md-8 mt-1">
-				<a {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality}">
+				<a target="_blank" {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality}">
 					{$item.name}
 				</a>
 					<br>{$item.description}
