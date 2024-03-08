@@ -38,7 +38,7 @@ $lang['seconds'] = "secondes";
 
 // Permission errors
 $lang['denied'] = "Permission refusée";
-$lang['must_be_signed_in'] = "Vous devez être connecté pour voir cette page !";
+$lang['must_be_signed_in'] = "Vous devez être connecté pour voir cette page!";
 $lang['already_signed_in'] = "Vous êtes déjà connecté!";
 $lang['no_permission'] = "Vous n'êtes pas autorisé à afficher cette page.";
 $lang['click_to_sign_in'] = "Veuillez cliquer ici pour vous connecter.";

@@ -16,6 +16,6 @@ $lang['404_title'] = "Fichier introuvable";
 $lang['404'] = "Erreur 404 - fichier introuvable";
 $lang['404_long'] = "La page que vous recherchez n'existe pas. Comment êtes-vous arrivé ici c'est un mystère. Mais vous pouvez cliquer sur le bouton ci-dessous pour revenir à la page d'accueil.";
 $lang['permission_denied_title'] = "Permission refusée";
-$lang['permission_denied'] = "Vous n'avez pas la permission d'accéder à cette page !";
+$lang['permission_denied'] = "Vous n'avez pas la permission d'accéder à cette page!";
 $lang['lost'] = "EUH OH ! Tu es perdu.";
 $lang['button_home'] = "Accueil";
