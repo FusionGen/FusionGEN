@@ -13,8 +13,8 @@
  */
 
 $lang['teleport_hub'] = "HUB de téléportation";
-$lang['cant_afford'] = "Vous ne pouvez pas vous le permettre !";
-$lang['must_be_offline'] = "Le personnage doit être hors ligne !";
+$lang['cant_afford'] = "Vous ne pouvez pas vous le permettre!";
+$lang['must_be_offline'] = "Le personnage doit être hors ligne!";
 $lang['wrong_faction'] = "L'emplacement que vous avez sélectionné n'est disponible que pour l'autre faction";
 $lang['doesnt_exist'] = "L'emplacement que vous avez sélectionné n'existe pas!";
 $lang['no_location'] = "L'emplacement de téléportation n'a pas été défini!";

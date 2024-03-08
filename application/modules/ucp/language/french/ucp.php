@@ -53,7 +53,7 @@ $lang['new_password_confirm'] = "Confirmez le mot de passe";
 $lang['new_password_submit'] = "Changer le mot de passe";
 
 $lang['nickname_error'] = "Le pseudo doit comporter entre 4 et 14 caractères et ne peut contenir que des lettres et des chiffres.";
-$lang['location_error'] = "L'emplacement ne peut contenir que 32 caractères maximum et ne peut contenir que des lettres.";
+$lang['location_error'] = "L'emplacement ne peut contenir que 32 caractères maximum et ne peut contenir que des lettres.";
 $lang['pw_doesnt_match'] = "Les mots de passe ne correspondent pas!";
 $lang['changes_saved'] = "Les modifications ont été enregistrées!";
 $lang['invalid_pw'] = "Mot de passe incorrect!";

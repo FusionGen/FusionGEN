@@ -13,7 +13,7 @@
  */
 
 $lang['item_store'] = "Boutique d'Objets";
-$lang['cant_afford'] = "Vous ne pouvez pas vous le permettre !";
+$lang['cant_afford'] = "Vous ne pouvez pas vous le permettre!";
 $lang['go_back'] = "Revenir en arrière";
 $lang['error_offline'] = "Nous sommes désolés, mais le royaume que nous essayions de contacter semble être hors ligne. Vos points ont été restaurés. Veuillez réessayer plus tard.";
 $lang['error_character'] = "Nous ne pouvons pas vous envoyer les objets car vous n'avez pas de personnage. Vos points ont été restaurés.";

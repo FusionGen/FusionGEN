@@ -12,7 +12,7 @@
  *  will automatically look in that folder too.
  */
 
-$lang['invalid'] = "Aucune guilde ou royaume spécifié !";
+$lang['invalid'] = "Aucune guilde ou royaume spécifié!";
 $lang['invalid_guild'] = "Guilde invalide";
 $lang['armory'] = "Armurerie";
 $lang['no_motd'] = "Cette guilde n'a pas de message du jour.";
