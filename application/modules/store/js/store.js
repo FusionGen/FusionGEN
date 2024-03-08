@@ -493,7 +493,7 @@ var Store = {
 						var tooltipHTML = (tooltip) ? 'data-realm="' + realmId +'" rel="item=' + itemId +'"' : '';
 
 						var itemHTML = '<div class="store_item row" id="cart_item_' + Store.Cart.count + '">' +
-											'<a href="' + Config.URL + 'item/' + realmId + '/' + itemId + '" class="item_name col-5 q' + quality  +'" ' + tooltipHTML + '>' +
+											'<a target="_blank" href="' + Config.URL + 'item/' + realmId + '/' + itemId + '" class="item_name col-5 q' + quality  +'" ' + tooltipHTML + '>' +
 												name  + 
 											'</a>' +
 											'<span class="col-1" id="cart_item_count_' + Store.Cart.count + '"></span>' +
