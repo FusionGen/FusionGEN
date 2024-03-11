@@ -3,14 +3,14 @@
         <div class="input-group">
             <input class="col-xs-12 col-sm-12 col-md-12 col-lg-3 form-control mx-1 mt-3" type="text" id="search_field" name="search_field" placeholder="{lang("search_placeholder", "armory")}">
         
-            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="realm" name="realm" onchange="Search.toggle();return false;">
+            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="realm" name="realm";return false;">
                 <option value="0" disabled>{lang("realm", "armory")}</option>
                 {for $i = 0; $i<count((array)$realms); $i++}
                     <option {if $i == 0}selected{/if} value="{$realms[$i]->getId()}">{$realms[$i]->getName()}</option>
                 {/for}
             </select>
         
-            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="table" name="table" onchange="Search.toggle();return false;">
+            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="table" name="table";return false;">
                 <option value="items">{lang("items", "armory")}</option>
                 <option value="guilds">{lang("guilds", "armory")}</option>
                 <option value="characters">{lang("characters", "armory")}</option>
