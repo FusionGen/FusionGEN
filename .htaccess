@@ -1,9 +1,9 @@
 <ifModule mod_rewrite.c>
 	RewriteEngine On
-        
+	
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.*)$ ./index.php?/$1 [L]
+	RewriteRule ^(.*)$ index.php/$1 [L]
 </ifModule>
 # Required Rewrite Rule 
 
@@ -41,9 +41,7 @@ AddDefaultCharset utf-8
   Options -Indexes
 </IfModule>
 <FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
-  Order allow,deny
-  Deny from all
-  Satisfy All
+  Require all denied
 </FilesMatch>
 # Prevent 404 Errors for Non-Existing Redirected Folders
 
