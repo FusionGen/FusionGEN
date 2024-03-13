@@ -74,6 +74,7 @@ This project exists thanks to:
 - OMGhixD
 - Jiinx
 - Nightprince
+- BlizzCMS
 - **The [FusionGen developers and contributors](https://github.com/FusionGen/FusionGEN/graphs/contributors)**
 
 ## Links
