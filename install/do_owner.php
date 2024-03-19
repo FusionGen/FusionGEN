@@ -1,4 +1,10 @@
 <?php
+if(file_exists(".lock"))
+{
+	header("HTTP/1.1 403 Forbidden" );
+	die();
+}
+
 ini_set('max_execution_time', 30);
 include('../application/config/database.php');
 
