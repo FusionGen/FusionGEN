@@ -14,7 +14,7 @@
 
 $lang['search_title'] = "Rechercher";
 $lang['search_headline'] = "Recherche d'armurerie";
-$lang['search_placeholder'] = "Rechercher des personnages, des objets et des guildes...";
+$lang['search_placeholder'] = "Rechercher des personnages, des guildes ou des objets...";
 $lang['search_button'] = "Rechercher";
 $lang['search_too_short'] = "La chaîne de recherche doit comporter au moins 2 caractères!";
 $lang['characters'] = "Personnages";
