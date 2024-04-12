@@ -4,12 +4,12 @@
 
         <div class="input-group p-0 flex-row">
             <label for="floatingUser" class="input-group-text" id="username" style="width:45px;"><i class="fas fa-user"></i></label>
-            <input type="text" class="form-control username-input border-0" id="floatingUser" placeholder="{lang('login_label_user', 'sidebox_info_login')}" aria-describedby="username">
+            <input type="text" class="form-control username-input border-0" id="floatingUser" autocomplete="username" placeholder="{lang('login_label_user', 'sidebox_info_login')}" aria-describedby="username" required>
         </div>
 
         <div class="input-group p-0 mt-3 flex-row">
-            <label class="input-group-text cursor-pointer" id="password" style="width:45px;" data-input-id="floatingPassword" data-show="false" onClick="Auth.showPassword(this);"><i class="fas fa-eye-slash"></i></label>
-            <input type="password" class="form-control password-input border-0" id="floatingPassword" placeholder="{lang('login_label_password', 'sidebox_info_login')}" aria-describedby="password">
+            <label class="input-group-text" id="password" style="width:45px;cursor: pointer;" data-input-id="floatingPassword" data-show="false" onClick="Auth.showPassword(this);"><i class="fas fa-eye-slash"></i></label>
+            <input type="password" class="form-control password-input border-0" id="floatingPassword" autocomplete="current-password" placeholder="{lang('login_label_password', 'sidebox_info_login')}" aria-describedby="password" required>
         </div>
 
         <div class="captcha-field {if !$use_captcha}d-none{/if}">
@@ -18,12 +18,12 @@
                     <img src="{$url}auth/getCaptcha?{time()}" alt="captcha" width="150" height="30" id="captchaImage">
                 </label>
 
-                <span class="input-group-text cursor-pointer ms-0 rounded-0 rounded-bottom-start" id="captcha" style="width:40px;" data-captcha-id="captchaImage" onClick="Auth.refreshCaptcha(this);">
+                <span class="input-group-text ms-0 rounded-0 rounded-bottom-start" id="captcha" style="width:40px;cursor: pointer;" data-captcha-id="captchaImage" onClick="Auth.refreshCaptcha(this);">
                     <i class="fas fa-rotate"></i>
                 </span>
 
                 <div class="form-floating ms-0 flex-grow-1">
-                    <input type="text" class="form-control captcha-input border-0 rounded-0 rounded-bottom-end" id="floatingCaptcha" placeholder="{lang('login_label_captcha', 'sidebox_info_login')}" aria-describedby="captcha">
+                    <input type="text" class="form-control captcha-input border-0 rounded-0 rounded-bottom-end" id="floatingCaptcha" placeholder="{lang('login_label_captcha', 'sidebox_info_login')}" aria-describedby="captcha" required>
                     <label for="floatingCaptcha">{lang("login_label_captcha", "sidebox_info_login")}</label>
                 </div>
             </div>
