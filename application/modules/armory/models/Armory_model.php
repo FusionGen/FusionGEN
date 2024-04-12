@@ -9,7 +9,7 @@ class Armory_model extends CI_Model
     {
         parent::__construct();
     }
-    
+
     public function get_items($searchString = "", $limit, $offset, $realmId = 1)
     {        
         //Connect to the world database
@@ -21,7 +21,7 @@ class Armory_model extends CI_Model
 
         //Get the connection and run a query
         $query = $this->w_connection->query("SELECT " . columns("item_template", array("entry", "name", "ItemLevel", "RequiredLevel", "InventoryType", "Quality", "class", "subclass"), $realmId) . " FROM " . table("item_template", $realmId) . " WHERE UPPER(" . column("item_template", "name", false, $realmId) . ") LIKE ? ORDER BY " . column("item_template", "ItemLevel", false, $realmId) . " DESC LIMIT ".$limit." OFFSET ".$offset."", array('%' . mb_strtoupper($searchString) . '%'));
-        
+
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
             return $row;
@@ -35,7 +35,7 @@ class Armory_model extends CI_Model
         $realm = $this->realms->getRealm($realmId);
         $realm->getWorld()->connect();
         $this->w_connection = $realm->getWorld()->getConnection();
-        
+
         $string = $this->w_connection->escape_str($string);
 
         $this->w_connection->like(column("item_template", "name", false, $realmId), $string);
@@ -69,7 +69,7 @@ class Armory_model extends CI_Model
         $realm = $this->realms->getRealm($realmId);
         $realm->getCharacters()->connect();
         $this->c_connection = $realm->getCharacters()->getConnection();
-        
+
         $string = $this->c_connection->escape_str($string);
 
         $this->c_connection->like(column("guild", "name", false, $realmId), $string);
@@ -102,7 +102,7 @@ class Armory_model extends CI_Model
         $realm = $this->realms->getRealm($realmId);
         $realm->getCharacters()->connect();
         $this->c_connection = $realm->getCharacters()->getConnection();
-        
+
         $string = $this->c_connection->escape_str($string);
 
         $this->c_connection->like(column("characters", "name", false, $realmId), $string);

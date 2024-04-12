@@ -14,7 +14,7 @@
 
 $lang['search_title'] = "Buscar";
 $lang['search_headline'] = "Buscar en Armeria";
-$lang['search_placeholder'] = "Busca Personajes, Objetos y Hermandades...";
+$lang['search_placeholder'] = "Busca personajes, hermandades o objetos...";
 $lang['search_button'] = "Buscar";
 $lang['search_too_short'] = "La cadena de búsqueda debe tener al menos 2 caracteres!";
 $lang['characters'] = "Personajes";
