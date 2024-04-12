@@ -3,9 +3,6 @@
 /*-------------------------------------------------------------------------*/
 @charset "UTF-8";
 
-/* Bootstrap */
-@import url('./global/bootstrap.css');
-
 /* Theme fonts */
 @import url('./fonts/fonts.css');
 

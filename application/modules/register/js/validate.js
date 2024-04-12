@@ -12,7 +12,7 @@ var Validate = {
 	{
 		var field = $(field.replace("register_", "") + "_error");
 		
-		field.html('<img src="' + Config.URL + 'application/images/icons/accept.png" />');
+		field.html('<img src="' + Config.URL + 'application/images/icons/accept.png">');
 	},
 
 	/**
@@ -26,12 +26,12 @@ var Validate = {
 
 		if(error.length > 0)
 		{
-			field.html('<img src="' + Config.URL + 'application/images/icons/exclamation.png" data-tip="' + error + '" />');
+			field.html('<img src="' + Config.URL + 'application/images/icons/exclamation.png" data-tip="' + error + '">');
 			Tooltip.refresh();
 		}
 		else
 		{
-			field.html('<img src="' + Config.URL + 'application/images/icons/exclamation.png" />');
+			field.html('<img src="' + Config.URL + 'application/images/icons/exclamation.png">');
 		}
 	},
 
