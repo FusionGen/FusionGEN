@@ -37,7 +37,6 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<link rel="stylesheet" href="{$url}application/css/default.css">
 		<link rel="stylesheet" href="{$url}application/css/tooltip.css">
 		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/css/style.css">
-		<link rel="stylesheet" href="{$full_theme_path}assets/css/custom.css">
 
 		{if $extra_css}<link rel="stylesheet" href="{$path}{$extra_css}">{/if}
 		{*	{if !is_array($extra_css)}
