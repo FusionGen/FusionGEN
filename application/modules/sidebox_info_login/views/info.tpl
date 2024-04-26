@@ -18,7 +18,7 @@
         </tr>
     </table>
     <center>
-		<a href="{$url}ucp" class="nice_button mt-2">{lang("user_panel", "sidebox_info")}</a>
-		<a href="{$url}logout" class="nice_button mt-2">{lang("log_out", "sidebox_info")}</a>
+		<a href="{$url}ucp" class="nice_button rounded mt-2">{lang("user_panel", "sidebox_info")}</a>
+		<a href="{$url}logout" class="nice_button rounded mt-2">{lang("log_out", "sidebox_info")}</a>
     </center>
 </section>

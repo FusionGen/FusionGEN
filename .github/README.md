@@ -71,6 +71,7 @@ The FusionGen source is released under the [GNU AGPL v3](https://github.com/Fusi
 This project exists thanks to:
 
 - **[Jesper Lindström](https://github.com/jesperlindstrom)** (FusionCMS)
+- **[Xavier Geerinck](https://github.com/XavierGeerinck)**
 - OMGhixD
 - Jiinx
 - Nightprince

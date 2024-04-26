@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			{if $is_single}
-				<a href="{$url}news" class="nice_button" title="See all news">See all news</a>
+				<a href="{$url}news" class="nice_button rounded" title="See all news">See all news</a>
 			{else}
 				<h3 class="header-text" title="NEWS">{str_replace('&', '<span>&</span>', NEWS)}</h3>
 			{/if}

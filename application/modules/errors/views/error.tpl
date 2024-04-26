@@ -12,5 +12,5 @@
 		</p>
 	{/if}
 
-	<a href="{$url}" class="mt-3 nice_button">{lang("button_home", "error")}</a>
+	<a href="{$url}" class="nice_button rounded mt-3">{lang("button_home", "error")}</a>
 </div>

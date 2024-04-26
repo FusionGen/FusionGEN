@@ -42,6 +42,3 @@
 /* Modules parts */
 @import url('./modules/news.css');
 @import url('./modules/donate.css');
-
-/* Theme custom stylesheets */
-@import url('./custom.css');

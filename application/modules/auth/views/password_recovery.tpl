@@ -8,7 +8,7 @@
 			<label>{lang('email', 'recovery')}</label>
 			<input type="email" class="email-input mb-3" required>
 
-			<input type="submit" value="{lang('recover', 'recovery')}" class="nice_button text-center">
+			<input type="submit" value="{lang('recover', 'recovery')}" class="nice_button rounded">
 		</form>
 	</div>
 </div>

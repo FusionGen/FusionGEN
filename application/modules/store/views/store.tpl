@@ -59,11 +59,11 @@
 								<input class="form-control" type="text" id="filter_name" placeholder="{lang("filter", "store")}" onKeyUp="Store.Filter.setName(this.value)">
 							</div>
 							<div class="col-sm-3">
-								<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="nice_button">
+								<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="nice_button rounded">
 									<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> {lang("vp", "store")}
 								</a>
 
-								<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="mt-1 nice_button">
+								<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="mt-1 nice_button rounded">
 									<img src="{$url}application/images/icons/coins.png" align="absmiddle"> {lang("dp", "store")}
 								</a>
 							</div>
@@ -109,13 +109,13 @@
 																</div>
 																<div class="store_buttons float-end col-md-3 border-left mt-1">
 																	{if $item.vp_price}
-																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button vp_button">
+																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button rounded vp_button">
 																		<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 																	</a>
 																	{/if}
 
 																	{if $item.dp_price}
-																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button dp_button">
+																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name)}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button rounded dp_button">
 																		<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 																	</a>
 																	{/if}
@@ -134,13 +134,13 @@
 										<div class="store_item" id="item_{$item.id}">
 											<div class="store_buttons">
 												{if $item.vp_price}
-												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button vp_button">
+												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button rounded vp_button">
 													<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 												</a>
 												{/if}
 
 												{if $item.dp_price}
-												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button dp_button">
+												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes(preg_replace('/"/', "'", $item.name))}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button rounded dp_button">
 													<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 												</a>
 												{/if}
@@ -180,7 +180,7 @@
 										</div>
 
 										<div class="ms-auto p-1">
-											<a href="javascript:void(0)" onClick="Store.Cart.checkout(this)" class="nice_button">{lang("checkout", "store")}</a>
+											<a href="javascript:void(0)" onClick="Store.Cart.checkout(this)" class="nice_button rounded">{lang("checkout", "store")}</a>
 										</div>
 									</div>
 								</div>

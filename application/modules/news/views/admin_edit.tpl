@@ -227,7 +227,7 @@
 				<label class="col-sm-2 col-form-label" for="headline">Article settings</label>
 				<div class="col-sm-10">
 					<div class="checkbox-custom checkbox-default">
-						<input type="checkbox" class="custom-control-input" id="comments" {if $article.comments != -1}checked="yes"{/if} value="1">
+						<input type="checkbox" class="custom-control-input" id="comments" {if $article.comments != -1}checked="yes"{/if} value="0">
 						<label for="comments" class="custom-control-label">Allow comments</label>
 					</div>
 				</div>

@@ -65,7 +65,7 @@
 						<div class="row">
 							<div class="col-6">
 								<p class="mt-1 mb-3">
-									<a href="../">Not {$username}?</a>
+									<a href="./">Not {$username}?</a>
 								</p>
 							</div>
 							<div class="col-6">

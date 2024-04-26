@@ -42,7 +42,7 @@
                                                 <p>{lang("dp", "donate")}</p>
                                                 <input type="hidden" name="donation_type" value="paypal">
                                                 <input type="hidden" name="data_id" value="{$data.id}" id="option_{$data.id}">
-                                                <input type='submit' class="w-100 nice_button" value='{lang("donate", "donate")}' onclick="Donate.disableButton({$data.id})">
+                                                <input type='submit' class="w-100 nice_button rounded" value='{lang("donate", "donate")}' onclick="Donate.disableButton({$data.id})">
 											</div>
 										</div>
 									</form>

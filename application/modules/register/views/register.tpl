@@ -42,7 +42,7 @@ input + span[id] {
 			{/if}
 
 		<div class="form-group text-center mt-4">
-			<button class="card-footer nice_button" type="submit" name="login_submit">{lang("submit", "register")}</button>
+			<button class="nice_button rounded" type="submit" name="login_submit">{lang("submit", "register")}</button>
 		</div>
 
 {form_close()}
