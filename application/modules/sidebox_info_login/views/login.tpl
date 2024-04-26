@@ -42,7 +42,7 @@
     </div>
 
     <div class="form-group text-center mt-4">
-    <button class="card-footer nice_button">
+    <button class="nice_button rounded">
         {lang("login_button", "sidebox_info_login")}
     </button>
     </div>

@@ -21192,8 +21192,8 @@ html.dark .search-content .search-results-list a:hover {
 }
 
 .body-locked .current-user .user-name {
-	font-size: 32px;
-	font-size: 2rem;
+	font-size: 25px;
+	font-size: 1.563rem;
 }
 
 .body-locked .current-user .user-email {

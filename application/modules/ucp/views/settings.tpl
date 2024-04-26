@@ -38,7 +38,7 @@
 						</div>
 					{/if}
 
-					<input class="nice_button mt-3" type="submit" value="{lang("change_information", "ucp")}">
+					<input class="nice_button rounded mt-3" type="submit" value="{lang("change_information", "ucp")}">
 
 					<div id="settings_info_ajax" class="text-center"></div>
 				</form>
@@ -68,7 +68,7 @@
 						</div>
 					</div>
 
-					<input class="nice_button mt-3" type="submit" value="{lang("change_password", "ucp")}">
+					<input class="nice_button rounded mt-3" type="submit" value="{lang("change_password", "ucp")}">
 
 					<div id="settings_ajax" class="text-center py-3"></div>
 				</form>

@@ -16,7 +16,7 @@
                 <option value="items">{lang("items", "armory")}</option>
             </select>
 
-            <button class="nice_button mx-1 mt-3" type="submit"><i class="fas fa-magnifying-glass"></i> {lang("search_button", "armory")}</button>
+            <button class="nice_button rounded mx-1 mt-3" type="submit"><i class="fas fa-magnifying-glass"></i> {lang("search_button", "armory")}</button>
         </div>
     </form>
 </div>

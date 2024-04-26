@@ -9,7 +9,7 @@
 			<label>{lang('new_password', 'recovery')}</label>
 			<input type="password" class="password-input mb-3"required>
 
-			<input type="submit" value="{lang('reset_password', 'recovery')}" class="nice_button text-center">
+			<input type="submit" value="{lang('reset_password', 'recovery')}" class="nice_button rounded">
 		</form>
 	</div>
 </div>
