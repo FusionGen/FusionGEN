@@ -103,8 +103,8 @@
 }
 
 @font-face {
-	font-family:'frozen'; 
-	src:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209981/Ice%20kingdom%20-%20Bold%20-%20Por%20Kustren.woff');
+	font-family:'Alice'; 
+	src:url('https://fonts.gstatic.com/s/alice/v20/OpNCnoEEmtHa6GcOrg4.woff2');
 }
 
 h1 {
@@ -133,7 +133,7 @@ h1 {
 	animation: shine 1s infinite;
 	background-size: 200%, contain;
 	filter: drop-shadow(0 0 3px rgba(#000, 1));
-	font-family: 'frozen', serif;
+	font-family: 'Alice', serif;
 }
 
 /*.header .navbar .navbar-brand [glows]::before,
