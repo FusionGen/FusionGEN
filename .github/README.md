@@ -40,8 +40,8 @@ Read the [installation guide](INSTALL.md).
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing features, feel free to [open an issue](https://github.com/FusionGen/FusionGEN/issues/new/choose) to discuss it, or directly create a pull request after you fill the pull request template with necessary changes.
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Contributions are **greatly appreciated**.
+* If you have suggestions for adding or removing features, feel free to [open an issue](https://github.com/FusionGen/FusionGEN/issues/new/choose) to discuss it or directly create a pull request after you fill the pull request template with necessary changes.
 * Please make sure you check your spelling and grammar.
 * Create individual pull request for each suggestion.
 * Please also read through the [Code Of Conduct](https://github.com/FusionGen/FusionGEN/blob/main/.github/CODE_OF_CONDUCT.md) before posting your first idea as well.
