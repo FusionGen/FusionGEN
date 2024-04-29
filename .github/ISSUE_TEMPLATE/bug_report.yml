@@ -27,6 +27,7 @@ body:
       label: Error log/notice
       description: |
         Provide the log details or error notice.
+
         (You can directly attach relevant text files by clicking this area to highlight it and then dragging files in or you may upload to https://gist.github.com/ then paste the link here.)
     validations:
       required: false
