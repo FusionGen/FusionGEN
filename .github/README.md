@@ -1,20 +1,13 @@
-<br/>
 <p align="center">
-  <a href="https://github.com/FusionGen/FusionGen">
+  <a href="https://github.com/FusionGen/FusionGEN">
     <img src="https://avatars.githubusercontent.com/u/64651572" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">FusionGen</h3>
+  <h3 align="center">FusionGEN</h3>
 
-  <p align="center">
-    <a href="https://docs.fusiongen.net/"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    <a href="https://github.com/FusionGen/FusionGen/issues">Report Bug</a>
-  </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/FusionGen/FusionGen/total) ![Contributors](https://img.shields.io/github/contributors/FusionGen/FusionGen?color=dark-green) ![Issues](https://img.shields.io/github/issues/FusionGen/FusionGen) [![Discord](https://img.shields.io/discord/217589275766685707.svg)](https://discord.com/invite/5nSt9puU4V "Our community hub on Discord") 
+![Downloads](https://img.shields.io/github/downloads/FusionGEN/FusionGEN/total) ![Contributors](https://img.shields.io/github/contributors/FusionGEN/FusionGEN?color=dark-green) ![Issues](https://img.shields.io/github/issues/FusionGEN/FusionGEN) [![Discord](https://img.shields.io/discord/217589275766685707.svg)](https://discord.com/invite/5nSt9puU4V "Our community hub on Discord") 
 
 ## Table Of Contents
 
@@ -28,10 +21,9 @@
 
 ## About The Project
 
-FusionGen is a free, open-source content management system. Server owners all around the world rely upon FusionGen for its ease of use and development, safe and secure codebase and dedication to simplicity.
+FusionGEN is a free, open-source content management system. Server owners all around the world rely upon FusionGEN for its ease of use and development, safe and secure codebase and dedication to simplicity.
 
 ## Getting Started
-
 
 ### Prerequisites
 
@@ -39,7 +31,7 @@ FusionGen is a free, open-source content management system. Server owners all ar
 | --- | --- |
 | PHP 8.0.33 or above | (enable Extensions: php_mysqli, php_curl, php_openssl, php_soap, php_mbstring, php_json, php_zip, php_gd and php_gmp) |
 | Apache / Nginx | (enable modules: mod_rewrite and mod_headers) |
-| Pre installed World of Warcraft Server | (with the databases of: Auth, Characters and World) |
+| Pre-installed World of Warcraft Server emulator | (with the databases of: Auth, Characters and World) |
 | MySQL / Mariadb Server |  >= 5.7 / 10.1 |
 
 ### Installation
@@ -48,10 +40,10 @@ Read the [installation guide](INSTALL.md).
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/FusionGen/FusionGen/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Contributions are **greatly appreciated**.
+* If you have suggestions for adding or removing features, feel free to [open an issue](https://github.com/FusionGen/FusionGEN/issues/new/choose) to discuss it or directly create a pull request after you fill the pull request template with necessary changes.
 * Please make sure you check your spelling and grammar.
-* Create individual PR for each suggestion.
+* Create individual pull request for each suggestion.
 * Please also read through the [Code Of Conduct](https://github.com/FusionGen/FusionGEN/blob/main/.github/CODE_OF_CONDUCT.md) before posting your first idea as well.
 
 ### Creating A Pull Request
@@ -64,21 +56,21 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-The FusionGen source is released under the [GNU AGPL v3](https://github.com/FusionGen/FusionGEN/blob/main/LICENSE)
+The FusionGEN source is released under the [GNU AGPL v3](https://github.com/FusionGen/FusionGEN/blob/main/LICENSE)
 
 ## Authors & Contributors
 
 This project exists thanks to:
 
 - **[Jesper Lindström](https://github.com/jesperlindstrom)** (FusionCMS)
-- **[Xavier Geerinck](https://github.com/XavierGeerinck)**
-- OMGhixD
-- Jiinx
-- Nightprince
-- BlizzCMS
-- **The [FusionGen developers and contributors](https://github.com/FusionGen/FusionGEN/graphs/contributors)**
+- **[Xavier Geerinck](https://github.com/XavierGeerinck)** (FusionCMS)
+- **[OMGhixD](https://github.com/OMGhixD-OG)**
+- **[Jiinx](https://github.com/Jiinx)**
+- **[Nightprince](https://github.com/Nightprince)**
+- **[BlizzCMS](https://github.com/WoW-CMS/BlizzCMS)**
+- **[The FusionGEN developers and contributors](https://github.com/FusionGen/FusionGEN/graphs/contributors)**
 
 ## Links
 
-**[FusionGen.net](https://fusiongen.net/)**
+**[FusionGEN.net](https://FusionGEN.net/)**
 **[Discord](https://discord.gg/5nSt9puU4V)**
