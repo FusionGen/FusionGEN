@@ -1,0 +1,98 @@
+name: Generic issue
+description: Report an issue or a problem.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this form! Please make sure to fill all required fields, including the Title above.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        A clear and concise description of the problem or issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: |
+        Tell us what should happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Error log/notice
+      description: |
+        Provide the log details or error notice.
+        (You can directly attach relevant text files by clicking this area to highlight it and then dragging files in or you may upload to https://gist.github.com/ then paste the link here.)
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: |
+        If applicable, add screenshots to ilustrate your problem.
+
+        (You can directly attach images by clicking this area to highlight it and then dragging files in or you can upload them somewhere else and then paste the link here.)
+    validations:
+      required: false
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Steps to reproduce the problem.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+        ...
+      value: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: commit
+    attributes:
+      label: FusionGEN rev. hash/commit
+      description: |
+        Copy the hash/commit of your installed FusionGEN i.e. e599c491fd98e1278baac0d0e9893941c5f9f2e5
+    validations:
+      required: true
+  - type: textarea
+    id: webserver
+    attributes:
+      label: Webserver
+      description: |
+        Provide the Webserver informations.
+      placeholder: |
+        - OS: [e.g. Debian 11]
+        - HTTP server: [e.g. Apache 2.4]
+        - PHP version: [e.g. PHP 8.1]
+        - MySQL server: [e.g. Mariadb 10.5.2]
+        ...
+      value: |
+        - OS: [e.g. Debian 11]
+        - HTTP server: [e.g. Apache 2.4]
+        - PHP version: [e.g. PHP 8.1]
+        - MySQL server: [e.g. Mariadb 10.5.2]
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: |
+        Add any other context about the problem here.
+
+        (You can directly attach images or relevant text files by clicking this area to highlight it and then dragging files in.)
+    validations:
+      required: false
