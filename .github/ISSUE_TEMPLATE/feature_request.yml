@@ -1,0 +1,33 @@
+name: Feature request
+description: Ideas for new features and functionality
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this form! Please make sure to fill all required fields, including the Title above.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: |
+        Description about the new desired feature.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: |
+        Description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: |
+        Add any other context or screenshots about the requested feature here.
+
+        (You can directly attach images or relevant text files by clicking this area to highlight it and then dragging files in.)
+    validations:
+      required: false
