@@ -68,7 +68,7 @@
 
 @media screen and (min-width: 992px) { /* Desktop */
 	.section-pageheader .container .row .col-md-12 .pageheader-title {
-		font-size: 2rem;
+		font-size: 1.625rem;
 		text-align: left;
 	}
 
