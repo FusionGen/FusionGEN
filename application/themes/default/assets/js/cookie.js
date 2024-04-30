@@ -22,7 +22,7 @@ $(document).ready(function() {
 	if (getCookie("acceptCookies") == null){
 		Swal.fire({
 			title: 'Do you like Cookies?',
-			text: 'This website uses cookies to ensure you get the best experience on our website.',
+			text: 'We use cookies to ensure you get the best experience on our website.',
 			showDenyButton: true,
 			showCancelButton: false,
 			confirmButtonText: 'Accept',

@@ -62,22 +62,19 @@
 						{foreach from=$enabled_modules item=module key=key}
 							<tr class="border-top">
 								<td class="font-weight-bold border-0 w-70 align-middle text-light">{ucfirst($module.name)} <span class="font-weight-normal">by</span> <a href="{$module.author.website}" target="_blank">{$module.author.name}</a><br><small class="font-weight-normal" style="color:#97989d;">{$module.description}</small></td>
-								<td class="pull-right">
-									<div class="btn-group">
-										<button type="button" class="btn btn-primary">Action</button>
-										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<span class="sr-only">Toggle Dropdown</span>
-											</button>
-											<div class="dropdown-menu">
-												{if hasPermission("toggleModules")}
-													<a href="javascript:void(0)" onClick="Modules.disableModule('{$key}', this);" class="dropdown-item text-danger">Disable</a>
-												{/if}
-												{if $module.has_configs && hasPermission("editModuleConfigs")}
-													<a href="{$url}admin/edit/{$key}" class="dropdown-item">Edit Configs</a>
-												{/if}
-											</div>
-										</div>
+								<td class="pull-right border-0">
+									<div class="btn-group" role="group">
+										<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Action
+										</button>
+										<ul class="dropdown-menu">
+											{if hasPermission("toggleModules")}
+												<li><a href="javascript:void(0)" onClick="Modules.disableModule('{$key}', this);" class="dropdown-item text-danger">Disable</a></li>
+											{/if}
+											{if $module.has_configs && hasPermission("editModuleConfigs")}
+												<li><a href="{$url}admin/edit/{$key}" class="dropdown-item">Edit Configs</a></li>
+											{/if}
+										</ul>
 									</div>
 								</td>
 							</tr>
@@ -102,22 +99,19 @@
 						{foreach from=$disabled_modules item=module key=key}
 							<tr class="border-top">
 								<td class="font-weight-bold border-0 w-70 align-middle text-light">{ucfirst($module.name)} <span class="font-weight-normal">by</span> <a href="{$module.author.website}" target="_blank">{$module.author.name}</a><br><small class="font-weight-normal" style="color:#97989d;">{$module.description}</small></td>
-								<td class="pull-right">
-									<div class="btn-group">
-										<button type="button" class="btn btn-primary">Action</button>
-										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<span class="sr-only">Toggle Dropdown</span>
-											</button>
-											<div class="dropdown-menu">
-												{if hasPermission("toggleModules")}
-													<a href="javascript:void(0)" onClick="Modules.enableModule('{$key}', this);" class="dropdown-item text-success">Enable</a>
-												{/if}
-												{if $module.has_configs && hasPermission("editModuleConfigs")}
-													<a href="{$url}admin/edit/{$key}" class="dropdown-item">Edit Configs</a>
-												{/if}
-											</div>
-										</div>
+								<td class="pull-right border-0">
+									<div class="btn-group" role="group">
+										<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Action
+										</button>
+										<ul class="dropdown-menu">
+											{if hasPermission("toggleModules")}
+												<li><a href="javascript:void(0)" onClick="Modules.enableModule('{$key}', this);" class="dropdown-item text-success">Enable</a></li>
+											{/if}
+											{if $module.has_configs && hasPermission("editModuleConfigs")}
+												<li><a href="{$url}admin/edit/{$key}" class="dropdown-item">Edit Configs</a></li>
+											{/if}
+										</ul>
 									</div>
 								</td>
 							</tr>

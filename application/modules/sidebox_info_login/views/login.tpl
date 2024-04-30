@@ -23,7 +23,7 @@
                 </span>
 
                 <div class="form-floating ms-0 flex-grow-1">
-                    <input type="text" class="form-control captcha-input border-0 rounded-0 rounded-bottom-end" id="floatingCaptcha" placeholder="{lang('login_label_captcha', 'sidebox_info_login')}" aria-describedby="captcha" required>
+                    <input type="text" class="form-control captcha-input border-0 rounded-0 rounded-bottom-end" id="floatingCaptcha" placeholder="{lang('login_label_captcha', 'sidebox_info_login')}" aria-describedby="captcha" {if $use_captcha}required{/if}>
                     <label for="floatingCaptcha">{lang("login_label_captcha", "sidebox_info_login")}</label>
                 </div>
             </div>

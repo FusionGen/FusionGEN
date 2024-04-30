@@ -17716,7 +17716,7 @@ p.drop-caps.drop-caps-style-2:first-letter {
 
 	.userbox .dropdown-menu {
 		left: -5px !important;
-		padding: 43px 0 0 0;
+		padding: 43px 10px 0;
 	}
 }
 /* Header Dark - Userbox */
@@ -21192,8 +21192,8 @@ html.dark .search-content .search-results-list a:hover {
 }
 
 .body-locked .current-user .user-name {
-	font-size: 25px;
-	font-size: 1.563rem;
+	font-size: 26px;
+	font-size: 1.625rem;
 }
 
 .body-locked .current-user .user-email {
