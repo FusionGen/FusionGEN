@@ -5,9 +5,9 @@
 		{include file="../../ucp/views/ucp_navigation.tpl"}
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
-			<div class="section-header">Voting <span>Panel</span></div>
-			<div class="section-body">
-			<div class="alert alert-info firefox text-center" style="display:none;" role="alert">
+			<div class="section-header">{lang("vote_panel", "vote")}</div>
+			<div class="section-body mt-3">
+			<div class="alert alert-info firefox text-center d-none" role="alert">
 			  Please allow pop-up windows from this website to be able to vote.
 			</div>
 

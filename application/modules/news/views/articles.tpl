@@ -34,7 +34,7 @@
 							<div class="owl-carousel news-carousel owl-theme show-nav-hover dots-inside nav-inside nav-style-1 nav-light mb-0">
 								{foreach from=$article.type_content item=image}
 									<figure class="article-thumbnail">
-										<img  src="{$url}uploads/news/{$image}" height="auto" width="inherit">
+										<img src="{$url}uploads/news/{$image}" height="auto" width="inherit">
 									</figure>
 								{/foreach}
 							</div>
@@ -53,7 +53,7 @@
 				<div class="col-md-12 {if $article.type == '0'}col-lg-12{else}col-lg-8{/if}">
 					<div class="article-head">
 						<div class="article-title text-ellipsis"><a href="{$url}news/view/{$article.id}" title="{$article.headline}">{$article.headline}</a></div>
-						<div class="article-metadata">{lang('posted_by', 'news')} <a href="{$url}profile/{$article.author_id}" data-tip="{lang('view_profile', 'news')}">{$article.author}</a>, {lang('on', 'news')} <time datetime="{$article.date}">{date('F j, Y', strtotime($article.date))}</time> {if $is_single && $article.comments != -1} - <a {$article.link} {$article.comments_button_id}>{lang('comments', 'news')} {$article.comments}</a>{/if}</div>
+						<div class="article-metadata">{lang("posted_by", "news")} <a href="{$url}profile/{$article.author_id}" data-tip="{lang('view_profile', 'news')}">{$article.author}</a>, {lang("on", "news")} <time datetime="{$article.date}">{date('F j, Y', strtotime($article.date))}</time> {if $is_single && $article.comments != -1} - <a {$article.link} {$article.comments_button_id}>{lang("comments", "news")} {$article.comments}</a>{/if}</div>
 					</div>
 
 					{if $is_single}<div class="divider"></div>{/if}

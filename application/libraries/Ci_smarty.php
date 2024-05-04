@@ -78,7 +78,7 @@ class CI_Smarty extends Smarty
                 return $this->fetch($template);
             }
         } catch (SmartyException $e) {
-            return "<span style='color:red;'><div style='font-size:16px;color:black;font-weight:bold;text-align:center;'>An error has occured while trying to load the requested view.</div><br /><br /><b>Template path:</b> " . $template . "<br /><br /><b>Error:</b> " . nl2br(preg_replace("/Stack trace\:/", "<br /><b>Stack trace:</b>", $e)) . "</span>";
+            return "<span style='color:red;'><div style='font-size:16px;color:black;font-weight:bold;text-align:center;'>An error has occured while trying to load the requested view.</div><br><br><b>Template path:</b> " . $template . "<br><br><b>Error:</b> " . nl2br(preg_replace("/Stack trace\:/", "<br><b>Stack trace:</b>", $e)) . "</span>";
         }
     }
 }

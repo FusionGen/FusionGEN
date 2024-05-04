@@ -5,8 +5,8 @@
 		{include file="../../ucp/views/ucp_navigation.tpl"}
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
-			<div class="section-header">Donation <span>Panel</span></div>
-			<div class="section-body">
+			<div class="section-header">{lang("donate_panel", "donate")}</div>
+			<div class="section-body mt-3">
 
 				{if $use_paypal}
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -42,7 +42,7 @@
                                                 <p>{lang("dp", "donate")}</p>
                                                 <input type="hidden" name="donation_type" value="paypal">
                                                 <input type="hidden" name="data_id" value="{$data.id}" id="option_{$data.id}">
-                                                <input type='submit' class="w-100 nice_button rounded" value='{lang("donate", "donate")}' onclick="Donate.disableButton({$data.id})">
+                                                <input type="submit" class="w-100 nice_button rounded" value="{lang('donate', 'donate')}" onclick="Donate.disableButton({$data.id})">
 											</div>
 										</div>
 									</form>

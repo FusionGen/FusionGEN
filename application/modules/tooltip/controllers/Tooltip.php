@@ -139,10 +139,10 @@ class Tooltip extends MX_Controller
         if (array_key_exists("socketColor_1", $item)) {
             $output = "";
 
-            $meta = "<span class='socket-meta q0'>" . lang("meta", "tooltip") . "</span><br />";
-            $red = "<span class='socket-red q0'>" . lang("red", "tooltip") . "</span><br />";
-            $yellow = "<span class='socket-yellow q0'>" . lang("yellow", "tooltip") . "</span><br />";
-            $blue = "<span class='socket-blue q0'>" . lang("blue", "tooltip") . "</span><br />";
+            $meta = "<span class='socket-meta q0'>" . lang("meta", "tooltip") . "</span><br>";
+            $red = "<span class='socket-red q0'>" . lang("red", "tooltip") . "</span><br>";
+            $yellow = "<span class='socket-yellow q0'>" . lang("yellow", "tooltip") . "</span><br>";
+            $blue = "<span class='socket-blue q0'>" . lang("blue", "tooltip") . "</span><br>";
 
             for ($i = 1; $i < 3; $i++) {
                 switch ($item['socketColor_' . $i]) {
@@ -204,13 +204,13 @@ class Tooltip extends MX_Controller
 
                 // Mana/health
                 if (in_array($item['stat_type' . $i], array(42,46))) {
-                    $stat = "<span class='q2'>" . lang("restores", "tooltip") . " " . $item['stat_value' . $i] . " " . $types[$item['stat_type' . $i]] . "</span><br />";
+                    $stat = "<span class='q2'>" . lang("restores", "tooltip") . " " . $item['stat_value' . $i] . " " . $types[$item['stat_type' . $i]] . "</span><br>";
                 } elseif ($item['stat_type' . $i] > 7 && !in_array($item['stat_type' . $i], array(42,46))) {
-                    $stat = "<span class='q2'>" . lang("increases", "tooltip") . " " . $types[$item['stat_type' . $i]] . lang("by", "tooltip") . " " . $item['stat_value' . $i] . ".</span><br />";
+                    $stat = "<span class='q2'>" . lang("increases", "tooltip") . " " . $types[$item['stat_type' . $i]] . lang("by", "tooltip") . " " . $item['stat_value' . $i] . ".</span><br>";
                 } else {
                     if (array_key_exists($item['stat_type' . $i], $types)) {
                         $type = "regular";
-                        $stat = "+" . $item['stat_value' . $i] . " " . $types[$item['stat_type' . $i]] . "<br />";
+                        $stat = "+" . $item['stat_value' . $i] . " " . $types[$item['stat_type' . $i]] . "<br>";
                     }
                 }
 

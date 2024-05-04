@@ -67,7 +67,7 @@
 					<span class="text-upper h4">{$stats.maxhealth}</span>
 					</div>
 					<div class="progress" style="height: 5px;">
-						<div class="progress-bar bg-health" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+						<div class="progress-bar bg-health w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				</div>
 			{/if}
@@ -78,7 +78,7 @@
 				<span class="text-upper h4">{lang("unknown", "character")}</span>
 				</div>
 				<div class="progress" style="height: 5px;">
-					<div class="progress-bar bg-health" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+					<div class="progress-bar bg-health w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 			</div>
 		{/if}
@@ -92,7 +92,7 @@
 					<span class="text-upper h4">{$secondBarValue}</span>
 					</div>
 					<div class="progress" style="height: 5px;">
-						<div class="progress-bar bg-{$secondBar}" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+						<div class="progress-bar bg-{$secondBar} w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				</div>
 			{/if}

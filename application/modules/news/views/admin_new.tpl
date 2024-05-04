@@ -266,7 +266,7 @@
 	<!-- Progress bar -->
 	<div class="col-12 order-1 mt-2">
 	  <div data-type="progress" class="progress" style="height: 25px; display:none;">
-		<div data-type="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 100%;">Load in progress...</div>
+		<div data-type="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success w-100" role="progressbar">Load in progress...</div>
 	  </div>
 	</div>
 

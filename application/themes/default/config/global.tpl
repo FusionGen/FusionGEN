@@ -1,5 +1,4 @@
 {strip}
-{strip}
 
 {$moduleName = $CI->router->fetch_module()}
 
@@ -7,9 +6,8 @@
  * - About Us ----------------------------------------
  * -----------------------------------------------------------
  *}
- {$about_us = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."}
- 
- 
+{$about_us = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."}
+
 {**
  * - Full width pages ----------------------------------------
  * -----------------------------------------------------------
@@ -43,6 +41,6 @@
  * - Footer --------------------------------------------------
  * -----------------------------------------------------------
  *}
-{$footer['since']      = "2022"}
+{$footer['since'] = "{date("Y")}"}
 
 {/strip}

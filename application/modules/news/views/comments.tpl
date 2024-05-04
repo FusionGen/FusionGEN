@@ -8,7 +8,7 @@
 				<div class="Comment-head">
 					<div class="Comment-title text-ellipsis">
 						<strong><a href="{$url}profile/{$comment.author_id}">{if $comment.is_gm}<img src="{$url}application/images/icons/icon_blizzard.gif" align="absmiddle" style="border:none !important;margin-right:0px !important;box-shadow:none !important;-webkit-box-shadow:none !important;-moz-box-shadow:none !important;">&nbsp;{/if} {$comment.author}</a></strong>
-						{lang('on', 'news')} <i class="fas fa-clock"></i> {date("F j, Y", $comment.timestamp)}
+						{lang("on", "news")} <i class="fas fa-clock"></i> {date("F j, Y", $comment.timestamp)}
 						<span class="float-end">
 							<span>
 							{if hasPermission("canRemoveComment")}
@@ -17,15 +17,13 @@
 							</span>
 						</span>
 					</div>
-					<div class="Comment-metadata">
-						
-					</div>
+					<div class="Comment-metadata"></div>
 				</div>
 
 				<div class="divider"></div>
-				
+
 				<p>{word_wrap($comment.content, 30)}</p>
-				
+
 			</div>
 		</div>
 	{/foreach}
