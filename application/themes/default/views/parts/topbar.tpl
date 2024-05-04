@@ -31,7 +31,7 @@
 				</div>
 				<div class="membership-bar-info">
 					<div class="info-welcome">Welcome <span>{$CI->user->getNickname()}</span>!</div>
-					<div class="info-coins"><span><i text-gold="">{$CI->user->getDp()}</i> {lang('donation_points', 'main')}</span> &amp; <span><i text-silver="">{$CI->user->getVp()}</i> {lang('voting_points', 'main')}</span></div>
+					<div class="info-coins"><span><i text-gold="">{$CI->user->getDp()}</i> {lang("donation_points", "main")}</span> &amp; <span><i text-silver="">{$CI->user->getVp()}</i> {lang("voting_points", "main")}</span></div>
 				</div>
 				<div class="membership-bar-nav">
 					<div class="dropdown" data-dropdown-initialized="true">

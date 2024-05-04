@@ -182,7 +182,7 @@ class News extends MX_Controller
         $config['next_link'] = '&raquo;';
         $config['next_tag_open'] = '<li class="page-item">';
         $config['next_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link href="#">';
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
         $config['cur_tag_close'] = '</a></li>';
         $config['num_tag_open'] = '<li class="page-item">';
         $config['num_tag_close'] = '</li>';

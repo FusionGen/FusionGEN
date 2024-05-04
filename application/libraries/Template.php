@@ -736,7 +736,7 @@ class Template
         // Wordwrap
         if ($break)
         {
-            $text = wordwrap($text, $break, "<br />", true);
+            $text = wordwrap($text, $break, "<br>", true);
         }
 
         // Convert new lines to <br>

@@ -2290,7 +2290,7 @@ window.theme.fn = {
 				'<style>',
 					'html, body { margin: 0; padding: 0; }',
 				'</style>',
-				'<div id="' + this.$wrapper.find('[data-builder-field="mapid"]').val() + '" style="width: 100%; height: 100%;"></div>'
+				'<div id="' + this.$wrapper.find('[data-builder-field="mapid"]').val() + '" class="w-100 h-100"></div>'
 			];
 
 			iframe = this.$previewModal.find( 'iframe' ).get(0).contentWindow.document;

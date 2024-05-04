@@ -90,7 +90,7 @@ var Router = {
 					{
 						data = {
 							title: "Error",
-							content: "Something went wrong!<br /><br /><b>Technical data:</b>" + data,
+							content: "Something went wrong!<br><br><b>Technical data:</b>" + data,
 							js: null,
 							css: null
 						};

@@ -125,7 +125,7 @@ $config['max_expansion'] = "0";
 */
 $config['slider'] = false;
 $config['slider_home'] = false;
-$config['slider_interval'] = 5000;
+$config['slider_interval'] = 3000;
 $config['slider_style'] = false;
 
 /*
@@ -142,7 +142,7 @@ $config['slider_style'] = false;
 */
 $config['vote_reminder'] = 0;
 $config['vote_reminder_image'] = "/images/misc/banner.jpg";
-$config['reminder_interval'] = 60 * 60 * 12;
+$config['reminder_interval'] = 43200;
 
 /*
 |--------------------------------------------------------------------------

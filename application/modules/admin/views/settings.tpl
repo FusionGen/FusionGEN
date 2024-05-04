@@ -417,11 +417,11 @@
 			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="reminder_interval">Vote reminder interval (in hours)</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="reminder_interval" value="{$config.reminder_interval/60/24}" placeholder="12">
+				<input class="form-control" type="text" id="reminder_interval" value="{$config.reminder_interval/60/60}" placeholder="12">
 			</div>
 			</div>
 			</div>
-			
+
 			<button class="btn btn-primary btn-sm" type="submit">Save</button>
         </form>
         </div>
@@ -590,7 +590,7 @@
 			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="cdn_link">CDN URL</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="cdn_link" value="{$config.cdn_link}">
+				<input class="form-control" type="text" id="cdn_link" placeholder="https://" value="{$config.cdn_link}">
 			</div>
             </div>
 
