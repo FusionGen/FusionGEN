@@ -6,86 +6,86 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="icon" type="image/png" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
+		<link rel="icon" type="image/png" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/animate/animate.compat.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/animate/animate.compat.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/assets/owl.carousel.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/assets/owl.theme.default.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.theme.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/morris/morris.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2-dark.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2/css/select2.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/assets/owl.theme.default.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/morris/morris.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2-dark.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2/css/select2.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/css/dataTables.bootstrap5.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/css/responsive.bootstrap5.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/lib/codemirror.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/theme/ayu-mirage.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/dropzone/min/basic.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/dropzone/min/dropzone.min.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/theme.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/skins/default.css">
-		<link rel="stylesheet" href="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/custom.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/css/dataTables.bootstrap5.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/css/responsive.bootstrap5.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/lib/codemirror.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/theme/ayu-mirage.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/dropzone/min/basic.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/dropzone/min/dropzone.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/theme.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/skins/default.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/custom.css">
 		{if $extra_css}<link rel="stylesheet" href="{$url}application/{$extra_css}">{/if}
 
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/modernizr/modernizr.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/common/common.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/intercooler-js/intercooler.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrapv5-multiselect/js/bootstrap-multiselect.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot.tooltip/jquery.flot.tooltip.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.pie.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.categories.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.resize.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/raphael/raphael.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/morris/morris.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/gauge/gauge.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/snap.svg/snap.svg-min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2/js/select2.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/modernizr/modernizr.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/common/common.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/intercooler-js/intercooler.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrapv5-multiselect/js/bootstrap-multiselect.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot.tooltip/jquery.flot.tooltip.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.pie.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.categories.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.resize.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/raphael/raphael.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/morris/morris.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/gauge/gauge.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/snap.svg/snap.svg-min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2/js/select2.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/js/dataTables.bootstrap5.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/js/dataTables.responsive.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/js/responsive.bootstrap5.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/fuelux/js/spinner.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/lib/codemirror.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/addon/selection/active-line.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/addon/edit/matchbrackets.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/javascript/javascript.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/xml/xml.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/css/css.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-idletimer/idle-timer.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/dropzone/min/dropzone.min.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/theme.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/theme.init.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/theme.admin.extension.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader-1.0.1.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/custom.js"></script>
-		<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/githubinfowidget.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/media/js/dataTables.bootstrap5.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/js/dataTables.responsive.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/datatables/extras/tabletools/responsive-2.5.0/js/responsive.bootstrap5.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/fuelux/js/spinner.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/lib/codemirror.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/addon/selection/active-line.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/addon/edit/matchbrackets.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/javascript/javascript.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/xml/xml.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/codemirror/mode/css/css.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-idletimer/idle-timer.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/dropzone/min/dropzone.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/theme.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/theme.init.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/theme.admin.extension.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/imagesloader/jquery.imagesloader-1.0.1.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/custom.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/githubinfowidget.js"></script>
 
 		<script>
 		function getCookie(c_name) {
@@ -111,17 +111,17 @@
 		};
 	</script>
 
-	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/router.js"></script>
-	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/adminMenu.js"></script>
-	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/mli.js"></script>
-	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/login.js"></script>
-	<script src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/require.js"></script>
+	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/router.js"></script>
+	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/adminMenu.js"></script>
+	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/mli.js"></script>
+	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/login.js"></script>
+	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/require.js"></script>
 	<script>
 		var scripts = [
-			"{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/jquery.placeholder.min.js",
-			"{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/jquery.transit.min.js",
+			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.placeholder.min.js",
+			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.transit.min.js",
 
-			"{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/js/fusioneditor.js"
+			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/fusioneditor.js"
 			{if $extra_js},"{$url}application/{$extra_js}"{/if}
 		];
 			require(scripts, function()
@@ -147,14 +147,14 @@
 	<div class="wrapper">
 	<!-- Preloader -->
 	<div class="preloader">
-		<img src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" class="preloader-img"  height="60" width="60">
+		<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" class="preloader-img"  height="60" width="60">
 	</div>
 	</div>
 	<section class="body">
 		<header class="header">
 			<div class="logo-container">
 				<a href="{$url}admin" class="logo">
-					<img src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" width="35" height="35">
+					<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" width="35" height="35">
 					<span class="text-light font-weight-normal">{$serverName}</span>
 				</a>
 				<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -384,7 +384,7 @@
 				<div class="row align-items-center">
 					<div class="col-lg-1">
 						<a href="#" class="logo">
-							<img alt="FusionGen" class="img-fluid" src="{if $cdn_link != false}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
+							<img alt="FusionGen" class="img-fluid" src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 						</a>
 					</div>
 					<div class="col-lg-7">

@@ -588,7 +588,7 @@
 										</div>
 
 										<div class="form-group clearfix">
-											<label for="console_port" class="col-md-3">Console port (only required for emulators that use remote console systems; usually 3443 for RA and 7878 for SOAP)</label>
+											<label for="console_port" class="col-md-3">Console port (only required for emulators that use remote console systems; usually 7878 for SOAP and 3443 for RA)</label>
 											<div class=" col-md-9">
 												<input class="form-control" type="number" value="" id="console_port" name="console_port" placeholder="7878 suggested">
 											</div>

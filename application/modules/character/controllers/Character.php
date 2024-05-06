@@ -382,7 +382,7 @@ class Character extends MX_Controller
                     "content" => $character
                 );
 
-                $keywords = "armory," . $charData['name'] . ",lv" . $charData['level'] . "," . $charData['raceName'] . "," . $charData['className'] . "," . $charData['realmName'];
+                $keywords = "armory," . $charData['name'] . ",lvl" . $charData['level'] . "," . $charData['raceName'] . "," . $charData['className'] . "," . $charData['realmName'];
                 $description = $charData['name'] . " - level " . $charData['level'] . " " . $charData['raceName'] . " " . $charData['className'] . " on " . $charData['realmName'];
 
                 $this->template->setDescription($description);
@@ -415,7 +415,7 @@ class Character extends MX_Controller
         $data = array(
             "module" => "default",
             "headline" => lang("doesnt_exist", "character"),
-            "content" => "<center style='margin:10px;font-weight:bold;'>" . lang("doesnt_exist_long", "character") . "</center>"
+            "content" => "<span class='text-center mt-3 fw-bold'>" . lang("doesnt_exist_long", "character") . "</span>"
         );
 
         $page = $this->template->loadPage("page.tpl", $data);

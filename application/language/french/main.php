@@ -58,6 +58,7 @@ $lang['change_avatar'] = "Changer d'avatar";
 $lang['vote'] = "Vote";
 $lang['donate'] = "Faire un don";
 $lang['store'] = "Boutique";
+$lang['account_overview'] = "Aperçu du compte";
 $lang['account_settings'] = "Paramètres du compte";
 $lang['teleport_hub'] = "Hub de téléportation";
 

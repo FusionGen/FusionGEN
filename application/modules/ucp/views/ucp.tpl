@@ -5,7 +5,7 @@
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">{lang("account_overview", "ucp")}</div>
-			<div class="section-body">
+			<div class="section-body mt-3">
 				<table class="table table-borderless table-responsive user-table">
 					<tbody class="text-break">
 						<tr>
@@ -65,7 +65,7 @@
 
 			{if $characters > 0}
 				<div class="section-header">{lang("account_characters", "ucp")}</div>
-				<div class="section-body">
+				<div class="section-body mt-3">
 					{foreach from=$realms item=realm}
 						{if $realm->getCharacterCount() > 0}
                         <div class="table-responsive text-nowrap">

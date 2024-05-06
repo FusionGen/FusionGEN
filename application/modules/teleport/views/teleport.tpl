@@ -24,13 +24,13 @@
 		{include file="../../ucp/views/ucp_navigation.tpl"}
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
-			<div class="section-header">Teleport <span>Hub</span></div>
-			<div class="section-body">
+			<div class="section-header">{lang("teleport_hub", "teleport")}</div>
+			<div class="section-body mt-3">
 				<div class="row">
-					<div class="col-sm-12 col-lg-6">
+					<div class="col-sm-12 col-lg-6 table-responsive">
 						{if $total}
 							{foreach from=$characters item=realm}
-								<table class="table table-striped table-hover table-responsive character-select">
+								<table class="table border-secondary character-select">
 									<thead>
 										<tr>
 											<th scope="col" colspan="3" class="h4">{$realm.realmName}</th>
@@ -67,8 +67,8 @@
 							{/foreach}
 						{/if}
 					</div>
-					<div class="col-sm-12 col-lg-6 location-col">
-						<table class="table table-striped table-hover table-responsive location-select">
+					<div class="col-sm-12 col-lg-6 location-col mt-5">
+						<table class="table border-secondary location-select">
 							<tbody>
 								{if $locations}
 									{foreach from=$locations item=location}

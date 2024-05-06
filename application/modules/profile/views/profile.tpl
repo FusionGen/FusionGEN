@@ -9,9 +9,11 @@
 			</div>
 		</div>
 
-		<div class="section-header">{lang("profile_nav", "profile")}</div>
+		<div class="section-header"></div>
 		<div class="section-body">
-
+			<div class="list-group">
+				<a href="#" class="list-group-item list-group-item-action disabled bg-transparent text-center">{lang("profile_nav", "profile")}</a>
+			</div>
 			<div class="list-group mb-3">
 				<a href="javascript:void(0);" class="list-group-item list-group-item-action active" data-bs-toggle="tab" data-bs-target="#nav-overview" type="button" role="tab" aria-controls="nav-overview" aria-selected="true">Overview</a>
 				<!--<a href="javascript:void(0);" class="list-group-item list-group-item-action" data-bs-toggle="tab" data-bs-target="#nav-forum-posts" type="button" role="tab" aria-controls="nav-forum-posts" aria-selected="false">Forum Posts</a>
@@ -28,8 +30,8 @@
 	<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 		<div class="tab-content" id="nav-tabContent">
 			<div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
-				<div class="section-header">Profile <span>Overview</span></div>
-				<div class="section-body">
+				<div class="section-header">Profile Overview</span></div>
+				<div class="section-body mt-3">
 					<table class="table table-borderless table-responsive user-table">
 						<tr>
 							<td><div class="user-table-icon"><i class="fas fa-user"></i></div> {lang("nickname", "profile")}</td>
