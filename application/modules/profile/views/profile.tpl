@@ -30,7 +30,7 @@
 	<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 		<div class="tab-content" id="nav-tabContent">
 			<div class="tab-pane fade show active" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
-				<div class="section-header">Profile Overview</span></div>
+				<div class="section-header">Profile Overview</div>
 				<div class="section-body mt-3">
 					<table class="table table-borderless table-responsive user-table">
 						<tr>
