@@ -130,7 +130,7 @@ class Settings extends MX_Controller
             $values = array('location' => $location);
         } elseif (
             strlen($values['nickname']) < 4
-            || strlen($values['nickname']) > 14
+            || strlen($values['nickname']) > 24
             || !preg_match("/[A-Za-z0-9]*/", $values['nickname'])
         ) {
             die(lang("nickname_error", "ucp"));

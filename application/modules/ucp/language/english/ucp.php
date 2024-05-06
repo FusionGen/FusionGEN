@@ -52,7 +52,7 @@ $lang['new_password'] = "New password";
 $lang['new_password_confirm'] = "Confirm password";
 $lang['new_password_submit'] = "Change password";
 
-$lang['nickname_error'] = "Nickname must be between 4 and 14 characters long and may only contain letters and numbers";
+$lang['nickname_error'] = "Nickname must be between 4 and 24 characters long and may only contain letters and numbers";
 $lang['location_error'] = "Location may only be up to 32 characters long and may only contain letters";
 $lang['pw_doesnt_match'] = "Passwords doesn't match!";
 $lang['changes_saved'] = "Changes have been saved!";

@@ -22,7 +22,7 @@ var Settings = {
 					text: lang("pw_doesnt_match", "ucp"),
 					icon: 'error'
 				});
-				
+
 				Settings.canSubmit = false;
 			}
 		}
@@ -48,7 +48,7 @@ var Settings = {
 			$.post(Config.URL + "ucp/settings/submit", values, function(data)
 			{
 				$("#settings_ajax").html('');
-				
+
 				if(/yes/.test(data))
 				{
 					Swal.fire({
@@ -94,7 +94,7 @@ var Settings = {
 			language = 0;
 		}
 
-		if(value.length < 4 || value.length > 14)
+		if(value.length < 4 || value.length > 24)
 		{
 			Swal.fire({
 				text: lang("nickname_error", "ucp"),
@@ -125,7 +125,7 @@ var Settings = {
 			{
 				$("#settings_info_ajax").html("");
 				if(/1/.test(data))
-				{					
+				{
 					Swal.fire({
 						text: lang("changes_saved", "ucp"),
 						icon: 'success',
@@ -135,7 +135,7 @@ var Settings = {
 					});
 				}
 				else if(/2/.test(data))
-				{					
+				{
 					Swal.fire({
 						text: lang("nickname_taken", "ucp"),
 						icon: 'error'

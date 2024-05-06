@@ -12,7 +12,7 @@
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label" for="nickname_field">{lang("nickname", "ucp")}</label>
 						<div class="col-sm-9">
-							<input class="form-control" type="text" id="nickname_field" name="nickname_field" placeholder="{lang("nickname", "ucp")}" value="{$nickname}">
+							<input class="form-control" type="text" id="nickname_field" name="nickname_field" placeholder="{lang("nickname", "ucp")}" value="{$nickname}" required>
 						</div>
 					</div>
 
@@ -50,21 +50,21 @@
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label" for="old_password">{lang("old_password", "ucp")}</label>
 						<div class="col-sm-9">
-							<input class="form-control" type="password" id="old_password" name="old_password" placeholder="{lang("old_password", "ucp")}" autocomplete="current-password">
+							<input class="form-control" type="password" id="old_password" name="old_password" placeholder="{lang("old_password", "ucp")}" autocomplete="current-password" required>
 						</div>
 					</div>
 
 					<div class="form-group row mt-3">
 						<label class="col-sm-3 col-form-label" for="new_password">{lang("new_password", "ucp")}</label>
 						<div class="col-sm-9">
-							<input class="form-control" type="password" id="new_password" name="new_password" placeholder="{lang("new_password", "ucp")}" autocomplete="new-password">
+							<input class="form-control" type="password" id="new_password" name="new_password" placeholder="{lang("new_password", "ucp")}" autocomplete="new-password" required>
 						</div>
 					</div>
 
 					<div class="form-group row mt-3">
-						<label class="col-sm-3 col-form-label" for="new_password_confirm">Confirm Password</label>
+						<label class="col-sm-3 col-form-label" for="new_password_confirm">{lang("new_password_confirm", "ucp")}</label>
 						<div class="col-sm-9">
-							<input class="form-control" type="password" id="new_password_confirm" name="new_password_confirm" placeholder="{lang("new_password_confirm", "ucp")}" autocomplete="new-password">
+							<input class="form-control" type="password" id="new_password_confirm" name="new_password_confirm" placeholder="{lang("new_password_confirm", "ucp")}" autocomplete="new-password" required>
 						</div>
 					</div>
 

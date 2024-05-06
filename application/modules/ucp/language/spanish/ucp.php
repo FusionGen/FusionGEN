@@ -52,7 +52,7 @@ $lang['new_password'] = "Nueva contraseña";
 $lang['new_password_confirm'] = "Confirmar contraseña";
 $lang['new_password_submit'] = "Cambiar contraseña";
 
-$lang['nickname_error'] = "El apodo debe tener entre 4 y 14 caracteres y solo puede contener letras y números";
+$lang['nickname_error'] = "El apodo debe tener entre 4 y 24 caracteres y solo puede contener letras y números";
 $lang['location_error'] = "La ubicación solo puede tener hasta 32 caracteres y solo puede contener letras";
 $lang['pw_doesnt_match'] = "¡Las contraseñas no coinciden!";
 $lang['changes_saved'] = "¡Los cambios han sido guardados!";

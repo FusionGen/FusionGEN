@@ -5,7 +5,7 @@
 	</div>
 	<div class="col-9 col-md-10 ps-4">
 		<div class="d-flex h-100 align-items-center">
-			<span class="h1 color-c{$class}">{$name}</span>
+			<span class="fs-2 fw-bold color-c{$class}">{$name}</span>
 			<div class="border-start border-2 ms-3 ps-3">
 				<div class="">{$raceName} {$className}</div>
 				<div class="">{if $guildName}<a href="{$url}guild/{$realmId}/{$guild}">❮{$guildName}❯</a>{/if} {$realmName}</div>
@@ -106,7 +106,7 @@
 	<div class="col-md-6">
 		<div class="section-header">{lang("attributes", "character")}</div>
 		<div class="section-body">
-			<table class="table table-striped table-hover">
+			<table class="table border-secondary table-hover">
 				<tr>
 					<td>{lang("str", "character")}</td>
 					<td class="text-end">{if isset($stats.strength)}{$stats.strength}{else}{lang("unknown", "character")}{/if}</td>
@@ -139,7 +139,7 @@
 				{/if}
 			</table>
 
-			<table class="table table-striped table-hover">
+			<table class="table border-secondary table-hover">
 				{if $stats && array_key_exists("resilience", $stats)}
 				<tr>
 					<td>{lang("res", "character")}</td>
@@ -165,7 +165,7 @@
 				</tr>
 			</table>
 
-			<table class="table table-striped table-hover">
+			<table class="table border-secondary table-hover">
 				<tr>
 					<td>{lang("crit", "character")}</td>
 					<td class="text-end">{if isset($stats.critPct)}{$stats.critPct}%{else}{lang("unknown", "character")}{/if}</td>
@@ -191,7 +191,7 @@
 	<div class="col-md-6">
 		<div class="section-header">{lang("pvp", "character")}</div>
 		<div class="section-body">
-			<table class="table table-hover table-striped">
+			<table class="table table-hover border-secondary">
 				{if $pvp.kills !== false}
 				<tr>
 					<td>{lang("kills", "character")}</td>

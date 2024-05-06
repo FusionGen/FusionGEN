@@ -14,6 +14,8 @@ class Avatar extends MX_Controller
 
     public function index()
     {
+        clientLang("changes_saved", "ucp");
+
         // Prepare data
         $data = array(
             'isStaff'	=> $this->user->isStaff(),
@@ -50,12 +52,12 @@ class Avatar extends MX_Controller
         {
 			die(json_encode(array("error" => lang("avatar_invalid", "ucp"))));
 		}
-		
+
 		if($avatar['staff'] && !$this->user->isStaff())
         {
 			die(json_encode(array("error" => lang("avatar_invalid_rank", "ucp"))));
 		}
-		
+
 		$this->user->setAvatar($avatar['id']);
 		die(json_encode(array("success" => true)));
 	}

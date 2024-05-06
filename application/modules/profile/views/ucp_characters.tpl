@@ -1,6 +1,6 @@
 {if $characters > 0}
 	<div class="section-header">Profile <span>Characters</span></div>
-	<div class="section-body">
+	<div class="section-body mt-3">
 
 		{foreach from=$realms item=realm}
 			{if $realm->getCharacterCount($id) > 0}
@@ -24,7 +24,6 @@
 									{$money = $realmsObj->formatMoney($character.money)}
 									<td class="col-3">{$character.name}</td>
 
-									
 									<td class="col-4 user-points">
 										{if $money}
 											<span class="gold-points"><i class="fa-solid fa-coins"></i> {$money["gold"]}</span>

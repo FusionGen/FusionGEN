@@ -295,7 +295,7 @@
 				</div>
 
 				<div class="form-group row">
-				<label class="col-sm-2 col-form-label" for="console_port">Console port (only required for emulators that use RA or SOAP; usually 3443 for RA and 7878 for SOAP)</label>
+				<label class="col-sm-2 col-form-label" for="console_port">Console port (only required for emulators that use SOAP or RA; usually 7878 for SOAP and 3443 for RA)</label>
 				<div class="col-sm-10">
 					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 65535 }'>
 						<div class="input-group">
