@@ -45,7 +45,8 @@ $lang['click_to_sign_in'] = "Por favor haga clic aqui para iniciar sesion.";
 
 // Misc
 $lang['reason'] = "Razon:";
-$lang['banned'] = "baneado";
+$lang['active'] = "Activa";
+$lang['banned'] = "Baneada";
 $lang['close_tool'] = "Cerrar Herramienta";
 $lang['offline'] = "Fuera de linea";
 
@@ -59,7 +60,7 @@ $lang['vote'] = "Votar";
 $lang['donate'] = "Donar";
 $lang['store'] = "Tienda";
 $lang['account_overview'] = "Resumen de la Cuenta";
-$lang['account_settings'] = "Configuracion de la cuenta";
+$lang['account_settings'] = "Configuracion de la Cuenta";
 $lang['teleport_hub'] = "Centro de Teletransporte";
 
 $lang['mod_panel'] = "Panel de Mods";
@@ -69,4 +70,3 @@ $lang['login'] = "Ingresar";
 $lang['logout'] = "Salir";
 $lang['register'] = "Registrar";
 $lang['account'] = "Cuenta";
-

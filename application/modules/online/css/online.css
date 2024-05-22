@@ -2,6 +2,12 @@
   display:block;
 }
 
+.accordion-button::after {
+    display:inline-block;
+    vertical-align: bottom;
+    margin-left: 1rem;
+}
+
 .nice_table tbody tr td {
     font-weight: initial !important;
 }

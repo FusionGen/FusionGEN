@@ -82,24 +82,24 @@
 			<div class="col-lg-8 mb-3">
 			<section class="card">
 				<header class="card-header">Backups</header>
-				<div class="card-body">
+				<div class="card-body table-responsive">
 				{if $backups}
-				<table class="table table-responsive-md table-hover">
+				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>Backup ID</th>
+							<th>ID</th>
 							<th>Name</th>
 							<th>Date</th>
-							<th style="text-align: center;">Action</th>
+							<th class="text-center">Action</th>
 						</tr>
 					</thead>
 					<tbody>
 					{foreach from=$backups item=backup}
 						<tr>
-							<td><b>{$backup.id}</b></td>
+							<td class="fw-bold">{$backup.id}</td>
 							<td>{$backup.backup_name}.zip</td>
 							<td>{$backup.created_date}</td>
-							<td style="text-align:center;">
+							<td class="text-center">
 								<a class="btn btn-success btn-sm {if !hasPermission("executeBackupActions", "admin")}disabled{/if}" href="{$url}admin/backups/download/{$backup.id}">Download</a>
 								<a class="btn btn-primary btn-sm {if !hasPermission("executeBackupActions", "admin")}disabled{/if}" href="javascript:void(0)" onClick="Backups.restore({$backup.id})">Restore</a>
 								<a class="btn btn-danger btn-sm {if !hasPermission("executeBackupActions", "admin")}disabled{/if}" href="javascript:void(0)" onClick="Backups.remove({$backup.id}, this)">Delete</a>
@@ -108,6 +108,8 @@
 					{/foreach}
 					</tbody>
 					</table>
+					{else}
+					<div class="text-center fw-bold py-4">No backups found.</div>
 				{/if}
 				</div>
 			</section>
@@ -117,8 +119,7 @@
         <div class="tab-pane" id="files">
 			<section class="card">
 				<header class="card-header"></header>
-					<div class="card-body">
-					</div>
+					<div class="card-body"></div>
 			</section>
         </div>
     </div>

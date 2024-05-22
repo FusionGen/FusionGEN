@@ -11,7 +11,7 @@
 		</ol>
 		{/foreach}
 	</div>
-	<div id="show_more_count" {if $show_more <= 0}style="display:none;"{/if}>
+	<div id="show_more_count" {if $show_more <= 0}class="d-none"{/if}>
 		<div class="timeline-item" >
 			<h3 class="timeline-header border-0">
 				<!--<a class="btn btn-primary btn-sx" id="button_log_count" onClick="Accounts.loadMore({$userid}); return false;">Load more ({$show_more})</a>-->

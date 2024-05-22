@@ -1,14 +1,14 @@
 <div class="card">
 	<div class="card-header">
-		Changes (<div style="display:inline;" id="changelog_count">{if !$changes}0{else}{count($changes)}{/if}</div>)
+		Changes (<div class="d-inline" id="changelog_count">{if !$changes}0{else}{count($changes)}{/if}</div>)
 	</div>
-	<div class="card-body">
+	<div class="card-body table-responsive">
 	{if $categories}
 
 	{foreach from=$categories item=category}
 	<div class="card-header mb-3">
-		<table class="table table-responsive-md" id="headline_{$category.id}">
-		<tbody style="border-top:none;">
+		<table class="table" id="headline_{$category.id}">
+		<tbody class="border-0">
 			<tr>
 				<td><b>{$category.typeName}</b></td>
 
@@ -27,14 +27,14 @@
 
 		{foreach from=$changes item=change}
 			{if $category.id == $change.type}
-			<div class="card-body">
-				<table class="table table-responsive-md">
+			<div class="card-body table-responsive">
+				<table class="table">
 					<thead>
 						<tr>
 							<th>Change</th>
 							<th>User</th>
 							<th>Date</th>
-							<th style="text-align: center;">Action</th>
+							<th class="text-center">Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -43,7 +43,7 @@
 						<td>{$change.author}</td>
 						<td>{date('Y/m/d', $change.time)}</td>
 
-						<td style="text-align:center;">
+						<td class="text-center">
 							{if hasPermission("canEditChange")}
 								<a class="btn btn-primary btn-sm" href="{$url}changelog/admin/edit/{$change.change_id}">Edit</a>
 							{/if}

@@ -45,7 +45,8 @@ $lang['click_to_sign_in'] = "Veuillez cliquer ici pour vous connecter.";
 
 // Misc
 $lang['reason'] = "Raison:";
-$lang['banned'] = "banni";
+$lang['active'] = "Actif";
+$lang['banned'] = "Banni";
 $lang['close_tool'] = "Fermer l'outil";
 $lang['offline'] = "Hors ligne";
 
@@ -58,9 +59,9 @@ $lang['change_avatar'] = "Changer d'avatar";
 $lang['vote'] = "Vote";
 $lang['donate'] = "Faire un don";
 $lang['store'] = "Boutique";
-$lang['account_overview'] = "Aperçu du compte";
-$lang['account_settings'] = "Paramètres du compte";
-$lang['teleport_hub'] = "Hub de téléportation";
+$lang['account_overview'] = "Aperçu du Compte";
+$lang['account_settings'] = "Paramètres du Compte";
+$lang['teleport_hub'] = "Hub de Téléportation";
 
 $lang['mod_panel'] = "Panel Mod";
 $lang['admin_panel'] = "Panel Admin";
@@ -69,4 +70,3 @@ $lang['login'] = "Connexion";
 $lang['logout'] = "Déconnexion";
 $lang['register'] = "S'inscrire";
 $lang['account'] = "Compte";
-

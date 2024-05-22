@@ -54,7 +54,7 @@
 							<td>{$vp}</td>
 							<td class="text-end"><a data-bs-toggle="tooltip" data-bs-placement="top" title="{lang("data_tip_vote", "ucp")}" href="{$url}vote">{lang("vote", "main")}</a></td>
 						</tr>
-						<tr  class="user-points">
+						<tr class="user-points">
 							<td><div class="donation-points user-table-icon"><i class="fa-solid fa-coins"></i></div> {lang("donation_points", "main")}</td>
 							<td>{$dp}</td>
 							<td class="text-end"><a data-bs-toggle="tooltip" data-bs-placement="top" title="{lang("data_tip_donate", "ucp")}" href="{$url}donate">{lang("donate", "main")}</a></td>
@@ -85,7 +85,7 @@
 											</td>
 
 											{$money = $realmObj->formatMoney($character.money)}
-											<td class="col-3">{$character.name}</td>
+											<td class="col-3"><span class="color-c{$character.class}">{$character.name}</span></td>
 
 											<td class="col-4 user-points">
 												{if $money}

@@ -16,7 +16,7 @@
 <div class="card mt-3">
 	<div class="card-header">Preview</div>
 	<div class="card-body">
-		<iframe id="preview" style='height: 100%; width: 100%;' frameborder="0" scrolling="auto"></iframe>
+		<iframe id="preview" class="h-100 w-100" frameborder="0" scrolling="auto"></iframe>
 	</div>
 </div>
 

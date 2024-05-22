@@ -21,15 +21,12 @@ var Auth = {
 			fields.push("captcha");
 		}
 
-		console.log("fields", fields);
-
 		clearTimeout (Auth.timeout);
 		Auth.timeout = setTimeout (function()
 		{
 			$.post(Config.URL + "auth/checkLogin", postData, function(data) {
 				try {
 					data = JSON.parse(data);
-					console.log(data);
 
 					if(data["redirect"] === true) {
 						window.location.href = Config.URL + "ucp";
@@ -38,6 +35,7 @@ var Auth = {
 
 					if(data["showCaptcha"] === true) {
 						$(".captcha-field").removeClass("d-none");
+						document.getElementById("floatingCaptcha").required = true;
 					}
 
 					for(var i = 0; i<fields.length;i++)
@@ -51,12 +49,8 @@ var Auth = {
 					}
 				} catch(e) {
 					console.error(e);
-					console.log(data);
-				}				
+				}
 			});
-
-			console.log(postData);
-
 		}, 500);
 	},
 
@@ -69,7 +63,7 @@ var Auth = {
 		} else if($(ele).data("show") == false) {
 			$(ele).html('<i class="fas fa-eye"></i>');
 			$(ele).data("show", true);
-			
+
 			$("input#"+ $(ele).data("input-id")).attr("type", "text");
 		}
 		

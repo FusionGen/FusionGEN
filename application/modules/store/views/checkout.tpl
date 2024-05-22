@@ -5,7 +5,7 @@
 	{if $vp && $dp}and{/if}
 	{if $dp}<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <b>{$dp} {lang("dp", "store")}</b>{/if}
 
-	<div class="mb-3 d-flex justify-content-between">
+	<div class="my-3 d-flex justify-content-between">
 	<a href="javascript:void(0)" onClick="Store.Cart.back()" class="nice_button button_left rounded"><i class="fa-solid fa-circle-left"></i> {lang("go_back", "store")}</a>
 	<a href="javascript:void(0)" onClick="Store.Cart.pay()" class="nice_button button_right rounded">{lang("checkout", "store")} <i class="fa-solid fa-circle-right"></i></a>
 	</div>
@@ -21,9 +21,9 @@
 			<div class="row store_item" id="checkout_item_{$item.id}">
 
 				<div class="col-md-1 mt-1">
-				<img class="item_icon rounded" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" align="absmiddle" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
+				<img class="item_icon rounded mt-1" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
 				</div>
-				<div class="col-md-8 mt-1">
+				<div class="col-md-7 mt-1">
 				<a target="_blank" {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality}">
 					{$item.name}
 				</a>
@@ -31,7 +31,7 @@
 				</div>
 
 				{if ($item.query && $item.query_need_character) || !$item.query}
-					<div class="col-md-3">
+					<div class="col-md-4 p-1">
 						{if $realm.characters}
 							<select data-id="{$item.id}" data-available="1">
 								{foreach from=$realm.characters item=character}
@@ -39,8 +39,7 @@
 								{/foreach}
 							</select>
 						{else}
-							<div style="height:10px;"></div>
-							<b>{lang("no_character", "store")}</b>
+							<div class="fw-bold p-2">{lang("no_character", "store")}</div>
 						{/if}
 					</div>
 				{/if}

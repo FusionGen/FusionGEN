@@ -1,6 +1,6 @@
 <section id="update_online_module">
-	<div style="text-align:center;margin-top:10px;margin-bottom:10px;">
-		<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+	<div class="text-center my-4">
+		<i class="fas fa-spinner fa-pulse fa-xl"></i>
 	</div>
 </section>
 

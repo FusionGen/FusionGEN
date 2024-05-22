@@ -26,8 +26,8 @@
         <thead>
             <tr>
 				<th>{lang("name", "armory")}</th>
-				<th class="text-center">{lang("level", "armory")}</th>
-				<th class="text-center">{lang("required", "armory")}</th>
+				<th>{lang("level", "armory")}</th>
+				<th>{lang("required", "armory")}</th>
 				<th>{lang("type", "armory")}</th>
 			</tr>
         </thead>
@@ -36,7 +36,7 @@
     <table class="nice_table" id="search_results_characters">
         <thead>
             <tr>
-				<th style="width:10px"></th>
+				<th width="10%"></th>
 				<th>{lang("name", "armory")}</th>
 				<th>{lang("faction", "armory")}</th>
 				<th>{lang("level", "armory")}</th>
@@ -49,8 +49,8 @@
         <thead>
             <tr>
 				<th>{lang("name", "armory")}</th>
-				<th class="text-center">{lang("members", "armory")}</th>
-				<th class="text-center">{lang("owner", "armory")}</th>
+				<th>{lang("members", "armory")}</th>
+				<th>{lang("owner", "armory")}</th>
 			</tr>
         </thead>
         <tbody></tbody>

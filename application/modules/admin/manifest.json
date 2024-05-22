@@ -271,7 +271,7 @@
 
 		{
 			"text": "Website",
-			"icon": "link",
+			"icon": "sitemap",
 			"links": [
 				{
 					"text": "Menu links",
@@ -296,21 +296,21 @@
 
 				{
 					"text": "Manage cache",
-					"icon": "power-off",
+					"icon": "boxes-packing",
 					"controller": "cachemanager",
 					"requirePermission": "viewCache"
 				},
 
 				{
 					"text": "Manage slider",
-					"icon": "windows",
+					"icon": "images",
 					"controller": "slider",
 					"requirePermission": "viewSlider"
 				},
 
 				{
 					"text": "Languages",
-					"icon": "star",
+					"icon": "language",
 					"controller": "languages",
 					"requirePermission": "viewLanguages"
 				}
@@ -323,21 +323,21 @@
 			"links": [
 				{
 					"text": "Accounts",
-					"icon": "users",
+					"icon": "users-gear",
 					"controller": "accounts",
 					"requirePermission": "viewAccounts"
 				},
 				
 				{
 					"text": "User groups &amp; permissions",
-					"icon": "cogs",
+					"icon": "user-shield",
 					"controller": "aclmanager",
 					"requirePermission": "viewPermissions"
 				},
 
 				{
 					"text": "Active sessions",
-					"icon": "list-ul",
+					"icon": "wifi",
 					"controller": "sessions",
 					"requirePermission": "viewSessions"
 				}

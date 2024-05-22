@@ -19,7 +19,7 @@
                 {/if}
             </div>
         </div>
-        <div class="col-sm-9 col-md-10 table-container">
+        <div class="col-sm-9 col-md-10 table-responsive">
             <table id="table-log" class="table table-striped">
                 <thead>
                 <tr>
@@ -31,9 +31,8 @@
                 <tbody>
 				{foreach from=$logs key=key item=$log}
                     <tr data-display="stack{$key}">
-                        <td class="text-{$log.class}">
-                            <i class="{$log.icon}" aria-hidden="true"></i>
-                            &nbsp;{$log.level}
+                        <td class="text-center text-{$log.class}">
+                            <i class="{$log.icon}" aria-hidden="true"></i> {$log.level}
                         </td>
                         <td class="date">{$log.date}</td>
                         <td class="text">
@@ -44,7 +43,7 @@
                             {/if}
 								{$log.content}
                             {if array_key_exists('extra', $log)}
-                                <div class="stack" id="stack{$key}" style="display: none; white-space: pre-wrap;">
+                                <div class="stack d-none text-wrap" id="stack{$key}">
                                     {$log.extra}
                                 </div>
                             {/if}
@@ -66,7 +65,6 @@
         $('#table-log').DataTable({
             "order": [],
             "stateSave": true,
-            "responsive": true,
             "stateSaveCallback": function (settings, data) {
                 window.localStorage.setItem("datatable", JSON.stringify(data));
             },

@@ -52,28 +52,6 @@ class Admin extends MX_Controller
         $this->administrator->view($content, false, "modules/sidebox_poll/js/admin.js");
     }
 
-    public function new()
-    {
-        requirePermission("createPoll", "sidebox_poll");
-
-        // Change the title
-        $this->administrator->setTitle("New poll");
-
-        // Prepare my data
-        $data = array(
-            'url' => $this->template->page_url,
-        );
-
-        // Load my view
-        $output = $this->template->loadPage("admin_add.tpl", $data);
-
-        // Put my view in the main box with a headline
-        $content = $this->administrator->box('New poll', $output);
-
-        // Output my content. The method accepts the same arguments as template->view
-        $this->administrator->view($content, false, "modules/sidebox_poll/js/admin.js");
-    }
-
     public function create()
     {
         // Check for the permission

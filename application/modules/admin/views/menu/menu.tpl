@@ -5,18 +5,18 @@
 <div class="row" id="main_link">
 <div class="col-12">
 	<div class="card">
-		<header class="card-header">Menu Links (<div style="display:inline;">{if !$links}0{else}{count($links)}{/if}</div>)
+		<header class="card-header">Menu Links (<div class="d-inline">{if !$links}0{else}{count($links)}{/if}</div>)
 		{if hasPermission("addMenuLinks")}<button class="btn btn-primary btn-sm pull-right" href="javascript:void(0)" onClick="Menu.add()">Create link</button>{/if}
 		</header>
-		<div class="card-body">
-			<table class="table table-responsive-md table-hover">
+		<div class="card-body table-responsive">
+			<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Sort</th>
 					<th>Position</th>
 					<th>Name</th>
 					<th>Link</th>
-					<th style="text-align: center;">Action</th>
+					<th class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,7 +32,7 @@
 						<td>{$link.side}</td>
 						<td>{langColumn($link.name)}</td>
 						<td><a href="{$link.link}" target="_blank">{$link.link_short}</a></td>
-						<td style="text-align: center;">
+						<td class="text-center">
 							{if hasPermission("editMenuLinks")}
 								<a class="btn btn-primary btn-sm" href="{$url}admin/menu/edit/{$link.id}">Edit</a>
 							{/if}
@@ -49,7 +49,7 @@
 	</div>
 </div>
 
-<div class="card mt-4" id="add_link" style="display:none;">
+<div id="add_link" class="card mt-4 d-none">
 	<div class="card-header">New Menu</div>
 	<div class="card-body">
 	<div class="col-12">
@@ -106,18 +106,18 @@
 	<div class="form-group row">
 	<label class="col-sm-2 col-form-label" for="visibility">Visibility mode</label>
 	<div class="col-sm-10">
-	<select class="form-control" name="visibility" id="visibility" onChange="if(this.value == 'group'){ $('#groups').fadeIn(300); } else { $('#groups').fadeOut(300); }">
+	<select class="form-control" name="visibility" id="visibility" onChange="if(this.value == 'group'){ $('#groups').removeClass('d-none'); } else { $('#groups').addClass('d-none'); }">
 		<option value="everyone" selected>Visible to everyone</option>
 		<option value="group">Controlled per group</option>
 	</select>
 	</div>
 	</div>
 
-	<div class="form-group row" id="groups" style="display:none;">
-		Please manage the group visibility via <a href="{$url}admin/aclmanager/groups"> the group manager</a> once you have created the link
+	<div id="groups" class="form-group row d-none">
+		<span>Please manage the group visibility via <a href="{$url}admin/aclmanager/groups"> the group manager</a> once you have created the link.</span>
 	</div>
 
-	<button type="submit" class="btn btn-primary btn-sm">Submit link</button>
+	<button type="submit" class="btn btn-primary btn-sm mt-3">Submit link</button>
 
 	</form>
 	</div>

@@ -19,8 +19,8 @@
 						</td>
 
 						<td width="35%">
-							{if $failed_log.vp_cost}<img src="{$url}application/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$failed_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
-							{if $failed_log.dp_cost}<img src="{$url}application/images/icons/coins.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$failed_log.dp_cost} DP</b>{/if}
+							{if $failed_log.vp_cost}<i class="fa-solid fa-coins text-transparent"></i> {$failed_log.vp_cost} VP{/if}
+							{if $failed_log.dp_cost}<i class="fa-solid fa-coins text-warning ms-2"></i> {$failed_log.dp_cost} DP{/if}
 						</td>
 
 						<td>
@@ -64,12 +64,12 @@
 						</td>
 
 						<td width="35%">
-							{if $completed_log.vp_cost}<img src="{$url}application/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$completed_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
-							{if $completed_log.dp_cost}<img src="{$url}application/images/icons/coins.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$completed_log.dp_cost} DP</b>{/if}
+							{if $completed_log.vp_cost}<i class="fa-solid fa-coins text-transparent"></i> {$completed_log.vp_cost} VP{/if}
+							{if $completed_log.dp_cost}<i class="fa-solid fa-coins text-warning ms-2"></i> {$completed_log.dp_cost} DP{/if}
 						</td>
 
 						<td>
-							<a data-toggle="tooltip" data-placement="top" data-html="true" title="{foreach from=$completed_log.json item=item}{$item.itemName} to {$item.characterName}<br>{/foreach}">{count($completed_log.json)} items</a>
+							<span data-bs-toggle="tooltip" data-placement="top" data-html="true" title="{foreach from=$completed_log.json item=item}{$item.itemName|replace:'"':'&quot;'} to {$item.characterName}&#013;{/foreach}">{count($completed_log.json)} item{if count($completed_log.json) >1}s{/if}</span>
 						</td>
 					</tbody>
 					</tr>

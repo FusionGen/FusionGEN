@@ -1,6 +1,6 @@
 <div class="row">
 	{if !$guild}
-		<div class="text-center h1 my-5">{lang("doesnt_exist", "guild")}</div>
+		<div class="text-center fw-bold my-5">{lang("doesnt_exist", "guild")}</div>
 	{else}
 		<div class="col-lg-4 py-5 pe-lg-5">
 			<div class="section-header d-flex justify-content-between">
@@ -24,7 +24,7 @@
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">{lang("members", "guild")}</div>
-			<div class="section-body table-responsive">
+			<div class="section-body table-responsive mt-3">
 				<table class="table text-nowrap nice_table">
 					<thead>
 						<tr>
@@ -39,7 +39,7 @@
 					<tbody>
 					<tr>
                         {if $leader}
-                            <td><a href="{$url}character/{$realmId}/{$leader.guid}">{$leader.name}</a> <i class="fa-solid fa-crown"></i></td>
+                            <td><a class="color-c{$leader.class}" href="{$url}character/{$realmId}/{$leader.guid}">{$leader.name}</a> <i class="fa-solid fa-crown"></i></td>
                             <td><img src="{$url}application/images/stats/{$leader.raceId}-{$leader.gender}.gif" width="20px"></td>
                             <td><img src="{$url}application/images/stats/{$leader.classId}.gif" width="20px"></td>
                             <td><img src="{$url}application/images/factions/{$leader.faction}.png" width="20px"></td>
@@ -50,7 +50,7 @@
 							{foreach from=$members item=character}
 								{if $character.guid != $guild.leaderguid}
 								<tr>
-									<td><a href="{$url}character/{$realmId}/{$character.guid}">{$character.name}</a></td>
+									<td><a class="color-c{$character.class}" href="{$url}character/{$realmId}/{$character.guid}">{$character.name}</a></td>
 									<td><img src="{$url}application/images/stats/{$character.raceId}-{$character.gender}.gif" width="20px"></td>
 									<td><img src="{$url}application/images/stats/{$character.classId}.gif" width="20px"></td>
 									<td><img src="{$url}application/images/factions/{$character.faction}.png" width="20px"></td>

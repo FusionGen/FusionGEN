@@ -119,12 +119,11 @@
 		</div>
 
 		{if !$myVote}
-			<a id="poll_actions" class="nice_button rounded" href="javascript:void(0)" onClick="Poll.toggle(this)">
+			<a id="poll_actions" class="nice_button rounded my-3" href="javascript:void(0)" onClick="Poll.toggle(this)">
 				{lang("show_results", "sidebox_poll")}
 			</a>
-			<div style="height:10px"></div>
 		{/if}
 	{else}
-		<center>{lang("no_poll", "sidebox_poll")}</center>
+		<div class="fw-bold text-center my-3">{lang("no_poll", "sidebox_poll")}</div>
 	{/if}
 {/if}

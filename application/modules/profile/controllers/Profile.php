@@ -136,7 +136,7 @@ class Profile extends MX_Controller
         $data = array(
             "module" => "default",
             "headline" => lang("doesnt_exist", "profile"),
-            "content" => "<center style='margin:10px;font-weight:bold;'>" . lang("doesnt_exist_long", "profile") . "</center>"
+            "content" => "<div class='text-center py-5 fw-bold'>" . lang("doesnt_exist_long", "profile") . "</div>"
         );
 
         return $this->template->loadPage("page.tpl", $data);

@@ -1,6 +1,6 @@
 <section class="card">
 	<div class="card-header">Edit link</div>
-	
+
 <div class="card-body">
 	<form role="form" onSubmit="Menu.save(this, {$link.id}); return false" id="submit_form">
 		<div class="form-group row">
@@ -38,7 +38,7 @@
 		</select>
 		</div>
 		</div>
-		
+
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="dropdown_id">Dropdown  <a data-toggle="tooltip" data-placement="bottom" title="The Name from the dropdown">(?)</a></label>
 		<div class="col-sm-10">
@@ -54,23 +54,18 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="visibility">Visibility mode</label>
 		<div class="col-sm-10">
-		<select class="form-control" name="visibility" id="visibility" onChange="if(this.value == 'group'){ $('#groups').fadeIn(300); } else { $('#groups').fadeOut(300); }">
-			<option value="everyone" selected>Visible to everyone</option>
-			<option value="group">Controlled per group</option>
+		<select class="form-control" name="visibility" id="visibility" onChange="if(this.value == 'group'){ $('#groups').removeClass('d-none'); } else { $('#groups').addClass('d-none'); }">
+			<option value="everyone" {if !$link.permission}selected{/if}>Visible to everyone</option>
+			<option value="group" {if $link.permission}selected{/if}>Controlled per group</option>
 		</select>
 		</div>
 		</div>
 
-		<div style="display:none" id="groups">
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label"></label>
-				<div class="col-sm-10">
-					Please manage the group visibility via <a href="{$url}admin/aclmanager/groups">the group manager</a> once you have created the sidebox
-				</div>
-			</div>
+		<div id="groups" class="form-group row {if !$link.permission}d-none{/if}">
+			<span>Please manage the group visibility via <a target="_blank" href="{$url}admin/aclmanager/groups">the group manager</a> once you edited the link.</span>
 		</div>
 
-		<button type="submit" class="btn btn-primary btn-sm">Save</button>
+		<button type="submit" class="btn btn-primary btn-sm mt-3">Save</button>
 	</form>
 </div>
 </section>

@@ -14,7 +14,7 @@
 			"links": [
 				{
 					"text": "Custom pages",
-					"icon": "windows",
+					"icon": "file-lines",
 					"controller": "admin",
 					"requirePermission": "canViewAdmin"
 				}
@@ -42,6 +42,6 @@
 			}
 		}
 	},
-	
+
 	"enabled": true
 }

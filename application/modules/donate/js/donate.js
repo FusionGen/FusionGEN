@@ -1,4 +1,4 @@
-var Donate = {	
+var Donate = {
 	disableButton: function(id)
 	{
         $('#button_'+id).prop("disabled", true);

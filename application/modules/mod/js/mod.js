@@ -1,6 +1,6 @@
 var Mod = {
 	kick: function(realm)
-	{	
+	{
 		Swal.fire({
 			title: 'Kick',
 			html: '<input class="swal2-input" type="text" id="kick_character" placeholder="Character name" value="">',
@@ -54,7 +54,7 @@ var Mod = {
 	},
 
 	answer: function(realm, id, field)
-	{		
+	{
 		Swal.fire({
 			title: 'Answer',
 			html: '<textarea id="answer_message" class="swal2-textarea" maxlength="7999"></textarea>',
@@ -146,7 +146,7 @@ var Mod = {
 		}
 		})
 	},
-	
+
 	unbanAcc: function(id, element)
 	{
 		Swal.fire({
@@ -187,7 +187,7 @@ var Mod = {
 			}
 			})
 	},
-	
+
 	banIP: function()
 	{
 		Swal.fire({

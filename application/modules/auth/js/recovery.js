@@ -1,4 +1,4 @@
-var Recovery = {	
+var Recovery = {
 	timeout: null,
 	useCaptcha: false,
 

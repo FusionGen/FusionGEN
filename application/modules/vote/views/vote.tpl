@@ -28,7 +28,7 @@
 											{if $vote_site.canVote}
 												{form_open("vote/site/", $formAttributes)}
 													<div class="h4">
-														{lang('vote_now', 'vote')}
+														{lang("vote_now", "vote")}
 													</div>
 													<div class="fst-italic">
 													{$vote_site.points_per_vote}
@@ -43,7 +43,7 @@
 												</form>
 											{else}
 												<div class="h4">
-													{$vote_site.nextVote} {lang('remaining', 'vote')}
+													{$vote_site.nextVote} {lang("remaining", "vote")}
 												</div>
 											{/if}
 										</div>
@@ -54,7 +54,7 @@
 					{/if}
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 </div>

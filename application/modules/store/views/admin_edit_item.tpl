@@ -306,7 +306,7 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="name">Name (only required for multiple items)</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" name="name" id="name" placeholder="Will be added automatically if you only specify one item ID" value="{$item.name}">
+			<input type="text" class="form-control" name="name" id="name" placeholder="Will be added automatically if you only specify one item ID" value="{($item.name|replace:'"':'&quot;')}">
 		</div>
 		</div>
 
