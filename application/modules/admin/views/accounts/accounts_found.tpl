@@ -5,7 +5,7 @@
 				<div class="thumb-info mb-3">
 					<img src="{$avatar}" class="rounded img-fluid" width="199px" height="199px">
 					<div class="thumb-info-title">
-						<span class="thumb-info-inner">({$external_details.id}) <b>{$external_details.username}</b></span>
+						<span class="thumb-info-inner">({$external_details.id}) {$external_details.username}</span>
 						<span class="thumb-info-type">{foreach from=$groups item=group}{$group.name}{/foreach}</span>
 					</div>
 				</div>
@@ -187,7 +187,7 @@
 						<div class="row mb-3">
 							<div class="form-group col-md-6 border-top-0 pt-0">
 								<label for="group">Website usergroup</label>
-								<div style="border-radius: 5px;padding: 5px 10px;border: 1px solid #282d36;">Please assign groups at the <a href="{$url}admin/aclmanager/groups" style="color:#ffa800">group manager</a></div>
+								<div class="border border-secondary p-2">Please assign groups at the <a href="{$url}admin/aclmanager/groups">group manager</a></div>
 							</div>
 						</div>
 

@@ -18,7 +18,7 @@
                     <img src="{$url}auth/getCaptcha?{time()}" alt="captcha" width="150" height="30" id="captchaImage">
                 </label>
 
-                <span class="input-group-text ms-0 rounded-0 rounded-bottom-start" id="captcha" style="width:40px;cursor: pointer;" data-captcha-id="captchaImage" onClick="Auth.refreshCaptcha(this);">
+                <span class="input-group-text ms-0 rounded-0 rounded-bottom-start" id="captcha" style="width:45px;cursor: pointer;" data-captcha-id="captchaImage" onClick="Auth.refreshCaptcha(this);">
                     <i class="fas fa-rotate"></i>
                 </span>
 
@@ -72,15 +72,12 @@ var Auth = {
 			fields.push("captcha");
 		}
 
-		console.log("fields", fields);
-
 		clearTimeout (Auth.timeout);
 		Auth.timeout = setTimeout (function()
 		{
 			$.post(Config.URL + "auth/checkLogin", postData, function(data) {
 				try {
 					data = JSON.parse(data);
-					console.log(data);
 
 					if(data["redirect"] === true) {
 						window.location.href = Config.URL + "ucp";
@@ -89,6 +86,7 @@ var Auth = {
 
 					if(data["showCaptcha"] === true) {
 						$(".captcha-field").removeClass("d-none");
+						document.getElementById("floatingCaptcha").required = true;
 					}
 
 					for(var i = 0; i<fields.length;i++)
@@ -102,12 +100,8 @@ var Auth = {
 					}
 				} catch(e) {
 					console.error(e);
-					console.log(data);
 				}
 			});
-
-			console.log(postData);
-
 		}, 500);
 	},
 

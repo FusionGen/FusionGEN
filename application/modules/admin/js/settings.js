@@ -46,16 +46,8 @@ var Settings = {
 
 	showAddRealm: function()
 	{
-		if ($("#add_realm").css('display') == 'none')
-		{
-			var div = document.getElementById('add_realm');
-			div.style.display = 'block';
-		}
-		else
-		{
-			var div = document.getElementById('add_realm');
-			div.style.display = 'none';
-		}
+		var div = document.getElementById('add_realm');
+		div.classList.toggle('d-none');
 	},
 
 	addRealm: function()
@@ -168,11 +160,11 @@ var Settings = {
 	{
 		if(object.value == '1')
 		{
-			$('#vote_reminder_settings').fadeIn(300);
+			$('#vote_reminder_settings').removeClass('d-none');
 		}
 		else
 		{
-			$('#vote_reminder_settings').fadeOut(300);
+			$('#vote_reminder_settings').addClass('d-none');
 		}
 	},
 
@@ -420,22 +412,20 @@ var Settings = {
 		});
 	},
 
-	toggleSMTPusage: function()
+	toggleSMTPusage: function(object)
 	{
-		if ($("#use_smtp").css('display') == 'none')
+		if(object.value == '1')
 		{
-			$("#use_smtp").show();
-			if( $('[value="smtp"][selected="selected"]') ) {
-				var div = document.getElementById('toggle_protocol');
-				div.style.display = 'block';
+			$("#use_smtp").removeClass('d-none');
+			if ($('[value="smtp"]').is(':selected')) {
+				$("#toggle_protocol").removeClass('d-none');
 			}
 		}
 		else
 		{
-			$("#use_smtp").hide();
-			$("#toggle_protocol").hide();
+			$("#use_smtp").addClass('d-none');
+			$("#toggle_protocol").addClass('d-none');
 		}
-
 	},
 
 	toggleProtocol: function(element)
@@ -443,14 +433,13 @@ var Settings = {
 		switch(element.value)
 		{
 			case "mail":
-				$("#toggle_protocol").hide();
+				$("#toggle_protocol").addClass('d-none');
 			break;
 
 			case "smtp":
-				$("#toggle_protocol").show();
+				$("#toggle_protocol").removeClass('d-none');
 			break;
 		}
-
 	},
 
 	submitConfig: function(form, moduleName, configName)
@@ -575,18 +564,18 @@ var Settings = {
 		switch(element.value)
 		{
 			case "1":
-				$("#two, #three").hide();
-				$("#one").show();
+				$("#one").removeClass("d-none");
+				$("#two, #three").addClass("d-none");
 			break;
 
 			case "2":
-				$("#one, #three").hide();
-				$("#two").show();
+				$("#one, #three").addClass("d-none");
+				$("#two").removeClass("d-none");
 			break;
 
 			case "3":
-				$("#two, #one").hide();
-				$("#three").show();
+				$("#one, #two").addClass("d-none");
+				$("#three").removeClass("d-none");
 			break;
 		}
 	},

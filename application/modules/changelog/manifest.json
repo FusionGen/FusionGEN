@@ -79,13 +79,13 @@
 		
 		{
 			"text":"Website",
-			"icon":"list-ul",
+			"icon":"sitemap",
 			"links":
 			[
 				
 				{
 					"text":"Changelog",
-					"icon":"list-ul",
+					"icon":"screwdriver-wrench",
 					"controller":"admin",
 					"requirePermission":"canViewAdmin"
 				}

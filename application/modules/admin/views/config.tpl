@@ -11,10 +11,10 @@
 				<textarea class="form-control" id="source_{$title}" name="source_{$title}" rows="15" spellcheck="false">{$config.source}</textarea>
 			</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Save config</button>
+			<button type="submit" class="btn btn-primary btn-sm">Save config</button>
 		</form>
 	{else}
-		<button class="btn btn-primary btn-sm mb-3" href="javascript:void(0)" onClick="Settings.toggleSource('{$title}', this)">Edit source code (advanced)</button>
+		<button class="btn btn-primary btn-sm mb-3" onClick="Settings.toggleSource('{$title}', this)">Edit source code (advanced)</button>
 
 		<form role="form" onSubmit="Settings.submitConfigSource('{$moduleName}', '{$title}');return false" id="advanced_{$title}" style="display:none;">
 			<div class="form-group row mb-3">
@@ -23,7 +23,7 @@
 				<textarea class="form-control" id="source_{$title}" name="source_{$title}" rows="15" spellcheck="false">{$config.source}</textarea>
 			</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Save config</button>
+			<button type="submit" class="btn btn-primary btn-sm">Save config</button>
 		</form>
 
 		<form role="form" onSubmit="Settings.submitConfig(this, '{$moduleName}', '{$title}');return false" id="gui_{$title}">

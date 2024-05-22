@@ -27,29 +27,29 @@
     <div class="tab-content">
 	    <div class="tab-pane active" id="realms">
 			<section class="card" id="realm_settings">
-			<header class="card-header">Realms (<div style="display:inline;" id="realm_count">{count($realms)}</div>)
+			<header class="card-header">Realms (<div class="d-inline" id="realm_count">{count($realms)}</div>)
 			<button class="btn btn-primary btn-sm pull-right" href="javascript:void(0)" onClick="Settings.showAddRealm()">Add a new realm</button>
 			</header>
-			<div class="card-body">
-			<table class="table table-responsive-md table-hover mb-0">
+			<div class="card-body table-responsive">
+			<table class="table table-hover mb-0">
 			<thead>
 			<tr>
-				<th>#</th>
+				<th>ID</th>
 				<th>Name</th>
 				<th>Host</th>
 				<th>Emulator</th>
-				<th style="text-align: center;">Actions</th>
+				<th class="text-center">Actions</th>
 			</tr>
 			</thead>
 			<tbody>
 				{foreach from=$realms item=realm}
 						<tr>
-							<td>ID: {$realm->getId()}</td>
-							<td><b>{$realm->getName()}</b></td>
+							<td class="fw-bold">{$realm->getId()}</td>
+							<td class="fw-bold">{$realm->getName()}</td>
 							<td>{$realm->getConfig("hostname")}</td>
 							<td>{strtoupper($realm->getConfig("emulator"))}</td>
-							<td style="text-align: center;">
-								<a class="btn btn-primary btn-sm" href="{$url}admin/realmmanager/edit/{$realm->getId()}">Edit</a>&nbsp;
+							<td class="text-center">
+								<a class="btn btn-primary btn-sm" href="{$url}admin/realmmanager/edit/{$realm->getId()}">Edit</a>
 								<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Settings.remove({$realm->getId()}, this)">Delete</a>
 							</td>
 						</tr>
@@ -62,7 +62,7 @@
 			</div>
 			</section>
 
-			<div class="card" id="add_realm" style="display:none;">
+			<div id="add_realm" class="card d-none">
 			<div class="card-header">New realm</div>
 			<div class="card-body">
 			<form role="form" onSubmit="Settings.addRealm(); return false">
@@ -107,7 +107,7 @@
 					</div>
 				</div>
 
-				<div id="two" style="display:none;">
+				<div id="two" class="d-none">
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_hostname_char">Characters &amp; world: database hostname</label>
 					<div class="col-sm-10">
@@ -149,7 +149,7 @@
 					</div>
 				</div>
 
-				<div id="three" style="display:none;">
+				<div id="three" class="d-none">
 					<div class="form-group row">
 					<label class="col-sm-2 col-form-label" for="override_hostname_char_three">Characters: database hostname</label>
 					<div class="col-sm-10">
@@ -406,7 +406,7 @@
 			</div>
             </div>
 
-			<div id="vote_reminder_settings" {if !$config.vote_reminder}style="display:none;"{/if}>
+			<div id="vote_reminder_settings" {if !$config.vote_reminder}class="d-none"{/if}>
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="vote_reminder_image">Vote reminder image URL</label>
 			<div class="col-sm-10">
@@ -438,7 +438,7 @@
 			</div>
             </div>
 
-			<div id="use_smtp" {if !$config.use_own_smtp_settings}style="display:none;"{/if}>
+			<div id="use_smtp" {if !$config.use_own_smtp_settings}class="d-none"{/if}>
 			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="smtp_protocol">Protocol</label>
 			<div class="col-sm-10">
@@ -451,7 +451,7 @@
             </div>
             </div>
 
-			<div id="toggle_protocol" {if $config.smtp_protocol != 'smtp' || !$config.use_own_smtp_settings}style="display:none;"{/if}>
+			<div id="toggle_protocol" {if $config.smtp_protocol != 'smtp' || !$config.use_own_smtp_settings}class="d-none"{/if}>
 			<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="smtp_sender">SMTP sender</label>
 			<div class="col-sm-10">
@@ -512,7 +512,8 @@
 
 			<button class="btn btn-primary btn-sm" type="submit">Save</button>
 			<button class="btn btn-primary btn-sm" onclick="Settings.mailDebug(); return false">Mail debug</button>
-            <button onClick="Settings.showHelp()" type="button" class="btn btn-primary pull-right"><i class="fa-solid fa-circle-info fa-lg"></i></button>
+			<a href="{$url}admin/email_template" class="btn btn-primary btn-sm">Email template</a>
+            <button onClick="Settings.showHelp()" type="button" class="btn btn-primary btn-sm pull-right"><i class="fa-solid fa-circle-info fa-lg"></i></button>
         </form>
         </div>
 
@@ -602,7 +603,7 @@
         <form role="form" onSubmit="Settings.saveSecurity(); return false">
 			<div class="form-group row">
 				<div class="col-sm-6 mb-3">
-					<label class="col-form-label" for="use_captcha">Use captcha? (Recommended: yes)</label>
+					<label class="col-form-label" for="use_captcha">Use captcha? (Recommended: Yes)</label>
 					<select class="form-control" id="use_captcha">
 						<option value="true" {if $config.use_captcha == '1'}selected{/if}>Yes</option>
 						<option value="false" {if $config.use_captcha == '0'}selected{/if}>No</option>
@@ -610,7 +611,7 @@
 				</div>
 
 				<div class="col-sm-6 mb-3">
-					<label class="col-form-label" for="captcha_attemps">Captcha attemps (default: 3)</label>
+					<label class="col-form-label" for="captcha_attemps">Captcha attemps (Default: 3)</label>
 					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
 						<div class="input-group">
 							<input class="spinner-input form-control" type="text" id="captcha_attemps" value="{$config.captcha_attemps}">
@@ -644,7 +645,7 @@
 				</div>
 
 				<div class="col-sm-6 mb-3">
-					<label class="col-form-label" for="block_duration">Block duration in minutes (default: 15)</label>
+					<label class="col-form-label" for="block_duration">Block duration in minutes (Default: 15)</label>
 					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
 						<div class="input-group">
 							<input class="spinner-input form-control" type="text" id="block_duration" value="{$config.block_duration}">

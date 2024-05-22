@@ -18,6 +18,12 @@ var Poll = {
 		create: "sidebox_poll/admin/create/",
 	},
 
+	add: function()
+	{
+		var div = document.getElementById('add_polls');
+		div.classList.toggle('d-none');
+	},
+
 	/**
 	 * Removes an entry from the list
 	 * @param  Int id

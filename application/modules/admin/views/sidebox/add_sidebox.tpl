@@ -27,21 +27,22 @@
 		<div class="form-group row mb-3">
 		<label class="col-sm-2 col-form-label" for="visibility">Visibility mode</label>
 		<div class="col-sm-10">
-		<select class="form-control" name="visibility" id="visibility" onChange="if(this.value == 'group'){ $('#groups').fadeIn(300); } else { $('#groups').fadeOut(300); }">
+		<select class="form-control" name="visibility" id="visibility" onChange="if(this.value == 'group'){ $('#groups').removeClass('d-none'); } else { $('#groups').addClass('d-none'); }">
 			<option value="everyone" selected>Visible to everyone</option>
 			<option value="group">Controlled per group</option>
 		</select>
-		<div style="display:none" id="groups">
-			Please manage the group visibility via <a href="{$url}admin/aclmanager/groups">the group manager</a> once you have created the sidebox
-		</div>
 		</div>
 		</div>
 
-		<div class="mb-3" id="custom_field">
+		<div id="groups" class="d-none form-group row">
+			<span>Please manage the group visibility via <a target="_blank" href="{$url}admin/aclmanager/groups">the group manager</a> once you have created the sidebox.</span>
+		</div>
+
+		<div id="custom_field" class="mt-3">
 			<textarea name="content" class="form-control tinymce" id="customContent"></textarea>
 		</div>
 
-		<button type="submit" class="btn btn-primary btn-sm">Submit sidebox</button>
+		<button type="submit" class="btn btn-primary btn-sm mt-3">Submit sidebox</button>
 	</form>
 	</div>
 </div>

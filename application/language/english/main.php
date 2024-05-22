@@ -45,7 +45,8 @@ $lang['click_to_sign_in'] = "Please click here to sign in.";
 
 // Misc
 $lang['reason'] = "Reason:";
-$lang['banned'] = "banned";
+$lang['active'] = "Active";
+$lang['banned'] = "Banned";
 $lang['close_tool'] = "Close tool";
 $lang['offline'] = "Offline";
 
@@ -69,4 +70,3 @@ $lang['login'] = "Login";
 $lang['logout'] = "Logout";
 $lang['register'] = "Register";
 $lang['account'] = "Account";
-

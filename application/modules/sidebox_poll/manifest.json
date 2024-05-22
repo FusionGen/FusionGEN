@@ -11,13 +11,13 @@
 		
 		{
 			"text":"Website",
-			"icon":"cursor",
+			"icon":"sitemap",
 			"links":
 			[
 				
 				{
 					"text":"Manage polls",
-					"icon":"heart",
+					"icon":"poll",
 					"controller":"admin",
 					"requirePermission":"canViewAdmin"
 				}

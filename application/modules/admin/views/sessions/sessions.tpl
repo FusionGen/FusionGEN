@@ -2,10 +2,10 @@
 	<div class="card">
 		<div class="card-header">
 		Users in the past 30 minutes (<strong>{if $sessions}{count($sessions)}{else}0{/if}</strong>)
-		<button class="btn btn-primary btn-sm pull-right" href="javascript:void(0)" onClick="Session.delete()">Clear sessions</button>
+		<button class="btn btn-primary btn-sm pull-right" onClick="Session.delete()">Clear sessions</button>
 		</div>
-		<div class="card-body">
-			<table class="table table-responsive-md table-hover">
+		<div class="card-body table-responsive">
+			<table class="table table-hover">
 			<thead>
 				<tr>
 					<th scope="col">Time</th>
@@ -33,12 +33,10 @@
 								{$visitor.ip_address}
 							</td>
 							<td width="20%">
-								<img src="{$url}application/images/browsers/{$visitor.browser}.png" style="opacity:1;position:absolute;margin-top:2px;">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ucfirst($visitor.browser)}
+								<img src="{$url}application/images/browsers/{$visitor.browser}.png" style="margin-top:-2px;"> {ucfirst($visitor.browser)}
 							</td>
 							<td width="20%">
-								<img src="{$url}application/images/platforms/{$visitor.os}.png" style="opacity:1;position:absolute;margin-top:2px;">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ucfirst($visitor.os)}
+								<img src="{$url}application/images/platforms/{$visitor.os}.png" style="margin-top:-2px;"> {ucfirst($visitor.os)}
 							</td>
 						</tr>
 					{/foreach}

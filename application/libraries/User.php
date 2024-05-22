@@ -179,7 +179,7 @@ class User
             $this->CI->template->view($this->CI->template->loadPage("page.tpl", array(
                 "module" => "default",
                 "headline" => lang("denied"),
-                "content" => "<center style='margin:10px;font-weight:bold;'>" . lang("must_be_signed_in") . "</center>"
+                "content" => "<div class='text-center py-5 fw-bold'>" . lang("must_be_signed_in") . "</div>"
             )));
         }
 
@@ -196,7 +196,7 @@ class User
             $this->CI->template->view($this->CI->template->loadPage("page.tpl", array(
                 "module" => "default",
                 "headline" => lang("denied"),
-                "content" => "<center style='margin:10px;font-weight:bold;'>" . lang("already_signed_in") . "</center>"
+                "content" => "<div class='text-center py-5 fw-bold'>" . lang("already_signed_in") . "</div>"
             )));
         }
 
@@ -351,12 +351,12 @@ class User
         $result = $this->CI->external_account_model->getBannedStatus($id);
 
         if (!$result) {
-            return 'Active';
+            return '<span class="text-success">' . (lang("active")) . '</span>';
         } else {
             if (array_key_exists("banreason", $result)) {
-                return '<span style="color:red;cursor:pointer;" data-tip="<b>' . lang("reason") . '</b> ' . $result['banreason'] . '">' . lang("banned") . ' (?)</span>';
+                return '<span class="text-danger" style="cursor:pointer;" data-tip="<b>' . lang("reason") . '</b> ' . $result['banreason'] . '">' . lang("banned") . ' (?)</span>';
             } else {
-                return '<span style="color:red;">' . ucfirst(lang("banned")) . '</span>';
+                return '<span class="text-danger">' . ucfirst(lang("banned")) . '</span>';
             }
         }
     }

@@ -41,7 +41,7 @@ function UI()
 	 * @param String message
 	 */
 	this.alert = function(question, time)
-	{		
+	{
 		// Put question and button text
 		$("#alert_message").html(question);
 

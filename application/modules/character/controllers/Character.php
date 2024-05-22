@@ -415,7 +415,7 @@ class Character extends MX_Controller
         $data = array(
             "module" => "default",
             "headline" => lang("doesnt_exist", "character"),
-            "content" => "<span class='text-center mt-3 fw-bold'>" . lang("doesnt_exist_long", "character") . "</span>"
+            "content" => "<div class='text-center py-5 fw-bold'>" . lang("doesnt_exist_long", "character") . "</div>"
         );
 
         $page = $this->template->loadPage("page.tpl", $data);

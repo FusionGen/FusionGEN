@@ -343,7 +343,6 @@ input[type="radio"] {
 }
 
 .nice_table tr:first-child td {
-    font-weight: bold;
     padding: 7px;
     font-size: 14px;
 }
@@ -352,10 +351,6 @@ input[type="radio"] {
     padding: 7px;
     font-size: 14px;
     height: 40px;
-}
-
-.nice_table td:first-child {
-    font-weight: bold;
 }
 
 

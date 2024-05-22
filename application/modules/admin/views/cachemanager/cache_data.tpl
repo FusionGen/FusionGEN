@@ -1,6 +1,6 @@
 <div class="card">
-	<div class="card-body">
-	<table class="table table-responsive-md table-hover">
+	<div class="card-body table-responsive">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>Cache</th>
@@ -16,10 +16,9 @@
 			<td>Website cache</td>
 			<td id="row_website">{$website.files} files ({$website.sizeString})</td>
 		</tr>
-
 		<tr>
-			<td><b>Total</b></td>
-			<td id="row_total"><b>{$total.files} files ({$total.size})</b></td>
+			<td class="fw-bold">Total</td>
+			<td class="fw-bold" id="row_total">{$total.files} files ({$total.size})</td>
 		</tr>
 		</tbody>
 	</table>

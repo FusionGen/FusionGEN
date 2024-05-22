@@ -57,18 +57,18 @@
 	"admin": [
 		{
 			"text": "Store",
-			"icon": "share",
+			"icon": "store",
 			"links": [
 				{
 					"text": "Items",
-					"icon": "tag",
+					"icon": "tags",
 					"controller": "admin_items",
 					"requirePermission": "canViewItems"
 				},
-				
+
 				{
 					"text": "Orders",
-					"icon": "users",
+					"icon": "cart-shopping",
 					"controller": "admin_orders",
 					"requirePermission": "canViewOrders"
 				}

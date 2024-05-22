@@ -13,7 +13,7 @@
 			"links": [
 				{
 					"text": "News articles",
-					"icon": "file",
+					"icon": "newspaper",
 					"controller": "admin",
 					"requirePermission": "canViewAdmin"
 				}
@@ -77,6 +77,6 @@
 			}
 		}
 	},
-	
+
 	"enabled": true
 }

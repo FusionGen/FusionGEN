@@ -47,7 +47,7 @@
 				
 				{
 					"text":"Topsites",
-					"icon":"link",
+					"icon":"rectangle-ad",
 					"controller":"admin",
 					"requirePermission": "canViewAdmin"
 				}

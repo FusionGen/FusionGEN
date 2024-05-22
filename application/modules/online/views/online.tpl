@@ -24,7 +24,7 @@
                <tbody>
                   {foreach from=$realm->getCharacters()->getOnlinePlayers() item=character}
                   <tr>
-                     <td><a data-tip="{lang("view_profile", "online")}" href="{$url}character/{$realm->getId()}/{$character.guid}">{$character.name}</a></td>
+                     <td><a class="color-c{$character.class}" data-tip="{lang("view_profile", "online")}" href="{$url}character/{$realm->getId()}/{$character.guid}">{$character.name}</a></td>
                      <td>{$character.level}</td>
                      <td><img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif"></td>
                      <td><img src="{$url}application/images/stats/{$character.class}.gif"></td>
@@ -33,7 +33,7 @@
                   {/foreach}
                </tbody>
                {else}
-               <center style="margin-bottom:10px;">{lang("no_players", "online")}</center>
+               <div class="text-center fw-bold my-4">{lang("no_players", "online")}</div>
                {/if}
             </table>
 			</div>

@@ -75,17 +75,17 @@
 {/if}
 
 <div class="card">
-	<div class="card-header">Slides (<div style="display:inline;" id="slider_count">{if !$slides}0{else}{count($slides)}{/if}</div>)
+	<div class="card-header">Slides (<div class="d-inline" id="slider_count">{if !$slides}0{else}{count($slides)}{/if}</div>)
 	{if hasPermission("addSlider")}<a class="btn btn-primary btn-sm pull-right" href="{$url}admin/slider/new">Create slide</a>{/if}
 	</div>
-	<div class="card-body">
-		<table class="table table-responsive-md table-hover">
+	<div class="card-body table-responsive">
+		<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>Sort</th>
 				<th>Image</th>
 				<th>Header</th>
-				<th style="text-align: center;">Action</th>
+				<th class="text-center">Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -100,11 +100,10 @@
 				</td>
 				<td><b>{$slide.image}</b></td>
 				<td>{$slide.header}</td>
-				<td style="text-align:center;">
+				<td class="text-center">
 					{if hasPermission("editSlider")}
 					<a class="btn btn-primary btn-sm" href="{$url}admin/slider/edit/{$slide.id}">Edit</a>
 					{/if}
-					&nbsp;
 					{if hasPermission("deleteSlider")}
 					<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Slider.remove({$slide.id}, this)">Delete</a>
 					{/if}

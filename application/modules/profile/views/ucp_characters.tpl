@@ -22,7 +22,7 @@
 								</td>
 								{if hasPermission("viewCharInfos", "profile")}
 									{$money = $realmsObj->formatMoney($character.money)}
-									<td class="col-3">{$character.name}</td>
+									<td class="col-3"><span class="color-c{$character.class}">{$character.name}</span></td>
 
 									<td class="col-4 user-points">
 										{if $money}
@@ -34,7 +34,7 @@
 										{/if}
 									</td>
 								{else}
-									<td class="col-5">{$character.name}</td>
+									<td class="col-5"><span class="color-c{$character.class}">{$character.name}</span></td>
 								{/if}
 
 								<td>Lvl {$character.level}</td>

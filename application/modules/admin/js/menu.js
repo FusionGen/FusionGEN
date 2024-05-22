@@ -60,18 +60,8 @@ var Menu = {
 	 */
 	add: function()
 	{
-		var id = this.identifier;
-
-		if ($("#add_link").css('display') == 'none')
-		{
-			var div = document.getElementById('add_link');
-			div.style.display = 'block';
-		}
-		else
-		{
-			var div = document.getElementById('add_link');
-			div.style.display = 'none';
-		}
+		var div = document.getElementById('add_link');
+		div.classList.toggle('d-none');
 	},
 
 	/**

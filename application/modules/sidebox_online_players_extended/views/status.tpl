@@ -17,10 +17,10 @@
 		<div class="card-body">
         <div class="realm-bar-wrapper">
             <div class="realm_bar">
-                    <div data-tip="Horde: {$realm->getOnline('horde')} players" class="realm_bar_fill horde text-center" style="width:{$realm->getPercentage('horde')}%; height: {$bar_height} !important">
-                    {if $realm->getOnline('horde') >= 1}<span>{$realm->getOnline('horde')}<span>{/if}</div>
-                    <div data-tip="Alliance: {$realm->getOnline('alliance')} players" class="realm_bar_fill alliance text-center" style="width:{$realm->getPercentage('alliance')}%; height: {$bar_height} !important">
-                    {if $realm->getOnline('alliance') >= 1}<span>{$realm->getOnline('alliance')}<span>{/if}</div>
+                <div data-tip="Horde: {$realm->getOnline('horde')} players" class="realm_bar_fill horde text-center" style="width:{$realm->getPercentage('horde')}%; height: {$bar_height} !important">
+                {if $realm->getOnline('horde') >= 1}<span>{$realm->getOnline('horde')}<span>{/if}</div>
+                <div data-tip="Alliance: {$realm->getOnline('alliance')} players" class="realm_bar_fill alliance text-center" style="width:{$realm->getPercentage('alliance')}%; height: {$bar_height} !important">
+                {if $realm->getOnline('alliance') >= 1}<span>{$realm->getOnline('alliance')}<span>{/if}</div>
             </div>
         </div>
         </div>

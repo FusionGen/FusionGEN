@@ -20,7 +20,7 @@
                         <img src="{$url}auth/getCaptcha?{time()}" alt="captcha" width="150" height="30" id="captchaImage">
                     </label>
 
-                    <span class="input-group-text cursor-pointer ms-0 rounded-0 rounded-bottom-start" id="captcha" style="width:40px;" data-captcha-id="captchaImage" onClick="Auth.refreshCaptcha(this);">
+                    <span class="input-group-text cursor-pointer ms-0 rounded-0 rounded-bottom-start" id="captcha" style="width:45px;" data-captcha-id="captchaImage" onClick="Auth.refreshCaptcha(this);">
                         <i class="fas fa-rotate"></i>
                     </span>
 

@@ -1,16 +1,16 @@
 <div class="card">
-    <header class="card-header">Pages(<div style="display:inline;" id="page_count">{if !$pages}0{else}{count($pages)}{/if}</div>)
+    <header class="card-header">Pages(<div class="d-inline" id="page_count">{if !$pages}0{else}{count($pages)}{/if}</div>)
 	{if hasPermission("canAdd")}
 		<a class="btn btn-primary btn-sm pull-right" href="{$url}page/admin/new">Create page</a>
     </header>
 	{/if}
-	<div class="card-body">
-	<table class="table table-responsive-md table-hover">
+	<div class="card-body table-responsive">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th scope="col" class="name">Page</th>
 				<th scope="col" class="items">Name</th>
-				<th scope="col" style="text-align:center;" class="actions">Actions</th>
+				<th scope="col" class="actions text-center">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,7 +19,7 @@
 						<tr>
 							<td width="25%"><a href="{$url}page/{$page.identifier}/" target="_blank">/page/{$page.identifier}/</a></td>
 							<td width="60%"><b>{$page.name}</b></td>
-							<td style="text-align:right;">
+							<td class="text-center">
 								{if hasPermission("canEdit")}
 								<a href="{$url}page/admin/edit/{$page.id}"><button type="button" class="btn btn-primary btn-sm">Edit</button></a>&nbsp;
 								{/if}

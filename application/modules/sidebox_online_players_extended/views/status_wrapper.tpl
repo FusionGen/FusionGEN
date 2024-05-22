@@ -1,5 +1,5 @@
 <section id="update_status">
-    <div style="text-align:center;margin-bottom:10px;">
+    <div class="text-center my-4">
         <i class="fas fa-spinner fa-pulse fa-xl"></i>
     </div>
 </section>

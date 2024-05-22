@@ -9,7 +9,7 @@
 			<div class="section-body mt-3">
 
 				{if $use_paypal}
-				<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<ul class="nav nav-tabs border-secondary" id="myTab" role="tablist">
 					{if $use_paypal}
 						<li class="nav-item" role="presentation">
 							<button class="nav-link active" id="paypal-tab" data-bs-toggle="tab" data-bs-target="#paypal" type="button" role="tab" aria-controls="paypal" aria-selected="true">

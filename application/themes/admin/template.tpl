@@ -237,7 +237,7 @@
 									<a role="menuitem" tabindex="-1" href="javascript:void(0)" data-lock-screen="true" onClick="Custom.destroySession()"><i class="fa-solid fa-lock"></i> Lock Screen</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="{$url}logout"><i class="fa-solid fa-power-off"></i> Logout</a>
+									<a role="menuitem" tabindex="-1" href="{$url}logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 								</li>
 							</ul>
 						</div>
@@ -254,8 +254,8 @@
 					<div class="modal-header">
 						<h5 class="modal-title" id="modaluititle">Modal title</h5>
 					</div>
-					<div class="modal-body" id="modaluibody"> Modal body </div>
-					<div class="modal-footer" id="modaluifooter"> Modalfooter </div>
+					<div class="modal-body" id="modaluibody">Modal body</div>
+					<div class="modal-footer" id="modaluifooter">Modalfooter</div>
 				</div>
 			</div>
 		</div>
@@ -273,8 +273,8 @@
 					</div>
 					<!-- Modal footer -->
 					<div class="modal-footer" id="popup_links">
-						<button type="button" a href="javascript:void(0)" class="btn btn-primary" id="confirm_button"></a></button>
-						<button type="button" a href="javascript:void(0)" class="btn btn-secondary" id="confirm_hide" onClick="UI.hidePopup()">Cancel</a></button>
+						<button type="button" class="btn btn-primary" id="confirm_button"></button>
+						<button type="button" class="btn btn-secondary" id="confirm_hide" onClick="UI.hidePopup()">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -285,14 +285,14 @@
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h5 class="modal-title" id="modaluititle">Warning</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span> </button>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span></button>
 					</div>
 					<div class="modal-body" id="modaluibody">
 						<h5 class="popup_message" id="alert_message"></h5>
 					</div>
 					<!-- Modal footer -->
 					<div class="modal-footer" id="popup_links">
-						<button type="button" a href="javascript:void(0)" class="btn btn-primary" id="alert_button">Okay</a></button>
+						<button type="button" class="btn btn-primary" id="alert_button">Okay</button>
 					</div>
 				</div>
 			</div>
@@ -302,7 +302,7 @@
 		<aside id="sidebar-left" class="sidebar-left">
 
 			<div class="sidebar-header">
-			    <div class="sidebar-title">
+			    <div class="sidebar-title ms-2">
 			        Navigation
 			    </div>
 			    <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
@@ -314,38 +314,35 @@
 			    <div class="nano-content">
 			        <nav id="menu" class="nav-main" role="navigation">
 			            <ul class="nav nav-main">
-						<li {if $current_page == "admin/"}class="nav-active" style="background-color: #225890;"{/if}>
-							<a class="nav-link {if $current_page == "admin/"}nav-active{/if}" href="{$url}admin"> <i class="fa-solid fa-home"></i> <span>Dashboard</span> </a>
+						<li {if $current_page == "admin/"}class="nav-active nav-expanded"{/if}>
+							<a class="nav-link" href="{$url}admin"><i class="fa-solid fa-house-laptop"></i><span>Dashboard</span></a>
 						</li>
 						{if hasPermission("editSystemSettings", "admin")}
-						<li {if $current_page == "admin/settings"}class="nav-active" style="background-color: #225890;"{/if}>
-							<a class="nav-link {if $current_page == "admin/settings"}nav-active{/if}" href="{$url}admin/settings"> <i class="fa-solid fa-cog"></i> <span>Settings</span> </a>
+						<li {if $current_page == "admin/settings"}class="nav-active nav-expanded"{/if}>
+							<a class="nav-link" href="{$url}admin/settings"><i class="fa-solid fa-cog"></i><span>Settings</span></a>
 						</li>
 						{/if}
 						{if hasPermission("viewBackups", "admin")}
-						<li {if $current_page == "admin/backups"}class="nav-active" style="background-color: #225890;"{/if}>
-							<a class="nav-link {if $current_page == "admin/backups"}nav-active{/if}" href="{$url}admin/backups"> <i class="fa-solid fa-hard-drive"></i> <span>Backups</span> </a>
+						<li {if $current_page == "admin/backups"}class="nav-active nav-expanded"{/if}>
+							<a class="nav-link" href="{$url}admin/backups"><i class="fa-solid fa-hard-drive"></i><span>Backups</span></a>
 						</li>
 						{/if}
 
 						{if hasPermission("toggleModules", "admin")}
-							<li {if $current_page == "admin/modules"}class="nav-active" style="background-color: #225890;"{/if}>
-								<a class="nav-link {if $current_page == "admin/modules"}nav-active{/if}" href="{$url}admin/modules"> <i class="fa-solid fa-sitemap"></i> <span>Modules</span> </a>
-							</li>
+						<li {if $current_page == "admin/modules"}class="nav-active nav-expanded"{/if}>
+							<a class="nav-link" href="{$url}admin/modules"><i class="fa-solid fa-cubes"></i><span>Modules</span></a>
+						</li>
 						{/if}
 
 						{foreach from=$menu item=group key=text}
 						{if count($group.links)}
-						<li onclick="AdminMenu.openSection({$group.nr})" nr="{$group.nr}" class="nav-parent {if isset($group.active)}nav-expanded{/if} admin_section_icon" {if isset($group.active)}style="background-color: #225890;"{/if}>
-							<a href="#" class="nav-link">
-							<i class="fa-solid fa-{$group.icon}" aria-hidden="true"></i>
-							<span>{$text}</span>
-							</a>
-						
+						<li onclick="AdminMenu.openSection({$group.nr})" nr="{$group.nr}" class="nav-parent {if isset($group.active)}nav-expanded nav-active{/if} admin_section_icon">
+							<a href="#" class="nav-link"><i class="fa-solid fa-{$group.icon}" aria-hidden="true"></i><span>{$text}</span></a>
+
 						<ul class="nav nav-children admin_section" nr="{$group.nr}" style="display:{if isset($group.active)}block{/if};">
 							{foreach from=$group.links item=link}
 								<li {if isset($link.active)}class="nav-active"{/if}>
-									<a class="nav-link {if isset($link.active)}nav-active{/if}" href="{$url}{$link.module}/{$link.controller}"> <i class="fa-solid fa-{$link.icon}"></i> <span>{$link.text}</span> </a>
+									<a class="nav-link" href="{$url}{$link.module}/{$link.controller}"><i class="fa-solid fa-{$link.icon}"></i><span>{$link.text}</span></a>
 								</li>
 							{/foreach}
 						</ul>
@@ -361,7 +358,7 @@
 						if (localStorage.getItem('sidebar-left-position') !== null) {
 							var initialPosition = localStorage.getItem('sidebar-left-position'),
 								sidebarLeft = document.querySelector('#sidebar-left .nano-content');
-				
+
 							sidebarLeft.scrollTop = initialPosition;
 						}
 					}
@@ -408,14 +405,14 @@
 		notifyField: $("#content"),
 		countField: $("#count"),
 		count2Field: $("#count2"),
-	
+
 		update: function()
 		{
 			$.get(Config.URL + "admin/notifications", function(data)
 			{
 				Notify.notifyField.html(data);
 			});
-			
+
 			$.get(Config.URL + "admin/notifications/count", function(data)
 			{
 				Notify.countField.html(data);

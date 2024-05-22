@@ -89,7 +89,7 @@
 				x = ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
 				y = ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
 				x = x.replace(/^\s+|\s+$/g,"");
-				
+
 				if(x == c_name) {
 					return unescape(y);
 				}
@@ -128,7 +128,7 @@
 					{if $extra_js}
 					Router.loadedJS.push("{$extra_js}");
 				{/if}
-				
+
 				$('[data-toggle="tooltip"]').tooltip();
 				$(".nano").nanoScroller();
 				$(".nano-pane").show();
@@ -183,7 +183,7 @@
 								<a role="menuitem" tabindex="-1" href="{$url}ucp"><i class="fas fa-user-circle"></i> UCP</a>
 							</li>
 							<li>
-								<a role="menuitem" tabindex="-1" href="{$url}logout"><i class="fas fa-power-off"></i> Logout</a>
+								<a role="menuitem" tabindex="-1" href="{$url}logout"><i class="fas fa-right-from-bracket"></i> Logout</a>
 							</li>
 						</ul>
 					</div>
@@ -200,8 +200,8 @@
 					<div class="modal-header">
 						<h5 class="modal-title" id="modaluititle">Modal title</h5>
 					</div>
-					<div class="modal-body" id="modaluibody"> Modal body </div>
-					<div class="modal-footer" id="modaluifooter"> Modalfooter </div>
+					<div class="modal-body" id="modaluibody">Modal body</div>
+					<div class="modal-footer" id="modaluifooter">Modalfooter</div>
 				</div>
 			</div>
 		</div>
@@ -219,8 +219,8 @@
 					</div>
 					<!-- Modal footer -->
 					<div class="modal-footer" id="popup_links">
-						<button type="button" a href="javascript:void(0)" class="btn btn-primary" id="confirm_button"></a></button>
-						<button type="button" a href="javascript:void(0)" class="btn btn-secondary" id="confirm_hide" onClick="UI.hidePopup()">Cancel</a></button>
+						<button type="button" class="btn btn-primary" id="confirm_button"></button>
+						<button type="button" class="btn btn-secondary" id="confirm_hide" onClick="UI.hidePopup()">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -231,14 +231,14 @@
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h5 class="modal-title" id="modaluititle">Warning</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span> </button>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span></button>
 					</div>
 					<div class="modal-body" id="modaluibody">
 						<h5 class="popup_message" id="alert_message"></h5>
 					</div>
 					<!-- Modal footer -->
 					<div class="modal-footer" id="popup_links">
-						<button type="button" a href="javascript:void(0)" class="btn btn-primary" id="alert_button">Okay</a></button>
+						<button type="button" class="btn btn-primary" id="alert_button">Okay</button>
 					</div>
 				</div>
 			</div>
@@ -248,11 +248,11 @@
 		<aside id="sidebar-left" class="sidebar-left">
 
 			<div class="sidebar-header">
-			    <div class="sidebar-title">
+			    <div class="sidebar-title ms-2">
 			        Navigation
 			    </div>
 			    <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-			        <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+			        <i class="fa-solid fa-bars" aria-label="Toggle sidebar"></i>
 			    </div>
 			</div>
 
@@ -260,21 +260,21 @@
 			    <div class="nano-content">
 			        <nav id="menu" class="nav-main" role="navigation">
 			            <ul class="nav nav-main">
-						<li {if $current_page == "mod/"}class="nav-active" style="background-color: #225890;"{/if}>
-							<a class="nav-link {if $current_page == "mod/"}nav-active{/if}" href="{$url}mod"> <i class="fas fa-home"></i> <span>Dashboard</span> </a>
+						<li {if $current_page == "mod/"}class="nav-active nav-expanded"{/if}>
+							<a class="nav-link" href="{$url}mod"><i class="fas fa-house-laptop"></i> <span>Dashboard</span></a>
 						</li>
 
-						<li {if $current_page == "mod/tickets"}class="nav-active" style="background-color: #225890;"{/if}>
-							<a class="nav-link {if $current_page == "mod/tickets"}nav-active{/if}" href="{$url}mod/tickets"> <i class="fas fa-comments"></i> <span>Tickets</span> </a>
+						<li {if $current_page == "mod/tickets"}class="nav-active nav-expanded"{/if}>
+							<a class="nav-link" href="{$url}mod/tickets"><i class="fas fa-comments"></i> <span>Tickets</span></a>
 						</li>
-						
-						<li {if $current_page == "mod/bans"}class="nav-active" style="background-color: #225890;"{/if}>
-							<a class="nav-link {if $current_page == "mod/bans"}nav-active{/if}" href="{$url}mod/bans"> <i class="fas fa-list"></i> <span>Ban list</span> </a>
+
+						<li {if $current_page == "mod/bans"}class="nav-active nav-expanded"{/if}>
+							<a class="nav-link" href="{$url}mod/bans"><i class="fas fa-user-xmark"></i> <span>Ban list</span></a>
 						</li>
 
 						{foreach from=$menu item=group key=text}
 						{if count($group.links)}
-						<li onclick="AdminMenu.openSection({$group.nr})" nr="{$group.nr}" class="nav-parent {if isset($group.active)}nav-expanded{/if} admin_section_icon" {if isset($group.active)}style="background-color: #225890;"{/if}>
+						<li onclick="AdminMenu.openSection({$group.nr})" nr="{$group.nr}" class="nav-parent {if isset($group.active)}nav-expanded{/if} admin_section_icon">
 							<a href="#" class="nav-link">
 							<i class="fa-solid fa-{$group.icon}" aria-hidden="true"></i>
 							<span>{$text}</span>
@@ -282,8 +282,8 @@
 
 						<ul class="nav nav-children admin_section" nr="{$group.nr}" style="display:{if isset($group.active)}block{/if};">
 							{foreach from=$group.links item=link}
-								<li {if isset($link.active)}class="nav-active"{/if}>
-									<a class="nav-link {if isset($link.active)}nav-active{/if}" href="{$url}{$link.module}/{$link.controller}"> <i class="fa-solid fa-{$link.icon}"></i> <span>{$link.text}</span> </a>
+								<li {if isset($link.active)}class="nav-active nav-expanded"{/if}>
+									<a class="nav-link" href="{$url}{$link.module}/{$link.controller}"><i class="fa-solid fa-{$link.icon}"></i> <span>{$link.text}</span></a>
 								</li>
 							{/foreach}
 						</ul>

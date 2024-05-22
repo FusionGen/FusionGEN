@@ -9,7 +9,7 @@
 	"admin": [
 		{
 			"text": "Store",
-			"icon": "share",
+			"icon": "store",
 			"links": [
 				{
 					"text": "Donation log",
@@ -44,7 +44,6 @@
 			}
 		}
 	},
-
 
 	"enabled": true
 }

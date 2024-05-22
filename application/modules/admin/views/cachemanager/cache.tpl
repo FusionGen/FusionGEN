@@ -24,15 +24,13 @@
 	</span>
 
 	<span id="cache_data">
-		<li>Loading cache, please wait<span style="padding:0px;display:inline;" id="loading_dots">...</span></li>
+		<div class="py-5 mx-5 list-inline">Loading cache, please wait<span class="p-0 d-inline" id="loading_dots">...</span></div>
 	</span>
 
 	{if hasPermission("emptyCache")}
-		<span>
-			<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Fusion_Cache.clear('all_but_item')">Clear item cache</a>&nbsp;
-			<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Fusion_Cache.clear('website')">Clear website cache</a>&nbsp;
-			<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Fusion_Cache.clear('all')">Clear all cache</a>
-		</span>
+		<button class="btn btn-primary btn-sm" onClick="Fusion_Cache.clear('all_but_item')">Clear item cache</button>
+		<button class="btn btn-primary btn-sm" onClick="Fusion_Cache.clear('website')">Clear website cache</button>
+		<button class="btn btn-primary btn-sm" onClick="Fusion_Cache.clear('all')">Clear all cache</button>
 	{/if}
 	</div>
 </section>

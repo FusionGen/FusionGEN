@@ -82,9 +82,9 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		{/if} *}
 
 		<!-- Header JS.End -->
-		<link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.11/datatables.min.css">
 
-		<script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.js"></script>
+		<script src="https://cdn.datatables.net/v/bs5/dt-1.13.11/datatables.min.js"></script>
 
 		<script>
 			var isIE = isIE();
