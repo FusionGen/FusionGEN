@@ -63,7 +63,7 @@ class Character extends MX_Controller
             $cache = $this->cache->get("items/item_" . $this->realm . "_" . $id);
 
             if ($cache !== false) {
-                $cache2 = $this->cache->get("items/display_" . $cache['displayid']);
+                $cache2 = $this->cache->get("items/display_iconname_" . $id);
 
                 if ($cache2 != false) {
                     return "<a href='" . $this->template->page_url . "item/" . $this->realm . "/" . $id . "' rel='item=" . $id . "' data-realm='" . $this->realm . "'></a><img src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg'>";
