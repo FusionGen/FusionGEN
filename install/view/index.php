@@ -149,23 +149,6 @@
                                                 </td>
                                             </tr>
 											<tr>
-                                                <td>json</td>
-                                                <td> <?php if ($json_success) { ?>
-                                                        On
-                                                    <?php } else { ?>
-                                                        Off
-                                                    <?php } ?>
-                                                </td>
-                                                <td>On</td>
-                                                <td class="text-center">
-                                                    <?php if ($json_success) { ?>
-                                                        <i class="status fa fa-check-circle-o"></i>
-                                                    <?php } else { ?>
-                                                        <i class="status fa fa-times-circle-o"></i>
-                                                    <?php } ?>
-                                                </td>
-                                            </tr>
-											<tr>
                                                 <td>GMP</td>
                                                 <td> <?php if ($gmp_success) { ?>
                                                         On

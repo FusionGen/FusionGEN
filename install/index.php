@@ -13,7 +13,6 @@ $php_version_success = false;
 $mysql_success = false;
 $curl_success = false;
 $gd_success = false;
-$json_success = false;
 $gmp_success = false;
 $rewrite_success = false;
 $soap_success = false;
@@ -42,11 +41,6 @@ if (function_exists("curl_version")) {
 //check gd
 if (extension_loaded('gd') && function_exists('gd_info')) {
     $gd_success = true;
-}
-
-//check json
-if (extension_loaded('json')) {
-    $json_success = true;
 }
 
 //check gmp
@@ -80,7 +74,7 @@ if (extension_loaded('xml')) {
 }
 
 //check if all requirement is success
-if ($php_version_success && $mysql_success && $curl_success && $gd_success && $json_success && $gmp_success && $soap_success && $mbstring_success && $openssl_success && $zip_success && $xml_success) {
+if ($php_version_success && $mysql_success && $curl_success && $gd_success && $gmp_success && $soap_success && $mbstring_success && $openssl_success && $zip_success && $xml_success) {
     $all_requirement_success = true;
 } else {
     $all_requirement_success = false;

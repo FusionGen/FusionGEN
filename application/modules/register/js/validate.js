@@ -42,9 +42,8 @@ var Validate = {
 	ajax: function(field, error)
 	{
 		var field = $(field.replace("register_", "") + "_error");
-		
-		field.html('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>');
-		
+
+		field.html('<i class="fas fa-spinner fa-pulse"></i>');
 	},
 
 	/**

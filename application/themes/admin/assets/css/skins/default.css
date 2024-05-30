@@ -353,7 +353,7 @@ html .background-color-light {
 }
 
 ul.nav-main > li.nav-active > a {
-	box-shadow: 2px 0 0 #0088CC inset;
+	box-shadow: 4px 0 0 #0088CC inset;
 }
 
 ul.nav-main > li.nav-active > i {
