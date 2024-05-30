@@ -352,17 +352,17 @@ class Realms
             $level = 1;
             $class = "Deathknight";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -371,17 +371,17 @@ class Realms
             $level = 1;
             $class = "Demonhunter";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -389,17 +389,17 @@ class Realms
         if ($race == "Dark Iron Dwarf") {
             $race = "darkirondwarf";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -407,17 +407,17 @@ class Realms
         if ($race == "Highmountain Tauren") {
             $race = "highmountain";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -425,17 +425,17 @@ class Realms
         if ($race == "Lightforged Draenei") {
             $race = "lightforged";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -443,17 +443,17 @@ class Realms
         if ($race == "Mag'har Orc") {
             $race = "maghar";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -461,17 +461,17 @@ class Realms
         if ($race == "Mechagnome") {
             $race = "mechagnome";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -479,17 +479,17 @@ class Realms
         if ($race == "Kul Tiran") {
             $race = "kultiran";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -497,17 +497,17 @@ class Realms
         if ($race == "Zandalari Troll") {
             $race = "ZandalariTroll";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }
@@ -515,17 +515,17 @@ class Realms
         if ($race == "Vulpera") {
             $race = "vulpera";
         } else {
-            // If character is below 30, use lv 1 image
+            // If character is below 30, use lvl 1 image
             if ($character['level'] < 30) {
                 $level = 1;
             }
 
-            // If character is below 65, use lv 60 image
+            // If character is below 65, use lvl 60 image
             elseif ($character['level'] < 65) {
                 $level = 1;
             }
 
-            // 65+, use lvl70 image
+            // 65+, use lvl 70 image
             else {
                 $level = 1;
             }

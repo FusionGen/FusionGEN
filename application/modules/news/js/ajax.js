@@ -8,7 +8,7 @@
 
 function Ajax()
 {
-	this.loaderHTML = '<div style="padding:10px;text-align:center;"><div class="lds-ring"><div></div></div>';
+	this.loaderHTML = '<div class="text-center my-4"><i class="fas fa-spinner fa-pulse fa-xl"></i></div>';
 	this.commentCount = 0;
 
 	/**
