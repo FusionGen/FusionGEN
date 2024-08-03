@@ -39,6 +39,7 @@ class Trinity_rbac_df_soap implements Emulator
      * Array of expansion ids and their corresponding names
      */
     protected $expansions = array(
+        9 => "Dragonflight",
         8 => "Shadowlands",
         7 => "Battle for Azeroth",
         6 => "Legion",
