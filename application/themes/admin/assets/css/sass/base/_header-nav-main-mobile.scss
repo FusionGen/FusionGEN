@@ -109,13 +109,13 @@
 						    text-align: center;
 							&:before {
 								content: "\f0d8";
-								font-family: 'Font Awesome 5 Free';
+								font-family: 'Font Awesome 6 Free';
    								font-weight: 900;
 							}
 							&.toggled {
 								&:before {
 									content: "\f0d7";
-									font-family: 'Font Awesome 5 Free';
+									font-family: 'Font Awesome 6 Free';
    									font-weight: 900;
 								}
 							}

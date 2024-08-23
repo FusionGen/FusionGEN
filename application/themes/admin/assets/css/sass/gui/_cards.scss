@@ -440,7 +440,7 @@ html .card#{if($admin-ext, '.card-admin', '')} .card-header-transparent {
 
 	    .card-action-toggle:before {
 	    	content: "\f077";
-	    	font-family: "Font Awesome 5 Free";
+	    	font-family: "Font Awesome 6 Free";
 	    	font-weight: 900;
 	    }
 
@@ -532,7 +532,7 @@ html .card#{if($admin-ext, '.card-admin', '')} .card-header-transparent {
 #{if($admin-ext, '.card-admin ', '')}.card-action-toggle,
 #{if($admin-ext, '.card-admin ', '')}.card-action-dismiss {
 	display: inline-block;
-	font-family: 'Font Awesome 5 Free';
+	font-family: 'Font Awesome 6 Free';
 	font-weight: 900;
 	font-size: inherit;
 	text-rendering: auto;

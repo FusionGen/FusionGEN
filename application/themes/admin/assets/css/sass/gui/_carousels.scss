@@ -27,7 +27,7 @@
 		button.owl-prev {
 			left: -5px;
 			&:before {
-				font-family: 'Font Awesome 5 Free';
+				font-family: 'Font Awesome 6 Free';
 				font-weight: 900;
 				content: "\f053";
 				@include if-rtl {
@@ -41,7 +41,7 @@
 		button.owl-next {
 			right: -5px;
 			&:before {
-				font-family: 'Font Awesome 5 Free';
+				font-family: 'Font Awesome 6 Free';
 				font-weight: 900;
 				content: "\f054";
 				@include if-rtl {
