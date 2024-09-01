@@ -30,7 +30,7 @@ FusionGEN is a free, open-source content management system. Server owners all ar
 | Requirements | Description |
 | --- | --- |
 | PHP 8.0.33 or above | (enable Extensions: php_mysqli, php_curl, php_openssl, php_soap, php_mbstring, php_json - core extension, php_zip, php_gd and php_gmp) |
-| Apache / Nginx | (enable modules: mod_rewrite and mod_headers) |
+| Apache >= 2.4 / Nginx | (enable modules: mod_rewrite and mod_headers) |
 | Pre-installed compatible World of Warcraft server emulator | (with the following databases: Auth, Characters and World) |
 | MySQL / Mariadb Server |  >= 5.7 / 10.2 |
 
