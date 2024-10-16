@@ -190,7 +190,7 @@ class Character extends MX_Controller
                     }
                     break;
 
-                case "Death knight":
+                case "Death Knight":
                     if (!empty($this->stats['maxpower7'])) {
                         $this->secondBar = "runic";
                         $this->secondBarValue = $this->stats['maxpower7'] / 10;

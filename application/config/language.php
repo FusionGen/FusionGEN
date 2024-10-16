@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @package FusionGen
@@ -9,9 +10,6 @@
  * @link    http://fusiongen.net
  */
 
-if (! defined('BASEPATH')) {
-    exit('No direct script access allowed');
-}
 
 /*
   |--------------------------------------------------------------------------
