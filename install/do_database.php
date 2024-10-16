@@ -70,39 +70,51 @@ if(isset($_POST)) {
 $active_group = "cms";
 $query_builder = true;
 
-$db["cms"]["hostname"] = "'.$host.'";
-$db["cms"]["username"] = "'.$dbuser.'";
-$db["cms"]["password"] = "'.$dbpassword.'";
-$db["cms"]["database"] = "'.$dbname.'";
-$db["cms"]["port"]     = "'.$dbport.'";
-$db["cms"]["dbdriver"] = "mysqli";
-$db["cms"]["dbprefix"] = "";
-$db["cms"]["pconnect"] = false;
-$db["cms"]["db_debug"] = true;
-$db["cms"]["cache_on"] = false;
-$db["cms"]["cachedir"] = "";
-$db["cms"]["char_set"] = "utf8mb4";
-$db["cms"]["dbcollat"] = "utf8mb4_unicode_ci";
-$db["cms"]["swap_pre"] = "";
-$db["cms"]["autoinit"] = true;
-$db["cms"]["stricton"] = false;
+$db["cms"] = array(
+	"dsn"	=> "",
+	"hostname" => "'.$host.'",
+	"username" => "'.$dbuser.'",
+	"password" => "'.$dbpassword.'",
+	"database" => "'.$dbname.'",
+	"port" => "'.$dbport.'",
+	"dbdriver" => "mysqli",
+	"dbprefix" => "",
+	"pconnect" => false,
+	"db_debug" => true,
+	"cache_on" => false,
+	"cachedir" => "",
+	"char_set" => "utf8mb4",
+	"dbcollat" => "utf8mb4_unicode_ci",
+	"swap_pre" => "",
+	"encrypt" => false,
+	"compress" => false,
+	"stricton" => false,
+	"failover" => array(),
+	"save_queries" => true
+);
 
-$db["account"]["hostname"] = "'.$auth_host.'";
-$db["account"]["username"] = "'.$auth_db_user.'";
-$db["account"]["password"] = "'.$auth_db_pass.'";
-$db["account"]["database"] = "'.$auth_db.'";
-$db["account"]["port"]     = "'.$auth_port.'";
-$db["account"]["dbdriver"] = "mysqli";
-$db["account"]["dbprefix"] = "";
-$db["account"]["pconnect"] = false;
-$db["account"]["db_debug"] = true;
-$db["account"]["cache_on"] = false;
-$db["account"]["cachedir"] = "";
-$db["account"]["char_set"] = "utf8mb4";
-$db["account"]["dbcollat"] = "utf8mb4_unicode_ci";
-$db["account"]["swap_pre"] = "";
-$db["account"]["autoinit"] = false;
-$db["account"]["stricton"] = false;';
+$db["account"] = array(
+	"dsn"	=> "",
+	"hostname" => "'.$auth_host.'",
+	"username" => "'.$auth_db_user.'",
+	"password" => "'.$auth_db_pass.'",
+	"database" => "'.$auth_db.'",
+	"port" => "'.$auth_port.'",
+	"dbdriver" => "mysqli",
+	"dbprefix" => "",
+	"pconnect" => false,
+	"db_debug" => true,
+	"cache_on" => false,
+	"cachedir" => "",
+	"char_set" => "utf8mb4",
+	"dbcollat" => "utf8mb4_unicode_ci",
+	"swap_pre" => "",
+	"encrypt" => false,
+	"compress" => false,
+	"stricton" => false,
+	"failover" => array(),
+	"save_queries" => true
+);';
 
     fwrite($db, $raw);
     fclose($db);
