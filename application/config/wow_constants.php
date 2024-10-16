@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['races'] = lang("races", "wow_constants");
 $config['classes'] = lang("classes", "wow_constants");
@@ -42,7 +43,7 @@ $config['classes_en'] = array(
     3 => "Hunter",
     4 => "Rogue",
     5 => "Priest",
-    6 => "Death knight",
+    6 => "Death Knight",
     7 => "Shaman",
     8 => "Mage",
     9 => "Warlock",

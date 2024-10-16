@@ -1,8 +1,5 @@
 <?php
-
-if (!defined('BASEPATH')) {
-    exit('No direct script access allowed');
-}
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @package FusionGen
@@ -348,7 +345,7 @@ class Realms
 
         $gender = ($character['gender']) ? "f" : "m";
 
-        if ($class == "Death knight") {
+        if ($class == "Death Knight") {
             $level = 1;
             $class = "Deathknight";
         } else {
