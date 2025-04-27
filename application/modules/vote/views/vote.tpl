@@ -8,14 +8,14 @@
 			<div class="section-header">{lang("vote_panel", "vote")}</div>
 			<div class="section-body mt-3">
 			<div class="alert alert-info firefox text-center d-none" role="alert">
-			  Please allow pop-up windows from this website to be able to vote.
+				Please allow pop-up windows from this website to be able to vote.
 			</div>
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 					{if $vote_sites}
 						{foreach from=$vote_sites item=vote_site}
 							<div class="col mb-3">
-								<div class="card h-100 cursor-pointer card-hover {if !$vote_site.canVote}card-disabled{/if}" {if $vote_site.canVote}onClick="Vote.open({$vote_site.id}, {$vote_site.hour_interval});"{/if}>
+								<div class="card h-100 {if !$vote_site.canVote}card-disabled{else}cursor-pointer card-hover{/if}" data-vote-id="{$vote_site.id}" data-hour-interval="{$vote_site.hour_interval}">
 									<div class="card-header text-center">
 										{if $vote_site.vote_image}
 											<img src="{$vote_site.vote_image}" alt="{$vote_site.vote_sitename}">

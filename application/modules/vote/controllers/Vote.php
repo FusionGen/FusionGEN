@@ -80,7 +80,7 @@ class Vote extends MX_Controller
             if ($vote_site['callback_enabled']) {
                 $vote_url = preg_replace("/\{user_id\}/", $this->user->getId(), $vote_site['vote_url']);
 
-                if ($this->input->post("isFirefoxHerpDerp")) {
+                if ($this->input->post("isFirefox")) {
                     die($vote_url);
                 }
 
@@ -92,7 +92,7 @@ class Vote extends MX_Controller
 
                 $this->plugins->onVote($api['user_id'], $vote_site);
 
-                if ($this->input->post("isFirefoxHerpDerp")) {
+                if ($this->input->post("isFirefox")) {
                     die($vote_site['vote_url']);
                 }
 
