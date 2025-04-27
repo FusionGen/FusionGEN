@@ -5,8 +5,8 @@
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
 			<div class="section-header">{lang("account_overview", "ucp")}</div>
-			<div class="section-body mt-3">
-				<table class="table table-borderless table-responsive user-table">
+			<div class="section-body table-responsive mt-3">
+				<table class="table table-borderless user-table">
 					<tbody class="text-break">
 						<tr>
 							<td><div class="user-table-icon"><i class="fas fa-user"></i></div> {lang("nickname", "ucp")}</td>

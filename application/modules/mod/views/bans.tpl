@@ -19,7 +19,7 @@
 				<a href="#" class="card-action card-action-toggle" data-card-toggle></a>
 				<a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
 			</div>
-			<h2 class="card-title">Banned accs</h2>
+			<h2 class="card-title">Banned accounts</h2>
 		</header>
         <div class="card-body table-responsive">
 			<table class="table table-bordered table-striped mb-0 dataTable no-footer" id="activeBanList">

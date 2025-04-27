@@ -60,11 +60,11 @@
 							</div>
 							<div class="col-sm-3">
 								<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="nice_button rounded">
-									<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> {lang("vp", "store")}
+									<img src="{$url}application/images/icons/lightning.png" class="align-middle"> {lang("vp", "store")}
 								</a>
 
-								<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="nice_button rounded">
-									<img src="{$url}application/images/icons/coins.png" align="absmiddle"> {lang("dp", "store")}
+								<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="mt-1 nice_button rounded">
+									<img src="{$url}application/images/icons/coins.png" class="align-middle"> {lang("dp", "store")}
 								</a>
 							</div>
 						</div>
@@ -96,27 +96,27 @@
 														<div class="accordion-body">
 															{foreach from=$group.items item=item}
 															<div class="store_item row p-2 border rounded mb-2" id="item_{$item.id}">
-																<div class="col-md-1 mt-1">
-																	<img class="item_icon rounded" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" align="absmiddle" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
+																<div class="col-md-1 mt-1 d-inline">
+																	<img class="item_icon rounded mt-1 align-middle" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
 																</div>
-																<div class="col-md-8 mt-1">
+																<div class="col-md-6 mt-1 d-inline">
 																	<a target="_blank" {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality} align-self-center">
-																		{character_limiter($item.name, 25)}
+																		{character_limiter($item.name, 30)}
 																	</a>
 																<p class="text-justify text-truncate mb-0">
-																	{character_limiter($item.description, 25)}
+																	{character_limiter($item.description, 30)}
 																</p>
 																</div>
-																<div class="store_buttons float-end col-md-3 border-left mt-1">
+																<div class="store_buttons float-end col-md-5 border-left mt-1 d-inline">
 																	{if $item.vp_price}
 																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button rounded vp_button">
-																		<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
+																		<img src="{$url}application/images/icons/lightning.png" class="align-middle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 																	</a>
 																	{/if}
 
 																	{if $item.dp_price}
 																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button rounded dp_button">
-																		<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
+																		<img src="{$url}application/images/icons/coins.png" class="align-middle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 																	</a>
 																	{/if}
 																</div>
@@ -135,22 +135,22 @@
 											<div class="store_buttons">
 												{if $item.vp_price}
 												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button rounded vp_button">
-													<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
+													<img src="{$url}application/images/icons/lightning.png" class="align-middle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 												</a>
 												{/if}
 
 												{if $item.dp_price}
 												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button rounded dp_button">
-													<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
+													<img src="{$url}application/images/icons/coins.png" class="align-middle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 												</a>
 												{/if}
 											</div>
 
-											<img class="item_icon rounded" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" align="absmiddle" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
+											<img class="item_icon rounded align-middle" src="https://icons.wowdb.com/retail/medium/{$item.icon}.jpg" {if $item.tooltip}data-realm="{$item.realm}" rel="item={$item.itemid}"{/if}>
 											<a target="_blank" {if $item.tooltip}href="{$url}item/{$item.realm}/{$item.itemid}" data-realm="{$item.realm}" rel="item={$item.itemid}"{/if} class="item_name q{$item.quality}">
-												{character_limiter($item.name, 25)}
+												{character_limiter($item.name, 30)}
 											</a>
-											<br>{character_limiter($item.description, 25)}
+											<br>{character_limiter($item.description, 30)}
 											<div class="clear"></div>
 										</div>
 										{/foreach}

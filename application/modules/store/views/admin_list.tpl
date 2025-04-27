@@ -1,5 +1,5 @@
 {foreach from=$results item=order_log}
-		<table class="table table-responsive-md table-hover">
+		<table class="table table-hover">
 			<tr>
 				<td width="20%">{date("Y/m/d", $order_log.timestamp)}</td>
 				<td width="16%">

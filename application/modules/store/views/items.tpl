@@ -59,14 +59,14 @@
 			</table>
 			{/if}
       	</div>
-      	<div class="tab-pane" id="groups">
+      	<div class="tab-pane table-responsive" id="groups">
 			{if hasPermission("canAddGroups")}
 			<span class="pull-right p-1">
 				<a class="btn btn-primary btn-sm" href="{$url}store/admin_items/add_group">Create group</a>
 			</span>
 			{/if}
 			<td>{if $groups}
-			<table class="table table-responsive-md table-hover">
+			<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Order</th>
