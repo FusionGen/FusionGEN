@@ -59,6 +59,8 @@ class Item extends MX_Controller
 
             if ($cache2 != false) {
                 return "<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg'></div>";
+            } elseif ($cache2 == false) {
+                return $this->template->loadPage("icon_ajax.tpl", array('id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url));
             } else {
                 return "<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/inv_misc_questionmark.jpg'></div>";
             }
