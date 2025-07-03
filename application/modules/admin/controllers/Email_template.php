@@ -1,6 +1,5 @@
 <?php
-
-defined('BASEPATH') or exit('This page does not exist');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Email_template extends MX_Controller
 {

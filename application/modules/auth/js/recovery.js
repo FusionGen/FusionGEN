@@ -77,5 +77,19 @@ var Recovery = {
 			console.log(postData);
 
 		}, 500);
+	},
+	showPassword: function(ele) {
+		if($(ele).data("show") == true) {
+			$(ele).html('<i class="fas fa-eye-slash"></i>');
+			$(ele).data("show", false);
+
+			$("input#"+ $(ele).data("input-id")).attr("type", "password");
+		} else if($(ele).data("show") == false) {
+			$(ele).html('<i class="fas fa-eye"></i>');
+			$(ele).data("show", true);
+
+			$("input#"+ $(ele).data("input-id")).attr("type", "text");
+		}
+		
 	}
 }

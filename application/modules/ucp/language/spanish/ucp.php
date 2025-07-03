@@ -23,11 +23,13 @@ $lang['change_nickname'] = "Cambiar Apodo";
 $lang['location'] = "Ubicación";
 $lang['change_location'] = "Cambiar Ubicación";
 
+$lang['website_language'] = "Idioma del Sitio Web";
+
 $lang['email'] = "Correo Electrónico";
 $lang['change_email'] = "Cambiar Correo Electrónico";
 
 $lang['password'] = "Contraseña";
-$lang['change_password'] = "Cambiar Contraseña";
+$lang['change_password'] = "Cambiar contraseña";
 
 $lang['account_rank'] = "Rango de la Cuenta";
 $lang['voting_points'] = "Puntos de Voto";
@@ -54,7 +56,8 @@ $lang['new_password_submit'] = "Cambiar contraseña";
 
 $lang['nickname_error'] = "El apodo debe tener entre 4 y 24 caracteres y solo puede contener letras y números";
 $lang['location_error'] = "La ubicación solo puede tener hasta 32 caracteres y solo puede contener letras";
-$lang['pw_doesnt_match'] = "¡Las contraseñas no coinciden!";
+$lang['pw_dont_match'] = "Las contraseñas no coinciden.";
+$lang['password_short'] = "La nueva contraseña debe tener al menos 6 caracteres.";
 $lang['changes_saved'] = "¡Los cambios han sido guardados!";
 $lang['invalid_pw'] = "¡Contraseña incorrecta!";
 $lang['nickname_taken'] = "El apodo ya está en uso";

@@ -578,7 +578,6 @@ input[type='submit'][disabled] {
 	font-weight: 600;
 	font-family: var(--font-family-secondary);
 	vertical-align: middle;
-	text-transform: uppercase;
 }
 
 /* Page form: Table

@@ -10,6 +10,8 @@ class Settings extends MX_Controller
         $this->load->config('settings');
         $this->load->config('links');
 
+        $this->load->library('form_validation');
+
         //Make sure that we are logged in
         $this->user->userArea();
     }
@@ -20,7 +22,8 @@ class Settings extends MX_Controller
 
         clientLang("nickname_error", "ucp");
         clientLang("location_error", "ucp");
-        clientLang("pw_doesnt_match", "ucp");
+        clientLang("pw_dont_match", "ucp");
+        clientLang("password_short", "ucp");
         clientLang("changes_saved", "ucp");
         clientLang("invalid_pw", "ucp");
         clientLang("nickname_taken", "ucp");
@@ -68,84 +71,108 @@ class Settings extends MX_Controller
 
     public function submit()
     {
-        $oldPassword = $this->input->post('old_password');
-        $newPassword = $this->input->post('new_password');
+        // Set validation rules
+        $this->form_validation->set_rules('old_password', 'old password', 'trim|required');
+        $this->form_validation->set_rules('new_password', 'new password', 'trim|required|min_length[6]');
+        $this->form_validation->set_rules('new_password_confirm', 'confirm password', 'trim|required|matches[new_password]');
 
-        if ($oldPassword && $newPassword) {
-            // Get the current password
+        $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
+
+        if ($this->form_validation->run()) {
+            // Check old password first
             $currentPassword = $this->user->getPassword();
+            $passwordHash = $this->user->createHash($this->user->getUsername(), $this->input->post('old_password'));
 
-            // Hash the entered password
-            $passwordHash = $this->user->createHash($this->user->getUsername(), $oldPassword);
-
-            // Check if passwords match
-            if (strtoupper($currentPassword) == strtoupper($passwordHash["verifier"])) {
-                $hash = $this->user->createHash($this->user->getUsername(), $newPassword);
-
-                $this->user->setPassword($hash["verifier"]);
-
-                $this->plugins->onChangePassword($this->user->getId(), $hash);
-            } else {
-                die('no');
+            if (strtoupper($currentPassword) != strtoupper($passwordHash["verifier"])) {
+                // Return old password error
+                die (json_encode([
+                    'status' => 'error',
+                    'errors' => [
+                        'old_password' => '<div class="invalid-feedback">'.lang("invalid_pw", "ucp").'</div>'
+                    ]
+                ]));
             }
+
+            // Change password if old password is correct
+            $newHash = $this->user->createHash($this->user->getUsername(), $this->input->post('new_password'));
+            $this->user->setPassword($newHash["verifier"]);
+            $this->plugins->onChangePassword($this->user->getId(), $newHash);
+
+            die (json_encode(['status' => 'success']));
         }
 
-        die('yes');
+        // Return validation errors
+        die (json_encode([
+            'status' => 'error',
+            'errors' => [
+                'old_password' => form_error('old_password'),
+                'new_password' => form_error('new_password'),
+                'new_password_confirm' => form_error('new_password_confirm')
+            ]
+        ]));
     }
 
     public function submitInfo()
     {
         $this->load->model("settings_model");
 
-        // Gather the values
+        // Set up validation rules
+        $this->form_validation->set_rules('nickname', 'nickname', 'trim|required|min_length[4]|max_length[24]|alpha_numeric');
+        $this->form_validation->set_rules('location', 'location', 'trim|max_length[32]|alpha');
+
+        $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
         $nickname = $this->input->post("nickname");
         $location = $this->input->post("location");
 
-        if (!is_string($nickname) || !is_string($location)) {
-            die("4");
-        }
+        if ($this->form_validation->run()) {
+            // Update sanitization according to CMS standards
+            $values = [
+                'nickname' => $this->template->format($nickname, false, true, false),
+                'location' => $this->template->format($location, false, true, false)
+            ];
 
-        $values = array(
-            // Update sanitization according to CMS standards.
-            'nickname' => $this->template->format($nickname, false, true, false),
-            'location' => $this->template->format($location, false, true, false),
-        );
+            // Custom validation for nickname uniqueness
+            if ($nickname != $this->user->getNickname() && $this->internal_user_model->nicknameExists($nickname)) {
+                // Return nickname error
+                die (json_encode([
+                    'status' => 'error',
+                    'errors' => [
+                        'nickname' => '<div class="invalid-feedback">'.lang("nickname_taken", "ucp").'</div>'
+                    ]
+                ]));
+            }
 
-        // Change language
-        if ($this->config->item('show_language_chooser')) {
-            $values['language'] = $this->input->post("language");
+            // Handle language if enabled
+            if ($this->config->item('show_language_chooser')) {
+                $language = $this->input->post('language');
+                if (!is_dir("application/language/" . $language)) {
+                    die (json_encode([
+                        'status' => 'error',
+                        'errors' => [
+                            'language' => '<div class="invalid-feedback">'.lang("invalid_language", "ucp").'</div>'
+                        ]
+                    ]));
+                }
 
-            if (!is_dir("application/language/" . $values['language'])) {
-                die("3");
-            } else {
+                $values['language'] = $language;
                 $this->user->setLanguage($values['language']);
-
                 $this->plugins->onSetLanguage($this->user->getId(), $values['language']);
             }
+
+            $this->settings_model->saveSettings($values);
+            $this->plugins->onSaveSettings($this->user->getId(), $values);
+
+            die(json_encode(['status' => 'success']));
         }
 
-        // Remove the nickname field if it wasn't changed
-        if ($values['nickname'] == $this->user->getNickname()) {
-            $values = array('location' => $location);
-        } elseif (
-            strlen($values['nickname']) < 4
-            || strlen($values['nickname']) > 24
-            || !preg_match("/[A-Za-z0-9]*/", $values['nickname'])
-        ) {
-            die(lang("nickname_error", "ucp"));
-        } elseif ($this->internal_user_model->nicknameExists($values['nickname'])) {
-            die("2");
-        }
-
-        if (strlen($values['location']) > 32 && !ctype_alpha($values['location'])) {
-            die(lang("location_error", "ucp"));
-        }
-
-        $this->settings_model->saveSettings($values);
-
-        $this->plugins->onSaveSettings($this->user->getId(), $values);
-
-        die("1");
+        // Return validation errors
+        die(json_encode([
+            'status' => 'error',
+            'errors' => [
+                'nickname' => form_error('nickname'),
+                'location' => form_error('location')
+            ]
+        ]));
     }
 }

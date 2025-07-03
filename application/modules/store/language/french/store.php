@@ -21,7 +21,6 @@ $lang['error_character_exists'] = "Le personnage saisi n'existe pas.";
 $lang['error_character_not_mine'] = "Le personnage saisi ne vous appartient pas.";
 $lang['error_character_not_offline'] = "Le personnage saisi n'est pas hors ligne. Veuillez déconnecter le personnage du jeu et réessayer.";
 $lang['error_no_console'] = "Nous sommes désolés, mais le royaume pour lequel cet objet a été conçu ne prend pas en charge les commandes de la console. Veuillez signaler cela à un administrateur.";
-$lang['checkout'] = "Paiement";
 $lang['buying'] = "Vous achetez";
 $lang['total_of'] = "pour un total de";
 $lang['vp'] = "VP";

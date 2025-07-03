@@ -39,11 +39,11 @@
 	"admin": [
 		{
 			"text": "Store",
-			"icon": "share",
+			"icon": "store",
 			"links": [
 				{
 					"text": "Teleport locations",
-					"icon": "mouse-pointer",
+					"icon": "location-crosshairs",
 					"controller": "admin",
 					"requirePermission": "canViewAdmin"
 				}

@@ -23,11 +23,13 @@ $lang['change_nickname'] = "Change Name";
 $lang['location'] = "Location";
 $lang['change_location'] = "Change Location";
 
+$lang['website_language'] = "Website Language";
+
 $lang['email'] = "Email";
 $lang['change_email'] = "Change Email";
 
 $lang['password'] = "Password";
-$lang['change_password'] = "Change Password";
+$lang['change_password'] = "Change password";
 
 $lang['account_rank'] = "Account rank";
 $lang['voting_points'] = "Voting points";
@@ -54,7 +56,8 @@ $lang['new_password_submit'] = "Change password";
 
 $lang['nickname_error'] = "Nickname must be between 4 and 24 characters long and may only contain letters and numbers";
 $lang['location_error'] = "Location may only be up to 32 characters long and may only contain letters";
-$lang['pw_doesnt_match'] = "Passwords doesn't match!";
+$lang['pw_dont_match'] = "Passwords don't match.";
+$lang['password_short'] = "New password must be at least 6 characters long.";
 $lang['changes_saved'] = "Changes have been saved!";
 $lang['invalid_pw'] = "Incorrect password!";
 $lang['nickname_taken'] = "Nickname is already taken";

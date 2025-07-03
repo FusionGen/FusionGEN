@@ -23,6 +23,8 @@ $lang['change_nickname'] = "Changer de nom";
 $lang['location'] = "Position";
 $lang['change_location'] = "Changer de position";
 
+$lang['website_language'] = "Langue du Site Web";
+
 $lang['email'] = "Email";
 $lang['change_email'] = "Changer d'Email";
 
@@ -54,7 +56,8 @@ $lang['new_password_submit'] = "Changer le mot de passe";
 
 $lang['nickname_error'] = "Le pseudo doit comporter entre 4 et 24 caractères et ne peut contenir que des lettres et des chiffres.";
 $lang['location_error'] = "L'emplacement ne peut contenir que 32 caractères maximum et ne peut contenir que des lettres.";
-$lang['pw_doesnt_match'] = "Les mots de passe ne correspondent pas!";
+$lang['pw_dont_match'] = "Les mots de passe ne correspondent pas.";
+$lang['password_short'] = "Le nouveau mot de passe doit contenir au moins 6 caractères.";
 $lang['changes_saved'] = "Les modifications ont été enregistrées!";
 $lang['invalid_pw'] = "Mot de passe incorrect!";
 $lang['nickname_taken'] = "Le pseudo est déjà pris";
