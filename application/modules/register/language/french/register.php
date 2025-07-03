@@ -13,13 +13,14 @@
  */
 
 $lang['register'] = "S'inscrire";
-$lang['username_limit_length'] = "Le nom d'utilisateur doit comporter entre 4 et 24 caractères";
-$lang['username_limit'] = "Le nom d'utilisateur ne peut contenir que des caractères alphabétiques et numériques";
-$lang['username_not_available'] = "Le nom d'utilisateur n'est pas disponible";
-$lang['email_invalid'] = "L'e-mail doit être un e-mail valide";
-$lang['password_short'] = "Le mot de passe doit comporter plus de 6 caractères";
-$lang['password_match'] = "Les mots de passe ne correspondent pas";
-$lang['email_not_available'] = "L'e-mail n'est pas disponible";
+$lang['account_creation'] = "Création de compte";
+$lang['username_limit_length'] = "Le nom d'utilisateur doit comporter entre 4 et 24 caractères.";
+$lang['username_limit'] = "Le nom d'utilisateur ne peut contenir que des caractères alphabétiques et numériques.";
+$lang['username_not_available'] = "Le nom d'utilisateur n'est pas disponible.";
+$lang['email_invalid'] = "L'e-mail doit être une adresse e-mail valide.";
+$lang['password_short'] = "Le mot de passe doit contenir au moins 6 caractères.";
+$lang['pw_dont_match'] = "Les mots de passe ne correspondent pas.";
+$lang['email_not_available'] = "L'e-mail n'est pas disponible.";
 $lang['confirm_account'] = "Veuillez confirmer la création de votre compte";
 $lang['created'] = "Votre compte a été créé!";
 $lang['invalid_key'] = "Clé d'activation invalide";
@@ -30,7 +31,7 @@ $lang['creating_account_forum'] = "Création d'un compte sur le forum, veuillez 
 $lang['has_been_created_redirecting'] = "a été créé. Vous êtes redirigé vers le";
 $lang['user_panel'] = "Panneau utilisateur";
 $lang['username'] = "Nom d'utilisateur";
-$lang['email'] = "Email";
+$lang['email'] = "E-mail";
 $lang['password'] = "Mot de passe";
 $lang['confirm'] = "Confirmez le mot de passe";
 $lang['expansion'] = "Extension";

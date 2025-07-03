@@ -3,7 +3,6 @@
 //Login
 $lang["login_label_user"] = "Usuario";
 $lang["login_label_password"] = "Contraseña";
-$lang["login_label_captcha"] = "Captcha";
 $lang["login_label_remember"] = "Recuardame";
 $lang["login_link_password_forgot"] = "¿Olvidaste tu contraseña?";
 $lang["login_button"] = "Iniciar";

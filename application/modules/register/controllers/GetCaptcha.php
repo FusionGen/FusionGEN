@@ -1,6 +1,5 @@
 <?php
-
-defined('BASEPATH') || die('Silence is golden.');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class getCaptcha extends MX_Controller
 {

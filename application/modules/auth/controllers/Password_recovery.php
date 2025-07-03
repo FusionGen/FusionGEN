@@ -64,7 +64,7 @@ class Password_recovery extends MX_Controller
                 $token = $this->generate_token($username, $email);
 
                 $link = base_url() . 'password_recovery/reset_password?token=' . $token;
-                sendMail($email, $this->config->item('server_name') . ': ' . lang("reset_password", "recovery"), $username, lang("email", "recovery") . ' <a href="' . $link . '">' . $link . '</a>', 1);
+                sendMail($email, $this->config->item('server_name') . ': ' . lang("password_reset", "recovery"), $username, lang("email", "recovery") . ' <a href="' . $link . '">' . $link . '</a>', 1);
 
                 $this->password_recovery_model->insert_token($token, $username, $email, $this->input->ip_address());
                 $this->logger->createLog("user", "recovery", "Password recovery requested", [], Logger::STATUS_SUCCEED, $this->user->getId($this->input->post("username")));

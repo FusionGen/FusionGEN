@@ -13,13 +13,14 @@
  */
 
 $lang['register'] = "Register";
-$lang['username_limit_length'] = "Username must be between 4 and 24 characters long";
-$lang['username_limit'] = "Username may only contain alphabetical and numerical characters";
-$lang['username_not_available'] = "Username is not available";
-$lang['email_invalid'] = "Email must be a valid email";
-$lang['password_short'] = "Password must be longer than 6 characters";
-$lang['password_match'] = "Passwords don't match";
-$lang['email_not_available'] = "Email is not available";
+$lang['account_creation'] = "Account creation";
+$lang['username_limit_length'] = "Username must be between 4 and 24 characters long.";
+$lang['username_limit'] = "Username may only contain alphabetical and numerical characters.";
+$lang['username_not_available'] = "Username is not available.";
+$lang['email_invalid'] = "E-mail must be a valid email.";
+$lang['password_short'] = "Password must be at least 6 characters long.";
+$lang['pw_dont_match'] = "Passwords don't match.";
+$lang['email_not_available'] = "E-mail is not available.";
 $lang['confirm_account'] = "Please confirm your account creation";
 $lang['created'] = "Your account has been created!";
 $lang['invalid_key'] = "Invalid activation key";
@@ -30,7 +31,7 @@ $lang['creating_account_forum'] = "Creating account on the forum, please wait...
 $lang['has_been_created_redirecting'] = "has been created. You are being redirected to the";
 $lang['user_panel'] = "User panel";
 $lang['username'] = "Username";
-$lang['email'] = "Email";
+$lang['email'] = "E-mail";
 $lang['password'] = "Password";
 $lang['confirm'] = "Confirm password";
 $lang['expansion'] = "Expansion";

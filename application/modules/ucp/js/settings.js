@@ -7,155 +7,154 @@
  */
 
 var Settings = {
+    submit: function() {
+        // Reset previous states
+        $('input').removeClass('is-invalid is-valid');
+        $('.invalid-feedback').remove();
 
-	wrongPassword: null,
-	canSubmit: true,
+        // Submit form
+        $.ajax({
+            url: Config.URL + "ucp/settings/submit",
+            type: "POST",
+            dataType: "json",
+            data: {
+                old_password: $('#old_password').val(),
+                new_password: $('#new_password').val(),
+                new_password_confirm: $('#new_password_confirm').val(),
+                csrf_token_name: Config.CSRF
+            },
+            success: function(response) {
+                Swal.close();
+                if (response.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        text: lang("changes_saved", "ucp"),
+                        timer: 1500
+                    });
+                    $('input[type="password"]').val('').removeClass('is-valid');
+                } else if (response.errors) {
+                    // Display field-specific errors
+                    $.each(response.errors, function(field, error) {
+                        if (error) {
+                            $('#' + field).addClass('is-invalid');
+                            $('#' + field).after(error);
+                        }
+                    });
+                }
+            },
+            error: function(xhr) {
+                Swal.close();
+                Swal.fire({
+                    icon: 'error',
+                    text: xhr.responseJSON?.message || 'An error occurred'
+                });
+            }
+        });
 
-	submit: function()
-	{
-		// Client-side validation of the passwords
-		if($("#new_password").val() !== $("#new_password_confirm").val())
-		{
-			if(Settings.canSubmit)
-			{
-				Swal.fire({
-					text: lang("pw_doesnt_match", "ucp"),
-					icon: 'error'
-				});
+        return false;
+    },
 
-				Settings.canSubmit = false;
-			}
-		}
-		else if(Settings.wrongPassword != null && Settings.wrongPassword == $("#old_password").val())
-		{
-			return false;
-		}
-		else
-		{
-			Settings.canSubmit = true;
+    // Info form handling
+    submitInfo: function() {
+        // Reset previous states
+        $('input').removeClass('is-invalid is-valid');
+        $('.invalid-feedback').remove();
 
-			// Show that we're loading something
-			$("#settings_ajax").html('<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>');
+        // SubmitInfo form
+        $.ajax({
+            url: Config.URL + "ucp/settings/submitInfo",
+            type: "POST",
+            dataType: "json",
+            data: {
+                nickname: $('#nickname_field').val(),
+                location: $('#location_field').val(),
+                language: $('#language_field').val(),
+                csrf_token_name: Config.CSRF
+            },
+            success: function(response) {
+                if (response.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        text: lang("changes_saved", "ucp"),
+                        timer: 1500
+                    });
+                } else if (response.errors) {
+                    // Display field-specific errors
+                    $.each(response.errors, function(field, error) {
+                        if (error) {
+                            var fieldElement = $('#' + field + '_field');
+                            fieldElement.addClass('is-invalid');
+                            fieldElement.after(error);
+                        }
+                    });
+                }
+            },
+            error: function(xhr) {
+                Swal.fire({
+                    icon: 'error',
+                    text: xhr.responseJSON?.message || 'An error occurred'
+                });
+            }
+        });
 
-			// Gather the values
-			var values = {
-				old_password: $("#old_password").val(),
-				new_password: $("#new_password").val(),
-				csrf_token_name: Config.CSRF
-			};
+        return false;
+    },
 
-			// Submit the request
-			$.post(Config.URL + "ucp/settings/submit", values, function(data)
-			{
-				$("#settings_ajax").html('');
+    // Real-time client-side form validation
+    validateNickname: function() {
+        var field = $('#nickname_field');
+        var value = field.val();
 
-				if(/yes/.test(data))
-				{
-					Swal.fire({
-						text: lang("changes_saved", "ucp"),
-						icon: 'success',
-						willClose: () => {
-							window.location.reload(true);
-						}
-					});
-				}
-				else if(/no/.test(data))
-				{
-					Swal.fire({
-						text: lang("invalid_pw", "ucp"),
-						icon: 'error'
-					});
+        if (value.length < 4 || value.length > 24 || !/^[A-Za-z0-9]*$/.test(value)) {
+            field.addClass('is-invalid');
+            field.next('.invalid-feedback').remove();
+            field.after('<div class="invalid-feedback">' + lang("nickname_error", "ucp") + '</div>');
+        } else {
+            field.removeClass('is-invalid').addClass('is-valid');
+            field.next('.invalid-feedback').remove();
+        }
+    },
 
-					Settings.wrongPassword = $("#old_password").val();
-				}
-				else
-				{
-					Swal.fire({
-						text: data,
-						icon: 'error',
-					});
-				}
-			});
-		}
-	},
+    validateLocation: function() {
+        var field = $('#location_field');
+        var value = field.val();
 
-	submitInfo: function()
-	{
-		var value = $("#nickname_field").val(),
-			loc = $("#location_field").val(),
-			language;
+        if (value.length > 32 || (value.length > 0 && !/^[A-Za-z\s]*$/.test(value))) {
+            field.addClass('is-invalid');
+            field.next('.invalid-feedback').remove();
+            field.after('<div class="invalid-feedback">' + lang("location_error", "ucp") + '</div>');
+        } else {
+            field.removeClass('is-invalid').addClass('is-valid');
+            field.next('.invalid-feedback').remove();
+        }
+    },
 
-		if($("#language_field"))
-		{
-			language = $("#language_field").val();
-		}
-		else
-		{
-			language = 0;
-		}
+    validateNewPassword: function() {
+        var field = $('#new_password');
+        if (field.val().length < 6) {
+            field.addClass('is-invalid');
+            field.next('.invalid-feedback').remove();
+            field.after('<div class="invalid-feedback">' + lang("password_short", "ucp") + '</div>');
+        } else {
+            field.removeClass('is-invalid').addClass('is-valid');
+            field.next('.invalid-feedback').remove();
+        }
+        
+        // Also validate the confirmation field when password changes
+        if ($('#new_password_confirm').val()) {
+            this.validatePasswordConfirm();
+        }
+    },
 
-		if(value.length < 4 || value.length > 24)
-		{
-			Swal.fire({
-				text: lang("nickname_error", "ucp"),
-				icon: 'error'
-			});
-		}
-		else if(loc.length > 32)
-		{
-			Swal.fire({
-				text: lang("location_error", "ucp"),
-				icon: 'error'
-			});
-		}
-		else
-		{
-			// Show that we're loading something
-			$("#settings_info_ajax").html('<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>');
-
-			// Submit the request
-			$.post(Config.URL + "ucp/settings/submitInfo",
-			{
-				nickname: value,
-				location: loc,
-				language: language,
-				csrf_token_name: Config.CSRF
-			},
-			function(data)
-			{
-				$("#settings_info_ajax").html("");
-				if(/1/.test(data))
-				{
-					Swal.fire({
-						text: lang("changes_saved", "ucp"),
-						icon: 'success',
-						willClose: () => {
-							window.location.reload(true);
-						}
-					});
-				}
-				else if(/2/.test(data))
-				{
-					Swal.fire({
-						text: lang("nickname_taken", "ucp"),
-						icon: 'error'
-					});
-				}
-				else if(/3/.test(data))
-				{
-					Swal.fire({
-						text: lang("invalid_language", "ucp"),
-						icon: 'error'
-					});
-				}
-				else
-				{
-					Swal.fire({
-						text: data,
-						icon: 'error'
-					});
-				}
-			});
-		}
-	}
-}
+    validatePasswordConfirm: function() {
+        var field = $('#new_password_confirm');
+        if (field.val() !== $('#new_password').val()) {
+            field.addClass('is-invalid');
+            field.next('.invalid-feedback').remove();
+            field.after('<div class="invalid-feedback">' + lang("pw_dont_match", "ucp") + '</div>');
+        } else {
+            field.removeClass('is-invalid').addClass('is-valid');
+            field.next('.invalid-feedback').remove();
+        }
+    }
+};

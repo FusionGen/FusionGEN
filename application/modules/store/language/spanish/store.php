@@ -21,7 +21,6 @@ $lang['error_character_exists'] = "El personaje introducido no existe.";
 $lang['error_character_not_mine'] = "El personaje introducido no te pertenece.";
 $lang['error_character_not_offline'] = "El personaje introducido no está desconectado. Por favor, desconecta al personaje del juego e inténtalo de nuevo.";
 $lang['error_no_console'] = "Lo sentimos, pero el reino para el que fue diseñado este objeto no admite comandos de consola. Por favor, informa a un administrador.";
-$lang['checkout'] = "Pagar";
 $lang['buying'] = "Estás comprando";
 $lang['total_of'] = "por un total de";
 $lang['vp'] = "PV";

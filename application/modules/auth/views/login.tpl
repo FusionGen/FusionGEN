@@ -14,22 +14,20 @@
                 <input type="password" class="form-control password-input border-0" id="floatingPassword" autocomplete="current-password" placeholder="{lang('login_label_password', 'auth')}" aria-describedby="password" required>
             </div>
 
-            <div class="captcha-field {if !$use_captcha}d-none{/if}">
+            {if $use_captcha && $captcha_type == 'inbuilt'}
+            <div class="captcha-field">
                 <div class="input-group mt-3">
-                    <label for="floatingCaptcha" class="input-group-text w-100 rounded-0 rounded-top text-center d-block" id="captcha">
-                        <img src="{$url}auth/getCaptcha?{time()}" alt="captcha" width="150" height="30" id="captchaImage">
+                    <label for="floatingCaptcha" class="input-group-text w-100 text-center d-block">
+                        <img src="{$url}auth/getCaptcha?{time()}" class="img-fluid pe-none user-select-none" alt="captcha" id="captchaImage">
                     </label>
 
-                    <span class="input-group-text cursor-pointer ms-0 rounded-0 rounded-bottom-start" id="captcha" style="width:45px;" data-captcha-id="captchaImage" onClick="Auth.refreshCaptcha(this);">
-                        <i class="fas fa-rotate"></i>
-                    </span>
-
-                    <div class="form-floating ms-0 flex-grow-1">
-                        <input type="text" class="form-control captcha-input border-0 rounded-0 rounded-bottom-end" id="floatingCaptcha" placeholder="{lang('login_label_captcha', 'auth')}" aria-describedby="captcha" {if $use_captcha}required{/if}>
-                        <label for="floatingCaptcha">{lang("login_label_captcha", "auth")}</label>
+                    <div class="input-group p-0 flex-row ms-0 flex-grow-1">
+                    <label for="floatingCaptcha" class="input-group-text cursor-pointer" id="captcha" style="width:45px; cursor:pointer;" data-captcha-id="captchaImage" onclick="Auth.refreshCaptcha(this);"><i class="fas fa-rotate"></i></label>
+                        <input type="text" id="floatingCaptcha" class="form-control captcha-input border-0" name="floatingCaptcha" placeholder="CAPTCHA" aria-describedby="captcha" required>
                     </div>
                 </div>
             </div>
+            {/if}
 
             <div class="card-links mt-3 d-flex justify-content-between">
                 <div class="form-check form-switch">

@@ -70,7 +70,7 @@ $lang["spelltriggers"] = array(
 
 $lang["armor_sub"] = array(
 	0 => "Divers",
-	1 =>  "Tissu",
+	1 => "Tissu",
 	2 => "Cuir",
 	3 => "Maille",
 	4 => "Plaque",
@@ -78,7 +78,7 @@ $lang["armor_sub"] = array(
 	6 => "Bouclier",
 	7 => "Libram",
 	8 => "Idole",
-	9 =>  "Totem",
+	9 => "Totem",
 	10 => "Sigil",
 );
 

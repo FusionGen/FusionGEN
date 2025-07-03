@@ -13,13 +13,14 @@
  */
 
 $lang['register'] = "Registrarse";
-$lang['username_limit_length'] = "El nombre de usuario debe tener entre 4 y 24 caracteres";
-$lang['username_limit'] = "El nombre de usuario solo puede contener caracteres alfabéticos y numéricos";
-$lang['username_not_available'] = "El nombre de usuario no está disponible";
-$lang['email_invalid'] = "El correo electrónico debe ser un correo electrónico válido";
-$lang['password_short'] = "La contraseña debe tener más de 6 caracteres";
-$lang['password_match'] = "Las contraseñas no coinciden";
-$lang['email_not_available'] = "El correo electrónico no está disponible";
+$lang['account_creation'] = "Creación de cuenta";
+$lang['username_limit_length'] = "El nombre de usuario debe tener entre 4 y 24 caracteres.";
+$lang['username_limit'] = "El nombre de usuario solo puede contener caracteres alfabéticos y numéricos.";
+$lang['username_not_available'] = "El nombre de usuario no está disponible.";
+$lang['email_invalid'] = "El correo electrónico debe ser una dirección válida.";
+$lang['password_short'] = "La contraseña debe tener al menos 6 caracteres.";
+$lang['pw_dont_match'] = "Las contraseñas no coinciden.";
+$lang['email_not_available'] = "El correo electrónico no está disponible.";
 $lang['confirm_account'] = "Por favor confirme la creación de su cuenta";
 $lang['created'] = "¡Su cuenta ha sido creada!";
 $lang['invalid_key'] = "Clave de activación inválida";

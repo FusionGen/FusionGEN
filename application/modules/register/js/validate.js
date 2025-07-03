@@ -3,160 +3,166 @@
  * @package FusionCMS
  * @author Jesper Lindström
  */
+
 var Validate = {
-	/**
-	 * Mark the field as valid
-	 * @param String field
-	 */
-	valid: function(field)
-	{
-		var field = $(field.replace("register_", "") + "_error");
-		
-		field.html('<img src="' + Config.URL + 'application/images/icons/accept.png">');
-	},
+    submit: function() {
+        // Reset previous states
+        $('input').removeClass('is-invalid is-valid');
+        $('.invalid-feedback').remove();
 
-	/**
-	 * Mark the field as invalid
-	 * @param String field
-	 * @param String error
-	 */
-	invalid: function(field, error)
-	{
-		var field = $(field.replace("register_", "") + "_error");
+        // Submit form
+        $.ajax({
+            url: Config.URL + "register",
+            type: "POST",
+            dataType: "json",
+            data: $('#register_form').serialize(),
+            success: function(response) {
+                Swal.close(); // Close any loading indicators
+                if (response.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        text: lang("the_account", "register") + ' ' + $('#register_username').val() + ' ' + lang("has_been_created_redirecting", "register") + ' ' + lang("user_panel", "register"),
+                        timer: 2500
+                    }).then(() => {
+                        window.location = Config.URL + "ucp"; // Redirect the user
+                    });
+                } else if (response.errors) {
+                    // Display field-specific errors
+                    $.each(response.errors, function(field, error) {
+                        if (error) {
+                            $('#' + field).addClass('is-invalid');
+                            // Ensure the error div is correctly appended
+                            if (! $('#' + field).next('.invalid-feedback').length) {
+                                $('#' + field).after(error);
+                            }
+                        }
+                    });
+                }
+            },
+            error: function(xhr) {
+                Swal.close(); // Close loading indicators on error
+                Swal.fire({
+                    icon: 'error',
+                    text: xhr.responseJSON?.message || 'An error occurred during registration.'
+                });
+            }
+        });
 
-		if(error.length > 0)
-		{
-			field.html('<img src="' + Config.URL + 'application/images/icons/exclamation.png" data-tip="' + error + '">');
-			Tooltip.refresh();
-		}
-		else
-		{
-			field.html('<img src="' + Config.URL + 'application/images/icons/exclamation.png">');
-		}
-	},
+        return false; // Prevent default form submission
+    },
 
-	/**
-	 * Show loading image
-	 * @param String field
-	 */
-	ajax: function(field, error)
-	{
-		var field = $(field.replace("register_", "") + "_error");
+    checkUsername: function() {
+        var field = $('#register_username');
+        var value = field.val();
 
-		field.html('<i class="fas fa-spinner fa-pulse"></i>');
-	},
+        // Reset previous states
+        field.removeClass('is-invalid is-valid');
+        field.next('.invalid-feedback').remove();
 
-	/**
-	 * Validate username
-	 */
-	checkUsername: function()
-	{
-		var field_name = "#register_username",
-			field = $(field_name),
-			value = field.val();
+        if (value.length < 4 || value.length > 24) {
+            this.invalid('#register_username', lang("username_limit_length", "register"));
+        } else if (!/^[A-Za-z0-9]*$/.test(value)) {
+            this.invalid('#register_username', lang("username_limit", "register"));
+        } else {
+            // Check availability
+            $.get(Config.URL + "register/check/username/" + value, function(data) {
+                if (data == "1") {
+                    Validate.valid('#register_username');
+                } else {
+                    Validate.invalid('#register_username', lang("username_not_available", "register"));
+                }
+            });
+        }
+    },
 
-		// Length check
-		if(value.length < 4 || value.length > 24)
-		{
-			this.invalid(field_name, lang("username_limit_length", "register"));
-		}
+    checkEmail: function() {
+        var field = $('#register_email');
+        var value = field.val();
 
-		// Alpha-numeric check
-		else if(!/^[a-z0-9]+$/i.test(value))
-		{
-			this.invalid(field_name, lang("username_limit", "register"));
-		}
+        // Reset previous states
+        field.removeClass('is-invalid is-valid');
+        field.next('.invalid-feedback').remove();
 
-		// Availability check
-		else
-		{
-			this.ajax(field_name);
+        if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/.test(value)) {
+            this.invalid('#register_email', lang("email_invalid", "register"));
+        } else {
+            // Check availability
+            $.post(Config.URL + "register/check/email", {email: value, csrf_token_name: Config.CSRF}, function(data) {
+                if (data == "1") {
+                    Validate.valid('#register_email');
+                } else {
+                    Validate.invalid('#register_email', lang("email_not_available", "register"));
+                }
+            });
+        }
+    },
 
-			// Perform an ajax call to check if username is available
-			$.get(Config.URL + "register/check/username/" + value, function(data)
-			{
-				if(data == "1")
-				{
-					Validate.valid(field_name);
-				}
-				else
-				{
-					Validate.invalid(field_name, lang("username_not_available", "register"));
-				}
-			});
-		}
-	},
+    checkPassword: function() {
+        var field = $('#register_password');
+        // Reset previous states
+        field.removeClass('is-invalid is-valid');
+        field.next('.invalid-feedback').remove();
 
-	/**
-	 * Validate email
-	 */
-	checkEmail: function()
-	{
-		var field_name = "#register_email",
-			field = $(field_name),
-			value = field.val();
+        if (field.val().length < 6) {
+            this.invalid('#register_password', lang("password_short", "register"));
+        } else {
+            this.valid('#register_password');
+        }
+        
+        // Also validate the confirmation field when password changes
+        if ($('#register_password_confirm').val()) {
+            this.checkPasswordConfirm();
+        }
+    },
 
-		// Email check
-		if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value))
-		{
-			this.invalid(field_name, lang("email_invalid", "register"));
-		}
+    checkPasswordConfirm: function() {
+        var field = $('#register_password_confirm');
+        // Reset previous states
+        field.removeClass('is-invalid is-valid');
+        field.next('.invalid-feedback').remove();
 
-		// Availability check
-		else
-		{
-			this.ajax(field_name);
+        if (field.val() !== $('#register_password').val()) {
+            this.invalid('#register_password_confirm', lang("pw_dont_match", "register"));
+        } else {
+            this.valid('#register_password_confirm');
+        }
+    },
 
-			// Perform an ajax call to check if username is available
-			$.post(Config.URL + "register/check/email", {email: value, csrf_token_name: Config.CSRF}, function(data)
-			{
-				if(data == "1")
-				{
-					Validate.valid(field_name);
-				}
-				else
-				{
-					Validate.invalid(field_name, lang("email_not_available", "register"));
-				}
-			});
-		}
-	},
+    valid: function(field) {
+        var fieldElement = $(field); // Use the full field name
+        fieldElement.removeClass('is-invalid').addClass('is-valid');
+        fieldElement.next('.invalid-feedback').remove();
+    },
 
-	/**
-	 * Validate password
-	 */
-	checkPassword: function()
-	{
-		var field_name = "#register_password",
-			field = $(field_name),
-			value = field.val();
+    invalid: function(field, error) {
+        var fieldElement = $(field); // Use the full field name
+        fieldElement.addClass('is-invalid');
+        fieldElement.next('.invalid-feedback').remove(); // Remove existing feedback
+        if (error.length > 0) {
+            fieldElement.after('<div class="invalid-feedback">' + error + '</div>');
+        }
+    },
 
-		if(value.length < 6)
-		{
-			this.invalid(field_name, lang("password_short", "register"));
-		}
-		else
-		{
-			this.valid(field_name);
-		}
-	},
+    showPassword: function(ele) {
+        if($(ele).data("show") == true) {
+            $(ele).html('<i class="fas fa-eye-slash"></i>');
+            $(ele).data("show", false);
 
-	/**
-	 * Validate password confirm
-	 */
-	checkPasswordConfirm: function()
-	{
-		var field_name = "#register_password_confirm",
-			field = $(field_name),
-			value = field.val();
+            $("input#"+ $(ele).data("input-id")).attr("type", "password");
+        } else if($(ele).data("show") == false) {
+            $(ele).html('<i class="fas fa-eye"></i>');
+            $(ele).data("show", true);
 
-		if(value !== $("#register_password").val())
-		{
-			this.invalid(field_name, lang("password_match", "register"));
-		}
-		else
-		{
-			this.valid(field_name);
-		}
-	},
-}
+            $("input#"+ $(ele).data("input-id")).attr("type", "text");
+        }
+        
+    },
+
+    refreshCaptcha: function(ele) {
+        $(".captcha-input").val('');
+        $(".captcha-input").focus();
+        var captchaID = $(ele).data("captcha-id");
+        var imgField = $("img#"+ captchaID);
+        imgField.attr("src", imgField.attr("src") +"&d="+ new Date().getTime());
+    }
+};
