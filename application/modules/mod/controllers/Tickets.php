@@ -83,15 +83,7 @@ class Tickets extends MX_Controller
             die("Ticket doesn't exist");
         }
 
-        if (in_array($this->race, array(4,10))) {
-            if ($this->race == 4) {
-                $this->raceName = "Night elf";
-            } else {
-                $this->raceName = "Blood elf";
-            }
-        } else {
-            $this->raceName = $this->tickets_model->realms->getRace($this->race);
-        }
+        $this->raceName = $this->tickets_model->realms->getRace($this->race);
 
         $this->className = $this->tickets_model->realms->getClass($this->class);
         $avatarArray = array(
