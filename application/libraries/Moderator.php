@@ -29,7 +29,8 @@ class Moderator
         $this->menu = array();
 
         if (!$this->CI->user->isStaff()) {
-            show_404();
+            redirect('errors', 'refresh');
+            exit;
         }
 
         if (!$this->CI->input->is_ajax_request() && !isset($_GET['is_json_ajax'])) {
