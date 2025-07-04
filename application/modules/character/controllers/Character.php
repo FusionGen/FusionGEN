@@ -133,9 +133,9 @@ class Character extends MX_Controller
 
         if (in_array($this->race, array(4,10))) {
             if ($this->race == 4) {
-                $this->raceName = "Night elf";
+                $this->raceName = "Night Elf";
             } else {
-                $this->raceName = "Blood elf";
+                $this->raceName = "Blood Elf";
             }
         } else {
             $this->raceName = $this->armory_model->realms->getRace($this->race);

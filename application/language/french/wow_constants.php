@@ -30,7 +30,9 @@ $lang['races'] = array(
     34 => "Nain sombrefer",
     35 => "Vulpérin",
     36 => "Orc mag’har",
-    37 => "Mécagnome"
+    37 => "Mécagnome",
+    52 => "Dracthyr",
+    70 => "Dracthyr"
 );
 
 $lang['classes'] = array(
