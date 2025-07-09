@@ -138,38 +138,38 @@ class Character extends MX_Controller
 
         if ($this->realms->getRealm($this->realm)->getEmulator()->hasStats()) {
             // Find out which power field to use
-            switch ($this->className) {
+            switch ($this->class) {
                 default:
                     if (!empty($this->stats['maxpower1'])) {
                         $this->secondBar = "mana";
                         $this->secondBarValue = $this->stats['maxpower1'];
                     } else {
                         $this->secondBar = "mana";
-                        $this->secondBarValue = "Unknown";
+                        $this->secondBarValue = lang("unknown", "character");
                     }
                     break;
 
-                case "Warrior":
+                case 1:
                     if (!empty($this->stats['maxpower2'])) {
                         $this->secondBar = "rage";
                         $this->secondBarValue = $this->stats['maxpower2'] / 10;
                     } else {
                         $this->secondBar = "rage";
-                        $this->secondBarValue = "Unknown";
+                        $this->secondBarValue = lang("unknown", "character");
                     }
                     break;
 
-                case "Rogue":
+                case 4:
                     if (!empty($this->stats['maxpower4'])) {
                         $this->secondBar = "energy";
                         $this->secondBarValue = $this->stats['maxpower4'];
                     } else {
                         $this->secondBar = "energy";
-                        $this->secondBarValue = "Unknown";
+                        $this->secondBarValue = lang("unknown", "character");
                     }
                     break;
 
-                case "Hunter":
+                case 3:
                     if (!empty($this->stats['maxpower3'])) {
                         $this->secondBar = "focus";
                         $this->secondBarValue = $this->stats['maxpower3'];
@@ -178,17 +178,17 @@ class Character extends MX_Controller
                         $this->secondBarValue = $this->stats['maxpower1'];
                     } else {
                         $this->secondBar = "mana";
-                        $this->secondBarValue = "Unknown";
+                        $this->secondBarValue = lang("unknown", "character");
                     }
                     break;
 
-                case "Death Knight":
+                case 6:
                     if (!empty($this->stats['maxpower7'])) {
                         $this->secondBar = "runic";
                         $this->secondBarValue = $this->stats['maxpower7'] / 10;
                     } else {
                         $this->secondBar = "runic";
-                        $this->secondBarValue = "Unknown";
+                        $this->secondBarValue = lang("unknown", "character");
                     }
                     break;
             }

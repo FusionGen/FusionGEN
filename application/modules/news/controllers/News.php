@@ -132,7 +132,7 @@ class News extends MX_Controller
         }
 
         // Get the articles with the lower and upper limit decided by our pagination.
-        $this->news_articles = $this->news_model->getArticles((int)$this->startIndex, ((int)$this->startIndex + $config['per_page']));
+        $this->news_articles = $this->news_model->getArticles($config['per_page'], (int)$this->startIndex);
 
         $LangAbbr = $this->language->getLanguageAbbreviation();
         $DefaultLangAbbr = $this->language->getAbbreviationByLanguage($this->language->getDefaultLanguage());

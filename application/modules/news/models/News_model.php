@@ -14,12 +14,11 @@ class News_model extends CI_Model
      * @param  Int $limit
      * @return Array
      */
-    public function getArticles($start = 0, $limit = 1)
+    public function getArticles($limit = 1, $start = 0)
     {
-        if ($start === true) {
-            $this->db->select('*');
-        } else {
-            $this->db->select('*');
+        $this->db->select('*');
+
+        if ($start !== true) {
             $this->db->limit($limit, $start);
         }
 
