@@ -37,11 +37,11 @@ class Password_recovery extends MX_Controller
     }
 
     public function create_request()
-    {        
+    {
         $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email');
 
         $this->form_validation->set_error_delimiters('', '');
-        
+
         $data = [
             "messages" => false,
             "success" => false
@@ -55,9 +55,9 @@ class Password_recovery extends MX_Controller
                 $data['messages']["error"] = 'Something went wrong. Please reload the page.';
                 die(json_encode($data));
             }
-            
+
             $email = $this->input->post("email");
-            
+
             if ($this->external_account_model->emailExists($email))
             {
                 $username = $this->password_recovery_model->get_username($email);
@@ -69,7 +69,7 @@ class Password_recovery extends MX_Controller
                 $this->password_recovery_model->insert_token($token, $username, $email, $this->input->ip_address());
                 $this->logger->createLog("user", "recovery", "Password recovery requested", [], Logger::STATUS_SUCCEED, $this->user->getId($this->input->post("username")));
             }
-            
+
             $data['messages']["success"] = lang("email_sent", "recovery");
             die(json_encode($data));
         }
