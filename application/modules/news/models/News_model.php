@@ -42,7 +42,25 @@ class News_model extends CI_Model
                             'timestamp'                      => time(),
                             'type'                           => 0,
                             'type_content'                   => null,
-                            'comments'                       => -1
+                            'comments'                       => -1,
+                            'headline_de'                    => 'Willkommen bei FusionGEN V2!',
+                            'content_de'                     => 'Willkommen auf Ihrer neuen Webseite! Dieser Nachrichtenartikel wird verschwinden, sobald Sie einen neuen hinzufügen.',
+                            'headline_es'                    => '¡Bienvenido a FusionGEN V2!',
+                            'content_es'                     => '¡Bienvenido a tu nueva página web! Esta noticia desaparecerá tan pronto como añadas una nueva.',
+                            'headline_fr'                    => 'Bienvenue sur FusionGEN V2 !',
+                            'content_fr'                     => 'Bienvenue sur votre nouveau site web ! Cet article de presse disparaîtra dès que vous en ajouterez un nouveau.',
+                            'headline_no'                    => 'Velkommen til FusionGEN V2!',
+                            'content_no'                     => 'Velkommen til din nye nettside! Denne nyhetsartikkelen forsvinner så snart du legger til en ny.',
+                            'headline_ro'                    => 'Bun venit la FusionGEN V2!',
+                            'content_ro'                     => 'Bun venit pe noul dumneavoastră site web! Acest articol de știri va dispărea de îndată ce veți adăuga unul nou.',
+                            'headline_se'                    => 'Välkommen till FusionGEN V2!',
+                            'content_se'                     => 'Välkommen till din nya webbplats! Denna nyhetsartikel försvinner så snart du lägger till en ny.',
+                            'headline_ru'                    => 'Добро пожаловать в FusionGEN V2!',
+                            'content_ru'                     => 'Добро пожаловать на ваш новый сайт! Эта новостная статья исчезнет, как только вы добавите новую.',
+                            'headline_zh'                    => '欢迎来到 FusionGEN V2!',
+                            'content_zh'                     => '欢迎来到您的新网站！一旦您添加新文章，此新闻文章就会消失。',
+                            'headline_ko'                    => 'FusionGEN V2에 오신 것을 환영합니다!',
+                            'content_ko'                     => '새로운 웹사이트에 오신 것을 환영합니다! 새 기사를 추가하면 이 뉴스 기사는 사라집니다.'
                         )
                     );
         }
