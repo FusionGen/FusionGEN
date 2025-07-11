@@ -1,9 +1,7 @@
 <?php
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
 
-if(file_exists(".lock"))
+if (file_exists(".lock"))
 {
 	header("HTTP/1.1 403 Forbidden");
 	die();
@@ -21,7 +19,7 @@ $zip_success = false;
 $xml_success = false;
 
 $php_version_min = "8.0.0";
-$php_version_max = "8.3.1";
+$php_version_max = "8.4.10";
 $current_php_version = phpversion();
 
 if ($current_php_version <= $php_version_max && $current_php_version >= $php_version_min) {

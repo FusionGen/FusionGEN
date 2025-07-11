@@ -17,7 +17,7 @@ class Custom extends MX_Controller
         // Get the custom data
         $data = $this->custom_model->getCustomData($this->id);
         
-		if($data)
+		if ($data)
 		{
 			// Return the custom data
             return langColumn($data['content']);

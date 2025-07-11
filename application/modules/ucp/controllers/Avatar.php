@@ -48,12 +48,12 @@ class Avatar extends MX_Controller
 		$avatar_id = $this->input->post('avatar_id');
 
 		$avatar = $this->settings_model->get_avatar_id($avatar_id);
-		if(!$avatar)
+		if (!$avatar)
         {
 			die(json_encode(array("error" => lang("avatar_invalid", "ucp"))));
 		}
 
-		if($avatar['staff'] && !$this->user->isStaff())
+		if ($avatar['staff'] && !$this->user->isStaff())
         {
 			die(json_encode(array("error" => lang("avatar_invalid_rank", "ucp"))));
 		}

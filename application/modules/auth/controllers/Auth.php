@@ -177,7 +177,7 @@ class Auth extends MX_Controller
                     // Remember me
                     if (isset($_POST["remember"]))
                     {
-                        if($this->input->post("remember") == "true")
+                        if ($this->input->post("remember") == "true")
                         {
                             $this->input->set_cookie("fcms_username", $this->input->post('username'), 60 * 60 * 24 * 365);
                             $this->input->set_cookie("fcms_password", $salt["verifier"], 60 * 60 * 24 * 365);

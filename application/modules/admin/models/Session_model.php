@@ -22,7 +22,7 @@ class Session_model extends CI_Model
 		$this->db->where('id', $sess_id);
         $query = $this->db->get();
 
-        if($query->num_rows() > 0)
+        if ($query->num_rows() > 0)
 		{
             $result = $query->result_array();
             return $result[0];

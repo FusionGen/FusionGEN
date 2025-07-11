@@ -11,7 +11,7 @@ class Settings_model extends CI_Model
     {
 		$query = $this->db->get('avatars');
 		
-		if($query->num_rows() > 0) {
+		if ($query->num_rows() > 0) {
 			return $query->result_array();
 		}
 		
@@ -20,7 +20,7 @@ class Settings_model extends CI_Model
 	
 	public function get_avatar_id($id = false)
     {
-		if(!$id || !is_numeric($id))
+		if (!$id || !is_numeric($id))
         {
 			return false;
 		}
@@ -28,7 +28,7 @@ class Settings_model extends CI_Model
 		$this->db->where('id', $id);
 		$query = $this->db->get('avatars');
 		
-		if($query->num_rows() > 0)
+		if ($query->num_rows() > 0)
         {
 			return $query->result_array()[0];
 		}

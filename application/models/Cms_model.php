@@ -48,7 +48,7 @@ class Cms_model extends CI_Model
             "ip_address" => $session['ip_address'],
         );
 
-        if($session["user_agent"])
+        if ($session["user_agent"])
         {
             $data['user_agent'] = $session["user_agent"];
         }

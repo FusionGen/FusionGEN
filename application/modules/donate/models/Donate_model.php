@@ -146,7 +146,7 @@ class Donate_model extends CI_Model
     {
 		$query = $this->db->get('paypal_donate');
 		
-		if($query->num_rows() > 0)
+		if ($query->num_rows() > 0)
         {
 			return $query->result_array();
 		}
@@ -163,7 +163,7 @@ class Donate_model extends CI_Model
 
         $query = $this->db->insert('paypal_donate', $data);
         
-        if($query)
+        if ($query)
         {
 			return true;
 		}
@@ -181,7 +181,7 @@ class Donate_model extends CI_Model
         $this->db->where('id', $id);
         $query = $this->db->update('paypal_donate', $data);
         
-        if($query)
+        if ($query)
         {
 			return true;
 		}
