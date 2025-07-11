@@ -48,7 +48,7 @@ class Armory extends MX_Controller
         $length = $this->input->post('length');
         $string = $this->input->post("search");
 
-        if(!$string || strlen($string) <= 1 || !$realm || !is_numeric($realm)|| !is_numeric($start)|| !is_numeric($length))
+        if (!$string || strlen($string) <= 1 || !$realm || !is_numeric($realm)|| !is_numeric($start)|| !is_numeric($length))
         {
 			die();
         }

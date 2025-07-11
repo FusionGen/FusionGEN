@@ -266,7 +266,7 @@ class Characters_model
         $this->connect();
         $query = $this->db->query("SELECT * FROM ".table('characters', $this->realmId)." WHERE ".column("characters", "guid", false, $this->realmId)."=?", array($guid));
 
-        if($this->db->error())
+        if ($this->db->error())
         {
             $error = $this->db->error();
             if ($error['code'] != 0) {
@@ -274,7 +274,7 @@ class Characters_model
             }
         }
 
-        if($query->num_rows() > 0)
+        if ($query->num_rows() > 0)
         {
             $row = $query->result_array();
 

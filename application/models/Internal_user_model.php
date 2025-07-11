@@ -220,7 +220,7 @@ class Internal_user_model extends CI_Model
 
         $query = $this->connection->query("SELECT avatar FROM avatars WHERE id = ?", array($avatarId));
 
-        if($query->num_rows() > 0)
+        if ($query->num_rows() > 0)
         {
             $result = $query->result_array();
 
@@ -232,13 +232,13 @@ class Internal_user_model extends CI_Model
 
 	public function getAvatarId($id = false)
     {
-		if(!$id)
+		if (!$id)
         {
 			return $this->avatarId;
 		} else {
 			$query = $this->connection->query("SELECT avatar FROM account_data WHERE id = ?", array($id));
 
-			if($query->num_rows() > 0)
+			if ($query->num_rows() > 0)
             {
 				$result = $query->result_array();
 
