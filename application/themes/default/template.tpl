@@ -12,12 +12,12 @@
 		{if isset($is404) && in_array("errors", $sidebox_modules)}{$showSidebox = true}{/if}
 		<div class="container">
 			<div class="row">
-				<div id="left" class="col-sm-12 col{if $showSidebox}-lg-8{/if}" mainbar="">
+				<div id="left" class="col-sm-12 col{if $showSidebox}-lg-8{/if}" data-mainbar>
 					{$page}
 				</div>
 
 				{if $showSidebox}
-				<div id="right" class="col-sm-12 col-lg-4" sidebar="">
+				<div id="right" class="col-sm-12 col-lg-4" data-sidebar>
 					<nav class="navbar navbar-side">
 					<ul class="navbar-nav">
 						{foreach from=$menu_side item=menu}

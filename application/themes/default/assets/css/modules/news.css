@@ -103,7 +103,7 @@
 
 /* News article: Glow
 /*---------------------------------------------------------------*/
-.news-article [glow] {
+.news-article [data-glow] {
 	width: 100%;
 	height: 100%;
 	top: 0;
@@ -112,7 +112,7 @@
 	position: absolute;
 }
 
-.news-article [glow]::before {
+.news-article [data-glow]::before {
 	width: 85%;
 	height: 0;
 	top: 0;
@@ -129,7 +129,7 @@
 	-webkit-transform: rotate(-5deg);
 }
 
-.news-article [glow] [glow-lines] {
+.news-article [data-glow] [data-glow-lines] {
 	width: 100%;
 	height: 100%;
 	top: 0;
@@ -137,7 +137,7 @@
 	position: absolute;
 }
 
-.news-article [glow] [glow-lines]::before {
+.news-article [data-glow] [data-glow-lines]::before {
 	width: 100%;
 	height: 2px;
 	top: 0;
@@ -150,7 +150,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33aad7ff', endColorstr='#00aad7ff',GradientType=1 );
 }
 
-.news-article [glow] [glow-lines]::after {
+.news-article [data-glow] [data-glow-lines]::after {
 	width: 2px;
 	height: 100%;
 	top: 2px;
