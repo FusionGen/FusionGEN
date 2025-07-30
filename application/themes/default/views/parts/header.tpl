@@ -9,18 +9,18 @@
 					<!-- Brand.Start -->
 					<a href="{$url}" class="navbar-brand" title="Welcome to {$serverName}" data-hasevent="1">
 						<span gradient=""></span>
-						<span glows=""><h1>{$serverName}</h1></span>
+						<span data-glows><h1>{$serverName}</h1></span>
 					</a>
 					<!-- Brand.End -->
 					<!-- Toggler.Start -->
-					<a href="javascript:void(0)" class="navbar-toggler" onclick="$('[collapse=navbar-top]').stop(true, true).slideToggle('fast', function() { ($(this).is(':visible') ? $('.navbar-toggler').addClass('open') : $('.navbar-toggler').removeClass('open')) })">
-					<span line="" line-t=""></span>
-					<span line="" line-m=""></span>
-					<span line="" line-b=""></span>
+					<a href="javascript:void(0)" class="navbar-toggler" onclick="$('[data-collapse=navbar-top]').stop(true, true).slideToggle('fast', function() { ($(this).is(':visible') ? $('.navbar-toggler').addClass('open') : $('.navbar-toggler').removeClass('open')) })">
+					<span data-line data-line-t></span>
+					<span data-line data-line-m></span>
+					<span data-line data-line-b></span>
 					</a>
 					<!-- Toggler.End -->
 					<!-- Collapse.Start -->
-					<div class="navbar-collapse collapse" collapse="navbar-top">
+					<div class="navbar-collapse collapse" data-collapse="navbar-top">
 					<ul class="navbar-nav ms-auto">
 						{foreach from=$menu_top item=menu}
 							{if $menu.dropdown_id != 0}{continue}{/if}

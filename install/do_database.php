@@ -7,7 +7,7 @@ if (file_exists(".lock"))
 
 set_time_limit(600);
 
-if(isset($_POST)) {
+if (isset($_POST)) {
     $host = $_POST["host"];
     $dbuser = $_POST["dbuser"];
     $dbpassword = $_POST["dbpassword"];

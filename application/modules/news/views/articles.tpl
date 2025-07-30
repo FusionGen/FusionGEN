@@ -4,7 +4,7 @@
 {$is_single = !isset($single)}
 
 {* Required css codes *}
-{if $is_single}<style type="text/css">[content] > .container > .row { display: block; } [mainbar] { width: 100%; max-width: 100%; } [notifications], [sidebar], [widgets] { display: none; }</style>{/if}
+{if $is_single}<style type="text/css">[content] > .container > .row { display: block; } [data-mainbar] { width: 100%; max-width: 100%; } [notifications], [data-sidebar], [widgets] { display: none; }</style>{/if}
 
 <div class="news-header">
 	<div class="row">
@@ -25,7 +25,7 @@
 	{/if}
 
 	<article class="pagebody news-article {if $is_single}is-single{/if} {if $article.comments != -1}has-comments{/if} {if $article.tags}has-tags{/if} {if key(reset($articles)) == $key}first-item{/if} {if !isset($articles[$key + 1])}last-item{/if}">
-		<div glow><div glow-lines></div></div>
+		<div data-glow><div data-glow-lines></div></div>
 
 			<div class="row">
 			{if $article.type == '1'}

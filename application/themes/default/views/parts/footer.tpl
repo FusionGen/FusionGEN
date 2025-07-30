@@ -14,8 +14,8 @@
           </ul>
         </nav>
         <!-- Navbar.End -->
-        <div line="">
-          <div line-glow=""></div>
+        <div data-line>
+          <div data-line-glow></div>
         </div>
       </div>
     </div>

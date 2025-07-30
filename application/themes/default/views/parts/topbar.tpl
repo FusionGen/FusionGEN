@@ -14,16 +14,16 @@
 			</div>
 	
 			{if !$isOnline}
-			<div class="col-sm-12 col-md-7" membership-bar="">
+			<div class="col-sm-12 col-md-7" data-membership-bar>
 				<!-- Membership bar.Start -->
 				<div class="membership-bar not-logged-in d-inline-flex flex-row align-items-center">
 					<a href="{$url}login" class="nice_button btn-neon" title="{lang("login", "main")}">{lang("login", "main")}</a>
-					<span sep=""></span><a href="{$url}register" class="nice_button btn-sky" title="{lang("register", "main")}">{lang("register", "main")}</a>
+					<span data-sep></span><a href="{$url}register" class="nice_button btn-sky" title="{lang("register", "main")}">{lang("register", "main")}</a>
 				</div>
 				<!-- Membership bar.End -->
 			</div>
 			{else}
-				<div class="col-sm-12 col-md-7" membership-bar>
+				<div class="col-sm-12 col-md-7" data-membership-bar>
 				<!-- Membership bar.Start -->
 				<div class="membership-bar logged-in d-inline-flex flex-row align-items-center">
 				<div class="membership-bar-profile">

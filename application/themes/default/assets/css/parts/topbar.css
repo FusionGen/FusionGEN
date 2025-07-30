@@ -89,7 +89,7 @@
 
 /* Membership bar: Separator
 /*-----------------------------------------------------*/
-.section-topbar .membership-bar [sep] {
+.section-topbar .membership-bar [data-sep] {
 	width: 2px;
 	height: 30px;
 	margin: 0 1rem 0 0;
@@ -280,7 +280,7 @@
 @media screen and (max-width: 768px) { /* non-Desktop */
 	/* Topbar: Membership bar
 	/*---------------------------------------------------------------*/
-	.section-topbar [membership-bar] {text-align: center;}
+	.section-topbar [data-membership-bar] {text-align: center;}
 }
 
 @media screen and (min-width: 768px) { /* Desktop */
@@ -290,7 +290,7 @@
 
 	/* Topbar: Membership bar
 	/*---------------------------------------------------------------*/
-	.section-topbar [membership-bar] {text-align: right;}
+	.section-topbar [data-membership-bar] {text-align: right;}
 }
 
 @media screen and (min-width: 1200px) { /* Desktop */
