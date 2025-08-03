@@ -293,7 +293,7 @@
 
 	<!-- Popover operations -->
 	<div data-type="popover-model" style="display:none">
-	  <div data-type="popover" class="ms-3 me-3 " style="min-width:150px;">
+	  <div data-type="popover" class="ms-3 me-3" style="min-width:150px;">
 		<div class="row">
 		  <div class="col p-0">
 			<button data-operation="main" class="btn btn-block btn-success btn-sm rounded-pill" type="button"><span class="fa fa-angle-double-up me-2"></span>Main</button>

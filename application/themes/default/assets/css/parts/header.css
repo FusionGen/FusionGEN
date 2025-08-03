@@ -88,7 +88,7 @@
 
 /* Brand: Gradient
 /*-----------------------------------------------------*/
-.header .navbar .navbar-brand [gradient] {
+.header .navbar .navbar-brand [data-gradient] {
 	width: 160%;
 	height: 100%;
 	top: 0;

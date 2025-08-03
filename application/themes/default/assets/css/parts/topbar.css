@@ -152,8 +152,8 @@
 .section-topbar .membership-bar .membership-bar-info .info-coins                     {color: #51657c;}
 .section-topbar .membership-bar .membership-bar-info .info-coins span                {color: #7a8ea4;}
 .section-topbar .membership-bar .membership-bar-info .info-coins span i              {}
-.section-topbar .membership-bar .membership-bar-info .info-coins span i[text-gold]   {color: #f8c64e;}
-.section-topbar .membership-bar .membership-bar-info .info-coins span i[text-silver] {color: #c3c3c3;}
+.section-topbar .membership-bar .membership-bar-info .info-coins span i[data-text-gold]   {color: #f8c64e;}
+.section-topbar .membership-bar .membership-bar-info .info-coins span i[data-text-silver] {color: #c3c3c3;}
 
 /* Membership bar: Nav (mobile)
 /*-----------------------------------------------------*/
