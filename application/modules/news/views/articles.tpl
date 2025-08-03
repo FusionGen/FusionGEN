@@ -20,7 +20,7 @@
 
 {foreach from=$articles key=key item=article}
 	{* Check for read more *}
-	{if !$is_single && $article.content|count_characters >= 255}
+	{if !$is_single && $article.content|strip_tags|count_characters >= 255}
 		{$article.readMore = true}
 	{/if}
 

@@ -72,5 +72,4 @@ This project exists thanks to:
 
 ## Links
 
-**[FusionGEN.net](https://FusionGEN.net/)**
 **[Discord](https://discord.gg/5nSt9puU4V)**

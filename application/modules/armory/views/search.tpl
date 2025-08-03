@@ -1,16 +1,16 @@
 <div class="page-subbody mt-0 p-3">
-    <form onSubmit="Search.show_data();return false;">
+    <form onSubmit="Search.show_data(); return false;">
         <div class="input-group">
             <input class="col-xs-12 col-sm-12 col-md-12 col-lg-3 form-control mx-1 mt-3" type="text" id="search_field" name="search_field" placeholder="{lang("search_placeholder", "armory")}">
 
-            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="realm" name="realm";return false;">
+            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="realm" name="realm">
                 <option value="0" disabled>{lang("realm", "armory")}</option>
                 {for $i = 0; $i<count((array)$realms); $i++}
                     <option {if $i == 0}selected{/if} value="{$realms[$i]->getId()}">{$realms[$i]->getName()}</option>
                 {/for}
             </select>
 
-            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="table" name="table";return false;">
+            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="table" name="table">
                 <option value="characters">{lang("characters", "armory")}</option>
                 <option value="guilds">{lang("guilds", "armory")}</option>
                 <option value="items">{lang("items", "armory")}</option>
@@ -36,7 +36,7 @@
     <table class="nice_table" id="search_results_characters">
         <thead>
             <tr>
-				<th width="10%"></th>
+				<th></th>
 				<th>{lang("name", "armory")}</th>
 				<th>{lang("faction", "armory")}</th>
 				<th>{lang("level", "armory")}</th>

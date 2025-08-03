@@ -8,8 +8,8 @@
 					<h1 hidden="">{$serverName}</h1>
 					<!-- Brand.Start -->
 					<a href="{$url}" class="navbar-brand" title="Welcome to {$serverName}" data-hasevent="1">
-						<span gradient=""></span>
-						<span data-glows><h1>{$serverName}</h1></span>
+						<span data-gradient></span>
+						<h1 data-glows>{$serverName}</h1>
 					</a>
 					<!-- Brand.End -->
 					<!-- Toggler.Start -->
