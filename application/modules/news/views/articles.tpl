@@ -64,7 +64,7 @@
 
 					{if isset($article.readMore)}
 						<div class="article-foot">
-							<a href="{$url}news/view/{$article.id}" class="nice_button btn-readmore" title="{lang("read_more", "news")}">{lang("read_more", "news")} <i class="icon-readmore"></i></a>
+							<a href="{$url}news/view/{$article.id}" class="nice_button btn-readmore rounded" title="{lang("read_more", "news")}">{lang("read_more", "news")} <i class="icon-readmore"></i></a>
 						</div>
 					{/if}
 				</div>

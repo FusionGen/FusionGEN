@@ -39,7 +39,7 @@
 					<td>{$character.level}</td>
 					<td>{$character.kills}</td>
 					<td><img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif" width="20" height="20"></td>
-					<td><img src="{$url}application/images/stats/{$character.class}.gif" width="20" height="20"></td>
+					<td><img src="{$url}application/images/stats/{$character.class}.gif"></td>
 				</tr>
 				{/foreach}
 			{else}

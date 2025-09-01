@@ -81,7 +81,7 @@
 												<img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif">
 											</td>
 											<td class="col-2">
-												<img src="{$url}application/images/stats/{$character.class}.gif" width="18">
+												<img src="{$url}application/images/stats/{$character.class}.gif">
 											</td>
 
 											{$money = $realmObj->formatMoney($character.money)}
