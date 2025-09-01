@@ -7,7 +7,7 @@
 		<td class="col-2">
 			<div class="char-raceclass">
 				<img align="absbottom" src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif">
-				<img align="absbottom" src="{$url}application/images/stats/{$character.class}.gif" width="20px">
+				<img align="absbottom" src="{$url}application/images/stats/{$character.class}.gif">
 			</div>
 		</td>
 		<td class="col-3"><a class="char-name" data-tip="{lang("view_profile", "sidebox_toppvp")}" href="{$url}character/{$realm}/{$character.guid}">{$character.name}</a></td>
