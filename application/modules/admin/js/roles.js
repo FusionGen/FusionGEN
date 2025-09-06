@@ -1,5 +1,5 @@
 var Roles = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -30,6 +30,7 @@ var Roles = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this role?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',

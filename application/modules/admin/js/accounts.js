@@ -10,7 +10,7 @@ var Accounts = {
 		save: "admin/accounts/save/",
 		loadMore: "admin/accounts/loadMoreLogs/",
 	},
-	
+
 	/**
 	 * Submit the form contents to the save link
 	 * @param Object form
@@ -39,16 +39,16 @@ var Accounts = {
 
 			if(data == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "The account has been saved!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -78,10 +78,9 @@ var Accounts = {
 			arrow.css("-ms-transform", "rotate(0deg)");
 		}
 	},
-	
+
 	loadMore: function(id)
 	{
-
 		this.offset += this.loadMoreCount;
         this.logCount = $('#js_load_more').val();
 
@@ -97,6 +96,7 @@ var Accounts = {
 	removePendingAcc: function(id, element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete the pending account?',
 			icon: 'warning',
 			showCancelButton: true,
@@ -107,14 +107,14 @@ var Accounts = {
 		if (result.isConfirmed) {
 			$.get(Config.URL + "admin/accounts/deletePendingAcc/" + id, function(data)
 			{
-				console.log(data);
 				if(data == "yes")
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: "success",
 						title: "Pending account deleted!",
 					});
-					
+
 					$(element).parents("tr").slideUp(300, function()
 					{
 						$(this).remove();
@@ -123,6 +123,7 @@ var Accounts = {
 				else
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: data,
@@ -132,10 +133,11 @@ var Accounts = {
 		}
 		})
 	},
-	
+
 	activatePendingAcc: function(id, element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to activate the pending account?',
 			icon: 'warning',
 			showCancelButton: true,
@@ -146,15 +148,14 @@ var Accounts = {
 		if (result.isConfirmed) {
 			$.get(Config.URL + "admin/accounts/activatePendingAcc/" + id, function(data)
 			{
-				console.log(data);
 				if(data == "yes")
 				{
-					console.log(data);
 					Swal.fire({
+						theme: 'dark',
 						icon: "success",
 						title: "Pending account activated!",
 					});
-					
+
 					$(element).parents("tr").slideUp(300, function()
 					{
 						$(this).remove();
@@ -162,8 +163,8 @@ var Accounts = {
 				}
 				else
 				{
-					console.log(data);
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: data,

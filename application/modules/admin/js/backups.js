@@ -2,6 +2,7 @@ var Backups = {
 	generate: function(element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to generate a backup?',
 			icon: 'warning',
 			showCancelButton: true,
@@ -13,10 +14,10 @@ var Backups = {
 
 			$.get(Config.URL + "admin/backups/do_backup/", function(data)
 			{
-				console.log(data);
 				if(data == "yes")
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: "success",
 						title: "Backup generated!",
 					});
@@ -24,8 +25,8 @@ var Backups = {
 				}
 				else
 				{
-					console.log(data);
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: data,
@@ -35,7 +36,7 @@ var Backups = {
 		}
 		})
 	},
-	
+
 	saveSettings: function()
 	{
 		var data = {
@@ -50,16 +51,16 @@ var Backups = {
 		{
 			if(response == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "Backup settings have been saved!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -67,10 +68,11 @@ var Backups = {
 			}
 		});
 	},
-	
+
 	remove: function(id, element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete the backup?',
 			icon: 'warning',
 			showCancelButton: true,
@@ -81,10 +83,10 @@ var Backups = {
 		if (result.isConfirmed) {
 			$.get(Config.URL + "admin/backups/delete/" + id, function(data)
 			{
-				console.log(data);
 				if(data == "yes")
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: "success",
 						title: "Backup deleted!",
 					});
@@ -97,6 +99,7 @@ var Backups = {
 				else
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: data,
@@ -106,10 +109,11 @@ var Backups = {
 		}
 		})
 	},
-	
+
 	restore: function(id)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to restore the backup?',
 			icon: 'warning',
 			showCancelButton: true,
@@ -120,10 +124,10 @@ var Backups = {
 		if (result.isConfirmed) {
 			$.get(Config.URL + "admin/backups/restore/" + id, function(data)
 			{
-				console.log(data);
 				if(data == "yes")
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: "success",
 						title: "Backup imported!",
 					});
@@ -131,6 +135,7 @@ var Backups = {
 				else
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: data,

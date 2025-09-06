@@ -10,19 +10,19 @@ var Template = {
 		{
 			if(response == "yes")
 			{
-				console.log(data);
 				Swal.fire({
-					icon: "success",
+					theme: 'dark',
 					title: "Template has been saved!",
+					icon: "success",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
-					icon: 'error',
+					theme: 'dark',
 					title: 'Oops...',
 					text: response,
+					icon: 'error',
 				})
 			}
 		});

@@ -1,5 +1,5 @@
 var Slider = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -31,6 +31,7 @@ var Slider = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this ' + identifier + '?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -53,7 +54,6 @@ var Slider = {
 			});
 		}
 		})
-
 	},
 
 	/**
@@ -85,8 +85,8 @@ var Slider = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -124,8 +124,8 @@ var Slider = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -183,20 +183,21 @@ var Slider = {
 
 		$.post(Config.URL + "admin/slider/saveSettings", values, function(data)
 		{
-			console.log(values);
 			if(data == "yes")
 			{
 				Swal.fire({
-					icon: "success",
+					theme: 'dark',
 					title: "Slider settings have been saved!",
+					icon: "success",
 				});
 			}
 			else
 			{
 				Swal.fire({
-					icon: 'error',
+					theme: 'dark',
 					title: 'Oops...',
 					text: data,
+					icon: 'error',
 				})
 			}
 		});

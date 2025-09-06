@@ -17,7 +17,7 @@ var Languages = {
 			}
 			else
 			{
-				Swal.fire('', data, 'error')
+				Swal.fire({theme: 'dark', title: '', text: data, icon: 'error'});
 			}
 		});
 	}

@@ -2219,7 +2219,7 @@ html.no-overflowscrolling.sidebar-light:not(.dark) .inner-menu .nano {
 
 .page-header.page-header-left-inline-breadcrumb .breadcrumbs li:after {
 	content: "\f054";
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 7 Free";
 	font-weight: 900;
 	font-size: 9.6px;
 	font-size: 0.6rem;
@@ -2619,7 +2619,7 @@ html.has-tab-navigation .tip.skin {
 	.tab-navigation nav > ul > li > ul > li .dropdown-menu li a.dropdown-toggle:after {
 		content: "\f0da";
 		display: inline-block;
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 		float: right;
 	}
@@ -2669,7 +2669,7 @@ html.has-tab-navigation .tip.skin {
 		display: inline-block;
 		position: relative;
 		top: 3px;
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 		margin-left: 7px;
 		margin-top: -3px;
@@ -2749,7 +2749,7 @@ html.has-tab-navigation .tip.skin {
 	.tab-navigation nav > ul > li a.dropdown-toggle:after {
 		content: "\f107";
 		display: inline-block;
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 		float: right;
 		border: none;
@@ -2834,7 +2834,7 @@ html.has-tab-navigation .tip.skin {
 	.tab-navigation nav > ul li.nav-expanded > a.dropdown-toggle:after {
 		content: "\f106";
 		display: inline-block;
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 		float: right;
 	}
@@ -3375,13 +3375,13 @@ html.dark .inner-menu .inner-menu-toggle-inside:after {
 
 	.header-nav-main nav > ul li.dropdown-mega .mega-sub-nav-toggle:before {
 		content: "\f0d8";
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 	}
 
 	.header-nav-main nav > ul li.dropdown-mega .mega-sub-nav-toggle.toggled:before {
 		content: "\f0d7";
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 	}
 
@@ -3646,7 +3646,7 @@ html.dark .inner-menu .inner-menu-toggle-inside:after {
 
 	.header-nav-main nav > ul > li.dropdown-mega .dropdown-mega-sub-nav .mega-sub-nav-toggle:before {
 		content: "\f0d8";
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 	}
 
@@ -4237,7 +4237,7 @@ html.header-dark .header .separator {
 
 	.header.header-nav-menu .header-nav-main nav > ul > li.dropdown-mega .dropdown-mega-sub-nav .mega-sub-nav-toggle:before {
 		content: "\f0d8";
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 	}
 
@@ -4586,13 +4586,13 @@ html.header-dark .header .separator {
 
 	.header.header-nav-menu .header-nav-main nav > ul li.dropdown-mega .mega-sub-nav-toggle:before {
 		content: "\f0d8";
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 	}
 
 	.header.header-nav-menu .header-nav-main nav > ul li.dropdown-mega .mega-sub-nav-toggle.toggled:before {
 		content: "\f0d7";
-		font-family: 'Font Awesome 6 Free';
+		font-family: 'Font Awesome 7 Free';
 		font-weight: 900;
 	}
 
@@ -4813,7 +4813,7 @@ html.header-dark .header .separator {
 
 	.header.header-nav-menu.header-nav-links nav > ul > li > a.dropdown-toggle:after {
 		content: "\f078";
-		font-family: "Font Awesome 6 Free";
+		font-family: "Font Awesome 7 Free";
 		font-size: 0.6rem;
 		margin: 0 0 0 7px;
 		border: 0;
@@ -4842,7 +4842,7 @@ html.header-dark .header .separator {
 
 	.header.header-nav-menu.header-nav-links nav > ul > li.dropdown .dropdown-menu li.dropdown-submenu > a:after {
 		content: "\f054";
-		font-family: "Font Awesome 6 Free";
+		font-family: "Font Awesome 7 Free";
 		font-weight: 900;
 		border: 0;
 		font-size: 0.5rem;
@@ -4866,7 +4866,7 @@ html.header-dark .header .separator {
 	}
 
 	.header.header-nav-menu.header-nav-links nav > ul > li.dropdown-mega .dropdown-mega-sub-nav .mega-sub-nav-toggle:before, .header.header-nav-menu.header-nav-links nav > ul > li.dropdown-mega .dropdown-mega-sub-nav .mega-sub-nav-toggle.toggled:before {
-		font-family: "Font Awesome 6 Free";
+		font-family: "Font Awesome 7 Free";
 		font-size: 0.6rem;
 		color: inherit;
 	}
@@ -6226,7 +6226,7 @@ ul.nav-main li.nav-parent.nav-expanded > ul.nav-children {
 }
 
 ul.nav-main li.nav-parent>a:after {
-    font-family: 'Font Awesome 6 Free';
+    font-family: 'Font Awesome 7 Free';
     font-weight: 900;
     content: '\f104';
     color: #abb4be;
@@ -8065,7 +8065,7 @@ html .card .card-header-transparent + .card-body {
 
 .card.card-modern .card-action-toggle:before {
 	content: "\f077";
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 7 Free";
 	font-weight: 900;
 }
 
@@ -8145,7 +8145,7 @@ html .card .card-header-transparent + .card-body {
 .card-action-toggle,
 .card-action-dismiss {
 	display: inline-block;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	font-size: inherit;
 	text-rendering: auto;
@@ -8269,7 +8269,7 @@ html .card-dark .card-title {
 }
 
 .owl-carousel .owl-nav button.owl-prev:before {
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: "\f053";
 	position: relative;
@@ -8282,7 +8282,7 @@ html .card-dark .card-title {
 }
 
 .owl-carousel .owl-nav button.owl-next:before {
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: "\f054";
 	position: relative;
@@ -9233,13 +9233,13 @@ html.dark div.DTTT_container .btn {
 
 .datepicker table thead tr th.prev {
 	content: '\f0d9';
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 }
 
 .datepicker table thead tr th.next {
 	content: '\f0da';
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 }
 
@@ -11465,7 +11465,7 @@ input[type="checkbox"].checkbox-style-1:checked {
 .checkbox-custom input[type="checkbox"]:checked + label:after {
 	position: absolute;
 	display: inline-block;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: '\F00C';
 	top: 50%;
@@ -11894,7 +11894,7 @@ html.dark .radio-dark input[type="radio"]:checked + label:after,
 }
 
 .validation-message ul label.error:before {
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: '\f00d';
 	position: absolute;
@@ -16760,7 +16760,7 @@ html.dark .table .actions-hover a {
 }
 
 .tabs-navigation .nav-tabs > li .nav-link:before {
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: "\f054";
 	position: absolute;
@@ -17217,7 +17217,7 @@ html.dark .bootstrap-timepicker-widget table td input {
 	right: auto;
 	margin-top: 0;
 	top: 12px;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: "\f067";
 	z-index: 2;
@@ -17923,7 +17923,7 @@ ul.simple-post-list li:last-child {
 	position: absolute;
 	top: -1px;
 	left: 0;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: "\f00c";
 	z-index: 1;
@@ -19377,7 +19377,7 @@ h2.word-rotator-title {
 	color: #CCC;
 	content: "\f073";
 	display: inline-block;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	font-size: 28.8px;
 	font-size: 1.8rem;

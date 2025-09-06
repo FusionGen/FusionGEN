@@ -10,7 +10,7 @@
 
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/animate/animate.compat.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css">
@@ -20,7 +20,7 @@
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.theme.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/morris/morris.css">
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2-dark.css">
+		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2.min.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/select2/css/select2.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
@@ -59,7 +59,7 @@
 		<script src="{$url}application/themes/admin/assets/vendor/snap.svg/snap.svg.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/owl.carousel/owl.carousel.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.js"></script>
+		<script src="{$url}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/select2/js/select2.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>

@@ -1,5 +1,5 @@
 var Sidebox = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -27,6 +27,7 @@ var Sidebox = {
 			row = $(element).parents("tr");
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Are you sure?',
 			icon: 'warning',
 			showCancelButton: true,
@@ -35,11 +36,12 @@ var Sidebox = {
 			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 		if (result.isConfirmed) {
-			Swal.fire(
-			'Deleted!',
-			'',
-			'success'
-		)
+		Swal.fire({
+			theme: 'dark',
+			title: 'Deleted!',
+			text: '',
+			icon: 'success',
+		})
 		$("#" + identifier + "_count").html(parseInt($("#" + identifier + "_count").html()) - 1);
 
 			row.hide(300, function() {
@@ -58,9 +60,9 @@ var Sidebox = {
 	create: function()
 	{
 		require([Config.URL + "application/js/tiny_mce/tinymce.min.js"], function () {
-		
+
 			tinyMCE.triggerSave();
-			
+
 			var data = {
 				displayName: $("#displayName").val(),
 				type: $("#type").val(),
@@ -73,20 +75,18 @@ var Sidebox = {
 			{
 				if(response == "yes")
 				{
-					console.log(response);
 					window.location = Config.URL + "admin/sidebox";
 				}
 				else
 				{
-					console.log(response);
 					Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: (response),
 					})
 				}
 			});
-		
 		});
 	},
 
@@ -97,9 +97,9 @@ var Sidebox = {
 	save: function(form, id)
 	{
 		require([Config.URL + "application/js/tiny_mce/tinymce.min.js"], function () {
-		
+
 			tinyMCE.triggerSave();
-			
+
 			var data = {
 				displayName: $("#displayName").val(),
 				type: $("#type").val(),
@@ -117,14 +117,13 @@ var Sidebox = {
 				else
 				{
 					Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
 					})
 				}
-				console.log(response);
 			});
-		
 		});
 	},
 

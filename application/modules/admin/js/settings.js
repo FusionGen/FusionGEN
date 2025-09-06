@@ -1,5 +1,5 @@
 var Settings = {
-	
+
 	/**
 	 * Removes a realm
 	 * @param  Int id
@@ -10,6 +10,7 @@ var Settings = {
 		if($("#realm_count").html() == "1")
 		{
 			Swal.fire({
+				theme: 'dark',
 				icon: 'error',
 				title: 'Oops...',
 				text: 'You must always have at least one realm!',
@@ -18,6 +19,7 @@ var Settings = {
 		else
 		{
 			Swal.fire({
+				theme: 'dark',
 				title: 'Do you really want to delete this realm?',
 				text: "You won't be able to revert this!",
 				icon: 'warning',
@@ -101,8 +103,8 @@ var Settings = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: id,
@@ -146,8 +148,8 @@ var Settings = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: result,
@@ -189,16 +191,16 @@ var Settings = {
 		{
 			if(response == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "Website settings have been saved!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -225,16 +227,16 @@ var Settings = {
 		{
 			if(response == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "SMTP settings have been saved!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -255,16 +257,16 @@ var Settings = {
 		{
 			if(response == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "Performance settings have been saved!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -288,16 +290,16 @@ var Settings = {
 		{
 			if(response == "yes")
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "Social media links have been saved!",
 				});
 			}
 			else
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -318,16 +320,16 @@ var Settings = {
 		{
 			if(response == "yes")
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "CDN have been saved!",
 				});
 			}
 			else
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -350,16 +352,16 @@ var Settings = {
 		{
 			if(response == "yes")
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "Security settings has been saved!",
 				});
 			}
 			else
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -387,12 +389,12 @@ var Settings = {
 
 		$.post(Config.URL + "admin/settings/mailDebug", values, function(data)
 		{
-			console.log(data);
 			try {
 				data = JSON.parse(data);
 
 				if(data['error']) {
 					Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					html: data['error'],
 					allowOutsideClick: false
@@ -400,6 +402,7 @@ var Settings = {
 					return;
 				} else {
 					Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: 'Mail sent!',
 					text: data['success'],
@@ -458,16 +461,16 @@ var Settings = {
 		{
 			if(data == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "The settings have been saved!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -487,16 +490,16 @@ var Settings = {
 		{
 			if(data == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "The settings have been saved!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -539,8 +542,8 @@ var Settings = {
 
 		$.post(Config.URL + "admin/message/save", data, function(response)
 		{
-			console.log(data);
 			Swal.fire({
+				theme: 'dark',
 				icon: 'success',
 				title: response,
 			})
@@ -583,6 +586,7 @@ var Settings = {
 	showHelp: function(element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			html:'<h2>mail</h2>' +
 
 				'<p>The default value is <code>mail</code>.</p>' +
