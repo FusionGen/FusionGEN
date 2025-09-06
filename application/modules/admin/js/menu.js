@@ -1,5 +1,5 @@
 var Menu = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -31,6 +31,7 @@ var Menu = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this link?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -87,11 +88,10 @@ var Menu = {
 
 		$.post(Config.URL + this.Links.create, values, function(data)
 		{
-			console.log(data);
 			if(data == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "New link has been saved!",
 				});
@@ -99,8 +99,8 @@ var Menu = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -139,6 +139,7 @@ var Menu = {
 			else
 			{
 				Swal.fire({
+				theme: 'dark',
 				icon: 'error',
 				title: 'Oops...',
 				text: data,
@@ -187,7 +188,6 @@ var Menu = {
 	selectCustom: function()
 	{
 		var rows = $('<div class="" id="custom_pages"></div>');
-		console.log(rows);
 
 		for(i in customPages)
 		{
@@ -195,6 +195,7 @@ var Menu = {
 		}
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Select',
 			html: rows,
 			showCancelButton: true,

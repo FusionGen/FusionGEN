@@ -2,6 +2,7 @@ var Modules = {
 	enableModule: function(moduleId, element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: "Are you sure you want to enable '" + moduleId + "'?",
 			showDenyButton: false,
 			showCancelButton: true,
@@ -23,16 +24,17 @@ var Modules = {
 						$("#disabled_count").html(parseInt($("#disabled_count").html()) - 1);
 						$("#enabled_count").html(parseInt($("#enabled_count").html()) + 1);
 						
-						Swal.fire('Saved!', '', 'success')
+						Swal.fire({theme: 'dark', title: 'Saved!', text: '', icon: 'success'});
 					}
 				});
 			}
 		})
 	},
-	
+
 	disableModule: function(moduleId, element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: "Are you sure you want to disable '" + moduleId + "'?",
 			showDenyButton: false,
 			showCancelButton: true,
@@ -45,21 +47,21 @@ var Modules = {
 					if(data == 'SUCCESS')
 					{
 						$(element).attr("onClick", "Modules.enableModule('" + moduleId + "', this)").html("Enable");
-						
+
 						$(element).removeClass("btn-danger text-danger");
 						$(element).addClass("text-success");
-						
+
 						var parent = $(element).parent().closest('.pull-right');
 
 						$("#disabled_modules").append(parent.parent()[0]);
 						$("#enabled_count").html(parseInt($("#enabled_count").html()) - 1);
 						$("#disabled_count").html(parseInt($("#disabled_count").html()) + 1);
-						
-						Swal.fire('Saved!', '', 'success')
+
+						Swal.fire({theme: 'dark', title: 'Saved!', text: '', icon: 'success'});
 					}
 					else
 					{
-						Swal.fire(moduleId + " is a core module that can not be disabled!", '', 'error')
+						Swal.fire({theme: 'dark', title: moduleId + " is a core module that cannot be disabled!", text: '', icon: 'error'});
 					}
 				});
 			}
@@ -136,7 +138,7 @@ var FGEN = FGEN || {};
 
                     dictRemoveFileConfirmation: null,
 
-                    dictMaxFilesExceeded: 'You can not upload any more files.',
+                    dictMaxFilesExceeded: 'You cannot upload any more files.',
 
                     dictFileSizeUnits: { tb: 'TB', gb: 'GB', mb: 'MB', kb: 'KB', b: 'b' }
                 });
@@ -182,21 +184,20 @@ var FGEN = FGEN || {};
 
                     if (data["status"] !== 'error')
 					{
-                        Swal.fire('', data["message"], 'success')
+						Swal.fire({theme: 'dark', title: '', text: data["message"], icon: 'success'});
                     }
 					else
 					{
-						Swal.fire('', data["message"], 'error')
+						Swal.fire({theme: 'dark', title: '', text: data["message"], icon: 'error'});
 						FGENDropzone.removeFile(file);
 					}
-					console.log(data["message"]);
 
 					//FGENDropzone.removeFile(file);
                 });
 
 				FGENDropzone.on("error", function (file, message)
 				{
-					Swal.fire('', message, 'error')
+					Swal.fire({theme: 'dark', title: '', text: message, icon: 'error'});
                     FGENDropzone.removeFile(file);
                 });
 
@@ -204,8 +205,6 @@ var FGEN = FGEN || {};
 				{
 					formData.append("csrf_token_name", Config.CSRF);
 					formData.append("module", file);
-					console.log(file);
-					console.log(xhr);
 				});
             },
 

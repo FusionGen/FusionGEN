@@ -1732,7 +1732,7 @@ html .card.card-admin .card-header-transparent + .card-body {
 
 .card.card-modern.card-admin .card-action-toggle:before {
 	content: "\f077";
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 7 Free";
 	font-weight: 900;
 }
 
@@ -1812,7 +1812,7 @@ html .card.card-admin .card-header-transparent + .card-body {
 .card-admin .card-action-toggle,
 .card-admin .card-action-dismiss {
 	display: inline-block;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	font-size: inherit;
 	text-rendering: auto;
@@ -2596,13 +2596,13 @@ html.dark div.DTTT_container .btn {
 
 .datepicker table thead tr th.prev {
 	content: '\f0d9';
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 }
 
 .datepicker table thead tr th.next {
 	content: '\f0da';
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 }
 
@@ -3331,7 +3331,7 @@ input[type="checkbox"].checkbox-style-1:checked {
 .checkbox-custom input[type="checkbox"]:checked + label:after {
 	position: absolute;
 	display: inline-block;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: '\F00C';
 	top: 50%;
@@ -3760,7 +3760,7 @@ html.dark .radio-dark input[type="radio"]:checked + label:after,
 }
 
 .validation-message ul label.error:before {
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 	font-weight: 900;
 	content: '\f00d';
 	position: absolute;

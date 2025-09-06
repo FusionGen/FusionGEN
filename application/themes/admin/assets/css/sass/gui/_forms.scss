@@ -503,7 +503,7 @@ input[type="checkbox"] {
 			& + label:after {
 				position: absolute;
 				display: inline-block;
-				font-family: 'Font Awesome 6 Free';
+				font-family: 'Font Awesome 7 Free';
    				font-weight: 900;
 				content: '\F00C';
 				top: 50%;
@@ -768,7 +768,7 @@ html.dark {
 		position: relative;
 
 		&:before {
-			font-family: 'Font Awesome 6 Free';
+			font-family: 'Font Awesome 7 Free';
    			font-weight: 900;
 			content: '\f00d';
 			position: absolute;

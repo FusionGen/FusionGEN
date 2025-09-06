@@ -5,10 +5,10 @@
 	{foreach from=$tickets item=realm key=key}
 		<div class="col-12 mb-3">
 			<div class="card-body bg-quaternary">
-				<div class="widget-summary">
+				<div class="widget-summary p-3">
 					<div class="widget-summary-col widget-summary-col-icon">
 						<div class="summary-icon">
-							<img src="{$url}application/images/emulator/{$realm.emulator}.png" style="width: 90px;"></img>
+							<img src="{$url}application/images/emulator/{$realm.emulator}.png" width="90"></img>
 						</div>
 					</div>
 					<div class="widget-summary-col">

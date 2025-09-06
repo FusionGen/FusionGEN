@@ -1,5 +1,5 @@
 var Theme = {
-	
+
 	count: false,
 
 	initialize: function()
@@ -29,37 +29,39 @@ var Theme = {
 
 	select: function(name)
 	{
-			Swal.fire({
-			  title: 'Do you want to change the theme to "'+ name +'"?',
-			  showDenyButton: true,
-			  showCancelButton: false,
-			  confirmButtonText: 'Change',
-			  denyButtonText: `Don't change`,
-			  icon: 'question'
-			}).then((result) => {
-				if (result.isConfirmed) {
-					$.get(Config.URL + "admin/theme/set/" + name, function(data) {
-						if(data == "yes") {
-							Swal.fire({
-							  title: 'Theme was saved!',
-							  showDenyButton: false,
-							  showCancelButton: false,
-							  confirmButtonText: 'OK',
-							  icon: 'success'
-							}).then((result) => {
-								//Remove dsiabled from all button and set text to enabled
-								$("#all_themes .theme_action button").removeAttr("disabled");
-								$("#all_themes .theme_action button").text("Enable");
-								
-								//Add to button disabled state and current Text
-								$("#btn-"+ name).attr("disabled", "true");
-								$("#btn-"+ name).text("Current");
-							});
-						} else {
-							Swal.fire(data, '', 'info');
-						}
-					});
-				}
-			})
+		Swal.fire({
+			theme: 'dark',
+			title: 'Do you want to change the theme to "'+ name +'"?',
+			showDenyButton: true,
+			showCancelButton: false,
+			confirmButtonText: 'Change',
+			denyButtonText: `Don't change`,
+			icon: 'question'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				$.get(Config.URL + "admin/theme/set/" + name, function(data) {
+					if(data == "yes") {
+						Swal.fire({
+							theme: 'dark',
+							title: 'Theme was saved!',
+							showDenyButton: false,
+							showCancelButton: false,
+							confirmButtonText: 'OK',
+							icon: 'success'
+						}).then((result) => {
+							//Remove dsiabled from all button and set text to enabled
+							$("#all_themes .theme_action button").removeAttr("disabled");
+							$("#all_themes .theme_action button").text("Enable");
+							
+							//Add to button disabled state and current Text
+							$("#btn-"+ name).attr("disabled", "true");
+							$("#btn-"+ name).text("Current");
+						});
+					} else {
+						Swal.fire({theme: 'dark', title: data, text: '', icon: 'info'});
+					}
+				});
+			}
+		})
 	}
 }

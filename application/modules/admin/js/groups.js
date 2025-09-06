@@ -1,5 +1,5 @@
 var Groups = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -30,6 +30,7 @@ var Groups = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this group?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -104,7 +105,6 @@ var Groups = {
 
 		$.post(Config.URL + this.Links.create, values, function(data)
 		{
-			console.log(data);
 			if(data == '1')
 			{
 				window.location.reload(true);
@@ -112,6 +112,7 @@ var Groups = {
 			else
 			{
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -147,10 +148,10 @@ var Groups = {
 
 		$.post(Config.URL + this.Links.save + id, values, function(data)
 		{
-			console.log(data);
 			if(data == '1')
 			{
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "The group has been saved!",
 				});
@@ -158,6 +159,7 @@ var Groups = {
 			else
 			{
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -190,6 +192,7 @@ var Groups = {
 		if(isYourself)
 		{
 			Swal.fire({
+			theme: 'dark',
 			title: 'Are you sure you want to remove yourself from this group?',
 			text: "You may revoke your admin panel access by doing so.",
 			icon: 'warning',
@@ -215,6 +218,7 @@ var Groups = {
 		field = $(field);
 		
 		Swal.fire({
+			theme: 'dark',
 			title: 'Add member',
 			html: '<input class="swal2-input" type="text" id="add_member_name" placeholder="Enter username..." autofocus>',
 		}).then(function(result) {
@@ -240,6 +244,7 @@ var Groups = {
 				if(response == "invalid")
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: "The account doesn't exist",

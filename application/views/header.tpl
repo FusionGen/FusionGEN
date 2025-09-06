@@ -11,7 +11,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 <html>
 	<head>
 		<title>{$title}</title>
-		
+
 		{if $extra_css}<link rel="stylesheet" href="{$path}{$extra_css}">{/if}
 		{*	{if !is_array($extra_css)}
 				<link rel="stylesheet" href="{$path}{$extra_css}">
@@ -23,20 +23,20 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 				{/strip}
 			{/if}
 		{/if} *}
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 		<link rel="icon" type="image/x-icon" href="{$favicon}">
-		
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
 		<!-- Search engine related -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="{$description}">
 		<meta name="keywords" content="{$keywords}">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-		
+
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 		<!-- Load scripts -->
 		<script src="{$url}application/js/html5shiv.js"></script>
 		<script src="{$url}application/js/jquery.min.js"></script>
@@ -83,7 +83,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 			}
 
 			var Config = {
-				URL: "{$url}",			
+				URL: "{$url}",
 				image_path: "{$image_path}",
 				CSRF: getCookie('csrf_cookie_name'),
 				language: "{$activeLanguage}",

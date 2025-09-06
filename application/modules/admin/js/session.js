@@ -10,6 +10,7 @@ var Session = {
 		};
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Are you sure?',
 			text: 'This will delete all sessions except those with your IP',
 			icon: 'warning',
@@ -19,14 +20,14 @@ var Session = {
 			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 		if (result.isConfirmed) {
-			Swal.fire(
-				'Deleted!',
-				'',
-				'success'
-			)
+			Swal.fire({
+				theme: 'dark',
+				title: 'Deleted!',
+				text: '',
+				icon: 'success',
+			})
 			$.post(Config.URL + 'admin/sessions/deleteSessions', data, function(data)
 			{
-				console.log(data);
 				if(data == '1')
 				{
 					window.location.reload(true);
@@ -34,9 +35,10 @@ var Session = {
 				else
 				{
 					Swal.fire({
-						icon: 'error',
+						theme: 'dark',
 						title: 'Oops...',
 						text: data,
+						icon: 'error',
 					})
 				}
 			});

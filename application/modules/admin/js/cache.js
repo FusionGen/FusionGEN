@@ -67,8 +67,6 @@ var Fusion_Cache = {
 
 	getPercent: function(part, whole)
 	{
-		console.log(part + " of " + whole);
-
 		if(!part || !whole)
 		{
 			return 0;
