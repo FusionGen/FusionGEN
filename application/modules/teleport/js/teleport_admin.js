@@ -1,5 +1,5 @@
 var Teleport = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -31,6 +31,7 @@ var Teleport = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this location?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -85,8 +86,8 @@ var Teleport = {
 			}
 			else
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -125,8 +126,8 @@ var Teleport = {
 			}
 			else
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -151,7 +152,6 @@ var Teleport = {
 				$("#dp_price").fadeOut(300);
 				$("#gold_price").fadeOut(300);
 			break;
-
 
 			case "vp":
 				if($("#gold_price").is(":visible"))

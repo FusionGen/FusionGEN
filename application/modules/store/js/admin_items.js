@@ -1,5 +1,5 @@
 var Items = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -31,6 +31,7 @@ var Items = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this "' + identifier + '"?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -58,6 +59,7 @@ var Items = {
 	removeGroup: function(id, element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this group and all of it\'s items?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -69,7 +71,6 @@ var Items = {
 		if (result.isConfirmed) {
 			$.get(Config.URL + "store/admin_items/deleteGroup/" + id, function(data)
 			{
-				console.log(data);
 				window.location.reload(true);
 			});
 		}
@@ -152,8 +153,8 @@ var Items = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -195,8 +196,8 @@ var Items = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,
@@ -247,16 +248,16 @@ var Items = {
 		{
 			if(response == "yes")
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: "success",
 					title: "Group has been changed!",
 				});
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,

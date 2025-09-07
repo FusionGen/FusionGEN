@@ -57,6 +57,13 @@ class CI_Log {
 	protected $_log_path;
 
 	/**
+	 * Log filename
+	 *
+	 * @var string
+	 */
+	protected $_log_filename;
+
+	/**
 	 * File permissions
 	 *
 	 * @var	int
@@ -83,13 +90,6 @@ class CI_Log {
 	 * @var string
 	 */
 	protected $_date_fmt = 'Y-m-d H:i:s';
-
-	/**
-	 * Filename extension
-	 *
-	 * @var	string
-	 */
-	protected $_file_ext;
 
 	/**
 	 * Whether or not the logger can write to the log files
@@ -125,9 +125,11 @@ class CI_Log {
 
 		isset(self::$func_overload) OR self::$func_overload = ( ! is_php('8.0') && extension_loaded('mbstring') && @ini_get('mbstring.func_overload'));
 
-		$this->_log_path = ($config['log_path'] !== '') ? $config['log_path'] : APPPATH.'logs/';
-		$this->_file_ext = (isset($config['log_file_extension']) && $config['log_file_extension'] !== '')
-			? ltrim($config['log_file_extension'], '.') : 'php';
+		$this->_log_path = ($config['log_path'] !== '')
+			? rtrim($config['log_path'], '/\\').DIRECTORY_SEPARATOR : APPPATH.'logs'.DIRECTORY_SEPARATOR;
+
+		$this->_log_filename = (isset($config['log_filename']) && $config['log_filename'] !== '')
+			? $config['log_filename'] : 'log-'.date('Y-m-d').'.php';
 
 		file_exists($this->_log_path) OR mkdir($this->_log_path, 0755, TRUE);
 
@@ -183,14 +185,14 @@ class CI_Log {
 			return FALSE;
 		}
 
-		$filepath = $this->_log_path.'log-'.date('Y-m-d').'.'.$this->_file_ext;
+		$filepath = $this->_log_path.$this->_log_filename;
 		$message = '';
 
 		if ( ! file_exists($filepath))
 		{
 			$newfile = TRUE;
 			// Only add protection to php files
-			if ($this->_file_ext === 'php')
+			if (substr($this->_log_filename, -3, 3) === 'php')
 			{
 				$message .= "<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>\n\n";
 			}
@@ -284,9 +286,6 @@ class CI_Log {
 	{
 		if (self::$func_overload)
 		{
-			// mb_substr($str, $start, null, '8bit') returns an empty
-			// string on PHP 5.3
-			isset($length) OR $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
 			return mb_substr($str, $start, $length, '8bit');
 		}
 

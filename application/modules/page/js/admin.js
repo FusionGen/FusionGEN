@@ -4,19 +4,21 @@ var Pages = {
 	{
 		var row = $(element).parents("tr");
 		Swal.fire({
-		title: 'Are you sure?',
-		icon: 'warning',
-		showCancelButton: true,
-		confirmButtonColor: '#3085d6',
-		cancelButtonColor: '#d33',
-		confirmButtonText: 'Yes, delete it!'
+			theme: 'dark',
+			title: 'Are you sure?',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 		if (result.isConfirmed) {
-		Swal.fire(
-		'Deleted!',
-		'',
-		'success'
-		)
+			Swal.fire({
+				theme: 'dark',
+				icon: 'success',
+				title: 'Deleted!',
+				text: ''
+			})
 			$("#page_count").html(parseInt($("#page_count").html()) - 1);
 
 			row.hide(300, function() {
@@ -52,6 +54,7 @@ var Pages = {
 				else
 				{
 					Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: (response),

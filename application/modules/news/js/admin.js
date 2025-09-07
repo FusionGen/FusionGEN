@@ -5,19 +5,21 @@ var News = {
 	{
 		var row = $(element).parents("tr");
 		Swal.fire({
-		title: 'Are you sure?',
-		icon: 'warning',
-		showCancelButton: true,
-		confirmButtonColor: '#3085d6',
-		cancelButtonColor: '#d33',
-		confirmButtonText: 'Yes, delete it!'
+			theme: 'dark',
+			title: 'Are you sure?',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 		if (result.isConfirmed) {
-			Swal.fire(
-				'Deleted!',
-				'',
-				'success'
-			)
+			Swal.fire({
+				theme: 'dark',
+				icon: 'success',
+				title: 'Deleted!',
+				text: ''
+			})
 			$("#page_count").html(parseInt($("#page_count").html()) - 1);
 
 			row.hide(300, function() {
@@ -57,11 +59,9 @@ var News = {
 						var reader = new FileReader();
 						reader.onload = function (e) {
 							$('#image_preview').append("<img src='"+ e.target.result +"'>");
-							console.log(e.target.result);
 						}
 						reader.readAsDataURL(file);
 					}
-					console.log(file);
 				}
 			}
 		}
@@ -70,13 +70,13 @@ var News = {
 	send: function(form, id)
 	{
 		require([Config.URL + "application/js/tiny_mce/tinymce.min.js"], function () {
-		
+
 			tinyMCE.triggerSave();
-			
+
 			var files =  News.imagesloader.data('format.imagesloader').AttachmentArray;
 			var il =  News.imagesloader.data('format.imagesloader');
 			var fd = new FormData();
-			
+
 			if(News.selectedType == 1) {
 				if (il.CheckValidity()) {
 					var fileNames = [];
@@ -85,12 +85,12 @@ var News = {
 						fd.append("type_image[]", file["File"]);
 						fileNames.push(file["FileName"]);
 					} 
-					
-					fd.append("fileNames", 					fileNames);
+
+					fd.append("fileNames", fileNames);
 				} else {
 					return;
-				}					
-			} 			
+				}
+			}
 
 			fd.append("type",            $("#type").val());
 			fd.append("avatar",          $("#avatar").is(":checked"));
@@ -118,7 +118,7 @@ var News = {
 			fd.append("csrf_token_name", Config.CSRF);
 			fd.append("type_content",    "");
 			fd.append("type_video",      $('#type_video').val());
-			
+
 			for (var pair of fd.entries()) {
 				console.log(pair[0]+ ', ' + pair[1]); 
 			}
@@ -131,12 +131,12 @@ var News = {
 				contentType: false,
 				processData: false,
 				success: function (response) {
-					if(response == "yes")	{
+					if(response == "yes") {
 						console.log(response);
 						window.location = Config.URL + "news/admin";
 					} else {
-						console.log(response);
 						Swal.fire({
+							theme: 'dark',
 							icon: 'error',
 							title: 'Oops...',
 							text: (response),
@@ -147,7 +147,7 @@ var News = {
 			});
 		});
 	},
-	
+
 	changeType: function(element)
 	{
 		switch(element.value)
@@ -174,4 +174,3 @@ var News = {
 		}
 	},
 }
-	

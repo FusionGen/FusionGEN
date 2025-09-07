@@ -70,20 +70,6 @@ class CI_DB_oci8_driver extends CI_DB {
 	public $dbdriver = 'oci8';
 
 	/**
-	 * Statement ID
-	 *
-	 * @var	resource
-	 */
-	public $stmt_id;
-
-	/**
-	 * Cursor ID
-	 *
-	 * @var	resource
-	 */
-	public $curs_id;
-
-	/**
 	 * Commit mode flag
 	 *
 	 * @var	int
@@ -100,15 +86,27 @@ class CI_DB_oci8_driver extends CI_DB {
 	 */
 	public $limit_used = FALSE;
 
-	// --------------------------------------------------------------------
+	/**
+	 * Error cache
+	 *
+	 * Cached error info about failed queries.
+	 * Used so that statement IDs can be released immediately.
+	 *
+	 * @var	array|false
+	 */
+	protected $_error = FALSE;
 
 	/**
-	 * Reset $stmt_id flag
+	 * Affected rows
 	 *
-	 * Used by stored_procedure() to prevent _execute() from
-	 * re-setting the statement ID.
+	 * Cached result of oci_num_rows().
+	 * Used so that statement IDs can be released immediately.
+	 *
+	 * @var	int|false
 	 */
-	protected $_reset_stmt_id = TRUE;
+	protected $_affected_rows = FALSE;
+
+	// --------------------------------------------------------------------
 
 	/**
 	 * List of reserved identifiers
@@ -278,104 +276,19 @@ class CI_DB_oci8_driver extends CI_DB {
 		/* Oracle must parse the query before it is run. All of the actions with
 		 * the query are based on the statement id returned by oci_parse().
 		 */
-		if ($this->_reset_stmt_id === TRUE)
+		$this->result_id = oci_parse($this->conn_id, $sql);
+		oci_set_prefetch($this->result_id, 1000);
+		$result = oci_execute($this->result_id, $this->commit_mode);
+		$this->_error = oci_error($this->result_id);
+		$this->is_write_type($sql) && $this->_affected_rows = oci_num_rows($this->result_id);
+
+		if ($this->is_write_type($sql) OR $result === FALSE)
 		{
-			$this->stmt_id = oci_parse($this->conn_id, $sql);
+			oci_free_statement($this->result_id);
+			return $result;
 		}
 
-		oci_set_prefetch($this->stmt_id, 1000);
-		return oci_execute($this->stmt_id, $this->commit_mode);
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Get cursor. Returns a cursor from the database
-	 *
-	 * @return	resource
-	 */
-	public function get_cursor()
-	{
-		return $this->curs_id = oci_new_cursor($this->conn_id);
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Stored Procedure.  Executes a stored procedure
-	 *
-	 * @param	string	package name in which the stored procedure is in
-	 * @param	string	stored procedure name to execute
-	 * @param	array	parameters
-	 * @return	mixed
-	 *
-	 * params array keys
-	 *
-	 * KEY      OPTIONAL  NOTES
-	 * name     no        the name of the parameter should be in :<param_name> format
-	 * value    no        the value of the parameter.  If this is an OUT or IN OUT parameter,
-	 *                    this should be a reference to a variable
-	 * type     yes       the type of the parameter
-	 * length   yes       the max size of the parameter
-	 */
-	public function stored_procedure($package, $procedure, array $params)
-	{
-		if ($package === '' OR $procedure === '')
-		{
-			log_message('error', 'Invalid query: '.$package.'.'.$procedure);
-			return ($this->db_debug) ? $this->display_error('db_invalid_query') : FALSE;
-		}
-
-		// Build the query string
-		$sql = 'BEGIN '.$package.'.'.$procedure.'(';
-
-		$have_cursor = FALSE;
-		foreach ($params as $param)
-		{
-			$sql .= $param['name'].',';
-
-			if (isset($param['type']) && $param['type'] === OCI_B_CURSOR)
-			{
-				$have_cursor = TRUE;
-			}
-		}
-		$sql = trim($sql, ',').'); END;';
-
-		$this->_reset_stmt_id = FALSE;
-		$this->stmt_id = oci_parse($this->conn_id, $sql);
-		$this->_bind_params($params);
-		$result = $this->query($sql, FALSE, $have_cursor);
-		$this->_reset_stmt_id = TRUE;
-		return $result;
-	}
-
-	// --------------------------------------------------------------------
-
-	/**
-	 * Bind parameters
-	 *
-	 * @param	array	$params
-	 * @return	void
-	 */
-	protected function _bind_params($params)
-	{
-		if ( ! is_array($params) OR ! is_resource($this->stmt_id))
-		{
-			return;
-		}
-
-		foreach ($params as $param)
-		{
-			foreach (array('name', 'value', 'type', 'length') as $val)
-			{
-				if ( ! isset($param[$val]))
-				{
-					$param[$val] = '';
-				}
-			}
-
-			oci_bind_by_name($this->stmt_id, $param['name'], $param['value'], $param['length'], $param['type']);
-		}
+		return $this->result_id;
 	}
 
 	// --------------------------------------------------------------------
@@ -427,7 +340,7 @@ class CI_DB_oci8_driver extends CI_DB {
 	 */
 	public function affected_rows()
 	{
-		return oci_num_rows($this->stmt_id);
+		return $this->_affected_rows;
 	}
 
 	// --------------------------------------------------------------------
@@ -560,18 +473,15 @@ class CI_DB_oci8_driver extends CI_DB {
 	 */
 	public function error()
 	{
+		if ( ! empty($this->_error))
+		{
+			return $this->_error;
+		}
+
 		// oci_error() returns an array that already contains
 		// 'code' and 'message' keys, but it can return false
 		// if there was no error ....
-		if (is_resource($this->curs_id))
-		{
-			$error = oci_error($this->curs_id);
-		}
-		elseif (is_resource($this->stmt_id))
-		{
-			$error = oci_error($this->stmt_id);
-		}
-		elseif (is_resource($this->conn_id))
+		if (is_resource($this->conn_id))
 		{
 			$error = oci_error($this->conn_id);
 		}
@@ -683,14 +593,9 @@ class CI_DB_oci8_driver extends CI_DB {
 	 */
 	protected function _close()
 	{
-		if (is_resource($this->curs_id))
+		if (is_resource($this->result_id))
 		{
-			oci_free_statement($this->curs_id);
-		}
-
-		if (is_resource($this->stmt_id))
-		{
-			oci_free_statement($this->stmt_id);
+			oci_free_statement($this->result_id);
 		}
 
 		oci_close($this->conn_id);
