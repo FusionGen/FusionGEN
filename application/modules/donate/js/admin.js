@@ -3,11 +3,11 @@ var Donate = {
 	loadMoreCount: 10,
     logCount: 0,
     logid: 0,
-	
+
 	search: function(type)
 	{
 		var string = $("#search_" + type).val();
-		
+
 		$("#donate_list_" + type).html('<i class="fa-solid fa-spinner fa-xl fa-spin"></i>');
 	
 		$.post(Config.URL + "donate/admin/search/" + type, {string: string, csrf_token_name: Config.CSRF}, function(data)
@@ -37,6 +37,7 @@ var Donate = {
     addValue: function()
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Add value',
 			html: '<input type="text" id="price" class="swal2-input" placeholder="Price" value=""><br><input id="points" class="swal2-input" placeholder="Points" value="">',
 		}).then(function(result) {
@@ -52,6 +53,7 @@ var Donate = {
                     var id = data;
 
 					Swal.fire({
+						theme: 'dark',
 						icon: "success",
 						title: 'Value added',
 					});
@@ -67,8 +69,8 @@ var Donate = {
 				}
 				else
 				{
-					console.log(data);
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: data,
@@ -81,9 +83,8 @@ var Donate = {
 
     updateValue: function(id, price, points)
 	{
-        console.log(price);
-
 		Swal.fire({
+			theme: 'dark',
 			title: 'Update value',
 			html: '<input type="text" id="price" class="swal2-input" placeholder="Price" value="' + price + '"><br><input id="points" class="swal2-input" placeholder="Points" value="' + points + '">',
 		}).then(function(result) {
@@ -100,8 +101,8 @@ var Donate = {
 				}
 				else
 				{
-					console.log(data);
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: data,
@@ -111,10 +112,11 @@ var Donate = {
 		}
 		})
 	},
-    
+
     deleteValue: function(id, element)
 	{
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this value?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -137,7 +139,7 @@ var Donate = {
 		}
 		})
 	},
-    
+
     loadMore: function()
 	{
 		this.logid++;

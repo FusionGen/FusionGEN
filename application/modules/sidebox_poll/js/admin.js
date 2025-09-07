@@ -1,5 +1,5 @@
 var Poll = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -35,6 +35,7 @@ var Poll = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this poll?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -88,8 +89,8 @@ var Poll = {
 			}
 			else
 			{
-				console.log(data);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: data,

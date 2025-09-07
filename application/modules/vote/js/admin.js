@@ -1,5 +1,5 @@
 var Topsites = {
-	
+
 	/**
 	 * General identifier used on #{ID}_count, #add_{ID}, #{ID}_list and #main_{ID}
 	 */
@@ -32,6 +32,7 @@ var Topsites = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Do you really want to delete this vote site?',
 			text: "You won't be able to revert this!",
 			icon: 'warning',
@@ -80,8 +81,8 @@ var Topsites = {
 			}
 			else
 			{
-				console.log(values);
 				Swal.fire({
+					theme: 'dark',
 					icon: 'error',
 					title: 'Oops...',
 					text: response,
@@ -113,7 +114,6 @@ var Topsites = {
 
 		$.post(Config.URL + this.Links.save + id, values, function(data)
 		{
-			console.log(data);
 			eval(data);
 		});
 	},
@@ -218,29 +218,29 @@ var Topsites = {
 	}
 }
 	
-	var dropdown = {
-		initialize: function()
-		{
-			$(document).ready(function() {
-				dropdown.create('.dropdown');
-			});
-		},
-		
-		create: function(element)
-		{
-			$(element)
-				.not('[data-dropdown-initialized]')
-				.attr('data-dropdown-initialized', 'true')
-				.children('h3')
-				.bind('click', function() 
-				{
-					$(this).next('div').slideToggle(200, function() {
+var dropdown = {
+	initialize: function()
+	{
+		$(document).ready(function() {
+			dropdown.create('.dropdown');
+		});
+	},
+	
+	create: function(element)
+	{
+		$(element)
+			.not('[data-dropdown-initialized]')
+			.attr('data-dropdown-initialized', 'true')
+			.children('h3')
+			.bind('click', function() 
+			{
+				$(this).next('div').slideToggle(200, function() {
 
-						if ($(this).is(':visible'))
-							$(this).parent('.dropdown').addClass('active');
-						else
-							$(this).parent('.dropdown').removeClass('active');
-					});
+					if ($(this).is(':visible'))
+						$(this).parent('.dropdown').addClass('active');
+					else
+						$(this).parent('.dropdown').removeClass('active');
 				});
-		}
+			});
 	}
+}

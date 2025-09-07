@@ -27,28 +27,29 @@ var Changelog = {
 			removeLink = this.Links.remove;
 
 		Swal.fire({
-				title: 'Do you really want to delete this ' + identifier + '?',
-				text: "You won't be able to revert this!",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
-			}).then((result) => {
-			if (result.isConfirmed) {
-				$("#" + identifier + "_count").html(parseInt($("#" + identifier + "_count").html()) - 1);
+			theme: 'dark',
+			title: 'Do you really want to delete this ' + identifier + '?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+		if (result.isConfirmed) {
+			$("#" + identifier + "_count").html(parseInt($("#" + identifier + "_count").html()) - 1);
 
-				$(element).parents(".card-header").slideUp(300, function()
-				{
-					$(this).remove();
-				});
+			$(element).parents(".card-header").slideUp(300, function()
+			{
+				$(this).remove();
+			});
 
-				$.get(Config.URL + removeLink + id, function(data)
-				{
-					console.log(data);
-				});
-			}
-			})
+			$.get(Config.URL + removeLink + id, function(data)
+			{
+				console.log(data);
+			});
+		}
+		})
 	},
 
 	/**
@@ -87,7 +88,6 @@ var Changelog = {
 			$.post(Config.URL + "changelog/admin/addChange/" + id, {csrf_token_name:Config.CSRF, change_message:change_message}, function(data)
 			{
 				data = JSON.parse(data);
-				console.log(data);
 				$("#headline_" + id).after('<li style="display:none;">' +
 						'<table width="100%">' +
 							'<tr>' +
@@ -117,29 +117,30 @@ var Changelog = {
 			removeLink = this.Links.removeCategory;
 		var entries = $(element).parents("tr").children("tr").length - 1;
 
-			Swal.fire({
-				title: 'Do you really want to delete this category and all it\'s entries?',
-				text: "You won't be able to revert this!",
-				icon: 'warning',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
-			}).then((result) => {
-			if (result.isConfirmed) {
-				$("#" + identifier + "_count").html(parseInt($("#" + identifier + "_count").html()) - entries);
+		Swal.fire({
+			theme: 'dark',
+			title: 'Do you really want to delete this category and all it\'s entries?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+		if (result.isConfirmed) {
+			$("#" + identifier + "_count").html(parseInt($("#" + identifier + "_count").html()) - entries);
 
-				$(element).parents("tr").slideUp(300, function()
-				{
-					$(this).remove();
-				});
+			$(element).parents("tr").slideUp(300, function()
+			{
+				$(this).remove();
+			});
 
-				$.get(Config.URL + removeLink + id, function(data)
-				{
-					console.log(data);
-				});
-			}
-			})
+			$.get(Config.URL + removeLink + id, function(data)
+			{
+				console.log(data);
+			});
+		}
+		})
 	},
 
 	renameCategory: function(id, field)
@@ -148,18 +149,20 @@ var Changelog = {
 		var renameHTML = '<input type="text" id="rename" value="' + nameField.html() + '">';
 
 		Swal.fire({
+			theme: 'dark',
 			title: 'Rename category',
 			html: renameHTML,
 			focusConfirm: false,
-			}).then((result) => {
-				var name = $("#rename").val();
-				nameField.html(name);
+		}).then((result) => {
+			var name = $("#rename").val();
+			nameField.html(name);
 
-				$.post(Config.URL + Changelog.Links.saveCategory + id, {csrf_token_name:Config.CSRF, typeName:name});
-					Swal.fire({
-					icon: 'success',
-					title: 'Category saved!',
-				})
+			$.post(Config.URL + Changelog.Links.saveCategory + id, {csrf_token_name:Config.CSRF, typeName:name});
+				Swal.fire({
+				theme: 'dark',
+				icon: 'success',
+				title: 'Category saved!',
 			})
+		})
 	}
 }

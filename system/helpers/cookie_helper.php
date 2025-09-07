@@ -60,7 +60,7 @@ if ( ! function_exists('set_cookie'))
 	 *
 	 * @param	mixed
 	 * @param	string	the value of the cookie
-	 * @param	string	the number of seconds until expiration
+	 * @param	int	the number of seconds until expiration
 	 * @param	string	the cookie domain.  Usually:  .yourdomain.com
 	 * @param	string	the cookie path
 	 * @param	string	the cookie prefix
@@ -86,9 +86,8 @@ if ( ! function_exists('get_cookie'))
 	 * @param	bool
 	 * @return	mixed
 	 */
-	function get_cookie($index, $xss_clean = NULL)
+	function get_cookie($index, $xss_clean = FALSE)
 	{
-		is_bool($xss_clean) OR $xss_clean = (config_item('global_xss_filtering') === TRUE);
 		$prefix = isset($_COOKIE[$index]) ? '' : config_item('cookie_prefix');
 		return get_instance()->input->cookie($prefix.$index, $xss_clean);
 	}

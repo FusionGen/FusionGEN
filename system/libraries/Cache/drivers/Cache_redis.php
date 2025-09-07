@@ -56,11 +56,11 @@ class CI_Cache_redis extends CI_Driver
 	 * @var	array
 	 */
 	protected static $_default_config = array(
-		'socket_type' => 'tcp',
 		'host' => '127.0.0.1',
 		'password' => NULL,
 		'port' => 6379,
-		'timeout' => 0
+		'timeout' => 0.0,
+		'database' => 0
 	);
 
 	/**
@@ -69,13 +69,6 @@ class CI_Cache_redis extends CI_Driver
 	 * @var	Redis
 	 */
 	protected $_redis;
-
-	/**
-	 * An internal cache for storing keys of serialized values.
-	 *
-	 * @var	array
-	 */
-	protected $_serialized = array();
 
 	/**
 	 * del()/delete() method name depending on phpRedis version
@@ -102,6 +95,7 @@ class CI_Cache_redis extends CI_Driver
 	 * if a Redis connection can't be established.
 	 *
 	 * @return	void
+	 * @throws	RedisException
 	 * @see		Redis::connect()
 	 */
 	public function __construct()
@@ -139,30 +133,21 @@ class CI_Cache_redis extends CI_Driver
 
 		$this->_redis = new Redis();
 
-		try
+		// The following calls used to be wrapped in a try ... catch
+		// and just log an error, but that only causes more errors later.
+		if ( ! $this->_redis->connect($config['host'], ($config['host'][0] === '/' ? 0 : $config['port']), $config['timeout']))
 		{
-			if ($config['socket_type'] === 'unix')
-			{
-				$success = $this->_redis->connect($config['socket']);
-			}
-			else // tcp socket
-			{
-				$success = $this->_redis->connect($config['host'], $config['port'], $config['timeout']);
-			}
-
-			if ( ! $success)
-			{
-				log_message('error', 'Cache: Redis connection failed. Check your configuration.');
-			}
-
-			if (isset($config['password']) && ! $this->_redis->auth($config['password']))
-			{
-				log_message('error', 'Cache: Redis authentication failed.');
-			}
+			log_message('error', 'Cache: Redis connection failed. Check your configuration.');
 		}
-		catch (RedisException $e)
+
+		if (isset($config['password']) && ! $this->_redis->auth($config['password']))
 		{
-			log_message('error', 'Cache: Redis connection refused ('.$e->getMessage().')');
+			log_message('error', 'Cache: Redis authentication failed.');
+		}
+
+		if (isset($config['database']) && $config['database'] > 0 && ! $this->_redis->select($config['database']))
+		{
+			log_message('error', 'Cache: Redis select database failed.');
 		}
 	}
 
@@ -176,14 +161,30 @@ class CI_Cache_redis extends CI_Driver
 	 */
 	public function get($key)
 	{
-		$value = $this->_redis->get($key);
+		$data = $this->_redis->hMGet($key, array('__ci_type', '__ci_value'));
 
-		if ($value !== FALSE && $this->_redis->sIsMember('_ci_redis_serialized', $key))
+		if ($data === FALSE || $this->_redis->sIsMember('_ci_redis_serialized', $key))
 		{
-			return unserialize($value);
+			return FALSE;
 		}
 
-		return $value;
+		switch ($data['__ci_type'])
+		{
+			case 'array':
+			case 'object':
+				return unserialize($data['__ci_value']);
+			case 'boolean':
+			case 'integer':
+			case 'double': // Yes, 'double' is returned and NOT 'float'
+			case 'string':
+			case 'NULL':
+				return settype($data['__ci_value'], $data['__ci_type'])
+					? $data['__ci_value']
+					: FALSE;
+			case 'resource':
+			default:
+				return FALSE;
+		}
 	}
 
 	// ------------------------------------------------------------------------
@@ -199,22 +200,34 @@ class CI_Cache_redis extends CI_Driver
 	 */
 	public function save($id, $data, $ttl = 60, $raw = FALSE)
 	{
-		if (is_array($data) OR is_object($data))
+		switch ($data_type = gettype($data))
 		{
-			if ( ! $this->_redis->sIsMember('_ci_redis_serialized', $id) && ! $this->_redis->sAdd('_ci_redis_serialized', $id))
-			{
+			case 'array':
+			case 'object':
+				$data = serialize($data);
+				break;
+			case 'boolean':
+			case 'integer':
+			case 'double': // Yes, 'double' is returned and NOT 'float'
+			case 'string':
+			case 'NULL':
+				break;
+			case 'resource':
+			default:
 				return FALSE;
-			}
+		}
 
-			isset($this->_serialized[$id]) OR $this->_serialized[$id] = TRUE;
-			$data = serialize($data);
+		if ( ! $this->_redis->hMSet($id, array('__ci_type' => $data_type, '__ci_value' => $data)))
+		{
+			return FALSE;
 		}
 		else
 		{
+			$this->_redis->expireAt($id, time() + $ttl);
 			$this->_redis->{static::$_sRemove_name}('_ci_redis_serialized', $id);
 		}
 
-		return $this->_redis->set($id, $data, $ttl);
+		return TRUE;
 	}
 
 	// ------------------------------------------------------------------------

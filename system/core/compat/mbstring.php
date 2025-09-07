@@ -66,7 +66,7 @@ if ( ! function_exists('mb_strlen'))
 	 * WARNING: This function WILL fall-back to strlen()
 	 * if iconv is not available!
 	 *
-	 * @link	http://php.net/mb_strlen
+	 * @link	https://secure.php.net/mb_strlen
 	 * @param	string	$str
 	 * @param	string	$encoding
 	 * @return	int
@@ -93,7 +93,7 @@ if ( ! function_exists('mb_strpos'))
 	 * WARNING: This function WILL fall-back to strpos()
 	 * if iconv is not available!
 	 *
-	 * @link	http://php.net/mb_strpos
+	 * @link	https://secure.php.net/mb_strpos
 	 * @param	string	$haystack
 	 * @param	string	$needle
 	 * @param	int	$offset
@@ -122,7 +122,7 @@ if ( ! function_exists('mb_substr'))
 	 * WARNING: This function WILL fall-back to substr()
 	 * if iconv is not available.
 	 *
-	 * @link	http://php.net/mb_substr
+	 * @link	https://secure.php.net/mb_substr
 	 * @param	string	$str
 	 * @param	int	$start
 	 * @param	int 	$length

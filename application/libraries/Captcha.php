@@ -154,7 +154,7 @@ class Captcha
             'img_url'       => pageURL . '/uploads/captcha/',
 
             'img_width'     => $width,
-              'img_height'    => $height,
+            'img_height'    => $height,
 
             'font_size'     => 16,
             'font_path'     => APPPATH . 'fonts/Roboto-Regular.ttf',
@@ -173,8 +173,8 @@ class Captcha
         // Define the headers and output it
         header("Cache-Control: no-cache, must-revalidate");
         header("Content-type: image/png");
-        $image = imagecreatefromjpeg($vals["img_path"] . $cap["filename"]);
-        imagejpeg($image);
+        $image = imagecreatefrompng($vals["img_path"] . $cap["filename"]);
+        imagepng($image);
 
         //Delete Captcha after view
         unlink($vals["img_path"] . $cap["filename"]);
