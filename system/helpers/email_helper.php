@@ -39,40 +39,47 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Model Class
+ * CodeIgniter Email Helpers
  *
  * @package		CodeIgniter
- * @subpackage	Libraries
- * @category	Libraries
+ * @subpackage	Helpers
+ * @category	Helpers
  * @author		EllisLab Dev Team
- * @link		https://codeigniter.com/userguide3/libraries/config.html
+ * @link		https://codeigniter.com/userguide3/helpers/email_helper.html
  */
-#[AllowDynamicProperties]
-class CI_Model {
 
-	/**
-	 * Class constructor
-	 *
-	 * @link	https://github.com/bcit-ci/CodeIgniter/issues/5332
-	 * @return	void
-	 */
-	public function __construct() {}
+// ------------------------------------------------------------------------
 
+if ( ! function_exists('valid_email'))
+{
 	/**
-	 * __get magic
+	 * Validate email address
 	 *
-	 * Allows models to access CI's loaded classes using the same
-	 * syntax as controllers.
-	 *
-	 * @param	string	$key
+	 * @deprecated	3.0.0	Use PHP's filter_var() instead
+	 * @param	string	$email
+	 * @return	bool
 	 */
-	public function __get($key)
+	function valid_email($email)
 	{
-		// Debugging note:
-		//	If you're here because you're getting an error message
-		//	saying 'Undefined Property: system/core/Model.php', it's
-		//	most likely a typo in your model code.
-		return get_instance()->$key;
+		return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
 	}
+}
 
+// ------------------------------------------------------------------------
+
+if ( ! function_exists('send_email'))
+{
+	/**
+	 * Send an email
+	 *
+	 * @deprecated	3.0.0	Use PHP's mail() instead
+	 * @param	string	$recipient
+	 * @param	string	$subject
+	 * @param	string	$message
+	 * @return	bool
+	 */
+	function send_email($recipient, $subject, $message)
+	{
+		return mail($recipient, $subject, $message);
+	}
 }
