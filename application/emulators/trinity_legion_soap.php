@@ -182,7 +182,7 @@ class Trinity_legion_soap implements Emulator
         ),
 
         'gm_tickets' => array(
-            'ticketId'   => 'Id',
+            'ticketId'   => 'id',
             'guid'       => 'playerGuid',
             'message'    => 'note',
             'createTime' => 'createTime',
