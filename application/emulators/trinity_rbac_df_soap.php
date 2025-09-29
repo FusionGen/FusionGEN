@@ -185,7 +185,7 @@ class Trinity_rbac_df_soap implements Emulator
         ),
 
         'gm_tickets' => array(
-            'ticketId'   => 'Id',
+            'ticketId'   => 'id',
             'guid'       => 'playerGuid',
             'message'    => 'note',
             'createTime' => 'createTime',
