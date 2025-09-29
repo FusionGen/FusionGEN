@@ -23,7 +23,7 @@ class Mod extends MX_Controller
         $data = array(
             'url' => pageURL,
             'modlogs' => $modlogs,
-            'tickets' => $this->getTickets(),
+            'tickets' => $this->getTickets()
         );
 
         // Load my view

@@ -58,9 +58,9 @@
 			</table>
 		</div>
 	</div>
-	<div class="text-center mt-2">
-		<span class="font-weight-bold">Want a new look?</span> Get more themes from <a href="https://fusiongen.net/marketplace" target="_blank">the official FusionGEN marketplace</a>
-	</div>
+	<!-- <div class="text-center mt-2">
+		<span class="font-weight-bold">Want a new look?</span> Get more themes from <a href="https://github.com/FusionGen" target="_blank">the official FusionGEN marketplace</a>
+	</div> -->
 </div>
 
 <script>
