@@ -1,7 +1,7 @@
 <div class="row">
 <div class="col-lg-4 mb-3">
 <div id="card">
-	<div class="card-body">
+	<div class="card-body p-3">
 		<div class="widget-profile-info">
 			<div class="profile-picture">
 				<img class="avatar" src="{$url}application/images/avatars/{$avatar}.gif">
@@ -19,7 +19,7 @@
 </div>
 <div class="col-lg-8">
 <div id="card">
-	<div class="card-body">
+	<div class="card-body p-3">
 	<div class="form-group row">
 	<label class="col-lg-3 col-form-label form-control-label" for="side">Ticket</label>
 	<div class="col-lg-9 align-self-center">

@@ -37,7 +37,7 @@
 
 <div class="alert alert-info" role="alert">
 	<i class="fa-solid fa-circle-info"></i> Third-party modules might not be supported! Use them at your own risk.<br>
-	<!-- You can download tested modules <a href="https://fusiongen.net/marketplace/" class="alert-link" target="_blank">here</a> -->
+	<!-- You can download tested modules <a href="https://github.com/FusionGen" class="alert-link" target="_blank">here</a> -->
 </div>
 
 <script>
