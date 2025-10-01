@@ -146,8 +146,8 @@
 					<img src="{$url}application/themes/admin/assets/images/WoW_icon.svg" width="35" height="35">
 					<span class="text-light font-weight-normal">{$serverName}</span>
 				</a>
-				<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
-					<i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+				<div class="d-md-none toggle-sidebar-left" role="button" tabindex="0" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened" aria-label="Toggle sidebar">
+					<i class="fas fa-bars"></i>
 				</div>
 			</div>
 			<!-- start: search & user box -->
@@ -172,18 +172,18 @@
 					</a>
 
 					<div class="dropdown-menu">
-						<ul class="list-unstyled mb-2">
+						<ul role="menu" class="list-unstyled mb-2">
 							<li class="divider"></li>
 							{if hasPermission("view", "admin")}
-							<li>
-								<a role="menuitem" tabindex="-1" href="{$url}admin"><i class="fas fa-shield"></i> Admin Panel</a>
+							<li role="menuitem" tabindex="-1">
+								<a href="{$url}admin"><i class="fas fa-shield"></i> Admin Panel</a>
 							</li>
 							{/if}
-							<li>
-								<a role="menuitem" tabindex="-1" href="{$url}ucp"><i class="fas fa-user-circle"></i> UCP</a>
+							<li role="menuitem" tabindex="-1">
+								<a href="{$url}ucp"><i class="fas fa-user-circle"></i> UCP</a>
 							</li>
-							<li>
-								<a role="menuitem" tabindex="-1" href="{$url}logout"><i class="fas fa-right-from-bracket"></i> Logout</a>
+							<li role="menuitem" tabindex="-1">
+								<a href="{$url}logout"><i class="fas fa-right-from-bracket"></i> Logout</a>
 							</li>
 						</ul>
 					</div>
@@ -251,14 +251,14 @@
 			    <div class="sidebar-title ms-2">
 			        Navigation
 			    </div>
-			    <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-			        <i class="fa-solid fa-bars" aria-label="Toggle sidebar"></i>
+			    <div class="sidebar-toggle d-none d-md-block" role="button" tabindex="0" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle" aria-label="Toggle sidebar">
+			        <i class="fa-solid fa-bars"></i>
 			    </div>
 			</div>
 
 			<div class="nano">
 			    <div class="nano-content">
-			        <nav id="menu" class="nav-main" role="navigation">
+			        <nav id="menu" class="nav-main">
 			            <ul class="nav nav-main">
 						<li {if $current_page == "mod/"}class="nav-active nav-expanded"{/if}>
 							<a class="nav-link" href="{$url}mod"><i class="fas fa-house-laptop"></i> <span>Dashboard</span></a>

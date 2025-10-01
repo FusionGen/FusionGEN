@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="fixed dark">
+<html class="fixed dark" lang="zxx">
 	<head>
 		<title>{if $title}{$title}{/if}{$serverName}</title>
 
@@ -147,24 +147,26 @@
 	<div class="wrapper">
 	<!-- Preloader -->
 	<div class="preloader">
-		<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" class="preloader-img"  height="60" width="60">
+		<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" alt="" class="preloader-img" height="60" width="60">
 	</div>
 	</div>
 	<section class="body">
 		<header class="header">
 			<div class="logo-container">
 				<a href="{$url}admin" class="logo">
-					<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" width="35" height="35">
+					<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" alt="" width="35" height="35">
 					<span class="text-light font-weight-normal">{$serverName}</span>
 				</a>
-				<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
-					<i class="fa-solid fa-bars" aria-label="Toggle sidebar"></i>
+				<div class="d-md-none toggle-sidebar-left" role="button" tabindex="0" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened" aria-label="Toggle sidebar">
+					<i class="fa-solid fa-bars"></i>
 				</div>
 			</div>
 			<!-- start: user box -->
 				<div class="header-right">
 					<ul class="notifications" id="realmstatus">
-						<i class="fas fa-spinner fa-pulse"></i>
+						<li>
+							<i class="fas fa-spinner fa-pulse"></i>
+						</li>
 					</ul>
 
 					<script>
@@ -186,7 +188,9 @@
 					<span class="separator"></span>
 
 					<ul class="notifications">
-						<a href="{$url}" target="_blank"><i class="fa-solid fa-house fa-2x"></i></a>
+						<li>
+							<a href="{$url}" target="_blank"><i class="fa-solid fa-house fa-2x"></i></a>
+						</li>
 					</ul>
 
 					<span class="separator"></span>
@@ -225,19 +229,19 @@
 						</a>
 
 						<div class="dropdown-menu">
-							<ul class="list-unstyled mb-2">
+							<ul role="menu" class="list-unstyled mb-2">
 								<li class="divider"></li>
-								<li>
-									<a role="menuitem" tabindex="-1" href="{$url}mod"><i class="fa-solid fa-shield"></i> Mod Panel</a>
+								<li role="menuitem" tabindex="-1">
+									<a href="{$url}mod"><i class="fa-solid fa-shield"></i> Mod Panel</a>
 								</li>
-								<li>
-									<a role="menuitem" tabindex="-1" href="{$url}ucp"><i class="fa-solid fa-user-circle"></i> UCP</a>
+								<li role="menuitem" tabindex="-1">
+									<a href="{$url}ucp"><i class="fa-solid fa-user-circle"></i> UCP</a>
 								</li>
-								<li>
-									<a role="menuitem" tabindex="-1" href="javascript:void(0)" data-lock-screen="true" onClick="Custom.destroySession()"><i class="fa-solid fa-lock"></i> Lock Screen</a>
+								<li role="menuitem" tabindex="-1">
+									<a href="javascript:void(0)" data-lock-screen="true" onClick="Custom.destroySession()"><i class="fa-solid fa-lock"></i> Lock Screen</a>
 								</li>
-								<li>
-									<a role="menuitem" tabindex="-1" href="{$url}logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+								<li role="menuitem" tabindex="-1">
+									<a href="{$url}logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 								</li>
 							</ul>
 						</div>
@@ -305,14 +309,14 @@
 			    <div class="sidebar-title ms-2">
 			        Navigation
 			    </div>
-			    <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-			        <i class="fa-solid fa-bars" aria-label="Toggle sidebar"></i>
+			    <div class="sidebar-toggle d-none d-md-block" role="button" tabindex="0" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle" aria-label="Toggle sidebar">
+			        <i class="fa-solid fa-bars"></i>
 			    </div>
 			</div>
 
 			<div class="nano">
 			    <div class="nano-content">
-			        <nav id="menu" class="nav-main" role="navigation">
+			        <nav id="menu" class="nav-main">
 			            <ul class="nav nav-main">
 						<li {if $current_page == "admin/"}class="nav-active nav-expanded"{/if}>
 							<a class="nav-link" href="{$url}admin"><i class="fa-solid fa-house-laptop"></i><span>Dashboard</span></a>
@@ -336,10 +340,10 @@
 
 						{foreach from=$menu item=group key=text}
 						{if count($group.links)}
-						<li onclick="AdminMenu.openSection({$group.nr})" nr="{$group.nr}" class="nav-parent {if isset($group.active)}nav-expanded nav-active{/if} admin_section_icon">
+						<li onclick="AdminMenu.openSection({$group.nr})" data-nr="{$group.nr}" class="nav-parent {if isset($group.active)}nav-expanded nav-active{/if} admin_section_icon">
 							<a href="#" class="nav-link"><i class="fa-solid fa-{$group.icon}" aria-hidden="true"></i><span>{$text}</span></a>
 
-						<ul class="nav nav-children admin_section" nr="{$group.nr}" style="display:{if isset($group.active)}block{/if};">
+						<ul class="nav nav-children admin_section" data-nr="{$group.nr}" style="display:{if isset($group.active)}block{else}none{/if};">
 							{foreach from=$group.links item=link}
 								<li {if isset($link.active)}class="nav-active"{/if}>
 									<a class="nav-link" href="{$url}{$link.module}/{$link.controller}"><i class="fa-solid fa-{$link.icon}"></i><span>{$link.text}</span></a>
