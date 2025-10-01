@@ -20,7 +20,7 @@
             </h2>
 
             <div id="visitorsSelectorItems" class="chart-data-selector-items mt-3">
-                <div class="chart chart-sm" data-graph-rel="Monthly" id="graphData1" class="chart-active" style="height: 200px;"></div>
+                <div class="chart chart-sm chart-active" data-graph-rel="Monthly" id="graphData1" style="height: 200px;"></div>
                 <script>
                     var monthNames = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                     var monthlyData = [{
@@ -39,7 +39,7 @@
                     }];
                 </script>
 
-                <div class="chart chart-sm" data-graph-rel="Daily" id="graphData2" class="chart-hidden" style="height: 200px;"></div>
+                <div class="chart chart-sm chart-hidden" data-graph-rel="Daily" id="graphData2" style="height: 200px;"></div>
 
                 <script>
                     var dailyData = [{
@@ -114,7 +114,6 @@
                 defaultTheme: false
             }
         });
-
     }
 
     if( $('#graphData2').get(0) )
@@ -234,6 +233,7 @@
         </table>
         </div>
     </div>
+</section>
 </div>
 
 <div class="col-lg-6 col-xl-4">
@@ -268,6 +268,7 @@
         </table>
         </div>
     </div>
+</section>
 </div>
 </div>
 </div>
@@ -366,3 +367,4 @@
 
     checkSoap.check();
 </script>
+</div>

@@ -39,7 +39,7 @@ class Tickets_model extends CI_Model
                 return [];
             }
         } else {
-            return [];
+            return false;
         }
     }
 
