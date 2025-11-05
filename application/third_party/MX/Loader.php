@@ -163,14 +163,8 @@ class MX_Loader extends CI_Loader
         if (isset($this->_ci_helpers[$helper])) {
             return;
         }
-        // Backward function
-        // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-        if (version_compare(phpversion(), '7.1', '<')) {
-            // php version isn't high enough
-            list($path, $_helper) = _Modules::find($helper . '_helper', $this->_module, 'helpers/');
-        } else {
-            [$path, $_helper] = _Modules::find($helper . '_helper', $this->_module, 'helpers/');
-        }
+
+        [$path, $_helper] = _Modules::find($helper . '_helper', $this->_module, 'helpers/');
 
         if ($path === false) {
             return parent::helper($helper);
@@ -259,25 +253,11 @@ class MX_Loader extends CI_Loader
 
         ($_alias = strtolower($object_name)) or $_alias = $class;
 
-        // Backward function
-        // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-        if (version_compare(phpversion(), '7.1', '<')) {
-            // php version isn't high enough
-            list($path, $_library) = _Modules::find($library, $this->_module, 'libraries/');
-        } else {
-            [$path, $_library] = _Modules::find($library, $this->_module, 'libraries/');
-        }
+        [$path, $_library] = _Modules::find($library, $this->_module, 'libraries/');
 
         /* load library config file as params */
         if ($params === null) {
-            // Backward function
-            // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-            if (version_compare(phpversion(), '7.1', '<')) {
-                // php version isn't high enough
-                list($path2, $file) = _Modules::find($_alias, $this->_module, 'config/');
-            } else {
-                [$path2, $file] = _Modules::find($_alias, $this->_module, 'config/');
-            }
+            [$path2, $file] = _Modules::find($_alias, $this->_module, 'config/');
             $path2 && $params = _Modules::load_file($file, $path2, 'config');
         }
 
@@ -334,15 +314,7 @@ class MX_Loader extends CI_Loader
             return $this;
         }
 
-        // Backward function
-        // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-        if (version_compare(phpversion(), '7.1', '<')) {
-            // php version isn't high enough
-            /* check module */
-            list($path, $_model) = _Modules::find(strtolower($model), $this->_module, 'models/');
-        } else {
-            [$path, $_model] = _Modules::find(strtolower($model), $this->_module, 'models/');
-        }
+        [$path, $_model] = _Modules::find(strtolower($model), $this->_module, 'models/');
 
         if ($path === false) {
             /* check application & packages */
@@ -441,14 +413,7 @@ class MX_Loader extends CI_Loader
             return $this;
         }
 
-        // Backward function
-        // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-        if (version_compare(phpversion(), '7.1', '<')) {
-            // php version isn't high enough
-            list($path, $_plugin) = _Modules::find($plugin . '_pi', $this->_module, 'plugins/');
-        } else {
-            [$path, $_plugin] = _Modules::find($plugin . '_pi', $this->_module, 'plugins/');
-        }
+        [$path, $_plugin] = _Modules::find($plugin . '_pi', $this->_module, 'plugins/');
 
         if ($path === false && ! is_file($_plugin = APPPATH . 'plugins/' . $_plugin . EXT)) {
             show_error("Unable to locate the plugin file: {$_plugin}");
@@ -489,14 +454,7 @@ class MX_Loader extends CI_Loader
      */
     public function view($view, $vars = array(), $return = false)
     {
-        // Backward function
-        // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-        if (version_compare(phpversion(), '7.1', '<')) {
-            // php version isn't high enough
-            list($path, $_view) = _Modules::find($view, $this->_module, 'views/');
-        } else {
-            [$path, $_view] = _Modules::find($view, $this->_module, 'views/');
-        }
+        [$path, $_view] = _Modules::find($view, $this->_module, 'views/');
 
         if ($path != false) {
             $this->_ci_view_paths = array($path => true) + $this->_ci_view_paths;
@@ -618,27 +576,14 @@ class MX_Loader extends CI_Loader
         $path = false;
 
         if ($this->_module) {
-            // Backward function
-            // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-            if (version_compare(phpversion(), '7.1', '<')) {
-                // php version isn't high enough
-                list($path, $file) = _Modules::find('constants', $this->_module, 'config/');
-            } else {
-                [$path, $file] = _Modules::find('constants', $this->_module, 'config/');
-            }
+            [$path, $file] = _Modules::find('constants', $this->_module, 'config/');
+
             /* module constants file */
             if ($path !== false) {
                 include_once $path . $file . EXT;
             }
 
-            // Backward function
-            // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-            if (version_compare(phpversion(), '7.1', '<')) {
-                // php version isn't high enough
-                list($path, $file) = _Modules::find('autoload', $this->_module, 'config/');
-            } else {
-                [$path, $file] = _Modules::find('autoload', $this->_module, 'config/');
-            }
+            [$path, $file] = _Modules::find('autoload', $this->_module, 'config/');
 
             /* module autoload file */
             if ($path !== false) {
