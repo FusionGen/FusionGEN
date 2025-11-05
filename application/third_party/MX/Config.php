@@ -57,14 +57,7 @@ class MX_Config extends CI_Config
 
         $_module or $_module = CI::$APP->router->fetch_module();
 
-        // Backward function
-        // Before PHP 7.1.0, list() only worked on numerical arrays and assumes the numerical indices start at 0.
-        if (version_compare(phpversion(), '7.1', '<')) {
-            // php version isn't high enough
-            list($path, $file) = _Modules::find($file, $_module, 'config/');
-        } else {
-            [$path, $file] = _Modules::find($file, $_module, 'config/');
-        }
+        [$path, $file] = _Modules::find($file, $_module, 'config/');
 
         if ($path === false) {
             parent::load($file, $use_sections, $fail_gracefully);
