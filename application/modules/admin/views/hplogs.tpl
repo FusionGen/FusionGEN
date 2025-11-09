@@ -1,6 +1,6 @@
 <style>
 .list-group-item {
-	background-color: #171717;
+	background-color: #191c21;
 	color: #abb4be;
 }
 </style>
@@ -29,7 +29,7 @@
                 </tr>
                 </thead>
                 <tbody>
-				{foreach from=$logs key=key item=$log}
+                {foreach from=$logs key=key item=log}
                     <tr data-display="stack{$key}">
                         <td class="text-center text-{$log.class}">
                             <i class="{$log.icon}" aria-hidden="true"></i> {$log.level}
