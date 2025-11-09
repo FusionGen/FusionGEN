@@ -1,8 +1,8 @@
 <!-- Sidebox.Start -->
 {if $sideboxes}
-	{foreach from=$sideboxes item=$sidebox}
+	{foreach from=$sideboxes item=sidebox}
 	<section class="sidebox sidebox-{$sidebox.type} {if $sidebox@last}last-row{/if}">
-	
+
 		<h3 class="sidebox-head text-ellipsis">
 			{if $sidebox.name == trim($sidebox.name) && str_contains($sidebox.name, ' ') !== false}
 				{$names = explode(" ", $sidebox.name)}
@@ -13,7 +13,7 @@
 				{$sidebox.name}
 			{/if}
 		</h3>
-		
+
 		<div class="sidebox-body">
 			{$sidebox.data}
 		</div>
