@@ -12,6 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dbbackup
 {
+    private $CI;
+    private $FCPATH;
+
     public function __construct()
     {
         $this->CI = &get_instance();

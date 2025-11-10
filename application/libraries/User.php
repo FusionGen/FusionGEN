@@ -24,6 +24,7 @@ class User
     private $vp;
     private $dp;
     private $register_date;
+    private $language;
     private $last_ip;
     private $nickname;
 
