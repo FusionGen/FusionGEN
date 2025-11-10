@@ -15,6 +15,7 @@ class Language
     private $language;
     private $languageAbbreviation;
     private $defaultLanguage;
+    private $languagePrefix;
     private $requestedFiles;
     private $data;
     private $clientData;

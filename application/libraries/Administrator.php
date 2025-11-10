@@ -14,6 +14,7 @@ class Administrator
     protected $CI;
     private $theme_path;
     private $menu;
+    private $modules;
     private $title;
     private $currentPage;
     private $version;
