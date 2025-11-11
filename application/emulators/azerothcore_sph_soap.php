@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Abstraction layer for supporting different emulators
@@ -32,16 +33,16 @@ class Azerothcore_sph_soap implements Emulator
     /**
      * Array of expansion ids and their corresponding names
      */
-    protected $expansions = array(
+    protected $expansions = [
         2 => 'WotLK',
         1 => 'TBC',
         0 => 'None'
-    );
+    ];
 
     /**
      * Array of table names
      */
-    protected $tables = array(
+    protected $tables = [
         'account'         => 'account',
         'account_access'  => 'account_access',
         'account_banned'  => 'account_banned',
@@ -52,14 +53,14 @@ class Azerothcore_sph_soap implements Emulator
         'guild_member'    => 'guild_member',
         'guild'           => 'guild',
         'gm_tickets'      => 'gm_ticket'
-    );
+    ];
 
     /**
      * Array of column names
      */
-    protected $columns = array(
+    protected $columns = [
 
-        'account' => array(
+        'account' => [
             'id'         => 'id',
             'username'   => 'username',
             'password'   => 'sha_pass_hash',
@@ -71,31 +72,31 @@ class Azerothcore_sph_soap implements Emulator
             'last_ip'    => 'last_ip',
             'last_login' => 'last_login',
             'expansion'  => 'expansion'
-        ),
+        ],
 
-        'account_access' => array(
+        'account_access' => [
             'id'      => 'id',
             'gmlevel' => 'gmlevel'
-        ),
+        ],
 
-        'account_banned' => array(
+        'account_banned' => [
             'id'        => 'id',
             'banreason' => 'banreason',
             'active'    => 'active',
             'bandate'   => 'bandate',
             'unbandate' => 'unbandate',
             'bannedby'  => 'bannedby'
-        ),
+        ],
 
-        'ip_banned' => array(
+        'ip_banned' => [
             'ip'        => 'ip',
             'bandate'   => 'bandate',
             'unbandate' => 'unbandate',
             'bannedby'  => 'bannedby',
             'banreason' => 'banreason',
-        ),
+        ],
 
-        'characters' => array(
+        'characters' => [
             'guid'             => 'guid',
             'account'          => 'account',
             'name'             => 'name',
@@ -114,9 +115,9 @@ class Azerothcore_sph_soap implements Emulator
             'position_z'       => 'position_z',
             'orientation'      => 'orientation',
             'map'              => 'map'
-        ),
+        ],
 
-        'item_template' => array(
+        'item_template' => [
             'entry'         => 'entry',
             'name'          => 'name',
             'Quality'       => 'Quality',
@@ -125,9 +126,9 @@ class Azerothcore_sph_soap implements Emulator
             'ItemLevel'     => 'ItemLevel',
             'class'         => 'class',
             'subclass'      => 'subclass'
-        ),
+        ],
 
-        'character_stats' => array(
+        'character_stats' => [
             'guid'          => 'guid',
             'maxhealth'     => 'maxhealth',
             'maxpower1'     => 'maxpower1',
@@ -151,20 +152,20 @@ class Azerothcore_sph_soap implements Emulator
             'spellCritPct'  => 'spellCritPct',
             'attackPower'   => 'attackPower',
             'spellPower'    => 'spellPower'
-        ),
+        ],
 
-        'guild' => array(
+        'guild' => [
             'guildid'    => 'guildid',
             'name'       => 'name',
             'leaderguid' => 'leaderguid'
-        ),
+        ],
 
-        'guild_member' => array(
+        'guild_member' => [
             'guildid' => 'guildid',
             'guid'    => 'guid'
-        ),
+        ],
 
-        'gm_tickets' => array(
+        'gm_tickets' => [
             'ticketId'   => 'id',
             'name'       => 'name',
             'guid'       => 'playerGuid',
@@ -172,13 +173,13 @@ class Azerothcore_sph_soap implements Emulator
             'createTime' => 'createTime',
             'completed'  => 'completed',
             'closedBy'   => 'closedBy'
-        )
-    );
+        ]
+    ];
 
     /**
      * Array of queries
      */
-    protected $queries = array(
+    protected $queries = [
         'get_ip_banned'             => 'SELECT ip, bandate, bannedby, banreason, unbandate FROM ip_banned WHERE ip=? AND unbandate > ?',
         'get_character'             => 'SELECT * FROM characters WHERE guid=?',
         'get_item'                  => 'SELECT entry, Flags, name, Quality, bonding, InventoryType, MaxDurability, armor, RequiredLevel, ItemLevel, class, subclass, dmg_min1, dmg_max1, dmg_type1, holy_res, fire_res, nature_res, frost_res, shadow_res, arcane_res, delay, socketColor_1, socketColor_2, socketColor_3, spellid_1, spellid_2, spellid_3, spellid_4, spellid_5, spelltrigger_1, spelltrigger_2, spelltrigger_3, spelltrigger_4, spelltrigger_5, displayid, stat_type1, stat_value1, stat_type2, stat_value2, stat_type3, stat_value3, stat_type4, stat_value4, stat_type5, stat_value5, stat_type6, stat_value6, stat_type7, stat_value7, stat_type8, stat_value8, stat_type9, stat_value9, stat_type10, stat_value10, stackable FROM item_template WHERE entry=?',
@@ -191,7 +192,7 @@ class Azerothcore_sph_soap implements Emulator
         'get_inventory_item'        => 'SELECT slot slot, item item, itemEntry itemEntry FROM character_inventory, item_instance WHERE character_inventory.item = item_instance.guid AND character_inventory.slot >= 0 AND character_inventory.slot <= 18 AND character_inventory.guid=? AND character_inventory.bag=0',
         'get_guild_members'         => 'SELECT m.guildid guildid, m.guid guid, c.name name, c.race race, c.class class, c.gender gender, c.level level, m.rank member_rank, r.rname rname, r.rights rights FROM guild_member m JOIN guild_rank r ON m.guildid = r.guildid AND m.rank = r.rid JOIN characters c ON c.guid = m.guid WHERE m.guildid = ? ORDER BY r.rights DESC',
         'get_guild'                 => 'SELECT guildid guildid, name guildName, leaderguid leaderguid, motd motd, createdate createdate FROM guild WHERE guildid = ?'
-    );
+    ];
 
     public function __construct($config)
     {
@@ -343,9 +344,9 @@ class Azerothcore_sph_soap implements Emulator
         }
         $sha_pass_hash = sha1(strtoupper($username) . ':' . strtoupper($password));
 
-        return array(
+        return [
            "verifier" => $sha_pass_hash
-        );
+        ];
     }
 
     /**
@@ -380,10 +381,10 @@ class Azerothcore_sph_soap implements Emulator
      */
     public function sendItems($character, $subject, $body, $items)
     {
-        $item_command = array();
+        $item_command = [];
         $mail_id = 0;
         $item_count = 0;
-        $item_stacks = array();
+        $item_stacks = [];
 
         foreach ($items as $i) {
             // Check if item has been added
@@ -402,12 +403,12 @@ class Azerothcore_sph_soap implements Emulator
                 $item_row = get_instance()->realms->getRealm($this->config['id'])->getWorld()->getItem($i['id']);
 
                 // Add the item to the stacks array
-                $item_stacks[$i['id']] = array(
+                $item_stacks[$i['id']] = [
                     'id' => $i['id'],
-                    'count' => array(1),
+                    'count' => [1],
                     'stack_id' => 0,
                     'max_count' => $item_row['stackable']
-                );
+                ];
             }
         }
 
@@ -452,12 +453,12 @@ class Azerothcore_sph_soap implements Emulator
     {
         $client = new SoapClient(
             null,
-            array(
+            [
                 "location" => "http://" . $this->config['hostname'] . ":" . $this->config['console_port'],
                 "uri" => "urn:AC",
                 'login' => $this->config['console_username'],
                 'password' => $this->config['console_password']
-            )
+            ]
         );
 
         try {

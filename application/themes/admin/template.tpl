@@ -120,7 +120,6 @@
 		var scripts = [
 			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.placeholder.min.js",
 			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.transit.min.js",
-
 			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/fusioneditor.js"
 			{if $extra_js},"{$url}application/{$extra_js}"{/if}
 		];
