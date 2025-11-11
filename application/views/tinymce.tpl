@@ -2,20 +2,22 @@
     require([
 		"{$url}application/js/tiny_mce/tinymce.min.js"
 	], function () {
-			tinymce.init({
-				selector: 'textarea.tinymce',
+		tinymce.init({
+			promotion: false,
 
-				height: 400,
+			selector : "textarea",
 
-				skin: 'oxide-dark',
-				content_css: 'dark',
+			height: 400,
 
-				/* display statusbar */
-				statubar: false,
+			skin: 'oxide-dark',
+			content_css: 'dark',
 
-				plugins: 'print preview searchreplace autolink autosave directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists wordcount textpattern code',
-				toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | code',
-				image_advtab: true
+			/* display statusbar */
+			statusbar: false,
+
+			plugins: 'preview searchreplace autolink autosave directionality visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help code',
+			toolbar: 'undo redo | blocks | formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment | code',
+			image_advtab: true
 		});
     });
 </script>
