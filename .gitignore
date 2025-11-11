@@ -14,5 +14,4 @@ application/config/fusion.php
 backups/*.zip
 uploads/*
 
-.php-cs-fixer.cache
 install/.lock

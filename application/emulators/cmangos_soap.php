@@ -1,6 +1,5 @@
 <?php
-
-use Laizerox\Wowemu\SRP\UserClient;
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Abstraction layer for supporting different emulators
@@ -34,16 +33,16 @@ class Cmangos_soap implements Emulator
     /**
      * Array of expansion ids and their corresponding names
      */
-    protected $expansions = array(
+    protected $expansions = [
         2 => 'WotLK',
         1 => 'TBC',
         0 => 'None'
-    );
+    ];
 
     /**
      * Array of table names
      */
-    protected $tables = array(
+    protected $tables = [
         'account'            => 'account',
         'account_banned'     => 'account_banned',
         'account_logons'     => 'account_logons',
@@ -54,14 +53,14 @@ class Cmangos_soap implements Emulator
         'guild_member'       => 'guild_member',
         'guild'              => 'guild',
         'gm_tickets'         => 'gm_tickets'
-    );
+    ];
 
     /**
      * Array of column names
      */
-    protected $columns = array(
+    protected $columns = [
 
-        'account' => array(
+        'account' => [
             'id'         => 'id',
             'username'   => 'username',
             'gmlevel'    => 'gmlevel',
@@ -70,32 +69,32 @@ class Cmangos_soap implements Emulator
             'email'      => 'email',
             'joindate'   => 'joindate',
             'expansion'  => 'expansion'
-        ),
+        ],
 
-        'account_banned' => array(
+        'account_banned' => [
             'id'         => 'account_id',
             'banreason'  => 'reason',
             'active'     => 'active',
             'bandate'    => 'banned_at',
             'unbandate'  => 'expires_at',
             'bannedby'   => 'banned_by'
-        ),
+        ],
 
-        'account_logons' => array(
+        'account_logons' => [
             'accountId'  => 'accountId',
             'last_ip'    => 'ip',
             'last_login' => 'loginTime'
-        ),
+        ],
 
-        'ip_banned' => array(
+        'ip_banned' => [
             'ip'        => 'ip',
             'bandate'   => 'banned_at',
             'unbandate' => 'expires_at',
             'bannedby'  => 'banned_by',
             'banreason' => 'reason',
-        ),
+        ],
 
-        'characters' => array(
+        'characters' => [
             'guid'             => 'guid',
             'account'          => 'account',
             'name'             => 'name',
@@ -122,9 +121,9 @@ class Cmangos_soap implements Emulator
             'exploredZones'    => 'exploredZones',
             'totaltime'        => 'totaltime',
             'leveltime'        => 'leveltime'
-        ),
+        ],
 
-        'item_template' => array(
+        'item_template' => [
             'entry'         => 'entry',
             'name'          => 'name',
             'Quality'       => 'Quality',
@@ -133,9 +132,9 @@ class Cmangos_soap implements Emulator
             'ItemLevel'     => 'ItemLevel',
             'class'         => 'class',
             'subclass'      => 'subclass'
-        ),
+        ],
 
-        'character_stats' => array(
+        'character_stats' => [
             'guid'          => 'guid',
             'maxhealth'     => 'maxhealth',
             'maxpower1'     => 'maxpower1',
@@ -159,33 +158,33 @@ class Cmangos_soap implements Emulator
             'spellCritPct'  => 'spellCritPct',
             'attackPower'   => 'attackPower',
             'spellPower'    => 'spellPower',
-        ),
+        ],
 
-        'guild' => array(
+        'guild' => [
             'guildid'    => 'guildid',
             'name'       => 'name',
             'leaderguid' => 'leaderguid'
-        ),
+        ],
 
-        'guild_member' => array(
+        'guild_member' => [
             'guildid'  => 'guildid',
             'guid'     => 'guid'
-        ),
+        ],
 
-        'gm_tickets' => array(
+        'gm_tickets' => [
             'ticketId'   => 'id',
             'guid'       => 'author_guid',
             'message'    => 'text',
             'createTime' => 'created',
             'completed'  => 'closed',
             //'closedBy'   => 'closed'
-        )
-    );
+        ]
+    ];
 
     /**
      * Array of queries
      */
-    protected $queries = array(
+    protected $queries = [
         'get_ip_banned'             => 'SELECT ip, banned_at, banned_by, reason, expires_at FROM ip_banned WHERE ip=? AND expires_at > ?',
         'get_character'             => 'SELECT * FROM characters WHERE guid=?',
         'get_item'                  => 'SELECT entry, Flags, name, Quality, bonding, InventoryType, MaxDurability, armor, RequiredLevel, ItemLevel, class, subclass, dmg_min1, dmg_max1, dmg_type1, holy_res, fire_res, nature_res, frost_res, shadow_res, arcane_res, delay, socketColor_1, socketColor_2, socketColor_3, spellid_1, spellid_2, spellid_3, spellid_4, spellid_5, spelltrigger_1, spelltrigger_2, spelltrigger_3, spelltrigger_4, spelltrigger_5, displayid, stat_type1, stat_value1, stat_type2, stat_value2, stat_type3, stat_value3, stat_type4, stat_value4, stat_type5, stat_value5, stat_type6, stat_value6, stat_type7, stat_value7, stat_type8, stat_value8, stat_type9, stat_value9, stat_type10, stat_value10, stackable FROM item_template WHERE entry=?',
@@ -198,7 +197,7 @@ class Cmangos_soap implements Emulator
         'get_inventory_item'        => 'SELECT slot slot, item item, itemEntry itemEntry FROM character_inventory, item_instance WHERE character_inventory.item = item_instance.guid AND character_inventory.slot >= 0 AND character_inventory.slot <= 18 AND character_inventory.guid=? AND character_inventory.bag=0',
         'get_guild_members'         => 'SELECT m.guildid guildid, m.guid guid, c.name name, c.race race, c.class class, c.gender gender, c.level level, m.rank member_rank, r.rname rname, r.rights rights FROM guild_member m JOIN guild_rank r ON m.guildid = r.guildid AND m.rank = r.rid JOIN characters c ON c.guid = m.guid WHERE m.guildid = ? ORDER BY r.rights DESC',
         'get_guild'                 => 'SELECT guildid guildid, name guildName, leaderguid leaderguid, motd motd, createdate createdate FROM guild WHERE guildid = ?'
-    );
+    ];
 
     public function __construct($config)
     {
@@ -354,10 +353,10 @@ class Cmangos_soap implements Emulator
         $client = new UserClient($username, $salt);
         $verifier = strtoupper($client->generateVerifier($password));
 
-        return array(
+        return [
            "salt" => $salt,
            "verifier" => $verifier
-        );
+        ];
     }
 
     /**
@@ -430,10 +429,10 @@ class Cmangos_soap implements Emulator
      */
     public function sendItems($character, $subject, $body, $items)
     {
-        $item_command = array();
+        $item_command = [];
         $mail_id = 0;
         $item_count = 0;
-        $item_stacks = array();
+        $item_stacks = [];
 
         foreach ($items as $i) {
             // Check if item has been added
@@ -452,12 +451,12 @@ class Cmangos_soap implements Emulator
                 $item_row = get_instance()->realms->getRealm($this->config['id'])->getWorld()->getItem($i['id']);
 
                 // Add the item to the stacks array
-                $item_stacks[$i['id']] = array(
+                $item_stacks[$i['id']] = [
                     'id' => $i['id'],
-                    'count' => array(1),
+                    'count' => [1],
                     'stack_id' => 0,
                     'max_count' => $item_row['stackable']
-                );
+                ];
             }
         }
 
@@ -502,12 +501,12 @@ class Cmangos_soap implements Emulator
     {
         $client = new SoapClient(
             null,
-            array(
+            [
                 "location" => "http://" . $this->config['hostname'] . ":" . $this->config['console_port'],
                 "uri" => "urn:MaNGOS",
                 'login' => $this->config['console_username'],
                 'password' => $this->config['console_password']
-            )
+            ]
         );
 
         try {

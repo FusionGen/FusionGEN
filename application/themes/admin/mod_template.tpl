@@ -134,7 +134,6 @@
 				$(".nano-pane").show();
 			});
 		});
-
 	</script>
 	</head>
 

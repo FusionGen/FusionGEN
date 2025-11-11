@@ -6,15 +6,7 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit728f96e67824ff0c88d9b31fcd5c7681
 {
-    public static $files = array (
-        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
-    );
-
     public static $prefixLengthsPsr4 = array (
-        'p' => 
-        array (
-            'phpseclib\\' => 10,
-        ),
         'V' => 
         array (
             'VisualAppeal\\' => 13,
@@ -28,10 +20,6 @@ class ComposerStaticInit728f96e67824ff0c88d9b31fcd5c7681
         array (
             'Monolog\\' => 8,
         ),
-        'L' => 
-        array (
-            'Laizerox\\' => 9,
-        ),
         'D' => 
         array (
             'Desarrolla2\\Cache\\' => 18,
@@ -43,10 +31,6 @@ class ComposerStaticInit728f96e67824ff0c88d9b31fcd5c7681
     );
 
     public static $prefixDirsPsr4 = array (
-        'phpseclib\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
-        ),
         'VisualAppeal\\' => 
         array (
             0 => __DIR__ . '/..' . '/visualappeal/php-auto-update/src',
@@ -62,10 +46,6 @@ class ComposerStaticInit728f96e67824ff0c88d9b31fcd5c7681
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
-        ),
-        'Laizerox\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laizerox/php-wowemu-auth/src',
         ),
         'Desarrolla2\\Cache\\' => 
         array (
