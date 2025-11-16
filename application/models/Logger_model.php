@@ -64,11 +64,11 @@ class Logger_model extends CI_Model
 
     public function createLogDb($module, $user, $type, $event, $message, $status, $custom, $ip)
     {
-        $this->db->query("INSERT INTO `logs` (`module`, `user_id`, `type`, `event`, `message`, `status`, `custom`, `ip`, `time`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", array($module, $user, $type, $event, $message, $status, $custom, $ip, time()));
+        $this->db->query("INSERT INTO `logs` (`module`, `user_id`, `type`, `event`, `message`, `status`, `custom`, `ip`, `time`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [$module, $user, $type, $event, $message, $status, $custom, $ip, time()]);
     }
 
     public function createModLogDb($action, $mod, $affected, $ip, $isAcc, $realmId)
     {
-        $this->db->query("INSERT INTO `mod_logs` (`action`, `mod`, `affected`, `ip`, `time`, `isAcc`, `realm`) VALUES (?, ?, ?, ?, ?, ?, ?)", array($action, $mod, $affected, $ip, time(), $isAcc, $realmId));
+        $this->db->query("INSERT INTO `mod_logs` (`action`, `mod`, `affected`, `ip`, `time`, `isAcc`, `realm`) VALUES (?, ?, ?, ?, ?, ?, ?)", [$action, $mod, $affected, $ip, time(), $isAcc, $realmId]);
     }
 }

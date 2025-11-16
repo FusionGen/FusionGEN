@@ -44,23 +44,17 @@ var Fusion_Cache = {
 	{
 		switch(type)
 		{
-			case "all_but_item":
-				$("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-				$("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+			case "item":
+				$("#row_item").html('<div class="progress_bar"><a style="width:0%"></a></div>');
 			break;
 
 			case "website":
 				$("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
 			break;
 
-			case "message":
-				$("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-			break;
-
 			case "all":
-				$("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
-				$("#row_message").html('<div class="progress_bar"><a style="width:0%"></a></div>');
 				$("#row_item").html('<div class="progress_bar"><a style="width:0%"></a></div>');
+				$("#row_website").html('<div class="progress_bar"><a style="width:0%"></a></div>');
 			break;
 		}
 	},
@@ -86,15 +80,10 @@ var Fusion_Cache = {
 		{
 			switch(type)
 			{
-				case "all_but_item":
-					$("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
+				case "item":
+					$("#row_item .progress_bar a").animate({width:"100%"}, 200, function()
 					{
-						$("#row_website").html("0 files (0 B)");
-					});
-
-					$("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_message").html("0 files (0 B)");
+						$("#row_item").html("0 files (0 B)");
 					});
 				break;
 
@@ -105,27 +94,15 @@ var Fusion_Cache = {
 					});
 				break;
 
-				case "message":
-					$("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_message").html("0 files (0 B)");
-					});
-				break;
-
 				case "all":
-					$("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_website").html("0 files (0 B)");
-					});
-
-					$("#row_message .progress_bar a").animate({width:"100%"}, 200, function()
-					{
-						$("#row_message").html("0 files (0 B)");
-					});
-
 					$("#row_item .progress_bar a").animate({width:"100%"}, 200, function()
 					{
 						$("#row_item").html("0 files (0 B)");
+					});
+
+					$("#row_website .progress_bar a").animate({width:"100%"}, 200, function()
+					{
+						$("#row_website").html("0 files (0 B)");
 					});
 				break;
 			}

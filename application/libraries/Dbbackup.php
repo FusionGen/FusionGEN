@@ -51,23 +51,23 @@ class Dbbackup
 
             $date = date("Y-m-d H:i:s");
             $file_name = date("Y_m_d_H_i_s");
-            $prefs = array(
+            $prefs = [
                 'format' => 'zip',
                 'filename' => $file_name,
                 'add_drop' => true,
                 'add_insert' => true,
                 'foreign_key_checks' => false,
                 'newline' => "\n"
-            );
+            ];
             //Backup your entire database
             $backup = $this->CI->dbutil->backup($prefs);
             $file = $db_backup_path . $file_name . '.zip';
 
             if (write_file($file, $backup)) {
-                $data = array(
+                $data = [
                     'backup_name' => $file_name,
                     'created_date' => $date
-                );
+                ];
 
                 $this->CI->db->insert('backup', $data);
 

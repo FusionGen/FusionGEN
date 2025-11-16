@@ -20,7 +20,7 @@ class Cache
     {
         $this->CI = &get_instance();
 
-        $this->runtimeCache = array();
+        $this->runtimeCache = [];
         $this->enabled = $this->CI->config->item('cache');
 
         $this->createFolders();
@@ -130,10 +130,10 @@ class Cache
         }
 
         // Prepare the file content
-        $cache = array(
+        $cache = [
                     "expiration" => time() + $expiration,
                     "content" => $data
-                );
+                ];
 
         // Encode as JSON
         $json = json_encode($cache);

@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Plugins
 {
-    private $plugins = array();
+    private $plugins = [];
     private $CI;
     public $module_name;
 
@@ -92,11 +92,11 @@ class Plugins
      */
     public function __call($func, $args)
     {
-        $ret = array();
+        $ret = [];
         foreach ($this->plugins as $plugin) {
             // Does the method exist, and is it public?
-            if (method_exists($plugin, $func) && is_callable(array($plugin, $func))) {
-                $ret[$plugin->name] = call_user_func_array(array($plugin, $func), $args);
+            if (method_exists($plugin, $func) && is_callable([$plugin, $func])) {
+                $ret[$plugin->name] = call_user_func_array([$plugin, $func], $args);
             }
         }
 
@@ -124,7 +124,7 @@ class Plugins
      */
     public function __get($name)
     {
-        $ret = array();
+        $ret = [];
         foreach ($this->plugins as $plugin) {
             // Is this an explicit reference to the class?
             if (strtolower($plugin->name) == strtolower($name)) {

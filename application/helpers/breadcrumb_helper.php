@@ -12,10 +12,10 @@ function breadcrumb($items)
 {
     $CI = &get_instance();
 
-    $data = array(
+    $data = [
         "links" => $items,
         "url" => pageURL
-    );
+    ];
 
     return $CI->smarty->view($CI->template->view_path . "breadcrumb.tpl", $data, true);
 }

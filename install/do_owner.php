@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
 	header("HTTP/1.1 403 Forbidden");
-	die();
+	exit();
 }
 
 ini_set('max_execution_time', 30);
@@ -14,7 +14,7 @@ if (isset($_POST['accname']))
 
     if (empty($accname))
     {
-        echo json_encode(array("success" => false, "message" => "Please input your account name"));
+        echo json_encode(["success" => false, "message" => "Please input your account name"]);
         exit();
     }
 
@@ -23,7 +23,7 @@ if (isset($_POST['accname']))
     try {
         $mysqli_auth = new mysqli($db['account']['hostname'], $db['account']['username'], $db['account']['password'], $db['account']['database'], $db['account']['port']);
     } catch (Exception $e) {
-        echo json_encode(array("success" => false, "message" => "Auth DB: ".$e->getMessage()));
+        echo json_encode(["success" => false, "message" => "Auth DB: ".$e->getMessage()]);
         exit();
     }
 
@@ -34,12 +34,12 @@ if (isset($_POST['accname']))
         $query->execute();
         $query->store_result();
     } catch (Exception $e) {
-        echo json_encode(array("success" => false, "message" => "Auth DB: ".$e->getMessage()));
+        echo json_encode(["success" => false, "message" => "Auth DB: ".$e->getMessage()]);
         exit();
     }
 
     if ($query->num_rows() === 0) {
-        echo json_encode(array("success" => false, "message" => "Accountname not found!"));
+        echo json_encode(["success" => false, "message" => "Accountname not found!"]);
         exit();
     }
 
@@ -57,14 +57,14 @@ if (isset($_POST['accname']))
 
     if (file_exists(".lock"))
     {
-        echo json_encode(array("success" => true));
+        echo json_encode(["success" => true]);
         exit();
     } else {
-        echo json_encode(array("success" => false, "message" => "Not possible to create .lock file, no write permissions?"));
+        echo json_encode(["success" => false, "message" => "Not possible to create .lock file, no write permissions?"]);
         exit();
     }
 
 } else {
-    echo json_encode(array("success" => false, "message" => "Accountname not provided!"));
+    echo json_encode(["success" => false, "message" => "Accountname not provided!"]);
     exit();
 }

@@ -28,7 +28,7 @@
 	</span>
 
 	{if hasPermission("emptyCache")}
-		<button class="btn btn-primary btn-sm" onClick="Fusion_Cache.clear('all_but_item')">Clear item cache</button>
+		<button class="btn btn-primary btn-sm" onClick="Fusion_Cache.clear('item')">Clear item cache</button>
 		<button class="btn btn-primary btn-sm" onClick="Fusion_Cache.clear('website')">Clear website cache</button>
 		<button class="btn btn-primary btn-sm" onClick="Fusion_Cache.clear('all')">Clear all cache</button>
 	{/if}

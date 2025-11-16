@@ -291,7 +291,7 @@ $config['cache_path'] = '';
 |   TRUE       = Enabled, take all query parameters into account.
 |                Please be aware that this may result in numerous cache
 |                files generated for the same page over and over again.
-|   array('q') = Enabled, but only take into account the specified list
+|   ['q'] = Enabled, but only take into account the specified list
 |                of query parameters.
 |
 */
@@ -442,7 +442,7 @@ $config['csrf_token_name'] = 'csrf_token_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = false;
-$config['csrf_exclude_uris'] = array('donate', 'vote/callback');
+$config['csrf_exclude_uris'] = ['donate', 'vote/callback'];
 
 /*
 |--------------------------------------------------------------------------
@@ -507,6 +507,6 @@ $config['rewrite_short_tags'] = false;
 | as well as specifying whole subnets. Here are a few examples:
 |
 | Comma-separated:  '10.0.1.200,192.168.5.0/24'
-| Array:        array('10.0.1.200', '192.168.5.0/24')
+| Array:        ['10.0.1.200', '192.168.5.0/24']
 */
 $config['proxy_ips'] = '';

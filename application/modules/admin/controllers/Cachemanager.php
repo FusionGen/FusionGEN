@@ -143,12 +143,12 @@ class Cachemanager extends MX_Controller
     {
         requirePermission("emptyCache");
 
-        if (!$type || !in_array($type, array('all_but_item', 'website', 'all'))) {
+        if (!$type || !in_array($type, array('item', 'website', 'all'))) {
             die();
         } else {
             switch ($type) {
-                case "all_but_item":
-                    foreach ($this->websiteMatches as $match) {
+                case "item":
+                    foreach ($this->itemMatches as $match) {
                         $this->cache->delete($match);
                     }
                     break;

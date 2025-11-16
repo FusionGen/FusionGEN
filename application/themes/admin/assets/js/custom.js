@@ -58,7 +58,7 @@ var Login = {
 				case "permission":
 					$("#security_code").attr("disabled", "disabled").removeClass("border border-danger");
 
-					alert("You do not have permission to access the admin panel (assign permission: [view, admin])");
+					Swal.fire({theme: 'dark', title: 'Oops...', text: 'You do not have permission to access the admin panel (assign permission: [view, admin])', icon: 'warning'});
 				break;
 
 				case "welcome":

@@ -14,7 +14,7 @@ class Plugin
 {
     protected $CI;
     public $module_name;
-    private $vars = array();
+    private $vars = [];
 
     /**
      * Get the instance of CI and load the plugin name

@@ -31,10 +31,10 @@ class Realms
     {
         $this->CI = &get_instance();
 
-        $this->races = array();
-        $this->classes = array();
-        $this->zones = array();
-        $this->realms = array();
+        $this->races = [];
+        $this->classes = [];
+        $this->zones = [];
+        $this->realms = [];
 
         // Load the realm object
         require_once('application/libraries/Realm.php');
@@ -50,7 +50,7 @@ class Realms
         if ($realms != false) {
             foreach ($realms as $realm) {
                 // Prepare the database Config
-                $config = array(
+                $config = [
 
                     // Console settings
                     "console_username" => $realm['console_username'],
@@ -61,7 +61,7 @@ class Realms
                     "realm_port" => $realm['realm_port'],
 
                     // Database settings
-                    "world" => array(
+                    "world" => [
                         "hostname" => (array_key_exists("override_hostname_world", $realm) && !empty($realm['override_hostname_world'])) ? $realm['override_hostname_world'] : $realm['hostname'],
                         "username" => (array_key_exists("override_username_world", $realm) && !empty($realm['override_username_world'])) ? $realm['override_username_world'] : $realm['username'],
                         "password" => (array_key_exists("override_password_world", $realm) && !empty($realm['override_password_world'])) ? $realm['override_password_world'] : $realm['password'],
@@ -69,9 +69,9 @@ class Realms
                         "dbdriver" => "mysqli",
                         "port" => (array_key_exists("override_port_world", $realm) && !empty($realm['override_port_world'])) ? $realm['override_port_world'] : 3306,
                         "pconnect" => false,
-                    ),
+                    ],
 
-                    "characters" => array(
+                    "characters" => [
                         "hostname" => (array_key_exists("override_hostname_char", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
                         "username" => (array_key_exists("override_username_char", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
                         "password" => (array_key_exists("override_password_char", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
@@ -79,8 +79,8 @@ class Realms
                         "dbdriver" => "mysqli",
                         "port" => (array_key_exists("override_port_char", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
                         "pconnect" => false,
-                    )
-                );
+                    ]
+                ];
 
                 // Initialize the realm object
                 array_push($this->realms, new Realm($realm['id'], $realm['realmName'], $realm['cap'], $config, $realm['emulator']));
@@ -275,7 +275,7 @@ class Realms
             show_error("The entered emulator (" . $this->defaultEmulator . ") doesn't exist in application/emulators/");
         }
 
-        $config = array();
+        $config = [];
         $config['id'] = 1;
 
         // Initialize the objects
@@ -290,7 +290,7 @@ class Realms
     public function getExpansions()
     {
         $expansions = $this->getEmulator()->getExpansions();
-        $return = array();
+        $return = [];
 
         foreach ($expansions as $key => $value)
         {
@@ -308,11 +308,11 @@ class Realms
     public function formatMoney($money = false)
     {
         if ($money) {
-            $gold = array(
+            $gold = [
                 'copper' => 0,
                 'silver' => 0,
                 'gold' => 0
-            );
+            ];
     
             $gold['gold'] = floor($money / 10000);
             $remainder = $money % 10000;
@@ -527,7 +527,7 @@ class Realms
                 $level = 1;
             }
         }
-        if (in_array($race, array("Blood elf", "Night elf", "Void elf"))) {
+        if (in_array($race, ["Blood elf", "Night elf", "Void elf"])) {
             $race = preg_replace("/ /", "", $race);
         }
 

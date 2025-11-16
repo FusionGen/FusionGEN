@@ -41,13 +41,13 @@ class FusionEditor
         $tools = $this->getTools($disabled_tools);
 
         // Gather the values
-        $data = array(
+        $data = [
                     'id' => $id,
                     'tools' => $tools,
                     'url' => $this->CI->template->page_url,
                     'height' => $height,
                     'content' => $content
-                );
+                ];
 
         // Load the editor
         $output = $this->CI->smarty->view($this->CI->template->view_path . "fusioneditor.tpl", $data, true);

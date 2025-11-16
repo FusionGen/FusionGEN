@@ -32,7 +32,6 @@ class CI_Smarty extends Smarty
         log_message('debug', "Smarty Class Initialized");
     }
 
-
     /**
      *  Parse a template using the Smarty engine
      *
@@ -51,11 +50,11 @@ class CI_Smarty extends Smarty
      * @param  bool
      * @return string
      */
-    public function view($template, $data = array(), $return = false)
+    public function view($template, $data = [], $return = false)
     {
         try {
             if ($data == '') {
-                $data = array();
+                $data = [];
             }
 
             foreach ($data as $key => $val) {

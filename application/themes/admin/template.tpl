@@ -38,7 +38,7 @@
 
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/modernizr/modernizr.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/modernizr/modernizr.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/common/common.js"></script>

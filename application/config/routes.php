@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | and its corresponding controller class/method. The segments in a
 | URL normally follow this pattern:
 |
-|   example.com/class/method/id/
+|	example.com/class/method/id/
 |
 | In some instances, however, you may want to remap this relationship
 | so that a different class/function is called than the one
@@ -19,12 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | Please see the user guide for complete details:
 |
-|   http://codeigniter.com/user_guide/general/routing.html
+|	https://codeigniter.com/userguide3/general/routing.html
 */
 
-// CodeIgniter
+// CodeIgniter reserved routes
 $route['default_controller'] = "news";
 $route['404_override'] = 'errors';
+$route['translate_uri_dashes'] = FALSE;
 
 //Auth
 $route['login'] = 'auth/login';

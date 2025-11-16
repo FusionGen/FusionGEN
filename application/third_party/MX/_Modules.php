@@ -6,9 +6,9 @@ defined('EXT') or define('EXT', '.php');
 global $CFG;
 
 /* get module locations from config settings or use the default module location and offset */
-is_array(_Modules::$locations = $CFG->item('modules_locations')) or _Modules::$locations = array(
+is_array(_Modules::$locations = $CFG->item('modules_locations')) or _Modules::$locations = [
     APPPATH . 'modules/' => '../modules/',
-);
+];
 
 /* PHP5 spl_autoload */
 spl_autoload_register('_Modules::autoload');
@@ -75,7 +75,7 @@ class _Modules
             if (method_exists($class, $method)) {
                 ob_start();
                 $args = func_get_args();
-                $output = call_user_func_array(array($class, $method), array_slice($args, 1));
+                $output = call_user_func_array([$class, $method], array_slice($args, 1));
                 $buffer = ob_get_clean();
                 return $output ?? $buffer;
             }
@@ -227,7 +227,7 @@ class _Modules
         $file_ext = pathinfo($file, PATHINFO_EXTENSION) ? $file : $file . EXT;
 
         $path = ltrim(implode('/', $segments) . '/', '/');
-        $module ? $_modules[$module] = $path : $_modules = array();
+        $module ? $_modules[$module] = $path : $_modules = [];
 
         if (! empty($segments)) {
             $_modules[array_shift($segments)] = ltrim(implode('/', $segments) . '/', '/');
@@ -239,16 +239,16 @@ class _Modules
 
                 if ($base === 'libraries/' || $base === 'models/') {
                     if (is_file($fullpath . ucfirst($file_ext))) {
-                        return array($fullpath, ucfirst($file));
+                        return [$fullpath, ucfirst($file)];
                     }
                 } elseif /* load non-class files */
                 (is_file($fullpath . $file_ext)) {
-                    return array($fullpath, $file);
+                    return [$fullpath, $file];
                 }
             }
         }
 
-        return array(false, $file);
+        return [false, $file];
     }
 
     /**
@@ -290,7 +290,7 @@ class _Modules
                 }
             }
 
-            $key = str_replace(array(':any', ':num'), array('.+', '[0-9]+'), $key);
+            $key = str_replace([':any', ':num'], ['.+', '[0-9]+'], $key);
 
             if (preg_match('#^' . $key . '$#', $uri)) {
                 if (strpos($val, '$') !== false && strpos($key, '(') !== false) {

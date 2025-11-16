@@ -26,7 +26,7 @@ class Administrator
     {
         $this->CI = &get_instance();
         $this->theme_path = "application/themes/admin/";
-        $this->menu = array();
+        $this->menu = [];
 
         if (!$this->CI->user->isStaff()) {
             redirect('errors', 'refresh');
@@ -54,7 +54,7 @@ class Administrator
         }
 
         if ($security_code == $this->CI->config->item('security_code')) {
-            $this->CI->session->set_userdata(array('admin_access' => true));
+            $this->CI->session->set_userdata(['admin_access' => true]);
 
             die("welcome");
         } else {
@@ -165,37 +165,29 @@ class Administrator
         // Loop through all modules that have manifests
         foreach ($this->modules as $module => $manifest) {
             // Check if the admin and group keys exist
-            if (
-                array_key_exists("enabled", $manifest)
-                && $manifest['enabled'] == true
-                && array_key_exists("admin", $manifest)
-            ) {
+            if (array_key_exists("enabled", $manifest) && $manifest['enabled'] == true && array_key_exists("admin", $manifest)) {
                 if (array_key_exists("group", $manifest['admin'])) {
-                    $manifest['admin'] = array($manifest['admin']['group']);
+                    $manifest['admin'] = [$manifest['admin']['group']];
                 }
 
                 foreach ($manifest['admin'] as $menuGroup) {
                     // Check if the group name doesn't exist
                     if (!array_key_exists($menuGroup['text'], $this->menu)) {
                         // Create a new entry and populate it with the icon and an empty array for the links
-                        $this->menu[$menuGroup['text']] = array(
-                            'links' => array(),
+                        $this->menu[$menuGroup['text']] = [
+                            'links' => [],
                             'icon' => $menuGroup['icon']
-                        );
+                        ];
                     }
 
                     // Loop through all links
                     foreach ($menuGroup['links'] as $key => $link) {
-                        if (
-                            !array_key_exists("requirePermission", $link)
-                            || hasPermission($link['requirePermission'], $module)
-                        ) {
+                        if (!array_key_exists("requirePermission", $link) || hasPermission($link['requirePermission'], $module)) {
                             $menuGroup['links'][$key]['module'] = $module;
 
                             // Find out if this is the current link
                             if ($module == $this->CI->router->fetch_module()) {
                                 $url = $this->CI->router->fetch_class();
-
 
                                 if ($this->CI->router->fetch_method() != "index") {
                                     $url .= "/" . $this->CI->router->fetch_method();
@@ -244,12 +236,12 @@ class Administrator
     public function view($content, $css = false, $js = false)
     {
         if ($this->CI->input->is_ajax_request() && isset($_GET['is_json_ajax']) && $_GET['is_json_ajax'] == 1) {
-            $array = array(
+            $array = [
                 "title" => ($this->title) ? $this->title : "",
                 "content" => $content,
                 "js" => $js,
                 "css" => $css
-            );
+            ];
 
             die(json_encode($array));
         }
@@ -273,7 +265,7 @@ class Administrator
         //var_dump($notifications);
 
         // Gather the theme data
-        $data = array(
+        $data = [
             "page" => '<div id="content_ajax">' . $content . '</div>',
             "url" => $this->CI->template->page_url,
             "menu" => $menu,
@@ -289,7 +281,7 @@ class Administrator
             "groups" => $this->CI->acl_model->getGroupsByUser(),
             "notifications" => $notifications,
             "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : null
-        );
+        ];
 
         // Load the main template
         $output = $this->CI->smarty->view($this->theme_path . "template.tpl", $data, true);
@@ -307,10 +299,10 @@ class Administrator
      */
     public function box($title, $body, $full = false, $css = false, $js = false)
     {
-        $data = array(
+        $data = [
             "headline" => $title,
             "content" => $body
-        );
+        ];
 
         $page = $this->CI->smarty->view($this->theme_path . "box.tpl", $data, true);
 
@@ -343,7 +335,7 @@ class Administrator
 
     public function getEnabledModules()
     {
-        $enabled = array();
+        $enabled = [];
 
         foreach ($this->getModules() as $name => $manifest) {
             if ($manifest['enabled']) {
@@ -356,7 +348,7 @@ class Administrator
 
     public function getDisabledModules()
     {
-        $disabled = array();
+        $disabled = [];
 
         foreach ($this->getModules() as $name => $manifest) {
             if (!array_key_exists("enabled", $manifest) || !$manifest['enabled']) {
@@ -377,13 +369,13 @@ class Administrator
                 $this->logIn();
             } else {
                 if (!$this->CI->input->is_ajax_request() && !isset($_GET['is_json_ajax'])) {
-                    $data = array(
+                    $data = [
                         "url" => $this->CI->template->page_url,
                         "isOnline" => $this->CI->user->isOnline(),
                         "username" => $this->CI->user->getUsername(),
                         "avatar"    => $this->CI->user->getAvatar($this->CI->user->getId()),
                         "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : null
-                    );
+                    ];
 
                     $output = $this->CI->smarty->view($this->theme_path . "login.tpl", $data, true);
 

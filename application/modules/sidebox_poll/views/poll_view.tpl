@@ -90,7 +90,7 @@
 				{foreach from=$poll.answers item=answer}
 					<div class="poll_answer">
 						<label for="poll_option_{$answer.answerid}">
-							<input type="radio" name="poll_options" id="poll_option_{$answer.answerid}" {if $online}onChange="Poll.vote({$answer.questionid}, {$answer.answerid}, this)"{else}onClick="UI.alert('{lang("log_in", "sidebox_poll")}')"{/if}>
+							<input type="radio" name="poll_options" id="poll_option_{$answer.answerid}" {if $online}onChange="Poll.vote({$answer.questionid}, {$answer.answerid}, this)"{else}onClick="Swal.fire({ text: '{lang("log_in", "sidebox_poll")}', icon: 'warning', confirmButtonText: 'OK' })"{/if}>
 							{$answer.answer}
 					</label>
 					</div>

@@ -1,15 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * @package FusionGen
- * @version 6.0
- * @author  Jesper Lindström
- * @author  Xavier Geerinck
- * @author  Err0r
- * @link    http://fusiongen.net
- */
-
 /*
 | -------------------------------------------------------------------------
 | Profiler Sections
@@ -18,6 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | data are displayed when the Profiler is enabled.
 | Please see the user guide for info:
 |
-|   https://codeigniter.com/userguide3/general/profiling.html
+|	https://codeigniter.com/userguide3/general/profiling.html
 |
 */

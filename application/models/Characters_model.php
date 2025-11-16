@@ -79,7 +79,7 @@ class Characters_model
      */
     public function getOnlinePlayers()
     {
-        return $this->getCharacters(columns("characters", array("guid", "account", "name", "race", "class", "gender", "level", "zone"), $this->realmId), array(column("characters", "online", false, $this->realmId) => 1));
+        return $this->getCharacters(columns("characters", ["guid", "account", "name", "race", "class", "gender", "level", "zone"], $this->realmId), [column("characters", "online", false, $this->realmId) => 1]);
     }
 
     /**
@@ -136,7 +136,7 @@ class Characters_model
     {
         $this->connect();
 
-        $query = $this->db->query("SELECT COUNT(*) as `total` FROM " . table("characters", $this->realmId) . " WHERE " . column("characters", "account", false, $this->realmId) . "=?", array($account));
+        $query = $this->db->query("SELECT COUNT(*) as `total` FROM " . table("characters", $this->realmId) . " WHERE " . column("characters", "account", false, $this->realmId) . "=?", [$account]);
 
         if ($this->db->error()) {
             $error = $this->db->error();
@@ -168,7 +168,7 @@ class Characters_model
         }
 
 
-        return $this->getCharacters(columns("characters", array("guid", "name", "race", "class", "gender", "level", "online", "money"), $this->realmId), array(column("characters", "account", false, $this->realmId) => $acc));
+        return $this->getCharacters(columns("characters", ["guid", "name", "race", "class", "gender", "level", "online", "money"], $this->realmId), [column("characters", "account", false, $this->realmId) => $acc]);
     }
 
     /**
@@ -181,7 +181,7 @@ class Characters_model
     {
         $this->connect();
 
-        $query = $this->db->query("SELECT " . column("characters", "guid", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "name", false, $this->realmId) . "=?", array($name));
+        $query = $this->db->query("SELECT " . column("characters", "guid", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "name", false, $this->realmId) . "=?", [$name]);
 
         if ($this->db->error()) {
             $error = $this->db->error();
@@ -209,7 +209,7 @@ class Characters_model
     {
         $this->connect();
 
-        $query = $this->db->query("SELECT " . column("characters", "online", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", array($guid));
+        $query = $this->db->query("SELECT " . column("characters", "online", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", [$guid]);
 
         if ($this->db->error()) {
             $error = $this->db->error();
@@ -237,7 +237,7 @@ class Characters_model
     {
         $this->connect();
 
-        $query = $this->db->query("SELECT " . column("characters", "name", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", array($guid));
+        $query = $this->db->query("SELECT " . column("characters", "name", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", [$guid]);
 
         if ($this->db->error()) {
             $error = $this->db->error();
@@ -264,7 +264,7 @@ class Characters_model
     public function getCharacterByGuid($guid)
     {
         $this->connect();
-        $query = $this->db->query("SELECT * FROM ".table('characters', $this->realmId)." WHERE ".column("characters", "guid", false, $this->realmId)."=?", array($guid));
+        $query = $this->db->query("SELECT * FROM ".table('characters', $this->realmId)." WHERE ".column("characters", "guid", false, $this->realmId)."=?", [$guid]);
 
         if ($this->db->error())
         {
@@ -296,7 +296,7 @@ class Characters_model
     {
         $this->connect();
 
-        $query = $this->db->query("SELECT " . column("characters", "race", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", array($guid));
+        $query = $this->db->query("SELECT " . column("characters", "race", true, $this->realmId) . " FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", [$guid]);
 
         if ($this->db->error()) {
             $error = $this->db->error();
@@ -330,7 +330,7 @@ class Characters_model
     {
         $this->connect();
 
-        $query = $this->db->query("SELECT COUNT(*) as `total` FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", array($id));
+        $query = $this->db->query("SELECT COUNT(*) as `total` FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=?", [$id]);
 
         if ($this->db->error()) {
             $error = $this->db->error();
@@ -363,7 +363,7 @@ class Characters_model
     {
         $this->connect();
 
-        $query = $this->db->query("SELECT COUNT(*) as `total` FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=? AND " . column("characters", "account", false, $this->realmId) . "=?", array($characterId, $accountId));
+        $query = $this->db->query("SELECT COUNT(*) as `total` FROM " . table('characters', $this->realmId) . " WHERE " . column("characters", "guid", false, $this->realmId) . "=? AND " . column("characters", "account", false, $this->realmId) . "=?", [$characterId, $accountId]);
 
         if ($this->db->error()) {
             $error = $this->db->error();
@@ -394,7 +394,7 @@ class Characters_model
      */
     public function getGold($account, $guid)
     {
-        $query = $this->db->query("SELECT " . column("characters", "money", true, $this->realmId) . " FROM " . table("characters", $this->realmId) . " WHERE " . column("characters", "account", false, $this->realmId) . " = ? AND " . column("characters", "guid", false, $this->realmId) . " = ?", array($account, $guid));
+        $query = $this->db->query("SELECT " . column("characters", "money", true, $this->realmId) . " FROM " . table("characters", $this->realmId) . " WHERE " . column("characters", "account", false, $this->realmId) . " = ? AND " . column("characters", "guid", false, $this->realmId) . " = ?", [$account, $guid]);
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
             return $result[0]["money"];
@@ -413,7 +413,7 @@ class Characters_model
      */
     public function setGold($account, $guid, $newGold)
     {
-        $query = $this->db->query("UPDATE " . table("characters", $this->realmId) . " SET " . column("characters", "money", false, $this->realmId) . " = ? WHERE " . column("characters", "account", false, $this->realmId) . " = ? AND " . column("characters", "guid", false, $this->realmId) . " = ?", array($newGold, $account, $guid));
+        $query = $this->db->query("UPDATE " . table("characters", $this->realmId) . " SET " . column("characters", "money", false, $this->realmId) . " = ? WHERE " . column("characters", "account", false, $this->realmId) . " = ? AND " . column("characters", "guid", false, $this->realmId) . " = ?", [$newGold, $account, $guid]);
 
         if ($query) {
             return true;

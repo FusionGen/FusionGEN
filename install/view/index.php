@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="Err0r">
-        <link rel="icon" href="assets/images/favicon.png">
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
         <title>Installation - FusionGEN</title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
@@ -632,7 +632,7 @@
                         <div role="tabpanel" class="tab-pane" id="finished-tab">
                             <div class="section">
                                 <div class="clearfix">
-                                    <i class="status fa fa-check-circle-o pull-left" style="font-size: 50px"> </i><span class="pull-left"  style="line-height: 50px;">Congratulation! You have successfully installed FusionGen!</span>  
+                                    <i class="status fa fa-check-circle-o pull-left" style="font-size: 50px"> </i><span class="pull-left" style="line-height: 50px;">Congratulation! You have successfully installed FusionGen!</span>  
                                 </div>
 
                                 <div style="margin: 15px 0 15px 60px; color: #d73b3b;">
@@ -655,7 +655,6 @@
 </html>
 
 <script>
-
     var onFormSubmit = function ($form) {
         $form.find('[type="submit"]').attr('disabled', 'disabled').find(".loader").removeClass("hide");
         $form.find('[type="submit"]').find(".button-text").addClass("hide");
