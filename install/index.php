@@ -3,8 +3,9 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 
 if (file_exists(".lock"))
 {
-	header("HTTP/1.1 403 Forbidden");
-	die();
+	header("HTTP/1.1 301 Moved Permanently");
+	header("Location: /index.php");
+	exit();
 }
 
 $php_version_success = false;
@@ -26,62 +27,62 @@ if ($current_php_version <= $php_version_max && $current_php_version >= $php_ver
     $php_version_success = true;
 }
 
-//check mySql 
+// check mysql
 if (function_exists("mysqli_connect")) {
     $mysql_success = true;
 }
 
-//check curl 
+// check curl
 if (function_exists("curl_version")) {
     $curl_success = true;
 }
 
-//check gd
+// check gd
 if (extension_loaded('gd') && function_exists('gd_info')) {
     $gd_success = true;
 }
 
-//check gmp
+// check gmp
 if (extension_loaded('gmp')) {
     $gmp_success = true;
 }
 
-//check soap
+// check soap
 if (extension_loaded('soap')) {
     $soap_success = true;
 }
 
-//check mbstring
+// check mbstring
 if (extension_loaded('mbstring')) {
     $mbstring_success = true;
 }
 
-//check openssl
+// check openssl
 if (extension_loaded('openssl')) {
     $openssl_success = true;
 }
 
-//check zip
+// check zip
 if (extension_loaded('zip')) {
     $zip_success = true;
 }
 
-//check xml
+// check xml
 if (extension_loaded('xml')) {
     $xml_success = true;
 }
 
-//check if all requirement is success
+// check if all requirement are meet
 if ($php_version_success && $mysql_success && $curl_success && $gd_success && $gmp_success && $soap_success && $mbstring_success && $openssl_success && $zip_success && $xml_success) {
     $all_requirement_success = true;
 } else {
     $all_requirement_success = false;
 }
 
-$writeable_directories = array(
+$writeable_directories = [
     'cache' => '/application/cache/',
     'config' => '/application/config/config.php'
-);
+];
 
 foreach ($writeable_directories as $value) {
     if (!is_writeable(".." . $value)) {

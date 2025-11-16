@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
 	header("HTTP/1.1 403 Forbidden");
-	die();
+	exit();
 }
 
 ini_set('set_time_limit', 30);
@@ -18,7 +18,7 @@ if (isset($_POST)) {
     $max_expansion = $_POST['max_expansion'];
 
     if (!($title && $server_name && $realmlist && $security_code)) {
-        echo json_encode(array("success" => false, "message" => "Please input all fields."));
+        echo json_encode(["success" => false, "message" => "Please input all fields."]);
         exit();
     }
 
@@ -53,6 +53,6 @@ if (isset($_POST)) {
 
     $config->save();
 
-    echo json_encode(array("success" => true));
+    echo json_encode(["success" => true]);
     exit();
 }

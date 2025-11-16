@@ -111,13 +111,8 @@ class Captcha
         $B2BlackColor = hexdec(substr($blackColor, 5, 2));
 
         // Calc contrast ratio
-        $L1 = 0.2126 * pow($R1 / 255, 2.2) +
-            0.7152 * pow($G1 / 255, 2.2) +
-            0.0722 * pow($B1 / 255, 2.2);
-
-        $L2 = 0.2126 * pow($R2BlackColor / 255, 2.2) +
-                0.7152 * pow($G2BlackColor / 255, 2.2) +
-                0.0722 * pow($B2BlackColor / 255, 2.2);
+        $L1 = 0.2126 * pow($R1 / 255, 2.2) + 0.7152 * pow($G1 / 255, 2.2) + 0.0722 * pow($B1 / 255, 2.2);
+        $L2 = 0.2126 * pow($R2BlackColor / 255, 2.2) + 0.7152 * pow($G2BlackColor / 255, 2.2) + 0.0722 * pow($B2BlackColor / 255, 2.2);
 
         $contrastRatio = 0;
         if ($L1 > $L2) {
@@ -148,7 +143,7 @@ class Captcha
         $textcolor = $this->getContrastColor($bgcolor);
         $gridColor = $this->getContrastColor($textcolor);
 
-        $vals = array(
+        $vals = [
             'word'          => $this->getValue(),
             'img_path'      => FCPATH . '/uploads/captcha/',
             'img_url'       => pageURL . '/uploads/captcha/',
@@ -159,19 +154,19 @@ class Captcha
             'font_size'     => 16,
             'font_path'     => APPPATH . 'fonts/Roboto-Regular.ttf',
 
-            'colors'        => array(
+            'colors'        => [
                 'background' => sscanf($bgcolor, "#%02x%02x%02x"),
                 'border' => sscanf($textcolor, "#%02x%02x%02x"),
                 'text' => sscanf($textcolor, "#%02x%02x%02x"),
                 'grid' => sscanf($gridColor, "#%02x%02x%02x")
-            )
-        );
+            ]
+        ];
 
         $cap = create_captcha($vals);
         //die(print_r($cap));
 
         // Define the headers and output it
-        header("Cache-Control: no-cache, must-revalidate");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
         header("Content-type: image/png");
         $image = imagecreatefrompng($vals["img_path"] . $cap["filename"]);
         imagepng($image);

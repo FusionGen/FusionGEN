@@ -53,6 +53,7 @@ function MultiLanguageInput(field)
 			if(options)
 			{
 				Swal.fire({
+					theme: 'dark',
 					title: 'Insert',
 					html: languages,
 					showCancelButton: true,
@@ -65,7 +66,7 @@ function MultiLanguageInput(field)
 			}
 			else
 			{
-				Swal.fire('','There are no more languages','error');
+				Swal.fire({theme: 'dark', title: '', text: 'There are no more languages', icon: 'error'});
 			}
 		});
 

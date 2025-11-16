@@ -1,5 +1,5 @@
 var Login = {
-	
+
 	send: function(form)
 	{
 		var values = {csrf_token_name: Config.CSRF, send:"1"};
@@ -21,7 +21,7 @@ var Login = {
 				case "permission":
 					$("#security_code").attr("disabled", "disabled").removeClass("border border-danger");
 
-					alert("You do not have permission to access the admin panel (assign permission: [view, admin])");
+					Swal.fire({theme: 'dark', title: 'Oops...', text: 'You do not have permission to access the admin panel (assign permission: [view, admin])', icon: 'warning'});
 				break;
 
 				case "welcome":
@@ -40,6 +40,7 @@ var Login = {
 			    if(jqXHR.status == 403)
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: 'You are not authorized to perform that action',
@@ -48,6 +49,7 @@ var Login = {
 				else if(jqXHR.status == 404)
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: 'Site not found! Please log in again',
@@ -56,6 +58,7 @@ var Login = {
 				else
 				{
 					Swal.fire({
+						theme: 'dark',
 						icon: 'error',
 						title: 'Oops...',
 						text: 'Something went wrong! Please reload the site',

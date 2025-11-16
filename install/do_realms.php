@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
 	header("HTTP/1.1 403 Forbidden");
-	die();
+	exit();
 }
 
 class Realms
@@ -38,10 +38,10 @@ class Realms
 
             if (!($hostname && $username && $db_port && $characters && $world && $cap && $realmName && $console_username && $console_password && $console_port && $realm_port))
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => false,
                     "message" => "Please input all fields."
-                ));
+                ]);
                 exit();
             }
 
@@ -53,10 +53,10 @@ class Realms
             }
             catch(Exception $e)
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => false,
                     "message" => "Fusion DB: " . $e->getMessage()
-                ));
+                ]);
                 exit();
             }
 
@@ -66,10 +66,10 @@ class Realms
             }
             catch(Exception $e)
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => false,
                     "message" => "Char DB: " . $e->getMessage()
-                ));
+                ]);
                 exit();
             }
 
@@ -79,28 +79,28 @@ class Realms
             }
             catch(Exception $e)
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => false,
                     "message" => "World DB: " . $e->getMessage()
-                ));
+                ]);
                 exit();
             }
 
             if (!mysqli_select_db($mysqli_characters, $characters))
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => false,
                     "message" => "Looks like your characters database doesn't exist"
-                ));
+                ]);
                 exit();
             }
 
             if (!mysqli_select_db($mysqli_world, $world))
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => false,
                     "message" => "Looks like your world database doesn't exist"
-                ));
+                ]);
                 exit();
             }
 
@@ -129,17 +129,17 @@ class Realms
 
             if (mysqli_query($mysqli_cms, $query))
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => true
-                ));
+                ]);
                 exit();
             }
             else
             {
-                echo json_encode(array(
+                echo json_encode([
                     "success" => false,
                     "message" => mysqli_error($mysqli_cms)
-                ));
+                ]);
             }
         }
     }
@@ -152,4 +152,3 @@ class Realms
 }
 
 $realms = new Realms();
-

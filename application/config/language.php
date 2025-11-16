@@ -36,10 +36,10 @@ $config['detect_language'] = false;
 | Supported Languages
 |--------------------------------------------------------------------------
 */
-$config['supported_languages'] = array(
-    'en' => array('name' => 'english'),
-    'es' => array('name' => 'spanish'),
-    'fr' => array('name' => 'french'),
-    'ro' => array('name' => 'romanian')
-    //'de' => array('name' => 'deutsch')
-);
+$config['supported_languages'] = [
+    'en' => ['name' => 'english'],
+    'es' => ['name' => 'spanish'],
+    'fr' => ['name' => 'french'],
+    'ro' => ['name' => 'romanian']
+    //'de' => ['name' => 'deutsch']
+];

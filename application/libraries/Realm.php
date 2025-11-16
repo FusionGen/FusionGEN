@@ -46,14 +46,14 @@ class Realm
         $this->config = $config;
         $this->config['emulator'] = $emulator;
         $this->isOnline = null;
-        $this->onlineFaction = array();
+        $this->onlineFaction = [];
 
-        $overrideParts = array(
+        $overrideParts = [
             'username',
             'password',
             'hostname',
             'port'
-        );
+        ];
 
         foreach ($overrideParts as $part) {
             $this->config["override_" . $part . "_char"] = $this->config['characters'][$part];

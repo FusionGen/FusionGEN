@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$hook['pre_system'][] = array(
+$hook['pre_system'][] = [
     'class'    => '',
     'function' => 'cf_get_real_ip',
     'filename' => 'Cf_get_real_ip.php',
     'filepath' => 'hooks'
-);
+];

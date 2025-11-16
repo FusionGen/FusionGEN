@@ -35,11 +35,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | -------------------------------------------------------------------
 | Prototype:
 |
-|  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
+|  $autoload['packages'] = [APPPATH.'third_party', '/usr/local/shared'];
 |
 */
 
-$autoload['packages'] = array();
+$autoload['packages'] = [];
 
 
 /*
@@ -51,10 +51,10 @@ $autoload['packages'] = array();
 |
 | Prototype:
 |
-|   $autoload['libraries'] = array('database', 'session', 'xmlrpc');
+|   $autoload['libraries'] = ['database', 'session', 'xmlrpc'];
 */
 
-$autoload['libraries'] = array('security', 'cache', 'database', 'session', 'ci_smarty' => 'smarty', 'template', 'language', 'realms', 'acl', 'user', 'logger', 'plugins', 'dbbackup', 'captcha');
+$autoload['libraries'] = ['security', 'cache', 'database', 'session', 'ci_smarty' => 'smarty', 'template', 'language', 'realms', 'acl', 'user', 'logger', 'plugins', 'dbbackup', 'captcha'];
 
 /*
 | -------------------------------------------------------------------
@@ -67,9 +67,9 @@ $autoload['libraries'] = array('security', 'cache', 'database', 'session', 'ci_s
 |
 | Prototype:
 |
-|   $autoload['drivers'] = array('cache');
+|   $autoload['drivers'] = ['cache'];
 */
-$autoload['drivers'] = array('session');
+$autoload['drivers'] = ['session'];
 
 
 /*
@@ -78,10 +78,10 @@ $autoload['drivers'] = array('session');
 | -------------------------------------------------------------------
 | Prototype:
 |
-|   $autoload['helper'] = array('url', 'file');
+|   $autoload['helper'] = ['url', 'file'];
 */
 
-$autoload['helper'] = array('url', 'emulator', 'form', 'text', 'lang', 'breadcrumb', 'permission');
+$autoload['helper'] = ['url', 'emulator', 'form', 'text', 'lang', 'breadcrumb', 'permission'];
 
 
 /*
@@ -90,14 +90,14 @@ $autoload['helper'] = array('url', 'emulator', 'form', 'text', 'lang', 'breadcru
 | -------------------------------------------------------------------
 | Prototype:
 |
-|   $autoload['config'] = array('config1', 'config2');
+|   $autoload['config'] = ['config1', 'config2'];
 |
 | NOTE: This item is intended for use ONLY if you have created custom
 | config files.  Otherwise, leave it blank.
 |
 */
 
-$autoload['config'] = array('language', 'version', 'acl_defaults', 'fusion', 'message', 'backups', 'cdn', 'captcha', 'social_media');
+$autoload['config'] = ['language', 'version', 'acl_defaults', 'fusion', 'message', 'backups', 'cdn', 'captcha', 'social_media'];
 
 
 /*
@@ -106,14 +106,14 @@ $autoload['config'] = array('language', 'version', 'acl_defaults', 'fusion', 'me
 | -------------------------------------------------------------------
 | Prototype:
 |
-|   $autoload['language'] = array('lang1', 'lang2');
+|   $autoload['language'] = ['lang1', 'lang2'];
 |
 | NOTE: Do not include the "_lang" part of your file.  For example
-| "codeigniter_lang.php" would be referenced as array('codeigniter');
+| "codeigniter_lang.php" would be referenced as ['codeigniter'];
 |
 */
 
-$autoload['language'] = array();
+$autoload['language'] = [];
 
 
 /*
@@ -122,11 +122,11 @@ $autoload['language'] = array();
 | -------------------------------------------------------------------
 | Prototype:
 |
-|   $autoload['model'] = array('model1', 'model2');
+|   $autoload['model'] = ['model1', 'model2'];
 |
 */
 
-$autoload['model'] = array('cms_model', 'external_account_model', 'internal_user_model', 'acl_model');
+$autoload['model'] = ['cms_model', 'external_account_model', 'internal_user_model', 'acl_model'];
 
 
 /* End of file autoload.php */

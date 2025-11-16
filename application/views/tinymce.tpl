@@ -5,7 +5,7 @@
 		tinymce.init({
 			promotion: false,
 
-			selector : "textarea",
+			selector : "textarea.tinymce",
 
 			height: 400,
 

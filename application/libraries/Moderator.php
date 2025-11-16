@@ -26,7 +26,7 @@ class Moderator
     {
         $this->CI = &get_instance();
         $this->theme_path = "application/themes/admin/";
-        $this->menu = array();
+        $this->menu = [];
 
         if (!$this->CI->user->isStaff()) {
             redirect('errors', 'refresh');
@@ -141,31 +141,24 @@ class Moderator
         // Loop through all modules that have manifests
         foreach ($this->modules as $module => $manifest) {
             // Check if the mod and group keys exist
-            if (
-                array_key_exists("enabled", $manifest)
-                && $manifest['enabled'] == true
-                && array_key_exists("mod", $manifest)
-            ) {
+            if (array_key_exists("enabled", $manifest) && $manifest['enabled'] == true && array_key_exists("mod", $manifest)) {
                 if (array_key_exists("group", $manifest['mod'])) {
-                    $manifest['mod'] = array($manifest['mod']['group']);
+                    $manifest['mod'] = [$manifest['mod']['group']];
                 }
 
                 foreach ($manifest['mod'] as $menuGroup) {
                     // Check if the group name doesn't exist
                     if (!array_key_exists($menuGroup['text'], $this->menu)) {
                         // Create a new entry and populate it with the icon and an empty array for the links
-                        $this->menu[$menuGroup['text']] = array(
-                            'links' => array(),
+                        $this->menu[$menuGroup['text']] = [
+                            'links' => [],
                             'icon' => $menuGroup['icon']
-                        );
+                        ];
                     }
 
                     // Loop through all links
                     foreach ($menuGroup['links'] as $key => $link) {
-                        if (
-                            !array_key_exists("requirePermission", $link)
-                            || hasPermission($link['requirePermission'], $module)
-                        ) {
+                        if (!array_key_exists("requirePermission", $link) || hasPermission($link['requirePermission'], $module)) {
                             $menuGroup['links'][$key]['module'] = $module;
 
                             // Find out if this is the current link
@@ -217,12 +210,12 @@ class Moderator
     public function view($content, $css = false, $js = false)
     {
         if ($this->CI->input->is_ajax_request() && isset($_GET['is_json_ajax']) && $_GET['is_json_ajax'] == 1) {
-            $array = array(
+            $array = [
                 "title" => ($this->title) ? $this->title : "",
                 "content" => $content,
                 "js" => $js,
                 "css" => $css
-            );
+            ];
 
             die(json_encode($array));
         }
@@ -243,7 +236,7 @@ class Moderator
         }
 
         // Gather the theme data
-        $data = array(
+        $data = [
             "page" => '<div id="content_ajax">' . $content . '</div>',
             "url" => $this->CI->template->page_url,
             "menu" => $menu,
@@ -257,7 +250,7 @@ class Moderator
             "serverName" => $this->CI->config->item('server_name'),
             "avatar"    => $this->CI->user->getAvatar($this->CI->user->getId()),
             "groups" => $this->CI->acl_model->getGroupsByUser(),
-        );
+        ];
 
         // Load the main template
         $output = $this->CI->smarty->view($this->theme_path . "mod_template.tpl", $data, true);
@@ -275,10 +268,10 @@ class Moderator
      */
     public function box($title, $body, $full = false, $css = false, $js = false)
     {
-        $data = array(
+        $data = [
             "headline" => $title,
             "content" => $body
-        );
+        ];
 
         $page = $this->CI->smarty->view($this->theme_path . "box.tpl", $data, true);
 
@@ -301,7 +294,7 @@ class Moderator
 
     public function getEnabledModules()
     {
-        $enabled = array();
+        $enabled = [];
 
         foreach ($this->getModules() as $name => $manifest) {
             if ($manifest['enabled']) {
@@ -314,7 +307,7 @@ class Moderator
 
     public function getDisabledModules()
     {
-        $disabled = array();
+        $disabled = [];
 
         foreach ($this->getModules() as $name => $manifest) {
             if (!array_key_exists("enabled", $manifest) || !$manifest['enabled']) {

@@ -43,7 +43,7 @@ require_once __DIR__ . '/Base.php';
 #[AllowDynamicProperties]
 class MX_Controller
 {
-    public $autoload = array();
+    public $autoload = [];
     private $standardModule = "news";
 
     /**

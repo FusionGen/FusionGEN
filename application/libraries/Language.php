@@ -27,7 +27,7 @@ class Language
     {
         $this->CI = &get_instance();
 
-        $this->requestedFiles = $this->data = array();
+        $this->requestedFiles = $this->data = [];
 
         // Load default language
         $this->defaultLanguage = $this->CI->config->item('language');
@@ -211,7 +211,7 @@ class Language
 
         // Prevent errors
         if (!array_key_exists($language, $this->data)) {
-            $this->data[$language] = array();
+            $this->data[$language] = [];
         }
 
         // Add it to the list of requested files if it doesn't exist already
@@ -225,23 +225,21 @@ class Language
         }
 
         // Look in the module directory
-        elseif (
-            is_dir("application/modules/" . $this->CI->template->module_name . "/language/")
+        elseif (is_dir("application/modules/" . $this->CI->template->module_name . "/language/")
             && is_dir("application/modules/" . $this->CI->template->module_name . "/language/" . $language)
-            && file_exists("application/modules/" . $this->CI->template->module_name . "/language/" . $language . "/" . $file . ".php")
-        ) {
+            && file_exists("application/modules/" . $this->CI->template->module_name . "/language/" . $language . "/" . $file . ".php")) {
             $path = "application/modules/" . $this->CI->template->module_name . "/language/" . $language . "/" . $file . ".php";
         }
 
         // No language file was found, and this is the default language
         elseif ($language == $this->defaultLanguage) {
-            $this->data[$language][$file] = array();
+            $this->data[$language][$file] = [];
             show_error("Language file <b>" . $file . ".php</b> does not exist in application/language/" . $language . "/ or in application/modules/" . $this->CI->template->module_name . "/language/" . $language . "/");
         }
 
         // No language file was found, but it may exist for the default language
         else {
-            $this->data[$language][$file] = array();
+            $this->data[$language][$file] = [];
             return false;
         }
 
@@ -259,7 +257,7 @@ class Language
      */
     public function getAllLanguages()
     {
-        $languages = array();
+        $languages = [];
 
         $results = glob("application/language/*/");
 

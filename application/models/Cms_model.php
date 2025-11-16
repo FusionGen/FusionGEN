@@ -31,22 +31,22 @@ class Cms_model extends CI_Model
     private function logVisit()
     {
         if (!$this->input->is_ajax_request() && !isset($_GET['is_json_ajax'])) {
-            $this->db->query("INSERT INTO visitor_log(`date`, `ip`, `timestamp`) VALUES(?, ?, ?)", array(date("Y-m-d"), $this->input->ip_address(), time()));
+            $this->db->query("INSERT INTO visitor_log(`date`, `ip`, `timestamp`) VALUES(?, ?, ?)", [date("Y-m-d"), $this->input->ip_address(), time()]);
         }
 
-        $session = array(
+        $session = [
             'ip_address' => $this->input->ip_address(),
             'user_agent' => substr($this->input->user_agent(), 0, 120),
-        );
+        ];
 
         $this->db->where('ip_address', $session['ip_address']);
         $this->db->update("ci_sessions", $session);
 
         $query = $this->getSession($session);
 
-        $data = array(
+        $data = [
             "ip_address" => $session['ip_address'],
-        );
+        ];
 
         if ($session["user_agent"])
         {
@@ -59,7 +59,7 @@ class Cms_model extends CI_Model
 
     public function getModuleConfigKey($moduleId, $key)
     {
-        $query = $this->db->query("SELECT m.id, m.module_id, m.key, m.value, m.date_added, m.date_changed FROM modules_configs m WHERE m.module_id = ? AND m.key = ?", array((int)$moduleId, (string)$key));
+        $query = $this->db->query("SELECT m.id, m.module_id, m.key, m.value, m.date_added, m.date_changed FROM modules_configs m WHERE m.module_id = ? AND m.key = ?", [(int)$moduleId, (string)$key]);
 
         // Return results
         if ($query->num_rows() > 0) {
@@ -101,10 +101,10 @@ class Cms_model extends CI_Model
      */
     public function getLinks($side = "top")
     {
-        if (in_array($side, array("top", "side", "bottom"))) {
-            $query = $this->db->query("SELECT * FROM menu WHERE side = ? ORDER BY `order` ASC", array($side));
+        if (in_array($side, ["top", "side", "bottom"])) {
+            $query = $this->db->query("SELECT * FROM menu WHERE side = ? ORDER BY `order` ASC", [$side]);
         } else {
-            $query = $this->db->query("SELECT * FROM menu ORDER BY `order` ASC", array($side));
+            $query = $this->db->query("SELECT * FROM menu ORDER BY `order` ASC", [$side]);
         }
 
         if ($query->num_rows() > 0) {
@@ -208,7 +208,7 @@ class Cms_model extends CI_Model
     public function getBackups($id = false)
     {
         if ($id) {
-            $query = $this->db->query("SELECT backup_name FROM backup where id = ?", array($id));
+            $query = $this->db->query("SELECT backup_name FROM backup where id = ?", [$id]);
 
             if ($query->num_rows() > 0) {
                 $result = $query->result_array();
@@ -243,12 +243,12 @@ class Cms_model extends CI_Model
 
     public function deleteBackups($id)
     {
-        $this->db->query("delete FROM backup WHERE id = ?", array($id));
+        $this->db->query("delete FROM backup WHERE id = ?", [$id]);
     }
 
     public function getTemplate($id)
     {
-        $query = $this->db->query("SELECT * FROM email_templates WHERE id= ? LIMIT 1", array($id));
+        $query = $this->db->query("SELECT * FROM email_templates WHERE id= ? LIMIT 1", [$id]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -315,7 +315,7 @@ class Cms_model extends CI_Model
         if ($this->session->userdata('online')) {
             $this->user->setLanguage($setLang);
         } else {
-            $this->session->set_userdata(array('language' => $setLang));
+            $this->session->set_userdata(['language' => $setLang]);
         }
     }
 

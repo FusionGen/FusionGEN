@@ -95,7 +95,7 @@ function Ajax()
 		}
 		else
 		{
-			UI.alert("The message must be between 0-255 characters long!")
+			Swal.fire({title: '', text: 'The message must be between 0-255 characters long!', icon: 'warning'});
 		}
 	}
 

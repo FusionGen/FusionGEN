@@ -295,7 +295,7 @@ class Acl_model extends CI_Model
             return $query->result_array();
         } else {
             // No group found; default to player
-            return array($this->getGroup($this->config->item('default_player_group')));
+            return [$this->getGroup($this->config->item('default_player_group'))];
         }
     }
 
@@ -324,7 +324,7 @@ class Acl_model extends CI_Model
      */
     public function getGroupMemberCount($id)
     {
-        $query = $this->db->query("SELECT COUNT(*) `memberCount` FROM acl_account_groups WHERE group_id=?", array($id));
+        $query = $this->db->query("SELECT COUNT(*) `memberCount` FROM acl_account_groups WHERE group_id=?", [$id]);
 
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
@@ -342,7 +342,7 @@ class Acl_model extends CI_Model
      */
     public function getGroupMembers($id)
     {
-        $query = $this->db->query("SELECT account_id FROM acl_account_groups WHERE group_id=?", array($id));
+        $query = $this->db->query("SELECT account_id FROM acl_account_groups WHERE group_id=?", [$id]);
 
         if ($query->num_rows()) {
             $result = $query->result_array();
@@ -426,7 +426,7 @@ class Acl_model extends CI_Model
      */
     public function groupHasRole($groupId, $name, $module)
     {
-        $query = $this->db->query("SELECT COUNT(*) `total` FROM acl_group_roles WHERE role_name=? AND module=? AND group_id=?", array($name, $module, $groupId));
+        $query = $this->db->query("SELECT COUNT(*) `total` FROM acl_group_roles WHERE role_name=? AND module=? AND group_id=?", [$name, $module, $groupId]);
 
         if ($query->num_rows()) {
             $result = $query->result_array();
@@ -497,7 +497,7 @@ class Acl_model extends CI_Model
      */
     public function getRolesByModule($moduleName)
     {
-        $query = $this->db->query("SELECT * FROM acl_roles WHERE module=?", array($moduleName));
+        $query = $this->db->query("SELECT * FROM acl_roles WHERE module=?", [$moduleName]);
 
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
@@ -540,11 +540,11 @@ class Acl_model extends CI_Model
      */
     public function createGroup($name, $color = '', $description = '')
     {
-        $data = array(
+        $data = [
             'name' => $name,
             'color' => $color,
             'description' => $description
-        );
+        ];
 
         $this->db->insert('acl_groups', $data);
 
@@ -559,10 +559,10 @@ class Acl_model extends CI_Model
      */
     public function createRole($name, $description = '')
     {
-        $data = array(
+        $data = [
             'name' => $name,
             'description' => $description
-        );
+        ];
 
         $this->db->insert('acl_roles', $data);
     }
@@ -574,7 +574,7 @@ class Acl_model extends CI_Model
      */
     public function deleteGroup($groupId)
     {
-        $this->db->delete('acl_groups', array('id' => $groupId));
+        $this->db->delete('acl_groups', ['id' => $groupId]);
     }
 
     /**
@@ -585,7 +585,7 @@ class Acl_model extends CI_Model
      */
     public function deleteRole($name, $module)
     {
-        $this->db->delete('acl_roles', array('name' => $name, 'module' => $module));
+        $this->db->delete('acl_roles', ['name' => $name, 'module' => $module]);
     }
 
     /**
@@ -596,10 +596,10 @@ class Acl_model extends CI_Model
      */
     public function assignGroupToUser($groupId, $accountId)
     {
-        $data = array(
+        $data = [
             "account_id" => $accountId,
             "group_id" => $groupId
-        );
+        ];
 
         $this->db->insert('acl_account_groups', $data);
     }
@@ -612,10 +612,10 @@ class Acl_model extends CI_Model
      */
     public function removeGroupFromUser($groupId, $accountId)
     {
-        $data = array(
+        $data = [
             "account_id" => $accountId,
             "group_id" => $groupId
-        );
+        ];
 
         $this->db->delete('acl_account_groups', $data);
     }
@@ -627,9 +627,9 @@ class Acl_model extends CI_Model
      */
     public function removeGroupsFromUser($accountId)
     {
-        $data = array(
+        $data = [
             "account_id" => $accountId
-        );
+        ];
 
         $this->db->delete('acl_account_groups', $data);
     }
@@ -641,9 +641,9 @@ class Acl_model extends CI_Model
      */
     public function removePermissionsFromUser($accountId)
     {
-        $data = array(
+        $data = [
             "account_id" => $accountId
-        );
+        ];
 
         $this->db->delete('acl_account_permissions', $data);
     }
@@ -657,12 +657,12 @@ class Acl_model extends CI_Model
      */
     public function assignPermissionToUser($accontId, $permissionName, $moduleName, $value)
     {
-        $data = array(
+        $data = [
             "account_id" => $accontId,
             "permission_name" => $permissionName,
             "module" => $moduleName,
             "value" => $value
-        );
+        ];
 
         $this->db->insert("acl_account_permissions", $data);
     }
@@ -676,11 +676,11 @@ class Acl_model extends CI_Model
      */
     public function addRoleToGroup($groupId, $name, $module)
     {
-        $data = array(
+        $data = [
             'group_id' => $groupId,
             'role_name' => $name,
             'module' => $module
-        );
+        ];
 
         $this->db->insert('acl_group_roles', $data);
     }
@@ -694,7 +694,7 @@ class Acl_model extends CI_Model
      */
     public function deleteRoleFromGroup($groupId, $name, $module)
     {
-        $this->db->delete('acl_group_roles', array('group_id' => $groupId, 'role_name' => $name, 'module' => $module));
+        $this->db->delete('acl_group_roles', ['group_id' => $groupId, 'role_name' => $name, 'module' => $module]);
     }
 
     /**
@@ -728,7 +728,7 @@ class Acl_model extends CI_Model
      */
     public function deleteAllRoleFromGroup($groupId)
     {
-        $this->db->delete('acl_group_roles', array('group_id' => $groupId));
+        $this->db->delete('acl_group_roles', ['group_id' => $groupId]);
     }
 
     /**
@@ -740,12 +740,12 @@ class Acl_model extends CI_Model
      */
     public function addPermissionToRole($name, $permission, $module, $value = 1)
     {
-        $data = array(
+        $data = [
             'role_name' => $name,
             'permission_name' => $permission,
             'module' => $module,
             'value' => $value
-        );
+        ];
 
         $this->db->insert('acl_roles_permissions', $data);
     }
@@ -759,11 +759,11 @@ class Acl_model extends CI_Model
      */
     public function deletePermissionFromRole($name, $permission, $module)
     {
-        $where = array(
+        $where = [
             'role_name' => $name,
             'permission_name' => $permission,
             'module' => $module
-        );
+        ];
 
         $this->db->delete('acl_roles_permissions', $where);
     }
@@ -781,6 +781,6 @@ class Acl_model extends CI_Model
         $this->db->where('role_name', $name);
         $this->db->where('permission_name', $permission);
         $this->db->where('module', $module);
-        $this->db->update('acl_roles_permissions', array('value' => $value));
+        $this->db->update('acl_roles_permissions', ['value' => $value]);
     }
 }

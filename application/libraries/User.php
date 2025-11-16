@@ -54,7 +54,7 @@ class User
             // Load the internal values (vp, dp etc.)
             $this->CI->internal_user_model->initialize($this->CI->external_account_model->getId());
 
-            $userdata = array(
+            $userdata = [
                 'uid' => $this->CI->external_account_model->getId(),
                 'username' => $this->CI->external_account_model->getUsername(),
                 'password' => $this->CI->external_account_model->getShaPassHash(),
@@ -65,7 +65,7 @@ class User
                 'last_ip' => $this->CI->external_account_model->getLastIp(),
                 'nickname' => $this->CI->internal_user_model->getNickname(),
                 'language' => $this->CI->internal_user_model->getLanguage(),
-            );
+            ];
 
             // Set the session with the above data
             $this->CI->session->set_userdata($userdata);
@@ -174,11 +174,11 @@ class User
     {
         //A check so it requires you to be logged in.
         if (!$this->online) {
-            $this->CI->template->view($this->CI->template->loadPage("page.tpl", array(
+            $this->CI->template->view($this->CI->template->loadPage("page.tpl", [
                 "module" => "default",
                 "headline" => lang("denied"),
                 "content" => "<div class='text-center py-5 fw-bold'>" . lang("must_be_signed_in") . "</div>"
-            )));
+            ]));
         }
 
         return;
@@ -191,11 +191,11 @@ class User
     {
         //A check so it requires you to be logged out.
         if ($this->online) {
-            $this->CI->template->view($this->CI->template->loadPage("page.tpl", array(
+            $this->CI->template->view($this->CI->template->loadPage("page.tpl", [
                 "module" => "default",
                 "headline" => lang("denied"),
                 "content" => "<div class='text-center py-5 fw-bold'>" . lang("already_signed_in") . "</div>"
-            )));
+            ]));
         }
 
         return;
@@ -256,7 +256,7 @@ class User
             } else {
                 return false;
             }
-        } elseif (!is_numeric($a) && !is_numeric($b) && in_array($a, array("az", "a")) && in_array($b, array("az", "a"))) {
+        } elseif (!is_numeric($a) && !is_numeric($b) && in_array($a, ["az", "a"]) && in_array($b, ["az", "a"])) {
             switch ($a) {
                 case "az":
                     $a = 1;
@@ -280,7 +280,7 @@ class User
             } else {
                 return false;
             }
-        } elseif (in_array($a, array("az", "a")) && is_numeric($b)) {
+        } elseif (in_array($a, ["az", "a"]) && is_numeric($b)) {
             return false;
         } else {
             // Unknown
@@ -397,7 +397,7 @@ class User
     public function getCharacters($userId, $realmId = -1)
     {
         if ($realmId && $userId) {
-            $out = array(); //Init the return param
+            $out = []; //Init the return param
 
             if ($realmId == -1) { //Get all characters
                 //Get the realms
@@ -413,7 +413,7 @@ class User
                     //Excute queries on it by getting the connection
                     $characters = $character->getCharactersByAccount($this->id);
 
-                    $character_data = array('realmId' => $realm->getId(),'realmName' => $realm->getName(), 'characters' => $characters);
+                    $character_data = ['realmId' => $realm->getId(),'realmName' => $realm->getName(), 'characters' => $characters];
 
                     array_push($out, $character_data);
                 }
@@ -430,7 +430,7 @@ class User
                 //Excute queries on it by getting the connection
                 $characters = $character->getCharactersByAccount($this->id);
 
-                $character_data = array('realmId' => $realm->getId(),'realmName' => $realm->getName(), 'characters' => $characters);
+                $character_data = ['realmId' => $realm->getId(),'realmName' => $realm->getName(), 'characters' => $characters];
 
                 return $character_data;
             }

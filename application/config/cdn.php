@@ -15,11 +15,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | CDN system
 |--------------------------------------------------------------------------
 |
-| If activated, static files (js/css/images) are loaded from github via the fusiongen CDN system
+| If activated, most static files (js/css/images) are loaded from GitHub via the FusionGEN CDN system
 |
 | This should speed up the loading time of the website
 |
-| Only default theme.
 */
 
 $config['cdn'] = false;

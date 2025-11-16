@@ -18,8 +18,8 @@ class Acl
 
     public function __construct()
     {
-        $this->modules = array();
-        $this->runtimeCache = array();
+        $this->modules = [];
+        $this->runtimeCache = [];
         $this->CI = &get_instance();
     }
 
@@ -52,18 +52,13 @@ class Acl
         }
 
         // Asked the question before? Grab the last answer
-        if (
-            array_key_exists($moduleName, $this->runtimeCache)
-            && array_key_exists($permissionName, $this->runtimeCache[$moduleName])
-            && array_key_exists($userId, $this->runtimeCache[$moduleName][$permissionName])
-        ) {
+        if (array_key_exists($moduleName, $this->runtimeCache) && array_key_exists($permissionName, $this->runtimeCache[$moduleName]) && array_key_exists($userId, $this->runtimeCache[$moduleName][$permissionName])) {
             return $this->runtimeCache[$moduleName][$permissionName][$userId];
         } else {
             // Get permission for a specific user
             if ($userId) {
                 $result = $this->CI->acl_model->hasPermission($userId, $permissionName, $moduleName, true);
             }
-
 
             // Get permission for the guest group
             else {
@@ -94,11 +89,7 @@ class Acl
         }
 
         // Asked the question before? Grab the last answer
-        if (
-            array_key_exists($moduleName, $this->runtimeCache)
-            && array_key_exists($permissionName, $this->runtimeCache[$moduleName])
-            && array_key_exists($userId, $this->runtimeCache[$moduleName][$permissionName])
-        ) {
+        if (array_key_exists($moduleName, $this->runtimeCache) && array_key_exists($permissionName, $this->runtimeCache[$moduleName]) && array_key_exists($userId, $this->runtimeCache[$moduleName][$permissionName])) {
             return $this->runtimeCache[$moduleName][$permissionName][$userId];
         } else {
             // Get the permission information
@@ -186,7 +177,7 @@ class Acl
             show_error("The manifest.json file for <b>" . strtolower($moduleName) . "</b> is not properly formatted");
         }
 
-        $this->modules[$moduleName]['permissions'] = (array_key_exists("permissions", $manifest)) ? $manifest['permissions'] : array();
-        $this->modules[$moduleName]['roles'] = (array_key_exists("roles", $manifest)) ? $manifest['roles'] : array();
+        $this->modules[$moduleName]['permissions'] = (array_key_exists("permissions", $manifest)) ? $manifest['permissions'] : [];
+        $this->modules[$moduleName]['roles'] = (array_key_exists("roles", $manifest)) ? $manifest['roles'] : [];
     }
 }

@@ -25,7 +25,7 @@ function sendMail($receiver, $subject, $username, $message, $templateId)
 
     // Pass the custom SMTP settings if any
     if ($CI->config->item('smtp_protocol') == 'smtp') {
-        $config = array(
+        $config = [
             'protocol'    => $CI->config->item('smtp_protocol'),
             'smtp_host'   => $CI->config->item('smtp_host'),
             'smtp_user'   => $CI->config->item('smtp_user'),
@@ -34,7 +34,7 @@ function sendMail($receiver, $subject, $username, $message, $templateId)
             'smtp_crypto' => $CI->config->item('smtp_crypto'),
             'crlf'        => "\r\n",
             'newline'     => "\r\n",
-        );
+        ];
     }
 
     // Configuration
@@ -52,12 +52,12 @@ function sendMail($receiver, $subject, $username, $message, $templateId)
     $CI->email->message($message);
 
     ######
-    $data = array(
+    $data = [
         'username' => $username,
         'message' => $message,
         'server_name' => $CI->config->item('server_name'),
         'url' => $CI->template->page_url,
-    );
+    ];
     $template = $CI->cms_model->getTemplate($templateId);
     $body = $CI->load->view('email_templates/' . $template['template_name'] . '', $data, true);
     ######
@@ -69,13 +69,13 @@ function sendMail($receiver, $subject, $username, $message, $templateId)
         die("cannot be send");
     }
 
-    $data2 = array(
+    $data2 = [
         'uid' => $CI->external_account_model->getIdByEmail($receiver),
         'email' => $receiver,
         'subject' => $subject,
         'message' => $message,
         'timestamp' => time(),
-    );
+    ];
 
     $CI->db->insert('email_log', $data2);
 }

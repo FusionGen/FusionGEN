@@ -12,10 +12,12 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/theme.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/skins/default.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2.min.css">
 
 		<!-- JS -->
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/login.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
 
 		<script>
 		function getCookie(c_name) {

@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
 	header("HTTP/1.1 403 Forbidden");
-	die();
+	exit();
 }
 
 set_time_limit(600);
@@ -21,14 +21,14 @@ if (isset($_POST)) {
 
     if (!($host && $dbuser && $dbpassword && $dbname && $auth_host && $auth_db_user && $auth_db_pass && $auth_db))
     {
-        echo json_encode(array("success" => false, "message" => "Please input all fields."));
+        echo json_encode(["success" => false, "message" => "Please input all fields."]);
         exit();
     }
 
     try {
         $mysqli_fusion = new mysqli($host, $dbuser, $dbpassword, $dbname, $dbport);
     } catch (Exception $e) {
-        echo json_encode(array("success" => false, "message" => "Fusion DB: ".$e->getMessage()));
+        echo json_encode(["success" => false, "message" => "Fusion DB: ".$e->getMessage()]);
         exit();
 	}
 
@@ -43,20 +43,20 @@ if (isset($_POST)) {
 
     if (version_compare($version, '5.7.0', '<'))
     {
-        echo json_encode(array("success" => false, "message" => "Fusion DB: MySQL server version is too old! Please use at least MySQL 5.7"));
+        echo json_encode(["success" => false, "message" => "Fusion DB: MySQL server version is too old! Please use at least MySQL 5.7"]);
         exit();
     }
 
     try {
         $mysqli_auth = new mysqli($auth_host, $auth_db_user, $auth_db_pass, $auth_db, $auth_port);
     } catch (Exception $e) {
-        echo json_encode(array("success" => false, "message" => "Auth DB: ".$e->getMessage()));
+        echo json_encode(["success" => false, "message" => "Auth DB: ".$e->getMessage()]);
         exit();
 	}
 
     if (!is_file('SQL/database.sql'))
     {
-        echo json_encode(array("success" => false, "message" => "The database.sql file could not be found!"));
+        echo json_encode(["success" => false, "message" => "The database.sql file could not be found!"]);
         exit();
     }
 
@@ -68,9 +68,8 @@ if (isset($_POST)) {
 
     $raw = '<?php
 $active_group = "cms";
-$query_builder = true;
 
-$db["cms"] = array(
+$db["cms"] = [
     "dsn"          => "",
     "hostname"     => "'.$host.'",
     "username"     => "'.$dbuser.'",
@@ -89,11 +88,11 @@ $db["cms"] = array(
     "encrypt"      => false,
     "compress"     => false,
     "stricton"     => false,
-    "failover"     => array(),
+    "failover"     => [],
     "save_queries" => true
-);
+];
 
-$db["account"] = array(
+$db["account"] = [
     "dsn"          => "",
     "hostname"     => "'.$auth_host.'",
     "username"     => "'.$auth_db_user.'",
@@ -112,9 +111,9 @@ $db["account"] = array(
     "encrypt"      => false,
     "compress"     => false,
     "stricton"     => false,
-    "failover"     => array(),
+    "failover"     => [],
     "save_queries" => true
-);';
+];';
 
     fwrite($db, $raw);
     fclose($db);
@@ -128,13 +127,13 @@ $db["account"] = array(
 
         while (mysqli_more_results($mysqli_fusion) && mysqli_next_result($mysqli_fusion));
     } catch (Exception $e) {
-        echo json_encode(array("success" => false, "message" => "Fusion DB import failed! Error: ".$e->getMessage()));
+        echo json_encode(["success" => false, "message" => "Fusion DB import failed! Error: ".$e->getMessage()]);
         exit();
 	}
 
     $mysqli_fusion->close();
     // database created
 
-    echo json_encode(array("success" => true));
+    echo json_encode(["success" => true]);
     exit();
 }

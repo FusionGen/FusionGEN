@@ -60,7 +60,7 @@ class World_model
         } else {
             $this->connect();
 
-            $query = $this->db->query(query('get_item', $this->realmId), array($id));
+            $query = $this->db->query(query('get_item', $this->realmId), [$id]);
 
             if ($this->db->error()) {
                 $error = $this->db->error();

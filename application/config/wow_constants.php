@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['races'] = lang("races", "wow_constants");
 $config['classes'] = lang("classes", "wow_constants");
-$config['alliance_races'] = array(1,3,4,7,11,22,25,29,30,32,34,37,52);
-$config['horde_races'] = array(2,5,6,8,9,10,26,27,28,31,35,36,70);
+$config['alliance_races'] = [1,3,4,7,11,22,25,29,30,32,34,37,52];
+$config['horde_races'] = [2,5,6,8,9,10,26,27,28,31,35,36,70];
 // Do not edit these unless you edit the corrosponding files names in:
 // application/images/avatars/
-$config['races_en'] = array(
+$config['races_en'] = [
     1 => "Human",
     2 => "Orc",
     3 => "Dwarf",
@@ -35,9 +35,9 @@ $config['races_en'] = array(
     37 => "Mechagnome",
     52 => "Dracthyr",
     70 => "Dracthyr"
-);
+];
 
-$config['classes_en'] = array(
+$config['classes_en'] = [
     1 => "Warrior",
     2 => "Paladin",
     3 => "Hunter",
@@ -51,4 +51,4 @@ $config['classes_en'] = array(
     11 => "Druid",
     12 => "Demon Hunter",
     13 => "Evoker"
-);
+];

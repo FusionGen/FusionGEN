@@ -38,50 +38,11 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<!-- Load scripts -->
-		<script src="{$url}application/js/html5shiv.js"></script>
 		<script src="{$url}application/js/jquery.min.js"></script>
 		<script>var isIE = false;</script>
 		<script src="{$path}js/router.js"></script>
 		<script src="{$path}js/require.js"></script>
 		<script>
-
-			if(!window.console)
-			{
-				var console = {
-				
-					log: function()
-					{
-						// Prevent stupid browsers from doing stupid things
-						// *cough* Internet Explorer *cough*
-					}
-				};
-			}
-
-			function getCookie(c_name)
-			{
-				var i, x, y, ARRcookies = document.cookie.split(";");
-
-				for(i = 0; i < ARRcookies.length;i++)
-				{
-					x = ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-					y = ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-					x = x.replace(/^\s+|\s+$/g,"");
-
-					if(x == c_name)
-					{
-						return unescape(y);
-					}
-				}
-			}
-
-			function setCookie(c_name,value,exdays)
-			{
-				var exdate = new Date();
-				exdate.setDate(exdate.getDate() + exdays);
-				var c_value = escape(value) + ((exdays == null) ? "" : "; expires="+exdate.toUTCString());
-				document.cookie = c_name + "=" + c_value;
-			}
-
 			var Config = {
 				URL: "{$url}",
 				image_path: "{$image_path}",
