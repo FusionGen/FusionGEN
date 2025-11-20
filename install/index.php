@@ -20,7 +20,7 @@ $zip_success = false;
 $xml_success = false;
 
 $php_version_min = "8.0.0";
-$php_version_max = "8.4.14";
+$php_version_max = "8.4.15";
 $current_php_version = phpversion();
 
 if ($current_php_version <= $php_version_max && $current_php_version >= $php_version_min) {
@@ -72,7 +72,7 @@ if (extension_loaded('xml')) {
     $xml_success = true;
 }
 
-// check if all requirement are meet
+// check if all requirements are meet
 if ($php_version_success && $mysql_success && $curl_success && $gd_success && $gmp_success && $soap_success && $mbstring_success && $openssl_success && $zip_success && $xml_success) {
     $all_requirement_success = true;
 } else {
