@@ -34,7 +34,7 @@
 
 		<script src="{$url}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/modernizr/modernizr.js"></script>
+		<script src="{$url}application/themes/admin/assets/vendor/modernizr/modernizr.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/popper/umd/popper.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
