@@ -100,34 +100,45 @@ class Icon extends MX_Controller
 
     private function get_icon_wowhead($item)
     {
-        // Get the item XML data
-        $xml = file_get_contents("https://www.wowhead.com/item=" . $item . "&xml");
+        // Get the item XML data using cURL
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://www.wowhead.com/item=" . $item . "&xml");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.4472.124 Safari/537.36');
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        $xml = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        // Check if request was successful
+        if ($httpCode !== 200 || $xml === false)
+        {
+            return false;
+        }
 
         $itemData = $this->xmlToArray($xml);
 
-        if (!isset($xml->error) && !isset($itemData['error']))
+        if (!isset($itemData['error']) && isset($itemData['item']['icon']))
         {
             $icon = $itemData['item']['icon'];
 
-            if (!is_array($icon))
+            // Make sure icon is valid and not an array
+            if (!empty($icon) && !is_array($icon))
             {
-                // make sure its not in DB already
+                // Check if not in DB already
                 $result = $this->db->query("SELECT COUNT(*) as count FROM item_icons WHERE item_id = ?", [$item])->row();
+
                 if ($result->count == 0)
                 {
-                    // let the users fill the table themselves, optionally they can import item_template themselves
                     $query = $this->db->query("INSERT INTO item_icons (item_id, icon) VALUES (?, ?)", [$item, $icon]);
                 }
 
-                // save to cache
+                // Save to cache
                 $this->cache->save("items/display_iconname_" . $item, $icon);
-            }
-            // return false in case of wowhead xml is broken (rare but it happens)
-            else {
-                return false;
-            }
 
-            return $icon;
+                return $icon;
+            }
         }
 
         return false;
