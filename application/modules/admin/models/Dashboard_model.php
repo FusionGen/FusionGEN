@@ -11,9 +11,9 @@ class Dashboard_model extends CI_Model
         }
 
         if ($type == "today") {
-            $query = $this->db->query("SELECT COUNT(DISTINCT ip,`date`) as `total` FROM visitor_log WHERE `date` >= ?", array($date));
+            $query = $this->db->query("SELECT COUNT(DISTINCT ip,`date`) as `total` FROM visitor_log WHERE `date` >= ?", [$date]);
         } else {
-            $query = $this->db->query("SELECT COUNT(DISTINCT ip) as `total` FROM visitor_log WHERE `date` >= ?", array($date));
+            $query = $this->db->query("SELECT COUNT(DISTINCT ip) as `total` FROM visitor_log WHERE `date` >= ?", [$date]);
         }
 
         $row = $query->result_array();
@@ -29,7 +29,7 @@ class Dashboard_model extends CI_Model
             $date = date("Y-m-d", time() - 60 * 60 * 24 * 30);
         }
 
-        $query = $this->db->query("SELECT COUNT(*) as `total` FROM visitor_log WHERE `date` >= ?", array($date));
+        $query = $this->db->query("SELECT COUNT(*) as `total` FROM visitor_log WHERE `date` >= ?", [$date]);
 
         $row = $query->result_array();
 
@@ -44,7 +44,7 @@ class Dashboard_model extends CI_Model
             $date = date("Y-m", time() - 60 * 60 * 24 * 30);
         }
 
-        $query = $this->db->query("SELECT amount FROM monthly_income WHERE month=?", array($date));
+        $query = $this->db->query("SELECT amount FROM monthly_income WHERE month=?", [$date]);
 
         if ($query->num_rows()) {
             $row = $query->result_array();
@@ -63,7 +63,7 @@ class Dashboard_model extends CI_Model
             $date = date("Y-m", time() - 60 * 60 * 24 * 30);
         }
 
-        $query = $this->db->query("SELECT amount FROM monthly_votes WHERE month=?", array($date));
+        $query = $this->db->query("SELECT amount FROM monthly_votes WHERE month=?", [$date]);
 
         if ($query->num_rows()) {
             $row = $query->result_array();
@@ -84,9 +84,9 @@ class Dashboard_model extends CI_Model
         }
 
         if ($type == "this") {
-            $query = $this->db->query("SELECT amount FROM daily_signups WHERE `date` >= ?", array($date));
+            $query = $this->db->query("SELECT amount FROM daily_signups WHERE `date` >= ?", [$date]);
         } else {
-            $query = $this->db->query("SELECT amount FROM daily_signups WHERE `date` >= ? AND `date` < ?", array($date, $next));
+            $query = $this->db->query("SELECT amount FROM daily_signups WHERE `date` >= ? AND `date` < ?", [$date, $next]);
         }
 
         if ($query->num_rows()) {
@@ -112,7 +112,7 @@ class Dashboard_model extends CI_Model
             $date = date("Y-m-d", time() - 60 * 60 * 24 * 30);
         }
 
-        $query = $this->db->query("SELECT amount FROM daily_signups WHERE `date` >= ?", array($date));
+        $query = $this->db->query("SELECT amount FROM daily_signups WHERE `date` >= ?", [$date]);
 
         if ($query->num_rows()) {
             $row = $query->result_array();
@@ -172,7 +172,7 @@ class Dashboard_model extends CI_Model
             throw new Exception("Not a number");
         }
 
-        $query = $this->db->query("UPDATE modules SET enabled = 1 WHERE id = ?", array($moduleId));
+        $query = $this->db->query("UPDATE modules SET enabled = 1 WHERE id = ?", [$moduleId]);
 
         if ($query) {
             return;
@@ -189,7 +189,7 @@ class Dashboard_model extends CI_Model
             throw new Exception("Not a number");
         }
 
-        $query = $this->db->query("UPDATE modules SET enabled = 0 WHERE id = ?", array($moduleId));
+        $query = $this->db->query("UPDATE modules SET enabled = 0 WHERE id = ?", [$moduleId]);
 
         if ($query) {
             return;

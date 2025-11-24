@@ -11,7 +11,7 @@ class Register extends MX_Controller
 
         requirePermission("view");
 
-        $this->load->helper(array('form', 'url', 'security'));
+        $this->load->helper(['form', 'url', 'security']);
         $this->load->library('form_validation');
 
         $this->load->helper('email_helper');
@@ -88,17 +88,17 @@ class Register extends MX_Controller
         }
 
         // Initial page load, display the form
-        $data = array(
+        $data = [
             "use_captcha" => $this->config->item('use_captcha'),
             "captcha_type" => $this->config->item('captcha_type'),
             "url" => $this->template->page_url
-        );
+        ];
 
-        $this->template->view($this->template->loadPage("page.tpl", array(
+        $this->template->view($this->template->loadPage("page.tpl", [
             "module" => "default",
             "headline" => lang("account_creation", "register"),
             "content" => $this->template->loadPage("register.tpl", $data),
-        )), false, "modules/register/js/validate.js");
+        ]), false, "modules/register/js/validate.js");
     }
 
     public function username_check($username)

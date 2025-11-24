@@ -23,9 +23,9 @@ class Donate extends MX_Controller
 
         $user_id = $this->user->getId();
 
-        $paypal = array(
+        $paypal = [
             "values" => $this->paypal_model->getDonations()
-        );
+        ];
 
         if ($this->input->post())
         {
@@ -35,27 +35,27 @@ class Donate extends MX_Controller
             }
         }
 
-        $data = array(
+        $data = [
             "paypal" => $paypal,
             "user_id" => $user_id,
             "server_name" => $this->config->item('server_name'),
             "currency" => $this->config->item('donation_currency'),
             "currency_sign" => $this->config->item('donation_currency_sign'),
-        );
+        ];
 
         $data['use_paypal'] = (!empty($this->config->item("paypal_userid")) && !empty($this->config->item("paypal_secretpass")) && $this->config->item("use_paypal")) ? true : false;
 
         $output = $this->template->loadPage("donate.tpl", $data);
 
         // Load the page breadcrumb
-        $page_data = array(
+        $page_data = [
             "module" => "default",
-            "headline" => breadcrumb(array(
+            "headline" => breadcrumb([
                             "ucp" => lang("ucp"),
                             "donate" => lang("donate_panel", "donate")
-                        )),
+                        ]),
             "content" => $output
-        );
+        ];
 
 		$page = $this->template->loadPage("page.tpl", $page_data);
 
@@ -78,14 +78,14 @@ class Donate extends MX_Controller
     {
         $this->user->getUserData();
 
-        $page = $this->template->loadPage("success.tpl", array('url' => $this->template->page_url));
+        $page = $this->template->loadPage("success.tpl", ['url' => $this->template->page_url]);
 
         $this->template->box(lang("donate_thanks", "donate"), $page, true);
     }
 
     public function error()
     {
-        $data = array('msg' => $this->session->userdata('paypal_error'));
+        $data = ['msg' => $this->session->userdata('paypal_error')];
 
         $page = $this->template->loadPage("error.tpl", $data);
 

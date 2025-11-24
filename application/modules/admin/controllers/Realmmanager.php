@@ -25,7 +25,7 @@ class Realmmanager extends MX_Controller
         $this->administrator->setTitle($realm->getName());
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'realm' => $realm,
             'hostname_char' => ($realm->getConfig('override_hostname_char')) ? $realm->getConfig('override_hostname_char') : $realm->getConfig('hostname'),
@@ -37,7 +37,7 @@ class Realmmanager extends MX_Controller
             'password_world' => ($realm->getConfig('override_password_world')) ? $realm->getConfig('override_password_world') : $realm->getConfig('password'),
             'port_world' => ($realm->getConfig('override_port_world')) ? $realm->getConfig('override_port_world') : 3306,
             'emulators' => $this->getEmulators()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("edit_realm.tpl", $data);
@@ -65,7 +65,7 @@ class Realmmanager extends MX_Controller
 
     public function create()
     {
-        $data = array();
+        $data = [];
 
         $data['realmName'] = $this->input->post('name');
         $data['hostname'] = $this->input->post('hostname');

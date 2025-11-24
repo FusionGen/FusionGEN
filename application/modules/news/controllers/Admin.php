@@ -37,11 +37,11 @@ class Admin extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'news' => $articles,
             'lang' => $this->language->getLanguageAbbreviation()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin.tpl", $data);
@@ -61,9 +61,9 @@ class Admin extends MX_Controller
         $this->administrator->setTitle('News - New');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_new.tpl", $data);
@@ -100,10 +100,10 @@ class Admin extends MX_Controller
         $this->administrator->setTitle($article['headline_' . $this->language->getLanguageAbbreviation() . '']);
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'article' => $article
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_edit.tpl", $data);
@@ -179,7 +179,7 @@ class Admin extends MX_Controller
             die("Content for the default language can't be empty");
         }
 
-        if (in_array($comments, array("1", "yes", "true"))) {
+        if (in_array($comments, ["1", "yes", "true"])) {
             $comments = "0";
         } else {
             $comments = "-1";
@@ -191,7 +191,7 @@ class Admin extends MX_Controller
                 break;
             case '1':
                 $fileNames = $this->input->post('fileNames');
-                $type_content = array();
+                $type_content = [];
 
                 if (!isset($fileNames)) {
                     if (!isset($_FILES['type_image'])) {
@@ -259,7 +259,7 @@ class Admin extends MX_Controller
                 $fileNames = $this->input->post('fileNames');
                 if (strpos($fileNames, ",") !== false) {
                     $fileNames = explode(",", $fileNames);
-                    for ($i = 0; $i < count(array($type_contents)); $i++) {
+                    for ($i = 0; $i < count([$type_contents]); $i++) {
                         foreach ($fileNames as $name) {
                             if (isset($type_contents[$i])) {
                                 if ($type_contents[$i] == $name) {
@@ -270,7 +270,7 @@ class Admin extends MX_Controller
                         }
                     }
                 } else {
-                    for ($i = 0; $i < count(array($type_contents)); $i++) {
+                    for ($i = 0; $i < count([$type_contents]); $i++) {
                         if (isset($type_contents[$i])) {
                             if ($type_contents[$i] == $fileNames) {
                                 array_splice($type_contents, $i, 1);

@@ -15,12 +15,12 @@ class Visitors extends MX_Controller
         $word = ($count == 1) ? lang("visitor", "sidebox_visitors") : lang("visitors", "sidebox_visitors");
         $there_are = ($count == 1) ? lang("there_is", "sidebox_visitors") : lang("there_are", "sidebox_visitors");
 
-        $output = $this->template->loadPage("visitors.tpl", array(
+        $output = $this->template->loadPage("visitors.tpl", [
             'module' => "sidebox_visitors",
             'count' => $count,
             'word' => $word,
             'there_are' => $there_are
-        ));
+        ]);
 
         return $output;
     }
@@ -29,7 +29,7 @@ class Visitors extends MX_Controller
     {
         $guests = $this->visitor_model->getGuestCount();
         $visitors = $this->visitor_model->get();
-        $realVisitors = array();
+        $realVisitors = [];
 
         if ($visitors) {
             foreach ($visitors as $key => $value) {
@@ -50,7 +50,7 @@ class Visitors extends MX_Controller
             }
         }
 
-        $output = $this->template->loadPage("all_visitors.tpl", array('module' => "sidebox_visitors", 'guests' => $guests, 'visitors' => $realVisitors));
+        $output = $this->template->loadPage("all_visitors.tpl", ['module' => "sidebox_visitors", 'guests' => $guests, 'visitors' => $realVisitors]);
 
         die($output);
     }
@@ -74,7 +74,7 @@ class Visitors extends MX_Controller
         $sess_data = rtrim($sess_data, ";");
         $sess_data = preg_replace('/(;password\|.*?;email\|)/', '', $sess_data);
 
-        $sess_info = array();
+        $sess_info = [];
         $parts = explode(";", $sess_data);
 
         foreach ($parts as $part) {

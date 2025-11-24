@@ -26,12 +26,12 @@ class Donate_model extends CI_Model
 
     public function giveDp($user, $dp)
     {
-        $this->db->query("UPDATE account_data SET dp = dp + ? WHERE id=?", array($dp, $user));
+        $this->db->query("UPDATE account_data SET dp = dp + ? WHERE id=?", [$dp, $user]);
     }
 
     public function findByEmail($type, $string)
     {
-        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `payer_email` LIKE ?", array("%" . $string . "%"));
+        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `payer_email` LIKE ?", ["%" . $string . "%"]);
 
         if ($query->num_rows())
         {
@@ -46,9 +46,9 @@ class Donate_model extends CI_Model
     public function findByTxn($type, $string)
     {
         if ($type == "paypal") {
-            $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `payment_id` LIKE ?", array("%" . $string . "%"));
+            $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `payment_id` LIKE ?", ["%" . $string . "%"]);
         } else {
-            $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `txn_id` LIKE ?", array("%" . $string . "%"));
+            $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `txn_id` LIKE ?", ["%" . $string . "%"]);
         }
 
         if ($query->num_rows())
@@ -63,7 +63,7 @@ class Donate_model extends CI_Model
 
     public function findById($type, $string)
     {
-        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `" . (($type == "paygol") ? "custom" : "user_id") . "`=?", array($string));
+        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `" . (($type == "paygol") ? "custom" : "user_id") . "`=?", [$string]);
 
         if ($query->num_rows())
         {
@@ -77,7 +77,7 @@ class Donate_model extends CI_Model
 
     public function getPayPalLog($id)
     {
-        $query = $this->db->query("SELECT * FROM paypal_logs WHERE id=?", array($id));
+        $query = $this->db->query("SELECT * FROM paypal_logs WHERE id=?", [$id]);
 
         if ($query->num_rows())
         {
@@ -91,7 +91,7 @@ class Donate_model extends CI_Model
 
     public function findByMessageId($type, $string)
     {
-        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `message_id`=?", array($string));
+        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `message_id`=?", [$string]);
 
         if ($query->num_rows())
         {
@@ -105,7 +105,7 @@ class Donate_model extends CI_Model
 
     public function findByNumber($type, $string)
     {
-        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `sender`=?", array($string));
+        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `sender`=?", [$string]);
 
         if ($query->num_rows())
         {
@@ -130,15 +130,15 @@ class Donate_model extends CI_Model
      */
     public function updateMonthlyIncome($payment_amount)
     {
-        $query = $this->db->query("SELECT COUNT(*) AS `total` FROM monthly_income WHERE month=?", array(date("Y-m")));
+        $query = $this->db->query("SELECT COUNT(*) AS `total` FROM monthly_income WHERE month=?", [date("Y-m")]);
 
         $row = $query->result_array();
 
         if ($row[0]['total'])
         {
-            $this->db->query("UPDATE monthly_income SET amount = amount + " . floor($payment_amount) . " WHERE month=?", array(date("Y-m")));
+            $this->db->query("UPDATE monthly_income SET amount = amount + " . floor($payment_amount) . " WHERE month=?", [date("Y-m")]);
         } else {
-            $this->db->query("INSERT INTO monthly_income(month, amount) VALUES(?, ?)", array(date("Y-m"), floor($payment_amount)));
+            $this->db->query("INSERT INTO monthly_income(month, amount) VALUES(?, ?)", [date("Y-m"), floor($payment_amount)]);
         }
     }
 
@@ -156,10 +156,10 @@ class Donate_model extends CI_Model
 
     public function addValue($price, $points)
     {
-        $data = array(
+        $data = [
             'price' => $price,
             'points' => $points
-        );
+        ];
 
         $query = $this->db->insert('paypal_donate', $data);
         
@@ -173,10 +173,10 @@ class Donate_model extends CI_Model
 
     public function updateValue($id, $price, $points)
     {
-        $data = array(
+        $data = [
             'price' => $price,
             'points' => $points
-        );
+        ];
 
         $this->db->where('id', $id);
         $query = $this->db->update('paypal_donate', $data);

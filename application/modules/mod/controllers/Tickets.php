@@ -38,13 +38,13 @@ class Tickets extends MX_Controller
                 }
             }
 
-            $data = array(
+            $data = [
                 'url' => pageURL,
                 'tickets' => $tickets,
                 'hasConsole' => $realm->getEmulator()->hasConsole(),
                 'realmId' => $realm->getId(),
                 'realmName' => $realm->getName()
-            );
+            ];
 
             $content = $this->template->loadPage('tickets/tickets.tpl', $data);
 
@@ -86,14 +86,14 @@ class Tickets extends MX_Controller
         $this->raceName = $this->tickets_model->realms->getRace($this->race);
 
         $this->className = $this->tickets_model->realms->getClass($this->class);
-        $avatarArray = array(
+        $avatarArray = [
             'class' => $this->class,
             'race' => $this->race,
             'level' => $this->level,
             'gender' => $this->gender
-        );
+        ];
 
-        $data = array(
+        $data = [
             'url' => pageURL,
             'tickets' => $ticket,
             'hasConsole' => $realm->getEmulator()->hasConsole(),
@@ -107,7 +107,7 @@ class Tickets extends MX_Controller
             "avatar" => $this->tickets_model->realms->formatAvatarPath($avatarArray),
             "status" => $this->realms->getRealm($realmId)->getCharacters()->isOnline($ticket['guid']),
             "account" => $this->account
-        );
+        ];
 
         $output = $this->template->loadPage('tickets/tickets_view.tpl', $data);
 

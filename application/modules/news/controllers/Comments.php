@@ -44,17 +44,17 @@ class Comments extends MX_Controller
         $comments_html = '';
 
         if (is_array($comments)) {
-            $comments_html = $this->template->loadPage("comments.tpl", array('url' => $this->template->page_url, 'comments' => $comments, 'user_is_gm' => hasPermission('canRemoveComment')));
+            $comments_html = $this->template->loadPage("comments.tpl", ['url' => $this->template->page_url, 'comments' => $comments, 'user_is_gm' => hasPermission('canRemoveComment')]);
         }
 
-        $values = array(
+        $values = [
                     "form" => ($this->user->isOnline()) ? "onSubmit='Ajax.submitComment(" . $id . ");return false'" : "onSubmit='UI.alert(\"Please log in to comment!\");return false'",
                     "online" => $this->user->isOnline(),
                     "field_id" => "id='comment_field_" . $id . "'",
                     "comments" => $comments_html,
                     "comments_id" => "id='comments_area_" . $id . "'",
                     "id" => $id,
-                );
+                ];
 
         $output = $this->template->loadPage("article_comments.tpl", $values);
 
@@ -80,13 +80,13 @@ class Comments extends MX_Controller
 
             if (strlen($message) > 0 && $message && strlen($message) <= 255) {
                 // Format the comment
-                $comment = array(
+                $comment = [
                     "timestamp" => time(),
                     "article_id" => $id,
                     "author_id" => $this->user->getId(),
                     "content" => $message,
                     "is_gm" => (hasPermission('postCommentAsStaff')) ? 1 : 0
-                );
+                ];
 
                 $this->comments_model->addComment($comment);
 
@@ -111,11 +111,11 @@ class Comments extends MX_Controller
                 $this->cache->delete('comments_' . $id . '_*.cache');
 
                 // Load the comment template, also check if we are a staff member
-                $data = array(
-                    'comments' => array($comment_arr),
+                $data = [
+                    'comments' => [$comment_arr],
                     'user_is_gm' => hasPermission('postCommentAsStaff'),
                     'url' => $this->template->page_url
-                );
+                ];
 
                 die($this->template->loadPage("comments.tpl", $data));
             }

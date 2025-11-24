@@ -91,19 +91,19 @@ class Paypal_model extends CI_Model
 
     public function setStatus($id, $status)
     {
-        $data = array('status' => $status);
+        $data = ['status' => $status];
         $this->db->where('payment_id', $id)->update('paypal_logs', $data);
     }
 
     public function setError($id, $error)
     {
-        $data = array('error' => $error);
+        $data = ['error' => $error];
         $this->db->where('payment_id', $id)->update('paypal_logs', $data);
     }
 
     public function setCanceled($token, $status)
     {
-        $data = array('status' => $status);
+        $data = ['status' => $status];
         $this->db->where('token', $token)->update('paypal_logs', $data);
     }
 
@@ -177,7 +177,7 @@ class Paypal_model extends CI_Model
             $token = $query_parts['token'];
 
             //prepare and execute
-            $dataInsert = array(
+            $dataInsert = [
                 'user_id' => $this->user->getId(),
                 'payment_id' => $payment->getId(),
                 'hash' => $hash,
@@ -190,7 +190,7 @@ class Paypal_model extends CI_Model
                 'invoice_number' => '',
                 'payer_email' => '',
                 'token' => $token,
-            );
+            ];
 
             $this->db->insert('paypal_logs', $dataInsert);
         } catch (PayPalConnectionException $e) {
@@ -227,11 +227,11 @@ class Paypal_model extends CI_Model
         try {
             $result = $payment->execute($execute, $this->getApi());
             
-            $payment_data = array(
+            $payment_data = [
                 'payer_email' => $result->payer->payer_info->email,
                 'invoice_number' => $result->transactions[0]->invoice_number,
                 'transactions_code' => $result->transactions[0]->related_resources[0]->sale->id,
-            );
+            ];
             $this->update_payment($payment_id, $payment_data);
 
             $this->completeTransaction($id, $payment_id);

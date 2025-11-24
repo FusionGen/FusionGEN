@@ -8,7 +8,7 @@ class Modules extends MX_Controller
     {
         parent::__construct();
 
-        $this->coreModules = array('admin', 'login', 'logout', 'errors', 'news', 'mod');
+        $this->coreModules = ['admin', 'login', 'logout', 'errors', 'news', 'mod'];
 
         $this->load->library('administrator');
         $this->load->helper('file');
@@ -24,11 +24,11 @@ class Modules extends MX_Controller
 
         $this->administrator->loadModules();
 
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'enabled_modules' => $this->administrator->getEnabledModules(),
             'disabled_modules' => $this->administrator->getDisabledModules()
-        );
+        ];
 
         $output = $this->template->loadPage("modules.tpl", $data);
 
@@ -105,7 +105,7 @@ class Modules extends MX_Controller
 
                 // File upload
                 if (!$this->upload->do_upload('file')) {
-                    die(json_encode(array('status' => 'error', "message" => $this->upload->display_errors())));
+                    die(json_encode(['status' => 'error', "message" => $this->upload->display_errors()]));
                 } else {
                     $m_data = $this->upload->data();
                     $filename = $m_data['file_name'];
@@ -118,7 +118,7 @@ class Modules extends MX_Controller
                         $zip->extractTo(FCPATH . '');
                         $zip->close();
                         if (!unlink($config['upload_path'] . "/" . $filename)) {
-                            die(json_encode(array('status' => 'error', 'message' => 'Failed to delete uploaded zip file, but extraction worked')));
+                            die(json_encode(['status' => 'error', 'message' => 'Failed to delete uploaded zip file, but extraction worked']));
                         }
 
                         foreach (glob(FCPATH . '/temp/modules/' . "*.sql") as $filename) {
@@ -133,7 +133,7 @@ class Modules extends MX_Controller
                                             $statement = '';
                                         } catch (Throwable $t) {
                                             unlink($filename);
-                                            die(json_encode(array('status' => 'error', 'message' => 'SQL import failed')));
+                                            die(json_encode(['status' => 'error', 'message' => 'SQL import failed']));
                                         }
                                     }
                                 }
@@ -141,9 +141,9 @@ class Modules extends MX_Controller
                             }
                         }
 
-                        die(json_encode(array('status' => 'success', 'message' => 'Module successfully uploaded')));
+                        die(json_encode(['status' => 'success', 'message' => 'Module successfully uploaded']));
                     } else {
-                        die(json_encode(array('status' => 'error', 'message' => 'Failed to extract')));
+                        die(json_encode(['status' => 'error', 'message' => 'Failed to extract']));
                     }
                 }
             }

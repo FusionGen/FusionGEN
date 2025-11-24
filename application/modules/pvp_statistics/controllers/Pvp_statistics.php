@@ -17,12 +17,12 @@ class Pvp_statistics extends MX_Controller
 
         $user_id = $this->user->getId();
 
-        $data = array(
+        $data = [
             'user_id'           => $user_id,
             'realms_count'      => !isset($this->realms),
             'selected_realm'    => $RealmId,
             'url'               => $this->template->page_url,
-        );
+        ];
 
         // Get the realms
         if (!isset($this->realms) > 0) {
@@ -33,7 +33,7 @@ class Pvp_statistics extends MX_Controller
                     $data['selected_realm'] = $RealmId;
                 }
 
-                $data['realms'][$realm->getId()] = array('name' => $realm->getName());
+                $data['realms'][$realm->getId()] = ['name' => $realm->getName()];
             }
         }
 

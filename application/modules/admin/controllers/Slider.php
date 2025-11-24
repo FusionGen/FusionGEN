@@ -37,14 +37,14 @@ class Slider extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'slides' => $slides,
             "slider" => $this->config->item('slider'),
             "slider_home" => $this->config->item('slider_home'),
             "slider_interval" => $this->config->item('slider_interval'),
             "slider_style" => $this->config->item('slider_style')
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("slider/slider.tpl", $data);
@@ -96,10 +96,10 @@ class Slider extends MX_Controller
         $this->administrator->setTitle('Slide #' . $slide['id']);
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'slide' => $slide
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("slider/edit_slider.tpl", $data);
@@ -117,9 +117,9 @@ class Slider extends MX_Controller
         $this->administrator->setTitle('Add slider');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("slider/add_slider.tpl", $data);

@@ -20,13 +20,13 @@ class Message extends MX_Controller
         $this->administrator->setTitle("Global maintenance");
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'message_enabled' => $this->config->item('message_enabled'),
             'message_headline' => $this->config->item('message_headline'),
             'message_headline_size' => $this->config->item('message_headline_size'),
             'message_text' => $this->config->item('message_text')
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("message.tpl", $data);

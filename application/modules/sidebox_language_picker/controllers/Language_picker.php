@@ -4,11 +4,11 @@ class Language_picker extends MX_Controller
 {
     public function view()
     {
-        $data = array(
+        $data = [
             "module" => "sidebox_language_picker",
             "languages" => $this->language->getAllLanguages(),
             "current" => $this->language->getLanguage()
-        );
+        ];
 
         $page = $this->template->loadPage("language.tpl", $data);
 
@@ -25,7 +25,7 @@ class Language_picker extends MX_Controller
         if ($this->user->isOnline()) {
             $this->user->setLanguage($language);
         } else {
-            $this->session->set_userdata(array('language' => $language));
+            $this->session->set_userdata(['language' => $language]);
         }
 
         $this->plugins->onSetLanguage($this->user->getId(), $language);

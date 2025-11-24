@@ -41,11 +41,11 @@ class Sidebox extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'sideboxes' => $sideboxes,
             'sideboxModules' => $this->sideboxModules
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("sidebox/sidebox.tpl", $data);
@@ -59,7 +59,7 @@ class Sidebox extends MX_Controller
 
     private function getSideboxModules()
     {
-        $sideboxes = array();
+        $sideboxes = [];
 
         $this->administrator->loadModules();
 
@@ -120,10 +120,10 @@ class Sidebox extends MX_Controller
         $this->administrator->setTitle('Add Sidebox');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'sideboxModules' => $this->sideboxModules
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("sidebox/add_sidebox.tpl", $data);
@@ -160,12 +160,12 @@ class Sidebox extends MX_Controller
         $this->administrator->setTitle(langColumn($sidebox['displayName']));
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'sidebox' => $sidebox,
             'sideboxModules' => $this->sideboxModules,
             'sideboxCustomText' => $sideboxCustomText
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("sidebox/edit_sidebox.tpl", $data);

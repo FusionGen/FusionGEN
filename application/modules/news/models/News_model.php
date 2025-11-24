@@ -33,8 +33,8 @@ class News_model extends CI_Model
         } else {
             // Instead of showing a blank space, we show a default article
             $default_lang = $this->language->getAbbreviationByLanguage($this->language->getDefaultLanguage());
-            return array(
-                        array(
+            return [
+                        [
                             'id'                             => 0,
                             'headline_' . $default_lang . '' => 'Welcome to FusionGEN V2!',
                             'content_' . $default_lang . ''  => 'Welcome to your new website! This news article will disappear as soon as you add a new one.',
@@ -61,8 +61,8 @@ class News_model extends CI_Model
                             'content_zh'                     => '欢迎来到您的新网站！一旦您添加新文章，此新闻文章就会消失。',
                             'headline_ko'                    => 'FusionGEN V2에 오신 것을 환영합니다!',
                             'content_ko'                     => '새로운 웹사이트에 오신 것을 환영합니다! 새 기사를 추가하면 이 뉴스 기사는 사라집니다.'
-                        )
-                    );
+                        ]
+                    ];
         }
     }
 
@@ -74,7 +74,7 @@ class News_model extends CI_Model
      */
     public function getArticle($id)
     {
-        $query = $this->db->query("SELECT * FROM articles WHERE id=?", array($id));
+        $query = $this->db->query("SELECT * FROM articles WHERE id=?", [$id]);
 
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
@@ -157,7 +157,7 @@ class News_model extends CI_Model
      */
     public function create($type, $type_content, $comments, $headline_en, $content_en, $headline_de, $content_de, $headline_es, $content_es, $headline_fr, $content_fr, $headline_no, $content_no, $headline_ro, $content_ro, $headline_se, $content_se, $headline_ru, $content_ru, $headline_zh, $content_zh, $headline_ko, $content_ko)
     {
-        $data = array(
+        $data = [
             'type' => $type,
             'type_content' => $type_content,
             'comments' => $comments,
@@ -183,7 +183,7 @@ class News_model extends CI_Model
             'content_zh'   => $content_zh,
             'headline_ko'  => $headline_ko,
             'content_ko'   => $content_ko,
-        );
+        ];
 
         $this->db->insert("articles", $data);
 
@@ -205,7 +205,7 @@ class News_model extends CI_Model
             return false;
         }
 
-        $data = array(
+        $data = [
             'type'         => $type,
             'type_content' => $type_content,
             'comments'     => $comments,
@@ -229,10 +229,10 @@ class News_model extends CI_Model
             'content_zh'   => $content_zh,
             'headline_ko'  => $headline_ko,
             'content_ko'   => $content_ko,
-        );
+        ];
 
         if ($data['comments'] == 0) {
-            $query = $this->db->query("SELECT COUNT(*) as `total` FROM comments WHERE article_id=?", array($id));
+            $query = $this->db->query("SELECT COUNT(*) as `total` FROM comments WHERE article_id=?", [$id]);
             $result = $query->result_array();
 
             if ($result[0]['total'] != 0) {

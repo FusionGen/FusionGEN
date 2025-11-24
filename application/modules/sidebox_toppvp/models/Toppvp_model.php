@@ -12,7 +12,7 @@ class Toppvp_model extends CI_Model
 
         if (column('characters', 'totalKills', $realm->getId())) {
             // Select character data
-            $query = $this->connection->query("SELECT " . columns("characters", array('guid', 'race', 'class', 'gender', 'level', 'name', 'totalKills'), $realm->getId()) . " FROM " . table('characters', $realm->getId()) . " WHERE " . column('characters', 'totalKills') . " > 0 ORDER BY " . column('characters', 'totalKills', false, $realm->getId()) . " DESC LIMIT " . $count);
+            $query = $this->connection->query("SELECT " . columns("characters", ['guid', 'race', 'class', 'gender', 'level', 'name', 'totalKills'], $realm->getId()) . " FROM " . table('characters', $realm->getId()) . " WHERE " . column('characters', 'totalKills') . " > 0 ORDER BY " . column('characters', 'totalKills', false, $realm->getId()) . " DESC LIMIT " . $count);
         } else {
             $query = $this->connection->query(query('pvp_character', $realm->getId()) . $count);
         }

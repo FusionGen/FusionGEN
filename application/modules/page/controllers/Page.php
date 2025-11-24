@@ -26,20 +26,21 @@ class Page extends MX_Controller
                 } else {
                     $this->template->setTitle(langColumn($page_content['name']));
 
-                    $page_data = array(
+                    $page_data = [
                         "module" => "default",
                         "headline" => langColumn($page_content['name']),
                         "content" => langColumn($page_content['content'])
-                    );
+                    ];
 
                     $out = $this->template->loadPage("page.tpl", $page_data);
 
                     $this->cache->save(
                         "page_" . $page . "_" . getLang(),
-                        array(
+                        [
                         "title" => langColumn($page_content['name']),
                         "content" => $out,
-                        "permission" => $page_content['permission'])
+                        "permission" => $page_content['permission']
+                        ]
                     );
 
                     if ($page_content['permission'] && !hasViewPermission($page_content['permission'], "--PAGE--")) {

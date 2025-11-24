@@ -23,10 +23,10 @@ class Email_template extends MX_Controller
         $templates = $this->email_template_model->getTemplates();
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'templates' => $templates,
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("email_template/index.tpl", $data);
@@ -53,11 +53,11 @@ class Email_template extends MX_Controller
         $content = read_file(APPPATH . '/views/email_templates/' . $template['template_name'] . '');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'content' => $content,
             'template' => $template
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("email_template/edit.tpl", $data);

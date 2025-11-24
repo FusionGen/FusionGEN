@@ -17,7 +17,7 @@ class Email_template_model extends CI_Model
 
     public function getTemplate($id)
     {
-        $query = $this->db->query("SELECT * FROM email_templates WHERE id= ? LIMIT 1", array($id));
+        $query = $this->db->query("SELECT * FROM email_templates WHERE id= ? LIMIT 1", [$id]);
 
         if ($query->num_rows() > 0)
 		{

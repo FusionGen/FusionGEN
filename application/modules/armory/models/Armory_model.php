@@ -51,7 +51,7 @@ class Armory_model extends CI_Model
 
         $searchString = $this->c_connection->escape_str($searchString);
 
-        $query = $this->c_connection->query(query("find_guilds", $realmId), array('%' . $searchString . '%'));
+        $query = $this->c_connection->query(query("find_guilds", $realmId), ['%' . $searchString . '%']);
 
         return ($query->num_rows() > 0) ? $query->result_array() : false;
     }

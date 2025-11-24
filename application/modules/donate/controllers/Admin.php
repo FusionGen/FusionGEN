@@ -23,13 +23,13 @@ class Admin extends MX_Controller
 
         $logs = $this->donate_model->getLogs(0, 10);
 
-        $data = array(
+        $data = [
             'use_paypal' => $this->config->item('use_paypal'),
             'paypal_logs' => $logs,
             'url' => $this->template->page_url,
             'currency' => $this->config->item('donation_currency'),
             'show_more' => $this->donate_model->getLogCount() - count((array)$logs)
-        );
+        ];
 
         $output = $this->template->loadPage("admin.tpl", $data);
 
@@ -42,7 +42,7 @@ class Admin extends MX_Controller
     {
         $string = $this->input->post('string');
 
-        if (!$string || !$type || !in_array($type, array('paypal'))) {
+        if (!$string || !$type || !in_array($type, ['paypal'])) {
             die();
         } else {
             if ($type == "paypal") {
@@ -78,11 +78,11 @@ class Admin extends MX_Controller
                 }
             }
 
-            $data = array(
+            $data = [
                 'url' => $this->template->page_url,
                 'results' => $results,
                 'type' => $type
-            );
+            ];
 
             $output = $this->template->loadPage("admin_list.tpl", $data);
 
@@ -119,9 +119,9 @@ class Admin extends MX_Controller
     {
         $values = $this->donate_model->getAllValues();
 		
-		$data = array(
+		$data = [
 			'values' => $values
-		);
+		];
 
 		$output = $this->template->loadPage("admin_settings.tpl", $data);
 
@@ -182,10 +182,10 @@ class Admin extends MX_Controller
 
         if ($logs)
         {
-            $data = array(
+            $data = [
                 'paypal_logs' => $logs,
                 'show_more' => $extraLogCount
-            );
+            ];
 
             $output = $this->template->loadPage("logging_found.tpl", $data);
 

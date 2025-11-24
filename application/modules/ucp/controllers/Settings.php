@@ -31,14 +31,14 @@ class Settings extends MX_Controller
 
         $this->template->setTitle(lang("settings", "ucp"));
 
-        $settings_data = array(
+        $settings_data = [
             'nickname' => $this->user->getNickname(),
             'location' => $this->internal_user_model->getLocation(),
             'show_language_chooser' => $this->config->item('show_language_chooser'),
             'userLanguage' => $this->language->getLanguage(),
             "avatar" => $this->user->getAvatar($this->user->getId()),
 
-            "config" => array(
+            "config" => [
                 "vote" => $this->config->item('ucp_vote'),
                 "donate" => $this->config->item('ucp_donate'),
                 "store" => $this->config->item('ucp_store'),
@@ -46,17 +46,17 @@ class Settings extends MX_Controller
                 "teleport" => $this->config->item('ucp_teleport'),
                 "admin" => $this->config->item('ucp_admin'),
                 "mod" => $this->config->item('ucp_mod')
-            )
-        );
+            ]
+        ];
 
         if ($this->config->item('show_language_chooser')) {
             $settings_data['languages'] = $this->language->getAllLanguages();
         }
 
         // Load the page breadcrumb
-        $data = array(
+        $data = [
             "module" => "default",
-            "headline" => breadcrumb(array(
+            "headline" => breadcrumb([
                             "ucp" => lang("ucp"),
                             "ucp/settings" => lang("settings", "ucp")
                         )),

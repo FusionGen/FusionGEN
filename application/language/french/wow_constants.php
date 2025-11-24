@@ -5,7 +5,7 @@
  * otherwise you'll confuse people who expect to see them in English
  */
 
-$lang['races'] = array(
+$lang['races'] = [
     1 => "Humain",
     2 => "Orc",
     3 => "Nain",
@@ -33,9 +33,9 @@ $lang['races'] = array(
     37 => "Mécagnome",
     52 => "Dracthyr",
     70 => "Dracthyr"
-);
+];
 
-$lang['classes'] = array(
+$lang['classes'] = [
     1 => "Guerrier",
     2 => "Paladin",
     3 => "Chasseur",
@@ -49,4 +49,4 @@ $lang['classes'] = array(
     11 => "Druide",
     12 => "Chasseur de démons",
     13 => "Évocateur"
-);
+];

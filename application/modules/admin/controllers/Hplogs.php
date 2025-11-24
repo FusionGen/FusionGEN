@@ -2,12 +2,12 @@
 
 class Hplogs extends MX_Controller
 {
-    private static $levelsIcon = array(
+    private static $levelsIcon = [
         'INFO'  => 'fa-solid fa-circle-info',
         'ERROR' => 'fa-solid fa-triangle-exclamation',
         'DEBUG' => 'fa-solid fa-triangle-exclamation',
         'ALL'   => 'fa-solid fa-minus',
-    );
+    ];
 
     private static $levelClasses = [
         'INFO'  => 'info',
@@ -69,11 +69,11 @@ class Hplogs extends MX_Controller
             $logs = [];
         }
 
-        $data = array(
+        $data = [
             'logs' => $logs,
             'files' => $files,
             'currentFile' => !is_null($currentFile) ? basename($currentFile) : "",
-        );
+        ];
 
         $output = $this->template->loadPage("hplogs.tpl", $data);
 

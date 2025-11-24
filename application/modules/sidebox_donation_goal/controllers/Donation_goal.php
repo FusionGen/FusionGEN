@@ -19,13 +19,13 @@ class Donation_goal extends MX_Controller
         $current = $this->getCurrent();
 
         // Prepare data
-        $data = array(
+        $data = [
                     "module" => "sidebox_donation_goal",
                     "current" => $current,
                     "goal" => $goal,
                     "currency_sign" => $currency_sign,
                     "percentage" => $this->getPercentage($current, $goal)
-                );
+                ];
 
         // Load the template file and format
         $out = $this->template->loadPage("goal.tpl", $data);
@@ -53,7 +53,7 @@ class Donation_goal extends MX_Controller
     {
         $this->db = $this->load->database("cms", true);
 
-        $query = $this->db->query("SELECT amount from monthly_income WHERE month=?", array(date("Y-m")));
+        $query = $this->db->query("SELECT amount from monthly_income WHERE month=?", [date("Y-m")]);
 
         if ($query->num_rows()) {
             $row = $query->result_array();

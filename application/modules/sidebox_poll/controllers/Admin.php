@@ -37,10 +37,10 @@ class Admin extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'polls' => $polls
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin.tpl", $data);
@@ -59,7 +59,7 @@ class Admin extends MX_Controller
 
         $data["question"] = $this->input->post("question");
 
-        $answers = array();
+        $answers = [];
 
         $id = 1;
 

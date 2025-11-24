@@ -17,11 +17,11 @@ class Status_refresh extends MX_Controller
         $realms = $this->realms->getRealms();
 
         // Prepare data
-        $data = array(
+        $data = [
                     "module" => "sidebox_status",
                     "realms" => $realms,
                     "realmlist" => $this->config->item('realmlist')
-                );
+                ];
 
         // Load the template file and format
         $out = $this->template->loadPage("status.tpl", $data);

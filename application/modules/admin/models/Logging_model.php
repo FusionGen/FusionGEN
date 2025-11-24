@@ -35,7 +35,7 @@ class Logging_model extends CI_Model
         $module = $this->db->escape_str($module);
 
         if ($search) {
-            $query = $this->db->query("SELECT * FROM `logs` WHERE " . (($module) ? "`module` = '" . $module . "' AND " : "") . " (`user_id` = ? OR `ip` = ?)", array($userId, $search));
+            $query = $this->db->query("SELECT * FROM `logs` WHERE " . (($module) ? "`module` = '" . $module . "' AND " : "") . " (`user_id` = ? OR `ip` = ?)", [$userId, $search]);
         } else {
             $query = $this->db->query("SELECT * FROM `logs` " . (($module) ? "WHERE `module` = '" . $module . "'" : ""));
         }

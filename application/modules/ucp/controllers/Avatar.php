@@ -17,25 +17,25 @@ class Avatar extends MX_Controller
         clientLang("changes_saved", "ucp");
 
         // Prepare data
-        $data = array(
+        $data = [
             'isStaff'	=> $this->user->isStaff(),
             'avatar' 	=> $this->user->getAvatar($this->user->getId()),
             'avatarId'	=> $this->user->getAvatarId($this->user->getId()),
             'avatars'	=> $this->settings_model->get_all_avatars()
-        );
+        ];
 
         // Load the avatar page
 		$content = $this->template->loadPage("avatar.tpl", $data);
 
         // Load the page breadcrumb
-        $page_data = array(
+        $page_data = [
             "module" => "default",
-            "headline" => breadcrumb(array(
+            "headline" => breadcrumb([
                             "ucp" => lang("ucp"),
                             "ucp/avatar" => lang("change_avatar", "ucp")
-                        )),
+                        ]),
             "content" => $content
-        );
+        ];
 
 		$page = $this->template->loadPage("page.tpl", $page_data);
 
@@ -50,15 +50,15 @@ class Avatar extends MX_Controller
 		$avatar = $this->settings_model->get_avatar_id($avatar_id);
 		if (!$avatar)
         {
-			die(json_encode(array("error" => lang("avatar_invalid", "ucp"))));
+			die(json_encode(["error" => lang("avatar_invalid", "ucp")]));
 		}
 
 		if ($avatar['staff'] && !$this->user->isStaff())
         {
-			die(json_encode(array("error" => lang("avatar_invalid_rank", "ucp"))));
+			die(json_encode(["error" => lang("avatar_invalid_rank", "ucp")]));
 		}
 
 		$this->user->setAvatar($avatar['id']);
-		die(json_encode(array("success" => true)));
+		die(json_encode(["success" => true]));
 	}
 }

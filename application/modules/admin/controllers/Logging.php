@@ -25,11 +25,11 @@ class Logging extends MX_Controller
         $logs = $this->logger->getLogs("", 0, 10);
 
         // Prepare my data
-        $data = array(
+        $data = [
             'logs' => $logs, // Get the logs from 0 till 10
             'modules' => $this->administrator->getEnabledModules(),
             'show_more' => $this->logger->getLogCount() - count((array)$logs)
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("logging/logging.tpl", $data);
@@ -54,10 +54,10 @@ class Logging extends MX_Controller
 
         if ($logs) {
             // Prepare my data
-            $data = array(
+            $data = [
                 'logs' => $logs,
                 'show_more' => $extraLogCount
-            );
+            ];
 
             // Load my view
             $output = $this->template->loadPage("logging/logging_found.tpl", $data);
@@ -83,10 +83,10 @@ class Logging extends MX_Controller
 
         if ($logs) {
             // Prepare my data
-            $data = array(
+            $data = [
                 'logs' => $logs,
                 'show_more' => ''
-            );
+            ];
 
             // Load my view
             $output = $this->template->loadPage("logging/logging_found.tpl", $data);

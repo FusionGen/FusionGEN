@@ -69,12 +69,12 @@ class Settings extends MX_Controller
         $config['block_duration'] = $this->config->item('block_duration');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'realms' => $this->realms->getRealms(),
             'emulators' => $this->getEmulators(),
             'config' => $config
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("settings.tpl", $data);
@@ -155,14 +155,14 @@ class Settings extends MX_Controller
     {
         error_reporting(E_ERROR | E_PARSE);
 
-        $config = array(
+        $config = [
             'protocol'    => $this->input->post('protocol'),
             'smtp_host'   => $this->input->post('host'),
             'smtp_user'   => $this->input->post('user'),
             'smtp_pass'   => $this->input->post('pass'),
             'smtp_port'   => $this->input->post('port'),
             'smtp_crypto' => $this->input->post('crypto'),
-        );
+        ];
 
         $this->email->initialize($config);
 
@@ -173,10 +173,10 @@ class Settings extends MX_Controller
         $this->email->message('Looks like your mail configuration is working!');
 
         if ($this->email->send()) {
-            die(json_encode(array("success" => "Please check your spam folder.")));
+            die(json_encode(["success" => "Please check your spam folder."]));
         } else {
             $error = $this->email->print_debugger();
-            die(json_encode(array("error" => $error)));
+            die(json_encode(["error" => $error]));
         }
     }
 
