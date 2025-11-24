@@ -9,7 +9,7 @@ class Slider_model extends CI_Model
         $query = $this->db->query("SELECT id FROM image_slider ORDER BY id DESC LIMIT 1");
         $row = $query->result_array();
 
-        $this->db->query("UPDATE image_slider SET `order`=? WHERE id=?", array($row[0]['id'], $row[0]['id']));
+        $this->db->query("UPDATE image_slider SET `order`=? WHERE id=?", [$row[0]['id'], $row[0]['id']]);
     }
 
     public function edit($id, $data)
@@ -20,12 +20,12 @@ class Slider_model extends CI_Model
 
     public function delete($id)
     {
-        $this->db->query("DELETE FROM image_slider WHERE id=?", array($id));
+        $this->db->query("DELETE FROM image_slider WHERE id=?", [$id]);
     }
 
     public function getSlide($id)
     {
-        $query = $this->db->query("SELECT * FROM image_slider WHERE id=? LIMIT 1", array($id));
+        $query = $this->db->query("SELECT * FROM image_slider WHERE id=? LIMIT 1", [$id]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -38,7 +38,7 @@ class Slider_model extends CI_Model
 
     public function getOrder($id)
     {
-        $query = $this->db->query("SELECT `order` FROM image_slider WHERE `id`=? LIMIT 1", array($id));
+        $query = $this->db->query("SELECT `order` FROM image_slider WHERE `id`=? LIMIT 1", [$id]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -51,7 +51,7 @@ class Slider_model extends CI_Model
 
     public function getPreviousOrder($order)
     {
-        $query = $this->db->query("SELECT `order`, id FROM image_slider WHERE `order` < ? ORDER BY `order` DESC LIMIT 1", array($order));
+        $query = $this->db->query("SELECT `order`, id FROM image_slider WHERE `order` < ? ORDER BY `order` DESC LIMIT 1", [$order]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -64,7 +64,7 @@ class Slider_model extends CI_Model
 
     public function getNextOrder($order)
     {
-        $query = $this->db->query("SELECT `order`, id FROM image_slider WHERE `order` > ? ORDER BY `order` ASC LIMIT 1", array($order));
+        $query = $this->db->query("SELECT `order`, id FROM image_slider WHERE `order` > ? ORDER BY `order` ASC LIMIT 1", [$order]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -77,6 +77,6 @@ class Slider_model extends CI_Model
 
     public function setOrder($id, $order)
     {
-        $this->db->query("UPDATE image_slider SET `order`=? WHERE `id`=? LIMIT 1", array($order, $id));
+        $this->db->query("UPDATE image_slider SET `order`=? WHERE `id`=? LIMIT 1", [$order, $id]);
     }
 }

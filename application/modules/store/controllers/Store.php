@@ -32,27 +32,27 @@ class Store extends MX_Controller
         clientLang("dp", "store");
 
         // Gather the template data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'image_path' => $this->template->image_path,
             'vp' => $this->user->getVp(),
             'dp' => $this->user->getDp(),
             'data' => $this->getData(),
             'minimize' => $this->config->item('minimize_groups_by_default')
-        );
+        ];
 
         // Load the content
         $content = $this->template->loadPage("store.tpl", $data);
 
         // Load the page breadcrumb
-        $pageData = array(
+        $pageData = [
             "module" => "default",
-            "headline" => breadcrumb(array(
+            "headline" => breadcrumb([
                             "ucp" => lang("ucp"),
                             "store" => lang("item_store", "store")
-                        )),
+                        ]),
             "content" => $content
-        );
+        ];
 
         $page = $this->template->loadPage("page.tpl", $pageData);
 
@@ -72,7 +72,7 @@ class Store extends MX_Controller
         if ($cache !== false) {
             return $cache;
         } else {
-            $data = array();
+            $data = [];
 
             foreach ($this->realms->getRealms() as $realm) {
                 // Load all items that belongs to this realm
@@ -100,10 +100,10 @@ class Store extends MX_Controller
     private function formatItems($items)
     {
         if ($items != false) {
-            $data = array(
-                'groups' => array(), // Holds group titles and their items
-                'items' => array() // Holds items without a group
-            );
+            $data = [
+                'groups' => [], // Holds group titles and their items
+                'items' => [] // Holds items without a group
+            ];
 
             $currentGroup = null;
 
@@ -120,7 +120,7 @@ class Store extends MX_Controller
                         $data['groups'][$item['group']]['id'] = $this->store_model->getGroupId($data['groups'][$item['group']]['title']);
 
                         // Create the item array
-                        $data['groups'][$item['group']]['items'] = array();
+                        $data['groups'][$item['group']]['items'] = [];
                     }
 
                     array_push($data['groups'][$item['group']]['items'], $item);

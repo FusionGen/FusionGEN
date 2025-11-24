@@ -2,7 +2,7 @@
 
 class News extends MX_Controller
 {
-    private $news_articles = array();
+    private $news_articles = [];
     private $startIndex = 0;
 
     public function __construct()
@@ -30,7 +30,7 @@ class News extends MX_Controller
 
         $this->getNews();
 
-        usort($this->news_articles, array($this, "sortByDate"));
+        usort($this->news_articles, [$this, "sortByDate"]);
 
         // Show the page
         $this->displayPage();
@@ -58,7 +58,7 @@ class News extends MX_Controller
             $this->template->view($cache, "modules/news/css/news.css", "modules/news/js/ajax.js");
         } else {
             // Get the article passed
-            $this->news_articles = $this->template->format(array($this->news_model->getArticle($id)));
+            $this->news_articles = $this->template->format([$this->news_model->getArticle($id)]);
 
             $LangAbbr = $this->language->getLanguageAbbreviation();
             $DefaultLangAbbr = $this->language->getAbbreviationByLanguage($this->language->getDefaultLanguage());
@@ -85,8 +85,8 @@ class News extends MX_Controller
                 $this->news_articles[$key]['type_content'] = ($article['type'] == 2) ? $article['type_content'] : json_decode($article['type_content'], true);
             }
 
-            $content = $this->template->loadPage("articles.tpl", array("articles" => $this->news_articles, 'url' => $this->template->page_url, "pagination" => ''));
-            $content .= $this->template->loadPage("expand_comments.tpl", array("article" => $this->news_articles[0], 'url' => $this->template->page_url));
+            $content = $this->template->loadPage("articles.tpl", ["articles" => $this->news_articles, 'url' => $this->template->page_url, "pagination" => '']);
+            $content .= $this->template->loadPage("expand_comments.tpl", ["article" => $this->news_articles[0], 'url' => $this->template->page_url]);
             $this->cache->save("news_id" . $id . "_" . getLang(), $content);
 
             // Load the template and pass the page content
@@ -105,11 +105,12 @@ class News extends MX_Controller
         } else {
             $content = $this->template->loadPage(
                 "articles.tpl",
-                array(
+                [
                 "articles" => $this->news_articles,
                 'url' => $this->template->page_url,
                 "pagination" => $this->pagination->create_links(),
-                'single' => false)
+                'single' => false
+                ]
             );
 
             $this->cache->save("news_" . $this->startIndex . "_" . getLang(), $content);
@@ -191,7 +192,7 @@ class News extends MX_Controller
         $config['display_pages'] = true;
 
         // ADD CUSTOM CLASS TO OUR LINKS
-        $config['attributes'] = array('class' => 'page-link');
+        $config['attributes'] = ['class' => 'page-link'];
 
         $this->pagination->initialize($config);
 

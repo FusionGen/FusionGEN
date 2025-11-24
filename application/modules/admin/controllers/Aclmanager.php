@@ -34,7 +34,7 @@ class Aclmanager extends MX_Controller
      */
     public function groups()
     {
-        $data = array(
+        $data = [
             "groups" => $this->acl_model->getGroups(),
             "modules" => $this->getAllRoles(),
             "guestId" => $this->config->item('default_guest_group'),
@@ -42,7 +42,7 @@ class Aclmanager extends MX_Controller
             "links" => $this->cms_model->getLinks("all"),
             "sideboxes" => $this->cms_model->getSideboxes(),
             "pages" => $this->cms_model->getPages()
-        );
+        ];
 
         if ($data['groups']) {
             foreach ($data['groups'] as $k => $v) {
@@ -77,7 +77,7 @@ class Aclmanager extends MX_Controller
         $this->administrator->setTitle($group['name']);
 
         // Prepare my data
-        $data = array(
+        $data = [
             "group" => $group,
             "modules" => $this->getAllRoles(),
             "members" => $this->acl_model->getGroupMembers($id),
@@ -86,7 +86,7 @@ class Aclmanager extends MX_Controller
             "links" => $this->cms_model->getLinks("all"),
             "sideboxes" => $this->cms_model->getSideboxes(),
             "pages" => $this->cms_model->getPages()
-        );
+        ];
 
         // Links
         foreach ($data['links'] as $key => $value) {
@@ -150,7 +150,7 @@ class Aclmanager extends MX_Controller
         $name = $this->input->post('name');
         $color = $this->input->post('color');
         $description = $this->input->post('description');
-        $roles = array();
+        $roles = [];
 
         // Make sure we have a group name
         if (!$name) {
@@ -160,7 +160,7 @@ class Aclmanager extends MX_Controller
         // Loop all POST data to grab the roles
         foreach ($_POST as $k => $v) {
             // Make sure it is a role
-            if (!in_array($k, array("name", "description", "color"))) {
+            if (!in_array($k, ["name", "description", "color"])) {
                 if ($v == "true") {
                     array_push($roles, $k);
                 }
@@ -209,7 +209,7 @@ class Aclmanager extends MX_Controller
         $name = $this->input->post('name');
         $color = $this->input->post('color');
         $description = $this->input->post('description');
-        $roles = array();
+        $roles = [];
 
         // Make sure we have a group name
         if (!$name) {
@@ -219,14 +219,14 @@ class Aclmanager extends MX_Controller
         // Loop all POST data to grab the roles
         foreach ($_POST as $k => $v) {
             // Make sure it is a role
-            if (!in_array($k, array("name", "description", "color"))) {
+            if (!in_array($k, ["name", "description", "color"])) {
                 if ($v == "true") {
                     array_push($roles, $k);
                 }
             }
         }
 
-        $this->acl_model->saveGroup($id, array('name' => $name, 'color' => $color, 'description' => $description));
+        $this->acl_model->saveGroup($id, ['name' => $name, 'color' => $color, 'description' => $description]);
 
         $this->acl_model->deleteAllRoleFromGroup($id);
 
@@ -289,9 +289,9 @@ class Aclmanager extends MX_Controller
      */
     public function roles()
     {
-        $data = array(
+        $data = [
             "modules" => $this->getAllRoles()
-        );
+        ];
 
         $output = $this->template->loadPage("aclmanager/roles.tpl", $data);
 
@@ -337,7 +337,7 @@ class Aclmanager extends MX_Controller
      */
     public function users()
     {
-        $data = array();
+        $data = [];
 
         $output = $this->template->loadPage("aclmanager/users.tpl", $data);
 
@@ -355,12 +355,12 @@ class Aclmanager extends MX_Controller
      */
     private function getAllRoles()
     {
-        $modules = array();
-        $dangerLevel = array(
+        $modules = [];
+        $dangerLevel = [
             3 => "#A11500", // Owner actions
             2 => "#DF5500", // Admin actions
             1 => "#A11D73" // Moderator actions
-        );
+        ];
 
         foreach (glob("application/modules/*") as $module) {
             if (is_dir($module)) {

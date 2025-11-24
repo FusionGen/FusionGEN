@@ -9,20 +9,20 @@ class Online_refresh extends MX_Controller
         if ($cache !== false) {
             $page = $cache;
         } else {
-            $online_data = array(
+            $online_data = [
                 "realms" => $this->realms->getRealms(),
                 "url" => $this->template->page_url,
                 "realmsObj" => $this->realms
-            );
+            ];
 
             $page = $this->template->loadPage("online.tpl", $online_data);
 
             // Load the topsite page and format the page contents
-            $data = array(
+            $data = [
                 "module" => "default",
                 "headline" => lang("online_players", "online"),
                 "content" => $page
-            );
+            ];
 
             $cache = $this->template->loadPage("page.tpl", $data);
 

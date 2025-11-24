@@ -33,7 +33,7 @@ class Guild extends MX_Controller
                 $this->template->setTitle($this->guild['guildName']);
             }
 
-            $guild_data = array(
+            $guild_data = [
                 'module' => 'guild',
                 'guild' => $this->guild,
                 'members' => $this->members,
@@ -41,21 +41,21 @@ class Guild extends MX_Controller
                 'realmId' => $realm,
                 'realmName' => $this->realms->getRealm($realm)->getName(),
                 'url' => $this->template->page_url
-            );
+            ];
             if ($this->guild) {
                 $guild_data['guildMotd'] = $this->template->format($this->guild['motd'], false, true, false);
             }
 
             $content = $this->template->loadPage("guild.tpl", $guild_data);
 
-            $data = array(
+            $data = [
                 "module" => "default",
-                "headline" => breadcrumb(array(
+                "headline" => breadcrumb([
                                 "armory" => lang("armory", "guild"),
                                 uri_string() => ((!$this->guild) ? lang("invalid_guild", "guild") : $this->guild['guildName'])
-                            )),
+                            ]),
                 "content" => $content
-            );
+            ];
 
             $page = $this->template->loadPage("page.tpl", $data);
 

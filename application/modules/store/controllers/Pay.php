@@ -44,7 +44,7 @@ class Pay extends MX_Controller
             die(lang("empty_cart", "store"));
         }
 
-        $items = array();
+        $items = [];
 
         // Load all items
         foreach ($cart as $item) {
@@ -52,7 +52,7 @@ class Pay extends MX_Controller
             $items[$item['id']] = $this->store_model->getItem($item['id']);
 
             // Make sure the item exists
-            if ($items[$item['id']] != false && in_array($item['type'], array('vp', 'dp'))) {
+            if ($items[$item['id']] != false && in_array($item['type'], ['vp', 'dp'])) {
                 // Keep track of how much it costs
                 if ($item['type'] == "vp" && !empty($items[$item['id']]['vp_price'])) {
                     $this->vp += $items[$item['id']]['vp_price'];
@@ -68,13 +68,13 @@ class Pay extends MX_Controller
 
         // Make sure the user can afford it
         if (!$this->canAfford()) {
-            $output = $this->template->loadPage("checkout_error.tpl", array('link' => true, 'url' => $this->template->page_url));
+            $output = $this->template->loadPage("checkout_error.tpl", ['link' => true, 'url' => $this->template->page_url]);
 
             die($output);
         }
 
         // An array to hold all items in a sub-array for each realm
-        $realmItems = array();
+        $realmItems = [];
 
         // Make sure all realms are online
         foreach ($cart as $item) {
@@ -82,11 +82,11 @@ class Pay extends MX_Controller
 
             // Create a realm item array if it doesn't exist
             if (!isset($realmItems[$realm->getId()])) {
-                $realmItems[$realm->getId()] = array();
+                $realmItems[$realm->getId()] = [];
             }
 
             if (!$realm->isOnline(true)) {
-                $data = array('type' => 'offline', 'url' => $this->template->page_url);
+                $data = ['type' => 'offline', 'url' => $this->template->page_url];
                 $output = $this->template->loadPage("failure.tpl", $data);
 
                 die($output);
@@ -99,28 +99,28 @@ class Pay extends MX_Controller
             if (empty($items[$item['id']]['query']) && empty($items[$item['id']]['command'])) {
                 // Make sure they enter a character
                 if (!isset($item['character'])) {
-                    $output = $this->template->loadPage("failure.tpl", array('type' => 'character', 'url' => $this->template->page_url));
+                    $output = $this->template->loadPage("failure.tpl", ['type' => 'character', 'url' => $this->template->page_url]);
 
                     die($output);
                 }
 
                 // Make sure the character exists
                 if (!$this->realms->getRealm($items[$item['id']]['realm'])->getCharacters()->characterExists($item['character'])) {
-                    $output = $this->template->loadPage("failure.tpl", array('type' => 'character_exists', 'url' => $this->template->page_url));
+                    $output = $this->template->loadPage("failure.tpl", ['type' => 'character_exists', 'url' => $this->template->page_url]);
 
                     die($output);
                 }
 
                 // Make sure the character belongs to this account
                 if (!$this->realms->getRealm($items[$item['id']]['realm'])->getCharacters()->characterBelongsToAccount($item['character'], $this->user->getId())) {
-                    $output = $this->template->loadPage("failure.tpl", array('type' => 'character_not_mine', 'url' => $this->template->page_url));
+                    $output = $this->template->loadPage("failure.tpl", ['type' => 'character_not_mine', 'url' => $this->template->page_url]);
 
                     die($output);
                 }
 
                 // Make sure the character array exists in the realm array
                 if (!isset($realmItems[$items[$item['id']]['realm']][$item['character']])) {
-                    $realmItems[$items[$item['id']]['realm']][$item['character']] = array();
+                    $realmItems[$items[$item['id']]['realm']][$item['character']] = [];
                 }
 
                 // Check for multiple items
@@ -131,15 +131,15 @@ class Pay extends MX_Controller
                     // Loop through the item IDs
                     foreach ($temp as $id) {
                         // Add them individually to the array
-                        array_push($realmItems[$items[$item['id']]['realm']][$item['character']], array('id' => $id));
+                        array_push($realmItems[$items[$item['id']]['realm']][$item['character']], ['id' => $id]);
                     }
                 } else {
-                    array_push($realmItems[$items[$item['id']]['realm']][$item['character']], array('id' => $items[$item['id']]['itemid']));
+                    array_push($realmItems[$items[$item['id']]['realm']][$item['character']], ['id' => $items[$item['id']]['itemid']]);
                 }
             } elseif (!empty($items[$item['id']]['command'])) {
                 // Make sure the realm actually supports console commands
                 if (!$this->realms->getRealm($items[$item['id']]['realm'])->getEmulator()->hasConsole()) {
-                    $output = $this->template->loadPage("failure.tpl", array('type' => 'no_console', 'url' => $this->template->page_url));
+                    $output = $this->template->loadPage("failure.tpl", ['type' => 'no_console', 'url' => $this->template->page_url]);
 
                     die($output);
                 }
@@ -147,7 +147,7 @@ class Pay extends MX_Controller
 
             // Make sure the character is offline, if this item requires it
             if ($items[$item['id']]['require_character_offline'] && $this->realms->getRealm($items[$item['id']]['realm'])->getCharacters()->isOnline($item['character'])) {
-                $output = $this->template->loadPage("failure.tpl", array('type' => 'character_not_offline', 'url' => $this->template->page_url));
+                $output = $this->template->loadPage("failure.tpl", ['type' => 'character_not_offline', 'url' => $this->template->page_url]);
 
                 die($output);
             }
@@ -180,7 +180,7 @@ class Pay extends MX_Controller
         foreach ($realmItems as $realm => $characters) {
             // Loop through all characters
             foreach ($characters as $character => $items) {
-                $characterName = $this->realms->getRealm($realm)->getCharacters()->getConnection()->query(query("get_charactername_by_guid"), array($character));
+                $characterName = $this->realms->getRealm($realm)->getCharacters()->getConnection()->query(query("get_charactername_by_guid"), [$character]);
                 $characterName = $characterName->result_array();
 
                 $this->realms->getRealm($realm)->getEmulator()->sendItems($characterName[0]['name'], $this->config->item("store_subject"), $this->config->item("store_body"), $items);
@@ -188,7 +188,7 @@ class Pay extends MX_Controller
         }
 
         // Load the checkout view
-        $output = $this->template->loadPage("success.tpl", array('url' => $this->template->page_url, 'message' => $this->config->item('success_message')));
+        $output = $this->template->loadPage("success.tpl", ['url' => $this->template->page_url, 'message' => $this->config->item('success_message')]);
 
         $this->store_model->completeOrder();
 
@@ -238,17 +238,17 @@ class Pay extends MX_Controller
                     return false;
             }
 
-            $data = array(
+            $data = [
                 0 => $this->user->getId(),
                 1 => $character,
                 2 => $realm
-            );
+            ];
 
-            $positions = array(
+            $positions = [
                 'account' => strpos($query, "{ACCOUNT}"),
                 'character' => strpos($query, "{CHARACTER}"),
                 'realm' => strpos($query, "{REALM}")
-            );
+            ];
 
             asort($positions);
             $positions = array_reverse($positions);

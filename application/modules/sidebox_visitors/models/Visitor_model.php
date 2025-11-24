@@ -13,7 +13,7 @@ class Visitor_model extends CI_Model
     public function get()
     {
         $time = time() - 60 * 5;
-        //$query = $this->db->query("SELECT DISTINCT ip_address,user_agent,data,timestamp FROM ci_sessions WHERE timestamp > ? AND data != ''", array($time));
+        //$query = $this->db->query("SELECT DISTINCT ip_address,user_agent,data,timestamp FROM ci_sessions WHERE timestamp > ? AND data != ''", [$time]);
         
         $this->db->select('*');
         $this->db->from('ci_sessions');
@@ -31,7 +31,7 @@ class Visitor_model extends CI_Model
     public function getCount()
     {
         $time = time() - 60 * 5;
-        $query = $this->db->query("SELECT COUNT(DISTINCT ip_address,user_agent,data,timestamp) AS `total` FROM ci_sessions WHERE timestamp > ?", array($time));
+        $query = $this->db->query("SELECT COUNT(DISTINCT ip_address,user_agent,data,timestamp) AS `total` FROM ci_sessions WHERE timestamp > ?", [$time]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -45,7 +45,7 @@ class Visitor_model extends CI_Model
     public function getGuestCount()
     {
         $time = time() - 60 * 5;
-        $query = $this->db->query("SELECT COUNT(DISTINCT ip_address,user_agent,data,timestamp) AS `total` FROM ci_sessions WHERE timestamp > ? AND data NOT LIKE '%uid%'", array($time));
+        $query = $this->db->query("SELECT COUNT(DISTINCT ip_address,user_agent,data,timestamp) AS `total` FROM ci_sessions WHERE timestamp > ? AND data NOT LIKE '%uid%'", [$time]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();

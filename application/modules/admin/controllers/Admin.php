@@ -10,7 +10,7 @@ class Admin extends MX_Controller
 
         $this->load->config('performance');
 
-        $this->coreModules = array('admin', 'login', 'logout', 'errors', 'news', 'mod');
+        $this->coreModules = ['admin', 'login', 'logout', 'errors', 'news', 'mod'];
 
         $this->load->library('administrator');
 
@@ -27,7 +27,7 @@ class Admin extends MX_Controller
 
         $this->administrator->loadModules();
 
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'enabled_modules' => $this->administrator->getEnabledModules(),
             'disabled_modules' => $this->administrator->getDisabledModules(),
@@ -43,7 +43,7 @@ class Admin extends MX_Controller
             'signups' => $this->getSignups(),
             'graphMonthly' => $this->graphMonthly(),
             'graphDaily' => $this->graphDaily()
-        );
+        ];
 
         $output = $this->template->loadPage("dashboard.tpl", $data);
 
@@ -118,7 +118,7 @@ class Admin extends MX_Controller
             $data = $cache;
         } else {
             $rows = $this->dashboard_model->getGraph();
-            $fullGraph = array();
+            $fullGraph = [];
 
             foreach ($rows as $row)
             {
@@ -129,7 +129,7 @@ class Admin extends MX_Controller
                 $date = $expld[2];
 
                 $date = new DateTime();
-                $fullYear = array();
+                $fullYear = [];
                 for ($i = 1; $i <= 12; $i++)
                 {
                     if ($date->format("Y") == $year && $i > $date->format("m"))
@@ -179,7 +179,7 @@ class Admin extends MX_Controller
         } else {
             $rows = $this->dashboard_model->getGraph(true);
     
-            $fullMonth = array();
+            $fullMonth = [];
     
             foreach ($rows as $row)
             {
@@ -190,7 +190,7 @@ class Admin extends MX_Controller
                 $day = $expld[2];
     
                 $date = new DateTime();
-                $fullDays = array();
+                $fullDays = [];
                 for ($i = 1; $i <= 31; $i++)
                 {
                     if ($date->format("Y") == $year && $date->format("m") == $month && $i > $date->format("d"))
@@ -219,7 +219,7 @@ class Admin extends MX_Controller
 
             if (!isset($data))
             {
-                $data = array();
+                $data = [];
             }
 
             $this->cache->save("dashboard_daily", $data, 60 * 60 * 24);
@@ -248,9 +248,9 @@ class Admin extends MX_Controller
 	
 	public function realmstatus()
     {
-        $data = array(
+        $data = [
 			"realmstatus" => $this->realms->getRealms(),
-        );
+        ];
 
 		$out = $this->template->loadPage("ajax_files/realmstatus.tpl", $data);
 
@@ -273,9 +273,9 @@ class Admin extends MX_Controller
         } else {
             $notifications = $this->cms_model->getNotifications($this->user->getId(), false);
 
-            $data = array(
+            $data = [
                 'notifications' => $notifications,
-            );
+            ];
 
             $out = $this->template->loadPage("notifications.tpl", $data);
 

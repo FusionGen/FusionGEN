@@ -20,11 +20,11 @@ class Theme extends MX_Controller
         $this->administrator->setTitle("Select theme");
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'themes' => $this->getThemes(),
             'current_theme' => $this->config->item('theme')
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("theme.tpl", $data);
@@ -39,7 +39,7 @@ class Theme extends MX_Controller
     private function getThemes()
     {
         $themes = glob("application/themes/*");
-        $themesArr = array();
+        $themesArr = [];
 
         foreach ($themes as $key => $value) {
             $value = preg_replace("/application\/themes\/([A-Za-z_-]*)/", "$1", $value);

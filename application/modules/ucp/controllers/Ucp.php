@@ -17,7 +17,7 @@ class Ucp extends MX_Controller
 
         $this->template->setTitle(lang("user_panel", "ucp"));
 
-        $data = array(
+        $data = [
             "username" => $this->user->getNickname(),
             "expansion" => $this->realms->getEmulator()->getExpansionName($this->external_account_model->getExpansion()),
             "vp" => $this->internal_user_model->getVp(),
@@ -30,7 +30,7 @@ class Ucp extends MX_Controller
             "avatar" => $this->user->getAvatar($this->user->getId()),
             "id" => $this->user->getId(),
 
-            "config" => array(
+            "config" => [
                 "vote" => $this->config->item('ucp_vote'),
                 "donate" => $this->config->item('ucp_donate'),
                 "store" => $this->config->item('ucp_store'),
@@ -39,12 +39,12 @@ class Ucp extends MX_Controller
                 "teleport" => $this->config->item('ucp_teleport'),
                 "admin" => $this->config->item('ucp_admin'),
                 "mod" => $this->config->item('ucp_mod')
-            ),
+            ],
 
             "characters" => $this->realms->getTotalCharacters(),
             "realms" => $this->realms->getRealms(),
             "realmObj" => $this->realms,
-        );
+        ];
         
         $data['email'] = false;
 
@@ -53,23 +53,23 @@ class Ucp extends MX_Controller
             $data['email'] = $this->mask_email($this->user->getEmail());
         }
 
-        $this->template->view($this->template->loadPage("page.tpl", array(
+        $this->template->view($this->template->loadPage("page.tpl", [
             "module" => "default",
             "headline" => lang("user_panel", "ucp"),
             "content" => $this->template->loadPage("ucp.tpl", $data)
-        )), "modules/ucp/css/ucp.css");
+        ]), "modules/ucp/css/ucp.css");
     }
 
     public function characters()
     {
-        $characters_data = array(
+        $characters_data = [
             "characters" => $this->realms->getTotalCharacters(),
             "realms" => $this->realms->getRealms(),
             "url" => $this->template->page_url,
             "realmObj" => $this->realms,
             "avatar" => $this->user->getAvatar($this->user->getId()),
 
-            "config" => array(
+            "config" => [
                 "vote" => $this->config->item('ucp_vote'),
                 "donate" => $this->config->item('ucp_donate'),
                 "store" => $this->config->item('ucp_store'),
@@ -78,8 +78,8 @@ class Ucp extends MX_Controller
                 "teleport" => $this->config->item('ucp_teleport'),
                 "admin" => $this->config->item('ucp_admin'),
                 "mod" => $this->config->item('ucp_mod')
-            )
-        );
+            ]
+        ];
 
         $content = $this->template->loadPage("ucp_characters.tpl", $characters_data);
         $this->template->view($content, "modules/ucp/css/ucp.css");

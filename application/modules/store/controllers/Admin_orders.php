@@ -58,11 +58,11 @@ class Admin_orders extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'completed' => $completed,
             'failed' => $failed,
             'url' => $this->template->page_url,
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_orders.tpl", $data);
@@ -78,7 +78,7 @@ class Admin_orders extends MX_Controller
     {
         $string = $this->input->post('string');
 
-        if (!$string || !$type || !in_array($type, array('successful', 'failed'))) {
+        if (!$string || !$type || !in_array($type, ['successful', 'failed'])) {
             die();
         } else {
             $type = ($type == 'successful');
@@ -116,10 +116,10 @@ class Admin_orders extends MX_Controller
                 }
             }
 
-            $data = array(
+            $data = [
                 'url' => $this->template->page_url,
                 'results' => $results
-            );
+            ];
 
             $output = $this->template->loadPage('admin_list.tpl', $data);
 

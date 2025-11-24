@@ -66,7 +66,7 @@ class Teleport extends MX_Controller
         $this->template->setTitle(lang("teleport_hub", "teleport"));
 
         //Load the content
-        $content_data = array(
+        $content_data = [
             "locations" => $this->teleportLocations,
             "characters" => $this->characters,
             "url" => $this->template->page_url,
@@ -74,19 +74,19 @@ class Teleport extends MX_Controller
             "vp" => $this->user->getVp(),
             "dp" => $this->user->getDp(),
             "avatar" => $this->user->getAvatar($this->user->getId()),
-        );
+        ];
 
         $page_content = $this->template->loadPage("teleport.tpl", $content_data);
 
         // Load the page breadcrumb
-        $page_data = array(
+        $page_data = [
             "module" => "default",
-            "headline" => breadcrumb(array(
+            "headline" => breadcrumb([
                             "ucp" => lang("ucp"),
                             "teleport" => lang("teleport_hub", "teleport")
-                        )),
+                        ]),
             "content" => $page_content
-        );
+        ];
 
         $page = $this->template->loadPage("page.tpl", $page_data);
 

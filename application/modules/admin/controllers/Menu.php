@@ -52,11 +52,11 @@ class Menu extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'links' => $links,
             'pages' => $pages
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("menu/menu.tpl", $data);
@@ -132,11 +132,11 @@ class Menu extends MX_Controller
         $this->administrator->setTitle(langColumn($link['name']));
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'links' => $this->menu_model->getMenuLinks(),
             'link' => $link
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("menu/edit_menu.tpl", $data);

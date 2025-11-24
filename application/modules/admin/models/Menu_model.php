@@ -15,7 +15,7 @@ class Menu_model extends CI_Model
 
     public function getMenuLink($id)
     {
-        $query = $this->db->query("SELECT * FROM menu WHERE id=?", array($id));
+        $query = $this->db->query("SELECT * FROM menu WHERE id=?", [$id]);
 
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
@@ -29,7 +29,7 @@ class Menu_model extends CI_Model
     {
         $this->deletePermission($id);
 
-        if ($this->db->query("DELETE FROM menu WHERE id = ? OR dropdown_id = ?", array($id, $id))) {
+        if ($this->db->query("DELETE FROM menu WHERE id = ? OR dropdown_id = ?", [$id, $id])) {
             return true;
         } else {
             return false;
@@ -44,41 +44,41 @@ class Menu_model extends CI_Model
 
     public function add($name, $link, $side, $lrd, $dropdown_id)
     {
-        $data = array(
+        $data = [
             "name" => $name,
             "link" => $link,
             "side" => $side,
             "lrd" => $lrd,
             "dropdown_id" => $dropdown_id,
             "rank" => $this->cms_model->getAnyOldRank()
-        );
+        ];
 
         $this->db->insert("menu", $data);
 
         $query = $this->db->query("SELECT id FROM menu ORDER BY id DESC LIMIT 1");
         $row = $query->result_array();
 
-        $this->db->query("UPDATE menu SET `order`=? WHERE id=?", array($row[0]['id'], $row[0]['id']));
+        $this->db->query("UPDATE menu SET `order`=? WHERE id=?", [$row[0]['id'], $row[0]['id']]);
 
         return $row[0]['id'];
     }
 
     public function setPermission($id)
     {
-        $this->db->query("UPDATE menu SET `permission`=? WHERE id=?", array($id, $id));
-        $this->db->query("INSERT INTO acl_roles(`name`, `module`) VALUES(?, '--MENU--')", array($id));
-        $this->db->query("INSERT INTO acl_roles_permissions(`role_name`, `permission_name`, `module`, `value`) VALUES(?, ?, '--MENU--', 1)", array($id, $id));
+        $this->db->query("UPDATE menu SET `permission`=? WHERE id=?", [$id, $id]);
+        $this->db->query("INSERT INTO acl_roles(`name`, `module`) VALUES(?, '--MENU--')", [$id]);
+        $this->db->query("INSERT INTO acl_roles_permissions(`role_name`, `permission_name`, `module`, `value`) VALUES(?, ?, '--MENU--', 1)", [$id, $id]);
     }
 
     public function deletePermission($id)
     {
-        $this->db->query("UPDATE menu SET `permission`='' WHERE id=?", array($id));
-        $this->db->query("DELETE FROM acl_roles WHERE module='--MENU--' AND name=?", array($id));
+        $this->db->query("UPDATE menu SET `permission`='' WHERE id=?", [$id]);
+        $this->db->query("DELETE FROM acl_roles WHERE module='--MENU--' AND name=?", [$id]);
     }
 
     public function hasPermission($id)
     {
-        $query = $this->db->query("SELECT `permission` FROM menu WHERE id=?", array($id));
+        $query = $this->db->query("SELECT `permission` FROM menu WHERE id=?", [$id]);
 
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
@@ -105,7 +105,7 @@ class Menu_model extends CI_Model
 
     public function getOrder($id)
     {
-        $query = $this->db->query("SELECT `order` FROM menu WHERE `id`=? LIMIT 1", array($id));
+        $query = $this->db->query("SELECT `order` FROM menu WHERE `id`=? LIMIT 1", [$id]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -118,7 +118,7 @@ class Menu_model extends CI_Model
 
     public function getPreviousOrder($order)
     {
-        $query = $this->db->query("SELECT `order`, id FROM menu WHERE `order` < ? ORDER BY `order` DESC LIMIT 1", array($order));
+        $query = $this->db->query("SELECT `order`, id FROM menu WHERE `order` < ? ORDER BY `order` DESC LIMIT 1", [$order]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -131,7 +131,7 @@ class Menu_model extends CI_Model
 
     public function getNextOrder($order)
     {
-        $query = $this->db->query("SELECT `order`, id FROM menu WHERE `order` > ? ORDER BY `order` ASC LIMIT 1", array($order));
+        $query = $this->db->query("SELECT `order`, id FROM menu WHERE `order` > ? ORDER BY `order` ASC LIMIT 1", [$order]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -144,6 +144,6 @@ class Menu_model extends CI_Model
 
     public function setOrder($id, $order)
     {
-        $this->db->query("UPDATE menu SET `order`=? WHERE `id`=? LIMIT 1", array($order, $id));
+        $this->db->query("UPDATE menu SET `order`=? WHERE `id`=? LIMIT 1", [$order, $id]);
     }
 }

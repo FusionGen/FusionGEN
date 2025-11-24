@@ -31,11 +31,11 @@ class Admin extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'teleport_locations' => $teleport_locations,
             'realms' => $this->realms->getRealms()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("teleport_admin.tpl", $data);
@@ -89,10 +89,10 @@ class Admin extends MX_Controller
         requirePermission("canEdit");
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'realms' => $this->realms->getRealms()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("teleport_admin_add.tpl", $data);
@@ -125,11 +125,11 @@ class Admin extends MX_Controller
         $this->administrator->setTitle($teleport_location['name']);
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'teleport_location' => $teleport_location,
             'realms' => $this->realms->getRealms()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("teleport_admin_edit.tpl", $data);

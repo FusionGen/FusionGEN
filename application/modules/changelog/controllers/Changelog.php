@@ -27,12 +27,12 @@ class Changelog extends MX_Controller
             $changelog_items = $this->sortByTime($changelog_items);
         }
 
-        $data = array(
+        $data = [
             "changes" => $changelog_items,
             "url" => $this->template->page_url,
             "categories" => $this->changelog_model->getCategories(),
-            'attributes' => array("id" => "category_form", "style" => "display:none;")
-        );
+            'attributes' => ["id" => "category_form", "style" => "display:none;"]
+        ];
 
         $content =  $this->template->loadPage("changelog.tpl", $data);
 
@@ -47,19 +47,19 @@ class Changelog extends MX_Controller
      */
     public function sortByTime($changelog_items)
     {
-        $new_array = array();
+        $new_array = [];
 
         foreach ($changelog_items as $item) {
             // If we dont got the time yet add it to the new array
             if (!array_key_exists(date("Y/m/d", $item['time']), $new_array)) {
                 //Assign an array to that key
-                $new_array[date("Y/m/d", $item['time'])] = array();
+                $new_array[date("Y/m/d", $item['time'])] = [];
             }
 
             // Do the same but then for the typeName
             if (!array_key_exists($item['typeName'], $new_array[date("Y/m/d", $item['time'])])) {
                 //Assign an array to that key
-                $new_array[date("Y/m/d", $item['time'])][$item['typeName']] = array();
+                $new_array[date("Y/m/d", $item['time'])][$item['typeName']] = [];
             }
 
             array_push($new_array[date("Y/m/d", $item['time'])][$item['typeName']], $item);

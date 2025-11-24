@@ -18,10 +18,10 @@ class Languages extends MX_Controller
     {
         $this->administrator->setTitle("Available languages");
 
-        $data = array(
+        $data = [
             'languages' => $this->language->getAllLanguages(),
             'default' => ($default) ? $default : $this->config->item('language')
-        );
+        ];
 
         $output = $this->template->loadPage("languages/languages.tpl", $data);
 

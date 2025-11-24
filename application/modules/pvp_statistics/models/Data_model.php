@@ -12,7 +12,7 @@ class Data_model extends CI_Model
         parent::__construct();
 
         /* Let's prepare our SQL statements */
-        $this->statements['trinity'] = array(
+        $this->statements['trinity'] = [
             'TopArenaTeams' => "SELECT `arenaTeamId` AS arenateamid, `rating`, `rank`, `name`, `captainGuid` AS captain, `type` FROM `arena_team` WHERE `type` = ? ORDER BY rating DESC LIMIT ?;",
             'TeamMembers' => "SELECT 
                                     `arena_team_member`.`arenaTeamId` AS arenateamid, 
@@ -27,9 +27,9 @@ class Data_model extends CI_Model
                                 RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
                                 WHERE `arena_team_member`.`arenateamid` = ? ORDER BY guid ASC;",
             'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
-        );
+        ];
 
-        $this->statements['azerothcore'] = array(
+        $this->statements['azerothcore'] = [
             'TopArenaTeams' => "SELECT `arenaTeamId` AS arenateamid, `rating`, `rank`, `name`, `captainGuid` AS captain, `type` FROM `arena_team` WHERE `type` = ? ORDER BY rating DESC LIMIT ?;",
             'TeamMembers' => "SELECT 
                                     `arena_team_member`.`arenaTeamId` AS arenateamid, 
@@ -44,9 +44,9 @@ class Data_model extends CI_Model
                                 RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
                                 WHERE `arena_team_member`.`arenateamid` = ? ORDER BY guid ASC;",
             'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
-        );
+        ];
 
-        $this->statements['azerothcore_sph'] = array(
+        $this->statements['azerothcore_sph'] = [
             'TopArenaTeams' => "SELECT `arenaTeamId` AS arenateamid, `rating`, `rank`, `name`, `captainGuid` AS captain, `type` FROM `arena_team` WHERE `type` = ? ORDER BY rating DESC LIMIT ?;",
             'TeamMembers' => "SELECT 
                                     `arena_team_member`.`arenaTeamId` AS arenateamid, 
@@ -61,9 +61,9 @@ class Data_model extends CI_Model
                                 RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
                                 WHERE `arena_team_member`.`arenateamid` = ? ORDER BY guid ASC;",
             'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
-        );
+        ];
 
-        $this->statements['mop'] = array(
+        $this->statements['mop'] = [
             'TopArenaTeams' => "SELECT `arenaTeamId` AS arenateamid, `rating`, `rank`, `name`, `captainGuid` AS captain, `type` FROM `arena_team` WHERE `type` = ? ORDER BY rating DESC LIMIT ?;",
             'TeamMembers' => "SELECT 
                                     `arena_team_member`.`arenaTeamId` AS arenateamid, 
@@ -78,9 +78,9 @@ class Data_model extends CI_Model
                                 RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
                                 WHERE `arena_team_member`.`arenateamid` = ? ORDER BY guid ASC;",
             'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
-        );
+        ];
 
-        $this->statements['cmangos'] = array(
+        $this->statements['cmangos'] = [
             'TopArenaTeams' => "SELECT `arena_team`.`arenateamid` AS arenateamid, 
                                         `arena_team_stats`.`rating` AS rating, 
                                         `arena_team_stats`.`rank` AS rank, 
@@ -103,7 +103,7 @@ class Data_model extends CI_Model
                                 RIGHT JOIN `characters` ON `characters`.`guid` = `arena_team_member`.`guid` 
                                 WHERE `arena_team_member`.`arenateamid` = ? ORDER BY guid ASC;",
             'TopHKPlayers' => "SELECT `guid`, `name`, `level`, `race`, `class`, `gender`, `totalKills` AS kills FROM `characters` WHERE `totalKills` > 0 ORDER BY `totalKills` DESC LIMIT ?;"
-        );
+        ];
     }
 
     public function GetStatement($key)
@@ -126,11 +126,11 @@ class Data_model extends CI_Model
     {
         $this->realm = $this->realms->getRealm($id);
 
-        $replace      = array(
+        $replace = [
             '_ra',
             '_soap',
             '_rbac'
-        );
+        ];
         //Remove the ra/soap crap
         $this->emuStr = str_replace($replace, '', $this->realm->getConfig('emulator'));
     }
@@ -157,10 +157,10 @@ class Data_model extends CI_Model
 
         $this->connect();
 
-        $result = $this->connection->query($this->GetStatement('TopArenaTeams'), array(
+        $result = $this->connection->query($this->GetStatement('TopArenaTeams'), [
             $type,
             $count
-        ));
+        ]);
 
         if ($result && $result->num_rows() > 0) {
             $teams = $result->result_array();
@@ -190,9 +190,9 @@ class Data_model extends CI_Model
 
         $this->connect();
 
-        $result = $this->connection->query($this->GetStatement('TeamMembers'), array(
+        $result = $this->connection->query($this->GetStatement('TeamMembers'), [
             $team
-        ));
+        ]);
 
         if ($result && $result->num_rows() > 0) {
             return $result->result_array();
@@ -206,12 +206,12 @@ class Data_model extends CI_Model
     {
         $this->connect();
 
-        $result = $this->connection->query($this->GetStatement('TeamMembers'), array(
+        $result = $this->connection->query($this->GetStatement('TeamMembers'), [
             $team
-        ));
+        ]);
 
         if ($result && $result->num_rows() > 0) {
-            $members = array();
+            $members = [];
             $row     = $result->result_array();
             $row     = $row[0];
 
@@ -231,15 +231,15 @@ class Data_model extends CI_Model
                 }
 
                 //Get some character data
-                $result2 = $this->connection->query($this->GetStatement('Character'), array(
+                $result2 = $this->connection->query($this->GetStatement('Character'), [
                     $guid
-                ));
+                ]);
 
                 if ($result2 && $result2->num_rows() > 0) {
                     $char = $result2->result_array();
                     $char = $char[0];
 
-                    array_push($members, array(
+                    array_push($members, [
                         'guid' => $guid,
                         'rating' => $rating,
                         'games' => $seasonGames,
@@ -247,7 +247,7 @@ class Data_model extends CI_Model
                         'name' => $char['name'],
                         'class' => $char['class'],
                         'level' => $char['level']
-                    ));
+                    ]);
 
                     unset($char);
                 }
@@ -274,9 +274,9 @@ class Data_model extends CI_Model
 
         $this->connect();
 
-        $result = $this->connection->query($this->GetStatement('TopHKPlayers'), array(
+        $result = $this->connection->query($this->GetStatement('TopHKPlayers'), [
             $count
-        ));
+        ]);
 
         if ($result && $result->num_rows() > 0) {
             $players = $result->result_array();
@@ -298,7 +298,7 @@ class Data_model extends CI_Model
 
     private function addNumberSuffix($num)
     {
-        if (!in_array(($num % 100), array(11,12,13))) {
+        if (!in_array(($num % 100), [11,12,13])) {
             switch ($num % 10) {
                 // Handle 1st, 2nd, 3rd
                 case 1:

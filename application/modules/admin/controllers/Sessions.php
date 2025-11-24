@@ -41,9 +41,9 @@ class Sessions extends MX_Controller
             }
         }
 
-        $data = array(
+        $data = [
             'sessions' => $sessions
-        );
+        ];
 
         $output = $this->template->loadPage("sessions/sessions.tpl", $data);
         $content = $this->administrator->box('Active sessions', $output);
@@ -110,7 +110,7 @@ class Sessions extends MX_Controller
     private function parseSession($sess_data)
     {
         $sess_data = rtrim($sess_data, ";");
-        $sess_info = array();
+        $sess_info = [];
         $parts = explode(";", $sess_data);
 
         unset($parts[3], $parts[4]);

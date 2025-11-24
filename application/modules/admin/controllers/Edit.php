@@ -26,11 +26,7 @@ class Edit extends MX_Controller
     public function index($module = false)
     {
         // Make sure the module exists and has configs
-        if (
-            !$module
-            || !file_exists("application/modules/" . $module . "/")
-            || !$this->administrator->hasConfigs($module)
-        ) {
+        if (!$module || !file_exists("application/modules/" . $module . "/") || !$this->administrator->hasConfigs($module)) {
             die();
         }
 
@@ -42,11 +38,11 @@ class Edit extends MX_Controller
         // Change the title
         $this->administrator->setTitle($this->manifest['name']);
 
-        $data = array(
+        $data = [
             "configs" => $this->configs,
             "moduleName" => $module,
             "url" => $this->template->page_url
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("config.tpl", $data);

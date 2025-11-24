@@ -34,22 +34,22 @@ class Auth extends MX_Controller
             redirect($this->template->page_url . "ucp");
         }
 
-        $data = array(
+        $data = [
             "use_captcha" => false,
             "captcha_type" => $this->config->item('captcha_type'),
             "has_smtp" => $this->config->item('has_smtp')
-        );
+        ];
 
         if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps')) {
             $data["use_captcha"] = true;
         }
 
-        $this->template->view($this->template->loadPage("page.tpl", array(
+        $this->template->view($this->template->loadPage("page.tpl", [
                     "module" => "default", 
                     "headline" => lang("log_in", "auth"),
-                    "class" => array("class" => "page_form"),
+                    "class" => ["class" => "page_form"],
                     "content" => $this->template->loadPage("login.tpl", $data)
-                )), "modules/auth/css/auth.css", "modules/auth/js/login.js");
+                ]), "modules/auth/css/auth.css", "modules/auth/js/login.js");
 
     }
 
@@ -75,10 +75,10 @@ class Auth extends MX_Controller
 
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
-        $data = array(
+        $data = [
             "redirect" => false,
             "messages" => false
-        );
+        ];
 
         if (isset($_POST["submit"]) && $this->form_validation->run())
         {
@@ -215,20 +215,20 @@ class Auth extends MX_Controller
         if (!empty($find['attempts']))
         {
             //Update failed login attempts and last_attempt
-            $ip_data = array(
+            $ip_data = [
                 'attempts' => $find['attempts'] + 1,
                 'last_attempt' => date('Y-m-d H:i:s'),
-            );
+            ];
 
             $this->login_model->updateIP($ip_address, $ip_data);
         }
         else
         {
-            $ip_data = array(
+            $ip_data = [
                 'ip_address' => $ip_address,
                 'attempts' => 1,
                 'last_attempt' => date('Y-m-d H:i:s'),
-            );
+            ];
             $this->login_model->insertIP($ip_data);
         }
         
@@ -239,9 +239,9 @@ class Auth extends MX_Controller
         {
             //Block the IP address
             $block_until = time() + ($this->config->item('block_duration') * 60);
-            $block_data = array(
+            $block_data = [
                 'block_until' => $block_until
-            );
+            ];
 
             $this->login_model->updateIP($ip_address, $block_data);
         }

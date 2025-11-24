@@ -15,7 +15,7 @@ class Changelog_model extends CI_Model
     public function getChangelog($limit = false)
     {
         if ($limit) {
-            $query = $this->db->query("SELECT * FROM changelog c, changelog_type t WHERE c.type = t.id ORDER BY c.time DESC LIMIT ?", array($limit));
+            $query = $this->db->query("SELECT * FROM changelog c, changelog_type t WHERE c.type = t.id ORDER BY c.time DESC LIMIT ?", [$limit]);
         } else {
             // This query also gets the type from the foreign key.
             $query = $this->db->query("SELECT * FROM changelog c, changelog_type t WHERE c.type = t.id ORDER BY c.time DESC");
@@ -33,7 +33,7 @@ class Changelog_model extends CI_Model
         if (!$id) {
             return false;
         } else {
-            $query = $this->db->query("SELECT * FROM changelog c, changelog_type t WHERE c.type = t.id AND c.change_id = ?", array($id));
+            $query = $this->db->query("SELECT * FROM changelog c, changelog_type t WHERE c.type = t.id AND c.change_id = ?", [$id]);
 
             if ($query->num_rows() > 0) {
                 $result = $query->result_array();
@@ -57,28 +57,28 @@ class Changelog_model extends CI_Model
 
     public function addCategory($name)
     {
-        $this->db->query("INSERT INTO changelog_type(typeName) VALUES(?)", array($name));
+        $this->db->query("INSERT INTO changelog_type(typeName) VALUES(?)", [$name]);
     }
 
     public function deleteChange($id)
     {
-        $this->db->query("DELETE FROM changelog WHERE change_id = ?", array($id));
+        $this->db->query("DELETE FROM changelog WHERE change_id = ?", [$id]);
     }
 
     public function deleteCategory($id)
     {
-        $this->db->query("DELETE FROM changelog WHERE type = ?", array($id));
-        $this->db->query("DELETE FROM changelog_type WHERE id = ?", array($id));
+        $this->db->query("DELETE FROM changelog WHERE type = ?", [$id]);
+        $this->db->query("DELETE FROM changelog_type WHERE id = ?", [$id]);
     }
 
     public function addChange($text, $category)
     {
-        $data = array(
+        $data = [
             "changelog" => $text,
             "author" => $this->user->getNickname(),
             "type" => $category,
             "time" => time()
-        );
+        ];
 
         $this->db->insert("changelog", $data);
 

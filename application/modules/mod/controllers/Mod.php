@@ -20,11 +20,11 @@ class Mod extends MX_Controller
         $modlogs = $this->logger->getModLogs();
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => pageURL,
             'modlogs' => $modlogs,
             'tickets' => $this->getTickets()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("dashboard.tpl", $data);
@@ -37,13 +37,13 @@ class Mod extends MX_Controller
 
     private function getTickets()
     {
-        $tickets = array();
+        $tickets = [];
         foreach ($this->realms->getRealms() as $realm) {
-            $tickets[] = array(
+            $tickets[] = [
                 "realmName" => $realm->getName(),
                 "emulator" => lcfirst(substr(get_class($realm->getEmulator()), 0, strpos(get_class($realm->getEmulator()), '_'))),
                 "tickets" => $this->tickets_model->getTickets($realm)
-            );
+            ];
         }
         $data = $tickets;
 

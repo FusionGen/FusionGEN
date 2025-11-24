@@ -8,15 +8,15 @@
 
 $lang['speed'] = "Speed";
 
-$lang["bind"] = array(
+$lang["bind"] = [
     0 => null,
     1 => "Binds when picked up",
     2 => "Binds when equipped",
     3 => "Binds when used",
     4 => "Quest Item"
-);
+];
 
-$lang["slots"] = array(
+$lang["slots"] = [
     0 => null,
     1 => "Head",
     2 => "Neck",
@@ -46,9 +46,9 @@ $lang["slots"] = array(
     26 => "Ranged",
     27 => "Quiver",
     28 => "Relic"
-);
+];
 
-$lang["damages"] = array(
+$lang["damages"] = [
     0 => null, // Physical
     1 => "Holy",
     2 => "Fire",
@@ -56,9 +56,9 @@ $lang["damages"] = array(
     4 => "Frost",
     5 => "Shadow",
     6 => "Arcane"
-);
+];
 
-$lang["spelltriggers"] = array(
+$lang["spelltriggers"] = [
     0 => "Use: ",
     1 => "Equip: ",
     2 => "Chance on hit: ",
@@ -66,9 +66,9 @@ $lang["spelltriggers"] = array(
     4 => "Unknown: ",
     5 => "Unknown: ",
     6 => "Unknown: "
-);
+];
 
-$lang["armor_sub"] = array(
+$lang["armor_sub"] = [
     0 => "Miscellaneous",
     1 => "Cloth",
     2 => "Leather",
@@ -80,9 +80,9 @@ $lang["armor_sub"] = array(
     8 => "Idol",
     9 => "Totem",
     10 => "Sigil",
-);
+];
 
-$lang["weapon_sub"] = array(
+$lang["weapon_sub"] = [
     0 => "Axe",
     1 => "Axe",
     2 => "Bow",
@@ -104,9 +104,9 @@ $lang["weapon_sub"] = array(
     18 => "Crossbow",
     19 => "Wand",
     20 => "Fishing Pole"
-);
+];
 
-$lang["stats"] = array(
+$lang["stats"] = [
     0 => "Mana",
     1 => "Health",
     3 => "Agility",
@@ -143,4 +143,4 @@ $lang["stats"] = array(
     46 => "health per 5 sec.",
     47 => "spell penetration rating ",
     48 => "block value ",
-);
+];

@@ -4,7 +4,7 @@ class Realm_model extends CI_Model
 {
     public function delete($id)
     {
-        $this->db->query("DELETE FROM realms WHERE id=?", array($id));
+        $this->db->query("DELETE FROM realms WHERE id=?", [$id]);
     }
 
     public function create($data)

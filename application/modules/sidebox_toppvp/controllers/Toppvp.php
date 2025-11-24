@@ -26,14 +26,14 @@ class Toppvp extends MX_Controller
         $realms = $this->config->item("pvp_realms");
 
         if (is_numeric($realms)) {
-            $realms = array($realms);
+            $realms = [$realms];
         }
 
         if (
             isset($realms)
             && is_array($realms)
         ) {
-            $this->realm = array();
+            $this->realm = [];
 
             foreach ($realms as $id) {
                 if ($this->realms->realmExists($id)) {
@@ -49,7 +49,7 @@ class Toppvp extends MX_Controller
                 }
             }
         } else {
-            $this->realms = array();
+            $this->realms = [];
         }
     }
 
@@ -65,26 +65,26 @@ class Toppvp extends MX_Controller
             } else {
                 //Get the max chars to show
                 $maxCount = $this->config->item('pvp_players');
-                $realm_html = array();
+                $realm_html = [];
 
                 //For each realm
                 foreach ($this->realm as $id => $realm) {
                     //Get the topkill characters
                     $topKillChars = $this->toppvp_model->getTopKillChars($maxCount, $realm);
 
-                    $data = array(
+                    $data = [
                                 "module" => "sidebox_toppvp",
                                 "name" => $realm->getName(),
                                 "id" => $realm->getId(),
                                 "characters" => $topKillChars,
                                 "url" => $this->template->page_url,
                                 "realm" => $realm->getId()
-                            );
+                            ];
 
                     $realm_html[$id] = $this->template->loadPage("realm.tpl", $data);
                 }
 
-                $out = $this->template->loadPage("pvp.tpl", array("module" => "sidebox_toppvp", "min_realm" => $this->min_realm, "max_realm" => $this->max_realm, "realm_html" => $realm_html, "realms" => $this->realm));
+                $out = $this->template->loadPage("pvp.tpl", ["module" => "sidebox_toppvp", "min_realm" => $this->min_realm, "max_realm" => $this->max_realm, "realm_html" => $realm_html, "realms" => $this->realm]);
 
                 // Cache for 12 hours
                 $this->cache->save("sidebox_toppvp_" . getLang(), $out, 60 * 60 * 12);

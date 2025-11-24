@@ -35,7 +35,7 @@ class Character extends MX_Controller
         $this->load->model("armory_model");
 
         $this->canCache = true;
-        $this->items = array();
+        $this->items = [];
     }
 
     /**
@@ -72,7 +72,7 @@ class Character extends MX_Controller
                 }
             } else {
                 $this->canCache = false;
-                return $this->template->loadPage("icon_ajax.tpl", array('id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url));
+                return $this->template->loadPage("icon_ajax.tpl", ['id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url]);
             }
         }
     }
@@ -108,14 +108,14 @@ class Character extends MX_Controller
         if ($this->realms->getRealm($this->realm)->getEmulator()->hasStats()) {
             $character_stats = $this->armory_model->getStats();
         } else {
-            $character_stats = array('maxhealth' => lang("unknown", "character"));
+            $character_stats = ['maxhealth' => lang("unknown", "character")];
         }
 
-        $this->pvp = array(
+        $this->pvp = [
             'kills' => (array_key_exists("totalKills", $character_data)) ? $character_data['totalKills'] : false,
             'honor' => (array_key_exists("totalHonorPoints", $character_data)) ? $character_data['totalHonorPoints'] : false,
             'arena' => (array_key_exists("arenaPoints", $character_data)) ? $character_data['arenaPoints'] : false
-        );
+        ];
 
         // Assign the character data as real variables
         foreach ($character_data as $key => $value) {
@@ -201,7 +201,7 @@ class Character extends MX_Controller
         $items = $this->armory_model->getItems();
 
         // Item slots
-        $slots = array(
+        $slots = [
                     0 => "head",
                     1 => "neck",
                     2 => "shoulders",
@@ -221,7 +221,7 @@ class Character extends MX_Controller
                     16 => "offhand",
                     17 => "ranged",
                     18 => "tabard"
-                );
+                ];
 
         if (is_array($items)) {
             // Loop through to assign the items
@@ -334,14 +334,14 @@ class Character extends MX_Controller
 
                 $this->template->setTitle($this->name);
 
-                $avatarArray = array(
+                $avatarArray = [
                     'class' => $this->class,
                     'race' => $this->race,
                     'level' => $this->level,
                     'gender' => $this->gender
-                );
+                ];
 
-                $charData = array(
+                $charData = [
                     "name" => $this->name,
                     "race" => $this->race,
                     "class" => $this->class,
@@ -364,15 +364,15 @@ class Character extends MX_Controller
                     "fcms_tooltip" => $this->config->item("use_fcms_tooltip"),
                     "has_stats" => $this->realms->getRealm($this->realm)->getEmulator()->hasStats(),
                     "faction" => $this->realms->getRealm($this->realm)->getCharacters()->getFaction($this->id)
-                );
+                ];
 
                 $character = $this->template->loadPage("character.tpl", $charData);
 
-                $data = array(
+                $data = [
                     "module" => "default",
                     "headline" => "<span style='cursor:pointer;' data-tip='" . lang("view_profile", "character") . "' onClick='window.location=\"" . $this->template->page_url . "profile/" . $this->account . "\"'>" . $this->name,
                     "content" => $character
-                );
+                ];
 
                 $keywords = "armory," . $charData['name'] . ",lvl" . $charData['level'] . "," . $charData['raceName'] . "," . $charData['className'] . "," . $charData['realmName'];
                 $description = $charData['name'] . " - level " . $charData['level'] . " " . $charData['raceName'] . " " . $charData['className'] . " on " . $charData['realmName'];
@@ -390,7 +390,7 @@ class Character extends MX_Controller
 
             if ($this->canCache) {
                 // Cache for 30 min
-                $this->cache->save("character_" . $this->realm . "_" . $this->id . "_" . getLang(), array('page' => $page, 'name' => $this->name, 'keywords' => $keywords, 'description' => $description), 60 * 30);
+                $this->cache->save("character_" . $this->realm . "_" . $this->id . "_" . getLang(), ['page' => $page, 'name' => $this->name, 'keywords' => $keywords, 'description' => $description], 60 * 30);
             }
         }
 
@@ -404,11 +404,11 @@ class Character extends MX_Controller
     {
         $this->template->setTitle(lang("doesnt_exist", "character"));
 
-        $data = array(
+        $data = [
             "module" => "default",
             "headline" => lang("doesnt_exist", "character"),
             "content" => "<div class='text-center py-5 fw-bold'>" . lang("doesnt_exist_long", "character") . "</div>"
-        );
+        ];
 
         $page = $this->template->loadPage("page.tpl", $data);
 

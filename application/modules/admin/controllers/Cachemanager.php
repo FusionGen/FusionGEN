@@ -10,8 +10,8 @@ class Cachemanager extends MX_Controller
         // Make sure to load the administrator library!
         $this->load->library('administrator');
 
-        $this->itemMatches = array("spells/*", "items/*", "search/*");
-        $this->websiteMatches = array("*.cache");
+        $this->itemMatches = ["spells/*", "items/*", "search/*"];
+        $this->websiteMatches = ["*.cache"];
 
         parent::__construct();
 
@@ -24,9 +24,9 @@ class Cachemanager extends MX_Controller
         $this->administrator->setTitle("Manage cache");
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("cachemanager/cache.tpl", $data);
@@ -47,12 +47,12 @@ class Cachemanager extends MX_Controller
         $total['size'] = $this->formatSize($item['size'] + $website['size']);
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'item' => $item,
             'website' => $website,
             'total' => $total
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("cachemanager/cache_data.tpl", $data);
@@ -63,10 +63,10 @@ class Cachemanager extends MX_Controller
     private function countItemCache()
     {
         // Define our result
-        $result = array(
+        $result = [
             "files" => 0,
             "size" => 0
-        );
+        ];
 
         // Define what to search for
         $matches = $this->itemMatches;
@@ -96,10 +96,10 @@ class Cachemanager extends MX_Controller
     private function countWebsiteCache()
     {
         // Define our result
-        $result = array(
+        $result = [
             "files" => 0,
             "size" => 0
-        );
+        ];
 
         // Define what to search for
         $matches = $this->websiteMatches;
@@ -143,7 +143,7 @@ class Cachemanager extends MX_Controller
     {
         requirePermission("emptyCache");
 
-        if (!$type || !in_array($type, array('item', 'website', 'all'))) {
+        if (!$type || !in_array($type, ['item', 'website', 'all'])) {
             die();
         } else {
             switch ($type) {

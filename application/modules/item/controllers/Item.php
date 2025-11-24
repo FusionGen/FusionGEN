@@ -31,19 +31,19 @@ class Item extends MX_Controller
         if ($cache !== false) {
             $item = $cache;
         } else {
-            $item = $this->template->loadPage("ajax.tpl", array('module' => 'item', 'id' => $id, 'realm' => $realm, 'icon' => $icon));
+            $item = $this->template->loadPage("ajax.tpl", ['module' => 'item', 'id' => $id, 'realm' => $realm, 'icon' => $icon]);
         }
 
-        $content = $this->template->loadPage("item.tpl", array('module' => 'item', 'item' => $item, 'icon' => $icon));
+        $content = $this->template->loadPage("item.tpl", ['module' => 'item', 'item' => $item, 'icon' => $icon]);
 
-        $data3 = array(
+        $data3 = [
                 "module" => "default",
-                "headline" => breadcrumb(array(
+                "headline" => breadcrumb([
                                 "armory" => lang("armory", "item"),
                                 uri_string() => $itemName
-                            )),
+                            ]),
                 "content" => $content
-            );
+            ];
 
         $page = $this->template->loadPage("page.tpl", $data3);
 
@@ -60,12 +60,12 @@ class Item extends MX_Controller
             if ($cache2 != false) {
                 return "<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg'></div>";
             } elseif ($cache2 == false) {
-                return $this->template->loadPage("icon_ajax.tpl", array('id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url));
+                return $this->template->loadPage("icon_ajax.tpl", ['id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url]);
             } else {
                 return "<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/inv_misc_questionmark.jpg'></div>";
             }
         } else {
-            return $this->template->loadPage("icon_ajax.tpl", array('id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url));
+            return $this->template->loadPage("icon_ajax.tpl", ['id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url]);
         }
     }
 }

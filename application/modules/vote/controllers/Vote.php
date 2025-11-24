@@ -30,23 +30,23 @@ class Vote extends MX_Controller
 
         $this->template->setTitle(lang("vote_panel", "vote"));
 
-        $voteData = array(
+        $voteData = [
             'path' => $this->template->page_url,
             'vote_sites' => $this->vote_model->getVoteSites(),
-            'formAttributes' => array('target' => '_blank')
-        );
+            'formAttributes' => ['target' => '_blank']
+        ];
 
         $output = $this->template->loadPage("vote.tpl", $voteData);
 
         // Load the page breadcrumb
-        $data = array(
+        $data = [
             "module" => "default",
-            "headline" => breadcrumb(array(
+            "headline" => breadcrumb([
                             "ucp" => lang("ucp"),
                             "vote" => lang("vote_panel", "vote")
-                        )),
+                        ]),
             "content" => $output
-        );
+        ];
 
         $page = $this->template->loadPage("page.tpl", $data);
 
@@ -56,11 +56,11 @@ class Vote extends MX_Controller
 
     public function site()
     {
-        $api = array(
+        $api = [
             "user_id" => $this->user->getId(),
             "username" => $this->user->getUsername(),
             "user_ip" => $this->input->ip_address()
-        );
+        ];
 
         $vote_site_id = $this->input->post('id'); //The site where we are voting for.
 

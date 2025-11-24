@@ -67,12 +67,12 @@ class Comments_model extends CI_Model
     {
         $this->db->insert("comments", $comment);
 
-        $this->db->query("UPDATE articles SET comments = comments + 1 WHERE id=?", array($comment['article_id']));
+        $this->db->query("UPDATE articles SET comments = comments + 1 WHERE id=?", [$comment['article_id']]);
     }
 
     public function deleteComment($id)
     {
-        $query = $this->db->query("SELECT article_id FROM comments WHERE id=?", array($id));
+        $query = $this->db->query("SELECT article_id FROM comments WHERE id=?", [$id]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -81,8 +81,8 @@ class Comments_model extends CI_Model
         }
 
         $this->db->trans_start();
-        $this->db->query("DELETE FROM comments WHERE id=?", array($id));
-        $this->db->query("UPDATE articles SET comments = comments - 1 WHERE id=?", array($row[0]['article_id']));
+        $this->db->query("DELETE FROM comments WHERE id=?", [$id]);
+        $this->db->query("UPDATE articles SET comments = comments - 1 WHERE id=?", [$row[0]['article_id']]);
         $this->db->trans_complete();
 
         return $row[0]['article_id'];

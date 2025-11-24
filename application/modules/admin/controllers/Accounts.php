@@ -24,7 +24,7 @@ class Accounts extends MX_Controller
         $this->administrator->setTitle("Accounts");
 
         // Prepare my data
-        $data = array();
+        $data = [];
 
         // Load my view
         $output = $this->template->loadPage("accounts/accounts_search.tpl", $data);
@@ -50,12 +50,12 @@ class Accounts extends MX_Controller
 
         $users = $this->accounts_model->get_users($length, $start, $search_value);
 
-        $output = array(
+        $output = [
             "draw" => intval($this->input->post('draw')),
             "recordsTotal" => $total_users,
             "recordsFiltered" => $filtered_users,
             "data" => $users
-        );
+        ];
         die(json_encode($output));
     }
 
@@ -75,7 +75,7 @@ class Accounts extends MX_Controller
             $logs = $this->accounts_model->getLogs($data['id'], 0, 10);
 
             // Prepare my data
-            $page_data = array(
+            $page_data = [
                 'internal_details' => $internal_details,
                 'external_details' => $data,
                 'access_id'  => $this->accounts_model->getAccessId($data['id']),
@@ -89,8 +89,8 @@ class Accounts extends MX_Controller
                 'register_date' => preg_replace("/\s.*/", "", $this->external_account_model->getJoinDate()),
                 'modules' => $this->getModulePermissions(),
                 'logs' => $logs,
-                'show_more' => $this->logger->getLogCount() - count(array($logs))
-            );
+                'show_more' => $this->logger->getLogCount() - count([$logs])
+            ];
 
             // Load my view
             $output = $this->template->loadPage("accounts/accounts_found.tpl", $page_data);
@@ -107,7 +107,7 @@ class Accounts extends MX_Controller
 
     private function getModulePermissions()
     {
-        $modules = array();
+        $modules = [];
 
         foreach (glob("application/modules/*") as $module) {
             if (is_dir($module)) {
@@ -144,7 +144,7 @@ class Accounts extends MX_Controller
             $this->acl_model->removePermissionsFromUser($id);
 
             foreach ($_POST as $k => $v) {
-                if ($v !== '' && !in_array($k, array("vp", "dp", "nickname", "email", "group", "expansion", "gm_level"))) {
+                if ($v !== '' && !in_array($k, ["vp", "dp", "nickname", "email", "group", "expansion", "gm_level"])) {
                     $permissionParts = explode("-", $k);
 
                     // UserID, permissionName, moduleName
@@ -181,11 +181,11 @@ class Accounts extends MX_Controller
 
         if ($logs) {
             // Prepare my data
-            $data = array(
+            $data = [
                 'logs' => $logs,
                 'userid' => $id,
                 'show_more' => $extraLogCount
-            );
+            ];
 
             // Load my view
             $output = $this->template->loadPage("accounts/accounts_logging_found.tpl", $data);

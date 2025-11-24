@@ -41,8 +41,8 @@ class Checkout extends MX_Controller
             die("Your cart can't be empty");
         }
 
-        $items = array();
-        $realms = array();
+        $items = [];
+        $realms = [];
 
         // Load all items
         foreach ($cart as $item) {
@@ -65,11 +65,11 @@ class Checkout extends MX_Controller
 
             // Put it in the realm array
             if (!isset($realms[$items[$item['id']]['realm']])) {
-                $realms[$items[$item['id']]['realm']] = array(
+                $realms[$items[$item['id']]['realm']] = [
                     'name' => $this->realms->getRealm($items[$item['id']]['realm'])->getName(),
-                    'items' => array(),
+                    'items' => [],
                     'characters' => $this->realms->getRealm($items[$item['id']]['realm'])->getCharacters()->getCharactersByAccount(),
-                );
+                ];
             }
 
             array_push($realms[$items[$item['id']]['realm']]['items'], $items[$item['id']]);
@@ -83,13 +83,13 @@ class Checkout extends MX_Controller
         }
 
         // Prepare the data
-        $data = array(
+        $data = [
             'realms' => $realms,
             'url' => $this->template->page_url,
             'vp' => $this->vp,
             'dp' => $this->dp,
             'count' => $this->count
-        );
+        ];
 
         // Load the checkout view
         $output = $this->template->loadPage("checkout.tpl", $data);

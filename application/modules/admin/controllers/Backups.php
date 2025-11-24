@@ -32,11 +32,11 @@ class Backups extends MX_Controller
         $config['backups_max_keep'] = $this->config->item('backups_max_keep');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'backups' => $backups,
             'config' => $config,
             'url' => $this->template->page_url
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("backups.tpl", $data);

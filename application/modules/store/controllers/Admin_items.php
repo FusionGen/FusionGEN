@@ -21,12 +21,12 @@ class Admin_items extends MX_Controller
         $this->administrator->setTitle("Items");
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'items' => $this->items_model->getItems(),
             'groups' => $this->items_model->getGroups(),
             'realms' => $this->realms->getRealms()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("items.tpl", $data);
@@ -46,9 +46,9 @@ class Admin_items extends MX_Controller
         // Change the title
         $this->administrator->setTitle("Add group");
 
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_add_group.tpl", $data);
@@ -97,10 +97,10 @@ class Admin_items extends MX_Controller
 
         $group = $this->items_model->getGroup($id);
 
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'group' => $group,
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_edit_group.tpl", $data);
@@ -120,11 +120,11 @@ class Admin_items extends MX_Controller
         // Change the title
         $this->administrator->setTitle("Add item");
 
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'groups' => $this->items_model->getGroups(),
             'realms' => $this->realms->getRealms()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_add_item.tpl", $data);
@@ -293,12 +293,12 @@ class Admin_items extends MX_Controller
         // Change the title
         $this->administrator->setTitle($item['name']);
 
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'item' => $item,
             'groups' => $this->items_model->getGroups(),
             'realms' => $this->realms->getRealms()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_edit_item.tpl", $data);

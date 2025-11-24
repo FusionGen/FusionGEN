@@ -30,12 +30,12 @@ class Admin extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'changes' => $changes,
             'fusionEditor' => $this->fusioneditor->create("text"),
             'categories' => $this->changelog_model->getCategories()
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin.tpl", $data);
@@ -104,11 +104,11 @@ class Admin extends MX_Controller
         $fusionEditor = $this->fusioneditor->create("text", false, 250, $change['changelog']);
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'fusionEditor' => $fusionEditor,
             'changelog' => $change
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_edit_changelog.tpl", $data);

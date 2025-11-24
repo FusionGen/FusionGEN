@@ -23,10 +23,10 @@ class Admin extends MX_Controller
         $topsites = $this->vote_model->getVoteSites();
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'topsites' => $topsites
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin.tpl", $data);
@@ -79,9 +79,9 @@ class Admin extends MX_Controller
         $this->administrator->setTitle('New topsite');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_add.tpl", $data);
@@ -119,10 +119,10 @@ class Admin extends MX_Controller
         $this->administrator->setTitle($topsite['vote_sitename']);
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'topsite' => $topsite
-        );
+        ];
 
         $autofill = $this->getAutoFillData($topsite['vote_url']);
         if ($autofill['callback_support']) {
@@ -222,11 +222,11 @@ class Admin extends MX_Controller
         // remove www. from hostname
         $name = preg_replace('/^(?:www\.)?(.+)$/', '$1', $host);
 
-        $data = array(
+        $data = [
             'name' => $name,
             'callback_support' => false,
             'image' => null,
-        );
+        ];
 
         // check if image exists for this site
         if ($files = glob(APPPATH . 'modules/vote/images/vote_sites/' . $name . '.*')) {
@@ -247,9 +247,9 @@ class Admin extends MX_Controller
                     $tpl = 'default.tpl';
                 }
 
-                $data['callback_help'] = $this->template->loadPage('callbackHelp/' . $tpl, array(
+                $data['callback_help'] = $this->template->loadPage('callbackHelp/' . $tpl, [
                     'callback_url' => base_url() . 'vote/callback/' . $name
-                ));
+                ]);
             }
         }
 

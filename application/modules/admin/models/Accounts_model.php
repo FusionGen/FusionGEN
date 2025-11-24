@@ -54,9 +54,9 @@ class Accounts_model extends CI_Model
     {
         if (preg_match("/^cmangos/i", get_class($this->realms->getEmulator())))
         {
-            $query = $this->connection->query(query("get_account_id"), array($id));
+            $query = $this->connection->query(query("get_account_id"), [$id]);
         } else {
-            $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($id));
+            $query = $this->connection->query("SELECT " . allColumns("account") . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", [$id]);
         }
 
         if ($query->num_rows() > 0)
@@ -70,7 +70,7 @@ class Accounts_model extends CI_Model
 
     public function getInternalDetails($userId = 0)
     {
-        $query = $this->db->query("SELECT * FROM account_data WHERE id = ?", array($userId));
+        $query = $this->db->query("SELECT * FROM account_data WHERE id = ?", [$userId]);
 
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
@@ -83,9 +83,9 @@ class Accounts_model extends CI_Model
     public function getAccessId($userId = 0)
     {
         if (preg_match("/mangos/i", get_class($this->realms->getEmulator()))) {
-            $query = $this->connection->query("SELECT " . column("account", "gmlevel", true) . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", array($userId));
+            $query = $this->connection->query("SELECT " . column("account", "gmlevel", true) . " FROM " . table("account") . " WHERE " . column("account", "id") . " = ?", [$userId]);
         } else {
-            $query = $this->connection->query("SELECT " . column("account_access", "gmlevel", true) . " FROM " . table("account_access") . " WHERE " . column("account_access", "id") . " = ?", array($userId));
+            $query = $this->connection->query("SELECT " . column("account_access", "gmlevel", true) . " FROM " . table("account_access") . " WHERE " . column("account_access", "id") . " = ?", [$userId]);
         }
 
         if ($query->num_rows() > 0) {
@@ -105,15 +105,15 @@ class Accounts_model extends CI_Model
         $new_values = array_merge($external_account_data, $external_account_access_data, $internal_data);
 
         // Initialize an empty array to store the changed values
-        $changed_values = array();
+        $changed_values = [];
 
         // Compare the old and new values and store the changed values in the array
         foreach ($new_values as $key => $value) {
             if (isset($old_values[$key]) && $old_values[$key] != $value) {
-                $changed_values[$key] = array(
+                $changed_values[$key] = [
                     'old' => $old_values[$key],
                     'new' => $value
-                );
+                ];
             }
         }
 

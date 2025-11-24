@@ -57,7 +57,7 @@ class Tickets_model extends CI_Model
             $realm->getCharacters()->connect();
 
             //Do the query
-            $query = $realm->getCharacters()->getConnection()->query("SELECT " . allColumns("gm_tickets", $realm->getId()) . " FROM " . table("gm_tickets", $realm->getId()) . " WHERE " . column("gm_tickets", "ticketId", false, $realm->getId()) . " = ?", array($ticketId));
+            $query = $realm->getCharacters()->getConnection()->query("SELECT " . allColumns("gm_tickets", $realm->getId()) . " FROM " . table("gm_tickets", $realm->getId()) . " WHERE " . column("gm_tickets", "ticketId", false, $realm->getId()) . " = ?", [$ticketId]);
 
             if ($realm->getCharacters()->getConnection()->error()) {
                 $error = $realm->getCharacters()->getConnection()->error();
@@ -87,7 +87,7 @@ class Tickets_model extends CI_Model
      */
     public function characterExists($guid, $realmConnection, $realmId)
     {
-        $query = $realmConnection->query("SELECT COUNT(*) AS `total` FROM " . table("characters", $realmId) . " WHERE " . column("characters", "guid", false, $realmId) . " = ?", array($guid));
+        $query = $realmConnection->query("SELECT COUNT(*) AS `total` FROM " . table("characters", $realmId) . " WHERE " . column("characters", "guid", false, $realmId) . " = ?", [$guid]);
 
         if ($realmConnection->error()) {
             $error = $realmConnection->error();
@@ -111,13 +111,13 @@ class Tickets_model extends CI_Model
 
     public function setLocation($x, $y, $z, $o, $mapId, $characterGuid, $realmConnection, $realmId)
     {
-        $realmConnection->query("UPDATE " . table("characters", $realmId) . " SET " . column("characters", "position_x", false, $realmId) . " = ?, " . column("characters", "position_y", false, $realmId) . " = ?, " . column("characters", "position_z", false, $realmId) . " = ?, " . column("characters", "orientation", false, $realmId) . " = ?, " . column("characters", "map", false, $realmId) . " = ? WHERE " . column("characters", "guid", false, $realmId) . " = ?", array($x, $y, $z, $o, $mapId, $characterGuid));
+        $realmConnection->query("UPDATE " . table("characters", $realmId) . " SET " . column("characters", "position_x", false, $realmId) . " = ?, " . column("characters", "position_y", false, $realmId) . " = ?, " . column("characters", "position_z", false, $realmId) . " = ?, " . column("characters", "orientation", false, $realmId) . " = ?, " . column("characters", "map", false, $realmId) . " = ? WHERE " . column("characters", "guid", false, $realmId) . " = ?", [$x, $y, $z, $o, $mapId, $characterGuid]);
     }
 
     public function deleteTicket($realmConnection, $ticketId, $realmId)
     {
         if ($ticketId && $realmConnection) {
-            $realmConnection->query("DELETE FROM " . table("gm_tickets", $realmId) . " WHERE " . column("gm_tickets", "ticketId", false, $realmId) . " = ?", array($ticketId));
+            $realmConnection->query("DELETE FROM " . table("gm_tickets", $realmId) . " WHERE " . column("gm_tickets", "ticketId", false, $realmId) . " = ?", [$ticketId]);
 
             return true;
         } else {
@@ -129,9 +129,9 @@ class Tickets_model extends CI_Model
     {
         if ($ticketId && $realmConnection) {
             if (column("gm_tickets", "closedBy", $realmId)) {
-                $realmConnection->query("UPDATE " . table("gm_tickets", $realmId) . " SET " . column("gm_tickets", "completed", false, $realmId) . " = 1, " . column("gm_tickets", "closedBy", false, $realmId) . "=" . column("gm_tickets", "guid", false, $realmId) . " WHERE " . column("gm_tickets", "ticketId", false, $realmId) . " = ?", array($ticketId));
+                $realmConnection->query("UPDATE " . table("gm_tickets", $realmId) . " SET " . column("gm_tickets", "completed", false, $realmId) . " = 1, " . column("gm_tickets", "closedBy", false, $realmId) . "=" . column("gm_tickets", "guid", false, $realmId) . " WHERE " . column("gm_tickets", "ticketId", false, $realmId) . " = ?", [$ticketId]);
             } else {
-                $realmConnection->query("UPDATE " . table("gm_tickets") . " SET " . column("gm_tickets", "completed", false, $realmId) . " = 1 WHERE " . column("gm_tickets", "ticketId", false, $realmId) . " = ?", array($ticketId));
+                $realmConnection->query("UPDATE " . table("gm_tickets") . " SET " . column("gm_tickets", "completed", false, $realmId) . " = 1 WHERE " . column("gm_tickets", "ticketId", false, $realmId) . " = ?", [$ticketId]);
             }
 
             return true;
@@ -161,20 +161,20 @@ class Tickets_model extends CI_Model
     {
         $this->connect();
 
-        $query = $this->connection->query(query('get_character', $this->realmId), array($this->id));
+        $query = $this->connection->query(query('get_character', $this->realmId), [$this->id]);
 
         if ($query && $query->num_rows() > 0) {
             $row = $query->result_array();
 
             return $row[0];
         } else {
-            return array(
+            return [
                 "account" => "",
                 "race" => "",
                 "class" => "",
                 "gender" => "",
                 "level" => ""
-            );
+            ];
         }
     }
 }

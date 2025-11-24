@@ -39,13 +39,13 @@ class Poll extends MX_Controller
             $myVote = false;
         }
 
-        $data = array(
+        $data = [
             "online" => $this->user->isOnline(),
             "module" => "sidebox_poll",
             "poll" => $poll,
             "myVote" => $myVote,
             "total" => $this->total
-        );
+        ];
 
         $out = $this->template->loadPage("poll_view.tpl", $data);
 

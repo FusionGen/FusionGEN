@@ -15,9 +15,9 @@ class Emaillogs extends MX_Controller
     {
         $emaillogs = $this->dashboard_model->getEmailLogs();
 
-        $data = array(
+        $data = [
             'emaillogs' => $emaillogs
-        );
+        ];
 
         $output = $this->template->loadPage("emaillogs.tpl", $data);
 

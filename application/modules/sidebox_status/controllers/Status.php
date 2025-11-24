@@ -10,10 +10,10 @@ class Status extends MX_Controller
             && $this->cache->hasExpired("isOnline_*", "/isOnline_([0-9]*)\.cache$/")
         ) {
             // Prepare data
-            $data = array(
+            $data = [
                         "module" => "sidebox_status",
                         "image_path" => $this->template->image_path
-                    );
+                    ];
 
             // Load the template file and format
             $out = $this->template->loadPage("ajax.tpl", $data);
@@ -22,11 +22,11 @@ class Status extends MX_Controller
             $realms = $this->realms->getRealms();
 
             // Prepare data
-            $data = array(
+            $data = [
                         "module" => "sidebox_status",
                         "realms" => $realms,
                         "realmlist" => $this->config->item('realmlist')
-                    );
+                    ];
 
             // Load the template file and format
             $out = $this->template->loadPage("status.tpl", $data);

@@ -4,7 +4,7 @@
  * The zones are exported from Area DBC build 10.2.5.53584 by CraftedRO
  */
 
-$lang['zones'] = array(
+$lang['zones'] = [
     1 => "Dun Morogh",
     2 => "Longshore",
     3 => "Badlands",
@@ -8788,4 +8788,4 @@ $lang['zones'] = array(
     15138 => "Turn of the Tide",
     15139 => "Root-Bound Sanctuary",
     15151 => "Azerothian Archives",
-);
+];

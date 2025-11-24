@@ -24,10 +24,10 @@ class Tooltip extends MX_Controller
 
             $this->getItemData();
 
-            $data = array(
+            $data = [
                     'module' => 'tooltip',
                     'item' => $this->item
-                );
+                ];
 
             $out = $this->template->loadPage("tooltip.tpl", $data);
 
@@ -122,10 +122,10 @@ class Tooltip extends MX_Controller
         $min = 0;
         $max = 0;
 
-        return array(
+        return [
             'min' => $min,
             'max' => $max
-        );
+        ];
     }
 
     /**
@@ -193,19 +193,19 @@ class Tooltip extends MX_Controller
         $types = $this->config->item("stats");
 
         $statCount = 10;
-        $attributes = array(
-                "spells" => array(),
-                "regular" => array()
-            );
+        $attributes = [
+                "spells" => [],
+                "regular" => []
+            ];
 
         for ($i = 1; $i <= $statCount; $i++) {
             if (!empty($item['stat_value' . $i]) && array_key_exists($item['stat_type' . $i], $types)) {
                 $type = "spells";
 
                 // Mana/health
-                if (in_array($item['stat_type' . $i], array(42,46))) {
+                if (in_array($item['stat_type' . $i], [42,46])) {
                     $stat = "<span class='q2'>" . lang("restores", "tooltip") . " " . $item['stat_value' . $i] . " " . $types[$item['stat_type' . $i]] . "</span><br>";
-                } elseif ($item['stat_type' . $i] > 7 && !in_array($item['stat_type' . $i], array(42,46))) {
+                } elseif ($item['stat_type' . $i] > 7 && !in_array($item['stat_type' . $i], [42,46])) {
                     $stat = "<span class='q2'>" . lang("increases", "tooltip") . " " . $types[$item['stat_type' . $i]] . lang("by", "tooltip") . " " . $item['stat_value' . $i] . ".</span><br>";
                 } else {
                     if (array_key_exists($item['stat_type' . $i], $types)) {
@@ -214,7 +214,7 @@ class Tooltip extends MX_Controller
                     }
                 }
 
-                array_push($attributes[$type], array('id' => $item['stat_value' . $i], 'text' => $stat));
+                array_push($attributes[$type], ['id' => $item['stat_value' . $i], 'text' => $stat]);
             }
         }
 
@@ -251,15 +251,15 @@ class Tooltip extends MX_Controller
         $spelltriggers = $this->config->item("spelltriggers");
 
         $spellCount = 5;
-        $spells = array();
+        $spells = [];
 
         for ($i = 0; $i < $spellCount; $i++) {
             if (!empty($item['spellid_' . $i])) {
-                $data = array(
+                $data = [
                         "id" => $item['spellid_' . $i],
                         "trigger" => $spelltriggers[$item['spelltrigger_' . $i]],
                         "text" => $this->getSpellText($item['spellid_' . $i])
-                    );
+                    ];
 
                 array_push($spells, $data);
             }
@@ -275,7 +275,7 @@ class Tooltip extends MX_Controller
         if ($cache !== false) {
             return $cache;
         } else {
-            $query = $this->db->query("SELECT spellText FROM spelltext_en WHERE spellId=? LIMIT 1", array($id));
+            $query = $this->db->query("SELECT spellText FROM spelltext_en WHERE spellId=? LIMIT 1", [$id]);
 
             // Check for results
             if ($query->num_rows() > 0) {
@@ -329,7 +329,7 @@ class Tooltip extends MX_Controller
      */
     private function getFlags($flags)
     {
-        $bits = array();
+        $bits = [];
 
         for ($i = 1; $i <= $flags; $i *= 2) {
             if (($i & $flags) > 0) {

@@ -9,7 +9,7 @@ class Store_model extends CI_Model
 									INNER JOIN store_groups ON store_items.group = store_groups.id
 									WHERE store_items.realm = ?
 									GROUP BY store_items.id
-									ORDER BY store_groups.orderNumber ASC, store_items.id ASC;", array($realm));
+									ORDER BY store_groups.orderNumber ASC, store_items.id ASC;", [$realm]);
 
         if ($query->num_rows() > 0) {
             $result = $query->result_array();
@@ -21,7 +21,7 @@ class Store_model extends CI_Model
 
     public function getItem($id)
     {
-        $this->db->select('*')->from('store_items')->where(array('id' => $id))->order_by('group', 'ASC');
+        $this->db->select('*')->from('store_items')->where(['id' => $id])->order_by('group', 'ASC');
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -35,7 +35,7 @@ class Store_model extends CI_Model
 
     public function getGroupTitle($id)
     {
-        $this->db->select('*')->from('store_groups')->where(array('id' => $id));
+        $this->db->select('*')->from('store_groups')->where(['id' => $id]);
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -49,7 +49,7 @@ class Store_model extends CI_Model
 
     public function getGroupId($title)
     {
-        $this->db->select('*')->from('store_groups')->where(array('title' => $title));
+        $this->db->select('*')->from('store_groups')->where(['title' => $title]);
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -63,29 +63,29 @@ class Store_model extends CI_Model
 
     public function logOrder($vp, $dp, $cart)
     {
-        $data = array(
+        $data = [
             'vp_cost' => $vp,
             'dp_cost' => $dp,
             'cart' => json_encode($cart),
             'completed' => 0,
             'user_id' => $this->user->getId(),
             'timestamp' => time()
-        );
+        ];
 
         $this->db->insert('order_log', $data);
     }
 
     public function completeOrder()
     {
-        $this->db->query("UPDATE order_log SET completed='1' WHERE user_id=? ORDER BY id DESC LIMIT 1", array($this->user->getId()));
+        $this->db->query("UPDATE order_log SET completed='1' WHERE user_id=? ORDER BY id DESC LIMIT 1", [$this->user->getId()]);
     }
 
     public function getOrders($completed)
     {
         if ($completed) {
-            $query = $this->db->query("SELECT * FROM order_log WHERE completed=? ORDER BY id DESC LIMIT 10", array($completed));
+            $query = $this->db->query("SELECT * FROM order_log WHERE completed=? ORDER BY id DESC LIMIT 10", [$completed]);
         } else {
-            $query = $this->db->query("SELECT * FROM order_log WHERE completed=? AND `timestamp` > ? ORDER BY id DESC", array($completed, time() - 60 * 60 * 24 * 7));
+            $query = $this->db->query("SELECT * FROM order_log WHERE completed=? AND `timestamp` > ? ORDER BY id DESC", [$completed, time() - 60 * 60 * 24 * 7]);
         }
 
         if ($query->num_rows()) {
@@ -97,7 +97,7 @@ class Store_model extends CI_Model
 
     public function getOrder($id)
     {
-        $query = $this->db->query("SELECT * FROM order_log WHERE id=?", array($id));
+        $query = $this->db->query("SELECT * FROM order_log WHERE id=?", [$id]);
 
         if ($query->num_rows()) {
             $row = $query->result_array();
@@ -110,7 +110,7 @@ class Store_model extends CI_Model
 
     public function findByUserId($type, $string)
     {
-        $query = $this->db->query("SELECT * FROM order_log WHERE `user_id`=? AND `completed`=?", array($string, $type));
+        $query = $this->db->query("SELECT * FROM order_log WHERE `user_id`=? AND `completed`=?", [$string, $type]);
 
         if ($query->num_rows()) {
             $row = $query->result_array();
@@ -123,11 +123,11 @@ class Store_model extends CI_Model
 
     public function refund($user_id, $vp, $dp)
     {
-        $this->db->query("UPDATE account_data SET vp = vp + ?, dp = dp + ? WHERE id=?", array($vp, $dp, $user_id));
+        $this->db->query("UPDATE account_data SET vp = vp + ?, dp = dp + ? WHERE id=?", [$vp, $dp, $user_id]);
     }
 
     public function deleteLog($id)
     {
-        $this->db->query("DELETE FROM order_log WHERE id=?", array($id));
+        $this->db->query("DELETE FROM order_log WHERE id=?", [$id]);
     }
 }

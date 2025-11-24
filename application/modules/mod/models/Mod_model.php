@@ -13,7 +13,7 @@ class Mod_model extends CI_Model
     public function getBan($realmdConnection, $accountId)
     {
         if ($realmdConnection && $accountId) {
-            $query = $realmdConnection->query("SELECT COUNT(*) banCount FROM " . table("account_banned") . " WHERE " . column("account_banned", "id") . " = ?", array($accountId));
+            $query = $realmdConnection->query("SELECT COUNT(*) banCount FROM " . table("account_banned") . " WHERE " . column("account_banned", "id") . " = ?", [$accountId]);
             if ($query->num_rows() > 0) {
                 $result = $query->result_array();
                 return $result[0];
@@ -70,13 +70,13 @@ class Mod_model extends CI_Model
         if ($realmdConnection && $accountId && $bannedBy && $banReason) {
             if (column("account_banned", "banreason") && column("account_banned", "bandate")) {
                 //Check if it go the banreason and bandate
-                $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "bandate") . " = ?, " . column("account_banned", "unbandate") . " = ?, " . column("account_banned", "bannedby") . " = ?, " . column("account_banned", "banreason") . " = ?, " . column("account_banned", "active") . " = 1 WHERE " . column("account_banned", "id") . " = ?", array(time(), $banDate, $bannedBy, $banReason, $accountId));
+                $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "bandate") . " = ?, " . column("account_banned", "unbandate") . " = ?, " . column("account_banned", "bannedby") . " = ?, " . column("account_banned", "banreason") . " = ?, " . column("account_banned", "active") . " = 1 WHERE " . column("account_banned", "id") . " = ?", [time(), $banDate, $bannedBy, $banReason, $accountId]);
             } elseif (column("account_banned", "banreason") && !column("account_banned", "bandate")) {
                 //Check if it got only banreason
-                $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "banreason") . " = ?, " . column("account_banned", "active") . " = 1 WHERE " . column("account_banned", "id") . " = ?", array(time(), $banDate, $bannedBy, $banReason, $accountId));
+                $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "banreason") . " = ?, " . column("account_banned", "active") . " = 1 WHERE " . column("account_banned", "id") . " = ?", [time(), $banDate, $bannedBy, $banReason, $accountId]);
             } else {
                 //Else it doesnt got the banreason and bandate
-                $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "active") . " = 1 WHERE " . column("account_banned", "id") . " = ?", array(time(), $banDate, $bannedBy, $banReason, $accountId));
+                $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "active") . " = 1 WHERE " . column("account_banned", "id") . " = ?", [time(), $banDate, $bannedBy, $banReason, $accountId]);
             }
         } else {
             return false;
@@ -86,7 +86,7 @@ class Mod_model extends CI_Model
     public function unBanAcc($realmdConnection, $accountId)
     {
         if ($realmdConnection && $accountId) {
-            $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "active") . " = 0 WHERE " . column("account_banned", "id") . " = ?", array($accountId));
+            $realmdConnection->query("UPDATE " . table("account_banned") . " SET " . column("account_banned", "active") . " = 0 WHERE " . column("account_banned", "id") . " = ?", [$accountId]);
         } else {
             return false;
         }
@@ -113,7 +113,7 @@ class Mod_model extends CI_Model
     public function unBanIP($realmdConnection, $IP)
     {
         if ($realmdConnection && $IP) {
-            $realmdConnection->query("UPDATE " . table("get_ip_banned") . " SET " . column("get_ip_banned", "active") . " = 0 WHERE " . column("get_ip_banned", "id") . " = ?", array($IP));
+            $realmdConnection->query("UPDATE " . table("get_ip_banned") . " SET " . column("get_ip_banned", "active") . " = 0 WHERE " . column("get_ip_banned", "id") . " = ?", [$IP]);
         } else {
             return false;
         }

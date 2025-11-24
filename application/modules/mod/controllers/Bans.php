@@ -17,11 +17,11 @@ class Bans extends MX_Controller
         $activeBannedAccs = $this->mod_model->getActiveBans();
         $expiredBannedAccs = $this->mod_model->getExpiredBans();
 
-        $data = array(
+        $data = [
             'url' => pageURL,
             'activeBannedAccs' => $activeBannedAccs,
             'expiredBannedAccs' => $expiredBannedAccs,
-        );
+        ];
 
         $output = $this->template->loadPage("bans.tpl", $data);
 

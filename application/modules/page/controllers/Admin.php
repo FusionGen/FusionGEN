@@ -32,10 +32,10 @@ class Admin extends MX_Controller
         }
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'pages' => $pages
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin.tpl", $data);
@@ -55,9 +55,9 @@ class Admin extends MX_Controller
         $this->administrator->setTitle('Page - New');
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_new.tpl", $data);
@@ -89,10 +89,10 @@ class Admin extends MX_Controller
         $this->administrator->setTitle(langColumn($page['name']));
 
         // Prepare my data
-        $data = array(
+        $data = [
             'url' => $this->template->page_url,
             'page' => $page
-        );
+        ];
 
         // Load my view
         $output = $this->template->loadPage("admin_edit.tpl", $data);

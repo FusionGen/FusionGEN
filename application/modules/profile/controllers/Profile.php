@@ -64,7 +64,7 @@ class Profile extends MX_Controller
                 // No cache available, load profile
                 $out = $this->getProfile();
 
-                $this->cache->save("profile_" . $this->id . $own, array("content" => $out, "username" => $this->username), 60 * 60);
+                $this->cache->save("profile_" . $this->id . $own, ["content" => $out, "username" => $this->username], 60 * 60);
             }
 
             $this->template->setTitle($this->username);
@@ -95,20 +95,20 @@ class Profile extends MX_Controller
         if ($cache !== false) {
             $characters = $cache;
         } else {
-            $characters = $this->template->loadPage("ucp_characters.tpl", array(
+            $characters = $this->template->loadPage("ucp_characters.tpl", [
                 "characters" => $this->realms->getTotalCharacters($this->id),
                 "realms" => $this->realms->getRealms(),
                 "realmsObj" => $this->realms,
                 "url" => $this->template->page_url,
                 "id" => $this->id
-            ));
+            ]);
 
             $this->cache->save("profile_characters_" . $this->id, $characters, 60 * 60);
         }
 
         $this->getInfo();
 
-        $profile_data = array(
+        $profile_data = [
             "characters" => $characters,
             "username" => $this->username,
             "location" => $this->location,
@@ -120,24 +120,24 @@ class Profile extends MX_Controller
             "online" => $this->user->isOnline(),
             "id" => $this->id,
             "groups" => $this->groups
-        );
+        ];
 
-        $data = array(
+        $data = [
             "module" => "default",
             "headline" => $this->username,
             "content" => $this->template->loadPage("profile.tpl", $profile_data)
-        );
+        ];
 
         return $this->template->loadPage("page.tpl", $data);
     }
 
     private function getError()
     {
-        $data = array(
+        $data = [
             "module" => "default",
             "headline" => lang("doesnt_exist", "profile"),
             "content" => "<div class='text-center py-5 fw-bold'>" . lang("doesnt_exist_long", "profile") . "</div>"
-        );
+        ];
 
         return $this->template->loadPage("page.tpl", $data);
     }

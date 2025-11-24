@@ -8,15 +8,15 @@
 
 $lang['speed'] = "Speed";
 
-$lang["bind"] = array(
+$lang["bind"] = [
     0 => null,
     1 => "Se liga al recogerlo",
     2 => "se Liga al Equiparlo",
     3 => "se Liga al Usarlo",
     4 => "Item de Mision"
-);
+];
 
-$lang["slots"] = array(
+$lang["slots"] = [
     0 => null,
     1 => "Cabeza",
     2 => "Cuello",
@@ -46,9 +46,9 @@ $lang["slots"] = array(
     26 => "A Distancia",
     27 => "Carcaj",
     28 => "Reliquia"
-);
+];
 
-$lang["damages"] = array(
+$lang["damages"] = [
     0 => null, // Physical
     1 => "Sagrado",
     2 => "Fuego",
@@ -56,9 +56,9 @@ $lang["damages"] = array(
     4 => "Frio",
     5 => "Sombra",
     6 => "Arcano"
-);
+];
 
-$lang["spelltriggers"] = array(
+$lang["spelltriggers"] = [
     0 => "Usar: ",
     1 => "Equipar: ",
     2 => "Probabilidad de Acierto: ",
@@ -66,9 +66,9 @@ $lang["spelltriggers"] = array(
     4 => "Desconocido: ",
     5 => "Desconocido: ",
     6 => "Desconocido: "
-);
+];
 
-$lang["armor_sub"] = array(
+$lang["armor_sub"] = [
     0 => "Varios",
     1 => "Tela",
     2 => "Cuero",
@@ -80,9 +80,9 @@ $lang["armor_sub"] = array(
     8 => "Idolo",
     9 => "Totem",
     10 => "Sello",
-);
+];
 
-$lang["weapon_sub"] = array(
+$lang["weapon_sub"] = [
     0 => "Hacha",
     1 => "Hacha",
     2 => "Arco",
@@ -104,9 +104,9 @@ $lang["weapon_sub"] = array(
     18 => "Ballesta",
     19 => "Varita",
     20 => "Caña de Pescar"
-);
+];
 
-$lang["stats"] = array(
+$lang["stats"] = [
     0 => "Mana",
     1 => "Salud",
     3 => "Agilidad",
@@ -143,4 +143,4 @@ $lang["stats"] = array(
     46 => "Sanacion per 5 sec.",
     47 => "indice de pentracion con hechizos ",
     48 => "indice de bloqueo ",
-);
+];

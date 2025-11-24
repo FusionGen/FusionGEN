@@ -29,15 +29,15 @@ class Armory extends MX_Controller
 
         $realms = $this->realms->getRealms();
 
-        $data = array(
+        $data = [
             "realms" => $realms,
-        );
+        ];
 
-        $this->template->view($this->template->loadPage("page.tpl", array(
+        $this->template->view($this->template->loadPage("page.tpl", [
             "module" => "default", 
             "headline" => lang("search_headline", "armory"),
             "content" => $this->template->loadPage("search.tpl", $data)
-        )), "modules/armory/css/search.css", "modules/armory/js/search.js");
+        ]), "modules/armory/css/search.css", "modules/armory/js/search.js");
     }
     
     public function get_data()
@@ -160,7 +160,7 @@ class Armory extends MX_Controller
                 return '<img src="https://icons.wowdb.com/retail/small/inv_misc_questionmark.jpg" align="absmiddle">';
             }
         } else {
-            return $this->template->loadPage("icon_ajax.tpl", array('id' => $id, 'realm' => $realm, 'url' => $this->template->page_url));
+            return $this->template->loadPage("icon_ajax.tpl", ['id' => $id, 'realm' => $realm, 'url' => $this->template->page_url]);
         }
     }
 

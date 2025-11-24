@@ -9,7 +9,7 @@ class Items_model extends CI_Model
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
         } else {
-            $row = array();
+            $row = [];
         }
 
         $query = $this->db->query("SELECT * FROM store_items WHERE `group` = ''");
@@ -62,18 +62,18 @@ class Items_model extends CI_Model
 
     public function delete($id)
     {
-        $this->db->query("DELETE FROM store_items WHERE id=?", array($id));
+        $this->db->query("DELETE FROM store_items WHERE id=?", [$id]);
     }
 
     public function deleteGroup($id)
     {
-        $this->db->query("DELETE FROM store_items WHERE `group`=?", array($id));
-        $this->db->query("DELETE FROM store_groups WHERE id=?", array($id));
+        $this->db->query("DELETE FROM store_items WHERE `group`=?", [$id]);
+        $this->db->query("DELETE FROM store_groups WHERE id=?", [$id]);
     }
 
     public function getItem($id)
     {
-        $query = $this->db->query("SELECT * FROM store_items WHERE id=? LIMIT 1", array($id));
+        $query = $this->db->query("SELECT * FROM store_items WHERE id=? LIMIT 1", [$id]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();
@@ -86,7 +86,7 @@ class Items_model extends CI_Model
 
     public function getGroup($id)
     {
-        $query = $this->db->query("SELECT * FROM store_groups WHERE id=? LIMIT 1", array($id));
+        $query = $this->db->query("SELECT * FROM store_groups WHERE id=? LIMIT 1", [$id]);
 
         if ($query->num_rows() > 0) {
             $row = $query->result_array();

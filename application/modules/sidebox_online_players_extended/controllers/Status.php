@@ -39,7 +39,7 @@ class Status extends CI_Controller
         $uptimes = $this->flush_uptime($realms);
 
         // Prepare data
-        $data = array(
+        $data = [
             "module" => "sidebox_online_players_extended",
             "realms" => $realms,
             "uptimes" => $uptimes,
@@ -47,7 +47,7 @@ class Status extends CI_Controller
             "realmlist" => $this->config->item('realmlist'),
             "show_uptime" => $this->config->item('show_uptime'),
             "bar_height" => $this->config->item('horizontal_bar_height'),
-        );
+        ];
 
         // Load the template file and format
         $out = $this->template->loadPage("status.tpl", $data);
@@ -57,7 +57,7 @@ class Status extends CI_Controller
 
     private function flush_uptime($realms)
     {
-        $uptimes = array();
+        $uptimes = [];
         foreach ($realms as $k => $realm) {
             $uptimes[$realm->getId()] = $this->uptime($realm->getId());
         }
