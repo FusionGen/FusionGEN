@@ -59,9 +59,9 @@ class Settings extends MX_Controller
             "headline" => breadcrumb([
                             "ucp" => lang("ucp"),
                             "ucp/settings" => lang("settings", "ucp")
-                        )),
+                        ]),
             "content" => $this->template->loadPage("settings.tpl", $settings_data)
-        );
+        ];
 
         $page = $this->template->loadPage("page.tpl", $data);
 
