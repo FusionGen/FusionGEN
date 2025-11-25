@@ -6,7 +6,7 @@
   <div class="card-body">
 	<form role="form" onSubmit="Sidebox.save(this, {$sidebox.id}); return false" id="submit_form">
 		<div class="form-group row">
-		<label class="col-sm-2 col-form-label" for="displayName">Headline</label>
+		<label class="col-sm-2 col-form-label" for="displayName" id="languages">Headline</label>
 		<div class="col-sm-10">
 			<input class="form-control" type="text" name="displayName" id="displayName" value="{htmlspecialchars($sidebox.displayName)}">
 		</div>
