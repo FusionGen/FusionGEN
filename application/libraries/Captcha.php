@@ -152,7 +152,7 @@ class Captcha
             'img_height'    => $height,
 
             'font_size'     => 16,
-            'font_path'     => APPPATH . 'fonts/Roboto-Regular.ttf',
+            'font_path'     => FCPATH . '/application/fonts/Roboto-Regular.ttf',
 
             'colors'        => [
                 'background' => sscanf($bgcolor, "#%02x%02x%02x"),
@@ -186,3 +186,4 @@ class Captcha
         return $this->value;
     }
 }
+
