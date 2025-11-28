@@ -186,4 +186,3 @@ class Captcha
         return $this->value;
     }
 }
-
