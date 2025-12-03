@@ -54,7 +54,7 @@ $autoload['packages'] = [];
 |   $autoload['libraries'] = ['database', 'session', 'xmlrpc'];
 */
 
-$autoload['libraries'] = ['security', 'cache', 'database', 'session', 'ci_smarty' => 'smarty', 'template', 'language', 'realms', 'acl', 'user', 'logger', 'plugins', 'dbbackup', 'captcha'];
+$autoload['libraries'] = ['security', 'cache', 'database', 'session', 'my_smarty' => 'smarty', 'template', 'language', 'realms', 'acl', 'user', 'logger', 'plugins', 'dbbackup', 'captcha'];
 
 /*
 | -------------------------------------------------------------------
@@ -81,7 +81,7 @@ $autoload['drivers'] = ['session'];
 |   $autoload['helper'] = ['url', 'file'];
 */
 
-$autoload['helper'] = ['url', 'emulator', 'form', 'text', 'lang', 'breadcrumb', 'permission'];
+$autoload['helper'] = ['url', 'emulator', 'form', 'text', 'lang', 'breadcrumb', 'permission', 'tinymce'];
 
 
 /*

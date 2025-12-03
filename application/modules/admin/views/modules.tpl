@@ -35,9 +35,10 @@
 	</section>
 </div>
 
-<div class="alert alert-info" role="alert">
+<div class="alert alert-info alert-dismissible fade show" role="alert">
 	<i class="fa-solid fa-circle-info"></i> Third-party modules might not be supported! Use them at your own risk.<br>
 	<!-- You can download tested modules <a href="https://github.com/FusionGen" class="alert-link" target="_blank">here</a> -->
+	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
 <script>

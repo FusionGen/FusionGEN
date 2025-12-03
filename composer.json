@@ -1,8 +1,8 @@
 {
     "require": {
-        "visualappeal/php-auto-update": "^1.0",
         "monolog/monolog": "^2.8",
         "paypal/rest-api-sdk-php": "*",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "smarty/smarty": "^5.7"
     }
 }

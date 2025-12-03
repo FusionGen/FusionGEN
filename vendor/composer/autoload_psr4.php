@@ -6,10 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'VisualAppeal\\' => array($vendorDir . '/visualappeal/php-auto-update/src'),
-    'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Smarty\\' => array($vendorDir . '/smarty/smarty/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
-    'Desarrolla2\\Cache\\' => array($vendorDir . '/desarrolla2/cache/src'),
-    'Composer\\Semver\\' => array($vendorDir . '/composer/semver/src'),
 );
