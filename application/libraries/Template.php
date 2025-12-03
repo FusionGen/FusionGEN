@@ -621,7 +621,7 @@ class Template
                 $slides_arr[$key]['footer'] = langColumn($image['footer']);
                 
                 // Replace {path} by the theme image path
-                $slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image']);
+                $slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image'] ?? '');
             }
         }
 

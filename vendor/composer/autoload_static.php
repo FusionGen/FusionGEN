@@ -6,61 +6,50 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit728f96e67824ff0c88d9b31fcd5c7681
 {
+    public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        'c15d4a1253e33e055d05e547c61dcb71' => __DIR__ . '/..' . '/smarty/smarty/src/functions.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
-        'V' => 
+        'S' =>
         array (
-            'VisualAppeal\\' => 13,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Smarty\\' => 7,
         ),
-        'P' => 
+        'P' =>
         array (
-            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
         ),
-        'M' => 
+        'M' =>
         array (
             'Monolog\\' => 8,
-        ),
-        'D' => 
-        array (
-            'Desarrolla2\\Cache\\' => 18,
-        ),
-        'C' => 
-        array (
-            'Composer\\Semver\\' => 16,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'VisualAppeal\\' => 
+        'Symfony\\Polyfill\\Mbstring\\' =>
         array (
-            0 => __DIR__ . '/..' . '/visualappeal/php-auto-update/src',
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Psr\\SimpleCache\\' => 
+        'Smarty\\' =>
         array (
-            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+            0 => __DIR__ . '/..' . '/smarty/smarty/src',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Monolog\\' => 
+        'Monolog\\' =>
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
-        ),
-        'Desarrolla2\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/desarrolla2/cache/src',
-        ),
-        'Composer\\Semver\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/composer/semver/src',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'P' => 
+        'P' =>
         array (
-            'PayPal' => 
+            'PayPal' =>
             array (
                 0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
             ),

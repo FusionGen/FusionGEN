@@ -109,7 +109,9 @@ class Icon extends MX_Controller
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         $xml = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
+        if (version_compare(phpversion(), '8.5', '<')) {
+            curl_close($ch);
+        }
 
         // Check if request was successful
         if ($httpCode !== 200 || $xml === false)

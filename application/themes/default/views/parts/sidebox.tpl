@@ -5,7 +5,7 @@
 
 		<h3 class="sidebox-head text-ellipsis">
 			{if $sidebox.name == trim($sidebox.name) && str_contains($sidebox.name, ' ') !== false}
-				{$names = explode(" ", $sidebox.name)}
+				{$names = $sidebox.name|split:" "}
 				{for $i = 0; $i<count($names); $i++}
 					{if $i % 2 == 1}<span>{$names[$i]}</span>{else}{$names[$i]}{/if}
 				{/for}
