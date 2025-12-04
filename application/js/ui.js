@@ -13,9 +13,6 @@ function UI()
 			UI.voteReminder();
 		}
 
-		// Give older browsers some html5-placeholder love!
-		$('input[placeholder], textarea[placeholder]').placeholder();
-
 		// Enable tooltip
 		Tooltip.initialize();
 	}

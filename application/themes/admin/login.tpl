@@ -3,7 +3,7 @@
 	<head>
 		<title>Login - ACP</title>
 
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<link rel="icon" type="image/png" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
@@ -38,7 +38,6 @@
 			URL: "{$url}",
 			CSRF: getCookie('csrf_cookie_name'),
 		};
-
 		</script>
 	</head>
 
@@ -65,7 +64,7 @@
 						<div class="row">
 							<div class="col-6">
 								<p class="mt-1 mb-3">
-									<a href="./">Not {$username}?</a>
+									<a href="../">Not {$username}?</a>
 								</p>
 							</div>
 							<div class="col-6">
