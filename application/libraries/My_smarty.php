@@ -24,7 +24,7 @@ class My_Smarty extends Smarty
         $this->assign('BASEPATH', BASEPATH);
 
         // Assign modifiers
-        $modifiers = ['lang' ,'langColumn', 'hasPermission', 'form_open', 'form_close', 'set_value', 'TinyMCE', 'htmlspecialchars', 'preg_replace', 'str_replace', 'reset', 'key', 'strtotime', 'date', 'ucfirst', 'addslashes', 'time', 'array_key_exists', 'end', 'trim', 'floor', 'str_contains', 'strtoupper', 'json_decode', 'base64_encode', 'character_limiter'];
+        $modifiers = ['lang' ,'langColumn', 'hasPermission', 'form_open', 'form_close', 'set_value', 'TinyMCE', 'htmlspecialchars', 'preg_replace', 'str_replace', 'strtolower', 'reset', 'key', 'strtotime', 'date', 'ucfirst', 'addslashes', 'time', 'array_key_exists', 'end', 'trim', 'floor', 'str_contains', 'strtoupper', 'json_decode', 'base64_encode', 'character_limiter'];
 
         foreach ($modifiers as $mname) {
             $this->registerPlugin('modifier', $mname, $mname);

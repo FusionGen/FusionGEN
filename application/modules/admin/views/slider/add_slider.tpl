@@ -5,7 +5,7 @@
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label" for="image">Image URL</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" name="image" id="image" placeholder="http://">
+				<input class="form-control" type="text" name="image" id="image" placeholder="https://">
 			</div>
 		</div>
 

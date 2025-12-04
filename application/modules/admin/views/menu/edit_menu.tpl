@@ -11,9 +11,9 @@
 		</div>
 
 		<div class="form-group row">
-		<label class="col-sm-2 col-form-label" for="type" data-toggle="tooltip" data-placement="bottom" title="External links must begin with http://">URL <a>(?)</a></label>
+		<label class="col-sm-2 col-form-label" for="type" data-toggle="tooltip" data-placement="bottom" title="External links must begin with https://">URL <a>(?)</a></label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="link" id="link" placeholder="http://" value="{$link.link}">
+			<input class="form-control" type="text" name="link" id="link" placeholder="https://" value="{$link.link}">
 		</div>
 		</div>
 
