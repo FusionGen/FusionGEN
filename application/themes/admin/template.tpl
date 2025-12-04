@@ -44,7 +44,6 @@
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/common/common.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
@@ -118,7 +117,6 @@
 	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/require.js"></script>
 	<script>
 		var scripts = [
-			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.placeholder.min.js",
 			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.transit.min.js",
 			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/fusioneditor.js"
 			{if $extra_js},"{$url}application/{$extra_js}"{/if}

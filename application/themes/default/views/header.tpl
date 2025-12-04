@@ -52,13 +52,12 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 
 		<!-- Header JS.Start -->
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/jquery-3.7.1.min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.placeholder.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.sort.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/all.min.js" integrity="sha512-gBYquPLlR76UWqCwD06/xwal4so02RjIR0oyG1TIhSGwmBTRrIkQbaPehPF8iwuY9jFikDHMGEelt0DtY7jtvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Sweetalert2/11.22.5/js/sweetalert2.all.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Marquee/jquery.marquee.min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/OwlCarousel2/js/owl.carousel.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/OwlCarousel2/js/owl.carousel.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/MagnificPopup/js/jquery.magnific-popup.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/main.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/cookie.js"></script>

@@ -41,7 +41,6 @@
 		<script src="{$url}application/themes/admin/assets/vendor/common/common.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
@@ -110,7 +109,6 @@
 	<script src="{$url}application/js/require.js"></script>
 	<script>
 		var scripts = [
-			"{$url}application/js/jquery.placeholder.min.js",
 			"{$url}application/js/jquery.transit.min.js",
 			"{$url}application/js/tooltip.js",
 			"{$url}application/js/ui.js",

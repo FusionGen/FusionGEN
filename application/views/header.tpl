@@ -69,7 +69,6 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 				"{$path}js/ui.js",
 				"{$path}js/fusioneditor.js",
 				"{$path}js/flux.min.js",
-				"{$path}js/jquery.placeholder.min.js",
 				"{$path}js/jquery.sort.js",
 				"{$path}js/jquery.transit.min.js",
 				"{$path}js/language.js",
