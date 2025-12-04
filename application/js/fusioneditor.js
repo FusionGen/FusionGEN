@@ -52,7 +52,7 @@ var FusionEditor = {
 		image: function(id)
 		{
 			var editor = '<form onSubmit="FusionEditor.Tools.addImage(\'' + id + '\'); return false">'
-						+ '<input type="text" placeholder="http://path.to/my/image.jpg" id="editor_image_' + id + '" />'
+						+ '<input type="text" placeholder="https://path.to/my/image.jpg" id="editor_image_' + id + '" />'
 						+ '<input type="submit" value="Add" />'
 						+ '</form>';
 			
@@ -158,7 +158,7 @@ var FusionEditor = {
 		link: function(id)
 		{
 			var editor = '<form onSubmit="FusionEditor.Tools.addLink(\'' + id + '\'); return false">'
-						+ '<input type="text" placeholder="http://domain.com" id="editor_link_' + id + '" />'
+						+ '<input type="text" placeholder="https://domain.com" id="editor_link_' + id + '" />'
 						+ '<input type="submit" value="Add" />'
 						+ '</form>';
 			

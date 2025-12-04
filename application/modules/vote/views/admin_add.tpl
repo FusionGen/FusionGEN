@@ -6,7 +6,7 @@
 	<div class="form-group row">
 	<label class="col-lg-3 col-form-label form-control-label" for="vote_url">Your vote link</label>
 	<div class="col-lg-9">
-		<input class="form-control" type="url" name="vote_url" id="vote_url" placeholder="http://" onChange="Topsites.check(this)">
+		<input class="form-control" type="url" name="vote_url" id="vote_url" placeholder="https://" onChange="Topsites.check(this)">
 	</div>
 	</div>
 
