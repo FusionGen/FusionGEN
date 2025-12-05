@@ -361,7 +361,6 @@ class Character extends MX_Controller
                     "secondBarValue" => $this->secondBarValue,
                     "bg" => $this->getBackground(),
                     "realmId" => $this->realm,
-                    "fcms_tooltip" => $this->config->item("use_fcms_tooltip"),
                     "has_stats" => $this->realms->getRealm($this->realm)->getEmulator()->hasStats(),
                     "faction" => $this->realms->getRealm($this->realm)->getCharacters()->getFaction($this->id)
                 ];
