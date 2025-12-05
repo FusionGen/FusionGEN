@@ -217,9 +217,3 @@
 	</div>
 </div>
 <!-- Characters Attributes.End -->
-
-<!-- Load wowhead tooltip -->
-{if !$fcms_tooltip}
-<script src="https://wow.zamimg.com/js/tooltips.js"></script>
-<script>var wowhead_tooltips = { "colorlinks": false, "iconizelinks": false, "renamelinks": false }</script>
-{/if}
