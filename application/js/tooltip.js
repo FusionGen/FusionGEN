@@ -120,7 +120,7 @@ function Tooltip()
 		var tooltipHeight = tooltip.outerHeight();
 
 		var newX = x + this.CURSOR_HSPACE;
-		var newY = y + this.CURSOR_VSPACE;
+		var newY = y - this.CURSOR_VSPACE - tooltipHeight;
 
 		// Check Right Boundary
 		if (newX + tooltipWidth > docWidth) {
@@ -131,12 +131,11 @@ function Tooltip()
 			}
 		}
 
-		// Check Bottom Boundary
-		if (newY + tooltipHeight > docHeight) {
-			newY = y - this.CURSOR_VSPACE - tooltipHeight;
+		if (newY < scrollTop) {
+			newY = y + this.CURSOR_VSPACE;
 
-			if (newY < scrollTop) {
-				 newY = scrollTop;
+			if (newY + tooltipHeight > docHeight) {
+				newY = docHeight - tooltipHeight;
 			}
 		}
 

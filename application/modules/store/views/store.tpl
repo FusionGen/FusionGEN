@@ -30,9 +30,13 @@
 			<div id="store_wrapper">
 				<div id="store">
 					<form onSubmit="return false">
-						<div class="row align-self-center mb-3">
-							<label class="col-sm-1 align-self-center sort" for="sort_by">{lang("sort_by", "store")}</label>
-							<div class="col-sm-2 mb-3">
+						<div class="row g-3 mb-3">
+
+							<label class="col-12 text-center text-md-start" for="sort_by">
+								{lang("sort_by", "store")}
+							</label>
+
+							<div class="col-12 col-md-6">
 								<select id="sort_by" name="sort_by" onChange="Store.Filter.sort(this.value)">
 									<option value="standard" selected>{lang("default", "store")}</option>
 									<option value="name">{lang("name", "store")}</option>
@@ -42,7 +46,7 @@
 								</select>
 							</div>
 
-							<div class="col-sm-3 mb-3">
+							<div class="col-12 col-md-6">
 								<select id="item_quality" name="item_quality" onChange="Store.Filter.setQuality(this.value)">
 									<option value="ALL" selected>{lang("all_items", "store")}</option>
 									<option value="0" class="q0">{lang("poor", "store")}</option>
@@ -55,15 +59,19 @@
 									<option value="7" class="q7">{lang("heirloom", "store")}</option>
 								</select>
 							</div>
-							<div class="col-sm-3 mb-3">
+						</div>
+
+						<div class="row g-3 mb-4 align-items-center">
+
+							<div class="col-12 col-md-6">
 								<input class="form-control" type="text" id="filter_name" placeholder="{lang("filter", "store")}" onKeyUp="Store.Filter.setName(this.value)">
 							</div>
-							<div class="col-sm-3">
-								<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="nice_button rounded">
+
+							<div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+								<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="nice_button rounded text-center me-1">
 									<img src="{$url}application/images/icons/lightning.png" class="align-middle"> {lang("vp", "store")}
 								</a>
-
-								<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="mt-1 nice_button rounded">
+								<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="nice_button rounded text-center">
 									<img src="{$url}application/images/icons/coins.png" class="align-middle"> {lang("dp", "store")}
 								</a>
 							</div>
