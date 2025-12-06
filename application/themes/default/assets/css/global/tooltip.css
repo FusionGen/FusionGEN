@@ -7,6 +7,7 @@
 	border: 1px solid #777;
 	z-index: 999999999;
 	border-top: 1px solid #cfcfcf;
+	border-radius: 5px;
 	box-shadow: 0 0 3px 0 #000;
 	-moz-box-shadow: 0 0 3px 0 #000;
 	-webkit-box-shadow: 0 0 3px 0 #000;

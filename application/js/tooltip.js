@@ -4,6 +4,13 @@
 function Tooltip()
 {
 	this.tooltip_element = "fusion_tooltip";
+
+	this.CURSOR_HSPACE = 15;
+	this.CURSOR_VSPACE = 15;
+
+	this.cursorX = 0;
+	this.cursorY = 0;
+
 	/**
 	 * Add event-listeners
 	 */
@@ -30,6 +37,16 @@ function Tooltip()
 	}
 
 	/**
+	 * Updates the stored cursor position
+	 * @param Object e - Mousemove event
+	 */
+	this.updateCursorPos = function(e)
+	{
+		Tooltip.cursorX = e.pageX;
+		Tooltip.cursorY = e.pageY;
+	}
+
+	/**
 	 * Adds mouseover events to all elements
 	 * that should show a tooltip.
 	 */
@@ -37,6 +54,7 @@ function Tooltip()
 	{
 		Tooltip.addEvents.handleMouseMove = function(e)
 		{
+			Tooltip.updateCursorPos(e);
 			Tooltip.move(e.pageX, e.pageY);
 		}
 
@@ -78,17 +96,55 @@ function Tooltip()
 	}
 
 	/**
-	 * Moves tooltip
+	 * Moves tooltip to the cursor position (x, y), adjusting to keep it in the viewport
 	 * @param Int x
 	 * @param Int y
 	 */
 	this.move = function(x, y)
 	{
-		// Get half of the width
-		var width = ($("#"+ Tooltip.tooltip_element).css("width").replace("px", "") / 2);
+		var tooltip = $("#" + this.tooltip_element);
+		if (!tooltip.is(":visible")) {
+			return;
+		}
 
-		// Position it at the mouse, and center
-		$("#"+ Tooltip.tooltip_element).css("left", x - width).css("top", y + 25);
+		var $win = $(window);
+		var scrollLeft = $win.scrollLeft();
+		var scrollTop = $win.scrollTop();
+		var viewportWidth = $win.width();
+		var viewportHeight = $win.height();
+
+		var docWidth = viewportWidth + scrollLeft;
+		var docHeight = viewportHeight + scrollTop;
+
+		var tooltipWidth = tooltip.outerWidth();
+		var tooltipHeight = tooltip.outerHeight();
+
+		var newX = x + this.CURSOR_HSPACE;
+		var newY = y + this.CURSOR_VSPACE;
+
+		// Check Right Boundary
+		if (newX + tooltipWidth > docWidth) {
+			newX = x - this.CURSOR_HSPACE - tooltipWidth;
+
+			if (newX < scrollLeft) {
+				 newX = scrollLeft;
+			}
+		}
+
+		// Check Bottom Boundary
+		if (newY + tooltipHeight > docHeight) {
+			newY = y - this.CURSOR_VSPACE - tooltipHeight;
+
+			if (newY < scrollTop) {
+				 newY = scrollTop;
+			}
+		}
+
+		// Apply the calculated position
+		tooltip.css({
+			left: newX + 'px',
+			top: newY + 'px'
+		});
 	}
 
 	/**
@@ -98,6 +154,7 @@ function Tooltip()
 	this.show = function(data)
 	{
 		$("#"+ Tooltip.tooltip_element).html(data).show();
+		this.move(this.cursorX, this.cursorY);
 	}
 
 	/**
