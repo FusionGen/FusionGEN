@@ -28,7 +28,7 @@
                             <label class="col-sm-3 col-form-label" for="language_field">Website Language</label>
                             <div class="col-sm-9">
 
-                                <select class="form-select" aria-label="Website Language" name="language_field" id="language_field">
+                                <select aria-label="Website Language" name="language_field" id="language_field">
                                     {foreach from=$languages item=language}
                                         <option value="{$language}" {if $userLanguage == $language}selected="selected"{/if}>{ucfirst($language)}</option>
                                     {/foreach}
