@@ -89,6 +89,20 @@ class Donate_model extends CI_Model
         }
     }
 
+    public function getPayPalLogByPaymentId($payment_id)
+    {
+        $query = $this->db->query("SELECT * FROM paypal_logs WHERE payment_id=?", [$payment_id]);
+
+        if ($query->num_rows())
+        {
+            $row = $query->result_array();
+
+            return $row[0];
+        } else {
+            return false;
+        }
+    }
+
     public function findByMessageId($type, $string)
     {
         $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `message_id`=?", [$string]);

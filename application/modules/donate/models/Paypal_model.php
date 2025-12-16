@@ -260,6 +260,13 @@ class Paypal_model extends CI_Model
 
             $this->donate_model->giveDp($this->user->getId(), $obtained_points);
 
+            // Call updateMonthlyIncome with the total payment amount.
+            $payment_amount = $this->donate_model->getPayPalLogByPaymentId($id);
+
+            if ($payment_amount) {
+                $this->donate_model->updateMonthlyIncome($payment_amount['total']);
+            }
+
             redirect(base_url('/donate/success'));
         }
     }
