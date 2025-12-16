@@ -1,1 +1,1 @@
-<center style="padding:10px;">{lang("donate_success", "donate")}</center>
+<div class='text-center py-5 fw-bold'>{lang("donate_success", "donate")}</div>
