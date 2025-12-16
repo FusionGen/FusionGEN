@@ -1,5 +1,5 @@
 {if $msg}
-<center style="padding:10px;">{$msg}</center>
+<div class='text-center py-5 fw-bold'>{$msg}</div>
 {else}
-<center style="padding:10px;">{lang("donate_error_text", "donate")}</center>
+<div class='text-center py-5 fw-bold'>{lang("donate_error_text", "donate")}</div>
 {/if}
