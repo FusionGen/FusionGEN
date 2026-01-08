@@ -128,8 +128,19 @@ class CI_Log {
 		$this->_log_path = ($config['log_path'] !== '')
 			? rtrim($config['log_path'], '/\\').DIRECTORY_SEPARATOR : APPPATH.'logs'.DIRECTORY_SEPARATOR;
 
-		$this->_log_filename = (isset($config['log_filename']) && $config['log_filename'] !== '')
-			? $config['log_filename'] : 'log-'.date('Y-m-d').'.php';
+		if (isset($config['log_filename']) && $config['log_filename'] !== '')
+		{
+			$this->_log_filename = $config['log_filename'];
+		}
+		elseif (isset($config['log_file_extension']) && $config['log_file_extension'] !== '')
+		{
+			$ext = ltrim($config['log_file_extension'], '.');
+			$this->_log_filename = 'log-'.date('Y-m-d').'.'.$ext;
+		}
+		else
+		{
+			$this->_log_filename = 'log-'.date('Y-m-d').'.php';
+		}
 
 		file_exists($this->_log_path) OR mkdir($this->_log_path, 0755, TRUE);
 
