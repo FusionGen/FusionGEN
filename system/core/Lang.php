@@ -190,7 +190,7 @@ class CI_Lang {
 	 */
 	public function line($line, $log_errors = TRUE)
 	{
-		$value = isset($this->language[$line]) ? $this->language[$line] : FALSE;
+		$value = ($line !== NULL && isset($this->language[$line])) ? $this->language[$line] : FALSE;
 
 		// Because killer robots like unicorns!
 		if ($value === FALSE && $log_errors === TRUE)

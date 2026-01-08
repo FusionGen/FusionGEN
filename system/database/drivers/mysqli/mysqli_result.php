@@ -153,7 +153,6 @@ class CI_DB_mysqli_result extends CI_DB_result {
 			MYSQLI_TYPE_DATETIME    => 'datetime',
 			MYSQLI_TYPE_YEAR        => 'year',
 			MYSQLI_TYPE_NEWDATE     => 'date',
-			MYSQLI_TYPE_INTERVAL    => 'interval',
 			MYSQLI_TYPE_ENUM        => 'enum',
 			MYSQLI_TYPE_SET         => 'set',
 			MYSQLI_TYPE_TINY_BLOB   => 'tinyblob',

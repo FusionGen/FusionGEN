@@ -1231,7 +1231,10 @@ class CI_Upload {
 			if ($finfo !== FALSE) // It is possible that a FALSE value is returned, if there is no magic MIME database file found on the system
 			{
 				$mime = @finfo_file($finfo, $file['tmp_name']);
-				finfo_close($finfo);
+				if (PHP_VERSION_ID < 80100)
+				{
+					finfo_close($finfo);
+				}
 
 				/* According to the comments section of the PHP manual page,
 				 * it is possible that this function returns an empty string

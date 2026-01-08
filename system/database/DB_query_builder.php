@@ -294,7 +294,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		foreach ($select as $val)
 		{
-			$val = trim($val);
+			$val = trim((string)$val);
 
 			if ($val !== '')
 			{
@@ -408,10 +408,10 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		if ($alias === '')
 		{
-			$alias = $this->_create_alias_from_table(trim($select));
+			$alias = $this->_create_alias_from_table(trim((string)$select));
 		}
 
-		$sql = $type.'('.$this->protect_identifiers(trim($select)).') AS '.$this->escape_identifiers(trim($alias));
+		$sql = $type.'('.$this->protect_identifiers(trim((string)$select)).') AS '.$this->escape_identifiers(trim((string)$alias));
 
 		$this->qb_select[] = $sql;
 		$this->qb_no_escape[] = NULL;
@@ -478,7 +478,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			{
 				foreach (explode(',', $val) as $v)
 				{
-					$v = trim($v);
+					$v = trim((string)$v);
 					$this->_track_aliases($v);
 
 					$this->qb_from[] = $v = $this->protect_identifiers($v, TRUE, NULL, FALSE);
@@ -492,7 +492,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			}
 			else
 			{
-				$val = trim($val);
+				$val = trim((string)$val);
 
 				// Extract any aliases that might exist. We use this information
 				// in the protect_identifiers to know whether to add a table prefix
@@ -534,7 +534,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			throw new InvalidArgumentException('join() expects parameter 3 to be a string, ' . gettype($type) . ' given');
 		}
 
-		$type = trim(strtoupper($type).' JOIN');
+		$type = trim((string)strtoupper($type).' JOIN');
 		preg_match('#^(NATURAL\s+)?((LEFT|RIGHT|FULL)\s+)?((INNER|OUTER)\s+)?JOIN$#', $type) OR $type = 'JOIN';
 
 		// Extract any aliases that might exist. We use this information
@@ -1217,7 +1217,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		foreach ($by as $val)
 		{
-			$val = trim($val);
+			$val = trim((string)$val);
 
 			if ($val !== '')
 			{
@@ -1289,7 +1289,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			throw new InvalidArgumentException('order_by() expects parameter 2 to be a string, ' . gettype($direction) . ' given');
 		}
 
-		$direction = strtoupper(trim($direction));
+		$direction = strtoupper(trim((string)$direction));
 
 		if ($direction === 'RANDOM')
 		{
@@ -1320,9 +1320,9 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			$qb_orderby = array();
 			foreach (explode(',', $orderby) as $field)
 			{
-				$qb_orderby[] = ($direction === '' && preg_match('/\s+(ASC|DESC)$/i', rtrim($field), $match, PREG_OFFSET_CAPTURE))
-					? array('field' => ltrim(substr($field, 0, $match[0][1])), 'direction' => ' '.$match[1][0], 'escape' => TRUE)
-					: array('field' => trim($field), 'direction' => $direction, 'escape' => TRUE);
+				$qb_orderby[] = ($direction === '' && preg_match('/\s+(ASC|DESC)$/i', rtrim((string)$field), $match, PREG_OFFSET_CAPTURE))
+					? array('field' => ltrim((string)substr($field, 0, $match[0][1])), 'direction' => ' '.$match[1][0], 'escape' => TRUE)
+					: array('field' => trim((string)$field), 'direction' => $direction, 'escape' => TRUE);
 			}
 		}
 
@@ -2377,7 +2377,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			$table = preg_replace('/\s+AS\s+/i', ' ', $table);
 
 			// Grab the alias
-			$table = trim(strrchr($table, ' '));
+			$table = trim((string)strrchr($table, ' '));
 
 			// Store the alias, if it doesn't already exist
 			if ( ! in_array($table, $this->qb_aliased_tables, TRUE))
@@ -2520,12 +2520,12 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 					if ( ! empty($matches[4]))
 					{
-						$this->_is_literal($matches[4]) OR $matches[4] = $this->protect_identifiers(trim($matches[4]));
+						$this->_is_literal($matches[4]) OR $matches[4] = $this->protect_identifiers(trim((string)$matches[4]));
 						$matches[4] = ' '.$matches[4];
 					}
 
-					$conditions[$ci] = $matches[1].$this->protect_identifiers(trim($matches[2]))
-						.' '.trim($matches[3]).$matches[4].$matches[5];
+					$conditions[$ci] = $matches[1].$this->protect_identifiers(trim((string)$matches[2]))
+						.' '.trim((string)$matches[3]).$matches[4].$matches[5];
 				}
 
 				$this->{$qb_key}[$i] = implode('', $conditions).(isset($this->{$qb_key}[$i]['value']) ? ' '.$this->{$qb_key}[$i]['value'] : '');
@@ -2796,7 +2796,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 */
 	protected function _is_literal($str)
 	{
-		$str = trim($str);
+		$str = trim((string)$str);
 
 		if (empty($str) OR ctype_digit($str) OR (string) (float) $str === $str OR in_array(strtoupper($str), array('TRUE', 'FALSE'), TRUE))
 		{
