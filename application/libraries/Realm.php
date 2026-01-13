@@ -266,8 +266,11 @@ class Realm
                 }
             }
 
-            if (@fsockopen($this->config['hostname'], $this->config['realm_port'], $errno, $errstr, 1.5)) {
+            $fp = @fsockopen($this->config['hostname'], $this->config['realm_port'], $errno, $errstr, 1);
+
+            if ($fp) {
                 $this->isOnline = true;
+                fclose($fp);
             } else {
                 $this->isOnline = false;
             }
