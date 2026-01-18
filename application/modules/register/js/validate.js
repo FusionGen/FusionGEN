@@ -99,16 +99,17 @@ var Validate = {
 
     checkPassword: function() {
         var field = $('#register_password');
+        var value = field.val();
         // Reset previous states
         field.removeClass('is-invalid is-valid');
         field.next('.invalid-feedback').remove();
 
-        if (field.val().length < 6) {
-            this.invalid('#register_password', lang("password_short", "register"));
+        if (value.length < 6 || value.length > 16) {
+            this.invalid('#register_password', lang("password_limit_length", "register"));
         } else {
             this.valid('#register_password');
         }
-        
+
         // Also validate the confirmation field when password changes
         if ($('#register_password_confirm').val()) {
             this.checkPasswordConfirm();
