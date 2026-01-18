@@ -131,10 +131,11 @@ var Settings = {
 
     validateNewPassword: function() {
         var field = $('#new_password');
-        if (field.val().length < 6) {
+        var value = field.val();
+        if (value.length < 6 || value.length > 16) {
             field.addClass('is-invalid');
             field.next('.invalid-feedback').remove();
-            field.after('<div class="invalid-feedback">' + lang("password_short", "ucp") + '</div>');
+            field.after('<div class="invalid-feedback">' + lang("password_limit_length", "ucp") + '</div>');
         } else {
             field.removeClass('is-invalid').addClass('is-valid');
             field.next('.invalid-feedback').remove();

@@ -26,7 +26,7 @@ class Register extends MX_Controller
         clientLang("username_not_available", "register");
         clientLang("email_not_available", "register");
         clientLang("email_invalid", "register");
-        clientLang("password_short", "register");
+        clientLang("password_limit_length", "register");
         clientLang("pw_dont_match", "register");
         clientLang("the_account", "register");
         clientLang("has_been_created_redirecting", "register");
@@ -37,7 +37,7 @@ class Register extends MX_Controller
         //Load the form validations for if they tried to sneaky bypass our js system
         $this->form_validation->set_rules('register_username', 'username', 'trim|required|min_length[4]|max_length[24]|alpha_numeric');
         $this->form_validation->set_rules('register_email', 'email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('register_password', 'password', 'trim|required|min_length[6]');
+        $this->form_validation->set_rules('register_password', 'password', 'trim|required|min_length[6]|max_length[16]');
         $this->form_validation->set_rules('register_password_confirm', 'password confirmation', 'trim|required|matches[register_password]');
 
         $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');

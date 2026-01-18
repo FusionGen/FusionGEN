@@ -23,7 +23,7 @@ class Settings extends MX_Controller
         clientLang("nickname_error", "ucp");
         clientLang("location_error", "ucp");
         clientLang("pw_dont_match", "ucp");
-        clientLang("password_short", "ucp");
+        clientLang("password_limit_length", "ucp");
         clientLang("changes_saved", "ucp");
         clientLang("invalid_pw", "ucp");
         clientLang("nickname_taken", "ucp");
@@ -73,7 +73,7 @@ class Settings extends MX_Controller
     {
         // Set validation rules
         $this->form_validation->set_rules('old_password', 'old password', 'trim|required');
-        $this->form_validation->set_rules('new_password', 'new password', 'trim|required|min_length[6]');
+        $this->form_validation->set_rules('new_password', 'new password', 'trim|required|min_length[6]|max_length[16]');
         $this->form_validation->set_rules('new_password_confirm', 'confirm password', 'trim|required|matches[new_password]');
 
         $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
