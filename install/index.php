@@ -20,7 +20,7 @@ $zip_success = false;
 $xml_success = false;
 
 $php_version_min = "8.1.0";
-$php_version_max = "8.5.1";
+$php_version_max = "8.5.2";
 $current_php_version = phpversion();
 
 if ($current_php_version <= $php_version_max && $current_php_version >= $php_version_min) {
