@@ -331,20 +331,21 @@
 <script>
 	// Ready
 	$(window).on('load', function() {
-		//Image loader var to use when you need a function from object
-		var auctionImages = null;
+		require([Config.URL + "application/modules/news/js/admin.js"], function() {
+			//Image loader var to use when you need a function from object
+			var auctionImages = null;
 
-		// Create image loader plugin
-		News.imagesloader = $('[data-type=imagesloader]').imagesloader({
-			maxFiles: 4,
-			minSelect: 1,
-			imagesToLoad: auctionImages
+			// Create image loader plugin
+			News.imagesloader = $('[data-type=imagesloader]').imagesloader({
+				maxFiles: 4,
+				minSelect: 1,
+				imagesToLoad: auctionImages
+			});
 		});
-
 	});
 </script>
 <script>
-	var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	var useDarkMode = $('html').hasClass('dark');
 
     require([
 		"{$url}application/js/tiny_mce/tinymce.min.js"
