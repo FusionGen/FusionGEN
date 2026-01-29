@@ -9,8 +9,8 @@
 
 			height: 400,
 
-			skin: 'oxide-dark',
-			content_css: 'dark',
+			skin: $('html').hasClass('dark') ? 'oxide-dark' : 'oxide',
+			content_css: $('html').hasClass('dark') ? 'dark' : 'default',
 
 			/* display statusbar */
 			statusbar: false,
