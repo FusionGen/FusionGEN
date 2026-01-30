@@ -71,6 +71,16 @@ var Sidebox = {
 				csrf_token_name: Config.CSRF
 			};
 
+			if (!data.displayName || data.displayName.trim() === "" || (data.displayName.startsWith('{') && !Object.values(JSON.parse(data.displayName)).some(v => v.trim() !== ""))) {
+				Swal.fire({
+					theme: 'dark',
+					icon: 'error',
+					title: 'Oops...',
+					text: "Headline/Name can't be empty",
+				});
+				return;
+			}
+
 			$.post(Config.URL + "admin/sidebox/create_submit", data, function(response)
 			{
 				if(response == "yes")
@@ -107,6 +117,16 @@ var Sidebox = {
 				visibility: $("#visibility").val(),
 				csrf_token_name: Config.CSRF
 			};
+
+			if (!data.displayName || data.displayName.trim() === "" || (data.displayName.startsWith('{') && !Object.values(JSON.parse(data.displayName)).some(v => v.trim() !== ""))) {
+				Swal.fire({
+					theme: 'dark',
+					icon: 'error',
+					title: 'Oops...',
+					text: "Headline/Name can't be empty",
+				});
+				return;
+			}
 
 			$.post(Config.URL + "admin/sidebox/save/" + id, data, function(response)
 			{

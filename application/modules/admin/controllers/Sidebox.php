@@ -81,9 +81,9 @@ class Sidebox extends MX_Controller
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
 
-        if (!$data["displayName"])
+        if (!$this->isValidHeadline($data["displayName"]))
         {
-            die('Name can\'t be empty');
+            die("Headline/Name can't be empty");
         }
 
         $id = $this->sidebox_model->add($data);
@@ -220,12 +220,9 @@ class Sidebox extends MX_Controller
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
 
-        foreach ($data as $value)
+        if (!$this->isValidHeadline($data["displayName"]))
         {
-            if (!$value)
-            {
-                die("The fields can\'t be empty");
-            }
+            die("Headline can\'t be empty");
         }
 
         $this->sidebox_model->edit($id, $data);
@@ -248,6 +245,31 @@ class Sidebox extends MX_Controller
         }
 
         die("yes");
+    }
+
+    private function isValidHeadline($headline)
+    {
+        if (!$headline || trim($headline) === "")
+        {
+            return false;
+        }
+
+        $decoded = json_decode($headline, true);
+
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded))
+        {
+            foreach ($decoded as $val)
+            {
+                if (trim($val) !== "")
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        return true;
     }
 
     public function delete($id = false)
