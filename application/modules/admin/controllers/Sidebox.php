@@ -81,9 +81,9 @@ class Sidebox extends MX_Controller
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
 
-        if (!$data["displayName"])
+        if (!$this->isValidInput($data["displayName"]))
         {
-            die('Name can\'t be empty');
+            die("Headline/Name can't be empty");
         }
 
         $id = $this->sidebox_model->add($data);
@@ -98,7 +98,7 @@ class Sidebox extends MX_Controller
         {
             $data["content"] = $this->input->post("content");
 
-            if (!$data["content"]) {
+            if (!$this->isValidInput($data["content"])) {
                 die('Content can\'t be empty');
             }
 
@@ -220,12 +220,9 @@ class Sidebox extends MX_Controller
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
 
-        foreach ($data as $value)
+        if (!$this->isValidInput($data["displayName"]))
         {
-            if (!$value)
-            {
-                die("The fields can\'t be empty");
-            }
+            die("Headline can\'t be empty");
         }
 
         $this->sidebox_model->edit($id, $data);
@@ -233,6 +230,13 @@ class Sidebox extends MX_Controller
         // Handle custom sidebox text
         if ($data["type"] == "custom")
         {
+            $content = $this->input->post("content");
+
+            if (!$this->isValidInput($content))
+            {
+                die("Content can\'t be empty");
+            }
+
             $text = $this->input->post("content", false);
             $this->sidebox_model->editCustom($id, $text);
         }
@@ -248,6 +252,31 @@ class Sidebox extends MX_Controller
         }
 
         die("yes");
+    }
+
+    private function isValidInput($input)
+    {
+        if (!$input || trim($input) === "")
+        {
+            return false;
+        }
+
+        $decoded = json_decode($input, true);
+
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded))
+        {
+            foreach ($decoded as $val)
+            {
+                if (trim(strip_tags($val)) !== "")
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        return true;
     }
 
     public function delete($id = false)

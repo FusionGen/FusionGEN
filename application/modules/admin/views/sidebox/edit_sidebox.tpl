@@ -53,5 +53,6 @@
 	require([Config.URL + "application/themes/admin/assets/js/mli.js"], function()
 	{
 		new MultiLanguageInput($("#displayName"));
+		new MultiLanguageInput($("#content"));
 	});
 </script>
