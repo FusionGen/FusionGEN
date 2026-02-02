@@ -63,13 +63,12 @@ var Sidebox = {
 
 			tinyMCE.triggerSave();
 
-			var data = {
-				displayName: $("#displayName").val(),
-				type: $("#type").val(),
-				content: $("textarea.tinymce").val(),
-				visibility: $("#visibility").val(),
-				csrf_token_name: Config.CSRF
-			};
+			var data = Sidebox.getValues();
+
+			if (!Sidebox.validate(data))
+			{
+				return;
+			}
 
 			$.post(Config.URL + "admin/sidebox/create_submit", data, function(response)
 			{
@@ -100,13 +99,12 @@ var Sidebox = {
 
 			tinyMCE.triggerSave();
 
-			var data = {
-				displayName: $("#displayName").val(),
-				type: $("#type").val(),
-				content: $("textarea.tinymce").val(),
-				visibility: $("#visibility").val(),
-				csrf_token_name: Config.CSRF
-			};
+			var data = Sidebox.getValues();
+
+			if (!Sidebox.validate(data))
+			{
+				return;
+			}
 
 			$.post(Config.URL + "admin/sidebox/save/" + id, data, function(response)
 			{
@@ -125,6 +123,57 @@ var Sidebox = {
 				}
 			});
 		});
+	},
+
+	/**
+	 * Get the form values
+	 * @return Object
+	 */
+	getValues: function()
+	{
+		return {
+			displayName: $("#displayName").val(),
+			type: $("#type").val(),
+			content: $("textarea.tinymce").val(),
+			visibility: $("#visibility").val(),
+			csrf_token_name: Config.CSRF
+		};
+	},
+
+	/**
+	 * Validate the form data
+	 * @param  Object data
+	 * @return Boolean
+	 */
+	validate: function(data)
+	{
+		var headlineExists = false;
+
+		try {
+			var headline = JSON.parse(data.displayName);
+			for (var key in headline) {
+				if (headline[key].trim().length > 0) {
+					headlineExists = true;
+					break;
+				}
+			}
+		} catch (e) {
+			if (data.displayName && data.displayName.trim().length > 0) {
+				headlineExists = true;
+			}
+		}
+
+		if (!headlineExists) {
+			Swal.fire({ theme: 'dark', icon: 'error', title: 'Oops...', text: 'Headline can\'t be empty' });
+			return false;
+		}
+
+		if (data.type == "sidebox_custom" && (!data.content || data.content.trim().length == 0)) {
+			Swal.fire({ theme: 'dark', icon: 'error', title: 'Oops...', text: 'Content can\'t be empty' });
+			return false;
+		}
+
+		return true;
 	},
 
 	/**
