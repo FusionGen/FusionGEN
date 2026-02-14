@@ -6,7 +6,7 @@
 		<div class="form-group row mb-3">
 		<label class="col-sm-2 col-form-label" for="image">Image URL</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="image" id="image" placeholder="https://" value="{preg_replace('/{path}/', '', $slide.image)}">
+			<input class="form-control" type="text" name="image" id="image" placeholder="https://" value="{preg_replace('/{image_path}/', '', $slide.image)}">
 		</div>
 		</div>
 
