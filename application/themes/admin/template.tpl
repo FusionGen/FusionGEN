@@ -192,26 +192,6 @@
 
 					<span class="separator"></span>
 
-					<ul class="notifications">
-						<li>
-							<a href="#" class="dropdown-toggle notification-icon" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-								<i class="fa-solid fa-bell"></i>
-								<span class="badge count" id="count"></span>
-							</a>
-
-							<div class="dropdown-menu notification-menu" style>
-								<div class="notification-title">
-									<span class="float-end badge badge-default" id="count2"></span>
-									Alerts
-								</div>
-								<div class="content" id="content">
-								</div>
-							</div>
-						</li>
-					</ul>
-
-					<span class="separator"></span>
-
 					<div id="userbox" class="userbox">
 						<a href="#" data-bs-toggle="dropdown">
 							<figure class="profile-picture">
@@ -379,21 +359,20 @@
 	<footer id="footer">
 		<div class="footer-copyright">
 			<div class="content-body pt-0 pb-3">
-				<div class="row align-items-center">
-					<div class="col-lg-1">
-						<a href="#" class="logo">
-							<img alt="FusionGen" class="img-fluid" src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
+				<div class="row align-items-center justify-content-between flex-nowrap">
+					<div class="col-auto">
+						<a href="https://fusiongen.net/" class="logo">
+							<img alt="FusionGEN" class="img-fluid" src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 						</a>
 					</div>
-					<div class="col-lg-7">
+					<div class="col text-center">
 						<p>© Copyright {date("Y")}. All Rights Reserved.</p>
 					</div>
-					<div class="col-lg-4">
+					<div class="col-auto">
 						<nav id="sub-menu">
-							<ul>
-								<li><a target="_blank" href="https://discord.gg/5nSt9puU4V"><i class="fa-brands fa-discord"></i> Discord</a></li>
-								<li><a target="_blank" href="https://github.com/FusionGen/FusionGEN"><i class="fa-brands fa-github"></i> Github</a></li>
-								<li><a target="_blank" href="https://ko-fi.com/fusiongen"><i class="fa-solid fa-mug-hot"></i> Support Us</a></li>
+							<ul class="list-inline">
+								<li class="list-inline-item"><a target="_blank" href="https://discord.gg/5nSt9puU4V"><i class="fa-brands fa-discord"></i> Discord</a></li>
+								<li class="list-inline-item"><a target="_blank" href="https://github.com/FusionGen/FusionGEN"><i class="fa-brands fa-github"></i> GitHub</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -401,43 +380,5 @@
 			</div>
 		</div>
 	</footer>
-	<script>
-	var Notify = {
-		notifyField: $("#content"),
-		countField: $("#count"),
-		count2Field: $("#count2"),
-
-		update: function()
-		{
-			$.get(Config.URL + "admin/notifications", function(data)
-			{
-				Notify.notifyField.html(data);
-			});
-
-			$.get(Config.URL + "admin/notifications/count", function(data)
-			{
-				Notify.countField.html(data);
-				Notify.count2Field.html(data);
-			});
-		},
-
-		markRead: function(id, element)
-		{
-			element = $(element);
-			$.get(Config.URL + "admin/markReadNotification/" + id)
-			element.removeClass("fw-bold");
-			$("#count").html(parseInt($("#count").html()) - 1);
-			$("#count2").html(parseInt($("#count2").html()) - 1);
-		},
-
-		markAllRead: function()
-		{
-			$.get(Config.URL + "admin/markReadNotification/" + false + "/" + true)
-		}
-	}
-
-	Notify.update();
-	setInterval(Notify.update, 10000);
-	</script>
 	</body>
 </html>

@@ -43,8 +43,8 @@ class Template
         $this->module_name = $this->CI->router->fetch_module();
         $this->theme_path  = "themes/" . $this->theme . "/";
         $this->view_path   = "views/";
-        $this->style_path  = base_url() . APPPATH . "themes/" . $this->theme . "/css/";
-        $this->image_path  = base_url() . APPPATH . "themes/" . $this->theme . "/images/";
+        $this->style_path  = base_url() . APPPATH . "themes/" . $this->theme . "/assets/css/";
+        $this->image_path  = base_url() . APPPATH . "themes/" . $this->theme . "/assets/images/";
         $this->page_url    = ($this->CI->config->item('rewrite')) ? base_url() : base_url() . 'index.php/';
         $this->loadManifest();
         $this->loadModuleManifest();
@@ -620,8 +620,8 @@ class Template
                 $slides_arr[$key]['body']   = langColumn($image['body']);
                 $slides_arr[$key]['footer'] = langColumn($image['footer']);
                 
-                // Replace {path} by the theme image path
-                $slides_arr[$key]['image'] = preg_replace("/\{path\}/", $this->image_path, $image['image'] ?? '');
+                // Replace {image_path} by the theme image path
+                $slides_arr[$key]['image'] = preg_replace("/\{image_path\}/", $this->image_path, $image['image'] ?? '');
             }
         }
 

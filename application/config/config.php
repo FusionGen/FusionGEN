@@ -489,7 +489,7 @@ $config['csrf_exclude_uris'] = ['donate', 'vote/callback'];
 | by the output class.  Do not 'echo' any values with compression enabled.
 |
 */
-$config['compress_output'] = true;
+$config['compress_output'] = false;
 
 /*
 |--------------------------------------------------------------------------
