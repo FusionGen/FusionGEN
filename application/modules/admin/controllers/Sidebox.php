@@ -81,9 +81,15 @@ class Sidebox extends MX_Controller
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
 
-        if (!$data["displayName"])
-        {
-            die('Name can\'t be empty');
+        $headline = json_decode($data["displayName"], true);
+        if (is_array($headline)) {
+            if (!array_filter($headline)) die("Headline can't be empty");
+        } else {
+            if (!$data["displayName"]) die("Headline can't be empty");
+        }
+
+        if ($data['type'] == "custom" && !$this->input->post("content")) {
+            die("Content can't be empty");
         }
 
         $id = $this->sidebox_model->add($data);
@@ -96,12 +102,6 @@ class Sidebox extends MX_Controller
         // Handle custom sidebox text
         if ($data['type'] == "custom")
         {
-            $data["content"] = $this->input->post("content");
-
-            if (!$data["content"]) {
-                die('Content can\'t be empty');
-            }
-
             $text = $this->input->post('content', false);
 
             $this->sidebox_model->addCustom($text);
@@ -220,12 +220,15 @@ class Sidebox extends MX_Controller
         $data["type"] = preg_replace("/sidebox_/", "", $this->input->post("type"));
         $data["displayName"] = $this->input->post("displayName");
 
-        foreach ($data as $value)
-        {
-            if (!$value)
-            {
-                die("The fields can\'t be empty");
-            }
+        $headline = json_decode($data["displayName"], true);
+        if (is_array($headline)) {
+            if (!array_filter($headline)) die("Headline can't be empty");
+        } else {
+            if (!$data["displayName"]) die("Headline can't be empty");
+        }
+
+        if ($data['type'] == "custom" && !$this->input->post("content")) {
+            die("Content can't be empty");
         }
 
         $this->sidebox_model->edit($id, $data);
