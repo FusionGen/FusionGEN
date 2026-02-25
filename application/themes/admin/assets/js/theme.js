@@ -1545,7 +1545,7 @@ window.theme.fn = {
 								'<div class="card-body">',
 									'<form onSubmit="Login.send(this); return false">',
 										'<div class="current-user text-center">',
-											'<img id="LockUserPicture" src="{{picture}}" class="rounded-circle user-image" />',
+											'<img id="LockUserPicture" src="{{picture}}" class="rounded-circle user-image pe-none user-select-none">',
 											'<h2 id="LockUserName" class="user-name text-dark m-0">{{username}}</h2>',
 										'</div>',
 										'<div class="form-group mb-3">',

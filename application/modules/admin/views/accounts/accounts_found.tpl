@@ -3,7 +3,7 @@
 		<section class="card">
 			<div class="card-body">
 				<div class="thumb-info mb-3">
-					<img src="{$avatar}" class="rounded img-fluid" width="199px" height="199px">
+					<img src="{$avatar}" class="rounded img-fluid pe-none user-select-none" width="199px" height="199px">
 					<div class="thumb-info-title">
 						<span class="thumb-info-inner">({$external_details.id}) {$external_details.username}</span>
 						<span class="thumb-info-type">{foreach from=$groups item=group}{$group.name}{/foreach}</span>
@@ -12,7 +12,7 @@
 
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-						<b style="color:#808697;">Displayname</b> <a class="pull-right"><b>{$internal_details.nickname}</b></a>
+						<b style="color:#808697;">Displayname</b> <a class="pull-right"><b>{$internal_details.nickname ?? ''}</b></a>
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
 						<b style="color:#808697;">Email</b> <a class="pull-right"><b>{$external_details.email}</b></a>
@@ -30,10 +30,10 @@
 						<b style="color:#808697;">Last IP </b> <b><a class="pull-right" href="https://db-ip.com/{$external_details.last_ip}" target="_blank">{$external_details.last_ip}</a></b>
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-						<b style="color:#808697;">VP </b> <a class="pull-right"><b>{$internal_details.vp}</b> </a>
+						<b style="color:#808697;">VP </b> <a class="pull-right"><b>{$internal_details.vp ?? 0}</b> </a>
 					</li>
 					<li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
-						<b style="color:#808697;">DP </b> <a class="pull-right"><b>{$internal_details.dp}</b> </a>
+						<b style="color:#808697;">DP </b> <a class="pull-right"><b>{$internal_details.dp ?? 0}</b> </a>
 					</li>
 				</ul>
 
@@ -109,7 +109,7 @@
 						<div class="row mb-3">
 							<div class="form-group col-md-6">
 								<label for="nickname">Displayname</label>
-								<input class="form-control" type="text" id="nickname" name="nickname" value="{$internal_details.nickname}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+								<input class="form-control" type="text" id="nickname" name="nickname" value="{$internal_details.nickname ?? ''}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
 							</div>
 
 							<div class="form-group col-md-6 border-top-0 pt-0">
@@ -153,7 +153,7 @@
                             <label class="col-sm-6 col-form-label" for="vp">Vote-Points</label>
 								<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 									<div class="input-group">
-										<input class="spinner-input form-control" type="text" id="vp" name="vp" value="{$internal_details.vp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+										<input class="spinner-input form-control" type="text" id="vp" name="vp" value="{$internal_details.vp ?? 0}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
 										<div class="spinner-buttons input-group-btn btn-group-vertical">
 											<button type="button" class="btn spinner-up btn-xs btn-default" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
 												<i class="fas fa-angle-up"></i>
@@ -170,7 +170,7 @@
                             <label class="col-sm-6 col-form-label" for="dp">Donation-Points</label>
 								<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 999999999999 }'>
 									<div class="input-group">
-										<input class="spinner-input form-control" type="text" id="dp" name="dp" value="{$internal_details.dp}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
+										<input class="spinner-input form-control" type="text" id="dp" name="dp" value="{$internal_details.dp ?? 0}" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
 										<div class="spinner-buttons input-group-btn btn-group-vertical">
 											<button type="button" class="btn spinner-up btn-xs btn-default" {if !hasPermission("editAccounts")}disabled="disabled"{/if}>
 												<i class="fas fa-angle-up"></i>

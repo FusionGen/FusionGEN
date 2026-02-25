@@ -15,10 +15,10 @@
 						{foreach from=$realm->getCharacters()->getCharactersByAccount($id) item=character}
 							<tr>
 								<td class="col-1">
-									<img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif">
+									<img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif" class="pe-none user-select-none">
 								</td>
 								<td class="col-2">
-									<img src="{$url}application/images/stats/{$character.class}.gif">
+									<img src="{$url}application/images/stats/{$character.class}.gif" class="pe-none user-select-none">
 								</td>
 								{if hasPermission("viewCharInfos", "profile")}
 									{$money = $realmsObj->formatMoney($character.money)}

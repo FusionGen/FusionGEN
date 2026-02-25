@@ -387,7 +387,7 @@ class Template
             "csrf_cookie" => $this->CI->input->cookie('csrf_token_name'),
             "client_language" => $this->CI->language->getClientData(),
             "activeLanguage" => $this->CI->language->getLanguage(),
-            "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : null,
+            "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : false,
             "recaptcha" => $this->CI->config->item('captcha_type') === 'recaptcha',
             "recaptcha_sitekey" => $this->CI->config->item('recaptcha_sitekey'),
             "social_media" => [

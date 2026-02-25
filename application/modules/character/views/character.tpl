@@ -1,7 +1,7 @@
 <!-- Character Top.Start -->
 <div class="row top-bar">
 	<div class="col-avatar">
-		<img src="{$url}application/images/avatars/{$avatar}.gif">
+		<img src="{$url}application/images/avatars/{$avatar}.gif" class="pe-none user-select-none">
 	</div>
 	<div class="col-9 col-md-10 ps-4">
 		<div class="d-flex h-100 align-items-center">
