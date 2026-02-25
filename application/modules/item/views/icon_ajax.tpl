@@ -14,7 +14,7 @@
 	 	{
 	 		$(".get_icon_" + {$id}).each(function()
 	 		{
-	 			$(this).html("<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/" + data + ".jpg'></div>");
+	 			$(this).html("<div class='item'><a></a><img class='pe-none user-select-none' src='https://icons.wowdb.com/retail/large/" + data + ".jpg'></div>");
 	 		});
 	 	});
 	});

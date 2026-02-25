@@ -10,8 +10,7 @@
 
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/animate/animate.compat.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/owl.carousel/assets/owl.carousel.css">
@@ -40,9 +39,8 @@
 		<script src="{$url}application/themes/admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/common/common.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="{$url}application/themes/admin/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/bootstrapv5-multiselect/js/bootstrap-multiselect.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.js"></script>
@@ -51,12 +49,7 @@
 		<script src="{$url}application/themes/admin/assets/vendor/flot/jquery.flot.pie.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/flot/jquery.flot.categories.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/flot/jquery.flot.resize.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/raphael/raphael.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/morris/morris.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/gauge/gauge.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/snap.svg/snap.svg.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/owl.carousel/owl.carousel.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/select2/js/select2.min.js"></script>
@@ -140,7 +133,7 @@
 		<header class="header">
 			<div class="logo-container">
 				<a href="{$url}mod" class="logo">
-					<img src="{$url}application/themes/admin/assets/images/WoW_icon.svg" width="35" height="35">
+					<img src="{$url}application/themes/admin/assets/images/WoW_icon.svg" class="pe-none user-select-none" width="35" height="35">
 					<span class="text-light font-weight-normal">{$serverName}</span>
 				</a>
 				<div class="d-md-none toggle-sidebar-left" role="button" tabindex="0" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened" aria-label="Toggle sidebar">
@@ -158,7 +151,7 @@
 				<div id="userbox" class="userbox">
 					<a href="#" data-bs-toggle="dropdown">
 						<figure class="profile-picture">
-							<img src="{$avatar}" alt="{$nickname}" class="rounded-circle">
+							<img src="{$avatar}" alt="{$nickname}" class="rounded-circle pe-none user-select-none">
 						</figure>
 						<div class="profile-info" data-lock-name="{$nickname}">
 							<span class="name">{$nickname}</span>

@@ -66,9 +66,9 @@ class Character extends MX_Controller
                 $cache2 = $this->cache->get("items/display_iconname_" . $id);
 
                 if ($cache2 != false) {
-                    return "<a href='" . $this->template->page_url . "item/" . $this->realm . "/" . $id . "' rel='item=" . $id . "' data-realm='" . $this->realm . "'></a><img src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg'>";
+                    return "<a href='" . $this->template->page_url . "item/" . $this->realm . "/" . $id . "' rel='item=" . $id . "' data-realm='" . $this->realm . "'></a><img class='pe-none user-select-none' src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg'>";
                 } else {
-                    return "<a href='" . $this->template->page_url . "item/" . $this->realm . "/" . $id . "' rel='item=" . $id . "' data-realm='" . $this->realm . "'></a><img src='https://icons.wowdb.com/retail/large/inv_misc_questionmark.jpg'>";
+                    return "<a href='" . $this->template->page_url . "item/" . $this->realm . "/" . $id . "' rel='item=" . $id . "' data-realm='" . $this->realm . "'></a><img class='pe-none user-select-none' src='https://icons.wowdb.com/retail/large/inv_misc_questionmark.jpg'>";
                 }
             } else {
                 $this->canCache = false;
@@ -254,7 +254,7 @@ class Character extends MX_Controller
                         break;
                 }
 
-                $this->items[$value] = "<div class='item'><img src='" . $this->template->page_url . "application/images/armory/default/" . $image . ".gif'></div>";
+                $this->items[$value] = "<div class='item'><img class='pe-none user-select-none' src='" . $this->template->page_url . "application/images/armory/default/" . $image . ".gif'></div>";
             }
         }
     }

@@ -4,7 +4,7 @@
 	<div class="col-lg-4 py-5 pe-lg-5">
 		<div class="w-100 text-center mb-5">
 			<div class="user-avatar">
-				<img src="{$avatar}" alt="avatar" class="rounded-circle">
+				<img src="{$avatar}" alt="avatar" class="rounded-circle pe-none user-select-none">
 				<div class="blend"></div>
 			</div>
 		</div>

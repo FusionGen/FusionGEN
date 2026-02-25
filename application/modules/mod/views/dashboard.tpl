@@ -8,7 +8,7 @@
 				<div class="widget-summary p-3">
 					<div class="widget-summary-col widget-summary-col-icon">
 						<div class="summary-icon shadow-sm">
-							<img src="{$url}application/images/emulator/{$realm.emulator}.png" width="90"></img>
+							<img src="{$url}application/images/emulator/{$realm.emulator}.png" class="pe-none user-select-none" width="90"></img>
 						</div>
 					</div>
 					<div class="widget-summary-col">

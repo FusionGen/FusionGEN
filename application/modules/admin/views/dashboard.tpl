@@ -335,14 +335,14 @@
                 <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
             </div>
 
-            <h2 class="card-title">Latest FusionGen Updates</h2>
+            <h2 class="card-title">Latest FusionGEN updates</h2>
         </header>
         <div class="card-body scrollable" style="height: 350px;">
             <div id="fg-commits" class="lh-lg scrollable-content p-3">
             <script>
             $(function() {
                 $('#fg-commits').githubInfoWidget(
-                { user: 'FusionGen', repo: 'FusionGen', branch: 'main', last: 40, limitMessageTo: 130 });
+                { user: 'FusionGen', repo: 'FusionGEN', branch: 'main', last: 40, limitMessageTo: 130 });
             });
             </script>
             </div>

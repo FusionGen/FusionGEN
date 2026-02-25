@@ -1,78 +1,44 @@
 var Sort = {
-	
-	nameASC: true,
-	levelASC: true,
-	locationASC: true,
+    nameASC: true,
+    levelASC: true,
+    locationASC: true,
 
-	name: function(realm)
-	{
-		$("#online_realm_" + realm + " table tr:not(:first-child)").sortElements(function(a, b)
-		{
-			if(Sort.nameASC)
-			{
-				return $(a).find("th:first-child a").html() > $(b).find("th:first-child a").html() ? 1 : -1;
-			}
-			else
-			{
-				return $(a).find("th:first-child a").html() < $(b).find("th:first-child a").html() ? 1 : -1;
-			}
-		});
+    name: function(realm) {
+        var tbody = $("#online_realm_" + realm + " table tbody");
+        tbody.find("tr").sort(function(a, b) {
+            var aVal = $(a).find("td:nth-child(1)").text().trim();
+            var bVal = $(b).find("td:nth-child(1)").text().trim();
+            return Sort.nameASC
+                ? aVal.localeCompare(bVal)
+                : bVal.localeCompare(aVal);
+        }).appendTo(tbody);
 
-		if(Sort.nameASC)
-		{
-			Sort.nameASC = false;
-		}
-		else
-		{
-			Sort.nameASC = true;
-		}
-	},
+        Sort.nameASC = !Sort.nameASC;
+    },
 
-	level: function(realm)
-	{
-		$("#online_realm_" + realm + " table tr:not(:first-child)").sortElements(function(a, b)
-		{
-			if(Sort.levelASC)
-			{
-				return $(a).find("th:nth-child(2)").html() > $(b).find("th:nth-child(2)").html() ? 1 : -1;
-			}
-			else
-			{
-				return $(a).find("th:nth-child(2)").html() < $(b).find("th:nth-child(2)").html() ? 1 : -1;
-			}
-		});
+    level: function(realm) {
+        var tbody = $("#online_realm_" + realm + " table tbody");
+        tbody.find("tr").sort(function(a, b) {
+            var aVal = parseInt($(a).find("td:nth-child(2)").text(), 10) || 0;
+            var bVal = parseInt($(b).find("td:nth-child(2)").text(), 10) || 0;
+            return Sort.levelASC
+                ? aVal - bVal
+                : bVal - aVal;
+        }).appendTo(tbody);
 
-		if(Sort.levelASC)
-		{
-			Sort.levelASC = false;
-		}
-		else
-		{
-			Sort.levelASC = true;
-		}
-	},
+        Sort.levelASC = !Sort.levelASC;
+    },
 
-	location: function(realm)
-	{
-		$("#online_realm_" + realm + " table tr:not(:first-child)").sortElements(function(a, b)
-		{
-			if(Sort.locationASC)
-			{
-				return $(a).find("th:nth-child(5)").html() > $(b).find("th:nth-child(5)").html() ? 1 : -1;
-			}
-			else
-			{
-				return $(a).find("th:nth-child(5)").html() < $(b).find("th:nth-child(5)").html() ? 1 : -1;
-			}
-		});
+    location: function(realm) {
+        var tbody = $("#online_realm_" + realm + " table tbody");
+        tbody.find("tr").sort(function(a, b) {
+            var aVal = $(a).find("td:nth-child(5)").text().trim();
+            var bVal = $(b).find("td:nth-child(5)").text().trim();
+            return Sort.locationASC
+                ? aVal.localeCompare(bVal)
+                : bVal.localeCompare(aVal);
+        }).appendTo(tbody);
 
-		if(Sort.locationASC)
-		{
-			Sort.locationASC = false;
-		}
-		else
-		{
-			Sort.locationASC = true;
-		}
-	}
-}
+        Sort.locationASC = !Sort.locationASC;
+    }
+};

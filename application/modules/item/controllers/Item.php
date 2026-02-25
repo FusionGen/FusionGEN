@@ -58,11 +58,11 @@ class Item extends MX_Controller
             $cache2 = $this->cache->get("items/display_iconname_" . $id);
 
             if ($cache2 != false) {
-                return "<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg'></div>";
+                return "<div class='item'><a></a><img class='pe-none user-select-none' src='https://icons.wowdb.com/retail/large/" . $cache2 . ".jpg'></div>";
             } elseif ($cache2 == false) {
                 return $this->template->loadPage("icon_ajax.tpl", ['id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url]);
             } else {
-                return "<div class='item'><a></a><img src='https://icons.wowdb.com/retail/large/inv_misc_questionmark.jpg'></div>";
+                return "<div class='item'><a></a><img class='pe-none user-select-none' src='https://icons.wowdb.com/retail/large/inv_misc_questionmark.jpg'></div>";
             }
         } else {
             return $this->template->loadPage("icon_ajax.tpl", ['id' => $id, 'realm' => $this->realm, 'url' => $this->template->page_url]);

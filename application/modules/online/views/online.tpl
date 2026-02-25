@@ -15,9 +15,9 @@
                <thead>
                   <tr>
                      <th><a href="javascript:void(0)" onClick="Sort.name({$realm->getId()})">{lang("character", "online")}</a></th>
-                     <th><a href="javascript:void(0)" onClick="Sort.level({$realm->getId()})">{lang("level", "online")}</a></th>
                      <th>{lang("race", "online")}</th>
                      <th>{lang("class", "online")}</th>
+                     <th><a href="javascript:void(0)" onClick="Sort.level({$realm->getId()})">{lang("level", "online")}</a></th>
                      <th><a href="javascript:void(0)" onClick="Sort.location({$realm->getId()})">{lang("location", "online")}</a></th>
                   </tr>
                </thead>
@@ -25,9 +25,9 @@
                   {foreach from=$realm->getCharacters()->getOnlinePlayers() item=character}
                   <tr>
                      <td><a class="color-c{$character.class}" data-tip="{lang("view_profile", "online")}" href="{$url}character/{$realm->getId()}/{$character.guid}">{$character.name}</a></td>
+                     <td><img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif" class="pe-none user-select-none"></td>
+                     <td><img src="{$url}application/images/stats/{$character.class}.gif" class="pe-none user-select-none"></td>
                      <td>{$character.level}</td>
-                     <td><img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif"></td>
-                     <td><img src="{$url}application/images/stats/{$character.class}.gif"></td>
                      <td>{$realmsObj->getZone($character.zone)}</td>
                   </tr>
                   {/foreach}

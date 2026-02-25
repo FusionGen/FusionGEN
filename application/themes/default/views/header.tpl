@@ -26,8 +26,8 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 
 		<!-- Header CSS.Start -->
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Bootstrap/5.2.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Sweetalert2/11.22.5/css/sweetalert2.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Sweetalert2/css/sweetalert2.min.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/AnimateCSS/4.1.1/animate.min.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/OwlCarousel2/css/owl.carousel.min.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/OwlCarousel2/css/owl.theme.default.min.css">
@@ -54,8 +54,8 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}assets/js/jquery-3.7.1.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/js/jquery.sort.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/all.min.js" integrity="sha512-gBYquPLlR76UWqCwD06/xwal4so02RjIR0oyG1TIhSGwmBTRrIkQbaPehPF8iwuY9jFikDHMGEelt0DtY7jtvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Sweetalert2/11.22.5/js/sweetalert2.all.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Sweetalert2/js/sweetalert2.all.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/Marquee/jquery.marquee.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/OwlCarousel2/js/owl.carousel.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{$theme_path}{else}{$full_theme_path}{/if}vendor/MagnificPopup/js/jquery.magnific-popup.min.js"></script>

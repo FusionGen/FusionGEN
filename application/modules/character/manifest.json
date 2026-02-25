@@ -2,8 +2,8 @@
 	"name": "Character viewer",
 	"description": "Displays the character stats and items",
 	"author": {
-		"name": "FusionGen",
-		"website": "http:\/\/fusiongen.net"
+		"name": "FusionGEN",
+		"website": "https:\/\/fusiongen.net"
 	},
 
 	"permissions": {

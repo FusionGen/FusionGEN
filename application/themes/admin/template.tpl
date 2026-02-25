@@ -10,8 +10,7 @@
 
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/animate/animate.compat.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/assets/owl.carousel.min.css">
@@ -45,9 +44,7 @@
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/intercooler-js/intercooler.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrapv5-multiselect/js/bootstrap-multiselect.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.js"></script>
@@ -55,12 +52,7 @@
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.pie.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.categories.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/flot/jquery.flot.resize.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/raphael/raphael.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/morris/morris.min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/gauge/gauge.min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/snap.svg/snap.svg-min.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/select2/js/select2.min.js"></script>
@@ -144,14 +136,14 @@
 	<div class="wrapper">
 	<!-- Preloader -->
 	<div class="preloader">
-		<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" alt="" class="preloader-img" height="60" width="60">
+		<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" alt="" class="preloader-img pe-none user-select-none" height="60" width="60">
 	</div>
 	</div>
 	<section class="body">
 		<header class="header">
 			<div class="logo-container">
 				<a href="{$url}admin" class="logo">
-					<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" alt="" width="35" height="35">
+					<img src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/WoW_icon.svg" class="pe-none user-select-none" alt="" width="35" height="35">
 					<span class="text-light font-weight-normal">{$serverName}</span>
 				</a>
 				<div class="d-md-none toggle-sidebar-left" role="button" tabindex="0" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened" aria-label="Toggle sidebar">
@@ -195,7 +187,7 @@
 					<div id="userbox" class="userbox">
 						<a href="#" data-bs-toggle="dropdown">
 							<figure class="profile-picture">
-								<img src="{$avatar}" alt="{$nickname}" class="rounded-circle" data-lock-picture="{$avatar}">
+								<img src="{$avatar}" alt="{$nickname}" class="rounded-circle pe-none user-select-none" data-lock-picture="{$avatar}">
 							</figure>
 							<div class="profile-info" data-lock-name="{$nickname}">
 								<span class="name">{$nickname}</span>
@@ -361,7 +353,7 @@
 			<div class="content-body pt-0 pb-3">
 				<div class="row align-items-center justify-content-between flex-nowrap">
 					<div class="col-auto">
-						<a href="https://fusiongen.net/" class="logo">
+						<a href="https://fusiongen.net/" target="_blank" class="logo pe-none user-select-none">
 							<img alt="FusionGEN" class="img-fluid" src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 						</a>
 					</div>

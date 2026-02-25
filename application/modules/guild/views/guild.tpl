@@ -40,9 +40,9 @@
 					<tr>
                         {if $leader}
                             <td><a class="color-c{$leader.class}" href="{$url}character/{$realmId}/{$leader.guid}">{$leader.name}</a> <i class="fa-solid fa-crown"></i></td>
-                            <td><img src="{$url}application/images/stats/{$leader.raceId}-{$leader.gender}.gif"></td>
-                            <td><img src="{$url}application/images/stats/{$leader.classId}.gif"></td>
-                            <td><img src="{$url}application/images/factions/{$leader.faction}.png" width="18"></td>
+                            <td><img src="{$url}application/images/stats/{$leader.raceId}-{$leader.gender}.gif" class="pe-none user-select-none"></td>
+                            <td><img src="{$url}application/images/stats/{$leader.classId}.gif" class="pe-none user-select-none"></td>
+                            <td><img src="{$url}application/images/factions/{$leader.faction}.png" width="18" class="pe-none user-select-none"></td>
                             <td>{$leader.level}</td>
                             <td>{lang("leader", "guild")}</td>
 						{/if}
@@ -51,9 +51,9 @@
 								{if $character.guid != $guild.leaderguid}
 								<tr>
 									<td><a class="color-c{$character.class}" href="{$url}character/{$realmId}/{$character.guid}">{$character.name}</a></td>
-									<td><img src="{$url}application/images/stats/{$character.raceId}-{$character.gender}.gif"></td>
-									<td><img src="{$url}application/images/stats/{$character.classId}.gif"></td>
-									<td><img src="{$url}application/images/factions/{$character.faction}.png" width="18"></td>
+									<td><img src="{$url}application/images/stats/{$character.raceId}-{$character.gender}.gif" class="pe-none user-select-none"></td>
+									<td><img src="{$url}application/images/stats/{$character.classId}.gif" class="pe-none user-select-none"></td>
+									<td><img src="{$url}application/images/factions/{$character.faction}.png" width="18" class="pe-none user-select-none"></td>
 									<td>{$character.level}</td>
 									<td>{$character.rname}</td>
 								</tr>

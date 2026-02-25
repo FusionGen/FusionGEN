@@ -2,8 +2,8 @@
 	"name": "Error handler",
 	"description": "Displays permission-related errors and 404",
 	"author": {
-		"name": "FusionGen",
-		"website": "http:\/\/fusiongen.net"
+		"name": "FusionGEN",
+		"website": "https:\/\/fusiongen.net"
 	},
 	"enabled": true
 }

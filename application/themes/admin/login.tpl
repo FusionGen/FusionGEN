@@ -9,7 +9,7 @@
 		<link rel="icon" type="image/png" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/theme.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/skins/default.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2.min.css">
@@ -48,7 +48,7 @@
 				<div class="card-body">
 					<form onSubmit="Login.send(this); return false">
 						<div class="current-user text-center">
-							<img src="{$avatar}" class="rounded-circle user-image">
+							<img src="{$avatar}" class="rounded-circle user-image pe-none user-select-none">
 							<h2 class="user-name text-dark m-0">{$username}</h2>
 						</div>
 						<p class="text-center" id="error">
@@ -64,7 +64,7 @@
 						<div class="row">
 							<div class="col-6">
 								<p class="mt-1 mb-3">
-									<a href="../">Not {$username}?</a>
+									<a href="{$url}">Not {$username}?</a>
 								</p>
 							</div>
 							<div class="col-6">
