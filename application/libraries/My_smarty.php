@@ -80,7 +80,28 @@ class My_Smarty extends Smarty
                 return $this->fetch($template);
             }
         } catch (\Smarty\Exception $e) {
-            return "<span style='color:red;'><div style='font-size:16px;color:black;font-weight:bold;text-align:center;'>An error has occured while trying to load the requested view.</div><br><br><b>Template path:</b> " . $template . "<br><br><b>Error:</b> " . nl2br(preg_replace("/Stack trace\:/", "<br><b>Stack trace:</b>", $e)) . "</span>";
+
+			log_message('error', 'Smarty error: ' . $e->getMessage());
+
+            if (ENVIRONMENT !== 'production') {
+                $message = "An error has occured while trying to load the requested view.\n\n"
+                         . "Template path: {$template}\n\n"
+                         . (string) $e;
+
+                show_error(
+                    '<pre>' . htmlspecialchars($message) . '</pre>',
+                    500,
+                    'Smarty Template Error'
+                );
+
+            } else {
+                show_error(
+                    'An error has occurred while trying to load the requested view.',
+                    500,
+                    'Template Error'
+                );
+            }
+
         }
     }
 }
