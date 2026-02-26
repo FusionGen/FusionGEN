@@ -353,8 +353,8 @@
 			<div class="content-body pt-0 pb-3">
 				<div class="row align-items-center justify-content-between flex-nowrap">
 					<div class="col-auto">
-						<a href="https://fusiongen.net/" target="_blank" class="logo pe-none user-select-none">
-							<img alt="FusionGEN" class="img-fluid" src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
+						<a href="https://fusiongen.net/" target="_blank" class="logo">
+							<img alt="FusionGEN" class="img-fluid pe-none user-select-none" src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 						</a>
 					</div>
 					<div class="col text-center">

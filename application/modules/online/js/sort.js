@@ -19,8 +19,8 @@ var Sort = {
     level: function(realm) {
         var tbody = $("#online_realm_" + realm + " table tbody");
         tbody.find("tr").sort(function(a, b) {
-            var aVal = parseInt($(a).find("td:nth-child(2)").text(), 10) || 0;
-            var bVal = parseInt($(b).find("td:nth-child(2)").text(), 10) || 0;
+            var aVal = parseInt($(a).find("td:nth-child(4)").text(), 10) || 0;
+            var bVal = parseInt($(b).find("td:nth-child(4)").text(), 10) || 0;
             return Sort.levelASC
                 ? aVal - bVal
                 : bVal - aVal;
