@@ -31,6 +31,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'auth/login';
 $route['logout'] = 'auth/logout';
 //$route['register'] = 'auth/register';
+$route['register/activate/(:any)'] = 'register/activate/$1';
 $route['password_recovery'] = 'auth/password_recovery';
 $route['password_recovery/create_request'] = 'auth/password_recovery/create_request';
 $route['password_recovery/reset_password'] = 'auth/password_recovery/reset_password';

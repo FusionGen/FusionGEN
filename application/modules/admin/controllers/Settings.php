@@ -162,12 +162,20 @@ class Settings extends MX_Controller
             'smtp_pass'   => $this->input->post('pass'),
             'smtp_port'   => $this->input->post('port'),
             'smtp_crypto' => $this->input->post('crypto'),
+            'crlf'        => "\r\n",
+            'newline'     => "\r\n",
         ];
 
         $this->email->initialize($config);
 
+        $recipient = trim((string) $this->user->getEmail());
+
+        if ($recipient === '' || !filter_var($recipient, FILTER_VALIDATE_EMAIL)) {
+            die(json_encode(["error" => "Mail debug recipient is empty or invalid. Update your account email and try again."]));
+        }
+
         $this->email->from($this->config->item('smtp_sender'));
-        $this->email->to($this->user->getEmail());
+        $this->email->to($recipient);
 
         $this->email->subject('Test mail');
         $this->email->message('Looks like your mail configuration is working!');
@@ -175,9 +183,31 @@ class Settings extends MX_Controller
         if ($this->email->send()) {
             die(json_encode(["success" => "Please check your spam folder."]));
         } else {
-            $error = $this->email->print_debugger();
+            $debug_enabled = (bool) $this->config->item('smtp_debug');
+
+            if ($debug_enabled) {
+                $error = $this->email->print_debugger();
+                $error = $this->redactSmtpDebug($error, [
+                    $this->input->post('user'),
+                    $this->input->post('pass'),
+                ]);
+            } else {
+                $error = "Mail send failed. Enable smtp_debug in application/config/smtp.php to see sanitized diagnostics.";
+            }
+
             die(json_encode(["error" => $error]));
         }
+    }
+
+    private function redactSmtpDebug($debug, array $sensitive_values)
+    {
+        foreach ($sensitive_values as $value) {
+            if ($value !== null && $value !== '') {
+                $debug = str_replace($value, '[redacted]', $debug);
+            }
+        }
+
+        return $debug;
     }
 
 	public function saveSocialMedia()

@@ -621,7 +621,8 @@ CREATE TABLE `email_templates`  (
 -- Records of email_templates
 -- ----------------------------
 INSERT INTO `email_templates` (`id`, `template_name`) VALUES
-(1, 'password_recovery.tpl');
+(1, 'password_recovery.tpl'),
+(2, 'account_activation.tpl');
 
 -- ----------------------------
 -- Table structure for image_slider
@@ -837,6 +838,22 @@ CREATE TABLE `password_recovery_key`  (
   `ip` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `time` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
+
+-- ----------------------------
+-- Table structure for pending_accounts
+-- ----------------------------
+DROP TABLE IF EXISTS `pending_accounts`;
+CREATE TABLE `pending_accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `expansion` int(3) DEFAULT NULL,
+  `timestamp` int(11) DEFAULT NULL,
+  `ip` varchar(255) DEFAULT NULL,
+  `key` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of password_recovery_key
