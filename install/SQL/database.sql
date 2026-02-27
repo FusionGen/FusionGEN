@@ -6,10 +6,10 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `account_data`;
 CREATE TABLE `account_data`  (
-  `id` int(11) NOT NULL,
-  `vp` int(11) NULL DEFAULT 0,
-  `dp` int(11) NULL DEFAULT 0,
-  `total_votes` int(11) NOT NULL DEFAULT 0,
+  `id` int NOT NULL,
+  `vp` int NULL DEFAULT 0,
+  `dp` int NULL DEFAULT 0,
+  `total_votes` int NOT NULL DEFAULT 0,
   `location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `nickname` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `language` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'english',
@@ -26,8 +26,8 @@ CREATE TABLE `account_data`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_account_groups`;
 CREATE TABLE `acl_account_groups`  (
-  `account_id` int(10) UNSIGNED NOT NULL,
-  `group_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int UNSIGNED NOT NULL,
+  `group_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`account_id`, `group_id`) USING BTREE,
   UNIQUE INDEX `account_id_group_id`(`account_id`, `group_id`) USING BTREE,
   INDEX `FK__acl_groups`(`group_id`) USING BTREE,
@@ -43,10 +43,10 @@ CREATE TABLE `acl_account_groups`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_account_permissions`;
 CREATE TABLE `acl_account_permissions`  (
-  `account_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int UNSIGNED NOT NULL,
   `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `value` tinyint UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`account_id`) USING BTREE,
   UNIQUE INDEX `account_id_permission_id`(`account_id`, `permission_name`, `module`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
@@ -60,7 +60,7 @@ CREATE TABLE `acl_account_permissions`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_account_roles`;
 CREATE TABLE `acl_account_roles`  (
-  `account_id` int(11) UNSIGNED NOT NULL,
+  `account_id` int UNSIGNED NOT NULL,
   `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`account_id`, `role_name`) USING BTREE,
@@ -76,7 +76,7 @@ CREATE TABLE `acl_account_roles`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_group_roles`;
 CREATE TABLE `acl_group_roles`  (
-  `group_id` int(10) UNSIGNED NOT NULL,
+  `group_id` int UNSIGNED NOT NULL,
   `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`group_id`, `role_name`, `module`) USING BTREE,
@@ -331,7 +331,7 @@ INSERT INTO `acl_group_roles` (`group_id`, `role_name`, `module`) VALUES
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_groups`;
 CREATE TABLE `acl_groups`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `color` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '#FFFFFF',
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -375,7 +375,7 @@ CREATE TABLE `acl_roles_permissions`  (
   `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `value` tinyint UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`role_name`, `permission_name`, `module`) USING BTREE,
   UNIQUE INDEX `role_name_permission_name`(`role_name`, `permission_name`, `module`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
@@ -389,8 +389,8 @@ CREATE TABLE `acl_roles_permissions`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `article_tag`;
 CREATE TABLE `article_tag`  (
-  `article_id` int(11) NOT NULL,
-  `tag_id` int(10) NOT NULL,
+  `article_id` int NOT NULL,
+  `tag_id` int NOT NULL,
   PRIMARY KEY (`article_id`, `tag_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -403,11 +403,11 @@ CREATE TABLE `article_tag`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `articles`;
 CREATE TABLE `articles`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `timestamp` int(11) NOT NULL,
-  `author_id` int(11) NOT NULL,
-  `comments` int(11) NULL DEFAULT 0,
-  `type` int(11) NULL DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `timestamp` int NOT NULL,
+  `author_id` int NOT NULL,
+  `comments` int NULL DEFAULT 0,
+  `type` int NULL DEFAULT NULL,
   `type_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `headline_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `content_en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -441,9 +441,9 @@ CREATE TABLE `articles`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `avatars`;
 CREATE TABLE `avatars`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `avatar` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `staff` int(1) NOT NULL DEFAULT 0,
+  `staff` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT= 25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -481,7 +481,7 @@ INSERT INTO `avatars` (`id`, `avatar`, `staff`) VALUES
 -- ----------------------------
 DROP TABLE IF EXISTS `backup`;
 CREATE TABLE `backup`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `backup_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`) USING BTREE,
@@ -497,11 +497,11 @@ CREATE TABLE `backup`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `changelog`;
 CREATE TABLE `changelog`  (
-  `change_id` int(10) NOT NULL AUTO_INCREMENT,
+  `change_id` int NOT NULL AUTO_INCREMENT,
   `changelog` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `author` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` int(10) NOT NULL,
-  `time` int(10) NOT NULL,
+  `type` int NOT NULL,
+  `time` int NOT NULL,
   PRIMARY KEY (`change_id`) USING BTREE,
   INDEX `FK_changelog_changelog_type`(`type`) USING BTREE,
   CONSTRAINT `FK_changelog_changelog_type` FOREIGN KEY (`type`) REFERENCES `changelog_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -516,7 +516,7 @@ CREATE TABLE `changelog`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `changelog_type`;
 CREATE TABLE `changelog_type`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `typeName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `id`(`id`) USING BTREE
@@ -531,11 +531,11 @@ CREATE TABLE `changelog_type`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `failed_logins`;
 CREATE TABLE `failed_logins`  (
-  `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `attempts` int(5) NOT NULL DEFAULT 0,
+  `attempts` int NOT NULL DEFAULT 0,
   `last_attempt` datetime NULL DEFAULT NULL,
-  `block_until` int(11) NULL DEFAULT NULL,
+  `block_until` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -547,7 +547,7 @@ CREATE TABLE `ci_sessions`  (
   `id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `ip_address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `user_agent` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `timestamp` int UNSIGNED NOT NULL DEFAULT 0,
   `data` mediumblob NOT NULL,
   PRIMARY KEY (`id`, `ip_address`) USING BTREE,
   INDEX `last_activity_idx`(`timestamp`) USING BTREE
@@ -562,12 +562,12 @@ CREATE TABLE `ci_sessions`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `article_id` int(11) NOT NULL,
-  `author_id` int(11) NOT NULL,
-  `timestamp` int(11) NULL DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `article_id` int NOT NULL,
+  `author_id` int NOT NULL,
+  `timestamp` int NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `is_gm` int(1) NOT NULL DEFAULT 0,
+  `is_gm` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -581,7 +581,7 @@ CREATE TABLE `comments`  (
 DROP TABLE IF EXISTS `daily_signups`;
 CREATE TABLE `daily_signups`  (
   `date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `amount` int(11) NULL DEFAULT 0,
+  `amount` int NULL DEFAULT 0,
   PRIMARY KEY (`date`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -594,8 +594,8 @@ CREATE TABLE `daily_signups`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `email_log`;
 CREATE TABLE `email_log`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NULL DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `uid` int NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -612,7 +612,7 @@ CREATE TABLE `email_log`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `email_templates`;
 CREATE TABLE `email_templates`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `template_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
@@ -628,11 +628,11 @@ INSERT INTO `email_templates` (`id`, `template_name`) VALUES
 -- ----------------------------
 DROP TABLE IF EXISTS `image_slider`;
 CREATE TABLE `image_slider`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '#',
   `text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `order` int(11) NULL DEFAULT NULL,
+  `order` int NULL DEFAULT NULL,
   `header` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `body` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `footer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -654,7 +654,7 @@ INSERT INTO `image_slider` (`id`, `image`, `link`, `text`, `order`, `header`, `b
 -- ----------------------------
 DROP TABLE IF EXISTS `item_icons`;
 CREATE TABLE `item_icons` (
-  `item_id` int(11) NOT NULL,
+  `item_id` int NOT NULL,
   `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`item_id`) USING BTREE
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
@@ -668,16 +668,16 @@ CREATE TABLE `item_icons` (
 -- ----------------------------
 DROP TABLE IF EXISTS `logs`;
 CREATE TABLE `logs`  (
-  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `module` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint UNSIGNED NOT NULL,
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `event` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('failed','succeed') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'succeed',
   `custom` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` int(11) NOT NULL,
+  `time` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
@@ -691,16 +691,16 @@ CREATE TABLE `logs`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '#',
   `side` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'top',
-  `rank` int(11) NOT NULL,
-  `specific_rank` tinyint(1) NOT NULL DEFAULT 0,
-  `order` int(11) NULL DEFAULT NULL,
+  `rank` int NOT NULL,
+  `specific_rank` tinyint NOT NULL DEFAULT 0,
+  `order` int NULL DEFAULT NULL,
   `permission` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `lrd` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `dropdown_id` int(11) NULL DEFAULT NULL,
+  `dropdown_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK_menu_ranks`(`rank`) USING BTREE,
   CONSTRAINT `FK_menu_ranks` FOREIGN KEY (`rank`) REFERENCES `ranks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -722,14 +722,14 @@ INSERT INTO `menu` (`id`, `name`, `link`, `side`, `rank`, `specific_rank`, `orde
 -- ----------------------------
 DROP TABLE IF EXISTS `mod_logs`;
 CREATE TABLE `mod_logs`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `action` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mod` int(11) UNSIGNED NULL DEFAULT NULL,
+  `mod` int UNSIGNED NULL DEFAULT NULL,
   `affected` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `ip` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` int(11) NOT NULL,
-  `isAcc` int(1) NOT NULL,
-  `realm` int(1) NOT NULL,
+  `time` int NOT NULL,
+  `isAcc` int NOT NULL,
+  `realm` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -743,7 +743,7 @@ CREATE TABLE `mod_logs`  (
 DROP TABLE IF EXISTS `monthly_income`;
 CREATE TABLE `monthly_income`  (
   `month` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `amount` int(11) NULL DEFAULT 0,
+  `amount` int NULL DEFAULT 0,
   PRIMARY KEY (`month`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -759,7 +759,7 @@ INSERT INTO `monthly_income` (`month`, `amount`) VALUES
 DROP TABLE IF EXISTS `monthly_votes`;
 CREATE TABLE `monthly_votes`  (
   `month` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `amount` int(11) NULL DEFAULT 0,
+  `amount` int NULL DEFAULT 0,
   PRIMARY KEY (`month`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -772,11 +772,11 @@ CREATE TABLE `monthly_votes`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `notifications`;
 CREATE TABLE `notifications`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `uid` int NOT NULL,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `read` int(1) NOT NULL DEFAULT 0,
-  `time` int(11) NOT NULL,
+  `read` int NOT NULL DEFAULT 0,
+  `time` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -789,13 +789,13 @@ CREATE TABLE `notifications`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `order_log`;
 CREATE TABLE `order_log`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `completed` int(1) NULL DEFAULT NULL,
-  `user_id` int(11) NULL DEFAULT NULL,
-  `vp_cost` int(11) NULL DEFAULT NULL,
-  `dp_cost` int(11) NULL DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `completed` int NULL DEFAULT NULL,
+  `user_id` int NULL DEFAULT NULL,
+  `vp_cost` int NULL DEFAULT NULL,
+  `dp_cost` int NULL DEFAULT NULL,
   `cart` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `timestamp` int(11) NULL DEFAULT NULL,
+  `timestamp` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -808,12 +808,12 @@ CREATE TABLE `order_log`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `identifier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `content` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `permission` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `rank_needed` int(10) NOT NULL DEFAULT 1,
+  `rank_needed` int NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `identifier`(`identifier`) USING BTREE,
   INDEX `fk_rank_needed_ranks`(`rank_needed`) USING BTREE,
@@ -835,7 +835,7 @@ CREATE TABLE `password_recovery_key`  (
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `ip` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` int(10) NOT NULL
+  `time` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
@@ -859,7 +859,7 @@ CREATE TABLE `paygol_logs`  (
   `points` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `currency` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `timestamp` int(11) NULL DEFAULT NULL,
+  `timestamp` int NULL DEFAULT NULL,
   PRIMARY KEY (`message_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -872,10 +872,10 @@ CREATE TABLE `paygol_logs`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `paypal_donate`;
 CREATE TABLE `paypal_donate`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `tax` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `points` int(11) NULL DEFAULT 0,
+  `points` int NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -896,16 +896,16 @@ INSERT INTO `paypal_donate` (`id`, `price`, `points`) VALUES
 -- ----------------------------
 DROP TABLE IF EXISTS `paypal_logs`;
 CREATE TABLE `paypal_logs`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
   `payment_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `total` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `points` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `create_time` int(11) NULL DEFAULT NULL,
+  `create_time` int NULL DEFAULT NULL,
   `currency` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `error` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
+  `status` int NOT NULL DEFAULT 0,
   `invoice_number` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `payer_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
@@ -922,13 +922,13 @@ CREATE TABLE `paypal_logs`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `ranks`;
 CREATE TABLE `ranks`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `rank_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'RANK',
   `access_id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0',
-  `is_gm` int(1) NULL DEFAULT 0,
-  `is_dev` int(1) NULL DEFAULT 0,
-  `is_admin` int(1) NULL DEFAULT 0,
-  `is_owner` int(1) NULL DEFAULT 0,
+  `is_gm` int NULL DEFAULT 0,
+  `is_dev` int NULL DEFAULT 0,
+  `is_admin` int NULL DEFAULT 0,
+  `is_owner` int NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -948,24 +948,24 @@ INSERT INTO `ranks` (`id`, `rank_name`, `access_id`, `is_gm`, `is_dev`, `is_admi
 -- ----------------------------
 DROP TABLE IF EXISTS `realms`;
 CREATE TABLE `realms`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `hostname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `char_database` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `world_database` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `cap` int(5) NULL DEFAULT 100,
+  `cap` int NULL DEFAULT 100,
   `realmName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `console_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `console_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `console_port` int(6) NULL DEFAULT NULL,
+  `console_port` int NULL DEFAULT NULL,
   `emulator` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `realm_port` int(11) NULL DEFAULT NULL,
-  `override_port_world` int(11) NULL DEFAULT NULL,
+  `realm_port` int NULL DEFAULT NULL,
+  `override_port_world` int NULL DEFAULT NULL,
   `override_username_world` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `override_password_world` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `override_hostname_world` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `override_port_char` int(11) NULL DEFAULT NULL,
+  `override_port_char` int NULL DEFAULT NULL,
   `override_username_char` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `override_password_char` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `override_hostname_char` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -980,11 +980,11 @@ CREATE TABLE `realms`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes`;
 CREATE TABLE `sideboxes`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `displayName` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `rank_needed` int(10) NOT NULL DEFAULT 1,
-  `order` int(11) NULL DEFAULT 1,
+  `rank_needed` int NOT NULL DEFAULT 1,
+  `order` int NULL DEFAULT 1,
   `permission` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_sb_rank_needed`(`rank_needed`) USING BTREE,
@@ -1004,7 +1004,7 @@ INSERT INTO `sideboxes` (`id`, `type`, `displayName`, `rank_needed`, `order`, `p
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_custom`;
 CREATE TABLE `sideboxes_custom`  (
-  `sidebox_id` int(10) NOT NULL,
+  `sidebox_id` int NOT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   UNIQUE INDEX `sidebox_id`(`sidebox_id`) USING BTREE,
   CONSTRAINT `FK_sideboxes_custom_sideboxes` FOREIGN KEY (`sidebox_id`) REFERENCES `sideboxes` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
@@ -1019,8 +1019,8 @@ CREATE TABLE `sideboxes_custom`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_poll_answers`;
 CREATE TABLE `sideboxes_poll_answers`  (
-  `answerid` int(10) NOT NULL AUTO_INCREMENT,
-  `questionid` int(10) NOT NULL,
+  `answerid` int NOT NULL AUTO_INCREMENT,
+  `questionid` int NOT NULL,
   `answer` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`answerid`) USING BTREE,
   INDEX `FK__sideboxes_poll_questions`(`questionid`) USING BTREE,
@@ -1036,7 +1036,7 @@ CREATE TABLE `sideboxes_poll_answers`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_poll_questions`;
 CREATE TABLE `sideboxes_poll_questions`  (
-  `questionid` int(10) NOT NULL AUTO_INCREMENT,
+  `questionid` int NOT NULL AUTO_INCREMENT,
   `question` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`questionid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
@@ -1050,10 +1050,10 @@ CREATE TABLE `sideboxes_poll_questions`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_poll_votes`;
 CREATE TABLE `sideboxes_poll_votes`  (
-  `questionid` int(11) NULL DEFAULT NULL,
-  `answerid` int(11) NULL DEFAULT NULL,
-  `userid` int(11) NULL DEFAULT NULL,
-  `time` int(11) NULL DEFAULT NULL,
+  `questionid` int NULL DEFAULT NULL,
+  `answerid` int NULL DEFAULT NULL,
+  `userid` int NULL DEFAULT NULL,
+  `time` int NULL DEFAULT NULL,
   INDEX `fk_answers`(`questionid`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -1066,7 +1066,7 @@ CREATE TABLE `sideboxes_poll_votes`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `spelltext_en`;
 CREATE TABLE `spelltext_en`  (
-  `spellId` int(11) NOT NULL,
+  `spellId` int NOT NULL,
   `spellText` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
@@ -7580,9 +7580,9 @@ INSERT INTO `spelltext_en` (`spellId`, `spellText`) VALUES
 -- ----------------------------
 DROP TABLE IF EXISTS `store_groups`;
 CREATE TABLE `store_groups`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `orderNumber` int(8) NULL DEFAULT 0,
+  `orderNumber` int NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Compact;
 
@@ -7597,23 +7597,23 @@ INSERT INTO `store_groups` (`id`, `title`, `orderNumber`) VALUES
 -- ----------------------------
 DROP TABLE IF EXISTS `store_items`;
 CREATE TABLE `store_items`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `itemid` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `quality` int(2) NULL DEFAULT NULL,
-  `vp_price` int(4) NULL DEFAULT NULL,
-  `dp_price` int(4) NULL DEFAULT NULL,
-  `realm` int(3) NULL DEFAULT NULL,
+  `quality` int NULL DEFAULT NULL,
+  `vp_price` int NULL DEFAULT NULL,
+  `dp_price` int NULL DEFAULT NULL,
+  `realm` int NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `icon` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'inv_misc_questionmark',
-  `group` int(11) NULL DEFAULT NULL,
+  `group` int NULL DEFAULT NULL,
   `query` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `query_database` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
-  `query_need_character` int(1) NULL DEFAULT 0,
+  `query_need_character` int NULL DEFAULT 0,
   `command` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `command_need_character` int(1) NULL DEFAULT NULL,
-  `require_character_offline` int(1) NOT NULL DEFAULT 0,
-  `tooltip` int(1) NULL DEFAULT 0,
+  `command_need_character` int NULL DEFAULT NULL,
+  `require_character_offline` int NOT NULL DEFAULT 0,
+  `tooltip` int NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_group`(`group`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Compact;
@@ -7627,7 +7627,7 @@ CREATE TABLE `store_items`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
@@ -7642,19 +7642,19 @@ CREATE TABLE `tag`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `teleport_locations`;
 CREATE TABLE `teleport_locations`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Unnamed',
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `x` float NULL DEFAULT 0,
   `y` float NULL DEFAULT 0,
   `z` float NULL DEFAULT 0,
   `orientation` float NULL DEFAULT 0,
-  `mapId` smallint(6) NULL DEFAULT 0,
-  `vpCost` int(11) NULL DEFAULT 0,
-  `dpCost` int(11) NULL DEFAULT 0,
-  `goldCost` int(11) NULL DEFAULT 0,
-  `realm` int(11) NULL DEFAULT 1,
-  `required_faction` int(1) NOT NULL DEFAULT 0,
+  `mapId` smallint NULL DEFAULT 0,
+  `vpCost` int NULL DEFAULT 0,
+  `dpCost` int NULL DEFAULT 0,
+  `goldCost` int NULL DEFAULT 0,
+  `realm` int NULL DEFAULT 1,
+  `required_faction` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `realm_fk`(`realm`) USING BTREE,
   CONSTRAINT `realm_fk` FOREIGN KEY (`realm`) REFERENCES `realms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -7669,7 +7669,7 @@ CREATE TABLE `teleport_locations`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `visitor_log`;
 CREATE TABLE `visitor_log`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `date` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `timestamp` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -7685,11 +7685,11 @@ CREATE TABLE `visitor_log`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `vote_log`;
 CREATE TABLE `vote_log`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `vote_site_id` int(10) NOT NULL DEFAULT 0,
-  `user_id` int(50) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `vote_site_id` int NOT NULL DEFAULT 0,
+  `user_id` int NOT NULL,
   `ip` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '127.0.0.1',
-  `time` int(10) NOT NULL DEFAULT 0,
+  `time` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FK_vote_log_vote_sites`(`vote_site_id`) USING BTREE,
   CONSTRAINT `FK_vote_log_vote_sites` FOREIGN KEY (`vote_site_id`) REFERENCES `vote_sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -7704,13 +7704,13 @@ CREATE TABLE `vote_log`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `vote_sites`;
 CREATE TABLE `vote_sites`  (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `vote_sitename` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'FusionGen',
+  `id` int NOT NULL AUTO_INCREMENT,
+  `vote_sitename` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'FusionGEN',
   `vote_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'https://',
   `vote_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `hour_interval` int(10) NOT NULL DEFAULT 12,
-  `points_per_vote` tinyint(4) NOT NULL DEFAULT 1,
-  `callback_enabled` int(1) NOT NULL DEFAULT 0,
+  `hour_interval` int NOT NULL DEFAULT 12,
+  `points_per_vote` tinyint NOT NULL DEFAULT 1,
+  `callback_enabled` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
