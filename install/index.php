@@ -19,7 +19,7 @@ $openssl_success = false;
 $zip_success = false;
 $xml_success = false;
 
-$php_version_min = "8.1.0";
+$php_version_min = "8.2.0";
 $php_version_max = "8.5.3";
 $current_php_version = phpversion();
 
