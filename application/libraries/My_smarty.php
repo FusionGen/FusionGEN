@@ -81,25 +81,13 @@ class My_Smarty extends Smarty
             }
         } catch (\Smarty\Exception $e) {
 
-			log_message('error', 'Smarty error: ' . $e->getMessage());
+            log_message('error', 'Smarty error: ' . $e->getMessage());
 
             if (ENVIRONMENT !== 'production') {
-                $message = "An error has occured while trying to load the requested view.\n\n"
-                         . "Template path: {$template}\n\n"
-                         . (string) $e;
-
-                show_error(
-                    '<pre>' . htmlspecialchars($message) . '</pre>',
-                    500,
-                    'Smarty Template Error'
-                );
-
+                $message = "An error has occured while trying to load the requested view.\n\n" . "Template path: {$template}\n\n" . (string) $e;
+                show_error('<pre>' . htmlspecialchars($message) . '</pre>', 500, 'Smarty Template Error');
             } else {
-                show_error(
-                    'An error has occurred while trying to load the requested view.',
-                    500,
-                    'Template Error'
-                );
+                show_error('An error has occurred while trying to load the requested view.', 500, 'Template Error');
             }
 
         }
