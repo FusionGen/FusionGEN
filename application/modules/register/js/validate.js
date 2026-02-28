@@ -19,13 +19,20 @@ var Validate = {
             success: function(response) {
                 Swal.close(); // Close any loading indicators
                 if (response.status === 'success') {
-                    Swal.fire({
-                        icon: 'success',
-                        text: lang("the_account", "register") + ' ' + $('#register_username').val() + ' ' + lang("has_been_created_redirecting", "register") + ' ' + lang("user_panel", "register"),
-                        timer: 2500
-                    }).then(() => {
-                        window.location = Config.URL + "ucp"; // Redirect the user
-                    });
+                    if (response.email_activation) {
+                        Swal.fire({
+                            icon: 'success',
+                            text: lang("the_account", "register") + ' ' + $('#register_username').val() + ' ' + lang("has_been_created", "register")
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'success',
+                            text: lang("the_account", "register") + ' ' + $('#register_username').val() + ' ' + lang("has_been_created_redirecting", "register") + ' ' + lang("user_panel", "register"),
+                            timer: 2500
+                        }).then(() => {
+                            window.location = Config.URL + "ucp"; // Redirect the user
+                        });
+                    }
                 } else if (response.errors) {
                     // Display field-specific errors
                     $.each(response.errors, function(field, error) {

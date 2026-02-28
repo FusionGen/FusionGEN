@@ -16,6 +16,13 @@ function sendMail($receiver, $subject, $username, $message, $templateId)
         $CI = &get_instance();
     }
 
+    $receiver = trim((string) $receiver);
+
+    if ($receiver === '' || !filter_var($receiver, FILTER_VALIDATE_EMAIL)) {
+        log_message('error', 'sendMail: recipient is empty or invalid.');
+        return false;
+    }
+
     // Make sure the website has SMTP available
     if (!$CI->config->item('has_smtp')) {
         return false;

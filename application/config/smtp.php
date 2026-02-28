@@ -18,3 +18,4 @@ $config['smtp_user'] = "";
 $config['smtp_pass'] = "";
 $config['smtp_port'] = 25;
 $config['smtp_crypto'] = "tls";
+$config['smtp_debug'] = false;

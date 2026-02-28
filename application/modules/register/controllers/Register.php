@@ -16,7 +16,10 @@ class Register extends MX_Controller
 
         $this->load->helper('email_helper');
 
+        $this->load->config('activation');
         $this->load->config('captcha');
+
+        $this->load->model('activation_model');
     }
 
     public function index()
@@ -29,6 +32,7 @@ class Register extends MX_Controller
         clientLang("password_limit_length", "register");
         clientLang("pw_dont_match", "register");
         clientLang("the_account", "register");
+        clientLang("has_been_created", "register");
         clientLang("has_been_created_redirecting", "register");
         clientLang("user_panel", "register");
 
@@ -72,15 +76,40 @@ class Register extends MX_Controller
             }
 
             if (empty($response['errors']) && $this->form_validation->run()) {
+                $username = $this->input->post('register_username');
+                $password = $this->input->post('register_password');
+                $email = $this->input->post('register_email');
+                $activationEnabled = (bool) $this->config->item('enable_email_activation');
+
+                if ($activationEnabled) {
+                    $expansion = $this->config->item('max_expansion');
+                    $key = $this->activation_model->add($username, $password, $email, $expansion);
+                    $link = base_url() . 'register/activate/' . $key;
+
+                    $subject = $this->config->item('server_name') . ': ' . lang("confirm_account", "register");
+                    $message = lang("the_account", "register") . ' <b>' . $username . '</b> ' .
+                        lang("has_been_created", "register") . ' <a href="' . $link . '">' . $link . '</a>';
+
+                    sendMail(
+                        $email,
+                        $subject,
+                        $username,
+                        $message,
+                        2
+                    );
+
+                    die(json_encode(['status' => 'success', 'email_activation' => true]));
+                }
+
                 // If all validations pass, create the account
-                $this->external_account_model->createAccount($this->input->post('register_username'), $this->input->post('register_password'), $this->input->post('register_email'));
+                $this->external_account_model->createAccount($username, $password, $email);
 
                 // Log in the user
-                $salt = $this->user->createHash($this->input->post('register_username'), $this->input->post('register_password'));
-                $this->user->setUserDetails($this->input->post('register_username'), $salt["verifier"]);
+                $salt = $this->user->createHash($username, $password);
+                $this->user->setUserDetails($username, $salt["verifier"]);
 
                 // Return success and instruct client to redirect
-                die(json_encode(['status' => 'success']));
+                die(json_encode(['status' => 'success', 'email_activation' => false]));
             } else {
                 // Return validation errors
                 die(json_encode($response));
@@ -109,5 +138,49 @@ class Register extends MX_Controller
     public function email_check($email)
     {
         return !$this->external_account_model->emailExists($email);
+    }
+
+    public function activate($key = null)
+    {
+        if (!$key) {
+            $this->showActivationError();
+            return;
+        }
+
+        $account = $this->activation_model->getAccount($key);
+
+        if (!$account) {
+            $this->showActivationError();
+            return;
+        }
+
+        $this->activation_model->remove($account['id'], $account['username'], $account['email']);
+
+        $this->external_account_model->createAccount($account['username'], $account['password'], $account['email']);
+
+        $salt = $this->user->createHash($account['username'], $account['password']);
+        $this->user->setUserDetails($account['username'], $salt["verifier"]);
+
+        $data = [
+            "url" => $this->template->page_url,
+            "account" => $account['username'],
+            "auto_login" => true,
+            "message" => lang("has_been_created_redirecting", "register") . " " . lang("user_panel", "register") . "..."
+        ];
+
+        $this->template->view($this->template->loadPage("page.tpl", [
+            "module" => "default",
+            "headline" => lang("created", "register"),
+            "content" => $this->template->loadPage("register_success.tpl", $data),
+        ]));
+    }
+
+    private function showActivationError()
+    {
+        $this->template->view($this->template->loadPage("page.tpl", [
+            "module" => "default",
+            "headline" => lang("invalid_key", "register"),
+            "content" => "<div class='text-center py-5 fw-bold'>" . lang("invalid_key_long", "register") . "</div>",
+        ]));
     }
 }
