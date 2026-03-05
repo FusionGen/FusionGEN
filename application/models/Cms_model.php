@@ -259,42 +259,6 @@ class Cms_model extends CI_Model
         }
     }
 
-    public function getNotifications($id, $count = false)
-    {
-        if ($count) {
-            $this->db->select('*');
-            $this->db->where('uid', $id);
-            $this->db->where('read', 0);
-            $result = $this->db->count_all_results('notifications');
-
-            return $result;
-        } else {
-            $this->db->select('*')->from('notifications')->where('uid', $id);
-            $query = $this->db->get();
-
-            if ($query->num_rows() > 0) {
-                $result = $query->result_array();
-                return $result;
-            }
-        }
-
-        return null;
-    }
-
-    public function setReadNotification($id, $uid, $all = false)
-    {
-        if ($all) {
-            $this->db->set('read', 1);
-            $this->db->where('uid', $uid);
-            $this->db->update('notifications');
-        } else {
-            $this->db->set('read', 1);
-            $this->db->where('id', $id);
-            $this->db->where('uid', $uid);
-            $this->db->update('notifications');
-        }
-    }
-
     private function setLangugage()
     {
         $langs = $this->agent->languages();
