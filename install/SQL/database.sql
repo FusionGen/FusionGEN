@@ -768,23 +768,6 @@ CREATE TABLE `monthly_votes`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for notifications
--- ----------------------------
-DROP TABLE IF EXISTS `notifications`;
-CREATE TABLE `notifications`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `uid` int NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `read` int NOT NULL DEFAULT 0,
-  `time` int NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
-
--- ----------------------------
--- Records of notifications
--- ----------------------------
-
--- ----------------------------
 -- Table structure for order_log
 -- ----------------------------
 DROP TABLE IF EXISTS `order_log`;

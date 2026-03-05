@@ -261,9 +261,6 @@ class Administrator
             }
         }
 
-        $notifications = $this->CI->cms_model->getNotifications($this->CI->user->getId(), true);
-        //var_dump($notifications);
-
         // Gather the theme data
         $data = [
             "page" => '<div id="content_ajax">' . $content . '</div>',
@@ -279,8 +276,7 @@ class Administrator
             "serverName" => $this->CI->config->item('server_name'),
             "avatar"    => $this->CI->user->getAvatar($this->CI->user->getId()),
             "groups" => $this->CI->acl_model->getGroupsByUser(),
-            "notifications" => $notifications,
-            "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : null
+            "cdn_link" => $this->CI->config->item('cdn') === true ? $this->CI->config->item('cdn_link') : false
         ];
 
         // Load the main template

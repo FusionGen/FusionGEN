@@ -261,40 +261,4 @@ class Admin extends MX_Controller
     {
         $this->session->unset_userdata('admin_access');
     }
-
-    public function notifications($count = false)
-    {
-        if ($count)
-        {
-            $notifications = $this->cms_model->getNotifications($this->user->getId(), true);
-
-            echo $notifications;
-			die();
-        } else {
-            $notifications = $this->cms_model->getNotifications($this->user->getId(), false);
-
-            $data = [
-                'notifications' => $notifications,
-            ];
-
-            $out = $this->template->loadPage("notifications.tpl", $data);
-
-            echo $out;
-			die();
-        }
-    }
-
-    public function markReadNotification($id, $all = false)
-    {
-        if ($all)
-        {
-            $uid = $this->user->getId();
-            $this->cms_model->setReadNotification($id, $uid, true);
-            die('yes');
-        } else {
-            $uid = $this->user->getId();
-            $this->cms_model->setReadNotification($id, $uid, false);
-            die('yes');
-        }
-    }
 }
