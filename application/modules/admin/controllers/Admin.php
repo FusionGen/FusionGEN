@@ -14,8 +14,6 @@ class Admin extends MX_Controller
 
         $this->load->library('administrator');
 
-        require_once('application/libraries/Prettyjson.php');
-
         $this->load->model('dashboard_model');
 
         requirePermission("view");
