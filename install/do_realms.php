@@ -1,8 +1,8 @@
 <?php
 if (file_exists(".lock"))
 {
-	header("HTTP/1.1 403 Forbidden");
-	exit();
+    header("HTTP/1.1 403 Forbidden");
+    exit();
 }
 
 class Realms
@@ -20,7 +20,7 @@ class Realms
             }
         }
 
-        if (isset($_POST))
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
             $hostname = $_POST["hostname"];
             $username = $_POST["username"];
@@ -104,43 +104,34 @@ class Realms
                 exit();
             }
 
-            $query = ("INSERT INTO realms(`hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
-                        VALUES(
-                            '" . $hostname . "',
-                            '" . $username . "',
-                            '" . $password . "',
-                            '" . $characters . "',
-                            '" . $world . "',
-                            '" . $cap . "',
-                            '" . $realmName . "',
-                            '" . $console_username . "',
-                            '" . $console_password . "',
-                            '" . $console_port . "',
-                            '" . $emulator . "',
-                            '" . $realm_port . "',
-                            '" . $db_port . "',
-                            '" . $username . "',
-                            '" . $password . "',
-                            '" . $hostname . "',
-                            '" . $db_port . "',
-                            '" . $username . "',
-                            '" . $password . "',
-                            '" . $hostname . "');");
+            $sql = "INSERT INTO realms(`hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            if (mysqli_query($mysqli_cms, $query))
+            if ($stmt = $mysqli_cms->prepare($sql))
             {
-                echo json_encode([
-                    "success" => true
-                ]);
-                exit();
+                $stmt->bind_param("sssssisssisiisssisss", $hostname, $username, $password, $characters, $world, $cap, $realmName, $console_username, $console_password, $console_port, $emulator, $realm_port, $db_port, $username, $password, $hostname, $db_port, $username, $password, $hostname);
+
+                if ($stmt->execute())
+                {
+                    echo json_encode(["success" => true]);
+                }
+                else
+                {
+                    echo json_encode([
+                        "success" => false,
+                        "message" => "Execution error: " . $stmt->error
+                    ]);
+                }
+                $stmt->close();
             }
             else
             {
                 echo json_encode([
                     "success" => false,
-                    "message" => mysqli_error($mysqli_cms)
+                    "message" => "Prepare error: " . $mysqli_cms->error
                 ]);
             }
+            exit();
         }
     }
 
