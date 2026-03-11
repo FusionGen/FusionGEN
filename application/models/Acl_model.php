@@ -20,7 +20,7 @@ class Acl_model extends CI_Model
             $id = $this->user->getId($this->config->item('owner'));
 
             if (!$id) {
-                show_error("The owner account that was specified during the installation does not exist. Please reinstall FusionCMS.");
+                show_error("The owner account that was specified during the installation does not exist. Please reinstall FusionGEN.");
             }
 
             $this->assignGroupToUser($group, $id);

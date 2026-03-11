@@ -3,9 +3,9 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 
 if (file_exists(".lock"))
 {
-	header("HTTP/1.1 301 Moved Permanently");
-	header("Location: /index.php");
-	exit();
+    header("HTTP/1.1 301 Moved Permanently");
+    header("Location: /index.php");
+    exit();
 }
 
 $php_version_success = false;

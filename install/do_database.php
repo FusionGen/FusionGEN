@@ -1,13 +1,15 @@
 <?php
 if (file_exists(".lock"))
 {
-	header("HTTP/1.1 403 Forbidden");
-	exit();
+    header("HTTP/1.1 403 Forbidden");
+    exit();
 }
 
-set_time_limit(600);
+if (\function_exists('set_time_limit')) {
+    set_time_limit(300);
+}
 
-if (isset($_POST)) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = $_POST["host"];
     $dbuser = $_POST["dbuser"];
     $dbpassword = $_POST["dbpassword"];
@@ -30,7 +32,7 @@ if (isset($_POST)) {
     } catch (Exception $e) {
         echo json_encode(["success" => false, "message" => "Fusion DB: ".$e->getMessage()]);
         exit();
-	}
+    }
 
     $result = mysqli_query($mysqli_fusion, "SELECT VERSION() as mysql_version");
     $row = mysqli_fetch_assoc($result);
@@ -41,9 +43,9 @@ if (isset($_POST)) {
         $version = substr($row['mysql_version'], 0, strpos($row['mysql_version'], "-"));
     }
 
-    if (version_compare($version, '5.7.0', '<'))
+    if (version_compare($version, '8.0.0', '<'))
     {
-        echo json_encode(["success" => false, "message" => "Fusion DB: MySQL server version is too old! Please use at least MySQL 5.7"]);
+        echo json_encode(["success" => false, "message" => "Fusion DB: MySQL server version is too old! Please use at least MySQL 8.0"]);
         exit();
     }
 
@@ -52,7 +54,7 @@ if (isset($_POST)) {
     } catch (Exception $e) {
         echo json_encode(["success" => false, "message" => "Auth DB: ".$e->getMessage()]);
         exit();
-	}
+    }
 
     if (!is_file('SQL/database.sql'))
     {
@@ -60,11 +62,7 @@ if (isset($_POST)) {
         exit();
     }
 
-    if (file_exists("../application/config/database.php"))
-    {
-        unlink("../application/config/database.php");
-    }
-    $db = fopen("../application/config/database.php", "w");
+    $dbPath = '../application/config/database.php';
 
     $raw = '<?php
 $active_group = "cms";
@@ -115,21 +113,20 @@ $db["account"] = [
     "save_queries" => true
 ];';
 
-    fwrite($db, $raw);
-    fclose($db);
+    file_put_contents($dbPath, $raw);
 
-    //start installation
+    // start installation
     $sql = file_get_contents("SQL/database.sql");
 
     try {
         $mysqli_fusion->multi_query($sql);
-        do {	}
+        do {    }
 
         while (mysqli_more_results($mysqli_fusion) && mysqli_next_result($mysqli_fusion));
     } catch (Exception $e) {
         echo json_encode(["success" => false, "message" => "Fusion DB import failed! Error: ".$e->getMessage()]);
         exit();
-	}
+    }
 
     $mysqli_fusion->close();
     // database created

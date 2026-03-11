@@ -1,13 +1,15 @@
 <?php
 if (file_exists(".lock"))
 {
-	header("HTTP/1.1 403 Forbidden");
-	exit();
+    header("HTTP/1.1 403 Forbidden");
+    exit();
 }
 
-ini_set('set_time_limit', 30);
+if (\function_exists('set_time_limit')) {
+    set_time_limit(30);
+}
 
-if (isset($_POST)) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $server_name = $_POST['server_name'];
     $realmlist = $_POST['realmlist'];

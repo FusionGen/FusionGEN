@@ -20,7 +20,7 @@
     <body>
         <div class="install-box">
             <div class="panel panel-install">
-                <div class="panel-heading text-center">                    
+                <div class="panel-heading text-center">
 					<img src="assets/images/logo.png">
                 </div>
                 <div class="panel-body no-padding">
@@ -30,7 +30,7 @@
 						<div id="general" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> General</strong></div>
                         <div id="database" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Database</strong></div>
 						<div id="realms" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Realms</strong></div>
-                        <div id="finished" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Finish</strong></div> 
+                        <div id="finished" class="tab-title col-sm-3"><i class="fa fa-circle-o"></i><strong> Finish</strong></div>
                     </div>
                     <div id="alert-container"></div>
 
@@ -40,14 +40,14 @@
 								<div>
 									<div class="introduction">
 										<center><h3>Welcome to FusionGEN</h3></center>
-										<center><b>Dear User</b>, This is <b>FusionGEN</b>. <br>A continuation project continued by fellow web-developers under the conditions of Open-Source. Many people loved FusionCMS, But time is evolving and FusionCMS has been idle for quite some time. We are here to bring up a new Open-Source Project to bring <b>you</b> an optimized and cared for CMS that will evolve over time with love and passion from its contributors. FusionGEN is still powered by the Codeigniter Framework, it's Original PHP Code, It's Original HTML Code and It's Original Javascript Code. What we are focusing on is improving it all. Making it stronger, faster and more Modern. <br><br>Thank you for downloading FusionGEN<br>Enjoy!</center> 
+										<center><b>Dear User</b>, This is <b>FusionGEN</b>. <br>A continuation project continued by fellow web-developers under the conditions of Open-Source. Many people loved FusionCMS, But time is evolving and FusionCMS has been idle for quite some time. We are here to bring up a new Open-Source Project to bring <b>you</b> an optimized and cared for CMS that will evolve over time with love and passion from its contributors. FusionGEN is still powered by the Codeigniter Framework, it's Original PHP Code, It's Original HTML Code and It's Original Javascript Code. What we are focusing on is improving it all. Making it stronger, faster and more Modern. <br><br>Thank you for downloading FusionGEN<br>Enjoy!</center>
 									</div>
 								</div>
 							</div>
 							<div class="panel-footer">
 								<button type="submit" class="btn btn-info form-next">
 									<span class="loader hide"> Please wait...</span>
-									<span class="button-text"><i class='fa fa-chevron-right'></i> Start the installer</span> 
+									<span class="button-text"><i class='fa fa-chevron-right'></i> Start the installer</span>
 								</button>
 							</div>
 						</div>
@@ -301,7 +301,7 @@
                                             foreach ($writeable_directories as $value) {
                                                 ?>
                                                 <tr>
-                                                    <td style="width:87%;"><?php echo $value; ?></td>  
+                                                    <td style="width:87%;"><?php echo $value; ?></td>
                                                     <td class="text-center">
                                                         <?php if (is_writeable(".." . $value)) { ?>
                                                             <i class="status fa fa-check-circle-o"></i>
@@ -411,37 +411,37 @@
                         <div role="tabpanel" class="tab-pane" id="database-tab">
                             <form name="database-form" id="database-form" action="do_database.php" method="post" autocomplete="off">
                                 <div class="section clearfix">
-                                    <p>1. Please enter your <strong>FusionGen</strong> database connection details.</p>
+                                    <p>1. Please enter your <strong>FusionGEN</strong> database connection details.</p>
                                     <hr>
                                     <div>
                                         <div class="form-group clearfix">
                                             <label for="host" class="col-md-3">Database Host</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="" id="host" name="host" class="form-control" placeholder="FusionGen Database Host (usually localhost)">
+                                                <input type="text" value="" id="host" name="host" class="form-control" placeholder="FusionGEN Database Host (usually localhost)">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="dbuser" class="col-md-3">Database User</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="" name="dbuser" class="form-control" autocomplete="off" placeholder="FusionGen Database user name">
+                                                <input type="text" value="" name="dbuser" class="form-control" autocomplete="off" placeholder="FusionGEN Database user name">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="dbpassword" class="col-md-3">Database Password</label>
                                             <div class="col-md-9">
-                                                <input type="password" value="" name="dbpassword" class="form-control" autocomplete="off" placeholder="FusionGen Database user password">
+                                                <input type="password" value="" name="dbpassword" class="form-control" autocomplete="off" placeholder="FusionGEN Database user password">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="dbname" class="col-md-3">Database Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" value="" name="dbname" class="form-control" placeholder="FusionGen Database Name">
+                                                <input type="text" value="" name="dbname" class="form-control" placeholder="FusionGEN Database Name">
                                             </div>
                                         </div>
 										<div class="form-group clearfix">
                                             <label for="dbname" class="col-md-3">Database Port</label>
                                             <div class="col-md-9">
-                                                <input type="number" value="" name="dbport" class="form-control" placeholder="FusionGen Database Port">
+                                                <input type="number" value="" name="dbport" class="form-control" placeholder="FusionGEN Database Port">
                                             </div>
                                         </div>
                                     </div>
@@ -598,7 +598,7 @@
 								<div class="panel-footer">
 									<button type="submit" class="btn btn-info form-next">
 										<span class="loader hide"> Please wait...</span>
-										<span class="button-text"><i class='fa fa-chevron-right'></i> Next</span> 
+										<span class="button-text"><i class='fa fa-chevron-right'></i> Next</span>
 									</button>
 								</div>
 							</form>
@@ -623,7 +623,7 @@
 								<div class="panel-footer">
 									<button type="submit" class="btn btn-info form-next">
 										<span class="loader hide"> Please wait...</span>
-										<span class="button-text"><i class='fa fa-chevron-right'></i> Complete Installation</span> 
+										<span class="button-text"><i class='fa fa-chevron-right'></i> Complete Installation</span>
 									</button>
 								</div>
 							</form>
@@ -632,7 +632,7 @@
                         <div role="tabpanel" class="tab-pane" id="finished-tab">
                             <div class="section">
                                 <div class="clearfix">
-                                    <i class="status fa fa-check-circle-o pull-left" style="font-size: 50px"> </i><span class="pull-left" style="line-height: 50px;">Congratulation! You have successfully installed FusionGen!</span>  
+                                    <i class="status fa fa-check-circle-o pull-left" style="font-size: 50px"> </i><span class="pull-left" style="line-height: 50px;">Congratulation! You have successfully installed FusionGEN!</span>
                                 </div>
 
                                 <div style="margin: 15px 0 15px 60px; color: #d73b3b;">
