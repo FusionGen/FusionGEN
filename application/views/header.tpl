@@ -40,7 +40,6 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<!-- Load scripts -->
 		<script src="{$url}application/js/jquery.min.js"></script>
 		<script>var isIE = false;</script>
-		<script src="{$path}js/router.js"></script>
 		<script src="{$path}js/require.js"></script>
 		<script>
 			var Config = {
@@ -100,30 +99,6 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 					{/if}
 
 					UI.initialize();
-
-					{if $extra_css}Router.loadedCSS.push("{$extra_css}");{/if}
-					{*	{if !is_array($extra_css)}
-							Router.loadedCSS.push("{$extra_css}");
-						{else}
-							{strip}
-								{foreach from=$extra_css item=css}
-									Router.loadedCSS.push("{$css}");
-								 {/foreach}
-							{/strip}
-						{/if}
-					{/if} *}
-
-					{if $extra_js}Router.loadedJS.push("{$extra_js}");{/if}
-					{*	{if !is_array($extra_js)}
-							Router.loadedJS.push("{$extra_js}");
-						{else}
-							{strip}
-								{foreach from=$extra_js item=js}
-									Router.loadedJS.push("{$js}");
-								 {/foreach}
-							{/strip}
-						{/if}
-					{/if} *}
 				});
 			});
 		</script>
