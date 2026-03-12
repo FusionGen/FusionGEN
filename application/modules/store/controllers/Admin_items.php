@@ -261,7 +261,14 @@ class Admin_items extends MX_Controller
             $data["tooltip"] = 1;
             $data["quality"] = $item_data['Quality'];
             if (!preg_match("/inv_.+/i", $data["icon"])) {
-                $data["icon"] = file_get_contents($this->template->page_url . "icon/get/" . $data["realm"] . "/" . $data["itemid"]);
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $this->template->page_url . "icon/get/" . $data["realm"] . "/" . $data["itemid"]);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                $data["icon"] = curl_exec($ch);
+                if (version_compare(phpversion(), '8.5', '<')) {
+                    curl_close($ch);
+                }
             }
         }
 
