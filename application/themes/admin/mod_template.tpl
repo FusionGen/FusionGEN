@@ -97,7 +97,6 @@
 		};
 	</script>
 
-	<script src="{$url}application/themes/admin/assets/js/router.js"></script>
 	<script src="{$url}application/themes/admin/assets/js/adminMenu.js"></script>
 	<script src="{$url}application/js/require.js"></script>
 	<script>
@@ -112,14 +111,6 @@
 		{
 			$(document).ready(function()
 			{
-				UI.initialize();
-					{if $extra_css}
-					Router.loadedCSS.push("{$extra_css}");
-				{/if}
-					{if $extra_js}
-					Router.loadedJS.push("{$extra_js}");
-				{/if}
-
 				$('[data-toggle="tooltip"]').tooltip();
 				$(".nano").nanoScroller();
 				$(".nano-pane").show();
