@@ -155,22 +155,11 @@ class Template
      */
     public function view($content, $css = false, $js = false)
     {
-        // Avoid loading the main site in the ACP layout
-        if ($this->CI->input->get('is_acp'))
-        {
-            $this->CI->load->library('administrator');
-            $this->CI->administrator->view('<script>window.location.reload(true)</script>');
-        }
-
         $output = "";
 
         if ($this->CI->config->item("message_enabled") && $this->CI->router->fetch_class() != "auth" && !$this->CI->user->isStaff())
         {
             $output = $this->handleAnnouncement();
-        }
-        elseif ($this->CI->input->is_ajax_request() && isset($_GET['is_json_ajax']) && $_GET['is_json_ajax'] == 1)
-        {
-            $output = $this->handleAjaxRequest($content, $css, $js);
         }
         else
         {
@@ -191,7 +180,7 @@ class Template
      */
     private function handleNormalPage($content, $css, $js)
     {
-        //Load the sideboxes
+        // Load the sideboxes
         $sideboxes = $this->loadSideboxes();
         $header    = $this->getHeader($css, $js);
         $modals    = $this->getModals();
@@ -223,29 +212,6 @@ class Template
 
         // Load the main template
         return $output = $this->CI->smarty->view($this->theme_path . "template.tpl", $theme_data, true);
-    }
-
-    /**
-     * When an ajax request is made to a page it calls this.
-     *
-     * @param  string $content
-     * @param  string $css
-     * @param  string $js
-     * @return string
-     */
-    private function handleAjaxRequest($content = "", $css = "", $js = "")
-    {
-        $array = [
-            "title" => $this->title . $this->CI->config->item('title'),
-            "content" => $content,
-            "js" => $js,
-            "css" => $css,
-            "slider" => $this->isSliderShown(),
-            "serverName" => $this->CI->config->item('server_name'),
-            "language" => $this->CI->language->getClientData()
-        ];
-
-        return json_encode($array);
     }
 
     /**
@@ -299,19 +265,19 @@ class Template
         ];
         $returnFiles = [];
 
-        //If $files is not an array, then definied it to an array
+        // If $files is not an array, then definied it to an array
         if (!is_array($files))
         {
             $oldFiles = $files;
             $files    = [];
 
-            //if $oldFiles is an string, than push it to the array
+            // if $oldFiles is an string, than push it to the array
             if (is_string($oldFiles))
             {
                 array_push($files, $oldFiles);
             }
 
-            //Unset $oldFiles variable
+            // Unset $oldFiles variable
             unset($oldFiles);
         }
 
@@ -321,14 +287,14 @@ class Template
             $fileType  = isset($expldFile[count($expldFile) - 1]) ? $expldFile[count($expldFile) - 1] : "undefined";
             if (in_array($fileType, $existsTypes))
             {
-                //Check if URL and valid URL
+                // Check if URL and valid URL
                 if (substr($file, 0, 4) == "http" && filter_var($file, FILTER_VALIDATE_URL) !== false)
                 {
                     array_push($returnFiles, $file);
                 }
                 else
                 {
-                    //Check if asset file exists
+                    // Check if asset file exists
                     if (file_exists(APPPATH . $file))
                     {
                         array_push($returnFiles, $file);
@@ -633,15 +599,6 @@ class Template
      */
     public function show404()
     {
-        if ($this->CI->input->get('is_acp'))
-        {
-            header('HTTP/1.0 404 Not Found');
-        }
-        if ($this->CI->input->get('is_mod'))
-        {
-            header('HTTP/1.0 404 Not Found');
-        }
-
         $this->setTitle(lang("404_title", "error"));
 
         $message = $this->loadPage("error.tpl", [
