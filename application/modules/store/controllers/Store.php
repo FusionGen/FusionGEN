@@ -31,6 +31,8 @@ class Store extends MX_Controller
         clientLang("vp", "store");
         clientLang("dp", "store");
 
+        $this->template->setTitle(lang("item_store", "store"));
+
         // Gather the template data
         $data = [
             'url' => $this->template->page_url,
