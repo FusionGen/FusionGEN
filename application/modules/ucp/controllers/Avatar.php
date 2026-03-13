@@ -16,6 +16,8 @@ class Avatar extends MX_Controller
     {
         clientLang("changes_saved", "ucp");
 
+        $this->template->setTitle(lang("change_avatar", "ucp"));
+
         // Prepare data
         $data = [
             'isStaff'	=> $this->user->isStaff(),
