@@ -62,13 +62,13 @@ class Template
      */
     private function loadManifest()
     {
-        if (!file_exists(APPPATH . $this->theme_path))
+        if (!is_dir(APPPATH . $this->theme_path))
         {
-            show_error("Invalid theme. The folder <b>" . APPPATH . $this->theme_path . "</b> doesn't exist!");
+            show_error("Invalid theme. The directory <b>" . APPPATH . $this->theme_path . "</b> doesn't exist!");
         }
         elseif (!file_exists(APPPATH . $this->theme_path . "/manifest.json"))
         {
-            show_error("Invalid theme. The file <b>manifest.json</b> is missing!");
+            show_error("Invalid theme. The file <b>manifest.json</b> doesn't exist!");
         }
 
         // Load the manifest
@@ -76,6 +76,11 @@ class Template
 
         // Convert to array
         $array = json_decode($data, true);
+
+        if (!is_array($array))
+        {
+            show_error("The file <b>manifest.json</b> for the theme <b>" . $this->theme . "</b> is not properly formatted!");
+        }
 
         // Fix the favicon link
         $array['favicon'] = $this->image_path . $array['favicon'];
@@ -94,13 +99,13 @@ class Template
      */
     private function loadModuleManifest()
     {
-        if (!file_exists(APPPATH . "modules/" . strtolower($this->getModuleName())))
+        if (!is_dir(APPPATH . "modules/" . strtolower($this->getModuleName())))
         {
-            show_error("Invalid Module. The folder <b>" . APPPATH . "modules/" . strtolower($this->getModuleName()) . "</b> doesn't exist!");
+            show_error("Invalid Module. The directory <b>" . APPPATH . "modules/" . strtolower($this->getModuleName()) . "</b> doesn't exist!");
         }
-        elseif (!file_exists(APPPATH . $this->theme_path . "/manifest.json"))
+        elseif (!file_exists(APPPATH . "modules/" . strtolower($this->getModuleName()) . "/manifest.json"))
         {
-            show_error("The manifest.json file for <b>" . strtolower($this->getModuleName()) . "</b> does not exist");
+            show_error("The file <b>manifest.json</b> for <b>" . strtolower($this->getModuleName()) . "</b> doesn't exist!");
         }
 
         // Load the manifest
@@ -111,7 +116,7 @@ class Template
 
         if (!is_array($array))
         {
-            show_error("The manifest.json file for <b>" . strtolower($this->getModuleName()) . "</b> is not properly formatted");
+            show_error("The file <b>manifest.json</b> for <b>" . strtolower($this->getModuleName()) . "</b> is not properly formatted!");
         }
 
         // Save the data
