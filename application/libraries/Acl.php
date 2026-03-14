@@ -166,15 +166,19 @@ class Acl
      */
     private function loadManifest($moduleName)
     {
-        if (!file_exists("application/modules/" . $moduleName . "/manifest.json")) {
-            show_error("The manifest.json file for <b>" . strtolower($moduleName) . "</b> does not exist");
+        if (!is_dir(APPPATH . "modules/" . $moduleName))
+        {
+            show_error("Invalid Module. The directory <b>" . APPPATH . "modules/" . $moduleName . "</b> doesn't exist!");
+        }
+        else if (!file_exists("application/modules/" . $moduleName . "/manifest.json")) {
+            show_error("The file <b>manifest.json</b> for <b>" . strtolower($moduleName) . "</b> doesn't exist!");
         }
 
         $manifest = file_get_contents("application/modules/" . $moduleName . "/manifest.json");
         $manifest = json_decode($manifest, true);
 
         if (!is_array($manifest)) {
-            show_error("The manifest.json file for <b>" . strtolower($moduleName) . "</b> is not properly formatted");
+            show_error("The file <b>manifest.json</b> for <b>" . strtolower($moduleName) . "</b> is not properly formatted!");
         }
 
         $this->modules[$moduleName]['permissions'] = (array_key_exists("permissions", $manifest)) ? $manifest['permissions'] : [];
