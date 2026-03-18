@@ -86,27 +86,6 @@ class News_model extends CI_Model
     }
 
     /**
-     * Get the tags for the given article id
-     *
-     * @param  $articleId
-     * @return array|bool
-     */
-    public function getTags($articleId)
-    {
-        $this->db->select('t.name');
-        $this->db->where('at.article_id', $articleId);
-        $this->db->where('at.tag_id = t.id');
-        $query = $this->db->get('tag t, article_tag at');
-
-        if ($query->num_rows() > 0) {
-            $result = $query->result_array();
-            return $result;
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * Count the articles
      *
      * @return Int

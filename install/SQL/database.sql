@@ -385,20 +385,6 @@ CREATE TABLE `acl_roles_permissions`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for article_tag
--- ----------------------------
-DROP TABLE IF EXISTS `article_tag`;
-CREATE TABLE `article_tag`  (
-  `article_id` int NOT NULL,
-  `tag_id` int NOT NULL,
-  PRIMARY KEY (`article_id`, `tag_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
-
--- ----------------------------
--- Records of article_tag
--- ----------------------------
-
--- ----------------------------
 -- Table structure for articles
 -- ----------------------------
 DROP TABLE IF EXISTS `articles`;
@@ -7603,21 +7589,6 @@ CREATE TABLE `store_items`  (
 
 -- ----------------------------
 -- Records of store_items
--- ----------------------------
-
--- ----------------------------
--- Table structure for tag
--- ----------------------------
-DROP TABLE IF EXISTS `tag`;
-CREATE TABLE `tag`  (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
-
--- ----------------------------
--- Records of tag
 -- ----------------------------
 
 -- ----------------------------
