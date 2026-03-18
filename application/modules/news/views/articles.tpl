@@ -24,7 +24,7 @@
 		{$article.readMore = true}
 	{/if}
 
-	<article class="pagebody news-article {if $is_single}is-single{/if} {if $article.comments != -1}has-comments{/if} {if $article.tags}has-tags{/if} {if key(reset($articles)) == $key}first-item{/if} {if !isset($articles[$key + 1])}last-item{/if}">
+	<article class="pagebody news-article {if $is_single}is-single{/if} {if $article.comments != -1}has-comments{/if} {if key(reset($articles)) == $key}first-item{/if} {if !isset($articles[$key + 1])}last-item{/if}">
 		<div data-glow><div data-glow-lines></div></div>
 
 			<div class="row">

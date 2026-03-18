@@ -81,7 +81,6 @@ class News extends MX_Controller
                 $this->news_articles[$key]['link'] = ($article['comments'] == -1) ? '' : "href='javascript:void(0)' onClick='Ajax.showComments(" . $article['id'] . ")'";
                 $this->news_articles[$key]['comments_id'] = "id='comments_" . $article['id'] . "'";
                 $this->news_articles[$key]['comments_button_id'] = "id='comments_button_" . $article['id'] . "'";
-                $this->news_articles[$key]['tags'] = $this->news_model->getTags($id);
                 $this->news_articles[$key]['type_content'] = ($article['type'] == 2) ? $article['type_content'] : json_decode($article['type_content'], true);
             }
 
@@ -156,7 +155,6 @@ class News extends MX_Controller
             $this->news_articles[$key]['link'] = ($article['comments'] == -1) ? '' : "href='javascript:void(0)' onClick='Ajax.showComments(" . $article['id'] . ")'";
             $this->news_articles[$key]['comments_id'] = "id='comments_" . $article['id'] . "'";
             $this->news_articles[$key]['comments_button_id'] = "id='comments_button_" . $article['id'] . "'";
-            $this->news_articles[$key]['tags'] = $this->news_model->getTags($article['id']);
             $this->news_articles[$key]['type_content'] = ($article['type'] == 2) ? $article['type_content'] : json_decode($article['type_content'], true);
         }
     }
