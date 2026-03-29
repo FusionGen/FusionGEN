@@ -498,7 +498,7 @@ var Store = {
 											'</a>' +
 											'<span class="col-1" id="cart_item_count_' + Store.Cart.count + '"></span>' +
 											'<div class="item_price col-2">' +
-												'<img src="' + Config.URL + 'application/images/icons/' + ((priceType == "vp") ? "lightning" : "coins") + '.png" align="absmiddle">' +
+												'<img src="' + Config.URL + 'application/assets/images/icons/' + ((priceType == "vp") ? "lightning" : "coins") + '.png" align="absmiddle">' +
 												price + " " + ((priceType == "vp") ? lang("vp", "store") : lang("dp", "store")) +
 											'</div>' +
 											'<div class="item_realm col-3">' + realm + '</div>' +

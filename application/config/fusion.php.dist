@@ -142,7 +142,7 @@ $config['slider_style'] = false;
 |
 */
 $config['vote_reminder'] = 0;
-$config['vote_reminder_image'] = "/images/misc/banner.jpg";
+$config['vote_reminder_image'] = "/assets/images/misc/banner.jpg";
 $config['reminder_interval'] = 43200;
 
 /*

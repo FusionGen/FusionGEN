@@ -15,7 +15,7 @@
 	{if $languages}
 		{foreach from=$languages item=language key=flag}
 				<tr>
-				<td><img src="{$url}application/images/flags/{$flag}.png" alt="{$flag}" style="margin-top:-2px;"> {ucfirst($language)}</td>
+				<td><img src="{$url}application/assets/images/flags/{$flag}.png" alt="{$flag}" style="margin-top:-2px;"> {ucfirst($language)}</td>
 
 				<td>{if $language == $default}
 						<div class="pull-right text-success">Default language</div>

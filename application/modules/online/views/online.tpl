@@ -25,8 +25,8 @@
                   {foreach from=$realm->getCharacters()->getOnlinePlayers() item=character}
                   <tr>
                      <td><a class="color-c{$character.class}" data-tip="{lang("view_profile", "online")}" href="{$url}character/{$realm->getId()}/{$character.guid}">{$character.name}</a></td>
-                     <td><img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif" class="pe-none user-select-none"></td>
-                     <td><img src="{$url}application/images/stats/{$character.class}.gif" class="pe-none user-select-none"></td>
+                     <td><img src="{$url}application/assets/images/stats/{$character.race}-{$character.gender}.gif" class="pe-none user-select-none"></td>
+                     <td><img src="{$url}application/assets/images/stats/{$character.class}.gif" class="pe-none user-select-none"></td>
                      <td>{$character.level}</td>
                      <td>{$realmsObj->getZone($character.zone)}</td>
                   </tr>

@@ -33,10 +33,10 @@
 								{$visitor.ip_address}
 							</td>
 							<td width="20%">
-								<img src="{$url}application/images/browsers/{$visitor.browser}.png" style="margin-top:-2px;"> {ucfirst($visitor.browser)}
+								<img src="{$url}application/assets/images/browsers/{$visitor.browser}.png" style="margin-top:-2px;"> {ucfirst($visitor.browser)}
 							</td>
 							<td width="20%">
-								<img src="{$url}application/images/platforms/{$visitor.os}.png" style="margin-top:-2px;"> {ucfirst($visitor.os)}
+								<img src="{$url}application/assets/images/platforms/{$visitor.os}.png" style="margin-top:-2px;"> {ucfirst($visitor.os)}
 							</td>
 						</tr>
 					{/foreach}

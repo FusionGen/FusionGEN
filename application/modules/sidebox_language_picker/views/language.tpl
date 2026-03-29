@@ -50,7 +50,7 @@
 <section id="language_picker">
 	{foreach from=$languages item=language key=flag}
 		<a href="javascript:void(0)" onClick="setLanguage('{$language}', this)" {if $current == $language}class="current_language"{/if}>
-			<img src="{$url}application/images/flags/{$flag}.png" alt="{$flag}"> {ucfirst($language)}
+			<img src="{$url}application/assets/images/flags/{$flag}.png" alt="{$flag}"> {ucfirst($language)}
 		</a>
 	{/foreach}
 </section>

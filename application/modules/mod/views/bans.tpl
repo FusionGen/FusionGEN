@@ -2,11 +2,11 @@
 
 <div class="mb-3">
 	<a href="javascript:void(0)" onClick="Mod.banAcc()" class="btn btn-primary btn-sm">
-		<img src="{$url}application/images/icons/cross.png" align="absmiddle">
+		<img src="{$url}application/assets/images/icons/cross.png" align="absmiddle">
 		{lang("ban", "mod")}
 	</a>
 	<a href="javascript:void(0)" onClick="Mod.banIP()" class="btn btn-primary btn-sm">
-		<img src="{$url}application/images/icons/cross.png" align="absmiddle">
+		<img src="{$url}application/assets/images/icons/cross.png" align="absmiddle">
 		Ban an IP
 	</a>
 </div>

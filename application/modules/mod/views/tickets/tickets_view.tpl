@@ -4,7 +4,7 @@
 	<div class="card-body p-3">
 		<div class="widget-profile-info">
 			<div class="profile-picture">
-				<img class="avatar" src="{$url}application/images/avatars/{$avatar}.gif">
+				<img class="avatar" src="{$url}application/assets/images/avatars/{$avatar}.gif">
 			</div>
 			<div class="profile-info">
 				<h4 class="name font-weight-semibold"><a href="{$url}character/{$realmId}/{$tickets.guid}" target="_blank">{$tickets.name}</a></h4>
@@ -55,11 +55,11 @@
 	</div>
 	</div>
 
-	<a href="javascript:void(0)" onClick="Mod.close({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/images/icons/accept.png" align="absmiddle"> Close</a>
+	<a href="javascript:void(0)" onClick="Mod.close({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/assets/images/icons/accept.png" align="absmiddle"> Close</a>
 
-	<a href="javascript:void(0)" onClick="Mod.answer({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/images/icons/email.png" align="absmiddle"> Answer</a>
+	<a href="javascript:void(0)" onClick="Mod.answer({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/assets/images/icons/email.png" align="absmiddle"> Answer</a>
 
-	<a href="javascript:void(0)" onClick="Mod.unstuck({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/images/icons/wand.png" align="absmiddle"> Unstuck</a>
+	<a href="javascript:void(0)" onClick="Mod.unstuck({$realmId}, {$tickets.ticketId}, this)" class="btn btn-sm btn-primary"><img src="{$url}application/assets/images/icons/wand.png" align="absmiddle"> Unstuck</a>
 	</div>
 </div>
 </div>

@@ -124,7 +124,7 @@ var Search = {
             },
             "columns": [
                 { "data": "", "render": function(data, type, row, meta) {
-                    return '<img src="'+Config.URL +'application/images/avatars/'+row.avatar+'.gif" class="char_avatar">';
+                    return '<img src="'+Config.URL +'application/assets/images/avatars/'+row.avatar+'.gif" class="char_avatar">';
                 }},
                 { "data": "name", "render": function(data, type, row, meta) {
                     return '<span class="color-c'+row.class+'">'+row.name+'</span>';

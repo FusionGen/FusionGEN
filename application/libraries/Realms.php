@@ -533,7 +533,7 @@ class Realms
 
         $file = strtolower($race) . "-" . $gender . "-" . $level;
 
-        if (!file_exists("application/images/avatars/" . $file . ".gif")) {
+        if (!file_exists("application/assets/images/avatars/" . $file . ".gif")) {
             return "default";
         } else {
             return $file;
