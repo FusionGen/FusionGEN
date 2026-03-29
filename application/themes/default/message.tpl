@@ -19,22 +19,22 @@
 
 			@font-face {
 				font-family: 'MuseoSans';
-				src: url('application/fonts/MuseoSans_500-webfont.eot');
-				src: url('application/fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
-					url('application/fonts/MuseoSans_500-webfont.woff') format('woff'),
-					url('application/fonts/MuseoSans_500-webfont.ttf') format('truetype'),
-					url('application/fonts/MuseoSans_500-webfont.svg#MuseoSans500') format('svg');
+				src: url('application/assets/fonts/MuseoSans_500-webfont.eot');
+				src: url('application/assets/fonts/MuseoSans_500-webfont.eot?#iefix') format('embedded-opentype'),
+					url('application/assets/fonts/MuseoSans_500-webfont.woff') format('woff'),
+					url('application/assets/fonts/MuseoSans_500-webfont.ttf') format('truetype'),
+					url('application/assets/fonts/MuseoSans_500-webfont.svg#MuseoSans500') format('svg');
 				font-weight: normal;
 				font-style: normal;
 			}
 
 			@font-face {
 				font-family: 'MuseoSlab';
-				src: url('application/fonts/Museo_Slab_500-webfont.eot');
-				src: url('application/fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
-					url('application/fonts/Museo_Slab_500-webfont.woff') format('woff'),
-					url('application/fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
-					url('application/fonts/Museo_Slab_500-webfont.svg#Museo_Slab500') format('svg');
+				src: url('application/assets/fonts/Museo_Slab_500-webfont.eot');
+				src: url('application/assets/fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+					url('application/assets/fonts/Museo_Slab_500-webfont.woff') format('woff'),
+					url('application/assets/fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+					url('application/assets/fonts/Museo_Slab_500-webfont.svg#Museo_Slab500') format('svg');
 				font-weight: normal;
 				font-style: normal;
 			}

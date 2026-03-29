@@ -8,16 +8,16 @@
 
 		<link rel="icon" type="image/png" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/images/fusiongen.png">
 
-		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/theme.css">
 		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/css/skins/default.css">
-		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/sweetalert2/css/sweetalert2.min.css">
 
 		<!-- JS -->
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/jquery/jquery.min.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/login.js"></script>
-		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
 
 		<script>
 		function getCookie(c_name) {

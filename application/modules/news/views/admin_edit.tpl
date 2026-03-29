@@ -347,7 +347,7 @@
 	var useDarkMode = $('html').hasClass('dark');
 
     require([
-		"{$url}application/js/tiny_mce/tinymce.min.js"
+		"{$url}application/assets/vendor/tiny_mce/tinymce.min.js"
 	], function () {
 		tinymce.init({
 			promotion: false,

@@ -40,9 +40,9 @@
 										{if $realm.characters}
 											{foreach from=$realm.characters item=character}
 												<tr class="character-select">
-													<td style="width:40px;"><img width="36" height="36" src="{$url}application/images/avatars/{$character.avatar}.gif" data-tip="<img src='{$url}application/images/stats/{$character.class}.gif' align='absbottom'> {$character.name} (Lvl {$character.level})"></td>
+													<td style="width:40px;"><img width="36" height="36" src="{$url}application/assets/images/avatars/{$character.avatar}.gif" data-tip="<img src='{$url}application/assets/images/stats/{$character.class}.gif' align='absbottom'> {$character.name} (Lvl {$character.level})"></td>
 													<td>
-														<div class="d-block" data-tip="<img src='{$url}application/images/stats/{$character.class}.gif' align='absbottom'> {$character.name} (Lvl {$character.level})">{$character.name}</div>
+														<div class="d-block" data-tip="<img src='{$url}application/assets/images/stats/{$character.class}.gif' align='absbottom'> {$character.name} (Lvl {$character.level})">{$character.name}</div>
 														<div class="user-points d-block">
 															<span class="gold-points">
 																<i class="fa-solid fa-coins"></i>
@@ -80,13 +80,13 @@
 											<td class="align-middle">
 												<a href="javascript:void(0)" onClick="Teleport.buy({$location.id}, this)">
 													{if $location.vpCost}
-														<img src="{$url}application/images/icons/lightning.png" align="absmiddle">
+														<img src="{$url}application/assets/images/icons/lightning.png" align="absmiddle">
 														{$location.vpCost} {lang("vp", "teleport")}
 													{elseif $location.dpCost}
-														<img src="{$url}application/images/icons/coins.png" align="absmiddle">
+														<img src="{$url}application/assets/images/icons/coins.png" align="absmiddle">
 														{$location.dpCost} {lang("dp", "teleport")}
 													{elseif $location.goldCost}
-														<img src="{$url}application/images/icons/coins.png" align="absmiddle">
+														<img src="{$url}application/assets/images/icons/coins.png" align="absmiddle">
 														{$location.goldCost} {lang("gold", "teleport")}
 													{else}
 														{lang("free", "teleport")}

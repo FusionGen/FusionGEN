@@ -254,7 +254,7 @@ class Character extends MX_Controller
                         break;
                 }
 
-                $this->items[$value] = "<div class='item'><img class='pe-none user-select-none' src='" . $this->template->page_url . "application/images/armory/default/" . $image . ".gif'></div>";
+                $this->items[$value] = "<div class='item'><img class='pe-none user-select-none' src='" . $this->template->page_url . "application/assets/images/armory/default/" . $image . ".gif'></div>";
             }
         }
     }

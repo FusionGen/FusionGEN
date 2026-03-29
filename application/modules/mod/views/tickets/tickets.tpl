@@ -4,7 +4,7 @@
 
 		{if $hasConsole}
 			<a href="javascript:void(0)" onClick="Mod.kick({$realmId})" class="btn btn-primary btn-sm pull-right me-1">
-			<img src="{$url}application/images/icons/door_out.png" align="absmiddle">
+			<img src="{$url}application/assets/images/icons/door_out.png" align="absmiddle">
 				Kick
 			</a>
 		{/if}

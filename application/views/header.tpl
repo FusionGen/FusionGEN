@@ -3,7 +3,7 @@
 <!--
 This website is powered by FusionGEN
 
-https://github.com/FusionGen/FusionGen
+https://github.com/FusionGen/FusionGEN
 
 Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 -->
@@ -38,7 +38,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<!-- Load scripts -->
-		<script src="{$url}application/js/jquery.min.js"></script>
+		<script src="{$url}application/assets/vendor/jquery/jquery.min.js"></script>
 		<script>var isIE = false;</script>
 		<script src="{$path}js/require.js"></script>
 		<script>

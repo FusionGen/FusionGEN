@@ -8,7 +8,7 @@
 
 		<link rel="icon" type="image/png" href="{$url}application/themes/admin/assets/images/fusiongen.png">
 
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/animate/animate.compat.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/magnific-popup/magnific-popup.css">
@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/jquery-ui/jquery-ui.theme.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/morris/morris.css">
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/sweetalert2/css/sweetalert2.min.css">
+		<link rel="stylesheet" href="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/sweetalert2/css/sweetalert2.min.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/select2/css/select2.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
@@ -31,8 +31,8 @@
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/custom.css">
 		{if $extra_css}<link rel="stylesheet" href="{$url}application/{$extra_css}">{/if}
 
-		<script src="{$url}application/themes/admin/assets/vendor/jquery/jquery.min.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/jquery/jquery.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/modernizr/modernizr.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/popper/umd/popper.min.js"></script>
@@ -51,7 +51,7 @@
 		<script src="{$url}application/themes/admin/assets/vendor/flot/jquery.flot.resize.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/morris/morris.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/owl.carousel/owl.carousel.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
+		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/select2/js/select2.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -98,13 +98,13 @@
 	</script>
 
 	<script src="{$url}application/themes/admin/assets/js/adminMenu.js"></script>
-	<script src="{$url}application/js/require.js"></script>
+	<script src="{$url}application/assets/js/require.js"></script>
 	<script>
 		var scripts = [
-			"{$url}application/js/jquery.transit.min.js",
-			"{$url}application/js/tooltip.js",
-			"{$url}application/js/ui.js",
-			"{$url}application/js/fusioneditor.js"
+			"{$url}application/assets/js/jquery.transit.min.js",
+			"{$url}application/assets/js/tooltip.js",
+			"{$url}application/assets/js/ui.js",
+			"{$url}application/assets/js/fusioneditor.js"
 			{if $extra_js},"{$url}application/{$extra_js}"{/if}
 		];
 			require(scripts, function()

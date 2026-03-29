@@ -6,7 +6,7 @@ $config['classes'] = lang("classes", "wow_constants");
 $config['alliance_races'] = [1,3,4,7,11,22,25,29,30,32,34,37,52];
 $config['horde_races'] = [2,5,6,8,9,10,26,27,28,31,35,36,70];
 // Do not edit these unless you edit the corrosponding files names in:
-// application/images/avatars/
+// application/assets/images/avatars/
 $config['races_en'] = [
     1 => "Human",
     2 => "Orc",

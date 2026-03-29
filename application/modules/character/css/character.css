@@ -16,11 +16,11 @@
 }
 
 .bg-faction.horde {
-    background-image: url(../../../images/misc/bg_horde_complete.png);
+    background-image: url(../../../assets/images/misc/bg_horde_complete.png);
 }
 
 .bg-faction.alliance {
-    background-image: url(../../../images/misc/bg_alliance_complete.png);
+    background-image: url(../../../assets/images/misc/bg_alliance_complete.png);
 }
 
 .col-avatar,
@@ -75,7 +75,7 @@
 }
 
 .item a {
-	background-image:url(../../../images/misc/item_frame.png);
+	background-image:url(../../../assets/images/misc/item_frame.png);
 	width:68px;
 	height:68px;
 	margin-top:-6px;

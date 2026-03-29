@@ -38,8 +38,8 @@
 					<td><a data-tip="View character 2v2" href="{$url}character/{$selected_realm}/{$character.guid}">{$character.name}</a></td>
 					<td>{$character.level}</td>
 					<td>{$character.kills}</td>
-					<td><img src="{$url}application/images/stats/{$character.race}-{$character.gender}.gif" width="20" height="20"></td>
-					<td><img src="{$url}application/images/stats/{$character.class}.gif"></td>
+					<td><img src="{$url}application/assets/images/stats/{$character.race}-{$character.gender}.gif" width="20" height="20"></td>
+					<td><img src="{$url}application/assets/images/stats/{$character.class}.gif"></td>
 				</tr>
 				{/foreach}
 			{else}
@@ -66,7 +66,7 @@
                     <td>{if $team.members}
                         {foreach from=$team.members key=key item=member}
                             <a href="{$url}character/{$selected_realm}/{$member.guid}" data-tip="<font style='font-weight: bold;'>{$member.name}</font><br>Games played: {$member.games}<br>Games won: {$member.wins}<br>Personal Rating: {$member.rating}" id="team-member">
-                                <img src='{$url}application/images/stats/{$member.class}.gif' align='absbottom'>
+                                <img src='{$url}application/assets/images/stats/{$member.class}.gif' align='absbottom'>
                             </a>
                         {/foreach}
                     {/if}</td>
@@ -94,7 +94,7 @@
                     <td>{if $team.members}
                         {foreach from=$team.members key=key item=member}
                             <a href="{$url}character/{$selected_realm}/{$member.guid}" data-tip="<font style='font-weight: bold;'>{$member.name}</font><br>Games played: {$member.games}<br>Games won: {$member.wins}<br>Personal Rating: {$member.rating}" id="team-member">
-                                <img src='{$url}application/images/stats/{$member.class}.gif' align='absbottom'>
+                                <img src='{$url}application/assets/images/stats/{$member.class}.gif' align='absbottom'>
                             </a>
                         {/foreach}
                     {/if}</td>
@@ -122,7 +122,7 @@
                     <td>{if $team.members}
                         {foreach from=$team.members key=key item=member}
                             <a href="{$url}character/{$selected_realm}/{$member.guid}" data-tip="<font style='font-weight: bold;'>{$member.name}</font><br>Games played: {$member.games}<br>Games won: {$member.wins}<br>Personal Rating: {$member.rating}" id="team-member">
-                                <img src='{$url}application/images/stats/{$member.class}.gif' align='absbottom'>
+                                <img src='{$url}application/assets/images/stats/{$member.class}.gif' align='absbottom'>
                             </a>
                         {/foreach}
                     {/if}</td>

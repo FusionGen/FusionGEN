@@ -487,7 +487,7 @@ class Template
             return $this->CI->smarty->view($this->theme_path . $page, $data, true, true);
         }
 
-        // Consruct the path
+        // Construct the path
         $themeView = "application/" . $this->theme_path . "modules/" . $data['module'] . "/" . $page;
         
         // Check if this theme wants to replace our view with it's own

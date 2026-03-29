@@ -1,9 +1,9 @@
 <div id="checkout_info">
 	{lang("buying", "store")} <b>{$count} items</b> {lang("total_of", "store")}
 
-	{if $vp}<img src="{$url}application/images/icons/lightning.png" align="absmiddle"> <b>{$vp} {lang("vp", "store")}</b>{/if}
+	{if $vp}<img src="{$url}application/assets/images/icons/lightning.png" align="absmiddle"> <b>{$vp} {lang("vp", "store")}</b>{/if}
 	{if $vp && $dp}and{/if}
-	{if $dp}<img src="{$url}application/images/icons/coins.png" align="absmiddle"> <b>{$dp} {lang("dp", "store")}</b>{/if}
+	{if $dp}<img src="{$url}application/assets/images/icons/coins.png" align="absmiddle"> <b>{$dp} {lang("dp", "store")}</b>{/if}
 
 	<div class="my-3 d-flex justify-content-between">
 	<a href="javascript:void(0)" onClick="Store.Cart.back()" class="nice_button button_left rounded"><i class="fa-solid fa-circle-left"></i> {lang("go_back", "store")}</a>

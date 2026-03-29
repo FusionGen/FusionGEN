@@ -62,7 +62,7 @@ class Guild extends MX_Controller
             $this->cache->save('guild_' . $realm . '_' . $id . "_" . getLang(), $page, 60 * 60);
         }
 
-        $this->template->view($page, "modules/guild/css/guild.css");
+        $this->template->view($page/*, "modules/guild/css/guild.css"*/);
     }
 
     public function loadGuild($realm, $id)

@@ -32,7 +32,7 @@ var Pages = {
 
 	send: function(id)
 	{
-		require([Config.URL + "application/js/tiny_mce/tinymce.min.js"], function () {
+		require([Config.URL + "application/assets/vendor/tiny_mce/tinymce.min.js"], function () {
 
 			tinyMCE.triggerSave();
 

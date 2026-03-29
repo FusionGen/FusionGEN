@@ -9,8 +9,8 @@
 				</td>
 
 				<td width="35%">
-					{if $order_log.vp_cost}<img src="{$url}application/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$order_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
-					{if $order_log.dp_cost}<img src="{$url}application/images/icons/coins.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$order_log.dp_cost} DP</b>{/if}
+					{if $order_log.vp_cost}<img src="{$url}application/assets/images/icons/lightning.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$order_log.vp_cost} VP</b>&nbsp;&nbsp;&nbsp;{/if}
+					{if $order_log.dp_cost}<img src="{$url}application/assets/images/icons/coins.png" align="absmiddle" style="margin:0px;opacity:1;"> <b>{$order_log.dp_cost} DP</b>{/if}
 				</td>
 
 				<td>

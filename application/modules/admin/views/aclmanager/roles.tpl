@@ -41,7 +41,7 @@
 							<div class="description">{$role.description}</div>
 							{foreach from=$role.permissions key=name item=value}
 								<div class="permission">
-									<div class="value"><img src="{$url}application/images/icons/{($value) ? 'accept' : 'exclamation'}.png"></div>
+									<div class="value"><img src="{$url}application/assets/images/icons/{($value) ? 'accept' : 'exclamation'}.png"></div>
 									{$name}
 								</div>
 							{/foreach}
@@ -67,7 +67,7 @@
 							<div class="description">{$role.description}</div>
 							{foreach from=$role.permissions key=name item=value}
 								<div class="permission">
-									<div class="value"><img src="{$url}application/images/icons/{($value) ? 'accept' : 'exclamation'}.png"></div>
+									<div class="value"><img src="{$url}application/assets/images/icons/{($value) ? 'accept' : 'exclamation'}.png"></div>
 									{$name}
 								</div>
 							{/foreach}

@@ -69,10 +69,10 @@
 
 							<div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
 								<a href="javascript:void(0)" onClick="Store.Filter.toggleVote(this)" class="nice_button rounded text-center me-1">
-									<img src="{$url}application/images/icons/lightning.png" class="align-middle"> {lang("vp", "store")}
+									<img src="{$url}application/assets/images/icons/lightning.png" class="align-middle"> {lang("vp", "store")}
 								</a>
 								<a href="javascript:void(0)" onClick="Store.Filter.toggleDonate(this)" class="nice_button rounded text-center">
-									<img src="{$url}application/images/icons/coins.png" class="align-middle"> {lang("dp", "store")}
+									<img src="{$url}application/assets/images/icons/coins.png" class="align-middle"> {lang("dp", "store")}
 								</a>
 							</div>
 						</div>
@@ -118,13 +118,13 @@
 																<div class="store_buttons float-end col-md-5 border-left mt-1 d-inline">
 																	{if $item.vp_price}
 																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button rounded vp_button">
-																		<img src="{$url}application/images/icons/lightning.png" class="align-middle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
+																		<img src="{$url}application/assets/images/icons/lightning.png" class="align-middle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 																	</a>
 																	{/if}
 
 																	{if $item.dp_price}
 																	<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button rounded dp_button">
-																		<img src="{$url}application/images/icons/coins.png" class="align-middle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
+																		<img src="{$url}application/assets/images/icons/coins.png" class="align-middle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 																	</a>
 																	{/if}
 																</div>
@@ -143,13 +143,13 @@
 											<div class="store_buttons">
 												{if $item.vp_price}
 												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.vp_price}, 'vp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="nice_button rounded vp_button">
-													<img src="{$url}application/images/icons/lightning.png" class="align-middle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
+													<img src="{$url}application/assets/images/icons/lightning.png" class="align-middle"> <span class="vp_price_value">{$item.vp_price}</span> {lang("vp", "store")}
 												</a>
 												{/if}
 
 												{if $item.dp_price}
 												<a href="javascript:void(0)" onClick="Store.Cart.add({$item.id}, '{$item.itemid}', '{addslashes($item.name|replace:'"':'&quot;')}', {$item.dp_price}, 'dp', '{addslashes($realm.name)}', {$realmId}, {$item.quality}, {$item.tooltip})" class="mt-1 nice_button rounded dp_button">
-													<img src="{$url}application/images/icons/coins.png" class="align-middle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
+													<img src="{$url}application/assets/images/icons/coins.png" class="align-middle"> <span class="dp_price_value">{$item.dp_price}</span> {lang("dp", "store")}
 												</a>
 												{/if}
 											</div>
@@ -180,11 +180,11 @@
 								<div class="card-footer">
 									<div id="cart_price" class="d-flex">
 										<div id="vp_price_full" class="p-2">
-											<img src="{$url}application/images/icons/lightning.png"> <span id="vp_price">0</span> {lang("vp", "store")}
+											<img src="{$url}application/assets/images/icons/lightning.png"> <span id="vp_price">0</span> {lang("vp", "store")}
 										</div>
 
 										<div id="dp_price_full" class="p-2">
-											<img src="{$url}application/images/icons/coins.png"> <span id="dp_price">0</span> {lang("dp", "store")}
+											<img src="{$url}application/assets/images/icons/coins.png"> <span id="dp_price">0</span> {lang("dp", "store")}
 										</div>
 
 										<div class="ms-auto p-1">
