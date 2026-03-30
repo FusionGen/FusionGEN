@@ -217,11 +217,11 @@ class Admin extends MX_Controller
 
                             // Set preference
                             $config['upload_path'] = FCPATH . '/uploads/news';
-                            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                            $config['allowed_types'] = 'jpg|jpeg|png|gif|svg|webp';
                             $config['overwrite'] = true;
-                            $config['max_size'] = '1000000';
-                            $config['max_width']  = '3024';
-                            $config['max_height']  = '2000';
+                            $config['max_size'] = '10240'; // 10MB in Kilobytes
+                            $config['max_width']  = '1920';
+                            $config['max_height']  = '1080';
                             $config['file_name'] = $_FILES['file']['name'];
 
                             if (!is_dir($config['upload_path'])) {

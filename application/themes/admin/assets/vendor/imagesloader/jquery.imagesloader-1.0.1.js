@@ -100,7 +100,7 @@ function getOrientation(src) {
 
 // imageToFormat
 // Convert image object to base64 string
-function imageToFormat(img, maxWidth = null, maxHeight = null, imgType = 'image/jpeg', quality = .9, orientation = -1) {
+function imageToFormat(img, maxWidth = null, maxHeight = null, imgType = 'image/jpeg', quality = 1.0, orientation = -1) {
 
   var canvas = document.createElement("canvas");
 
@@ -249,11 +249,11 @@ function drawRotated(img,degree) {
       , maxSize: 5000 * 1024 // Kb
       , minSelect: 1
       , imagesToLoad: null
-      , filesType: ["image/jpeg", "image/png", "image/gif"]
-      , maxWidth: 1280 // pixel
-      , maxHeight: 1024
+      , filesType: ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/svg", "image/webp"]
+      , maxWidth: 1920 // pixel
+      , maxHeight: 1080
       , imgType: "image/jpeg"
-      , imgQuality: .9
+      , imgQuality: 1.0
       , errorformat: "Accepted format"
       , errorsize: "Max size allowed"
       , errorduplicate: "File already uploaded"

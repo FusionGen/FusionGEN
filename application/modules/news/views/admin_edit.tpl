@@ -8,34 +8,34 @@
 			<div class="tabs">
 				<ul class="nav nav-tabs">
 					<li class="nav-item">
-						<a class="nav-link active" href="#article_en" data-bs-target="#article_en" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/en.png"> English</a>
+						<a class="nav-link active" href="#article_en" data-bs-target="#article_en" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/en.png"> English</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_de" data-bs-target="#article_de" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/de.png"> German</a>
+						<a class="nav-link" href="#article_de" data-bs-target="#article_de" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/de.png"> German</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_es" data-bs-target="#article_es" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/es.png"> Español</a>
+						<a class="nav-link" href="#article_es" data-bs-target="#article_es" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/es.png"> Español</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_fr" data-bs-target="#article_fr" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/fr.png"> Français</a>
+						<a class="nav-link" href="#article_fr" data-bs-target="#article_fr" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/fr.png"> Français</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_no" data-bs-target="#article_no" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/no.png"> Norsk</a>
+						<a class="nav-link" href="#article_no" data-bs-target="#article_no" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/no.png"> Norsk</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_ro" data-bs-target="#article_ro" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/ro.png"> Română</a>
+						<a class="nav-link" href="#article_ro" data-bs-target="#article_ro" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/ro.png"> Română</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_se" data-bs-target="#article_se" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/se.png"> Svenska</a>
+						<a class="nav-link" href="#article_se" data-bs-target="#article_se" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/se.png"> Svenska</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_ru" data-bs-target="#article_ru" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/ru.png"> Русский</a>
+						<a class="nav-link" href="#article_ru" data-bs-target="#article_ru" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/ru.png"> Русский</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_zh" data-bs-target="#article_zh" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/cn.png"> 中国人</a>
+						<a class="nav-link" href="#article_zh" data-bs-target="#article_zh" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/cn.png"> 中国人</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#article_ko" data-bs-target="#article_ko" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/images/flags/kr.png"> 한국어</a>
+						<a class="nav-link" href="#article_ko" data-bs-target="#article_ko" data-bs-toggle="tab"> <img class="align-baseline" src="{$url}application/assets/images/flags/kr.png"> 한국어</a>
 					</li>
 				</ul>
 				<div class="tab-content" style="background-color: transparent;">
@@ -312,7 +312,7 @@
 				</div>
 
 				<!--Hidden file input for images-->
-				<input id="files" type="file" name="files[]" data-button="" multiple="" accept="image/jpeg, image/png, image/gif," style="display:none;">
+				<input id="files" type="file" name="files[]" data-button="" multiple="" accept="image/jpg, image/jpeg, image/png, image/gif, image/svg, image/webp" style="display:none;">
 			</div>
 			</div>
 			<div id="image_preview"></div>
