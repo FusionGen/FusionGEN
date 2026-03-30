@@ -132,14 +132,13 @@ var News = {
 				processData: false,
 				success: function (response) {
 					if(response == "yes") {
-						console.log(response);
 						window.location = Config.URL + "news/admin";
 					} else {
 						Swal.fire({
 							theme: 'dark',
 							icon: 'error',
 							title: 'Oops...',
-							text: (response),
+							html: response
 						})
 					}
 

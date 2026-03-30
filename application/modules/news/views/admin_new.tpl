@@ -316,7 +316,7 @@
   </div>
 
 	<!--Hidden file input for images-->
-	<input id="files" type="file" name="files[]" data-button="" multiple="" accept="image/jpeg, image/png, image/gif," style="display:none;">
+	<input id="files" type="file" name="files[]" data-button="" multiple="" accept="image/jpg, image/jpeg, image/png, image/gif, image/svg, image/webp" style="display:none;">
 	</div>
 	</div>
 	<div id="image_preview"></div>
