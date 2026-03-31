@@ -60,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (file_exists(".lock"))
         {
             echo json_encode(["success" => true]);
+            header('Clear-Site-Data: "cache"');
             exit();
         } else {
             echo json_encode(["success" => false, "message" => "Not possible to create .lock file, no write permissions?"]);
