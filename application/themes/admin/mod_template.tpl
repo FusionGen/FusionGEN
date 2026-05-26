@@ -103,8 +103,7 @@
 		var scripts = [
 			"{$url}application/assets/js/jquery.transit.min.js",
 			"{$url}application/assets/js/tooltip.js",
-			"{$url}application/assets/js/ui.js",
-			"{$url}application/assets/js/fusioneditor.js"
+			"{$url}application/assets/js/ui.js"
 			{if $extra_js},"{$url}application/{$extra_js}"{/if}
 		];
 			require(scripts, function()

@@ -6,11 +6,6 @@ var Groups = {
 	identifier: "groups",
 
 	/**
-	 * The ID of the fusionEditor (like "#news_content"), if any, otherwise put false
-	 */
-	fusionEditor: false,
-
-	/**
 	 * Links for the ajax requests
 	 */
 	Links: {
@@ -98,11 +93,6 @@ var Groups = {
 			}
 		});
 
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
-
 		$.post(Config.URL + this.Links.create, values, function(data)
 		{
 			if(data == '1')
@@ -140,11 +130,6 @@ var Groups = {
 				values[$(this).attr("name")] = this.checked;
 			}
 		});
-
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
 
 		$.post(Config.URL + this.Links.save + id, values, function(data)
 		{
