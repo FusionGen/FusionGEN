@@ -6,11 +6,6 @@ var Roles = {
 	identifier: "roles",
 
 	/**
-	 * The ID of the fusionEditor (like "#news_content"), if any, otherwise put false
-	 */
-	fusionEditor: false,
-
-	/**
 	 * Links for the ajax requests
 	 */
 	Links: {
@@ -98,11 +93,6 @@ var Roles = {
 			}
 		});
 
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
-
 		$.post(Config.URL + this.Links.create, values, function(data)
 		{
 			console.log(data);
@@ -129,11 +119,6 @@ var Roles = {
 				values[$(this).attr("name")] = this.checked;
 			}
 		});
-
-		if(this.fusionEditor != false)
-		{
-			values[this.fusionEditor.replace("#", "")] = $(this.fusionEditor).html();
-		}
 
 		$.post(Config.URL + this.Links.save + id, values, function(data)
 		{

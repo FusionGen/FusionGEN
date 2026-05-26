@@ -108,8 +108,7 @@
 	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/require.js"></script>
 	<script>
 		var scripts = [
-			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/jquery.transit.min.js",
-			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/fusioneditor.js"
+			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/jquery.transit.min.js"
 			{if $extra_js},"{$url}application/{$extra_js}"{/if}
 		];
 			require(scripts, function()
