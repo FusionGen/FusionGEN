@@ -65,8 +65,8 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/ui.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/language.js"></script>
 		<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/tooltip.js"></script>
-		<!-- Load wowhead tooltip -->
 		{if !$use_fcms_tooltip}
+		<!-- Load wowhead tooltip -->
 		<script>const whTooltips = { colorLinks: false, iconizeLinks: false, renameLinks: false };</script>
 		<script src="https://wow.zamimg.com/js/tooltips.js"></script>
 		{/if}
@@ -106,9 +106,9 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 
 			$(document).ready(function() {
 				{if $client_language}Language.set("{addslashes($client_language)}");{/if}
+				UI.initialize();
 				Tooltip.initialize();
 			});
-			UI.initialize();
 
 			{if $analytics}
 				// Google Analytics
