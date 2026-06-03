@@ -1,4 +1,4 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['FusionGENVersion'] = '1.0.7';
+$config['FusionGENVersion'] = '1.0.8';
