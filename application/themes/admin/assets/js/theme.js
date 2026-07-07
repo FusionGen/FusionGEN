@@ -1559,7 +1559,8 @@ window.theme.fn = {
 
 										'<div class="row">',
 											'<div class="col-6">',
-												'<p class="mt-xs mb-0">',
+												'<p class="mt-1 mb-3">',
+													'<a href="' + window.location.origin + '/">Not {{username}}?</a>',
 												'</p>',
 											'</div>',
 											'<div class="col-6">',
@@ -1574,7 +1575,7 @@ window.theme.fn = {
 				]
 				.join( '' )
 				.replace( /\{\{picture\}\}/, userinfo.picture )
-				.replace( /\{\{username\}\}/, userinfo.username )
+				.replace( /\{\{username\}\}/g, userinfo.username )
 		},
 	};
 
