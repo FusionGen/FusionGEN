@@ -53,22 +53,42 @@ class Language
     public function setLanguage($language)
     {
         $realLanguage = $language;
-        $this->language = $language;
 
-        if (!is_dir("application/language/" . $language)) {
+        $language = basename((string) $language);
+
+        if (!$this->isValidLanguage($language)) {
             $language = $this->defaultLanguage;
 
-            if (!is_dir("application/language/" . $language)) {
+            if (!$this->isValidLanguage($language)) {
                 $language = "english";
 
-                if (!is_dir("application/language/" . $language)) {
-                    show_error("The requested language <b>" . $realLanguage . "</b> doesn't exist and the actual default language <b>" . $this->CI->config->item('language') . "</b> does not exist either, and nor does English. Please install at least one language.");
+                if (!$this->isValidLanguage($language)) {
+                    show_error("The requested language <b>" . htmlspecialchars($realLanguage) . "</b> doesn't exist and the actual default language <b>" . $this->CI->config->item('language') . "</b> does not exist either, and nor does English. Please install at least one language.");
                 }
             }
         }
 
+        // Only assign the validated language, never the raw input.
+        $this->language = $language;
+
         $this->reloadLanguage();
         $this->languagePrefix = $this->get("abbreviation");
+    }
+
+    /**
+     * Check that a language name is a safe, installed language directory.
+     *
+     * Rejects anything containing path separators, dot segments or other
+     * unexpected characters, then confirms the directory actually exists.
+     *
+     * @param  String $language
+     * @return bool
+     */
+    private function isValidLanguage($language)
+    {
+        return is_string($language)
+            && preg_match('/^[A-Za-z0-9_-]+$/', $language) === 1
+            && is_dir("application/language/" . $language);
     }
 
     /**
@@ -209,6 +229,10 @@ class Language
             $language = $this->language;
         }
 
+        if (!$this->isValidLanguage($language)) {
+            show_error("Invalid language requested.");
+        }
+
         // Prevent errors
         if (!array_key_exists($language, $this->data)) {
             $this->data[$language] = [];
@@ -274,7 +298,7 @@ class Language
 
     public function getAbbreviationByLanguage($language)
     {
-        if (is_dir("application/language/" . $language)) {
+        if ($this->isValidLanguage($language)) {
             require("application/language/" . $language . "/main.php");
 
             return $lang['abbreviation'];
