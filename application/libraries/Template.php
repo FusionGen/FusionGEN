@@ -679,16 +679,21 @@ class Template
      *
      * @param String $text
      * @param Boolean $nl2br
-     * @param Boolean $xss
+     * @param Boolean $escape
      * @param Mixed $break
      */
-    public function format($text, $nl2br = false, $xss = true, $break = false)
+    public function format($text, $nl2br = false, $escape = true, $break = false)
     {
-        // Prevent Cross Site Scripting
-        if ($xss && is_string($text))
+        // If it's an array or object, skip everything and return it raw
+        if (!is_string($text))
         {
-            $text = $this->CI->security->xss_clean($text);
-            $text = htmlspecialchars($text);
+            return $text;
+        }
+
+        // Prevent Cross Site Scripting via Output Encoding
+        if ($escape)
+        {
+            $text = html_escape($text);
         }
 
         // Wordwrap
@@ -705,7 +710,7 @@ class Template
 
         return $text;
     }
-    
+
     /**
      * Format time as "XX days/hours/minutes/seconds"
      *
