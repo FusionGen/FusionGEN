@@ -126,12 +126,6 @@ class Settings extends MX_Controller
         $location = $this->input->post("location");
 
         if ($this->form_validation->run()) {
-            // Update sanitization according to CMS standards
-            $values = [
-                'nickname' => $this->template->format($nickname, false, true, false),
-                'location' => $this->template->format($location, false, true, false)
-            ];
-
             // Custom validation for nickname uniqueness
             if ($nickname != $this->user->getNickname() && $this->internal_user_model->nicknameExists($nickname)) {
                 // Return nickname error
