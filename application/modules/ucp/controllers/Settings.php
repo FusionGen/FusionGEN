@@ -126,6 +126,11 @@ class Settings extends MX_Controller
         $location = $this->input->post("location");
 
         if ($this->form_validation->run()) {
+            $values = [
+                'nickname' => $nickname,
+                'location' => $location
+            ];
+
             // Custom validation for nickname uniqueness
             if ($nickname != $this->user->getNickname() && $this->internal_user_model->nicknameExists($nickname)) {
                 // Return nickname error
