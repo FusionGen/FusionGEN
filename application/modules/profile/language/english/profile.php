@@ -22,5 +22,5 @@ $lang['account_rank'] = "Account Rank";
 $lang['contact'] = "Contact";
 $lang['pm'] = "Private message";
 $lang['forum_posts'] = "Forum Posts";
-$lang['forum_threads'] = "Forum Threds";
+$lang['forum_threads'] = "Forum Threads";
 $lang['profile_nav'] = "Profile Navigation";
