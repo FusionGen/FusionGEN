@@ -29,6 +29,8 @@ class Auth extends MX_Controller
     //Login page
     public function login()
     {
+        $this->template->setTitle(lang("log_in", "auth"));
+
         if ($this->user->isOnline())
         {
             redirect($this->template->page_url . "ucp");
