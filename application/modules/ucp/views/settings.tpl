@@ -10,6 +10,13 @@
                 <form onSubmit="Settings.submitInfo(); return false" id="settings_info" class="page_form">
 
                     <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="username_field">{lang("username", "ucp")}</label>
+                        <div class="col-sm-9">
+                            <input class="form-control pe-none" type="text" id="username_field" name="username_field" placeholder="{lang("username", "ucp")}" value="{$username}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-3">
                         <label class="col-sm-3 col-form-label" for="nickname_field">{lang("nickname", "ucp")}</label>
                         <div class="col-sm-9">
                             <input class="form-control" type="text" id="nickname_field" name="nickname_field" placeholder="{lang("nickname", "ucp")}" value="{$nickname}" oninput="Settings.validateNickname()" required>
@@ -27,20 +34,18 @@
                         <div class="form-group row mt-3">
                             <label class="col-sm-3 col-form-label" for="language_field">Website Language</label>
                             <div class="col-sm-9">
-
                                 <select aria-label="Website Language" name="language_field" id="language_field">
                                     {foreach from=$languages item=language}
                                         <option value="{$language}" {if $userLanguage == $language}selected="selected"{/if}>{ucfirst($language)}</option>
                                     {/foreach}
                                 </select>
-
                             </div>
                         </div>
                     {/if}
 
-                    <input class="nice_button rounded mt-3" type="submit" value="{lang("change_information", "ucp")}">
-
-                    <div id="settings_info_ajax" class="text-center"></div>
+                    <div class="form-group text-center mt-3">
+                        <input class="nice_button rounded" type="submit" value="{lang("change_information", "ucp")}">
+                    </div>
                 </form>
 
                 <hr>
@@ -68,9 +73,9 @@
                         </div>
                     </div>
 
-                    <input class="nice_button rounded mt-3" type="submit" value="{lang("change_password", "ucp")}">
-
-                    <div id="settings_ajax" class="text-center py-3"></div>
+                    <div class="form-group text-center mt-4">
+                        <input class="nice_button rounded" type="submit" value="{lang("change_password", "ucp")}">
+                    </div>
                 </form>
 
             </div>

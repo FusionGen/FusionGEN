@@ -17,6 +17,7 @@ $lang['user_panel'] = "Panou de control utilizator";
 $lang['account_overview'] = "Prezentare generală a contului";
 $lang['account_characters'] = "Personaje cont";
 
+$lang['username'] = "Nume utilizator";
 $lang['nickname'] = "Pseudonim";
 $lang['change_nickname'] = "Schimbă numele";
 

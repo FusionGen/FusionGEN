@@ -9,8 +9,12 @@
 				<table class="table table-borderless user-table">
 					<tbody class="text-break">
 						<tr>
-							<td><div class="user-table-icon"><i class="fas fa-user"></i></div> {lang("nickname", "ucp")}</td>
+							<td><div class="user-table-icon"><i class="fas fa-user"></i></div> {lang("username", "ucp")}</td>
 							<td>{$username}</td>
+						</tr>
+						<tr>
+							<td><div class="user-table-icon"><i class="fas fa-user-tie"></i></div> {lang("nickname", "ucp")}</td>
+							<td>{$nickname}</td>
 							<td class="text-end"><a href="{$url}ucp/settings">{lang("edit", "ucp")}</a></td>
 						</tr>
 						<tr>
