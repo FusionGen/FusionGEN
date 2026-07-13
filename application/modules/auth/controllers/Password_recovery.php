@@ -10,7 +10,6 @@ class Password_recovery extends MX_Controller
 
         $this->load->helper('email_helper');
 
-        $this->load->library('security');
         $this->load->library('form_validation');
 
         $this->user->guestArea();

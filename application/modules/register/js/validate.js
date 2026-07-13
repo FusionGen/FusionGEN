@@ -59,7 +59,7 @@ var Validate = {
         field.removeClass('is-invalid is-valid');
         field.next('.invalid-feedback').remove();
 
-        if (value.length < 4 || value.length > 24) {
+        if (value.length < 4 || value.length > 17) {
             this.invalid('#register_username', lang("username_limit_length", "register"));
         } else if (!/^[A-Za-z0-9]*$/.test(value)) {
             this.invalid('#register_username', lang("username_limit", "register"));

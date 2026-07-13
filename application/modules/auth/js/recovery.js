@@ -31,7 +31,6 @@ var Recovery = {
 					
 				} catch(e) {
 					console.error(e);
-					console.log(data);
 				}				
 			});
 
