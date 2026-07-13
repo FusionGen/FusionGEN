@@ -6,12 +6,14 @@
 			<form onSubmit="Recovery.request(); return false">
 				<div class="alert text-center error-feedback d-none" role="alert"></div>
 
-				<div class="input-group p-0 flex-row mb-4">
+				<div class="input-group p-0 flex-row">
 					<label for="email" class="input-group-text" style="width:45px;"><i class="fas fa-envelope"></i></label>
 					<input type="email" id="email" class="form-control email-input border-0" autocomplete="email" placeholder="{lang('email', 'recovery')}" required>
 				</div>
 
-				<input type="submit" value="{lang('recover', 'recovery')}" class="nice_button rounded">
+				<div class="form-group text-center mt-4">
+					<input type="submit" value="{lang('recover', 'recovery')}" class="nice_button rounded">
+				</div>
 			</form>
 		</div>
 	</div>
