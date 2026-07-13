@@ -18,7 +18,8 @@ class Ucp extends MX_Controller
         $this->template->setTitle(lang("user_panel", "ucp"));
 
         $data = [
-            "username" => $this->user->getNickname(),
+            "username" => $this->user->getUsername(),
+            "nickname" => $this->user->getNickname(),
             "expansion" => $this->realms->getEmulator()->getExpansionName($this->external_account_model->getExpansion()),
             "vp" => $this->internal_user_model->getVp(),
             "dp" => $this->internal_user_model->getDp(),

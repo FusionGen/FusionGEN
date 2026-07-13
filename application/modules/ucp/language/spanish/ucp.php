@@ -17,6 +17,7 @@ $lang['user_panel'] = "Panel de Control de Usuario";
 $lang['account_overview'] = "Resumen de la Cuenta";
 $lang['account_characters'] = "Personajes de la Cuenta";
 
+$lang['username'] = "Nombre de usuario";
 $lang['nickname'] = "Apodo";
 $lang['change_nickname'] = "Cambiar Apodo";
 

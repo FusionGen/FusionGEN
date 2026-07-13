@@ -17,6 +17,7 @@ $lang['user_panel'] = "Panneau de contrôle utilisateur";
 $lang['account_overview'] = "Aperçu du compte";
 $lang['account_characters'] = "Personnages du compte";
 
+$lang['username'] = "Nom d’utilisateur";
 $lang['nickname'] = "Pseudonyme";
 $lang['change_nickname'] = "Changer de nom";
 

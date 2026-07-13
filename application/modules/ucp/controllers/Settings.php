@@ -32,6 +32,7 @@ class Settings extends MX_Controller
         $this->template->setTitle(lang("settings", "ucp"));
 
         $settings_data = [
+            'username' => $this->user->getUsername(),
             'nickname' => $this->user->getNickname(),
             'location' => $this->internal_user_model->getLocation(),
             'show_language_chooser' => $this->config->item('show_language_chooser'),
@@ -117,7 +118,7 @@ class Settings extends MX_Controller
         $this->load->model("settings_model");
 
         // Set up validation rules
-        $this->form_validation->set_rules('nickname', 'nickname', 'trim|required|min_length[4]|max_length[24]|alpha_numeric');
+        $this->form_validation->set_rules('nickname', 'nickname', 'trim|required|min_length[4]|max_length[17]|alpha_numeric');
         $this->form_validation->set_rules('location', 'location', 'trim|max_length[32]|alpha');
 
         $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');

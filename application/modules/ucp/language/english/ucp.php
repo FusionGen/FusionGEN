@@ -17,6 +17,7 @@ $lang['user_panel'] = "User Control panel";
 $lang['account_overview'] = "Account Overview";
 $lang['account_characters'] = "Account characters";
 
+$lang['username'] = "Username";
 $lang['nickname'] = "Nickname";
 $lang['change_nickname'] = "Change Name";
 
