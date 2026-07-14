@@ -12,8 +12,6 @@ class Settings extends MX_Controller
 
         $this->load->config('smtp');
         $this->load->config('performance');
-        $this->load->config('social_media');
-        $this->load->config('cdn');
 
         require_once('application/libraries/Configeditor.php');
 

@@ -19,7 +19,6 @@ class Vote extends MX_Controller
         //Load the model and config
         $this->load->config('vote');
         $this->load->model('vote_model');
-        $this->load->helper('form');
     }
 
     public function index()

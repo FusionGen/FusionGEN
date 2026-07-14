@@ -7,7 +7,6 @@ class Auth extends MX_Controller
         parent::__construct();
 
         $this->load->library('form_validation');
-        $this->load->library('captcha');
         $this->load->model('login_model');
 
         requirePermission("view");

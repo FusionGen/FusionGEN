@@ -17,7 +17,7 @@ class Donate extends MX_Controller
     {
         requirePermission("view");
 
-        $this->template->setTitle(lang("donate_title", "donate"));
+        $this->template->setTitle(lang("donate_panel", "donate"));
 
         $donate_paypal = $this->config->item('donate_paypal');
 
