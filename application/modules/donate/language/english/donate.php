@@ -12,7 +12,6 @@
  *  will automatically look in that folder too.
  */
 
-$lang['donate_title'] = "Donate";
 $lang['donate_panel'] = "Donate panel";
 $lang['donate_thanks'] = "Thanks for your donation!";
 $lang['donate_error'] = "Error!";
@@ -24,5 +23,4 @@ $lang['dp'] = "Donation points";
 $lang['for'] = "for";
 $lang['pay_paypal'] = "Pay with PayPal";
 $lang['pay_paygol'] = "Pay with SMS";
-$lang['donate'] = "Donate";
 $lang['no_methods'] = "Please configure at least one payment method.";

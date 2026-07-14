@@ -7,7 +7,6 @@ class Mod extends MX_Controller
     {
         parent::__construct();
 
-        $this->load->helper('text');
         $this->load->model('tickets_model');
         $this->load->library('moderator');
         requirePermission("view");

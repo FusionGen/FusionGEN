@@ -14,8 +14,6 @@ class Register extends MX_Controller
         $this->load->library('form_validation');
 
         $this->load->helper('email_helper');
-
-        $this->load->config('captcha');
     }
 
     public function index()

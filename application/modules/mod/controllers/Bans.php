@@ -6,7 +6,6 @@ class Bans extends MX_Controller
     {
         parent::__construct();
 
-        $this->load->helper('text');
         $this->load->model('mod_model');
         $this->load->library('moderator');
         requirePermission("view");
