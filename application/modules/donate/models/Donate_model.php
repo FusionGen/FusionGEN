@@ -7,18 +7,25 @@ class Donate_model extends CI_Model
         switch ($type)
         {
             case 'paypal':
-                $query = $this->db->query("SELECT * FROM `paypal_logs` GROUP BY `payment_id` ORDER BY `status` DESC, `id` DESC LIMIT 10");
+                // Subquery to get MAX(id) grouped by payment_id
+                $subquery = $this->db->select('MAX(id)')
+                                     ->from('paypal_logs')
+                                     ->group_by('payment_id')
+                                     ->get_compiled_select();
+
+                // Main query retrieving rows matching those IDs
+                $query = $this->db->select('*')
+                                  ->from('paypal_logs')
+                                  ->where("id IN ($subquery)", NULL, FALSE) // FALSE stops CI from protecting identifiers in the subquery string
+                                  ->order_by('status', 'DESC')
+                                  ->order_by('id', 'DESC')
+                                  ->limit(10)
+                                  ->get();
                 break;
         }
 
-        if ($query) {
-            if ($query->num_rows() > 0)
-            {
-                $result = $query->result_array();
-                return $result;
-            } else {
-                return false;
-            }
+        if ($query && $query->num_rows() > 0) {
+            return $query->result_array();
         } else {
             return false;
         }
@@ -47,8 +54,6 @@ class Donate_model extends CI_Model
     {
         if ($type == "paypal") {
             $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `payment_id` LIKE ?", ["%" . $string . "%"]);
-        } else {
-            $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `txn_id` LIKE ?", ["%" . $string . "%"]);
         }
 
         if ($query->num_rows())
@@ -63,7 +68,7 @@ class Donate_model extends CI_Model
 
     public function findById($type, $string)
     {
-        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `" . (($type == "paygol") ? "custom" : "user_id") . "`=?", [$string]);
+        $query = $this->db->query("SELECT * FROM " . $type . "_logs WHERE `user_id` = ?", [$string]);
 
         if ($query->num_rows())
         {
