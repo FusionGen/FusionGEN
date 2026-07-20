@@ -40,7 +40,7 @@ class Admin extends MX_Controller
 
     public function search($type = false)
     {
-        $string = $this->input->post('string');
+        $string = trim($this->input->post('string'));
 
         if (!$string || !$type || !in_array($type, ['paypal'])) {
             die();
@@ -49,10 +49,10 @@ class Admin extends MX_Controller
                 if (filter_var($string, FILTER_VALIDATE_EMAIL)) {
                     // Email
                     $results = $this->donate_model->findByEmail($type, $string);
-                } elseif (preg_match("/^[A-Z0-9]{17}$/", $string)) {
+                } elseif (preg_match('/^(PAYID-)?[A-Z0-9]{24}$/i', $string)) {
                     // TXN-ID
                     $results = $this->donate_model->findByTxn($type, $string);
-                } elseif (preg_match("/^[a-zA-Z0-9]*$/", $string) && strlen($string) > 3 && strlen($string) < 15) {
+                } elseif (preg_match("/^[a-zA-Z0-9]*$/", $string) && strlen($string) > 3 && strlen($string) < 18) {
                     // Username
                     $user_id = $this->user->getId($string);
 
@@ -62,10 +62,10 @@ class Admin extends MX_Controller
 
                     $results = $this->donate_model->findById($type, $user_id);
                 } else {
-                    $results = $this->donate_model->getDonationLog($type);
+                    $results = false;
                 }
 
-                if (!$results) {
+                if (empty($results)) {
                     die("<span>No matches</span>");
                 }
             }
@@ -73,8 +73,6 @@ class Admin extends MX_Controller
             foreach ($results as $k => $v) {
                 if ($type == "paypal") {
                     $results[$k]["nickname"] = $this->user->getUsername($v['user_id']);
-                } else {
-                    $results[$k]["nickname"] = $this->user->getUsername($v['custom']);
                 }
             }
 

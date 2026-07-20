@@ -22,5 +22,4 @@ $lang['donation_for'] = "Donation for";
 $lang['dp'] = "Donation points";
 $lang['for'] = "for";
 $lang['pay_paypal'] = "Pay with PayPal";
-$lang['pay_paygol'] = "Pay with SMS";
 $lang['no_methods'] = "Please configure at least one payment method.";

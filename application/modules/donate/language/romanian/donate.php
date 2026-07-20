@@ -22,5 +22,4 @@ $lang['donation_for'] = "Donație pentru";
 $lang['dp'] = "Puncte de donație";
 $lang['for'] = "pentru";
 $lang['pay_paypal'] = "Plătește cu PayPal";
-$lang['pay_paygol'] = "Plătește prin SMS";
 $lang['no_methods'] = "Te rugăm să configurezi cel puțin o metodă de plată.";
