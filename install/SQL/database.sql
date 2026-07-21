@@ -5,7 +5,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for account_data
 -- ----------------------------
 DROP TABLE IF EXISTS `account_data`;
-CREATE TABLE `account_data`  (
+CREATE TABLE `account_data` (
   `id` int NOT NULL,
   `vp` int NULL DEFAULT 0,
   `dp` int NULL DEFAULT 0,
@@ -25,7 +25,7 @@ CREATE TABLE `account_data`  (
 -- Table structure for acl_account_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_account_groups`;
-CREATE TABLE `acl_account_groups`  (
+CREATE TABLE `acl_account_groups` (
   `account_id` int UNSIGNED NOT NULL,
   `group_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`account_id`, `group_id`) USING BTREE,
@@ -42,7 +42,7 @@ CREATE TABLE `acl_account_groups`  (
 -- Table structure for acl_account_permissions
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_account_permissions`;
-CREATE TABLE `acl_account_permissions`  (
+CREATE TABLE `acl_account_permissions` (
   `account_id` int UNSIGNED NOT NULL,
   `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `acl_account_permissions`  (
 -- Table structure for acl_account_roles
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_account_roles`;
-CREATE TABLE `acl_account_roles`  (
+CREATE TABLE `acl_account_roles` (
   `account_id` int UNSIGNED NOT NULL,
   `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE `acl_account_roles`  (
 -- Table structure for acl_group_roles
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_group_roles`;
-CREATE TABLE `acl_group_roles`  (
+CREATE TABLE `acl_group_roles` (
   `group_id` int UNSIGNED NOT NULL,
   `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -330,7 +330,7 @@ INSERT INTO `acl_group_roles` (`group_id`, `role_name`, `module`) VALUES
 -- Table structure for acl_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_groups`;
-CREATE TABLE `acl_groups`  (
+CREATE TABLE `acl_groups` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `color` varchar(7) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '#FFFFFF',
@@ -356,7 +356,7 @@ INSERT INTO `acl_groups` (`id`, `name`, `color`, `description`) VALUES
 -- Table structure for acl_roles
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_roles`;
-CREATE TABLE `acl_roles`  (
+CREATE TABLE `acl_roles` (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '',
@@ -371,7 +371,7 @@ CREATE TABLE `acl_roles`  (
 -- Table structure for acl_roles_permissions
 -- ----------------------------
 DROP TABLE IF EXISTS `acl_roles_permissions`;
-CREATE TABLE `acl_roles_permissions`  (
+CREATE TABLE `acl_roles_permissions` (
   `role_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `permission_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `module` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -388,7 +388,7 @@ CREATE TABLE `acl_roles_permissions`  (
 -- Table structure for articles
 -- ----------------------------
 DROP TABLE IF EXISTS `articles`;
-CREATE TABLE `articles`  (
+CREATE TABLE `articles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `timestamp` int NOT NULL,
   `author_id` int NOT NULL,
@@ -426,7 +426,7 @@ CREATE TABLE `articles`  (
 -- Table structure for avatars
 -- ----------------------------
 DROP TABLE IF EXISTS `avatars`;
-CREATE TABLE `avatars`  (
+CREATE TABLE `avatars` (
   `id` int NOT NULL AUTO_INCREMENT,
   `avatar` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `staff` int NOT NULL DEFAULT 0,
@@ -466,7 +466,7 @@ INSERT INTO `avatars` (`id`, `avatar`, `staff`) VALUES
 -- Table structure for backup
 -- ----------------------------
 DROP TABLE IF EXISTS `backup`;
-CREATE TABLE `backup`  (
+CREATE TABLE `backup` (
   `id` int NOT NULL AUTO_INCREMENT,
   `backup_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -482,7 +482,7 @@ CREATE TABLE `backup`  (
 -- Table structure for changelog
 -- ----------------------------
 DROP TABLE IF EXISTS `changelog`;
-CREATE TABLE `changelog`  (
+CREATE TABLE `changelog` (
   `change_id` int NOT NULL AUTO_INCREMENT,
   `changelog` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `author` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -501,7 +501,7 @@ CREATE TABLE `changelog`  (
 -- Table structure for changelog_type
 -- ----------------------------
 DROP TABLE IF EXISTS `changelog_type`;
-CREATE TABLE `changelog_type`  (
+CREATE TABLE `changelog_type` (
   `id` int NOT NULL AUTO_INCREMENT,
   `typeName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
@@ -516,7 +516,7 @@ CREATE TABLE `changelog_type`  (
 -- Table structure for failed_logins
 -- ----------------------------
 DROP TABLE IF EXISTS `failed_logins`;
-CREATE TABLE `failed_logins`  (
+CREATE TABLE `failed_logins` (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `attempts` int NOT NULL DEFAULT 0,
@@ -529,7 +529,7 @@ CREATE TABLE `failed_logins`  (
 -- Table structure for ci_sessions
 -- ----------------------------
 DROP TABLE IF EXISTS `ci_sessions`;
-CREATE TABLE `ci_sessions`  (
+CREATE TABLE `ci_sessions` (
   `id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `ip_address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `user_agent` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -547,7 +547,7 @@ CREATE TABLE `ci_sessions`  (
 -- Table structure for comments
 -- ----------------------------
 DROP TABLE IF EXISTS `comments`;
-CREATE TABLE `comments`  (
+CREATE TABLE `comments` (
   `id` int NOT NULL AUTO_INCREMENT,
   `article_id` int NOT NULL,
   `author_id` int NOT NULL,
@@ -565,7 +565,7 @@ CREATE TABLE `comments`  (
 -- Table structure for daily_signups
 -- ----------------------------
 DROP TABLE IF EXISTS `daily_signups`;
-CREATE TABLE `daily_signups`  (
+CREATE TABLE `daily_signups` (
   `date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `amount` int NULL DEFAULT 0,
   PRIMARY KEY (`date`) USING BTREE
@@ -579,7 +579,7 @@ CREATE TABLE `daily_signups`  (
 -- Table structure for email_log
 -- ----------------------------
 DROP TABLE IF EXISTS `email_log`;
-CREATE TABLE `email_log`  (
+CREATE TABLE `email_log` (
   `id` int NOT NULL AUTO_INCREMENT,
   `uid` int NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -597,7 +597,7 @@ CREATE TABLE `email_log`  (
 -- Table structure for email_templates
 -- ----------------------------
 DROP TABLE IF EXISTS `email_templates`;
-CREATE TABLE `email_templates`  (
+CREATE TABLE `email_templates` (
   `id` int NOT NULL AUTO_INCREMENT,
   `template_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -613,7 +613,7 @@ INSERT INTO `email_templates` (`id`, `template_name`) VALUES
 -- Table structure for image_slider
 -- ----------------------------
 DROP TABLE IF EXISTS `image_slider`;
-CREATE TABLE `image_slider`  (
+CREATE TABLE `image_slider` (
   `id` int NOT NULL AUTO_INCREMENT,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '#',
@@ -653,7 +653,7 @@ CREATE TABLE `item_icons` (
 -- Table structure for logs
 -- ----------------------------
 DROP TABLE IF EXISTS `logs`;
-CREATE TABLE `logs`  (
+CREATE TABLE `logs` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `module` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint UNSIGNED NOT NULL,
@@ -676,7 +676,7 @@ CREATE TABLE `logs`  (
 -- Table structure for menu
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
-CREATE TABLE `menu`  (
+CREATE TABLE `menu` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '#',
@@ -707,7 +707,7 @@ INSERT INTO `menu` (`id`, `name`, `link`, `side`, `rank`, `specific_rank`, `orde
 -- Table structure for mod_logs
 -- ----------------------------
 DROP TABLE IF EXISTS `mod_logs`;
-CREATE TABLE `mod_logs`  (
+CREATE TABLE `mod_logs` (
   `id` int NOT NULL AUTO_INCREMENT,
   `action` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `mod` int UNSIGNED NULL DEFAULT NULL,
@@ -727,7 +727,7 @@ CREATE TABLE `mod_logs`  (
 -- Table structure for monthly_income
 -- ----------------------------
 DROP TABLE IF EXISTS `monthly_income`;
-CREATE TABLE `monthly_income`  (
+CREATE TABLE `monthly_income` (
   `month` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `amount` int NULL DEFAULT 0,
   PRIMARY KEY (`month`) USING BTREE
@@ -743,7 +743,7 @@ INSERT INTO `monthly_income` (`month`, `amount`) VALUES
 -- Table structure for monthly_votes
 -- ----------------------------
 DROP TABLE IF EXISTS `monthly_votes`;
-CREATE TABLE `monthly_votes`  (
+CREATE TABLE `monthly_votes` (
   `month` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `amount` int NULL DEFAULT 0,
   PRIMARY KEY (`month`) USING BTREE
@@ -757,7 +757,7 @@ CREATE TABLE `monthly_votes`  (
 -- Table structure for order_log
 -- ----------------------------
 DROP TABLE IF EXISTS `order_log`;
-CREATE TABLE `order_log`  (
+CREATE TABLE `order_log` (
   `id` int NOT NULL AUTO_INCREMENT,
   `completed` int NULL DEFAULT NULL,
   `user_id` int NULL DEFAULT NULL,
@@ -776,7 +776,7 @@ CREATE TABLE `order_log`  (
 -- Table structure for pages
 -- ----------------------------
 DROP TABLE IF EXISTS `pages`;
-CREATE TABLE `pages`  (
+CREATE TABLE `pages` (
   `id` int NOT NULL AUTO_INCREMENT,
   `identifier` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -799,7 +799,7 @@ INSERT INTO `pages` (`id`, `identifier`, `name`, `content`, `permission`, `rank_
 -- Table structure for password_recovery_key
 -- ----------------------------
 DROP TABLE IF EXISTS `password_recovery_key`;
-CREATE TABLE `password_recovery_key`  (
+CREATE TABLE `password_recovery_key` (
   `recoverykey` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -815,7 +815,7 @@ CREATE TABLE `password_recovery_key`  (
 -- Table structure for paypal_donate
 -- ----------------------------
 DROP TABLE IF EXISTS `paypal_donate`;
-CREATE TABLE `paypal_donate`  (
+CREATE TABLE `paypal_donate` (
   `id` int NOT NULL AUTO_INCREMENT,
   `price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `tax` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -839,7 +839,7 @@ INSERT INTO `paypal_donate` (`id`, `price`, `points`) VALUES
 -- Table structure for paypal_logs
 -- ----------------------------
 DROP TABLE IF EXISTS `paypal_logs`;
-CREATE TABLE `paypal_logs`  (
+CREATE TABLE `paypal_logs` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `payment_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -865,7 +865,7 @@ CREATE TABLE `paypal_logs`  (
 -- Table structure for ranks
 -- ----------------------------
 DROP TABLE IF EXISTS `ranks`;
-CREATE TABLE `ranks`  (
+CREATE TABLE `ranks` (
   `id` int NOT NULL AUTO_INCREMENT,
   `rank_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'RANK',
   `access_id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0',
@@ -891,7 +891,7 @@ INSERT INTO `ranks` (`id`, `rank_name`, `access_id`, `is_gm`, `is_dev`, `is_admi
 -- Table structure for realms
 -- ----------------------------
 DROP TABLE IF EXISTS `realms`;
-CREATE TABLE `realms`  (
+CREATE TABLE `realms` (
   `id` int NOT NULL AUTO_INCREMENT,
   `hostname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -923,7 +923,7 @@ CREATE TABLE `realms`  (
 -- Table structure for sideboxes
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes`;
-CREATE TABLE `sideboxes`  (
+CREATE TABLE `sideboxes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `displayName` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -947,7 +947,7 @@ INSERT INTO `sideboxes` (`id`, `type`, `displayName`, `rank_needed`, `order`, `p
 -- Table structure for sideboxes_custom
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_custom`;
-CREATE TABLE `sideboxes_custom`  (
+CREATE TABLE `sideboxes_custom` (
   `sidebox_id` int NOT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   UNIQUE INDEX `sidebox_id`(`sidebox_id`) USING BTREE,
@@ -962,7 +962,7 @@ CREATE TABLE `sideboxes_custom`  (
 -- Table structure for sideboxes_poll_answers
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_poll_answers`;
-CREATE TABLE `sideboxes_poll_answers`  (
+CREATE TABLE `sideboxes_poll_answers` (
   `answerid` int NOT NULL AUTO_INCREMENT,
   `questionid` int NOT NULL,
   `answer` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -979,7 +979,7 @@ CREATE TABLE `sideboxes_poll_answers`  (
 -- Table structure for sideboxes_poll_questions
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_poll_questions`;
-CREATE TABLE `sideboxes_poll_questions`  (
+CREATE TABLE `sideboxes_poll_questions` (
   `questionid` int NOT NULL AUTO_INCREMENT,
   `question` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`questionid`) USING BTREE
@@ -993,7 +993,7 @@ CREATE TABLE `sideboxes_poll_questions`  (
 -- Table structure for sideboxes_poll_votes
 -- ----------------------------
 DROP TABLE IF EXISTS `sideboxes_poll_votes`;
-CREATE TABLE `sideboxes_poll_votes`  (
+CREATE TABLE `sideboxes_poll_votes` (
   `questionid` int NULL DEFAULT NULL,
   `answerid` int NULL DEFAULT NULL,
   `userid` int NULL DEFAULT NULL,
@@ -1009,7 +1009,7 @@ CREATE TABLE `sideboxes_poll_votes`  (
 -- Table structure for spelltext_en
 -- ----------------------------
 DROP TABLE IF EXISTS `spelltext_en`;
-CREATE TABLE `spelltext_en`  (
+CREATE TABLE `spelltext_en` (
   `spellId` int NOT NULL,
   `spellText` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
@@ -7523,7 +7523,7 @@ INSERT INTO `spelltext_en` (`spellId`, `spellText`) VALUES
 -- Table structure for store_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `store_groups`;
-CREATE TABLE `store_groups`  (
+CREATE TABLE `store_groups` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `orderNumber` int NULL DEFAULT 0,
@@ -7540,7 +7540,7 @@ INSERT INTO `store_groups` (`id`, `title`, `orderNumber`) VALUES
 -- Table structure for store_items
 -- ----------------------------
 DROP TABLE IF EXISTS `store_items`;
-CREATE TABLE `store_items`  (
+CREATE TABLE `store_items` (
   `id` int NOT NULL AUTO_INCREMENT,
   `itemid` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -7570,7 +7570,7 @@ CREATE TABLE `store_items`  (
 -- Table structure for teleport_locations
 -- ----------------------------
 DROP TABLE IF EXISTS `teleport_locations`;
-CREATE TABLE `teleport_locations`  (
+CREATE TABLE `teleport_locations` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Unnamed',
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -7597,7 +7597,7 @@ CREATE TABLE `teleport_locations`  (
 -- Table structure for visitor_log
 -- ----------------------------
 DROP TABLE IF EXISTS `visitor_log`;
-CREATE TABLE `visitor_log`  (
+CREATE TABLE `visitor_log` (
   `id` int NOT NULL AUTO_INCREMENT,
   `date` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `timestamp` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -7613,7 +7613,7 @@ CREATE TABLE `visitor_log`  (
 -- Table structure for vote_log
 -- ----------------------------
 DROP TABLE IF EXISTS `vote_log`;
-CREATE TABLE `vote_log`  (
+CREATE TABLE `vote_log` (
   `id` int NOT NULL AUTO_INCREMENT,
   `vote_site_id` int NOT NULL DEFAULT 0,
   `user_id` int NOT NULL,
@@ -7632,7 +7632,7 @@ CREATE TABLE `vote_log`  (
 -- Table structure for vote_sites
 -- ----------------------------
 DROP TABLE IF EXISTS `vote_sites`;
-CREATE TABLE `vote_sites`  (
+CREATE TABLE `vote_sites` (
   `id` int NOT NULL AUTO_INCREMENT,
   `vote_sitename` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'FusionGEN',
   `vote_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'https://',
