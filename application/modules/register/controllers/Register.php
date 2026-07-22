@@ -98,7 +98,6 @@ class Register extends MX_Controller
     {
         $this->captcha->generate();
         $this->captcha->output();
-        exit; // and exit
     }
 
     public function username_check($username)
