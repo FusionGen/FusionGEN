@@ -60,7 +60,7 @@ class Register extends MX_Controller
             }
 
             // Captcha check if enabled
-            if ($this->config->item('use_captcha') && strtoupper($this->input->post('register_captcha')) != strtoupper($captchaObj->getValue())) {
+            if ($this->config->item('use_captcha') && $this->input->post('register_captcha') != $this->captcha->getValue()) {
                 $response['errors']['register_captcha'] = '<div class="invalid-feedback">Captcha error</div>';
             }
 
