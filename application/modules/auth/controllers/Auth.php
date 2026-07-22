@@ -202,8 +202,9 @@ class Auth extends MX_Controller
     {
         $this->captcha->generate();
         $this->captcha->output();
+        exit; // and exit
     }
-    
+
     private function increaseAttempts($ip_address)
     {
         $find = $this->login_model->getIP($ip_address);
