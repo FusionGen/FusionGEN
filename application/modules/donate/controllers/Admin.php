@@ -49,7 +49,7 @@ class Admin extends MX_Controller
                 if (filter_var($string, FILTER_VALIDATE_EMAIL)) {
                     // Email
                     $results = $this->donate_model->findByEmail($type, $string);
-                } elseif (preg_match('/^(PAYID-)?[A-Z0-9]{24}$/i', $string)) {
+                } elseif (preg_match("/^(PAYID-)?[A-Z0-9]{24}$/i", $string)) {
                     // TXN-ID
                     $results = $this->donate_model->findByTxn($type, $string);
                 } elseif (preg_match("/^[a-zA-Z0-9]*$/", $string) && strlen($string) > 3 && strlen($string) < 18) {

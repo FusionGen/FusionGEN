@@ -49,7 +49,6 @@ class Auth extends MX_Controller
                     "class" => ["class" => "page_form"],
                     "content" => $this->template->loadPage("login.tpl", $data)
                 ]), "modules/auth/css/auth.css", "modules/auth/js/login.js");
-
     }
 
     public function register()
