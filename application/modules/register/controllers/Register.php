@@ -94,6 +94,13 @@ class Register extends MX_Controller
         ]), false, "modules/register/js/validate.js");
     }
 
+    public function getCaptcha()
+    {
+        $this->captcha->generate();
+        $this->captcha->output();
+        exit; // and exit
+    }
+
     public function username_check($username)
     {
         return !$this->external_account_model->usernameExists($username);
