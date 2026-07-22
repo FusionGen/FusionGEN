@@ -39,10 +39,6 @@ class Register extends MX_Controller
 
         $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
-        require_once('application/libraries/Captcha.php');
-
-        $captchaObj = new Captcha($this->config->item('use_captcha'));
-
         // Handle AJAX request for validation or full submission
         if ($this->input->is_ajax_request() && $this->input->post()) {
             $response = ['status' => 'error', 'errors' => []];
