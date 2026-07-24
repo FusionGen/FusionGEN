@@ -21,16 +21,13 @@ class ConfigEditor
      */
     public function __construct($file)
     {
-        $this->data = "";
         $this->file = $file;
 
-        $handle = fopen($this->file, "r");
-
-        while (!feof($handle)) {
-            $this->data .= fgets($handle);
+        if (!is_file($file) || !is_readable($file)) {
+            throw new InvalidArgumentException("Cannot load config file: {$file}");
         }
 
-        fclose($handle);
+        $this->data = file_get_contents($file);
     }
 
     /**
@@ -96,9 +93,7 @@ class ConfigEditor
      */
     public function save()
     {
-        $file = fopen($this->file, "w");
-        fwrite($file, $this->data);
-        fclose($file);
+        file_put_contents($this->file, $this->data);
     }
 
     /**

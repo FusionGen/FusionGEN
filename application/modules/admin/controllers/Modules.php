@@ -69,9 +69,7 @@ class Modules extends MX_Controller
         $manifest[$setting] = $newValue;
 
         // Rewrite the file with the new data
-        $fileHandle = fopen($filePath, "w");
-        fwrite($fileHandle, json_encode($manifest, JSON_PRETTY_PRINT));
-        fclose($fileHandle);
+        file_put_contents($filePath, json_encode($manifest, JSON_PRETTY_PRINT));
     }
 
     public function upload()
