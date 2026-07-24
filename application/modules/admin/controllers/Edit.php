@@ -91,16 +91,7 @@ class Edit extends MX_Controller
         include($file);
 
         $this->configs[$this->getConfigName($file)] = $config;
-        $this->configs[$this->getConfigName($file)]['source'] = $this->getConfigSource($file);
-    }
-
-    private function getConfigSource($file)
-    {
-        $handle = fopen($file, "r");
-        $data = fread($handle, filesize($file));
-        fclose($handle);
-
-        return $data;
+        $this->configs[$this->getConfigName($file)]['source'] = file_get_contents($file);
     }
 
     /**
@@ -140,14 +131,16 @@ class Edit extends MX_Controller
         if (!$name || !$module || !$this->configExists($module, $name)) {
             die("Invalid module or config name");
         } else {
-            if ($this->input->post("source")) {
-                $file = fopen("application/modules/" . $module . "/config/" . $name . ".php", "w");
-                fwrite($file, $this->input->post("source"));
-                fclose($file);
+            $source = $this->input->post("source");
 
-                $file = file("application/modules/" . $module . "/config/" . $name . ".php");
-                $file[0] = str_replace("&lt;", "<", $file[0]);
-                file_put_contents("application/modules/" . $module . "/config/" . $name . ".php", $file);
+            if ($source) {
+                $filePath = "application/modules/" . $module . "/config/" . $name . ".php";
+
+                // Clean up encoded opening PHP tags if present
+                $source = preg_replace('/^&lt;/', '<', $source);
+
+                // Write updated code directly to file
+                file_put_contents($filePath, $source);
 
                 die("yes");
             } else {

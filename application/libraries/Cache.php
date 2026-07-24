@@ -28,34 +28,24 @@ class Cache
 
     private function createFolders()
     {
-        if (!file_exists("application/cache")) {
-            mkdir("application/cache");
-            fopen("application/cache/index.html", "w");
-        }
+        $directories = [
+            'application/cache',
+            'application/cache/data',
+            'application/cache/data/items',
+            'application/cache/data/spells',
+            'application/cache/data/search',
+            'application/cache/templates'
+        ];
 
-        if (!file_exists("application/cache/data")) {
-            mkdir("application/cache/data");
-            fopen("application/cache/data/index.html", "w");
-        }
+        foreach ($directories as $dir) {
+            if (!is_dir($dir)) {
+                @mkdir($dir, 0755, true);
+            }
 
-        if (!file_exists("application/cache/data/items")) {
-            mkdir("application/cache/data/items");
-            fopen("application/cache/data/items/index.html", "w");
-        }
-
-        if (!file_exists("application/cache/data/spells")) {
-            mkdir("application/cache/data/spells");
-            fopen("application/cache/data/spells/index.html", "w");
-        }
-
-        if (!file_exists("application/cache/data/search")) {
-            mkdir("application/cache/data/search");
-            fopen("application/cache/data/search/index.html", "w");
-        }
-
-        if (!file_exists("application/cache/templates")) {
-            mkdir("application/cache/templates");
-            fopen("application/cache/templates/index.html", "w");
+            $indexPath = $dir . '/index.html';
+            if (!file_exists($indexPath)) {
+                @file_put_contents($indexPath, '');
+            }
         }
     }
 
@@ -142,9 +132,7 @@ class Cache
         $fileName = "application/cache/data/" . $name . ".cache";
 
         // Open the file and write the data
-        $file = fopen($fileName, 'w');
-        fwrite($file, $json);
-        fclose($file);
+        file_put_contents($fileName, $json);
     }
 
     /**

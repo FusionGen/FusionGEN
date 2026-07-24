@@ -162,6 +162,12 @@ class Captcha
             ]
         ];
 
+        // Check if the directory exists; if not, create it
+        if (!is_dir($vals['img_path'])) {
+            @mkdir($vals['img_path'], 0755, true);
+            @file_put_contents($vals['img_path'] . 'index.html', '');
+        }
+
         $cap = create_captcha($vals);
         //die(print_r($cap));
 
