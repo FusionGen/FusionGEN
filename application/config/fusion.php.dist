@@ -159,13 +159,13 @@ $config['description'] = "";
 
 /*
 |--------------------------------------------------------------------------
-| Use FusionCMS tooltip system instead of WoWHead tooltips
+| Use FusionGEN tooltip system instead of WoWHead tooltips
 |--------------------------------------------------------------------------
 |
 | Put to false if you mainly have "blizzlike" items.
 |
 */
-$config['use_fcms_tooltip'] = true;
+$config['use_fgen_tooltip'] = true;
 
 /*
 |--------------------------------------------------------------------------
