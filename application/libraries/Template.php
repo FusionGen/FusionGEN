@@ -352,7 +352,7 @@ class Template
             "extra_css" => $css,
             "extra_js" => $js,
             "analytics" => $this->CI->config->item('analytics'),
-            "use_fcms_tooltip" => $this->CI->config->item('use_fcms_tooltip'),
+            "use_fgen_tooltip" => $this->CI->config->item('use_fgen_tooltip'),
             "slider" => $this->theme_data['slider_text'],
             "slider_id" => $this->theme_data['slider_id'],
             "csrf_cookie" => $this->CI->input->cookie('csrf_token_name'),

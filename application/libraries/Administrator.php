@@ -310,7 +310,7 @@ class Administrator
     }
 
     /**
-     * Get the FusionCMS version
+     * Get the FusionGEN version
      *
      * @return Float
      */

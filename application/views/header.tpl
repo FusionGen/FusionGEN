@@ -48,7 +48,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 				CSRF: getCookie('csrf_cookie_name'),
 				language: "{$activeLanguage}",
 
-				UseFusionTooltip: {if $use_fcms_tooltip}1{else}0{/if},
+				UseFusionTooltip: {if $use_fgen_tooltip}1{else}0{/if},
 
 				Slider: {
 					interval: {$slider_interval},
