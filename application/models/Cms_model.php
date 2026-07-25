@@ -31,30 +31,19 @@ class Cms_model extends CI_Model
     private function logVisit()
     {
         if (!$this->input->is_ajax_request() && !isset($_GET['is_json_ajax'])) {
-            $this->db->query("INSERT INTO visitor_log(`date`, `ip`, `timestamp`) VALUES(?, ?, ?)", [date("Y-m-d"), $this->input->ip_address(), time()]);
+            // we just insert user_agent and let ci taking care of the rest
+            $sessionId = session_id();
+            $userAgent = $this->input->user_agent();
+
+            if (!empty($userAgent) && !empty($sessionId))
+            {
+                $this->db
+                    ->where('id', $sessionId)
+                    ->update('ci_sessions', [
+                        'user_agent' => $userAgent
+                    ]);
+            }
         }
-
-        $session = [
-            'ip_address' => $this->input->ip_address(),
-            'user_agent' => substr($this->input->user_agent(), 0, 255),
-        ];
-
-        $this->db->where('ip_address', $session['ip_address']);
-        $this->db->update("ci_sessions", $session);
-
-        $query = $this->getSession($session);
-
-        $data = [
-            "ip_address" => $session['ip_address'],
-        ];
-
-        if ($session["user_agent"])
-        {
-            $data['user_agent'] = $session["user_agent"];
-        }
-
-        $this->db->where('ip_address', $session['ip_address']);
-        $this->db->update("ci_sessions", $data);
     }
 
     public function getModuleConfigKey($moduleId, $key)
@@ -280,20 +269,6 @@ class Cms_model extends CI_Model
             $this->user->setLanguage($setLang);
         } else {
             $this->session->set_userdata(['language' => $setLang]);
-        }
-    }
-
-    private function getSession($session)
-    {
-        $this->db->where('ip_address', $session['ip_address']);
-        $this->db->where('user_agent', $session['user_agent']);
-        $query = $this->db->get("ci_sessions");
-
-        if ($query->num_rows() > 0) {
-            $result = $query->result_array();
-            return $result;
-        } else {
-            return false;
         }
     }
 }
