@@ -536,7 +536,7 @@ CREATE TABLE `ci_sessions` (
   `timestamp` int UNSIGNED NOT NULL DEFAULT 0,
   `data` mediumblob NOT NULL,
   PRIMARY KEY (`id`, `ip_address`) USING BTREE,
-  INDEX `last_activity_idx`(`timestamp`) USING BTREE
+  INDEX `ci_sessions_timestamp`(`timestamp`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=Dynamic;
 
 -- ----------------------------
