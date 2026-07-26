@@ -1,16 +1,12 @@
 <?php
 
-class Armory_model extends CI_Model
+class Character_model extends CI_Model
 {
     public $realm;
     private $connection;
     private $id;
     private $realmId;
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
     /**
      * Assign the character ID to the model
      */

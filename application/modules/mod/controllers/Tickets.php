@@ -16,7 +16,6 @@ class Tickets extends MX_Controller
     {
         parent::__construct();
 
-        $this->load->helper('text');
         $this->load->model('tickets_model');
         $this->load->config('mod_config');
         $this->load->library('moderator');
@@ -104,7 +103,7 @@ class Tickets extends MX_Controller
             "class" => $this->class,
             "level" => $this->level,
             "gender" => $this->gender,
-            "avatar" => $this->tickets_model->realms->formatAvatarPath($avatarArray),
+            "avatar" => $this->realms->formatAvatarPath($avatarArray),
             "status" => $this->realms->getRealm($realmId)->getCharacters()->isOnline($ticket['guid']),
             "account" => $this->account
         ];
