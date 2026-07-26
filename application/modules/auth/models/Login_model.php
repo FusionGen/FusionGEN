@@ -8,10 +8,6 @@
 
 class Login_model extends CI_Model
 {
-    public function __construct()
-    {
-    }
-
     public function getIP($ip)
     {
         $this->db->where('ip_address', $ip);

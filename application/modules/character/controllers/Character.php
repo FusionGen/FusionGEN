@@ -32,7 +32,7 @@ class Character extends MX_Controller
         $this->js = "modules/character/js/character.js";
         $this->css = "modules/character/css/character.css";
 
-        $this->load->model("armory_model");
+        $this->load->model("character_model");
 
         $this->canCache = true;
         $this->items = [];
@@ -90,8 +90,8 @@ class Character extends MX_Controller
             $this->realm = $realm;
             $this->id = $id;
 
-            $this->armory_model->setRealm($this->realm);
-            $this->armory_model->setId($this->id);
+            $this->character_model->setRealm($this->realm);
+            $this->character_model->setId($this->id);
         } else {
             $this->realm = false;
             $this->id = false;
@@ -103,10 +103,10 @@ class Character extends MX_Controller
      */
     private function getInfo()
     {
-        $character_data = $this->armory_model->getCharacter();
+        $character_data = $this->character_model->getCharacter();
 
         if ($this->realms->getRealm($this->realm)->getEmulator()->hasStats()) {
-            $character_stats = $this->armory_model->getStats();
+            $character_stats = $this->character_model->getStats();
         } else {
             $character_stats = ['maxhealth' => lang("unknown", "character")];
         }
@@ -128,13 +128,13 @@ class Character extends MX_Controller
         // Get the account username
         $this->accountName = $this->internal_user_model->getNickname($this->account);
 
-        $this->guild = $this->armory_model->getGuild();
-        $this->guildName = $this->armory_model->getGuildName($this->guild);
+        $this->guild = $this->character_model->getGuild();
+        $this->guildName = $this->character_model->getGuildName($this->guild);
 
-        $this->raceName = $this->armory_model->realms->getRace($this->race);
+        $this->raceName = $this->character_model->realms->getRace($this->race);
 
-        $this->className = $this->armory_model->realms->getClass($this->class);
-        $this->realmName = $this->armory_model->realm->getName();
+        $this->className = $this->character_model->realms->getClass($this->class);
+        $this->realmName = $this->character_model->realm->getName();
 
         if ($this->realms->getRealm($this->realm)->getEmulator()->hasStats()) {
             // Find out which power field to use
@@ -198,7 +198,7 @@ class Character extends MX_Controller
         }
 
         // Load the items
-        $items = $this->armory_model->getItems();
+        $items = $this->character_model->getItems();
 
         // Item slots
         $slots = [
@@ -328,7 +328,7 @@ class Character extends MX_Controller
 
             $page = $cache['page'];
         } else {
-            if ($this->armory_model->characterExists()) {
+            if ($this->character_model->characterExists()) {
                 // Load all items and info
                 $this->getInfo();
 
@@ -355,7 +355,7 @@ class Character extends MX_Controller
                     "raceName" => $this->raceName,
                     "className" => $this->className,
                     "realmName" => $this->realmName,
-                    "avatar" => $this->armory_model->realms->formatAvatarPath($avatarArray),
+                    "avatar" => $this->realms->formatAvatarPath($avatarArray),
                     "stats" => $this->stats,
                     "secondBar" => $this->secondBar,
                     "secondBarValue" => $this->secondBarValue,

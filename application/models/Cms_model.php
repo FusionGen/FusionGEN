@@ -16,8 +16,6 @@ class Cms_model extends CI_Model
      */
     public function __construct()
     {
-        $this->db = $this->load->database("cms", true);
-
         $this->load->library('user_agent');
         $this->load->library('tasks');
 

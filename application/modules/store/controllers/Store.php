@@ -6,8 +6,6 @@ class Store extends MX_Controller
     {
         parent::__construct();
 
-        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-
         $this->user->userArea();
 
         $this->load->model("store_model");

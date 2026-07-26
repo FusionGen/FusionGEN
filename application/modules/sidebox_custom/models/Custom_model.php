@@ -2,14 +2,6 @@
 
 class Custom_model extends CI_Model
 {
-    private $db;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->db = $this->load->database("cms", true);
-    }
-
     public function getCustomData($id)
     {
         $this->db->select('*')->from('sideboxes_custom')->where('sidebox_id', $id)->limit(1);

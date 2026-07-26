@@ -2,8 +2,6 @@
 
 class Donation_goal extends MX_Controller
 {
-    private $db;
-
     public function __construct()
     {
         parent::__construct();
@@ -51,8 +49,6 @@ class Donation_goal extends MX_Controller
      */
     private function getCurrent()
     {
-        $this->db = $this->load->database("cms", true);
-
         $query = $this->db->query("SELECT amount from monthly_income WHERE month=?", [date("Y-m")]);
 
         if ($query->num_rows()) {
