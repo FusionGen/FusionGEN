@@ -31,8 +31,25 @@ class Cms_model extends CI_Model
     private function logVisit()
     {
         if (!$this->input->is_ajax_request() && !isset($_GET['is_json_ajax'])) {
-            // we just insert user_agent and let ci taking care of the rest
-            $sessionId = session_id();
+            $ip   = $this->input->ip_address();
+            $date = date("Y-m-d");
+
+            // Check if an entry for this IP and date already exists
+            $exists = $this->db
+                ->where('date', $date)
+                ->where('ip', $ip)
+                ->count_all_results('visitor_log');
+
+            if ($exists === 0) {
+                $this->db->insert('visitor_log', [
+                    'date'      => $date,
+                    'ip'        => $ip,
+                    'timestamp' => time()
+                ]);
+            }
+
+            // we just insert user_agent and let ci handle the sessions
+            $sessionId = $this->session->session_id;
             $userAgent = $this->input->user_agent();
 
             if (!empty($userAgent) && !empty($sessionId))
