@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
     header("HTTP/1.1 403 Forbidden");
-    exit();
+    exit;
 }
 
 class Realms
@@ -42,7 +42,7 @@ class Realms
                     "success" => false,
                     "message" => "Please input all fields."
                 ]);
-                exit();
+                exit;
             }
 
             require ('../application/config/database.php');
@@ -57,7 +57,7 @@ class Realms
                     "success" => false,
                     "message" => "Fusion DB: " . $e->getMessage()
                 ]);
-                exit();
+                exit;
             }
 
             try
@@ -70,7 +70,7 @@ class Realms
                     "success" => false,
                     "message" => "Char DB: " . $e->getMessage()
                 ]);
-                exit();
+                exit;
             }
 
             try
@@ -83,7 +83,7 @@ class Realms
                     "success" => false,
                     "message" => "World DB: " . $e->getMessage()
                 ]);
-                exit();
+                exit;
             }
 
             if (!mysqli_select_db($mysqli_characters, $characters))
@@ -92,7 +92,7 @@ class Realms
                     "success" => false,
                     "message" => "Looks like your characters database doesn't exist"
                 ]);
-                exit();
+                exit;
             }
 
             if (!mysqli_select_db($mysqli_world, $world))
@@ -101,7 +101,7 @@ class Realms
                     "success" => false,
                     "message" => "Looks like your world database doesn't exist"
                 ]);
-                exit();
+                exit;
             }
 
             $sql = "INSERT INTO realms(`hostname`, `username`, `password`, `char_database`, `world_database`, `cap`, `realmName`, `console_username`, `console_password`, `console_port`, `emulator`, `realm_port`, `override_port_world`, `override_username_world`, `override_password_world`, `override_hostname_world`, `override_port_char`, `override_username_char`, `override_password_char`, `override_hostname_char`)
@@ -131,7 +131,7 @@ class Realms
                     "message" => "Prepare error: " . $mysqli_cms->error
                 ]);
             }
-            exit();
+            exit;
         }
     }
 

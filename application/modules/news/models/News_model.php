@@ -11,16 +11,14 @@ class News_model extends CI_Model
      */
     public function getArticles($start = 0, $limit = 1)
     {
-        if ($start === true) {
-            $this->db->select('*');
-        } else {
-            $this->db->select('*');
+        if ($start !== true) {
             $this->db->limit($limit, $start);
         }
 
-        $this->db->order_by('id', 'desc');
-        $query = $this->db->get('articles');
-        $result = $query->result_array();
+        $result = $this->db
+            ->order_by('id', 'DESC')
+            ->get('articles')
+            ->result_array();
 
         // Did we have any results?
         if ($result) {

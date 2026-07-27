@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
     header("HTTP/1.1 403 Forbidden");
-    exit();
+    exit;
 }
 
 if (\function_exists('set_time_limit')) {
@@ -24,14 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!($host && $dbuser && $dbpassword && $dbname && $auth_host && $auth_db_user && $auth_db_pass && $auth_db))
     {
         echo json_encode(["success" => false, "message" => "Please input all fields."]);
-        exit();
+        exit;
     }
 
     try {
         $mysqli_fusion = new mysqli($host, $dbuser, $dbpassword, $dbname, $dbport);
     } catch (Exception $e) {
         echo json_encode(["success" => false, "message" => "Fusion DB: ".$e->getMessage()]);
-        exit();
+        exit;
     }
 
     $result = mysqli_query($mysqli_fusion, "SELECT VERSION() as mysql_version");
@@ -46,20 +46,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (version_compare($version, '8.0.0', '<'))
     {
         echo json_encode(["success" => false, "message" => "Fusion DB: MySQL server version is too old! Please use at least MySQL 8.0"]);
-        exit();
+        exit;
     }
 
     try {
         $mysqli_auth = new mysqli($auth_host, $auth_db_user, $auth_db_pass, $auth_db, $auth_port);
     } catch (Exception $e) {
         echo json_encode(["success" => false, "message" => "Auth DB: ".$e->getMessage()]);
-        exit();
+        exit;
     }
 
     if (!is_file('SQL/database.sql'))
     {
         echo json_encode(["success" => false, "message" => "The database.sql file could not be found!"]);
-        exit();
+        exit;
     }
 
     $dbPath = '../application/config/database.php';
@@ -125,12 +125,12 @@ $db["account"] = [
         while (mysqli_more_results($mysqli_fusion) && mysqli_next_result($mysqli_fusion));
     } catch (Exception $e) {
         echo json_encode(["success" => false, "message" => "Fusion DB import failed! Error: ".$e->getMessage()]);
-        exit();
+        exit;
     }
 
     $mysqli_fusion->close();
     // database created
 
     echo json_encode(["success" => true]);
-    exit();
+    exit;
 }

@@ -14,7 +14,7 @@
 
 $lang['404_title'] = "Fișierul nu a fost găsit";
 $lang['404'] = "eroare 404 - fișierul nu a fost găsit";
-$lang['404_long'] = "Pagina pe care o căutați nu există. Cum ai ajuns aici este un mister. Dar poți face clic pe butonul de mai jos pentru a reveni la pagina principală.";
+$lang['404_long'] = "Pagina pe care o cauți nu există. Cum ai ajuns aici este un mister. Dar poți face clic pe butonul de mai jos pentru a reveni la pagina principală.";
 $lang['permission_denied_title'] = "Permisiune refuzată";
 $lang['permission_denied'] = "Nu ai permisiunea de a accesa această pagină!";
 $lang['lost'] = "UH OH! Te-ai rătăcit.";

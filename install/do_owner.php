@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
     header("HTTP/1.1 403 Forbidden");
-    exit();
+    exit;
 }
 
 if (\function_exists('set_time_limit')) {
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($accname))
         {
             echo json_encode(["success" => false, "message" => "Please input your account name"]);
-            exit();
+            exit;
         }
 
         global $db;
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mysqli_auth = new mysqli($db['account']['hostname'], $db['account']['username'], $db['account']['password'], $db['account']['database'], $db['account']['port']);
         } catch (Exception $e) {
             echo json_encode(["success" => false, "message" => "Auth DB: ".$e->getMessage()]);
-            exit();
+            exit;
         }
 
         $query = $mysqli_auth->prepare("SELECT username from account WHERE username = ?");
@@ -39,12 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $query->store_result();
         } catch (Exception $e) {
             echo json_encode(["success" => false, "message" => "Auth DB: ".$e->getMessage()]);
-            exit();
+            exit;
         }
 
         if ($query->num_rows() === 0) {
             echo json_encode(["success" => false, "message" => "Accountname not found!"]);
-            exit();
+            exit;
         }
 
         $query->close();
@@ -61,14 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         {
             echo json_encode(["success" => true]);
             header('Clear-Site-Data: "cache"');
-            exit();
+            exit;
         } else {
             echo json_encode(["success" => false, "message" => "Not possible to create .lock file, no write permissions?"]);
-            exit();
+            exit;
         }
 
     } else {
         echo json_encode(["success" => false, "message" => "Accountname not provided!"]);
-        exit();
+        exit;
     }
 }

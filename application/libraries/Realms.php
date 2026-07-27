@@ -17,11 +17,8 @@ class Realms
     private $CI;
 
     // Runtime values
-    private $races;
-    private $classes;
     private $races_en;
     private $classes_en;
-    private $zones;
     private $hordeRaces;
     private $allianceRaces;
 
@@ -31,9 +28,6 @@ class Realms
     {
         $this->CI = &get_instance();
 
-        $this->races = [];
-        $this->classes = [];
-        $this->zones = [];
         $this->realms = [];
 
         // Load the realm object
@@ -155,23 +149,11 @@ class Realms
     {
         $this->CI->config->load('wow_constants');
 
-        $this->races = $this->CI->config->item('races');
         $this->hordeRaces = $this->CI->config->item('horde_races');
         $this->allianceRaces = $this->CI->config->item('alliance_races');
-        $this->classes = $this->CI->config->item('classes');
 
         $this->races_en = $this->CI->config->item('races_en');
         $this->classes_en = $this->CI->config->item('classes_en');
-    }
-
-    /**
-     * Load the wow_zones config and populate the zones array
-     */
-    private function loadZones()
-    {
-        $this->CI->config->load('wow_zones');
-
-        $this->zones = $this->CI->config->item('zones');
     }
 
     /**
@@ -210,12 +192,10 @@ class Realms
      */
     public function getRace($id)
     {
-        if (!($this->races)) {
-            $this->loadConstants();
-        }
+        $races = lang("races", "wow_constants");
 
-        if (array_key_exists($id, $this->races)) {
-            return $this->races[$id];
+        if (array_key_exists($id, $races)) {
+            return $races[$id];
         } else {
             return "Unknown";
         }
@@ -229,12 +209,10 @@ class Realms
      */
     public function getClass($id)
     {
-        if (!($this->classes)) {
-            $this->loadConstants();
-        }
+        $classes = lang("classes", "wow_constants");
 
-        if (array_key_exists($id, $this->classes)) {
-            return $this->classes[$id];
+        if (array_key_exists($id, $classes)) {
+            return $classes[$id];
         } else {
             return "Unknown";
         }
@@ -248,12 +226,10 @@ class Realms
      */
     public function getZone($zoneId)
     {
-        if (!($this->zones)) {
-            $this->loadZones();
-        }
+        $zones = lang("zones", "wow_zones");
 
-        if (array_key_exists($zoneId, $this->zones)) {
-            return $this->zones[$zoneId];
+        if (array_key_exists($zoneId, $zones)) {
+            return $zones[$zoneId];
         } else {
             return "Unknown location";
         }
@@ -527,7 +503,7 @@ class Realms
                 $level = 1;
             }
         }
-        if (in_array($race, ["Blood elf", "Night elf", "Void elf"])) {
+        if (in_array($race, ["Blood Elf", "Night Elf", "Void Elf"])) {
             $race = preg_replace("/ /", "", $race);
         }
 

@@ -26,7 +26,7 @@
 						{/if}
 
 						{if hasPermission("deletePermissions")}
-							{if !in_array($group.id, array($guestId, $playerId))}
+							{if !in_array($group.id, [$guestId, $playerId])}
 							<a class="btn btn-primary btn-sm" href="javascript:void(0)" onClick="Groups.remove({$group.id}, this)">Delete</a>
 							{/if}
 						{/if}
