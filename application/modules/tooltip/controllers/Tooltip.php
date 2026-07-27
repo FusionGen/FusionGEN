@@ -43,13 +43,10 @@ class Tooltip extends MX_Controller
      */
     private function getItemData()
     {
-        // Load constants
-        $this->load->config("tooltip_constants");
-
-        // Assign them
-        $bind = $this->config->item("bind");
-        $slots = $this->config->item("slots");
-        $damages = $this->config->item("damages");
+        // Assign language
+        $bind = lang("bind", "wow_tooltip");
+        $slots = lang("slots", "wow_tooltip");
+        $damages = lang("damages", "wow_tooltip");
 
         // Load the realm
         $realmObj = $this->realms->getRealm($this->realm);
@@ -190,7 +187,7 @@ class Tooltip extends MX_Controller
      */
     private function getAttributes($item)
     {
-        $types = $this->config->item("stats");
+        $types = lang("stats", "wow_tooltip");
 
         $statCount = 10;
         $attributes = [
@@ -248,7 +245,7 @@ class Tooltip extends MX_Controller
      */
     private function getSpells($item)
     {
-        $spelltriggers = $this->config->item("spelltriggers");
+        $spelltriggers = lang("spelltriggers", "wow_tooltip");
 
         $spellCount = 5;
         $spells = [];
@@ -303,14 +300,14 @@ class Tooltip extends MX_Controller
     {
         // Weapons
         if ($class == 2) {
-            $sub = $this->config->item("weapon_sub");
+            $sub = lang("weapon_sub", "wow_tooltip");
 
             return $sub[$subclass];
         }
 
         // Armor
         elseif ($class == 4) {
-            $sub = $this->config->item("armor_sub");
+            $sub = lang("armor_sub", "wow_tooltip");
 
             return $sub[$subclass];
         }

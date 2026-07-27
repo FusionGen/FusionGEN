@@ -14,7 +14,7 @@
 $lang['abbreviation'] = "ro";
 
 // User panel abbreviation
-$lang['ucp'] = "UCP";
+$lang['ucp'] = "PCU";
 
 /**
  * ====================================
@@ -63,8 +63,8 @@ $lang['account_overview'] = "Prezentare generală a contului";
 $lang['account_settings'] = "Setări cont";
 $lang['teleport_hub'] = "Hub de Teleportare";
 
-$lang['mod_panel'] = "Panoul Mod";
-$lang['admin_panel'] = "Panoul de Administrare";
+$lang['mod_panel'] = "Panou Mod";
+$lang['admin_panel'] = "Panou de Administrare";
 
 $lang['login'] = "Autentificare";
 $lang['logout'] = "Deconectare";

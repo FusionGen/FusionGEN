@@ -2,10 +2,6 @@
 
 class Armory extends MX_Controller
 {
-    private $weapon_sub;
-    private $armor_sub;
-    private $slots;
-
     public function __construct()
     {
         parent::__construct();
@@ -13,12 +9,6 @@ class Armory extends MX_Controller
         requirePermission("view");
 
         $this->load->model('armory_model');
-
-        $this->load->config('tooltip/tooltip_constants');
-
-        $this->weapon_sub = $this->config->item("weapon_sub");
-        $this->armor_sub = $this->config->item("armor_sub");
-        $this->slots = $this->config->item("slots");
     }
 
     public function index()
@@ -46,7 +36,7 @@ class Armory extends MX_Controller
         $table = $this->input->post('table');
         $start = $this->input->post('start');
         $length = $this->input->post('length');
-        $string = $this->input->post("search");
+        $string = $this->input->post('search');
 
         if (!$string || strlen($string) <= 1 || !$realm || !is_numeric($realm)|| !is_numeric($start)|| !is_numeric($length))
         {
@@ -166,27 +156,26 @@ class Armory extends MX_Controller
 
     private function getItemType($slot, $class, $subclass)
     {
+        $weapon_sub = lang("weapon_sub", "wow_tooltip");
+        $armor_sub = lang("armor_sub", "wow_tooltip");
+        $slots = lang("slots", "wow_tooltip");
+
         // Weapons
         if ($class == 2) {
-            $type = (array_key_exists($subclass, $this->weapon_sub)) ? $this->weapon_sub[$subclass] : "Unknown";
+            $type = (array_key_exists($subclass, $weapon_sub)) ? $weapon_sub[$subclass] : "Unknown";
         }
-
         // Armor
         elseif ($class == 4) {
-            $type = (array_key_exists($subclass, $this->armor_sub)) ? $this->armor_sub[$subclass] : "Unknown";
+            $type = (array_key_exists($subclass, $armor_sub)) ? $armor_sub[$subclass] : "Unknown";
         }
-
         // Anything else
         else {
             $type = null;
         }
 
-        $slot = $this->slots[$slot];
+        $slot = $slots[$slot];
 
-        if (
-            strlen($slot)
-            && strlen($type)
-        ) {
+        if (strlen($slot) && strlen((string)$type)) {
             return $slot . " (" . $type . ")";
         } else {
             return lang("misc", "armory");

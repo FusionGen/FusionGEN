@@ -9,7 +9,6 @@ class Armory_model extends CI_Model
     {
         // Connect to the world database
         $realm = $this->realms->getRealm($realmId);
-        $realm->getWorld()->connect();
         $this->w_connection = $realm->getWorld()->getConnection();
 
         // Build the query using Query Builder
@@ -27,7 +26,6 @@ class Armory_model extends CI_Model
     public function get_items_count($string, $realmId)
     {
         $realm = $this->realms->getRealm($realmId);
-        $realm->getWorld()->connect();
         $this->w_connection = $realm->getWorld()->getConnection();
 
         // Build the query using Query Builder
@@ -41,7 +39,6 @@ class Armory_model extends CI_Model
     {
         //Connect to the character database
         $realm = $this->realms->getRealm($realmId);
-        $realm->getCharacters()->connect();
         $this->c_connection = $realm->getCharacters()->getConnection();
 
         $searchString = $this->c_connection->escape_str($searchString);
@@ -54,7 +51,6 @@ class Armory_model extends CI_Model
     public function get_guilds_count($string, $realmId)
     {
         $realm = $this->realms->getRealm($realmId);
-        $realm->getCharacters()->connect();
         $this->c_connection = $realm->getCharacters()->getConnection();
 
         // Build the query using Query Builder
@@ -67,7 +63,6 @@ class Armory_model extends CI_Model
     public function get_characters($searchString = "", $limit = NULL, $offset = NULL, $realmId = 1)
     {
         $realm = $this->realms->getRealm($realmId);
-        $realm->getCharacters()->connect();
         $this->c_connection = $realm->getCharacters()->getConnection();
 
         // Build the query using Query Builder
@@ -85,7 +80,6 @@ class Armory_model extends CI_Model
     public function get_characters_count($string, $realmId)
     {
         $realm = $this->realms->getRealm($realmId);
-        $realm->getCharacters()->connect();
         $this->c_connection = $realm->getCharacters()->getConnection();
 
         // Build the query using Query Builder

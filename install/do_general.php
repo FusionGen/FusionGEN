@@ -2,7 +2,7 @@
 if (file_exists(".lock"))
 {
     header("HTTP/1.1 403 Forbidden");
-    exit();
+    exit;
 }
 
 if (\function_exists('set_time_limit')) {
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!($title && $server_name && $realmlist && $security_code)) {
         echo json_encode(["success" => false, "message" => "Please input all fields."]);
-        exit();
+        exit;
     }
 
     require_once('../application/libraries/Configeditor.php');
@@ -56,5 +56,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $config->save();
 
     echo json_encode(["success" => true]);
-    exit();
+    exit;
 }

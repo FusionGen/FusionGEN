@@ -5,7 +5,7 @@ class Data_model extends CI_Model
     public $realm;
     private $connection;
     private $emuStr = false;
-    private $statements = array();
+    private $statements = [];
 
     public function __construct()
     {

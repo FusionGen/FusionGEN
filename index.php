@@ -1,8 +1,8 @@
 <?php
-if (file_exists("install") && !file_exists("install/.lock"))
+if (is_dir("install") && !file_exists("install/.lock"))
 {
-	header("Location: install");
-	exit();
+	header("Location: install/");
+	exit;
 }
 
 /*
