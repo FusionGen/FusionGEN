@@ -170,7 +170,7 @@ class Acl
         {
             show_error("Invalid Module. The directory <b>" . APPPATH . "modules/" . $moduleName . "</b> doesn't exist!");
         }
-        else if (!file_exists("application/modules/" . $moduleName . "/manifest.json")) {
+        elseif (!file_exists("application/modules/" . $moduleName . "/manifest.json")) {
             show_error("The file <b>manifest.json</b> for <b>" . strtolower($moduleName) . "</b> doesn't exist!");
         }
 

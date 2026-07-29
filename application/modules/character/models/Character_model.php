@@ -29,7 +29,6 @@ class Character_model extends CI_Model
      */
     public function connect()
     {
-        $this->realm->getCharacters()->connect();
         $this->connection = $this->realm->getCharacters()->getConnection();
     }
 

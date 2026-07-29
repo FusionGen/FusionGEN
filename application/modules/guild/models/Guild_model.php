@@ -5,7 +5,6 @@ class Guild_model extends CI_Model
     public function getGuild($realm, $guildId)
     {
         $realm = $this->realms->getRealm($realm);
-        $realm->getCharacters()->connect();
         $connection = $realm->getCharacters()->getConnection();
 
         $query = $connection->query(query('get_guild', $realm->getId()), [$guildId]);
@@ -17,10 +16,10 @@ class Guild_model extends CI_Model
             return false;
         }
     }
+
     public function getGuildMembers($realm, $guildId)
     {
         $realm = $this->realms->getRealm($realm);
-        $realm->getCharacters()->connect();
         $connection = $realm->getCharacters()->getConnection();
 
         $query = $connection->query(query('get_guild_members', $realm->getId()), [$guildId]);
