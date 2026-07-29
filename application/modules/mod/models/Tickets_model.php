@@ -14,9 +14,6 @@ class Tickets_model extends CI_Model
     public function getTickets($realm)
     {
         if ($realm) {
-            //Connect to the realm
-            $realm->getCharacters()->connect();
-
             //Do the query
             if (column("gm_tickets", "closedBy", $realm->getId())) {
                 $query = $realm->getCharacters()->getConnection()->query("SELECT " . allColumns("gm_tickets", $realm->getId()) . " FROM " . table("gm_tickets", $realm->getId()) . " WHERE " . column("gm_tickets", "completed", false, $realm->getId()) . " = 0 AND " . column("gm_tickets", "closedBy", false, $realm->getId()) . " = 0");
@@ -53,9 +50,6 @@ class Tickets_model extends CI_Model
     public function getTicket($realm, $ticketId = false)
     {
         if ($ticketId && $realm) {
-            //Connect to the realm
-            $realm->getCharacters()->connect();
-
             //Do the query
             $query = $realm->getCharacters()->getConnection()->query("SELECT " . allColumns("gm_tickets", $realm->getId()) . " FROM " . table("gm_tickets", $realm->getId()) . " WHERE " . column("gm_tickets", "ticketId", false, $realm->getId()) . " = ?", [$ticketId]);
 
