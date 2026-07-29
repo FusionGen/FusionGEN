@@ -7,7 +7,6 @@ class Toppvp_model extends CI_Model
     public function getTopKillChars($count, $realm)
     {
         // Initialize the connection
-        $realm->getCharacters()->connect();
         $this->connection = $realm->getCharacters()->getConnection();
 
         if (column('characters', 'totalKills', $realm->getId())) {

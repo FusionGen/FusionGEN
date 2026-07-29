@@ -83,10 +83,7 @@ class Character extends MX_Controller
     public function setId($realm, $id)
     {
         // Check if valid X-Y format
-        if (
-            is_numeric($realm)
-            && is_numeric($id)
-        ) {
+        if (is_numeric($realm) && is_numeric($id)) {
             $this->realm = $realm;
             $this->id = $id;
 
@@ -173,7 +170,7 @@ class Character extends MX_Controller
                     if (!empty($this->stats['maxpower3'])) {
                         $this->secondBar = "focus";
                         $this->secondBarValue = $this->stats['maxpower3'];
-                    } else if (!empty($this->stats['maxpower1'])) {
+                    } elseif (!empty($this->stats['maxpower1'])) {
                         $this->secondBar = "mana";
                         $this->secondBarValue = $this->stats['maxpower1'];
                     } else {
