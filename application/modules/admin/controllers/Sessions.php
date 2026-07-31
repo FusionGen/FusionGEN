@@ -14,6 +14,9 @@ class Sessions extends MX_Controller
 
     public function index()
     {
+        // Set the title
+        $this->administrator->setTitle("Sessions");
+
         $sessions = $this->session_model->get();
 
         if ($sessions)

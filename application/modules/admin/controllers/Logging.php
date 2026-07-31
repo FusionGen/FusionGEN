@@ -19,8 +19,8 @@ class Logging extends MX_Controller
      */
     public function index()
     {
-        //Set the title to menu
-        $this->administrator->setTitle("Logs");
+        // Set the title
+        $this->administrator->setTitle("Website Logs");
 
         $logs = $this->logger->getLogs("", 0, 10);
 

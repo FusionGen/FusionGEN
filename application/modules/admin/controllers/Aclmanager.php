@@ -19,6 +19,9 @@ class Aclmanager extends MX_Controller
      */
     public function index()
     {
+        // Set the title
+        $this->administrator->setTitle("ACL manager");
+
         // Get the template
         $output = $this->template->loadPage("aclmanager/index.tpl");
 
@@ -34,6 +37,9 @@ class Aclmanager extends MX_Controller
      */
     public function groups()
     {
+        // Set the title
+        $this->administrator->setTitle("Groups");
+
         $data = [
             "groups" => $this->acl_model->getGroups(),
             "modules" => $this->getAllRoles(),
@@ -289,6 +295,9 @@ class Aclmanager extends MX_Controller
      */
     public function roles()
     {
+        // Set the title
+        $this->administrator->setTitle("Roles");
+
         $data = [
             "modules" => $this->getAllRoles()
         ];

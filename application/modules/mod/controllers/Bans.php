@@ -13,6 +13,9 @@ class Bans extends MX_Controller
 
     public function index()
     {
+        // Set the title
+        $this->moderator->setTitle("Bans");
+
         $activeBannedAccs = $this->mod_model->getActiveBans();
         $expiredBannedAccs = $this->mod_model->getExpiredBans();
 
