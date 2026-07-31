@@ -46,6 +46,9 @@ class Hplogs extends MX_Controller
 
     public function index()
     {
+        // Set the title
+        $this->administrator->setTitle("HP Logs");
+
         //it will either get the value of f or return null
         $fileName =  $this->input->get("f");
 

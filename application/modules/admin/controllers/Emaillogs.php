@@ -13,6 +13,9 @@ class Emaillogs extends MX_Controller
 
     public function index()
     {
+        // Set the title
+        $this->administrator->setTitle("Email Logs");
+
         $emaillogs = $this->dashboard_model->getEmailLogs();
 
         $data = [

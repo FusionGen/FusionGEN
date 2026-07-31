@@ -24,6 +24,9 @@ class Tickets extends MX_Controller
 
     public function index()
     {
+        // Set the title
+        $this->moderator->setTitle("Tickets");
+
         $output = "";
 
         foreach ($this->realms->getRealms() as $realm) {
