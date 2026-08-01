@@ -1,8 +1,26 @@
 {
+    "name": "fusiongen/fusiongen",
+    "description": "Fusiongen is an open-source content management system powering dozens of websites and applications.",
+    "type": "project",
+    "license": "AGPL-3.0-or-later",
+    "homepage": "https://fusiongen.net",
+    "support": {
+        "issues": "https://github.com/FusionGen/FusionGEN/issues",
+        "source": "https://github.com/FusionGen/FusionGEN"
+    },
     "require": {
-        "monolog/monolog": "^2.8",
-        "paypal/rest-api-sdk-php": "*",
-        "psr/log": "^1.1",
-        "smarty/smarty": "^5.7"
+        "php": ">=8.2",
+        "ext-curl": "*",
+        "ext-mysqli": "*",
+        "ext-openssl": "*",
+        "ext-soap": "*",
+        "ext-mbstring": "*",
+        "ext-json": "*",
+        "ext-xml": "*",
+        "ext-zip": "*",
+        "ext-gmp": "*",
+        "ext-gd": "*",
+        "smarty/smarty": "^5.7",
+        "paypal/rest-api-sdk-php": "*"
     }
 }
