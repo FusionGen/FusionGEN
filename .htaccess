@@ -74,11 +74,6 @@ AddDefaultCharset UTF-8
     </FilesMatch>
 </IfModule>
 
-# Keep-Alive
-<IfModule mod_headers.c>
-    Header set Connection keep-alive
-</IfModule>
-
 # Disable ETags for better caching
 <IfModule mod_headers.c>
     Header unset ETag
