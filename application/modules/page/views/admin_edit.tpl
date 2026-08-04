@@ -1,4 +1,3 @@
-{TinyMCE()}
 <div class="card">
   <div class="card-header">
     Edit Page → {langColumn($page['name'])}<a class="btn btn-primary btn-sm pull-right" href="{$url}page/admin">Back</a>
@@ -48,6 +47,7 @@
 	</div>
 </div>
 
+<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/tinymce.js"></script>
 <script>
 	require([Config.URL + "application/themes/admin/assets/js/mli.js"], function()
 	{

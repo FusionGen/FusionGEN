@@ -50,15 +50,15 @@ class Hplogs extends MX_Controller
         $this->administrator->setTitle("HP Logs");
 
         //it will either get the value of f or return null
-        $fileName =  $this->input->get("f");
+        $fileName = basename($this->input->get("f"));
 
         //get the log files from the log directory
         $files = $this->getFiles();
 
         //let's determine what the current log file is
-        if (!is_null($fileName)) {
-            $currentFile = $this->logFolderPath . "/" . basename(base64_decode($fileName));
-        } elseif (is_null($fileName) && !empty($files)) {
+        if (!is_null($fileName) && in_array($fileName, $files, true)) {
+            $currentFile = $this->logFolderPath . "/" . $fileName;
+        } elseif (!empty($files)) {
             $currentFile = $this->logFolderPath . "/" . $files[0];
         } else {
             $currentFile = null;
@@ -183,23 +183,5 @@ class Hplogs extends MX_Controller
             }
         }
         return array_values($files);
-    }
-
-    private function getFilesBase64Encoded()
-    {
-        $files = glob($this->fullLogFilePath);
-
-        $files = array_reverse($files);
-        $files = array_filter($files, 'is_file');
-
-        $finalFiles = [];
-
-        //if we're to return the base name of the files
-        //let's do that here
-        foreach ($files as $file) {
-            array_push($finalFiles, ["file_b64" => base64_encode(basename($file)), "file_name" => basename($file)]);
-        }
-
-        return $finalFiles;
     }
 }

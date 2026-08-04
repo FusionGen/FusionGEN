@@ -1,4 +1,3 @@
-{TinyMCE()}
 <div class="card">
 <header class="card-header">Articles (<div class="d-inline" id="article_count">{if !$news}0{else}{count($news)}{/if}</div>)</h3>
 	{if hasPermission("canAddArticle")}

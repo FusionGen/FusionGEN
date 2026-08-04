@@ -70,10 +70,8 @@ var Auth = {
 	},
 
 	refreshCaptcha: function(ele) {
-		$(".captcha-input").val('');
-		$(".captcha-input").focus();
-		var captchaID = $(ele).data("captcha-id");
-		var imgField = $("img#"+ captchaID);
-		imgField.attr("src", imgField.attr("src") +"&d="+ new Date().getTime());
+        var imgField = $("#" + $(ele).data("captcha-id"));
+        var baseUrl = imgField.attr("src").split('?')[0];
+        imgField.attr("src", baseUrl + "?" + Date.now());
 	}
 };
