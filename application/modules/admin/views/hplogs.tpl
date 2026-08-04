@@ -10,7 +10,7 @@
             <div class="list-group">
 				{if $logs}
 					{foreach from=$files item=file}
-                        <a href="?f={base64_encode($file)}" class="list-group-item {if $currentFile == $file}active{/if}">
+                        <a href="?f={$file}" class="list-group-item {if $currentFile == $file}active{/if}">
                            {$file}
                         </a>
                     {/foreach}

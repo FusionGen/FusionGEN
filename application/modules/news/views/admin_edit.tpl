@@ -52,7 +52,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_en">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_en" class="tinymce_en form-control" id="description_en" cols="30" rows="10">{$article.content_en}</textarea>
+								<textarea name="description_en" class="form-control tinymce" id="description_en" cols="30" rows="10">{$article.content_en}</textarea>
 							</div>
 						</div>
 					</div>
@@ -70,7 +70,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_de">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_de" class="tinymce_de form-control" id="description_de" cols="30" rows="10">{$article.content_de}</textarea>
+								<textarea name="description_de" class="form-control tinymce" id="description_de" cols="30" rows="10">{$article.content_de}</textarea>
 							</div>
 						</div>
 					</div>
@@ -88,7 +88,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_es">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_es" class="tinymce_es form-control" id="description_es" cols="30" rows="10">{$article.content_es}</textarea>
+								<textarea name="description_es" class="form-control tinymce" id="description_es" cols="30" rows="10">{$article.content_es}</textarea>
 							</div>
 						</div>
 					</div>
@@ -106,7 +106,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_fr">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_fr" class="tinymce_fr form-control" id="description_fr" cols="30" rows="10">{$article.content_fr}</textarea>
+								<textarea name="description_fr" class="form-control tinymce" id="description_fr" cols="30" rows="10">{$article.content_fr}</textarea>
 							</div>
 						</div>
 					</div>
@@ -124,7 +124,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_no">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_no" class="tinymce_no form-control" id="description_no" cols="30" rows="10">{$article.content_no}</textarea>
+								<textarea name="description_no" class="form-control tinymce" id="description_no" cols="30" rows="10">{$article.content_no}</textarea>
 							</div>
 						</div>
 					</div>
@@ -142,7 +142,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_ro">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_ro" class="tinymce_ro form-control" id="description_ro" cols="30" rows="10">{$article.content_ro}</textarea>
+								<textarea name="description_ro" class="form-control tinymce" id="description_ro" cols="30" rows="10">{$article.content_ro}</textarea>
 							</div>
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_se">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_se" class="tinymce_se form-control" id="description_se" cols="30" rows="10">{$article.content_se}</textarea>
+								<textarea name="description_se" class="form-control tinymce" id="description_se" cols="30" rows="10">{$article.content_se}</textarea>
 							</div>
 						</div>
 					</div>
@@ -178,7 +178,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_ru">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_ru" class="tinymce_ru form-control" id="description_ru" cols="30" rows="10">{$article.content_ru}</textarea>
+								<textarea name="description_ru" class="form-control tinymce" id="description_ru" cols="30" rows="10">{$article.content_ru}</textarea>
 							</div>
 						</div>
 					</div>
@@ -196,7 +196,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_zh">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_zh" class="tinymce_zh form-control" id="description_zh" cols="30" rows="10">{$article.content_zh}</textarea>
+								<textarea name="description_zh" class="form-control tinymce" id="description_zh" cols="30" rows="10">{$article.content_zh}</textarea>
 							</div>
 						</div>
 					</div>
@@ -214,7 +214,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_ko">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_ko" class="tinymce_ko form-control" id="description_ko" cols="30" rows="10">{$article.content_ko}</textarea>
+								<textarea name="description_ko" class="form-control tinymce" id="description_ko" cols="30" rows="10">{$article.content_ko}</textarea>
 							</div>
 						</div>
 					</div>
@@ -343,29 +343,5 @@
 		});
 	});
 </script>
-<script>
-	var useDarkMode = $('html').hasClass('dark');
+<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/tinymce.js"></script>
 
-    require([
-		"{$url}application/assets/vendor/tiny_mce/tinymce.min.js"
-	], function () {
-		tinymce.init({
-			promotion: false,
-
-			selector : "textarea",
-
-			height: 400,
-
-			skin: useDarkMode ? 'oxide-dark' : 'oxide',
-			content_css: useDarkMode ? 'dark' : 'default',
-
-			/* display statusbar */
-			statusbar: false,
-
-			plugins: 'preview searchreplace autolink autosave directionality visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help code',
-			toolbar: 'undo redo | blocks | formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | addcomment | code',
-			image_advtab: true
-		});
-		
-    });
-</script>

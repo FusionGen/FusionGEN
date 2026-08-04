@@ -16,7 +16,7 @@
         <div class="captcha-field">
 			<div class="input-group mt-3">
 				<label for="floatingCaptcha" class="input-group-text w-100 text-center d-block">
-					<img src="{$url}auth/getCaptcha?{time()}" class="img-fluid pe-none user-select-none" alt="captcha" id="captchaImage">
+					<img src="{$url}auth/getCaptcha?{$smarty.now}" class="img-fluid pe-none user-select-none" alt="captcha" id="captchaImage">
 				</label>
 
 				<div class="input-group p-0 flex-row ms-0 flex-grow-1">
@@ -119,11 +119,9 @@ var Auth = {
 	},
 
 	refreshCaptcha: function(ele) {
-		$(".captcha-input").val('');
-		$(".captcha-input").focus();
-		var captchaID = $(ele).data("captcha-id");
-		var imgField = $("img#"+ captchaID);
-		imgField.attr("src", imgField.attr("src") +"&d="+ new Date().getTime());
+        var imgField = $("#" + $(ele).data("captcha-id"));
+        var baseUrl = imgField.attr("src").split('?')[0];
+        imgField.attr("src", baseUrl + "?" + Date.now());
 	}
 };
 </script>
