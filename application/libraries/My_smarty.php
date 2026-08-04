@@ -18,23 +18,13 @@ class My_Smarty extends Smarty
     {
         parent::__construct();
 
-        $this->setCompileDir(APPPATH . "cache/templates");
         $this->setTemplateDir(APPPATH);
+        $this->setCompileDir(APPPATH . "cache/templates");
+        $this->setCompileCheck(ENVIRONMENT !== 'production');
         $this->assign('APPPATH', APPPATH);
         $this->assign('BASEPATH', BASEPATH);
 
-        // Assign modifiers
-        $modifiers = ['lang' ,'langColumn', 'hasPermission', 'form_open', 'form_close', 'set_value', 'htmlspecialchars', 'preg_replace', 'str_replace', 'strtolower', 'reset', 'key', 'date', 'ucfirst', 'addslashes', 'array_keys', 'array_key_exists', 'end', 'trim', 'floor', 'str_contains', 'strtoupper', 'json_decode', 'character_limiter', 'ctype_digit'];
-
-        foreach ($modifiers as $mname) {
-            $this->registerPlugin('modifier', $mname, $mname);
-        }
-
-        // Assign CodeIgniter object by reference to CI
-        if (method_exists($this, 'assignByRef')) {
-            $CI = &get_instance();
-            $this->assignByRef("ci", $CI);
-        }
+        $this->registerModifiers();
 
         log_message('debug', "Smarty Class Initialized");
     }
@@ -60,36 +50,41 @@ class My_Smarty extends Smarty
     public function view($template, $data = [], $return = false)
     {
         try {
-            if ($data == '') {
-                $data = [];
+            $this->assign($data);
+
+            // Render the template
+            $output = $this->fetch($template);
+
+            if ($return)
+            {
+                return $output;
             }
 
-            foreach ($data as $key => $val) {
-                $this->assign($key, $val);
-            }
-
-            if ($return == false) {
-                $CI = &get_instance();
-                if (method_exists($CI->output, 'set_output')) {
-                    $CI->output->set_output($this->fetch($template));
-                } else {
-                    $CI->output->final_output = $this->fetch($template);
-                }
-                return;
-            } else {
-                return $this->fetch($template);
-            }
+            get_instance()->output->set_output($output);
         } catch (\Smarty\Exception $e) {
 
             log_message('error', 'Smarty error: ' . $e->getMessage());
 
             if (ENVIRONMENT !== 'production') {
-                $message = "An error has occured while trying to load the requested view.\n\n" . "Template path: {$template}\n\n" . (string) $e;
-                show_error('<pre>' . htmlspecialchars($message) . '</pre>', 500, 'Smarty Template Error');
+                $message = "An error has occurred while trying to load the requested view.\n\n" . "Template path: {$template}\n\n" . (string) $e;
+                show_error('<pre>' . html_escape($message) . '</pre>', 500, 'Smarty Template Error');
             } else {
                 show_error('An error has occurred while trying to load the requested view.', 500, 'Template Error');
             }
 
+        }
+    }
+
+    private function registerModifiers()
+    {
+        // Assign modifiers
+        $modifiers = ['lang' ,'langColumn', 'hasPermission', 'form_open', 'form_close', 'set_value', 'htmlspecialchars', 'preg_replace', 'str_replace', 'strtolower', 'reset', 'key', 'date', 'ucfirst', 'addslashes', 'array_keys', 'array_key_exists', 'end', 'trim', 'floor', 'str_contains', 'strtoupper', 'json_decode', 'character_limiter', 'ctype_digit'];
+
+        foreach ($modifiers as $mname) {
+            if (is_callable($mname))
+            {
+                $this->registerPlugin('modifier', $mname, $mname);
+            }
         }
     }
 }
