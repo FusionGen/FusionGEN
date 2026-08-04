@@ -47,7 +47,7 @@
 	</div>
 </div>
 
-<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/tinymce.js"></script>
+<script src="{$url}application/assets/js/tinymce.js"></script>
 <script>
 	require([Config.URL + "application/themes/admin/assets/js/mli.js"], function()
 	{

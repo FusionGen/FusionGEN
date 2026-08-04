@@ -343,5 +343,5 @@
 		});
 	});
 </script>
-<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/tinymce.js"></script>
+<script src="{$url}application/assets/js/tinymce.js"></script>
 
