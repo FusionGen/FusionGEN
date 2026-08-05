@@ -31,7 +31,7 @@ class Admin extends MX_Controller
             'disabled_modules' => $this->administrator->getDisabledModules(),
             'theme' => $this->template->theme_data,
             'version' => $this->administrator->getVersion(),
-            'php_version' => phpversion(),
+            'php_version' => PHP_VERSION,
             'ci_version' => CI_VERSION,
             'theme_value' => $this->config->item('theme'),
             'unique' => $this->getUnique(),
@@ -161,7 +161,7 @@ class Admin extends MX_Controller
 
         return $data;
     }
-    
+
     private function graphDaily()
     {
         if ($this->config->item('disable_visitor_graph'))
@@ -243,7 +243,7 @@ class Admin extends MX_Controller
             }
         }
     }
-	
+
 	public function realmstatus()
     {
         $data = [
@@ -252,7 +252,7 @@ class Admin extends MX_Controller
 
 		$out = $this->template->loadPage("ajax_files/realmstatus.tpl", $data);
 
-        die($out);
+        $this->output->set_output($out);
     }
 
     public function destroySession()
