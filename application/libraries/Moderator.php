@@ -113,7 +113,7 @@ class Moderator
      */
     private function getModuleName($path = "")
     {
-        return preg_replace("/application\/modules\//", "", $path);
+        return basename($path);
     }
 
     /**
