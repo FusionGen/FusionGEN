@@ -94,8 +94,8 @@
 			<tr>
 				<td>
 					{if hasPermission("editSlider")}
-						<a href="javascript:void(0)" onClick="Slider.move('up', {$slide.id}, this)" data-toggle="tooltip" data-placement="bottom" title="Move up"><i class="fas fa-chevron-circle-up"></i></a>
-						<a href="javascript:void(0)" onClick="Slider.move('down', {$slide.id}, this)" data-toggle="tooltip" data-placement="bottom" title="Move down"><i class="fas fa-chevron-circle-down"></i></a>
+						<a href="javascript:void(0)" onClick="Slider.move('up', {$slide.id}, this)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Move up"><i class="fas fa-chevron-circle-up"></i></a>
+						<a href="javascript:void(0)" onClick="Slider.move('down', {$slide.id}, this)" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Move down"><i class="fas fa-chevron-circle-down"></i></a>
 					{/if}
 				</td>
 				<td><b>{$slide.image}</b></td>

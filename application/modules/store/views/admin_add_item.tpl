@@ -1,5 +1,5 @@
 <div class="card">
-	<div class="card-header"><a href='{$url}store/admin_items' data-bs-toggle="tooltip" data-placement="top" title="Return to items">Items</a> &rarr; New item</div>
+	<div class="card-header"><a href='{$url}store/admin_items' data-bs-toggle="tooltip" data-bs-placement="top" title="Return to items">Items</a> &rarr; New item</div>
 	<div class="card-body">
 
 	<form>
@@ -213,7 +213,7 @@
 		</div>
 
 		<div class="form-group row">
-		<label class="col-sm-2 col-form-label" for="query" data-bs-toggle="tooltip" data-placement="top" title="Example query: UPDATE characters SET level = 80 WHERE guid = {literal}{CHARACTER}{/literal}">SQL query <a>(?)</a></label>
+		<label class="col-sm-2 col-form-label" for="query" data-bs-toggle="tooltip" data-bs-placement="top" title="Example query: UPDATE characters SET level = 80 WHERE guid = {literal}{CHARACTER}{/literal}">SQL query <a>(?)</a></label>
 		<div class="col-sm-10">
 		<textarea class="form-control" id="query" name="query"></textarea>
 		<span class="help-block">

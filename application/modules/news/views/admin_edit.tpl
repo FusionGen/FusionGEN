@@ -282,7 +282,7 @@
 					<!-- Buttons -->
 					<div data-type="image-buttons" class="row justify-content-center mt-2">
 						<button data-type="add" class="btn btn-outline-success w-auto" type="button"><i class="fa fa-camera m2-2"></i>Add</button>
-						<button data-type="btn-modify" type="button" class="btn btn-outline-success m-0 w-auto" data-toggle="popover" data-placement="right" style="display:none;">
+						<button data-type="btn-modify" type="button" class="btn btn-outline-success m-0 w-auto" data-bs-toggle="popover" data-bs-placement="right" style="display:none;">
 						<i class="fa fa-pencil-alt me-2"></i>Modify
 						</button>
 					</div>

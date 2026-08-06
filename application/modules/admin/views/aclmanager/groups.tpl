@@ -17,7 +17,7 @@
 		<tbody>
 			{foreach from=$groups item=group}
 				<tr>
-					<td class="fw-bold" data-toggle="tooltip" data-placement="bottom" title="{$group.description}" style="color:{$group.color} !important;">{$group.name}</td>
+					<td class="fw-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{$group.description}" style="color:{$group.color} !important;">{$group.name}</td>
 					<td> {$group.id}</td>
 					<td>{if $group.memberCount}{$group.memberCount} {($group.memberCount == 1) ? "member" : "members"}{/if}</td>
 					<td class="text-center">
@@ -41,7 +41,7 @@
 
 <section class="card" id="add_groups" style="display:none;">
 	<div class="card-header">
-	<a href='javascript:void(0)' onClick="Groups.add()" data-toggle="tooltip" data-placement="bottom" title="Return to groups">Groups</a> &rarr; New group
+	<a href='javascript:void(0)' onClick="Groups.add()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Return to groups">Groups</a> &rarr; New group
 	</div>
 	<div class="card-body">
 	<form onSubmit="Groups.create(this); return false" id="submit_form">
@@ -99,7 +99,7 @@
 									<td>{$link.link}</td>
 								</tr>
 							{else}
-								<tr data-toggle="tooltip" data-placement="bottom" title="This menu link is set to 'Visible to everyone'-mode.&#013;If you want to control the visibility per group, please go to 'Menu links' and change the visibility mode.">
+								<tr data-bs-toggle="tooltip" data-bs-placement="bottom" title="This menu link is set to 'Visible to everyone'-mode.&#013;If you want to control the visibility per group, please go to 'Menu links' and change the visibility mode.">
 									<td width="5%" class="text-center"><input type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<span class="p-0 d-inline me-1"><small>{$link.side}</small></span>
@@ -126,7 +126,7 @@
 									<td>pages/{$page.identifier}</td>
 								</tr>
 							{else}
-								<tr data-toggle="tooltip" data-placement="bottom" title="This page is set to 'Visible to everyone'-mode.&#013;If you want to control the visibility per group, please go to 'Custom pages' and change the visibility mode.">
+								<tr data-bs-toggle="tooltip" data-bs-placement="bottom" title="This page is set to 'Visible to everyone'-mode.&#013;If you want to control the visibility per group, please go to 'Custom pages' and change the visibility mode.">
 									<td width="5%" class="text-center"><input type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<label for="PAGE_{$page.id}" class="d-inline border-0 fw-bold">{langColumn($page.name)}</label></td>
@@ -151,7 +151,7 @@
 									<td>{$sidebox.type}</td>
 								</tr>
 							{else}
-								<tr data-toggle="tooltip" data-placement="bottom" title="This sidebox is set to 'Visible to everyone'-mode.&#013;If you want to control the visibility per group, please go to 'Sideboxes' and change the visibility mode.">
+								<tr data-bs-toggle="tooltip" data-bs-placement="bottom" title="This sidebox is set to 'Visible to everyone'-mode.&#013;If you want to control the visibility per group, please go to 'Sideboxes' and change the visibility mode.">
 									<td width="5%" class="text-center"><input type="checkbox" disabled="disabled" checked="checked"></td>
 									<td width="25%">
 										<label for="SIDEBOX_{$sidebox.id}" class="d-inline border-0 fw-bold">{langColumn($sidebox.displayName)}</label></td>
@@ -164,7 +164,7 @@
 			{/if}
 		</div>
 
-		<label class="col-sm-4 col-form-label mt-3" for="roles" data-toggle="tooltip" data-placement="bottom" title="A role is a pre-defined set of permissions. The color indicates the role's danger-level. Please note that certain permissions may have a default value of 'allowed', such as actions that are meant to be performed by everyone by default.">
+		<label class="col-sm-4 col-form-label mt-3" for="roles" data-bs-toggle="tooltip" data-bs-placement="bottom" title="A role is a pre-defined set of permissions. The color indicates the role's danger-level. Please note that certain permissions may have a default value of 'allowed', such as actions that are meant to be performed by everyone by default.">
 			<a href="javascript:void(0)" onClick="$('#roles input[type=checkbox]').each(function(){ this.checked = true; });" class="float-end d-block ms-2">[Select all]</a>
 			Roles <a>(?)</a>
 		</label>

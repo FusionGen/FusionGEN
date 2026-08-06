@@ -1,5 +1,5 @@
 <div class="card" id="add_item">
-	<div class="card-header"><a href='{$url}store/admin_items' data-toggle="tooltip" data-placement="top" title="Return">Groups</a> &rarr; New group</div>
+	<div class="card-header"><a href='{$url}store/admin_items' data-bs-toggle="tooltip" data-bs-placement="top" title="Return">Groups</a> &rarr; New group</div>
 	<div class="card-body">
 		<form onSubmit="Items.create(this, true); return false">
 			<div class="form-group row">

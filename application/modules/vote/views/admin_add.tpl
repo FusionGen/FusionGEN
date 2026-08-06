@@ -68,7 +68,7 @@
 	</div>
 
 	<div class="form-group row mb-3">
-	<label class="col-lg-3 col-form-label form-control-label" for="callback_enabled" data-toggle="tooltip" data-placement="bottom" title="If enabled, vote points are only credited if the user has actually voted. Not all topsites support this feature.">Enable vote verification (<a>?</a>)</label>
+	<label class="col-lg-3 col-form-label form-control-label" for="callback_enabled" data-bs-toggle="tooltip" data-bs-placement="bottom" title="If enabled, vote points are only credited if the user has actually voted. Not all topsites support this feature.">Enable vote verification (<a>?</a>)</label>
 	<div class="col-lg-9">
 	<div id="callback_form">
 		<div class="not-supported">This topsite is not supported.</div>

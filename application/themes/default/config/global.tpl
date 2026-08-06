@@ -12,8 +12,8 @@
  * - Full width pages ----------------------------------------
  * -----------------------------------------------------------
  *}
-{$sidebox_pages = array('')}
-{$sidebox_modules = array('news')}
+{$sidebox_pages = ['']}
+{$sidebox_modules = ['news']}
 
 {**
  * - Social buttons ------------------------------------------

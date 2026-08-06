@@ -58,7 +58,7 @@
 			</table>
 			</div>
 			<div class="card-footer">
-			<div data-toggle="tooltip" data-placement="bottom" title="The logon emulator is the emulator of the first realm"><b>Logon/realmd/auth emulator:</b> {if $realms}{strtoupper($realms[0]->getConfig("emulator"))}{/if}</div>
+			<div data-bs-toggle="tooltip" data-bs-placement="bottom" title="The logon emulator is the emulator of the first realm"><b>Logon/realmd/auth emulator:</b> {if $realms}{strtoupper($realms[0]->getConfig("emulator"))}{/if}</div>
 			</div>
 			</section>
 
@@ -314,14 +314,14 @@
 				</div>
 
 				<div class="form-group row">
-				<label class="col-sm-2 col-form-label" for="console_username" data-toggle="tooltip" data-placement="bottom" title="For an ingame account with GM level high enough to connect to your&#013;emulator console remotely (see your emulator's config files for more details)">Console username (only required for emulators that use remote console systems) (?)</label>
+				<label class="col-sm-2 col-form-label" for="console_username" data-bs-toggle="tooltip" data-bs-placement="bottom" title="For an ingame account with GM level high enough to connect to your&#013;emulator console remotely (see your emulator's config files for more details)">Console username (only required for emulators that use remote console systems) (?)</label>
 				<div class="col-sm-10">
 					<input class="form-control" type="text" id="console_username">
 				</div>
 				</div>
 
 				<div class="form-group row mb-3">
-				<label class="col-sm-2 col-form-label" for="console_password" data-toggle="tooltip" data-placement="bottom" title="For an ingame account with GM level high enough to connect to your&#013;emulator console remotely (see your emulator's config files for more details)">Console password (only required for emulators that use remote console systems) (?)</label>
+				<label class="col-sm-2 col-form-label" for="console_password" data-bs-toggle="tooltip" data-bs-placement="bottom" title="For an ingame account with GM level high enough to connect to your&#013;emulator console remotely (see your emulator's config files for more details)">Console password (only required for emulators that use remote console systems) (?)</label>
 				<div class="col-sm-10">
 					<input class="form-control" type="password" id="console_password">
 				</div>
@@ -520,7 +520,7 @@
         <div class="tab-pane" id="performance">
           <form role="form" onSubmit="Settings.savePerformanceSettings(); return false">
 			<div class="form-group row">
-			<label class="col-sm-2 col-form-label" for="disable_visitor_graph" data-toggle="tooltip" data-placement="bottom" title="If you have many visitors, the admin panel will become very slow because of the statistics graph - disabling it will help a lot">Disable dashboard visitor graph <a>(?)</a></label>
+			<label class="col-sm-2 col-form-label" for="disable_visitor_graph" data-bs-toggle="tooltip" data-bs-placement="bottom" title="If you have many visitors, the admin panel will become very slow because of the statistics graph - disabling it will help a lot">Disable dashboard visitor graph <a>(?)</a></label>
 			<div class="col-sm-10">
 			<select class="form-control" name="disable_visitor_graph" id="disable_visitor_graph">
 				<option value="1" {if $config.disable_visitor_graph}selected{/if}>Yes</option>
