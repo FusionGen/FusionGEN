@@ -242,17 +242,6 @@ $config['log_path'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Error Logging Directory Path
-|--------------------------------------------------------------------------
-|
-| Leave this BLANK unless you would like to set something other than the default
-| application/logs/ directory. Use a full server path.
-|
-*/
-$config['log_path'] = '';
-
-/*
-|--------------------------------------------------------------------------
 | Error Logging FILENAME
 |--------------------------------------------------------------------------
 |
