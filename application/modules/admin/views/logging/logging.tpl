@@ -42,7 +42,7 @@
 						{if $log.user_id == 0}
 							Guest
 						{else}
-							<a data-toggle="tooltip" title="View profile" href="../profile/{$log.user_id}" target="_blank">{$CI->user->getUsername($log.user_id)}</a>
+							<a data-bs-toggle="tooltip" title="View profile" href="../profile/{$log.user_id}" target="_blank">{$CI->user->getUsername($log.user_id)}</a>
 						{/if}
 					</td>
 					<td class="text-center" width="15%">

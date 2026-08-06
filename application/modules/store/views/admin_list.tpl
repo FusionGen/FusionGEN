@@ -14,7 +14,7 @@
 				</td>
 
 				<td>
-					<a data-toggle="tooltip" data-placement="top" title="{foreach from=$order_log.json item=item}{$item.itemName} to {$item.characterName}<br>{/foreach}">{count($order_log.json)} items</a>
+					<a data-bs-toggle="tooltip" data-bs-placement="top" title="{foreach from=$order_log.json item=item}{$item.itemName} to {$item.characterName}<br>{/foreach}">{count($order_log.json)} items</a>
 				</td>
 
 				{if $order_log.completed == '0' && hasPermission("canRefundOrders")}

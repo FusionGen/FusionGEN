@@ -1,5 +1,5 @@
 <div class="card">
-	<div class="card-header"><a href='{$url}store/admin_items' data-bs-toggle="tooltip" data-placement="top" title="Return">Groups</a> &rarr; Edit group</div>
+	<div class="card-header"><a href='{$url}store/admin_items' data-bs-toggle="tooltip" data-bs-placement="top" title="Return">Groups</a> &rarr; Edit group</div>
 	<div class="card-body">
 		<form onSubmit="Items.editGroup({$group.id}, this); return false">
 			<div class="form-group row">
@@ -9,7 +9,7 @@
 				</div>
 
 				<div class="col-sm-6 mb-3">
-					<label class="col-form-label" for="order" data-bs-toggle="tooltip" data-placement="top" title="Specify an order, it will be sorted ascending by group order">Group order</label>
+					<label class="col-form-label" for="order" data-bs-toggle="tooltip" data-bs-placement="top" title="Specify an order, it will be sorted ascending by group order">Group order</label>
 					<div data-plugin-spinner data-plugin-options='{ "min": 0, "max": 9999 }'>
 						<div class="input-group">
 							<input class="spinner-input form-control" type="text" name="order" id="order" value="{$group.orderNumber}">

@@ -24,7 +24,7 @@
 						</td>
 
 						<td>
-							<a data-bs-toggle="tooltip" data-placement="top" data-html="true" title="{foreach from=$failed_log.json item=item}{$item.itemName} to {$item.characterName}<br>{/foreach}">{count($failed_log.json)} items</a>
+							<a data-bs-toggle="tooltip" data-bs-placement="top" data-html="true" title="{foreach from=$failed_log.json item=item}{$item.itemName} to {$item.characterName}<br>{/foreach}">{count($failed_log.json)} items</a>
 						</td>
 
 						{if hasPermission("canRefundOrders")}
@@ -69,7 +69,7 @@
 						</td>
 
 						<td>
-							<span data-bs-toggle="tooltip" data-placement="top" data-html="true" title="{foreach from=$completed_log.json item=item}{$item.itemName|replace:'"':'&quot;'} to {$item.characterName}&#013;{/foreach}">{count($completed_log.json)} item{if count($completed_log.json) >1}s{/if}</span>
+							<span data-bs-toggle="tooltip" data-bs-placement="top" data-html="true" title="{foreach from=$completed_log.json item=item}{$item.itemName|replace:'"':'&quot;'} to {$item.characterName}&#013;{/foreach}">{count($completed_log.json)} item{if count($completed_log.json) >1}s{/if}</span>
 						</td>
 					</tbody>
 					</tr>

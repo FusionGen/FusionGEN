@@ -63,7 +63,7 @@
 	</div>
 
 	<div class="form-group row">
-	<label class="col-sm-2 col-form-label" for="type" data-toggle="tooltip" data-placement="bottom" title="External links must begin with https://">URL (or <a href="javascript:void(0)" onClick="Menu.selectCustom()">select from custom pages</a>) <a>(?)</a></label>
+	<label class="col-sm-2 col-form-label" for="type" data-bs-toggle="tooltip" data-bs-placement="bottom" title="External links must begin with https://">URL (or <a href="javascript:void(0)" onClick="Menu.selectCustom()">select from custom pages</a>) <a>(?)</a></label>
 	<div class="col-sm-10">
 		<input class="form-control" type="text" name="link" id="link" placeholder="https://">
 	</div>
@@ -81,7 +81,7 @@
 	</div>
 
 	<div class="form-group row">
-	<label class="col-sm-2 col-form-label" for="lrd">LRD <a data-toggle="tooltip" data-placement="bottom" title="Left, Right or Dropdown?">(?)</a></label>
+	<label class="col-sm-2 col-form-label" for="lrd">LRD <a data-bs-toggle="tooltip" data-bs-placement="bottom" title="Left, Right or Dropdown?">(?)</a></label>
 	<div class="col-sm-10">
 	<select class="form-control" name="lrd" id="lrd">
 		<option value="L">Left</option>
@@ -92,7 +92,7 @@
 	</div>
 
 	<div class="form-group row">
-	<label class="col-sm-2 col-form-label" for="dropdown_id">Dropdown  <a data-toggle="tooltip" data-placement="bottom" title="The Name from the dropdown">(?)</a></label>
+	<label class="col-sm-2 col-form-label" for="dropdown_id">Dropdown  <a data-bs-toggle="tooltip" data-bs-placement="bottom" title="The Name from the dropdown">(?)</a></label>
 	<div class="col-sm-10">
 	<select class="form-control" name="dropdown_id" id="dropdown_id">
 		<option value="0">-</option>
