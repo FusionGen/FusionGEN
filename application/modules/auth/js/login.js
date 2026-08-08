@@ -70,6 +70,7 @@ var Auth = {
 	},
 
 	refreshCaptcha: function(ele) {
+        $(".captcha-input").val('');
         var imgField = $("#" + $(ele).data("captcha-id"));
         var baseUrl = imgField.attr("src").split('?')[0];
         imgField.attr("src", baseUrl + "?" + Date.now());
