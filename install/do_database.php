@@ -87,7 +87,7 @@ $db["cms"] = [
     "compress"     => false,
     "stricton"     => false,
     "failover"     => [],
-    "save_queries" => true
+    "save_queries" => false
 ];
 
 $db["account"] = [
@@ -110,7 +110,7 @@ $db["account"] = [
     "compress"     => false,
     "stricton"     => false,
     "failover"     => [],
-    "save_queries" => true
+    "save_queries" => false
 ];';
 
     file_put_contents($dbPath, $raw);

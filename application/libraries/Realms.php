@@ -41,7 +41,7 @@ class Realms
 
         $realms = $this->CI->cms_model->getRealms();
 
-        if ($realms != false) {
+        if ($realms) {
             foreach ($realms as $realm) {
                 // Prepare the database Config
                 $config = [
@@ -49,35 +49,61 @@ class Realms
                     // Console settings
                     "console_username" => $realm['console_username'],
                     "console_password" => $realm['console_password'],
-                    "console_port" => $realm['console_port'],
+                    "console_port"     => $realm['console_port'],
 
-                    "hostname" => $realm['hostname'],
-                    "realm_port" => $realm['realm_port'],
+                    "hostname"         => $realm['hostname'],
+                    "realm_port"       => $realm['realm_port'],
 
                     // Database settings
                     "world" => [
-                        "hostname" => (array_key_exists("override_hostname_world", $realm) && !empty($realm['override_hostname_world'])) ? $realm['override_hostname_world'] : $realm['hostname'],
-                        "username" => (array_key_exists("override_username_world", $realm) && !empty($realm['override_username_world'])) ? $realm['override_username_world'] : $realm['username'],
-                        "password" => (array_key_exists("override_password_world", $realm) && !empty($realm['override_password_world'])) ? $realm['override_password_world'] : $realm['password'],
-                        "database" => $realm['world_database'],
-                        "dbdriver" => "mysqli",
-                        "port" => (array_key_exists("override_port_world", $realm) && !empty($realm['override_port_world'])) ? $realm['override_port_world'] : 3306,
-                        "pconnect" => false,
+                        "dsn"          => "",
+                        "hostname"     => (array_key_exists("override_hostname_world", $realm) && !empty($realm['override_hostname_world'])) ? $realm['override_hostname_world'] : $realm['hostname'],
+                        "username"     => (array_key_exists("override_username_world", $realm) && !empty($realm['override_username_world'])) ? $realm['override_username_world'] : $realm['username'],
+                        "password"     => (array_key_exists("override_password_world", $realm) && !empty($realm['override_password_world'])) ? $realm['override_password_world'] : $realm['password'],
+                        "database"     => $realm['world_database'],
+                        "port"         => (array_key_exists("override_port_world", $realm) && !empty($realm['override_port_world'])) ? $realm['override_port_world'] : 3306,
+                        "dbdriver"     => "mysqli",
+                        "dbprefix"     => "",
+                        "pconnect"     => false,
+                        "db_debug"     => false,
+                        "cache_on"     => false,
+                        "cachedir"     => "",
+                        "char_set"     => "utf8mb4",
+                        "dbcollat"     => "utf8mb4_unicode_ci",
+                        "swap_pre"     => "",
+                        "encrypt"      => false,
+                        "compress"     => false,
+                        "stricton"     => false,
+                        "failover"     => [],
+                        "save_queries" => false,
                     ],
 
                     "characters" => [
-                        "hostname" => (array_key_exists("override_hostname_char", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
-                        "username" => (array_key_exists("override_username_char", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
-                        "password" => (array_key_exists("override_password_char", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
-                        "database" => $realm['char_database'],
-                        "dbdriver" => "mysqli",
-                        "port" => (array_key_exists("override_port_char", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
-                        "pconnect" => false,
+                        "dsn"          => "",
+                        "hostname"     => (array_key_exists("override_hostname_char", $realm) && !empty($realm['override_hostname_char'])) ? $realm['override_hostname_char'] : $realm['hostname'],
+                        "username"     => (array_key_exists("override_username_char", $realm) && !empty($realm['override_username_char'])) ? $realm['override_username_char'] : $realm['username'],
+                        "password"     => (array_key_exists("override_password_char", $realm) && !empty($realm['override_password_char'])) ? $realm['override_password_char'] : $realm['password'],
+                        "database"     => $realm['char_database'],
+                        "port"         => (array_key_exists("override_port_char", $realm) && !empty($realm['override_port_char'])) ? $realm['override_port_char'] : 3306,
+                        "dbdriver"     => "mysqli",
+                        "dbprefix"     => "",
+                        "pconnect"     => false,
+                        "db_debug"     => false,
+                        "cache_on"     => false,
+                        "cachedir"     => "",
+                        "char_set"     => "utf8mb4",
+                        "dbcollat"     => "utf8mb4_unicode_ci",
+                        "swap_pre"     => "",
+                        "encrypt"      => false,
+                        "compress"     => false,
+                        "stricton"     => false,
+                        "failover"     => [],
+                        "save_queries" => false,
                     ]
                 ];
 
                 // Initialize the realm object
-                array_push($this->realms, new Realm($realm['id'], $realm['realmName'], $realm['cap'], $config, $realm['emulator']));
+                $this->realms[] = new Realm($realm['id'], $realm['realmName'], $realm['cap'], $config, $realm['emulator']);
             }
         }
     }
