@@ -75,7 +75,7 @@ class Realms
                         "compress"     => false,
                         "stricton"     => false,
                         "failover"     => [],
-                        "save_queries" => false,
+                        "save_queries" => false
                     ],
 
                     "characters" => [
@@ -98,7 +98,7 @@ class Realms
                         "compress"     => false,
                         "stricton"     => false,
                         "failover"     => [],
-                        "save_queries" => false,
+                        "save_queries" => false
                     ]
                 ];
 
