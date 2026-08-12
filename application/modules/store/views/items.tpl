@@ -12,7 +12,7 @@
 		<div class="tab-pane active table-responsive" id="items">
 			<div class="btn-toolbar justify-content-between">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search Here" id="ItemSeachInput">
+					<input type="search" class="form-control" placeholder="Search Here" id="ItemSeachInput">
 				</div>
 				{if hasPermission("canAddItems")}
 					<span class="pull-right p-1">
@@ -98,7 +98,7 @@
 
 <script>
     $(document).ready(function () {
-        $("#ItemSeachInput").on("keyup", function () {
+        $("#ItemSeachInput").on("input", function () {
             var value = $(this).val().toLowerCase();     
             $("#ItemTableResult tr").filter(function () {
                 $(this).toggle($(this).text()

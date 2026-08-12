@@ -45,8 +45,7 @@
 	</div>
 	<div class="card-body table-responsive">
 	<form class="input-group mb-3" onSubmit="Orders.search('successful'); return false">
-		<input class="form-control" type="text" name="search_successful" id="search_successful" placeholder="Search by username">
-
+		<input class="form-control" type="search" name="search_successful" id="search_successful" placeholder="Search by username">
 		<button type="submit" class="btn btn-primary">Search</button>
 	</form>
 

@@ -1,22 +1,32 @@
 <div class="page-subbody mt-0 p-3">
     <form onSubmit="Search.show_data(); return false;">
-        <div class="input-group">
-            <input class="col-xs-12 col-sm-12 col-md-12 col-lg-3 form-control mx-1 mt-3" type="text" id="search_field" name="search_field" placeholder="{lang("search_placeholder", "armory")}">
+        <div class="row g-2 gy-3 align-items-end justify-content-center justify-content-lg-start">
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <select id="realm" name="realm">
+                    <option value="0" disabled>{lang("realm", "armory")}</option>
+                    {foreach from=$realms item=realm}
+                        <option {if $realm@first}selected{/if} value="{$realm->getId()}">{$realm->getName()}</option>
+                    {/foreach}
+                </select>
+            </div>
 
-            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="realm" name="realm">
-                <option value="0" disabled>{lang("realm", "armory")}</option>
-                {foreach from=$realms item=realm}
-                    <option {if $realm@first}selected{/if} value="{$realm->getId()}">{$realm->getName()}</option>
-                {/foreach}
-            </select>
+            <div class="col-12 col-md-6 col-lg-3">
+                <select id="table" name="table">
+                    <option value="characters">{lang("characters", "armory")}</option>
+                    <option value="guilds">{lang("guilds", "armory")}</option>
+                    <option value="items">{lang("items", "armory")}</option>
+                </select>
+            </div>
 
-            <select class="col-xs-12 col-sm-12 col-md-12 col-lg-3 mx-1 mt-3" id="table" name="table">
-                <option value="characters">{lang("characters", "armory")}</option>
-                <option value="guilds">{lang("guilds", "armory")}</option>
-                <option value="items">{lang("items", "armory")}</option>
-            </select>
+            <div class="col-12 col-lg">
+                <input type="search" id="search_field" name="search_field" placeholder="{lang("search_placeholder", "armory")}">
+            </div>
 
-            <button class="nice_button rounded mx-1 mt-3" type="submit"><i class="fas fa-magnifying-glass"></i> {lang("search_button", "armory")}</button>
+            <div class="col-auto text-center mt-4">
+                <button class="nice_button rounded text-nowrap" type="submit"><i class="fas fa-search"></i> {lang("search_button", "armory")}</button>
+            </div>
+
         </div>
     </form>
 </div>

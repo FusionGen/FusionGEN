@@ -64,7 +64,7 @@
 						<div class="row g-3 mb-4 align-items-center">
 
 							<div class="col-12 col-md-6">
-								<input class="form-control" type="text" id="filter_name" placeholder="{lang("filter", "store")}" onKeyUp="Store.Filter.setName(this.value)">
+								<input class="form-control" type="search" id="filter_name" placeholder="{lang("filter", "store")}" oninput="Store.Filter.setName(this.value)">
 							</div>
 
 							<div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
