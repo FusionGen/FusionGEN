@@ -43,8 +43,8 @@ class Template
         $this->module_name = $this->CI->router->fetch_module();
         $this->theme_path  = "themes/" . $this->theme . "/";
         $this->view_path   = "views/";
-        $this->style_path  = base_url() . APPPATH . "themes/" . $this->theme . "/assets/css/";
-        $this->image_path  = base_url() . APPPATH . "themes/" . $this->theme . "/assets/images/";
+        $this->style_path  = base_url() . "application/themes/" . $this->theme . "/assets/css/";
+        $this->image_path  = base_url() . "application/themes/" . $this->theme . "/assets/images/";
         $this->page_url    = ($this->CI->config->item('rewrite')) ? base_url() : base_url() . 'index.php/';
         $this->loadManifest();
         $this->loadModuleManifest();
@@ -347,7 +347,7 @@ class Template
             "menu_top" => $this->getMenu("top"),
             "menu_side" => $this->getMenu("side"),
             "menu_bottom" => $this->getMenu("bottom"),
-            "path" => base_url() . APPPATH,
+            "path" => base_url() . "application/",
             "favicon" => $this->theme_data['favicon'],
             "extra_css" => $css,
             "extra_js" => $js,
@@ -409,7 +409,7 @@ class Template
      */
     public function loadSideboxes()
     {
-        require_once("application/interfaces/sidebox.php");
+        require_once(APPPATH . "interfaces/sidebox.php");
 
         $out = [];
 
