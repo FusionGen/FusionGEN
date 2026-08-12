@@ -10,7 +10,7 @@ class Slider extends MX_Controller
 
         parent::__construct();
 		
-		require_once('application/libraries/Configeditor.php');
+		require_once(APPPATH . 'libraries/Configeditor.php');
 
         requirePermission("viewSlider");
     }

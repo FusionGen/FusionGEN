@@ -13,7 +13,7 @@ class Settings extends MX_Controller
         $this->load->config('smtp');
         $this->load->config('performance');
 
-        require_once('application/libraries/Configeditor.php');
+        require_once(APPPATH . 'libraries/Configeditor.php');
 
         requirePermission("editSystemSettings");
     }
@@ -86,7 +86,7 @@ class Settings extends MX_Controller
 
     private function getEmulators()
     {
-        require("application/config/emulator_names.php");
+        require(APPPATH . "config/emulator_names.php");
 
         return $emulators;
     }

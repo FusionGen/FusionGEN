@@ -36,7 +36,7 @@ class Languages extends MX_Controller
 
         requirePermission("changeDefaultLanguage");
 
-        require_once('application/libraries/Configeditor.php');
+        require_once(APPPATH . 'libraries/Configeditor.php');
 
         if (!$language || !is_dir("application/language/" . $language)) {
             die("Invalid language");

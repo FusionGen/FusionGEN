@@ -299,7 +299,7 @@ class Language
     public function getAbbreviationByLanguage($language)
     {
         if ($this->isValidLanguage($language)) {
-            require("application/language/" . $language . "/main.php");
+            require(APPPATH . "language/" . $language . "/main.php");
 
             return $lang['abbreviation'];
         } else {

@@ -67,12 +67,12 @@ class Realm
         $this->CI = &get_instance();
 
         // Load the objects
-        require_once('application/models/World_model.php');
-        require_once('application/models/Characters_model.php');
+        require_once(APPPATH . 'models/World_model.php');
+        require_once(APPPATH . 'models/Characters_model.php');
 
         // Make sure the emulator is installed
-        if (file_exists('application/emulators/' . $emulator . '.php')) {
-            require_once('application/emulators/' . $emulator . '.php');
+        if (file_exists(APPPATH . 'emulators/' . $emulator . '.php')) {
+            require_once(APPPATH . 'emulators/' . $emulator . '.php');
         } else {
             show_error("The entered emulator (" . $emulator . ") doesn't exist in application/emulators/");
         }

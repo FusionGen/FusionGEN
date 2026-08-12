@@ -31,10 +31,10 @@ class Realms
         $this->realms = [];
 
         // Load the realm object
-        require_once('application/libraries/Realm.php');
+        require_once(APPPATH . 'libraries/Realm.php');
 
         // Load the emulator interface
-        require_once('application/interfaces/emulator.php');
+        require_once(APPPATH . 'interfaces/emulator.php');
 
         // Get the realms
         $this->CI->load->model('cms_model');
@@ -271,8 +271,8 @@ class Realms
         }
 
         // Make sure the emulator is installed
-        if (file_exists('application/emulators/' . $this->defaultEmulator . '.php')) {
-            require_once('application/emulators/' . $this->defaultEmulator . '.php');
+        if (file_exists(APPPATH . 'emulators/' . $this->defaultEmulator . '.php')) {
+            require_once(APPPATH . 'emulators/' . $this->defaultEmulator . '.php');
         } else {
             show_error("The entered emulator (" . $this->defaultEmulator . ") doesn't exist in application/emulators/");
         }
