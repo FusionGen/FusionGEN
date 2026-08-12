@@ -1,7 +1,6 @@
 <div class="page-subbody mt-0">
 	<div class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 mx-auto">
-		<div class="card-body">
-			{form_open('register', 'id="register_form" onSubmit="Validate.submit(); return false"')}
+		{form_open('register', 'id="register_form" onSubmit="Validate.submit(); return false"')}
 			<div class="input-group p-0 flex-row mb-3">
 			<label for="register_username" class="input-group-text" style="width:45px;"><i class="fas fa-user"></i></label>
 				<input class="form-control" type="text" name="register_username" id="register_username" placeholder="{lang('username', 'register')}" autocomplete="username" value="{set_value('register_username')}" onchange="Validate.checkUsername()" required>
@@ -36,9 +35,8 @@
 			{/if}
 
 			<div class="form-group text-center mt-4">
-				<button class="nice_button rounded" type="submit" name="login_submit">{lang("submit", "register")}</button>
+				<button class="nice_button rounded" type="submit">{lang("submit", "register")}</button>
 			</div>
-			{form_close()}
-		</div>
+		</form>
 	</div>
 </div>

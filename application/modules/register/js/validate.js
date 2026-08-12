@@ -65,8 +65,8 @@ var Validate = {
             this.invalid('#register_username', lang("username_limit", "register"));
         } else {
             // Check availability
-            $.get(Config.URL + "register/check/username/" + value, function(data) {
-                if (data == "1") {
+            $.get(Config.URL + "register/username_check/" + value, function(data) {
+                if (data === "1") {
                     Validate.valid('#register_username');
                 } else {
                     Validate.invalid('#register_username', lang("username_not_available", "register"));
@@ -87,8 +87,8 @@ var Validate = {
             this.invalid('#register_email', lang("email_invalid", "register"));
         } else {
             // Check availability
-            $.post(Config.URL + "register/check/email", {email: value, csrf_token_name: Config.CSRF}, function(data) {
-                if (data == "1") {
+            $.post(Config.URL + "register/email_check", {email: value, csrf_token_name: Config.CSRF}, function(data) {
+                if (data === "1") {
                     Validate.valid('#register_email');
                 } else {
                     Validate.invalid('#register_email', lang("email_not_available", "register"));

@@ -51,11 +51,11 @@ class Register extends MX_Controller
             }
 
             // Custom checks for username and email availability
-            if (!$this->username_check($this->input->post('register_username'))) {
+            if ($this->external_account_model->usernameExists($this->input->post('register_username'))) {
                 $response['errors']['register_username'] = '<div class="invalid-feedback">' . lang("username_not_available", "register") . '</div>';
             }
 
-            if (!$this->email_check($this->input->post('register_email'))) {
+            if ($this->external_account_model->emailExists($this->input->post('register_email'))) {
                 $response['errors']['register_email'] = '<div class="invalid-feedback">' . lang("email_not_available", "register") . '</div>';
             }
 
@@ -100,13 +100,19 @@ class Register extends MX_Controller
         $this->captcha->output();
     }
 
-    public function username_check($username)
+    public function username_check($value = false)
     {
-        return !$this->external_account_model->usernameExists($username);
+        if ($value != false) {
+            die($this->external_account_model->usernameExists($value) ? "0" : "1");
+        }
     }
 
-    public function email_check($email)
+    public function email_check()
     {
-        return !$this->external_account_model->emailExists($email);
+        $value = $this->input->post("email");
+
+        if ($value != false) {
+            die($this->external_account_model->emailExists($value) ? "0" : "1");
+        }
     }
 }
