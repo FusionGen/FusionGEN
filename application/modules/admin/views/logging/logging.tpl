@@ -14,7 +14,7 @@
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
 		<div class="input-group">
-			<input class="form-control" type="text" name="search" id="search" placeholder="Search by username, IP address or user ID">
+			<input class="form-control" type="search" name="search" id="search" placeholder="Search by username, IP address or user ID">
 			<button class="btn btn-primary" type="submit">Search</button>
 		</div>
 	</div>

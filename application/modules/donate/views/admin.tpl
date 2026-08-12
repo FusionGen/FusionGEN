@@ -8,8 +8,8 @@
 		<div class="card-body">
 		<form style="margin-top:0px;" onSubmit="Donate.search('paypal'); return false">
 			<div class="input-group mb-3">
-				<input class="form-control" type="text" name="search_paypal" id="search_paypal" placeholder="Search by username, E-Mail or Payment ID">
-				<input class="btn btn-primary" type="submit" value="Search">
+				<input class="form-control" type="search" name="search_paypal" id="search_paypal" placeholder="Search by username, E-Mail or Payment ID">
+                <button type="submit" class="btn btn-primary">Search</button>
 			</div>
 		</form>
 
