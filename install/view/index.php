@@ -201,10 +201,10 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-md-3 col-form-label" for="analytics"><a href="https://analytics.google.com/analytics/web/" target="_blank">Google Analytics</a> website ID (optional)</label>
+                                    <label class="col-md-3 col-form-label" for="analytics"><a href="https://analytics.google.com/analytics/web/" target="_blank">Google Analytics</a> measurement ID (optional)</label>
                                     <div class="col-md-9">
                                         <small class="text-muted d-block mb-1">(A more in-depth Analytic System than what is provided within the Admin Panel [ACP])</small>
-                                        <input class="form-control" type="text" id="analytics" name="analytics" placeholder="XX-YYYYYYYY-Z">
+                                        <input class="form-control" type="text" id="analytics" name="analytics" placeholder="G-XXXXXXXXXX">
                                     </div>
                                 </div>
                                 <div class="d-grid mt-4">
