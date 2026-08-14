@@ -84,7 +84,7 @@ $config['has_smtp'] = 0;
 |
 | 0 = Vanilla/Classic
 | 1 = The Burning Crusade/TBC
-| 2 = Wrath of The Lich King/Wotlk
+| 2 = Wrath of The Lich King/WotLK
 | 3 = Cataclysm
 | 4 = Mists of Pandaria/MoP
 | 5 = Warlods of Draenor/WoD
@@ -173,12 +173,12 @@ $config['use_fgen_tooltip'] = true;
 |--------------------------------------------------------------------------
 |
 | In case you want to track your visitor statistics more deeply,
-| Google Analytics can be enabled by entering your Tracking ID here
+| Google Analytics 4 can be enabled by entering your Measurement ID here
 | (found on the "Admin" page)
 |
 | Set it to false if you don't use it
 |
-| Example: UA-XXXXXXXX-1, format may differ
+| Example: G-XXXXXXXXXX, format may differ
 |
 */
 $config['analytics'] = false;

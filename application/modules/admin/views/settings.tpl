@@ -380,9 +380,9 @@
             </div>
 
 			<div class="form-group row">
-			<label class="col-sm-2 col-form-label" for="analytics"><a href="http://analytics.google.com" target="_blank">Google Analytics</a> website ID for advanced statistics (optional)</label>
+			<label class="col-sm-2 col-form-label" for="analytics"><a href="http://analytics.google.com" target="_blank">Google Analytics</a> measurement ID for advanced statistics (optional)</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="analytics" placeholder="XX-YYYYYYYY-Z" value="{$config.analytics}">
+				<input class="form-control" type="text" id="analytics" placeholder="G-XXXXXXXXXX" value="{$config.analytics}">
 			</div>
             </div>
 
