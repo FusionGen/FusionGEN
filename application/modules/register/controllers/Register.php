@@ -40,7 +40,7 @@ class Register extends MX_Controller
         $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
         // Handle AJAX request for validation or full submission
-        if ($this->input->is_ajax_request() && $this->input->post()) {
+        if ($this->input->is_ajax_request() && $this->input->method() === 'post') {
             $response = ['status' => 'error', 'errors' => []];
 
             if ($this->form_validation->run() == FALSE) {

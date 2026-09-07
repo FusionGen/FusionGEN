@@ -13,5 +13,5 @@ $lang['email_text'] = "Vous avez demandé à réinitialiser votre mot de passe. 
 $lang['go_back'] = "Retour";
 $lang['invalid'] = "Jeton invalide.";
 $lang['error_while_inserting'] = "Erreur lors de l'insertion du jeton.";
-$lang['lost_password'] = "Mot de passe oublié ?";
+$lang['enter_new_password'] = "Saisissez votre nouveau mot de passe ci-dessous.";
 $lang['enter_your_email'] = "Entrez votre E-Mail ci-dessous et nous vous enverrons un lien pour réinitialiser votre mot de passe.";

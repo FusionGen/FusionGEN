@@ -83,6 +83,8 @@ class Password_recovery extends MX_Controller
     {
         clientLang("password_changed", "recovery");
 
+        $this->template->setTitle(lang("password_reset", "recovery"));
+
         $this->form_validation->set_rules('token', 'token', 'trim|required');
         $this->form_validation->set_rules('new_password', 'new_password', 'trim|required|min_length[6]|max_length[16]');
 
@@ -124,8 +126,6 @@ class Password_recovery extends MX_Controller
                 die(json_encode($data));
             }
         }
-
-        $this->template->setTitle(lang("password_reset", "recovery"));
 
         $data = [];
         $data['token'] = $this->input->get('token');

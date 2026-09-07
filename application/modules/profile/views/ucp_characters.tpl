@@ -1,5 +1,5 @@
 {if $characters > 0}
-	<div class="section-header">Profile <span>Characters</span></div>
+	<div class="section-header text-center text-md-start">Profile Characters</div>
 	<div class="section-body mt-3">
 
 		{foreach from=$realms item=realm}

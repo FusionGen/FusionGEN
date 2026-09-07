@@ -15,4 +15,4 @@ $lang["try_again"] = "Te rugăm să încerci din nou în";
 $lang["minutes"] = "minute.";
 
 //Captcha
-$lang["captcha_invalid"] = "Captcha este invalid";
+$lang["captcha_invalid"] = "CAPTCHA este invalid";

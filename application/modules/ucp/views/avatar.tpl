@@ -2,7 +2,7 @@
     <div class="avatars">
         <div class="row g-2">
             <div class="col-sm-12 mb-4">
-                <div class="avatars_name">Player avatars</div>
+                <div class="avatars_name text-center text-md-start">Player avatars</div>
             </div>
 
             {foreach from=$avatars key=key item=data}
@@ -16,7 +16,7 @@
             {if $isStaff}
                 <div class="divider"></div>
                 <div class="col-sm-12 mb-4">
-                    <div class="avatars_name">Staff avatars</div>
+                    <div class="avatars_name text-center text-md-start">Staff avatars</div>
                 </div>
 
                 {foreach from=$avatars key=key item=data}

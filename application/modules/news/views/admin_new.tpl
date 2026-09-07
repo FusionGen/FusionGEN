@@ -52,7 +52,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_en">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_en" class="form-control tinymce" id="description_en" cols="30" rows="10"></textarea>
+								<textarea name="description_en" class="form-control tinymce_en" id="description_en" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -70,7 +70,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_de">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_de" class="form-control tinymce" id="description_de" cols="30" rows="10"></textarea>
+								<textarea name="description_de" class="form-control tinymce_de" id="description_de" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -88,7 +88,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_es">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_es" class="form-control tinymce" id="description_es" cols="30" rows="10"></textarea>
+								<textarea name="description_es" class="form-control tinymce_es" id="description_es" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -106,7 +106,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_fr">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_fr" class="form-control tinymce" id="description_fr" cols="30" rows="10"></textarea>
+								<textarea name="description_fr" class="form-control tinymce_fr" id="description_fr" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -124,7 +124,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_no">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_no" class="form-control tinymce" id="description_no" cols="30" rows="10"></textarea>
+								<textarea name="description_no" class="form-control tinymce_no" id="description_no" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -142,7 +142,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_ro">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_ro" class="form-control tinymce" id="description_ro" cols="30" rows="10"></textarea>
+								<textarea name="description_ro" class="form-control tinymce_ro" id="description_ro" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -160,7 +160,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_se">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_se" class="form-control tinymce" id="description_se" cols="30" rows="10"></textarea>
+								<textarea name="description_se" class="form-control tinymce_se" id="description_se" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -178,7 +178,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_ru">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_ru" class="form-control tinymce" id="description_ru" cols="30" rows="10"></textarea>
+								<textarea name="description_ru" class="form-control tinymce_ru" id="description_ru" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -196,7 +196,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_zh">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_zh" class="form-control tinymce" id="description_zh" cols="30" rows="10"></textarea>
+								<textarea name="description_zh" class="form-control tinymce_zh" id="description_zh" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>
@@ -214,7 +214,7 @@
 						<div class="form-group row mb-3">
 							<label class="col-sm-2 col-form-label" for="description_ko">Content</label>
 							<div class="col-sm-10">
-								<textarea name="description_ko" class="form-control tinymce" id="description_ko" cols="30" rows="10"></textarea>
+								<textarea name="description_ko" class="form-control tinymce_ko" id="description_ko" cols="30" rows="10"></textarea>
 							</div>
 						</div>
 					</div>

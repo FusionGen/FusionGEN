@@ -178,24 +178,22 @@
                 </div>
             </div>
         </div>
-        <div class="card-body" style="padding:0;">
-            <table class="table table-sm table-borderless">
+        <table class="table table-sm table-borderless mb-0">
             <tbody>
             <tr>
                 <td>Unique this month</td>
-                <td>{$unique.month}</td>
+                <td class="text-end fw-semibold">{$unique.month}</td>
             </tr>
             <tr>
                 <td>Views today</td>
-                <td>{$views.today}</td>
+                <td class="text-end fw-semibold">{$views.today}</td>
             </tr>
             <tr>
                 <td>Views this month</td>
-                <td>{$views.month}</td>
+                <td class="text-end fw-semibold">{$views.month}</td>
             </tr>
             </tbody>
-            </table>
-        </div>
+        </table>
     </div>
 </section>
 </div>
@@ -213,25 +211,22 @@
                 </div>
             </div>
         </div>
-        <div class="card-body" style="padding:0;">
-            <table class="table table-sm table-borderless">
+        <table class="table table-sm table-borderless mb-0">
             <tbody>
             <tr>
                 <td>Income last month</td>
-                <td>$ {$income.last}</td>
+                <td class="text-end fw-semibold">$ {$income.last}</td>
             </tr>
-
             <tr>
                 <td>Votes this month</td>
-                <td>{$votes.this}</td>
+                <td class="text-end fw-semibold">{$votes.this}</td>
             </tr>
             <tr>
                 <td>Votes last month</td>
-                <td>{$votes.last}</td>
+                <td class="text-end fw-semibold">{$votes.last}</td>
             </tr>
             </tbody>
         </table>
-        </div>
     </div>
 </section>
 </div>
@@ -249,24 +244,22 @@
                 </div>
             </div>
         </div>
-        <div class="card-body" style="padding:0;">
-            <table class="table table-sm table-borderless">
+        <table class="table table-sm table-borderless mb-0">
             <tbody>
             <tr>
                 <td>Today</td>
-                <td>{$signups.today}</td>
+                <td class="text-end fw-semibold">{$signups.today}</td>
             </tr>
             <tr>
                 <td>This month</td>
-                <td>{$signups.this}</td>
+                <td class="text-end fw-semibold">{$signups.this}</td>
             </tr>
             <tr>
                 <td>Last month</td>
-                <td>{$signups.last}</td>
+                <td class="text-end fw-semibold">{$signups.last}</td>
             </tr>
             </tbody>
         </table>
-        </div>
     </div>
 </section>
 </div>
@@ -279,27 +272,26 @@
         <h2 class="card-title">System information</h2>
     </header>
     <div class="card-body">
-        <table class="table table-sm table-borderless">
-            <tbody style="border-top:none;">
+        <table class="table table-sm table-borderless mb-0">
+            <tbody>
                 <tr>
                     <td>PHP version</td>
-                    <td class="float-end">{$php_version}</td>
+                    <td class="text-end fw-semibold">{$php_version}</td>
                 </tr>
                 <tr>
                     <td>CodeIgniter version</td>
-                    <td class="float-end">{$ci_version}</td>
+                    <td class="text-end fw-semibold">{$ci_version}</td>
                 </tr>
                 <tr>
                     <td>Smarty version</td>
-                    <td class="float-end">{$smarty.version}</td>
+                    <td class="text-end fw-semibold">{$smarty.version}</td>
                 </tr>
                 <tr>
                     <td>CMS version</td>
-                    <td class="float-end">{$version}</td>
+                    <td class="text-end fw-semibold">{$version}</td>
                 </tr>
             </tbody>
         </table>
-    <div class="fusion-update"></div>
     </div>
     </div>
 
@@ -308,20 +300,20 @@
         <h2 class="card-title">Theme information</h2>
     </header>
     <div class="card-body">
-    <table class="table table-sm table-borderless">
-    <tbody style="border-top:none;">
+    <table class="table table-sm table-borderless mb-0">
+    <tbody>
         <tr>
             <td>Name</td>
-            <td>{$theme.name}</td>
+            <td class="text-end fw-semibold">{$theme.name}</td>
         </tr>
         <tr>
             <td>Author</td>
-            <td><a href="{$theme.website}" target="_blank">{$theme.author}</a></td>
+            <td class="text-end fw-semibold"><a href="{$theme.website}" target="_blank">{$theme.author}</a></td>
         </tr>
     </tbody>
     </table>
     {if hasPermission("changeTheme")}
-        <a href="{$url}admin/theme" class="mb-1 mt-1 me-1 btn btn-sm btn-primary">Change theme</a>
+        <a href="{$url}admin/theme" class="btn btn-sm btn-primary mt-3">Change theme</a>
     {/if}
     </div>
     </div>

@@ -13,5 +13,5 @@ $lang['email_text'] = "You have requested to reset your password, to complete th
 $lang['go_back'] = "Go back";
 $lang['invalid'] = "Invalid token.";
 $lang['error_while_inserting'] = "Error while inserting the token.";
-$lang['lost_password'] = "Lost password?";
+$lang['enter_new_password'] = "Enter your new password below.";
 $lang['enter_your_email'] = "Enter your E-mail below and we'll send you a link to reset your password.";

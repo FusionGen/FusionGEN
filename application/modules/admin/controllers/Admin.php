@@ -252,7 +252,7 @@ class Admin extends MX_Controller
 
 		$out = $this->template->loadPage("ajax_files/realmstatus.tpl", $data);
 
-        $this->output->set_output($out);
+        die($out);
     }
 
     public function destroySession()

@@ -15,4 +15,4 @@ $lang["user_exist"] = "Utilizatorul există deja";
 $lang["password_doesnt_match"] = "Parola nu se potrivește";
 
 //Captcha
-$lang["captcha_invalid"] = "Captcha este invalid";
+$lang["captcha_invalid"] = "CAPTCHA este invalid";

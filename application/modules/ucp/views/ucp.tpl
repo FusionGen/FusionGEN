@@ -4,7 +4,7 @@
 		{include file="../../ucp/views/ucp_navigation.tpl"}
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
-			<div class="section-header">{lang("account_overview", "ucp")}</div>
+			<div class="section-header text-center text-md-start">{lang("account_overview", "ucp")}</div>
 			<div class="section-body table-responsive mt-3">
 				<table class="table table-borderless user-table">
 					<tbody class="text-break">
@@ -68,7 +68,7 @@
 			</div>
 
 			{if $characters > 0}
-				<div class="section-header">{lang("account_characters", "ucp")}</div>
+				<div class="section-header text-center text-md-start">{lang("account_characters", "ucp")}</div>
 				<div class="section-body mt-3">
 					{foreach from=$realms item=realm}
 						{if $realm->getCharacterCount() > 0}
