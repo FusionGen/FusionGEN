@@ -5,7 +5,7 @@
 		{include file="../../ucp/views/ucp_navigation.tpl"}
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
-			<div class="section-header">{lang("donate_panel", "donate")}</div>
+			<div class="section-header text-center text-md-start">{lang("donate_panel", "donate")}</div>
 			<div class="section-body mt-3">
 
 				{if $use_paypal}

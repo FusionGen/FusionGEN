@@ -2,8 +2,6 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require './vendor/autoload.php';
-
 //API Container
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
@@ -155,8 +153,8 @@ class Paypal_model extends CI_Model
         ->setTransactions([$transaction]);
 
         //redirect urls
-        $redirectUrls->setReturnUrl(base_url('/donate/checkPaypal/' . $id))
-        ->setCancelUrl(base_url('/donate/canceled'));
+        $redirectUrls->setReturnUrl(base_url('donate/checkPaypal/' . $id))
+        ->setCancelUrl(base_url('donate/canceled'));
 
         $payment->setIntent('sale')
         ->setPayer($payer)
@@ -198,7 +196,7 @@ class Paypal_model extends CI_Model
 
             if (preg_match('[500|501|502|503|504|60000]', $e)) {
                 $this->session->set_tempdata('paypal_error', 'PayPal is currently experiencing problems. Please try later', 10);
-                redirect(base_url('/donate/error'));
+                redirect(base_url('donate/error'));
             }
             else
             {
@@ -241,7 +239,7 @@ class Paypal_model extends CI_Model
 
             log_message('error', $e);
 
-            redirect(base_url('/donate/error'));
+            redirect(base_url('donate/error'));
         }
     }
 
@@ -250,7 +248,7 @@ class Paypal_model extends CI_Model
         $qq = $this->getStatus($id);
 
         if ($qq == '1') {
-            redirect(base_url('/donate'));
+            redirect(base_url('donate'));
         } else {
             //transaction status
             $this->setStatus($id, "1");
@@ -267,7 +265,7 @@ class Paypal_model extends CI_Model
                 $this->donate_model->updateMonthlyIncome($payment_amount['total']);
             }
 
-            redirect(base_url('/donate/success'));
+            redirect(base_url('donate/success'));
         }
     }
     

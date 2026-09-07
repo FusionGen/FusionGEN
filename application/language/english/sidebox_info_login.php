@@ -15,4 +15,4 @@ $lang["user_exist"] = "User already exists";
 $lang["password_doesnt_match"] = "Password doesn't match";
 
 //Captcha
-$lang["captcha_invalid"] = "Captcha is invalid";
+$lang["captcha_invalid"] = "CAPTCHA is invalid";

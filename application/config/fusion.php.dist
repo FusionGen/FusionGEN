@@ -84,7 +84,7 @@ $config['has_smtp'] = 0;
 |
 | 0 = Vanilla/Classic
 | 1 = The Burning Crusade/TBC
-| 2 = Wrath of The Lich King/WotLK
+| 2 = Wrath of the Lich King/WotLK
 | 3 = Cataclysm
 | 4 = Mists of Pandaria/MoP
 | 5 = Warlods of Draenor/WoD

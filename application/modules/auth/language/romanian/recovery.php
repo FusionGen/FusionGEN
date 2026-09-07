@@ -13,5 +13,5 @@ $lang['email_text'] = "Ai solicitat resetarea parolei, pentru a finaliza cererea
 $lang['go_back'] = "Întoarce-te";
 $lang['invalid'] = "Jeton invalid.";
 $lang['error_while_inserting'] = "Eroare la inserarea jetonului.";
-$lang['lost_password'] = "Parolă uitată?";
+$lang['enter_new_password'] = "Introdu parola nouă mai jos.";
 $lang['enter_your_email'] = "Introdu adresa de E-mail mai jos și-ți vom trimite un link pentru a-ți reseta parola.";

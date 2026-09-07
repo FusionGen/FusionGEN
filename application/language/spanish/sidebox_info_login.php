@@ -16,4 +16,4 @@ $lang["user_exist"] = "El Usuario ya existe";
 $lang["password_doesnt_match"] = "La contraseña no conincide";
 
 //Captcha
-$lang["captcha_invalid"] = "Captcha no es valido";
+$lang["captcha_invalid"] = "El CAPTCHA no es válido";

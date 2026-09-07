@@ -4,7 +4,7 @@
         {include file="../../ucp/views/ucp_navigation.tpl"}
 
         <div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
-            <div class="section-header">{lang("settings", "ucp")}</div>
+            <div class="section-header text-center text-md-start">{lang("settings", "ucp")}</div>
             <div class="section-body">
 
                 <form onSubmit="Settings.submitInfo(); return false" id="settings_info" class="page_form">

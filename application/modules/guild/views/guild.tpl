@@ -3,11 +3,11 @@
 		<div class="text-center fw-bold my-5">{lang("doesnt_exist", "guild")}</div>
 	{else}
 		<div class="col-lg-4 py-5 pe-lg-5">
-			<div class="section-header d-flex justify-content-between">
+			<div class="section-header text-center text-md-start">
 				{$guild.guildName}
 			</div>
 			<div class="setion-body">
-				<div class="mb-4 motd">
+				<div class="mb-4 motd text-center text-md-start">
 					<div class="motd">
 						{if $guildMotd}
 							"{nl2br(trim($guildMotd))}"
@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="col-lg-8 py-lg-5 pb-5 pb-lg-0">
-			<div class="section-header">{lang("members", "guild")}</div>
+			<div class="section-header text-center text-md-start">{lang("members", "guild")}</div>
 			<div class="section-body table-responsive mt-3">
 				<table class="table text-nowrap nice_table">
 					<thead>

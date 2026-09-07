@@ -163,7 +163,7 @@ class News extends MX_Controller
     {
         // Basic configs
         $config['uri_segment'] = '2';
-        $config['base_url'] = base_url() . '/news';
+        $config['base_url'] = base_url() . 'news';
         $config['total_rows'] = $this->news_model->countArticles();
         $config['per_page'] = $this->config->item('news_limit');
 

@@ -104,7 +104,7 @@
 <!--Characters Attributes.Start -->
 <div class="row">
 	<div class="col-md-6">
-		<div class="section-header">{lang("attributes", "character")}</div>
+		<div class="section-header text-center text-md-start">{lang("attributes", "character")}</div>
 		<div class="section-body">
 			<table class="table border-secondary table-hover">
 				<tr>
@@ -189,7 +189,7 @@
 		</div>
 	</div>
 	<div class="col-md-6">
-		<div class="section-header">{lang("pvp", "character")}</div>
+		<div class="section-header text-center text-md-start">{lang("pvp", "character")}</div>
 		<div class="section-body">
 			<table class="table table-hover border-secondary">
 				{if $pvp.kills !== false}
