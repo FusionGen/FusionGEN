@@ -107,7 +107,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 			$(document).ready(function() {
 				{if $client_language}Language.set("{addslashes($client_language)}");{/if}
 				UI.initialize();
-				Tooltip.initialize();
+				//Tooltip.initialize(); initialized in ui.js
 			});
 		</script>
 		{if $analytics}
