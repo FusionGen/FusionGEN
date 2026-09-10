@@ -7,7 +7,7 @@ require([
     tinymce.init({
         promotion: false,
 
-        selector : "textarea.tinymce",
+        selector : "textarea",
 
         height: 400,
 
