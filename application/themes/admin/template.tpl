@@ -249,7 +249,7 @@
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h5 class="modal-title" id="modaluititle">Warning</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span></button>
 					</div>
 					<div class="modal-body" id="modaluibody">
 						<h5 class="popup_message" id="alert_message"></h5>

@@ -353,7 +353,6 @@ html .background-color-light {
 }
 
 ul.nav-main > li.nav-active > a {
-	box-shadow: 4px 0 0 #0088CC inset;
 }
 
 ul.nav-main > li.nav-active > i {
@@ -1194,28 +1193,6 @@ p.drop-caps.drop-caps-style-2:first-letter {
 	background: #0088CC;
 }
 
-.fc .fc-toolbar h2:before {
-	color: #0088CC;
-}
-
-.fc .fc-toolbar .fc-button.fc-state-active {
-	background-color: #0088CC;
-}
-
-.fc .fc-day-grid-container {
-	height: auto !important;
-}
-
-.fc-event {
-	background: #0088CC;
-	border-color: #0088CC;
-}
-
-.fc-event.fc-event-primary {
-	background: #0088CC;
-	border-color: #0088CC;
-}
-
 .jqvmap-zoomin,
 .jqvmap-zoomout {
 	background: #0088CC;
@@ -1681,7 +1658,6 @@ html.dark body .tabs .nav-tabs .nav-link:hover,
 html body .tabs .nav-tabs .nav-link:focus,
 html.dark body .tabs .nav-tabs .nav-link:focus {
 	border-top-color: #0088CC;
-	background: #21262d;
 }
 
 html body .tabs .nav-tabs li.active .nav-link,
@@ -2522,37 +2498,6 @@ html:not(.sidebar-light) .datepicker.datepicker-dark table tbody tr td.day.activ
 
 .select2-container-multi .select2-choices .select2-search-choice {
 	background: #0088CC;
-}
-
-.wizard-steps > li.active .badge {
-	background-color: #0088CC;
-}
-
-.wizard-steps > li.active a,
-.wizard-steps > li.active a:hover,
-.wizard-steps > li.active a:focus {
-	border-top-color: #0088CC;
-}
-
-.wizard-tabs ul > li.active .badge {
-	background-color: #0088CC;
-}
-
-html .wizard-progress .steps-progress .progress-indicator,
-html.dark .wizard-progress .steps-progress .progress-indicator {
-	background: #0088CC;
-}
-
-html .wizard-progress .wizard-steps li.completed a span,
-html.dark .wizard-progress .wizard-steps li.completed a span {
-	border-color: #0088CC;
-	background: #0088CC;
-}
-
-html .wizard-progress .wizard-steps li.active a span,
-html.dark .wizard-progress .wizard-steps li.active a span {
-	color: #0088CC;
-	border-color: #0088CC;
 }
 
 .table > thead > tr > td.primary,
