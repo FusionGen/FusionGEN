@@ -1,3 +1,9 @@
+/*
+Name: 			Theme Admin Extension
+Written by: 	Okler Themes - (http://www.okler.net)
+Theme Version: 	4.3.0
+*/
+
 window.admin = {};
 
 // Cards
@@ -393,198 +399,6 @@ window.admin = {};
 					$search.placeholder();
 				}
 			}
-		});
-
-	}
-
-}).apply(this, [jQuery]);
-
-// Codemirror
-(function(admin, $) {
-
-	admin = admin || {};
-
-	var instanceName = '__codemirror';
-
-	var PluginCodeMirror = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginCodeMirror.defaults = {
-		lineNumbers: true,
-		styleActiveLine: true,
-		matchBrackets: true,
-		theme: 'monokai'
-	};
-
-	PluginCodeMirror.prototype = {
-		initialize: function($el, opts) {
-			if ( $el.data( instanceName ) ) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend( true, {}, PluginCodeMirror.defaults, opts );
-
-			return this;
-		},
-
-		build: function() {
-			CodeMirror.fromTextArea( this.$el.get(0), this.options );
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(admin, {
-		PluginCodeMirror: PluginCodeMirror
-	});
-
-	// jquery plugin
-	$.fn.adminPluginCodeMirror = function(opts) {
-		return this.each(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginCodeMirror($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.admin, jQuery]);
-
-// Codemirror
-(function($) {
-
-	'use strict';
-
-	if ( typeof CodeMirror !== 'undefined' ) {
-
-		$(function() {
-			$('[data-plugin-codemirror]').each(function() {
-				var $this = $( this ),
-					opts = {};
-
-				var pluginOptions = $this.data('plugin-options');
-				if (pluginOptions)
-					opts = pluginOptions;
-
-				$this.adminPluginCodeMirror(opts);
-			});
-		});
-
-	}
-
-}).apply(this, [jQuery]);
-
-// Colorpicker
-(function(admin, $) {
-
-	admin = admin || {};
-
-	var instanceName = '__colorpicker';
-
-	var PluginColorPicker = function($el, opts) {
-		return this.initialize($el, opts);
-	};
-
-	PluginColorPicker.defaults = {
-	};
-
-	PluginColorPicker.prototype = {
-		initialize: function($el, opts) {
-			if ( $el.data( instanceName ) ) {
-				return this;
-			}
-
-			this.$el = $el;
-
-			this
-				.setData()
-				.setOptions(opts)
-				.build();
-
-			return this;
-		},
-
-		setData: function() {
-			this.$el.data(instanceName, this);
-
-			return this;
-		},
-
-		setOptions: function(opts) {
-			this.options = $.extend( true, {}, PluginColorPicker.defaults, opts );
-
-			return this;
-		},
-
-		build: function() {
-			this.$el.colorpicker( this.options );
-
-			return this;
-		}
-	};
-
-	// expose to scope
-	$.extend(admin, {
-		PluginColorPicker: PluginColorPicker
-	});
-
-	// jquery plugin
-	$.fn.adminPluginColorPicker = function(opts) {
-		return this.each(function() {
-			var $this = $(this);
-
-			if ($this.data(instanceName)) {
-				return $this.data(instanceName);
-			} else {
-				return new PluginColorPicker($this, opts);
-			}
-
-		});
-	}
-
-}).apply(this, [window.admin, jQuery]);
-
-// Colorpicker
-(function($) {
-
-	'use strict';
-
-	if ( $.isFunction($.fn[ 'colorpicker' ]) ) {
-
-		$(function() {
-			$('[data-plugin-colorpicker]').each(function() {
-				var $this = $( this ),
-					opts = {};
-
-				var pluginOptions = $this.data('plugin-options');
-				if (pluginOptions)
-					opts = pluginOptions;
-
-				$this.adminPluginColorPicker(opts);
-			});
 		});
 
 	}
@@ -1138,7 +952,9 @@ window.admin = {};
 	};
 
 	PluginMultiSelect.defaults = {
+		buttonClass: 'form-select',
 		templates: {
+			button: '<button type="button" class="multiselect dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text text-1"></span></button>',
 			li: '<li><a class="dropdown-item" tabindex="0"><label style="display: block;"></label></a></li>',
 			filter: '<div class="input-group"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-search"></i></span></span><input class="form-control multiselect-search" type="text"></div>'
 		}

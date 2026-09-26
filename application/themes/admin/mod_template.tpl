@@ -24,8 +24,6 @@
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/datatables/media/css/dataTables.bootstrap5.min.css">
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/codemirror/lib/codemirror.css">
-		<link rel="stylesheet" href="{$url}application/themes/admin/assets/vendor/codemirror/theme/ayu-mirage.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/theme.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/skins/default.css">
 		<link rel="stylesheet" href="{$url}application/themes/admin/assets/css/custom.css">
@@ -57,13 +55,6 @@
 		<script src="{$url}application/themes/admin/assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/datatables/media/js/dataTables.bootstrap5.min.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/fuelux/js/spinner.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/codemirror/lib/codemirror.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/codemirror/addon/selection/active-line.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/codemirror/addon/edit/matchbrackets.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/codemirror/mode/javascript/javascript.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/codemirror/mode/xml/xml.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-		<script src="{$url}application/themes/admin/assets/vendor/codemirror/mode/css/css.js"></script>
 		<script src="{$url}application/themes/admin/assets/vendor/jquery-idletimer/idle-timer.js"></script>
 		<script src="{$url}application/themes/admin/assets/js/countTo.js"></script>
 		<script src="{$url}application/themes/admin/assets/js/theme.js"></script>
@@ -211,7 +202,7 @@
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h5 class="modal-title" id="modaluititle">Warning</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="UI.hidePopup()"> <span aria-hidden="true">&times;</span></button>
 					</div>
 					<div class="modal-body" id="modaluibody">
 						<h5 class="popup_message" id="alert_message"></h5>

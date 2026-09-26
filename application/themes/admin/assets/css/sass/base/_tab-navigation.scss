@@ -368,6 +368,15 @@ html.has-tab-navigation {
 		margin-bottom: 25px;
 		border-radius: 5px;
 		overflow: hidden;
+		position: fixed;
+        top: 60px;
+        width: auto;
+        z-index: 10000;
+        left: 0;
+        max-height: 90vh;
+        overflow: auto;
+		padding: 15px;
+		background: #17191d;
 		nav {
 			> ul {
 				> li {
@@ -377,12 +386,14 @@ html.has-tab-navigation {
 						> a {
 							color: #33353F !important;
 							background: #FFF !important;
+							border-radius: var(--bs-nav-pills-border-radius) var(--bs-nav-pills-border-radius) 0 0;
 						}
 					}
 					&.nav-expanded {
 						> a {
 							color: #33353F !important;
 							background: #FFF !important;
+							border-radius: var(--bs-nav-pills-border-radius) var(--bs-nav-pills-border-radius) 0 0;
 						}
 						> ul {
 							display: block;

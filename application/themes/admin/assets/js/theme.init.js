@@ -1,3 +1,5 @@
+
+
 // Animate
 (function($) {
 
@@ -63,54 +65,6 @@
 					opts = pluginOptions;
 
 				$this.themePluginChartCircular(opts);
-			});
-		});
-
-	}
-
-}).apply(this, [jQuery]);
-
-// Codemirror
-(function($) {
-
-	'use strict';
-
-	if ( typeof CodeMirror !== 'undefined' ) {
-
-		$(function() {
-			$('[data-plugin-codemirror]').each(function() {
-				var $this = $( this ),
-					opts = {};
-
-				var pluginOptions = $this.data('plugin-options');
-				if (pluginOptions)
-					opts = pluginOptions;
-
-				$this.themePluginCodeMirror(opts);
-			});
-		});
-
-	}
-
-}).apply(this, [jQuery]);
-
-// Colorpicker
-(function($) {
-
-	'use strict';
-
-	if ( $.isFunction($.fn[ 'colorpicker' ]) ) {
-
-		$(function() {
-			$('[data-plugin-colorpicker]').each(function() {
-				var $this = $( this ),
-					opts = {};
-
-				var pluginOptions = $this.data('plugin-options');
-				if (pluginOptions)
-					opts = pluginOptions;
-
-				$this.themePluginColorPicker(opts);
 			});
 		});
 
@@ -607,6 +561,17 @@
 			$this.themePluginToggle(opts);
 		});
 	});
+
+}).apply(this, [jQuery]);
+
+// Tooltip
+(function($) {
+
+	'use strict';
+
+	if ( $.isFunction( $.fn['tooltip'] ) ) {
+		$( '[data-toggle=tooltip],[rel=tooltip]' ).tooltip({ container: 'body' });
+	}
 
 }).apply(this, [jQuery]);
 
