@@ -12,7 +12,7 @@
 
 				<span>Only ZIP file type is supported.</span>
 
-				<h4 class="section-sub-title"><span>Uploaded</span> module</h4>
+				<h4 class="section-sub-title">Uploaded module</h4>
 				<span class="no-files-uploaded">No modules uploaded yet.</span>
 
 				<div class="preview-container dz-preview uploaded-files">
