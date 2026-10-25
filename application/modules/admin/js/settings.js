@@ -160,7 +160,7 @@ var Settings = {
 
 	toggleVoteReminder: function(object)
 	{
-		if(object.value == '1')
+		if(object.value == 'true')
 		{
 			$('#vote_reminder_settings').removeClass('d-none');
 		}
@@ -417,7 +417,7 @@ var Settings = {
 
 	toggleSMTPusage: function(object)
 	{
-		if(object.value == '1')
+		if(object.value == 'true')
 		{
 			$("#use_smtp").removeClass('d-none');
 			if ($('[value="smtp"]').is(':selected')) {

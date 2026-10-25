@@ -390,8 +390,8 @@
 			<label class="col-sm-2 col-form-label" for="has_smtp">Enable password recovery (requires SMTP server)</label>
 			<div class="col-sm-10">
 			<select class="form-control" id="has_smtp">
-				<option value="1" {if $config.has_smtp}selected{/if}>Yes</option>
-				<option value="0" {if !$config.has_smtp}selected{/if}>No</option>
+				<option value="true" {if $config.has_smtp}selected{/if}>Yes</option>
+				<option value="false" {if !$config.has_smtp}selected{/if}>No</option>
 			</select>
 			</div>
             </div>
@@ -400,8 +400,8 @@
 			<label class="col-sm-2 col-form-label" for="vote_reminder">Enable vote reminder popup</label>
 			<div class="col-sm-10">
 			<select class="form-control" id="vote_reminder" onChange="Settings.toggleVoteReminder(this)">
-				<option value="1" {if $config.vote_reminder}selected{/if}>Yes</option>
-				<option value="0" {if !$config.vote_reminder}selected{/if}>No</option>
+				<option value="true" {if $config.vote_reminder}selected{/if}>Yes</option>
+				<option value="false" {if !$config.vote_reminder}selected{/if}>No</option>
 			</select>
 			</div>
             </div>
@@ -417,7 +417,19 @@
 			<div class="form-group row mb-3">
 			<label class="col-sm-2 col-form-label" for="reminder_interval">Vote reminder interval (in hours)</label>
 			<div class="col-sm-10">
-				<input class="form-control" type="text" id="reminder_interval" value="{$config.reminder_interval/60/60}" placeholder="12">
+				<div data-plugin-spinner data-plugin-options='{ "value": 0, "min": 0, "max": 99999 }'>
+					<div class="input-group">
+						<input class="spinner-input form-control" type="text" id="reminder_interval" value="{$config.reminder_interval/60/60}" placeholder="12">
+						<div class="spinner-buttons input-group-btn btn-group-vertical">
+							<button type="button" class="btn spinner-up btn-xs btn-default">
+								<i class="fas fa-angle-up"></i>
+							</button>
+							<button type="button" class="btn spinner-down btn-xs btn-default">
+								<i class="fas fa-angle-down"></i>
+							</button>
+						</div>
+					</div>
+				</div>
 			</div>
 			</div>
 			</div>
@@ -432,8 +444,8 @@
 			<label class="col-sm-2 col-form-label" for="use_own_smtp_settings">Use own SMTP settings (enter them below)</label>
 			<div class="col-sm-10">
 			<select class="form-control" id="use_own_smtp_settings" onChange="Settings.toggleSMTPusage(this)">
-				<option value="1" {if $config.use_own_smtp_settings}selected{/if}>Yes</option>
-				<option value="0" {if !$config.use_own_smtp_settings}selected{/if}>No</option>
+				<option value="true" {if $config.use_own_smtp_settings}selected{/if}>Yes</option>
+				<option value="false" {if !$config.use_own_smtp_settings}selected{/if}>No</option>
 			</select>
 			</div>
             </div>
@@ -523,8 +535,8 @@
 			<label class="col-sm-2 col-form-label" for="disable_visitor_graph" data-bs-toggle="tooltip" data-bs-placement="bottom" title="If you have many visitors, the admin panel will become very slow because of the statistics graph - disabling it will help a lot">Disable dashboard visitor graph <a>(?)</a></label>
 			<div class="col-sm-10">
 			<select class="form-control" name="disable_visitor_graph" id="disable_visitor_graph">
-				<option value="1" {if $config.disable_visitor_graph}selected{/if}>Yes</option>
-				<option value="0" {if !$config.disable_visitor_graph}selected{/if}>No</option>
+				<option value="true" {if $config.disable_visitor_graph}selected{/if}>Yes</option>
+				<option value="false" {if !$config.disable_visitor_graph}selected{/if}>No</option>
 			</select>
 			</div>
 			</div>
@@ -582,8 +594,8 @@
 			<label class="col-sm-2 col-form-label" for="cdn_value">CDN</label>
 			<div class="col-sm-10">
 			<select class="form-control" id="cdn_value">
-				<option value="true" {if $config.cdn_value == '1'}selected{/if}>Yes</option>
-				<option value="false" {if $config.cdn_value == '0'}selected{/if}>No</option>
+				<option value="true" {if $config.cdn_value}selected{/if}>Yes</option>
+				<option value="false" {if !$config.cdn_value}selected{/if}>No</option>
 			</select>
 			</div>
             </div>
@@ -605,8 +617,8 @@
 				<div class="col-sm-6 mb-3">
 					<label class="col-form-label" for="use_captcha">Use captcha? (Recommended: Yes)</label>
 					<select class="form-control" id="use_captcha">
-						<option value="true" {if $config.use_captcha == '1'}selected{/if}>Yes</option>
-						<option value="false" {if $config.use_captcha == '0'}selected{/if}>No</option>
+						<option value="true" {if $config.use_captcha}selected{/if}>Yes</option>
+						<option value="false" {if !$config.use_captcha}selected{/if}>No</option>
 					</select>
 				</div>
 

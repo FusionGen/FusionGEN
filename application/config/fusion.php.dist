@@ -73,7 +73,7 @@ $config['rewrite'] = true;
 | will be disabled if you disable this.
 |
 */
-$config['has_smtp'] = 0;
+$config['has_smtp'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -141,7 +141,7 @@ $config['slider_style'] = false;
 | Default is 60 * 60 * 12, which represents 12 hours
 |
 */
-$config['vote_reminder'] = 0;
+$config['vote_reminder'] = false;
 $config['vote_reminder_image'] = "/assets/images/misc/banner.jpg";
 $config['reminder_interval'] = 43200;
 
