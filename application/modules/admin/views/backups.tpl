@@ -21,8 +21,8 @@
 							<label class="col-sm-4 col-form-label align-self-center" for="auto_backups">Auto generate?</label>
 							<div class="col-sm-8">
 								<select class="form-control" id="auto_backups" name="auto_backups" {if !hasPermission("editBackupSettings", "admin")}disabled{/if}>
-									<option value="1" {if $config.auto_backups}selected{/if}>Yes</option>
-									<option value="0" {if !$config.auto_backups}selected{/if}>No</option>
+									<option value="true" {if $config.auto_backups}selected{/if}>Yes</option>
+									<option value="false" {if !$config.auto_backups}selected{/if}>No</option>
 								</select>
 							</div>
 						</div>

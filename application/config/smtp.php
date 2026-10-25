@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link    http://fusiongen.net
  */
 
-$config['use_own_smtp_settings'] = 0;
+$config['use_own_smtp_settings'] = false;
 $config['smtp_sender'] = "";
 $config['smtp_protocol'] = "smtp";
 $config['smtp_host'] = "";

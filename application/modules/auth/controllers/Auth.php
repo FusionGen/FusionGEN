@@ -106,7 +106,7 @@ class Auth extends MX_Controller
             //Check captcha
             if ($this->config->item("use_captcha") == true || (int)$this->session->userdata('attempts') >= $this->config->item('captcha_attemps'))
             {
-                if ($this->input->post('captcha') != $this->captcha->getValue() || empty($this->input->post('captcha')))
+                if ($this->input->post('captcha') != $this->captcha->getValue())
                 {
                     $this->increaseAttempts($ip_address);
                     $data['messages']["error"] = lang("captcha_invalid", "auth");

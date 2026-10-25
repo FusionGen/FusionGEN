@@ -48,7 +48,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 				CSRF: getCookie('csrf_cookie_name'),
 				language: "{$activeLanguage}",
 
-				UseFusionTooltip: {if $use_fgen_tooltip}1{else}0{/if},
+				UseFusionTooltip: {$use_fgen_tooltip ? "true" : "false"},
 
 				Slider: {
 					interval: {$slider_interval},
@@ -56,7 +56,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 					id: "{$slider_id}"
 				},
 
-				voteReminder: {if $vote_reminder}1{else}0{/if},
+				voteReminder: {$vote_reminder ? "true" : "false"},
 
 				Theme: {
 					next: "{$slider.next}",

@@ -18,7 +18,19 @@
 		<div class="form-group row">
 		<label class="col-sm-2 col-form-label" for="slider_interval">Slider interval (in seconds)</label>
 		<div class="col-sm-10">
-			<input class="form-control" type="text" name="slider_interval" id="slider_interval" value="{$slider_interval/1000}">
+			<div data-plugin-spinner data-plugin-options='{ "value": 0, "min": 0, "max": 99999 }'>
+				<div class="input-group">
+					<input class="spinner-input form-control" type="text" name="slider_interval" id="slider_interval" value="{$slider_interval/1000}">
+					<div class="spinner-buttons input-group-btn btn-group-vertical">
+						<button type="button" class="btn spinner-up btn-xs btn-default">
+							<i class="fas fa-angle-up"></i>
+						</button>
+						<button type="button" class="btn spinner-down btn-xs btn-default">
+							<i class="fas fa-angle-down"></i>
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 
