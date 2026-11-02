@@ -16,6 +16,7 @@
 
 		"toggleModules": { "default": false, "description": "Enable or disable modules" },
 		"editModuleConfigs": { "default": false, "description": "Edit the config files of modules" },
+		"uploadModules": { "default": false, "description": "Can upload modules" },
 
 		"changeTheme": { "default": false, "description": "Change the theme" },
 
@@ -87,7 +88,8 @@
 
 			"permissions": {
 				"toggleModules": true,
-				"editModuleConfigs": true
+				"editModuleConfigs": true,
+				"uploadModules": true
 			}
 		},
 

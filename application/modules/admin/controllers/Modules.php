@@ -74,6 +74,8 @@ class Modules extends MX_Controller
 
     public function upload()
     {
+        requirePermission("uploadModules");
+
         ini_set('memory_limit', '5120M');
         set_time_limit(0);
 
@@ -86,7 +88,7 @@ class Modules extends MX_Controller
                 $_FILES['file']['size'] = $_FILES['module']['size'];
 
                 // Set preference
-                $config['upload_path'] = FCPATH . '/uploads/modules';
+                $config['upload_path'] = FCPATH . 'uploads/modules';
                 $config['allowed_types'] = 'zip';
                 $config['overwrite'] = true;
                 $config['max_size'] = '1000000';
@@ -110,13 +112,13 @@ class Modules extends MX_Controller
                     $res = $zip->open($config['upload_path'] . "/" . $filename);
                     if ($res === true) {
                         // Extract file
-                        $zip->extractTo(FCPATH . '');
+                        $zip->extractTo(FCPATH . 'application/modules/');
                         $zip->close();
                         if (!unlink($config['upload_path'] . "/" . $filename)) {
                             die(json_encode(['status' => 'error', 'message' => 'Failed to delete uploaded zip file, but extraction worked']));
                         }
 
-                        foreach (glob(FCPATH . '/temp/modules/' . "*.sql") as $filename) {
+                        foreach (glob(FCPATH . 'temp/modules/' . "*.sql") as $filename) {
                             if (file_exists($filename)) {
                                 $lines = file($filename);
                                 $statement = '';

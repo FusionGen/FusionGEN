@@ -145,7 +145,7 @@ class Captcha
 
         $vals = [
             'word'          => $this->getValue(),
-            'img_path'      => FCPATH . '/uploads/captcha/',
+            'img_path'      => FCPATH . 'uploads/captcha/',
             'img_url'       => pageURL . '/uploads/captcha/',
 
             'img_width'     => $width,
