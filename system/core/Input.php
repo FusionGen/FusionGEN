@@ -390,7 +390,7 @@ class CI_Input {
 			'httponly' => $httponly,
 			'samesite' => $samesite,
 		);
-		setcookie($prefix.$name, $value, $setcookie_options);
+		setcookie($prefix.$name, $value === NULL ? '' : $value, $setcookie_options);
 	}
 
 	// --------------------------------------------------------------------

@@ -221,7 +221,7 @@ class CI_Form_validation {
 		}
 
 		// If the field label wasn't passed we use the field name
-		$label = ($label === '') ? $field : $label;
+		$label = ($label === NULL OR $label === '') ? $field : $label;
 
 		$indexes = array();
 
@@ -597,7 +597,7 @@ class CI_Form_validation {
 			{
 				if ($row['is_array'] === FALSE)
 				{
-					isset($data[$field]) && $data[$field] = is_array($row['postdata']) ? NULL : $row['postdata'];
+					isset($data[$field]) && $data[$field] = (is_array($row['postdata']) && ! in_array('is_array', $row['rules'], TRUE)) ? NULL : $row['postdata'];
 				}
 				else
 				{
@@ -658,7 +658,7 @@ class CI_Form_validation {
 
 			// We set the $postdata variable with the current data in our master array so that
 			// each cycle of the loop is dealing with the processed data from the last cycle
-			if ($row['is_array'] === TRUE && is_array($this->_field_data[$row['field']]['postdata']))
+			if ($allow_arrays === FALSE && $row['is_array'] === TRUE && is_array($this->_field_data[$row['field']]['postdata']))
 			{
 				// We shouldn't need this safety, but just in case there isn't an array index
 				// associated with this cycle we'll bail out

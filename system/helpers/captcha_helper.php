@@ -102,18 +102,6 @@ if ( ! function_exists('create_captcha'))
 			return FALSE;
 		}
 
-		if ($img_path === '' OR $img_url === '')
-		{
-			log_message('error', 'create_captcha(): img_path and img_url are required.');
-			return FALSE;
-		}
-
-		if ( ! is_dir($img_path) OR ! is_really_writable($img_path))
-		{
-			log_message('error', "create_captcha(): '{$img_path}' is not a dir, nor is it writable.");
-			return FALSE;
-		}
-
 		if ($img_url !== '' OR $img_path !== '')
 		{
 			if ($img_path === '' OR $img_url === '')
@@ -134,7 +122,9 @@ if ( ! function_exists('create_captcha'))
 			$current_dir = @opendir($img_path);
 			while ($filename = @readdir($current_dir))
 			{
-				if (preg_match('#^(?<ts>\d{10})\.png$#', $filename, $match) && ($match['ts'] + $expiration) < $now)
+				// A comma separator may exist in files written by PHP < 8.0 under a locale such as de_DE
+				if (preg_match('#^(?<ts>\d{10}(?:[.,]\d+)?)\.(?:png|jpg)$#i', $filename, $match)
+					&& ((float) strtr($match['ts'], ',', '.') + $expiration) < $now)
 				{
 					@unlink($img_path.$filename);
 				}
@@ -355,20 +345,9 @@ if ( ! function_exists('create_captcha'))
 		}
 		else
 		{
-			// I don't see an easier way to get the image contents without writing to file
-			$buffer = fopen('php://memory', 'wb+');
-			imagepng($im, $buffer);
-			rewind($buffer);
-			$img_src = '';
-
-			// fread() will return an empty string (not FALSE) after the entire contents are read
-			while (strlen($read = fread($buffer, 4096)))
-			{
-				$img_src .= $read;
-			}
-
-			fclose($buffer);
-			$img_src = 'data:image/png;base64,'.base64_encode($img_src);
+			ob_start();
+			imagepng($im);
+			$img_src = 'data:image/png;base64,'.base64_encode(ob_get_clean());
 		}
 
 		$img_class = trim($img_class);
