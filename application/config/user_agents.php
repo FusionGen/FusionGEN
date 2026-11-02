@@ -59,11 +59,12 @@ $platforms = [
 // The order of this array should NOT be changed. Many browsers return
 // multiple browser types so we want to identify the sub-type first.
 $browsers = [
-    'OPR'    => 'Opera',
-    'Flock'  => 'Flock',
-    'Edge'   => 'Spartan',
-    'Edg'    => 'Edge',
-    'Chrome' => 'Chrome',
+    'OPR'               => 'Opera',
+    'Flock'             => 'Flock',
+    'Edge'              => 'Spartan',
+    'Edg'               => 'Edge',
+    'Vivaldi'           => 'Vivaldi',
+    'Chrome'            => 'Chrome',
     // Opera 10+ always reports Opera/9.80 and appends Version/<real version> to the user agent string
     'Opera.*?Version'   => 'Opera',
     'Opera'             => 'Opera',

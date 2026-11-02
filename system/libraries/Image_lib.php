@@ -574,7 +574,7 @@ class CI_Image_lib {
 		else
 		{
 			// Is there a file name?
-			if ( ! preg_match('#\.(jpg|jpeg|gif|png)$#i', $this->new_image))
+			if ( ! preg_match('#\.(jpg|jpeg|gif|png|webp)$#i', $this->new_image))
 			{
 				$this->dest_image  = $this->source_image;
 				$this->dest_folder = $this->new_image;
@@ -822,7 +822,7 @@ class CI_Image_lib {
 
 		$dst_img = $create($this->width, $this->height);
 
-		if ($this->image_type === 3) // png we can actually preserve transparency
+		if ($this->image_type === 3 OR $this->image_type === 18) // PNG and WebP can preserve transparency
 		{
 			imagealphablending($dst_img, FALSE);
 			imagesavealpha($dst_img, TRUE);
@@ -1251,8 +1251,7 @@ class CI_Image_lib {
 			imagecopymerge($src_img, $wm_img, $x_axis, $y_axis, 0, 0, $wm_width, $wm_height, $this->wm_opacity);
 		}
 
-		// We can preserve transparency for PNG images
-		if ($this->image_type === 3)
+		if ($this->image_type === 3 OR $this->image_type === 18)
 		{
 			imagealphablending($src_img, FALSE);
 			imagesavealpha($src_img, TRUE);
@@ -1425,8 +1424,7 @@ class CI_Image_lib {
 			imagestring($src_img, $this->wm_font_size, $x_axis, $y_axis, $this->wm_text, $txt_color);
 		}
 
-		// We can preserve transparency for PNG images
-		if ($this->image_type === 3)
+		if ($this->image_type === 3 OR $this->image_type === 18)
 		{
 			imagealphablending($src_img, FALSE);
 			imagesavealpha($src_img, TRUE);
