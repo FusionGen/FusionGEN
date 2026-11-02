@@ -1,3 +1,4 @@
+{if hasPermission('uploadModules', 'admin')}
 <div class="wrapper">
 	<section class="container-fluid inner-page">
 		<div class="row">
@@ -17,8 +18,8 @@
 
 				<div class="preview-container dz-preview uploaded-files">
 					<div id="previews">
-						<div id="FGEN-dropzone-template">
-							<div class="FGEN-dropzone-info">
+						<div id="UploadModules-dropzone-template">
+							<div class="UploadModules-dropzone-info">
 								<div class="details">
 									<div>
 										<span data-dz-name></span> <span data-dz-size></span>
@@ -35,18 +36,19 @@
 	</section>
 </div>
 
+<script>
+    Dropzone.autoDiscover = false;
+    require([Config.URL + "application/modules/admin/js/modules.js"], function() {
+        UploadModules.init();
+    });
+</script>
+{/if}
+
 <div class="alert alert-info alert-dismissible fade show" role="alert">
 	<i class="fa-solid fa-circle-info"></i> Third-party modules might not be supported! Use them at your own risk.<br>
 	<!-- You can download tested modules <a href="https://github.com/FusionGen" class="alert-link" target="_blank">here</a> -->
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-
-<script>
-    Dropzone.autoDiscover = false;
-	$(window).on('load', function() {
-		FGEN.init();
-	});
-</script>
 
 <div class="row">
 	<div class="col-lg-6 mb-3">

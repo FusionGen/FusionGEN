@@ -127,8 +127,8 @@ class Admin extends MX_Controller
             $type_contents = json_decode($news["type_content"], true);
             //Delete old files
             foreach ($type_contents as $file) {
-                if (file_exists(FCPATH . "/uploads/news/" . $file)) {
-                    unlink(FCPATH . "/uploads/news/" . $file);
+                if (file_exists(FCPATH . "uploads/news/" . $file)) {
+                    unlink(FCPATH . "uploads/news/" . $file);
                 }
             }
         }
@@ -215,7 +215,7 @@ class Admin extends MX_Controller
                             $_FILES['file']['size'] = $_FILES['type_image']['size'][$i];
 
                             // Set preference
-                            $config['upload_path'] = FCPATH . '/uploads/news';
+                            $config['upload_path'] = FCPATH . 'uploads/news';
                             $config['allowed_types'] = 'jpg|jpeg|png|gif|svg|webp';
                             $config['overwrite'] = true;
                             $config['max_size'] = '10240'; // 10MB in Kilobytes
@@ -282,8 +282,8 @@ class Admin extends MX_Controller
                 //Delete Old Files
                 if (is_countable($type_contents) && count($type_contents) > 0) {
                     foreach ($type_contents as $file) {
-                        if (file_exists(FCPATH . "/uploads/news/" . $file)) {
-                            unlink(FCPATH . "/uploads/news/" . $file);
+                        if (file_exists(FCPATH . "uploads/news/" . $file)) {
+                            unlink(FCPATH . "uploads/news/" . $file);
                         }
                     }
                 }
