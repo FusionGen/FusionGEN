@@ -40,7 +40,7 @@ Current FusionGEN Version: {$CI->config->item('FusionGENVersion')}
 		<!-- Load scripts -->
 		<script src="{$url}application/assets/vendor/jquery/jquery.min.js"></script>
 		<script>var isIE = false;</script>
-		<script src="{$path}js/require.js"></script>
+		<script src="{$path}js/require.min.js"></script>
 		<script>
 			var Config = {
 				URL: "{$url}",

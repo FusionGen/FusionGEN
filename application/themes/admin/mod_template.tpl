@@ -89,7 +89,7 @@
 	</script>
 
 	<script src="{$url}application/themes/admin/assets/js/adminMenu.js"></script>
-	<script src="{$url}application/assets/js/require.js"></script>
+	<script src="{$url}application/assets/js/require.min.js"></script>
 	<script>
 		var scripts = [
 			"{$url}application/assets/js/jquery.transit.min.js",
