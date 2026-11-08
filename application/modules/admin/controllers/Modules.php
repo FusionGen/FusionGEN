@@ -76,7 +76,7 @@ class Modules extends MX_Controller
     {
         requirePermission("uploadModules");
 
-        ini_set('memory_limit', '5120M');
+        ini_set('memory_limit', '512M');
         set_time_limit(0);
 
         if (isset($_FILES['module'])) {
@@ -91,7 +91,7 @@ class Modules extends MX_Controller
                 $config['upload_path'] = FCPATH . 'uploads/modules';
                 $config['allowed_types'] = 'zip';
                 $config['overwrite'] = true;
-                $config['max_size'] = '1000000';
+                $config['max_size'] = '100000';
                 $config['file_name'] = $_FILES['file']['name'];
 
                 $this->upload->initialize($config);
