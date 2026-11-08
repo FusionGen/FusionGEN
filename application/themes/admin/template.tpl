@@ -105,7 +105,7 @@
 	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/adminMenu.js"></script>
 	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/mli.js"></script>
 	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/themes/admin/assets/js/login.js"></script>
-	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/require.js"></script>
+	<script src="{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/require.min.js"></script>
 	<script>
 		var scripts = [
 			"{if $cdn_link}{$cdn_link}{else}{$url}{/if}application/assets/js/jquery.transit.min.js"
