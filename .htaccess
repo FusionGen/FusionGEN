@@ -1,3 +1,8 @@
+# Set environment (use "production" on live servers, "development" only locally)
+<IfModule mod_env.c>
+    SetEnv CI_ENV development
+</IfModule>
+
 # Enable Rewrite Engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
