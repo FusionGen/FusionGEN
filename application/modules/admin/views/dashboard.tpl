@@ -332,9 +332,9 @@
         <div class="card-body scrollable" style="height: 350px;">
             <div id="fg-commits" class="lh-lg scrollable-content p-3">
             <script>
-            $(function() {
+            require([Config.URL + "application/themes/admin/assets/js/githubinfowidget.js"], function() {
                 $('#fg-commits').githubInfoWidget(
-                { user: 'FusionGen', repo: 'FusionGEN', branch: 'main', last: 40, limitMessageTo: 130 });
+                { user: 'FusionGen', repo: 'FusionGEN', branch: 'main', last: 20, limitMessageTo: 120 });
             });
             </script>
             </div>
