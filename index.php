@@ -22,7 +22,7 @@ if (is_dir("install") && !file_exists("install/.lock"))
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', 'development');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
@@ -41,12 +41,12 @@ switch (ENVIRONMENT)
 
 	case 'testing':
 	case 'production':
-	ini_set('display_errors', '0');
-	if (version_compare(PHP_VERSION, '8.4', '>=')) {
-		error_reporting(E_ALL & ~E_DEPRECATED);
-	} else {
-		error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
-	}
+		ini_set('display_errors', '0');
+		if (version_compare(PHP_VERSION, '8.4', '>=')) {
+			error_reporting(E_ALL & ~E_DEPRECATED);
+		} else {
+			error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+		}
 	break;
 
 	default:
